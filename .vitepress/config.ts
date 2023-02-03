@@ -7,20 +7,20 @@ import { headerPlugin } from './headerMdPlugin'
 
 const nav: ThemeConfig['nav'] = [
   {
-    text: 'Docs',
+    text: 'Dokumentace',
     activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
     items: [
-      { text: 'Guide', link: '/guide/introduction' },
+      { text: 'Příručka', link: '/guide/introduction' },
       { text: 'Tutorial', link: '/tutorial/' },
-      { text: 'Examples', link: '/examples/' },
-      { text: 'Quick Start', link: '/guide/quick-start' },
+      { text: 'Příklady', link: '/examples/' },
+      { text: 'Jak začít', link: '/guide/quick-start' },
       // { text: 'Style Guide', link: '/style-guide/' },
       {
-        text: 'Vue 2 Docs',
+        text: 'Dokumentace pro Vue 2',
         link: 'https://v2.vuejs.org'
       },
       {
-        text: 'Migration from Vue 2',
+        text: 'Migrace z Vue 2',
         link: 'https://v3-migration.vuejs.org/'
       }
     ]
@@ -31,24 +31,24 @@ const nav: ThemeConfig['nav'] = [
     link: '/api/'
   },
   {
-    text: 'Playground',
+    text: 'Hřiště',
     link: 'https://sfc.vuejs.org'
   },
   {
-    text: 'Ecosystem',
+    text: 'Ekosystém',
     activeMatch: `^/ecosystem/`,
     items: [
       {
-        text: 'Resources',
+        text: 'Zdroje',
         items: [
-          { text: 'Partners', link: '/partners/' },
+          { text: 'Partneři', link: '/partners/' },
           { text: 'Themes', link: '/ecosystem/themes' },
-          { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
-          { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
+          { text: 'Nabídka práce', link: 'https://vuejobs.com/?ref=vuejs' },
+          { text: 'Trička e-shop', link: 'https://vue.threadless.com/' }
         ]
       },
       {
-        text: 'Official Libraries',
+        text: 'Oficiální knihovny',
         items: [
           { text: 'Vue Router', link: 'https://router.vuejs.org/' },
           { text: 'Pinia', link: 'https://pinia.vuejs.org/' },
@@ -56,7 +56,7 @@ const nav: ThemeConfig['nav'] = [
         ]
       },
       {
-        text: 'Video Courses',
+        text: 'Video kurzy',
         items: [
           {
             text: 'Vue Mastery',
@@ -69,54 +69,54 @@ const nav: ThemeConfig['nav'] = [
         ]
       },
       {
-        text: 'Help',
+        text: 'Nápověda',
         items: [
           {
             text: 'Discord Chat',
             link: 'https://discord.com/invite/HBherRA'
           },
           {
-            text: 'GitHub Discussions',
+            text: 'GitHub diskuze',
             link: 'https://github.com/vuejs/core/discussions'
           },
-          { text: 'DEV Community', link: 'https://dev.to/t/vue' }
+          { text: 'DEV komunita', link: 'https://dev.to/t/vue' }
         ]
       },
       {
-        text: 'News',
+        text: 'Novinky',
         items: [
           { text: 'Blog', link: 'https://blog.vuejs.org/' },
           { text: 'Twitter', link: 'https://twitter.com/vuejs' },
-          { text: 'Events', link: 'https://events.vuejs.org/' },
-          { text: 'Newsletters', link: '/ecosystem/newsletters' }
+          { text: 'Události', link: 'https://events.vuejs.org/' },
+          { text: 'Newslettery', link: '/ecosystem/newsletters' }
         ]
       }
     ]
   },
   {
-    text: 'About',
+    text: 'O Vue',
     activeMatch: `^/about/`,
     items: [
       { text: 'FAQ', link: '/about/faq' },
-      { text: 'Team', link: '/about/team' },
-      { text: 'Releases', link: '/about/releases' },
+      { text: 'Tým', link: '/about/team' },
+      { text: 'Release management', link: '/about/releases' },
       {
-        text: 'Community Guide',
+        text: 'Průvodce komunitou',
         link: '/about/community-guide'
       },
-      { text: 'Code of Conduct', link: '/about/coc' },
+      { text: 'Pravidla chování', link: '/about/coc' },
       {
-        text: 'The Documentary',
+        text: 'The Documentary (Video)',
         link: 'https://www.youtube.com/watch?v=OrxmtDw4pVI'
       }
     ]
   },
   {
-    text: 'Sponsor',
+    text: 'Sponzoring',
     link: '/sponsor/'
   },
   {
-    text: 'Partners',
+    text: 'Partneři',
     link: '/partners/',
     activeMatch: `^/partners/`
   }
@@ -125,48 +125,48 @@ const nav: ThemeConfig['nav'] = [
 export const sidebar: ThemeConfig['sidebar'] = {
   '/guide/': [
     {
-      text: 'Getting Started',
+      text: 'Začínáme s Vue',
       items: [
-        { text: 'Introduction', link: '/guide/introduction' },
+        { text: 'Představení', link: '/guide/introduction' },
         {
-          text: 'Quick Start',
+          text: 'Jak začít',
           link: '/guide/quick-start'
         }
       ]
     },
     {
-      text: 'Essentials',
+      text: 'Základní principy',
       items: [
         {
-          text: 'Creating an Application',
+          text: 'Vytvoření aplikace',
           link: '/guide/essentials/application'
         },
         {
-          text: 'Template Syntax',
+          text: 'Template syntaxe',
           link: '/guide/essentials/template-syntax'
         },
         {
-          text: 'Reactivity Fundamentals',
+          text: 'Základy reaktivity',
           link: '/guide/essentials/reactivity-fundamentals'
         },
         {
-          text: 'Computed Properties',
+          text: 'Dynamické proměnné',
           link: '/guide/essentials/computed'
         },
         {
-          text: 'Class and Style Bindings',
+          text: 'Binding tříd a stylů',
           link: '/guide/essentials/class-and-style'
         },
         {
-          text: 'Conditional Rendering',
+          text: 'Podmíněný rendering',
           link: '/guide/essentials/conditional'
         },
-        { text: 'List Rendering', link: '/guide/essentials/list' },
+        { text: 'Rendering seznamu', link: '/guide/essentials/list' },
         {
-          text: 'Event Handling',
+          text: 'Obsluha udáostí',
           link: '/guide/essentials/event-handling'
         },
-        { text: 'Form Input Bindings', link: '/guide/essentials/forms' },
+        { text: 'Binding formulářových dat', link: '/guide/essentials/forms' },
         {
           text: 'Lifecycle Hooks',
           link: '/guide/essentials/lifecycle'
@@ -174,52 +174,52 @@ export const sidebar: ThemeConfig['sidebar'] = {
         { text: 'Watchers', link: '/guide/essentials/watchers' },
         { text: 'Template Refs', link: '/guide/essentials/template-refs' },
         {
-          text: 'Components Basics',
+          text: 'Základy komponent',
           link: '/guide/essentials/component-basics'
         }
       ]
     },
     {
-      text: 'Components In-Depth',
+      text: 'Komponenty podrobněji',
       items: [
         {
-          text: 'Registration',
+          text: 'Registace',
           link: '/guide/components/registration'
         },
-        { text: 'Props', link: '/guide/components/props' },
-        { text: 'Events', link: '/guide/components/events' },
-        { text: 'Component v-model', link: '/guide/components/v-model' },
+        { text: 'Vlastnosti (Props)', link: '/guide/components/props' },
+        { text: 'Události (Events)', link: '/guide/components/events' },
+        { text: 'Binding přes v-model', link: '/guide/components/v-model' },
         {
-          text: 'Fallthrough Attributes',
+          text: 'Fallthrough atributy',
           link: '/guide/components/attrs'
         },
-        { text: 'Slots', link: '/guide/components/slots' },
+        { text: 'Sloty (Slots)', link: '/guide/components/slots' },
         {
           text: 'Provide / inject',
           link: '/guide/components/provide-inject'
         },
         {
-          text: 'Async Components',
+          text: 'Async komponenty',
           link: '/guide/components/async'
         }
       ]
     },
     {
-      text: 'Reusability',
+      text: 'Znovupoučitelnost',
       items: [
         {
           text: 'Composables',
           link: '/guide/reusability/composables'
         },
         {
-          text: 'Custom Directives',
+          text: 'Custom direktivy',
           link: '/guide/reusability/custom-directives'
         },
-        { text: 'Plugins', link: '/guide/reusability/plugins' }
+        { text: 'Pluginy', link: '/guide/reusability/plugins' }
       ]
     },
     {
-      text: 'Built-in Components',
+      text: 'Vestavěné komponenty',
       items: [
         { text: 'Transition', link: '/guide/built-ins/transition' },
         {
@@ -232,39 +232,39 @@ export const sidebar: ThemeConfig['sidebar'] = {
       ]
     },
     {
-      text: 'Scaling Up',
+      text: 'Rozšiřování',
       items: [
-        { text: 'Single-File Components', link: '/guide/scaling-up/sfc' },
+        { text: 'SFC komponenty', link: '/guide/scaling-up/sfc' },
         { text: 'Tooling', link: '/guide/scaling-up/tooling' },
         { text: 'Routing', link: '/guide/scaling-up/routing' },
         {
-          text: 'State Management',
+          text: 'Stavový management',
           link: '/guide/scaling-up/state-management'
         },
-        { text: 'Testing', link: '/guide/scaling-up/testing' },
+        { text: 'Testování', link: '/guide/scaling-up/testing' },
         {
-          text: 'Server-Side Rendering (SSR)',
+          text: 'Server-Side vykreslování (SSR)',
           link: '/guide/scaling-up/ssr'
         }
       ]
     },
     {
-      text: 'Best Practices',
+      text: 'Nejlepší praxe',
       items: [
         {
-          text: 'Production Deployment',
+          text: 'Produkční release',
           link: '/guide/best-practices/production-deployment'
         },
         {
-          text: 'Performance',
+          text: 'Výkon',
           link: '/guide/best-practices/performance'
         },
         {
-          text: 'Accessibility',
+          text: 'Přístupnost',
           link: '/guide/best-practices/accessibility'
         },
         {
-          text: 'Security',
+          text: 'Bezpečnost',
           link: '/guide/best-practices/security'
         }
       ]
@@ -272,22 +272,22 @@ export const sidebar: ThemeConfig['sidebar'] = {
     {
       text: 'TypeScript',
       items: [
-        { text: 'Overview', link: '/guide/typescript/overview' },
+        { text: 'Přehled', link: '/guide/typescript/overview' },
         {
-          text: 'TS with Composition API',
+          text: 'TS s Composition API',
           link: '/guide/typescript/composition-api'
         },
         {
-          text: 'TS with Options API',
+          text: 'TS s Options API',
           link: '/guide/typescript/options-api'
         }
       ]
     },
     {
-      text: 'Extra Topics',
+      text: 'Extra témata',
       items: [
         {
-          text: 'Ways of Using Vue',
+          text: 'Způsoby použití Vue',
           link: '/guide/extras/ways-of-using-vue'
         },
         {
@@ -295,27 +295,27 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/guide/extras/composition-api-faq'
         },
         {
-          text: 'Reactivity in Depth',
+          text: 'Reactivita podrobně',
           link: '/guide/extras/reactivity-in-depth'
         },
         {
-          text: 'Rendering Mechanism',
+          text: 'Nechanismus vykreslování',
           link: '/guide/extras/rendering-mechanism'
         },
         {
-          text: 'Render Functions & JSX',
+          text: 'Vykreslovací funkce & JSX',
           link: '/guide/extras/render-function'
         },
         {
-          text: 'Vue and Web Components',
+          text: 'Vue a Web Components',
           link: '/guide/extras/web-components'
         },
         {
-          text: 'Animation Techniques',
+          text: 'Techniky animace',
           link: '/guide/extras/animation'
         },
         {
-          text: 'Reactivity Transform',
+          text: 'Reaktivní transformace',
           link: '/guide/extras/reactivity-transform'
         }
         // {
@@ -332,11 +332,11 @@ export const sidebar: ThemeConfig['sidebar'] = {
   ],
   '/api/': [
     {
-      text: 'Global API',
+      text: 'Globální API',
       items: [
-        { text: 'Application', link: '/api/application' },
+        { text: 'Aplikace', link: '/api/application' },
         {
-          text: 'General',
+          text: 'Obecné',
           link: '/api/general'
         }
       ]
@@ -346,15 +346,15 @@ export const sidebar: ThemeConfig['sidebar'] = {
       items: [
         { text: 'setup()', link: '/api/composition-api-setup' },
         {
-          text: 'Reactivity: Core',
+          text: 'Reactivita: Jádro',
           link: '/api/reactivity-core'
         },
         {
-          text: 'Reactivity: Utilities',
+          text: 'Reactivita: Utility',
           link: '/api/reactivity-utilities'
         },
         {
-          text: 'Reactivity: Advanced',
+          text: 'Reactivita: Pokročilé',
           link: '/api/reactivity-advanced'
         },
         {
@@ -370,115 +370,115 @@ export const sidebar: ThemeConfig['sidebar'] = {
     {
       text: 'Options API',
       items: [
-        { text: 'Options: State', link: '/api/options-state' },
-        { text: 'Options: Rendering', link: '/api/options-rendering' },
+        { text: 'Options: Stav', link: '/api/options-state' },
+        { text: 'Options: Vykreslování', link: '/api/options-rendering' },
         {
-          text: 'Options: Lifecycle',
+          text: 'Options: Životní cyklus',
           link: '/api/options-lifecycle'
         },
         {
-          text: 'Options: Composition',
+          text: 'Options: Kompozice',
           link: '/api/options-composition'
         },
-        { text: 'Options: Misc', link: '/api/options-misc' },
+        { text: 'Options: Ostatní', link: '/api/options-misc' },
         {
-          text: 'Component Instance',
+          text: 'Instance komponent',
           link: '/api/component-instance'
         }
       ]
     },
     {
-      text: 'Built-ins',
+      text: 'Vestavěné',
       items: [
-        { text: 'Directives', link: '/api/built-in-directives' },
-        { text: 'Components', link: '/api/built-in-components' },
+        { text: 'Direktivy', link: '/api/built-in-directives' },
+        { text: 'Komponenty', link: '/api/built-in-components' },
         {
-          text: 'Special Elements',
+          text: 'Speciální prvky',
           link: '/api/built-in-special-elements'
         },
         {
-          text: 'Special Attributes',
+          text: 'Speciální atributy',
           link: '/api/built-in-special-attributes'
         }
       ]
     },
     {
-      text: 'Single-File Component',
+      text: 'SFC komponenta',
       items: [
-        { text: 'Syntax Specification', link: '/api/sfc-spec' },
+        { text: 'Specifikace syntaxe', link: '/api/sfc-spec' },
         { text: '<script setup>', link: '/api/sfc-script-setup' },
-        { text: 'CSS Features', link: '/api/sfc-css-features' }
+        { text: 'CSS vlastnosti', link: '/api/sfc-css-features' }
       ]
     },
     {
-      text: 'Advanced APIs',
+      text: 'Pokročilá APIs',
       items: [
-        { text: 'Render Function', link: '/api/render-function' },
-        { text: 'Server-Side Rendering', link: '/api/ssr' },
-        { text: 'TypeScript Utility Types', link: '/api/utility-types' },
-        { text: 'Custom Renderer', link: '/api/custom-renderer' }
+        { text: 'Vykreslovací funkce', link: '/api/render-function' },
+        { text: 'Server-Side vykreslování (SSR)', link: '/api/ssr' },
+        { text: 'TypeScript utility typy', link: '/api/utility-types' },
+        { text: 'Custom vykreslování', link: '/api/custom-renderer' }
       ]
     }
   ],
   '/examples/': [
     {
-      text: 'Basic',
+      text: 'Základní',
       items: [
         {
           text: 'Hello World',
           link: '/examples/#hello-world'
         },
         {
-          text: 'Handling User Input',
+          text: 'Obsluha uživatelského vstupu',
           link: '/examples/#handling-input'
         },
         {
-          text: 'Attribute Bindings',
+          text: 'Binding atributů',
           link: '/examples/#attribute-bindings'
         },
         {
-          text: 'Conditionals and Loops',
+          text: 'Podmínky a cykly',
           link: '/examples/#conditionals-and-loops'
         },
         {
-          text: 'Form Bindings',
+          text: 'Binding formulářů',
           link: '/examples/#form-bindings'
         },
         {
-          text: 'Simple Component',
+          text: 'Jednoduchá komponenta',
           link: '/examples/#simple-component'
         }
       ]
     },
     {
-      text: 'Practical',
+      text: 'Praktické',
       items: [
         {
-          text: 'Markdown Editor',
+          text: 'Markdown editor',
           link: '/examples/#markdown'
         },
         {
-          text: 'Fetching Data',
+          text: 'Načítání dat',
           link: '/examples/#fetching-data'
         },
         {
-          text: 'Grid with Sort and Filter',
+          text: 'Grid s tříděním a filtrováním',
           link: '/examples/#grid'
         },
         {
-          text: 'Tree View',
+          text: 'Stromové zobrazení',
           link: '/examples/#tree'
         },
         {
-          text: 'SVG Graph',
+          text: 'SVG graf',
           link: '/examples/#svg'
         },
         {
-          text: 'Modal with Transitions',
+          text: 'Modální okno s přechody',
           link: '/examples/#modal'
         },
         {
-          text: 'List with Transitions',
+          text: 'Seznam s přechody',
           link: '/examples/#list-transition'
         },
         {
@@ -492,19 +492,19 @@ export const sidebar: ThemeConfig['sidebar'] = {
       text: '7 GUIs',
       items: [
         {
-          text: 'Counter',
+          text: 'Počítadlo',
           link: '/examples/#counter'
         },
         {
-          text: 'Temperature Converter',
+          text: 'Převodník teploty',
           link: '/examples/#temperature-converter'
         },
         {
-          text: 'Flight Booker',
+          text: 'Rezervace letenek',
           link: '/examples/#flight-booker'
         },
         {
-          text: 'Timer',
+          text: 'Časovač',
           link: '/examples/#timer'
         },
         {
@@ -512,11 +512,11 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/examples/#crud'
         },
         {
-          text: 'Circle Drawer',
+          text: 'Kreslení kruhu',
           link: '/examples/#circle-drawer'
         },
         {
-          text: 'Cells',
+          text: 'Buňky',
           link: '/examples/#cells'
         }
       ]
@@ -524,26 +524,26 @@ export const sidebar: ThemeConfig['sidebar'] = {
   ],
   '/style-guide/': [
     {
-      text: 'Style Guide',
+      text: 'Příručka stylování',
       items: [
         {
-          text: 'Overview',
+          text: 'Přehled',
           link: '/style-guide/'
         },
         {
-          text: 'A - Essential',
+          text: 'A - Základy',
           link: '/style-guide/rules-essential'
         },
         {
-          text: 'B - Strongly Recommended',
+          text: 'B - Silně doporučené',
           link: '/style-guide/rules-strongly-recommended'
         },
         {
-          text: 'C - Recommended',
+          text: 'C - Doporučené',
           link: '/style-guide/rules-recommended'
         },
         {
-          text: 'D - Use with Caution',
+          text: 'D - Používejte s rozvahou',
           link: '/style-guide/rules-use-with-caution'
         }
       ]
@@ -560,7 +560,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 
   lang: 'en-US',
   title: 'Vue.js',
-  description: 'Vue.js - The Progressive JavaScript Framework',
+  description: 'Vue.js - Progresivní JavaScript Framework',
   srcDir: 'src',
   srcExclude: ['tutorial/**/description.md'],
   scrollOffset: 'header',
@@ -621,7 +621,7 @@ export default defineConfigWithTheme<ThemeConfig>({
       },
       {
         link: '/translations/',
-        text: 'Help Us Translate!',
+        text: 'Pomozte nám překládat!',
         isTranslationsDesc: true
       }
     ],
@@ -648,12 +648,12 @@ export default defineConfigWithTheme<ThemeConfig>({
 
     editLink: {
       repo: 'vuejs/docs',
-      text: 'Edit this page on GitHub'
+      text: 'Upravte tuto stránku na GitHubu'
     },
 
     footer: {
       license: {
-        text: 'MIT License',
+        text: 'MIT licence',
         link: 'https://opensource.org/licenses/MIT'
       },
       copyright: `Copyright © 2014-${new Date().getFullYear()} Evan You`
