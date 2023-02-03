@@ -2,13 +2,13 @@
 footer: false
 ---
 
-# Introduction {#introduction}
+# Představení {#introduction}
 
-:::info You are reading the documentation for Vue 3!
+:::info Toto je dokumentace pro Vue 3!
 
-- Vue 2 support will end on Dec 31, 2023. Learn more about [Vue 2 Extended LTS](https://v2.vuejs.org/lts/).
-- Vue 2 documentation has been moved to [v2.vuejs.org](https://v2.vuejs.org/).
-- Upgrading from Vue 2? Check out the [Migration Guide](https://v3-migration.vuejs.org/).
+- Podpora Vue 2 skončí 31. prosince 2023. Více na stránce [LTS podpory pro Vue 2](https://v2.vuejs.org/lts/).
+- Dokumentaci pro Vue 2 nyní najdete na [v2.vuejs.org](https://v2.vuejs.org/).
+- Chcete Vue 2 povýšit na Vue 3? Podívejte se na [Návod na migraci](https://v3-migration.vuejs.org/).
   :::
 
 <style src="@theme/styles/vue-mastery.css"></style>
@@ -17,18 +17,18 @@ footer: false
     <div class="banner-wrapper">
       <img class="banner" alt="Vue Mastery banner" width="96px" height="56px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vuemastery-graphical-link-96x56.png" />
     </div>
-    <p class="description">Learn Vue with video tutorials on <span>VueMastery.com</span></p>
+    <p class="description">Naučte se Vue s video-tutoriály na <span>VueMastery.com</span></p>
     <div class="logo-wrapper">
         <img alt="Vue Mastery Logo" width="25px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vue-mastery-logo.png" />
     </div>
   </a>
 </div>
 
-## What is Vue? {#what-is-vue}
+## Co je Vue? {#what-is-vue}
 
-Vue (pronounced /vjuː/, like **view**) is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS, and JavaScript and provides a declarative and component-based programming model that helps you efficiently develop user interfaces, be they simple or complex.
+Vue (výslovnost /vjú/) je  JavaScriptový framework pro tvorbu uživatelského rozhraní. Je postaven na standardech HTML, CSS a JavaScriptu a poskytuje deklaratorní programovací model s orientací na komponenty, který pomáhá efektivně vyvíjet jednoduchá i složitá UI.
 
-Here is a minimal example:
+Zde je minimální příklad:
 
 ```js
 import { createApp } from 'vue'
@@ -45,12 +45,12 @@ createApp({
 ```vue-html
 <div id="app">
   <button @click="count++">
-    Count is: {{ count }}
+    Počet: {{ count }}
   </button>
 </div>
 ```
 
-**Result**
+**Výsledek**
 
 <script setup>
 import { ref } from 'vue'
@@ -59,42 +59,41 @@ const count = ref(0)
 
 <div class="demo">
   <button @click="count++">
-    Count is: {{ count }}
+    Počet: {{ count }}
   </button>
 </div>
 
-The above example demonstrates the two core features of Vue:
+Výše uvedený příklad ukazuje dva klíčové principy Vue:
 
-- **Declarative Rendering**: Vue extends standard HTML with a template syntax that allows us to declaratively describe HTML output based on JavaScript state.
+- **Deklarativní Rendering**: Vue rozšiřuje standardní HTML o tzv. template syntaxi, což umožňuje deklarativně popisovat HTML výstup založený na JavaScriptových proměnných.
 
-- **Reactivity**: Vue automatically tracks JavaScript state changes and efficiently updates the DOM when changes happen.
+- **Reaktivita**: Vue autmaticky sleduje změny stavu JavaScriptových proměnných a efektivně aktualizuje DOM zobrazené stránky, když dojde ke změně.
 
-You may already have questions - don't worry. We will cover every little detail in the rest of the documentation. For now, please read along so you can have a high-level understanding of what Vue offers.
+Pokud k tomu už teď máte otázky - žádný strach. Ve zbytku dokumentace pokryjeme každý jednotilvý detail. Prozatím prosím pokračujte  ve čtení, ať získáte obecné povědomí o tom, co Vue nabízí.
 
-:::tip Prerequisites
-The rest of the documentation assumes basic familiarity with HTML, CSS, and JavaScript. If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics and then come back! You can check your knowledge level with [this JavaScript overview](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Prior experience with other frameworks helps, but is not required.
+:::tip Předpoklady
+Zbytek dokumentace předpokládá základní znalost HTML, CSS a JavaScriptu. Pokud je pro vás frontend vývoj úplnou novinkou, není možná nejlepší nápad vrhnout se jako první rovnou na framework - raději se napřed trochu seznamte se základy a teprve poté se vraťte zpět! Úroveň svých znalostí si můžete vyzkoušet na [tomto JavaScriptovém přehledu](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Předchozí zkušenost s jinými frameworky pomůže, ale není nezbytná.
 :::
 
-## The Progressive Framework {#the-progressive-framework}
+## Progresivní framework {#the-progressive-framework}
+Vue je framework a ekosystém, který pokrývá většinu z běžných potřeb frontendového vývoje. Ale internet je extrémě různorodý - věci, které na webových stránkách tvoříme se mohou dramaticky lišit ve formě i objemu. Vue bylo navrženo s přihlédnutím k tomu tak, aby bylo flexibilní a přírůstkově adaptibilní. V závislosti na vašich potřebách, Vue může být používáno různými způsoby:
 
-Vue is a framework and ecosystem that covers most of the common features needed in frontend development. But the web is extremely diverse - the things we build on the web may vary drastically in form and scale. With that in mind, Vue is designed to be flexible and incrementally adoptable. Depending on your use case, Vue can be used in different ways:
-
-- Enhancing static HTML without a build step
-- Embedding as Web Components on any page
+- Obohacení statických HTML bez build fáze
+- Webová komponenta vložená do jakékoliv stránky
 - Single-Page Application (SPA)
 - Fullstack / Server-Side Rendering (SSR)
 - Jamstack / Static Site Generation (SSG)
-- Targeting desktop, mobile, WebGL, and even the terminal
+- Použitelné pro desktop, mobilní zařízení, WebGL a dokonce i terminál
 
-If you find these concepts intimidating, don't worry! The tutorial and guide only require basic HTML and JavaScript knowledge, and you should be able to follow along without being an expert in any of these.
+Pokud vás tyto koncepty odrazují, nebojte se! Tento tutorial a průvodce vyžaduje pouze základní znalost HTML a JavaScriptu a nemusíte být odborník na žádnou z výše uvedných oblastí.
 
-If you are an experienced developer interested in how to best integrate Vue into your stack, or you are curious about what these terms mean, we discuss them in more detail in [Ways of Using Vue](/guide/extras/ways-of-using-vue).
+Pokud jste zkušený vývojář, kterého zajímá, jak nejlépe zapracovat Vue do svého portfolia, nebo jste zvědaví co tyto pojmy znamenají, rozebíráme je více podrobně ve [Způsobech použití Vue](/guide/extras/ways-of-using-vue).
 
-Despite the flexibility, the core knowledge about how Vue works is shared across all these use cases. Even if you are just a beginner now, the knowledge gained along the way will stay useful as you grow to tackle more ambitious goals in the future. If you are a veteran, you can pick the optimal way to leverage Vue based on the problems you are trying to solve, while retaining the same productivity. This is why we call Vue "The Progressive Framework": it's a framework that can grow with you and adapt to your needs.
+Navzdory flexibilitě je základní znalost o fungování Vue sdílená napříč všemi způsoby použití. I pokud jste nyní pouze začátečník, znalosti zde získané vám budou užitečné na další cestě při zdolávání více ambiciózních cílů v budoucnosti. Pokud už jste veterán, můžete si vybrat optimální zůsob využití Vue podle toho, jaké problémy se právě snažíte řešit, a přitom si zachovat stejnou úroveň produktivity. Proto nazýváme Vue "Progresivní Framework": je to framework, který může růst spolu s vámi a přizpůsobovat se vašim potřebám.
 
-## Single-File Components {#single-file-components}
+## Single-File komponenty {#single-file-components}
 
-In most build-tool-enabled Vue projects, we author Vue components using an HTML-like file format called **Single-File Component** (also known as `*.vue` files, abbreviated as **SFC**). A Vue SFC, as the name suggests, encapsulates the component's logic (JavaScript), template (HTML), and styles (CSS) in a single file. Here's the previous example, written in SFC format:
+Ve většině build-tool-enabled Vue projektech používáme Vue komponenty v HTML-like souborovém formátu nazývaném **Single-File Component** (také známé jako `*.vue` soubory, zkráceně **SFC**). Vue SFC, jak název napovídá, obaluje logiku (JavaScript), šablonu (HTML) a styly (CSS) do jednoho souboru. Zde je přechozí příklad přepsaný do SFC formátu:
 
 ```vue
 <script>
@@ -108,7 +107,7 @@ export default {
 </script>
 
 <template>
-  <button @click="count++">Count is: {{ count }}</button>
+  <button @click="count++">Počet: {{ count }}</button>
 </template>
 
 <style scoped>
@@ -118,123 +117,123 @@ button {
 </style>
 ```
 
-SFC is a defining feature of Vue and is the recommended way to author Vue components **if** your use case warrants a build setup. You can learn more about the [how and why of SFC](/guide/scaling-up/sfc) in its dedicated section - but for now, just know that Vue will handle all the build tools setup for you.
+SFC je určující vlastnost Vue a je to doporučený postup jak tvořit Vue komponenty, **pokud** váš případ použití zahrnuje build fázi. Více o tématu [jak a proč na SFC](/guide/scaling-up/sfc) v k tomu určené sekci - prozatím je potřeba vědět, že Vue zvládne veškeré nastavení build nástrojů za vás.
 
-## API Styles {#api-styles}
+## API styly {#api-styles}
 
-Vue components can be authored in two different API styles: **Options API** and **Composition API**.
+Vue komponenty lze tvořit ve dvou odlišných API stylech: **Options API** a **Composition API**.
 
 ### Options API {#options-api}
 
-With Options API, we define a component's logic using an object of options such as `data`, `methods`, and `mounted`. Properties defined by options are exposed on `this` inside functions, which points to the component instance:
+S Options API definujeme logiku komponent jako objekt s vlastnostmi jako jsou `data`, `methods`, and `mounted`. Definované vlastnosti jsou přístupné přes `this` uvnitř funkcí, které odkazují na instanci komponenty:
 
 ```vue
 <script>
 export default {
-  // Properties returned from data() become reactive state
-  // and will be exposed on `this`.
+  // vlastnosti vrácené z data() budou mít reaktivní stav
+  // a budou přístupná přes `this`
   data() {
     return {
-      count: 0
+      pocet: 0
     }
   },
 
-  // Methods are functions that mutate state and trigger updates.
-  // They can be bound as event listeners in templates.
+  // metody a funkce, které mění stav a spouští aktualizace
+  // mohou být navázány jako 'event listener' v šablonách
   methods: {
     increment() {
-      this.count++
+      this.pocet++
     }
   },
 
-  // Lifecycle hooks are called at different stages
-  // of a component's lifecycle.
-  // This function will be called when the component is mounted.
+  // tzv. 'lifecycle hooks' jsou volané v různých stavech
+  // životního cyklu komponenty
+  // Tato funkce se za volá ve chvíli připojení (mount) komponenty do DOM
   mounted() {
-    console.log(`The initial count is ${this.count}.`)
+    console.log(`Výchozí počet je ${this.pocet}.`)
   }
 }
 </script>
 
 <template>
-  <button @click="increment">Count is: {{ count }}</button>
+  <button @click="increment">Počet: {{ pocet }}</button>
 </template>
 ```
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgLy8gcmVhY3RpdmUgc3RhdGVcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgY291bnQ6IDBcbiAgICB9XG4gIH0sXG5cbiAgLy8gZnVuY3Rpb25zIHRoYXQgbXV0YXRlIHN0YXRlIGFuZCB0cmlnZ2VyIHVwZGF0ZXNcbiAgbWV0aG9kczoge1xuICAgIGluY3JlbWVudCgpIHtcbiAgICAgIHRoaXMuY291bnQrK1xuICAgIH1cbiAgfSxcblxuICAvLyBsaWZlY3ljbGUgaG9va3NcbiAgbW91bnRlZCgpIHtcbiAgICBjb25zb2xlLmxvZyhgVGhlIGluaXRpYWwgY291bnQgaXMgJHt0aGlzLmNvdW50fS5gKVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPkNvdW50IGlzOiB7eyBjb3VudCB9fTwvYnV0dG9uPlxuPC90ZW1wbGF0ZT4ifQ==)
+[Vyzkoušejte si to](https://sfc.vuejs.org/#eNptk8+O0zAQxl9lFCF1V7ubcK7KCiSuCA6IUw51nekmjeOx7ImhqfoIPADi1COHiidYLtm+F5P0HwekSMnEnm++34y9Sd45l8YWk2kyC9pXjh9zi98ceYYCl6o1DJvcAmQZRKMCWwpcQfT9TqPtf0EHhWJ1cwuLtqAWmn7P4FHVXEXb7yGwiqd0ddriDj/6feDW2X43BBhgzmUV5sO+k9hYEkSIW2/PEYAjjTyF18d4O7y297k9FWiQqVhLnWVra433UDN6sdi8/DxbkcXgqD3sWH6IyVaZqlMazwpUisFF/8xgVex3Xb+za1ipmmCCES2DqQKjRT+BCIedWhgSCl0O+VK+pCJMz3Yrqz02knTlARhA0xHj7u7/FNzFFCamWqJea4NQEtVhAqsgziIZNTQ9gj/87mz/rMsRC48OJPvwp4rEglsS6HVtWqipcWTFxvq05bNiOrUIAkKnBlkZRUTQZez3phqmUjlayYD3cNNQa/n2Hx0oCN5//DAyD2tYXAk12UAGU0NPN/Mvg0HqRMTRy3dkWCG82lxbsE3ntyN9buWZZZcDKAFj44xilAhgtmiZycJbbSpdv8mTS2/z5PHTqC1t3xzPB2y3s+yYIMmz7KKU3CeVMHh+aJRLpaFWTv3oWwTHhZAnl/HliVyLIc6TktmFaZaFpR7uyiqk5J8y+Uq94FcNphiah4WnrwG9COfJmSrZ/gXdTD8k)
 
 ### Composition API {#composition-api}
 
-With Composition API, we define a component's logic using imported API functions. In SFCs, Composition API is typically used with [`<script setup>`](/api/sfc-script-setup). The `setup` attribute is a hint that makes Vue perform compile-time transforms that allow us to use Composition API with less boilerplate. For example, imports and top-level variables / functions declared in `<script setup>` are directly usable in the template.
+S Composition API definujeme komponentu importem API funkcí. V SFC souborech se Compostion API typicky používá spolu se [`<script setup>`](/api/sfc-script-setup). Atritbut `setup` je příznak pro Vue k použití compile-time transformací, které umožňují použití Composition API s menším množstvím boilerplate kódu. Například importy a proměnné/funkce nejvyšší úrovně deklarované uvnitř `<script setup>` mohou být přímo použity v šabloně.
 
-Here is the same component, with the exact same template, but using Composition API and `<script setup>` instead:
+Zde je ta samá komponenta, s úplně stejnou šablonou, ale s použitím Composition API a `<script setup>`:
 
 ```vue
 <script setup>
 import { ref, onMounted } from 'vue'
 
-// reactive state
-const count = ref(0)
+// reaktivní stav
+const pocet = ref(0)
 
-// functions that mutate state and trigger updates
+// funkce, která mění stav a spouští aktualizace
 function increment() {
-  count.value++
+  pocet.value++
 }
 
-// lifecycle hooks
+// 'lifecycle hook'
 onMounted(() => {
-  console.log(`The initial count is ${count.value}.`)
+  console.log(`Výchozí počet je ${pocet.value}.`)
 })
 </script>
 
 <template>
-  <button @click="increment">Count is: {{ count }}</button>
+  <button @click="increment">Počet: {{ pocet }}</button>
 </template>
 ```
 
-[Try it in the Playground](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiwgb25Nb3VudGVkIH0gZnJvbSAndnVlJ1xuXG4vLyByZWFjdGl2ZSBzdGF0ZVxuY29uc3QgY291bnQgPSByZWYoMClcblxuLy8gZnVuY3Rpb25zIHRoYXQgbXV0YXRlIHN0YXRlIGFuZCB0cmlnZ2VyIHVwZGF0ZXNcbmZ1bmN0aW9uIGluY3JlbWVudCgpIHtcbiAgY291bnQudmFsdWUrK1xufVxuXG4vLyBsaWZlY3ljbGUgaG9va3Ncbm9uTW91bnRlZCgoKSA9PiB7XG4gIGNvbnNvbGUubG9nKGBUaGUgaW5pdGlhbCBjb3VudCBpcyAke2NvdW50LnZhbHVlfS5gKVxufSlcbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG4gIDxidXR0b24gQGNsaWNrPVwiaW5jcmVtZW50XCI+Q291bnQgaXM6IHt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiJ9)
+[Vyzkoušejte si to](https://sfc.vuejs.org/#eNpNUUtOwzAQvcrIQmoRbcK6Sis4ABIrVl40NZPWTeKx7EkRjXIETsCqB+AIrFruxaQpFQtLnrHfZ9606tH7ZNegmqksmmA9Q0Ru/EI7W3sKDC0ELCZA7okax/gKHRSBahgJaqSddmkqP/KS7c4dvyByvtPOkIsMngwyzHuC8f3t5W/RuNLgBErGcDxAffr8g0EO0VPzc2BpCGGTV3afG9ROMIYtObDOBKzR8fgWWu1gkEh2edXg3Z123UVkVNkCzbupEDZEpfi8+h8LdL4Y0L1NqjCpaD1evhy/zYb2ou3p9CHGtwg37T+BLlnKEJ2cLB2ykpSkYKx9lTNKBZCtGmZx+mAqa8q5VlfLWi2ez8QzaNtLNl2XpQNAwFl6ZVITNcQ/rXOfbCM5WdDZshCeH6JWwtN3+p7soq+12jD7OEvTWJh+rduYUFinckuCTG9rTDDW01Wgt4hBiLXqKSS2TnW/G9rALQ==)
 
-### Which to Choose? {#which-to-choose}
+### Co si vybrat? {#which-to-choose}
 
-Both API styles are fully capable of covering common use cases. They are different interfaces powered by the exact same underlying system. In fact, the Options API is implemented on top of the Composition API! The fundamental concepts and knowledge about Vue are shared across the two styles.
+Oba API styly jsou schopné plně pokrýt běžné případy užití. Jsou to různá rozhranní nad stejným systémem v pozadí. Options API je vlastně implementováno nad Composition API! Základní koncepty a znalosti o Vue jsou sdíleny nad oběma styly.
 
-The Options API is centered around the concept of a "component instance" (`this` as seen in the example), which typically aligns better with a class-based mental model for users coming from OOP language backgrounds. It is also more beginner-friendly by abstracting away the reactivity details and enforcing code organization via option groups.
+Options API se zaměřuje na koncept "instance komponenty" (`this` jak je vidět v příkladu), což je typicky bližší uživatelům zvyklým na class-based mentální model z Objektovně Orientovaných Programovacích jazyků. Je také lépe přístupnější začátečníkům tím, že abstrahuje detaily o reaktivitě a vynucuje organizaci kódu přes skupiny vlastností.
 
-The Composition API is centered around declaring reactive state variables directly in a function scope and composing state from multiple functions together to handle complexity. It is more free-form and requires an understanding of how reactivity works in Vue to be used effectively. In return, its flexibility enables more powerful patterns for organizing and reusing logic.
+Composition API je zaměřeno na deklarování reaktivních proměnných přímo ve funkčním rámci a skládáním stavu dohromady z různých funkcí tak, aby bylo možné zvládnout komplexitu. Je to volnější forma a vyžaduje porozumění jak funguje reaktivita ve Vue, aby bylo možné ji používat efektivně. Výměnou za to jeho flexibilita umožňuje silnější vzory pro organizaci a znovupoužití logiky.
 
-You can learn more about the comparison between the two styles and the potential benefits of Composition API in the [Composition API FAQ](/guide/extras/composition-api-faq).
+Více o porovnání těchto dvou stylů a potenciálních přínosech Composition API si můžete přečíst v [Composition API FAQ](/guide/extras/composition-api-faq).
 
-If you are new to Vue, here's our general recommendation:
+Pokud jste ve Vue nováčky, zde je naše základní doporučení:
 
-- For learning purposes, go with the style that looks easier to understand to you. Again, most of the core concepts are shared between the two styles. You can always pick up the other style later.
+- Pro učení zvolte styl, který vám připadá jednodušší na pochopení. Znovu, většina klíčových konceptů je sdílena mezi oběma styly. Vždy si můžete později zvolit druhý styl.
 
-- For production use:
+- Pro produkci:
 
-  - Go with Options API if you are not using build tools, or plan to use Vue primarily in low-complexity scenarios, e.g. progressive enhancement.
+  - Zvote Options API, pokud nepoužíváte build nástroje, nebo máte v plánu Vue použít primárně pro méně složité scénáře, např. progresivní vylepšení.
 
-  - Go with Composition API + Single-File Components if you plan to build full applications with Vue.
+  - Zvolte Composition API + Single-File Components pokud plánujete vytvořit celou aplikaci ve Vue.
 
-You don't have to commit to only one style during the learning phase. The rest of the documentation will provide code samples in both styles where applicable, and you can toggle between them at any time using the **API Preference switches** at the top of the left sidebar.
+V průběhu vašeho učení se nemusíte upsat jednomu stylu. Zbytek dokumentace poskytuje příklady kódu pro oba styly tam, kde to je možné, a můžete mezi nimi kdykoliv přemínat pomocí **API Preference přepínače** nahoře ve sloupci levého menu.
 
-## Still Got Questions? {#still-got-questions}
+## Máte další otázky? {#still-got-questions}
 
-Check out our [FAQ](/about/faq).
+Podívejte se na [FAQ](/about/faq).
 
-## Pick Your Learning Path {#pick-your-learning-path}
+## Vyberte si další cestu {#pick-your-learning-path}
 
-Different developers have different learning styles. Feel free to pick a learning path that suits your preference - although we do recommend going over all of the content, if possible!
+Různí vývojáři mají různé způsoby učení. Vyberte si způsob, který vyhovuje vašim preferencím - ačkoliv doporučujeme postupně projít všechen obsah, pokud je to možné!
 
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/tutorial/">
-    <p class="next-steps-link">Try the Tutorial</p>
-    <p class="next-steps-caption">For those who prefer learning things hands-on.</p>
+    <p class="next-steps-link">Vyzkoušejte tutorial</p>
+    <p class="next-steps-caption">Pro ty, kterým vyhovuje, když si mohou věci sami vyzkoušet.</p>
   </a>
   <a class="vt-box" href="/guide/quick-start.html">
-    <p class="next-steps-link">Read the Guide</p>
-    <p class="next-steps-caption">The guide walks you through every aspect of the framework in full detail.</p>
+    <p class="next-steps-link">Přečtěte si příručku</p>
+    <p class="next-steps-caption">Příručka vás detailně provede všemi vlastnostmi frameworku.</p>
   </a>
   <a class="vt-box" href="/examples/">
-    <p class="next-steps-link">Check out the Examples</p>
-    <p class="next-steps-caption">Explore examples of core features and common UI tasks.</p>
+    <p class="next-steps-link">Podívejte se na příklady</p>
+    <p class="next-steps-caption">Prozkoumejte příklady základních vlastností a běžných UI úkolů.</p>
   </a>
 </div>
