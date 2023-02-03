@@ -1,26 +1,26 @@
-# Getting Started {#getting-started}
+# První kroky {#getting-started}
 
-Welcome to the Vue tutorial!
+Vítejte u Vue tutoriálu!
 
-The goal of this tutorial is to quickly give you an experience of what it feels like to work with Vue, right in the browser. It does not aim to be comprehensive, and you don't need to understand everything before moving on. However, after you complete it, make sure to also read the <a target="_blank" href="/guide/introduction.html">Guide</a> which covers each topic in more detail.
+Úkolem tohoto tutoriálu je rychle vám zprostředkovat, jaké je to pracovat s Vue přímo v prohlížeči. Nesnaží se být obsáhlý a nemusíte předem rozumět všemu. Nicméně, jakmile ho dokončíte, určitě si přečtěte také <a target="_blank" href="/guide/introduction.html">Příručku</a>, které každé téma pokrývá více do hloubky.
 
-## Prerequisites {#prerequisites}
+## Předpoklady {#prerequisites}
 
-The tutorial assumes basic familiarity with HTML, CSS and JavaScript. If you are totally new to front-end development, it might not be the best idea to jump right into a framework as your first step - grasp the basics then come back! Prior experience with other frameworks helps, but is not required.
+Tutoriál předpokládá základní znalost HTML, CSS a JavaScriptu. Pokud je pro vás frontend vývoj úplnou novinkou, není možná nejlepší nápad vrhnout se jako první rovnou na framework - raději se napřed trochu seznamte se základy a teprve poté se vraťte zpět! Předchozí zkušenost s jinými frameworky pomůže, ale není nezbytná.
 
-## How to Use This Tutorial {#how-to-use-this-tutorial}
+## Jak používat tento tutoriál {#how-to-use-this-tutorial}
 
-You can edit the code <span class="wide">on the right</span><span class="narrow">below</span> and see the result update instantly. Each step will introduce a core feature of Vue, and you will be expected to complete the code to get the demo working. If you get stuck, you will have a "Show me!" button that reveals the working code for you. Try not to rely on it too much - you'll learn faster by figuring things out on your own.
+Můžete editovat kód <span class="wide">napravo</span><span class="narrow">níže</span> a okamžitě uvidíte výsledek změny. Každý krok představí jednu základní funkcionalitu Vue a od vás se očekává, že doplníte kód, aby demo začalo fungovat. Pokud se zaseknete, bude k dispozici tlačítko "Ukázat řešení", které pro vás výsledný kód odkryje. Pokuste se na něj příliš nespoléhat - budete se učit rychleji tím, že na to přijdete sami.
 
-If you are an experienced developer coming from Vue 2 or other frameworks, there are a few settings you can tweak to make the best use of this tutorial. If you are a beginner, it's recommended to go with the defaults.
+Pokud jste zkušený vývojář přecházející z Vue 2 nebo jiných frameworků, je zde několik nastavení, které můžete naladit tak, aby vám tento tutoriál byl co nejvíc užitečný. Pokud jste začátečník, doporučujeme pokračovat s výchozím nastavením.
 
 <details>
-<summary>Tutorial Setting Details</summary>
+<summary>Detaily možného nastavení</summary>
 
-- Vue offers two API styles: Options API and Composition API. This tutorial is designed to work for both - you can choose your preferred style using the **API Preference** switches at the top. <a target="_blank" href="/guide/introduction.html#api-styles">Learn more about API styles</a>.
+- Vue nabízí dva API styly: Options API a Composition API. Tento tutoriál jen navržen pro práci s oběna - můžete si vybrat preferovaný styl pomocí  **API Preference** přepínače nahoře. <a target="_blank" href="/guide/introduction.html#api-styles">Zjistit víc o API stylech</a>.
 
-- You can also switch between SFC-mode or HTML-mode. The former will show code examples in <a target="_blank" href="/guide/introduction.html#single-file-components">Single-File Component</a> (SFC) format, which is what most developers use when they use Vue with a build step. HTML-mode shows usage without a build step.
+- Můžete také přepínat mezi SFC-módem a HTML-módem. První z nich zobrazí příklady kódu ve formátu <a target="_blank" href="/guide/introduction.html#single-file-components">Single-File komponenty</a> (SFC), který používá většina vývojářů, pokud pracují s Vue s build fází. HTML-mód ukazuje použití bez build fáze.
 
 </details>
 
-Ready? Click "Next" to get started.
+Připraveni? Klikněte na "Další" pro zahájení výuky.
