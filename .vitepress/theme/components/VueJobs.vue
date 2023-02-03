@@ -63,7 +63,7 @@ onMounted(async () => {
       </a>
     </div>
     <div class="vj-link">
-      Jobs by
+      Pozice na
       <a
         href="https://vuejobs.com/?utm_source=vuejs&utm_medium=referral&utm_campaign=jobs_widget&utm_content=bottom_link"
         target="_blank"

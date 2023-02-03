@@ -68,7 +68,7 @@ function useToggleFn(
       @mousedown="removeOutline"
       @blur="restoreOutline"
     >
-      <span>API Preference</span>
+      <span>API preference</span>
       <VTIconChevronDown class="vt-link-icon" :class="{ open: isOpen }" />
     </button>
     <div id="preference-switches" :hidden="!isOpen" :aria-hidden="!isOpen">
@@ -89,7 +89,7 @@ function useToggleFn(
         >
         <a
           class="switch-link"
-          title="About API preference"
+          title="O možnostech API preference"
           href="/guide/introduction.html#api-styles"
           @click="closeSideBar"
           >?</a
