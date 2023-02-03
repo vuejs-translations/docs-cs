@@ -13,8 +13,8 @@
         "url": "https://www.github.com/vitejs"
       }
     ],
-    "location": "Singapore",
-    "languages": ["English", "Chinese"],
+    "location": "Singapur",
+    "languages": ["Angličtina", "Čínština"],
     "website": {
       "label": "evanyou.me",
       "url": "https://evanyou.me"
@@ -37,7 +37,7 @@
       }
     ],
     "location": "Washington, DC, USA",
-    "languages": ["Chinese", "English"],
+    "languages": ["Čínština", "Angličtina"],
     "website": {
       "label": "bencodezen.io",
       "url": "https://www.bencodezen.io"
@@ -51,9 +51,9 @@
   {
     "name": "Eduardo",
     "title": "Developer & Consultant",
-    "company": "Freelance",
-    "location": "Paris, France",
-    "languages": ["Spanish", "French", "English"],
+    "company": "Freelancer",
+    "location": "Paris, Francie",
+    "languages": ["Španělština", "Francouzština", "Angličtina"],
     "socials": {
       "github": "posva",
       "twitter": "posva"
@@ -100,8 +100,8 @@
         "url": "https://github.com/vuejs/vue-loader"
       }
     ],
-    "location": "Hangzhou, China",
-    "languages": ["Chinese", "English"],
+    "location": "Hangzhou, Čína",
+    "languages": ["Čínština", "Angličtina"],
     "socials": {
       "github": "sodatea",
       "twitter": "haoqunjiang"
@@ -133,8 +133,8 @@
         "url": "https://github.com/jinjiang/vue-keyboard-over"
       }
     ],
-    "location": "Singapore",
-    "languages": ["Chinese", "English"],
+    "location": "Singapur",
+    "languages": ["Čínština", "Angličtina"],
     "socials": {
       "github": "jinjiang",
       "twitter": "zhaojinjiang"
@@ -163,8 +163,8 @@
         "url": "https://jp.vuejs.org"
       }
     ],
-    "location": "Tokyo, Japan",
-    "languages": ["Japanese", "English"],
+    "location": "Tokyo, Japonsko",
+    "languages": ["Japonština", "Angličtina"],
     "website": {
       "label": "patreon.com/kazupon",
       "url": "https://www.patreon.com/kazupon"
@@ -191,8 +191,8 @@
         "url": "https://github.com/vuejs/rollup-plugin-vue"
       }
     ],
-    "location": "Bangalore, India",
-    "languages": ["Hindi", "English"],
+    "location": "Bangalore, Indie",
+    "languages": ["Hindština", "Angličtina"],
     "socials": {
       "github": "znck",
       "twitter": "znck0"
@@ -206,8 +206,8 @@
   {
     "name": "Linusborg",
     "title": "Hive-Mind Community Wrangler (Probably a Bot)",
-    "location": "Mannheim, Germany",
-    "languages": ["German", "English"],
+    "location": "Mannheim, Německo",
+    "languages": ["Němčina", "Angličtina"],
     "projects": [
       {
         "label": "vuejs/*",
@@ -264,8 +264,8 @@
         "url": "https://github.com/Akyrum/v-tooltip"
       }
     ],
-    "location": "Bordeaux, France",
-    "languages": ["French", "English"],
+    "location": "Bordeaux, Francie",
+    "languages": ["Francouzština", "Angličtina"],
     "website": {
       "label": "guillaume-chau.info",
       "url": "https://guillaume-chau.info/"
@@ -278,7 +278,7 @@
   },
   {
     "name": "GU Yiling",
-    "title": "Senior web developer",
+    "title": "Senior Web Developer",
     "company": "Baidu, inc.",
     "companyLink": "https://www.baidu.com/",
     "projects": [
@@ -307,8 +307,8 @@
         "url": "https://github.com/ecomfe/veui"
       }
     ],
-    "location": "Shanghai, China",
-    "languages": ["Chinese", "English"],
+    "location": "Shanghai, Čína",
+    "languages": ["Čínština", "Angličtina"],
     "socials": {
       "github": "Justineo",
       "twitter": "_justineo"
@@ -333,8 +333,8 @@
         "url": "https://github.com/vue-google-signin-button"
       }
     ],
-    "location": "Munich, Germany",
-    "languages": ["Vietnamese", "English"],
+    "location": "Munich, Německo",
+    "languages": ["Vietnamština", "Angličtina"],
     "socials": { "github": "phanan", "twitter": "notphanan" },
     "website": {
       "label": "https://phanan.net/",
@@ -354,8 +354,8 @@
       },
       { "label": "vue-cli", "url": "https://github.com/vuejs/vue-cli" }
     ],
-    "location": "Amsterdam, Netherlands",
-    "languages": ["Ukrainian", "Russian", "English"],
+    "location": "Amsterdam, Nizozemí",
+    "languages": ["Ukrajinština", "Ruština", "Angličtina"],
     "socials": {
       "github": "NataliaTepluhina",
       "twitter": "N_Tepluhina"
@@ -381,8 +381,8 @@
         "url": "https://github.com/future-architect/eslint-plugin-vue-scoped-css"
       }
     ],
-    "location": "Kanagawa, Japan",
-    "languages": ["Japanese"],
+    "location": "Kanagawa, Japonsko",
+    "languages": ["Japonština"],
     "socials": {
       "github": "ota-meshi",
       "twitter": "omoteota"
@@ -404,8 +404,8 @@
         "url": "https://github.com/vuex-orm"
       }
     ],
-    "location": "Kanagawa, Japan",
-    "languages": ["English", "Japanese"],
+    "location": "Kanagawa, Japonsko",
+    "languages": ["Angličtina", "Japonština"],
     "socials": {
       "github": "kiaking",
       "twitter": "KiaKing85"
@@ -431,8 +431,8 @@
         "url": "https://github.com/vueuse/vue-demi"
       }
     ],
-    "location": "Paris, France",
-    "languages": ["Chinese", "English"],
+    "location": "Paris, Francie",
+    "languages": ["Čínština", "Angličtina"],
     "socials": {
       "github": "antfu",
       "twitter": "antfu7"
@@ -452,8 +452,8 @@
         "url": "https://github.com/vuejs/core"
       }
     ],
-    "location": "Beijing, China",
-    "languages": ["Chinese", "English"],
+    "location": "Beijing, Čína",
+    "languages": ["Čínština", "Angličtina"],
     "socials": {
       "github": "HcySunYang",
       "twitter": "HcySunYang"
@@ -468,8 +468,8 @@
         "url": "https://github.com/johnsoncodehk/volar"
       }
     ],
-    "location": "Hong Kong, China",
-    "languages": ["Chinese", "English"],
+    "location": "Hong Kong, Čína",
+    "languages": ["Čínština", "Angličtina"],
     "socials": {
       "github": "johnsoncodehk",
       "twitter": "johnsoncodehk"
@@ -485,8 +485,8 @@
         "url": "https://github.com/vuejs/core"
       }
     ],
-    "location": "London, United Kingdom",
-    "languages": ["English", "Portuguese"],
+    "location": "London, UK",
+    "languages": ["Angličtina", "Portugalština"],
     "socials": {
       "github": "pikax",
       "twitter": "pikax_dev"

@@ -15,22 +15,22 @@ onMounted(() => {
 })
 </script>
 
-<template>
+<template>s
   <div class="PartnerPage">
     <PartnerHero />
 
     <!-- Spotlight -->
     <div class="spotlight">
       <div class="spotlight-inner">
-        <h2>Partner Spotlight</h2>
+        <h2>Exkluzivní partner</h2>
         <PartnerCard v-if="spotlighted" hero :data="spotlighted" />
       </div>
     </div>
 
     <div class="featured">
-      <h2>Featured Partners</h2>
+      <h2>Vybraní partneři</h2>
       <PartnerList :filter="(p) => p.platinum" />
-      <a class="browse-all" href="./all.html">Browse All Partners</a>
+      <a class="browse-all" href="./all.html">Všichni partneři</a>
     </div>
 
     <PartnerJoin />
