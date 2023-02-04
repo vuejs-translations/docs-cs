@@ -10,7 +10,7 @@ const nav: ThemeConfig['nav'] = [
     text: 'Dokumentace',
     activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
     items: [
-      { text: 'Příručka', link: '/guide/introduction' },
+      { text: 'Průvodce', link: '/guide/introduction' },
       { text: 'Tutorial', link: '/tutorial/' },
       { text: 'Příklady', link: '/examples/' },
       { text: 'Jak začít', link: '/guide/quick-start' },
@@ -99,12 +99,12 @@ const nav: ThemeConfig['nav'] = [
     items: [
       { text: 'FAQ', link: '/about/faq' },
       { text: 'Tým', link: '/about/team' },
-      { text: 'Release management', link: '/about/releases' },
+      { text: 'Verzování', link: '/about/releases' },
       {
-        text: 'Průvodce komunitou',
+        text: 'Komunita',
         link: '/about/community-guide'
       },
-      { text: 'Pravidla chování', link: '/about/coc' },
+      { text: 'Kodex chování', link: '/about/coc' },
       {
         text: 'The Documentary (Video)',
         link: 'https://www.youtube.com/watch?v=OrxmtDw4pVI'
@@ -524,7 +524,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
   ],
   '/style-guide/': [
     {
-      text: 'Příručka stylování',
+      text: 'Průvodce stylováním',
       items: [
         {
           text: 'Přehled',

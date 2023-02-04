@@ -10,6 +10,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 ## LIST
 * 🟩 array = pole
 * 🟩 build-in (adj.) = vestavěný
+* 🟩 Code of Conduct = Kodex chování
 * 🟥 Composition API = Composition API
 * 🟩 content = obsah
 * 🟩 check out = podívejte se na
@@ -17,17 +18,20 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 declare = deklarovat
 * 🟩 expose (v.) = vystavit
 * 🟩 expression = výraz
+* 🟥 framework = framework
 * 🟩 fundamentals = základy
-* 🟩 guide = příručka
+* 🟩 guide = průvodce
 * 🟨 JavaScript state = stav JavaScript objektů
 * 🟩 notice (v.) = všimněte si
 * 🟥 Options API = Options API
+* 🟥 package = package
 * 🟩 passed to = posílaný do
 * 🟩 prerequisities = předpoklady
 * 🟩 property = vlastnost
 * 🟥 proxy = proxy
 * 🟩 reactive = reaktivní
 * 🟩 reactivity = reaktivita
+* 🟩 release = verze
 * 🟩 rendering = vykreslování
 * 🟩 sidebar = postranní panel
 * 🟨 Single-File component = Single-File komponenta (SFC)

@@ -1,45 +1,45 @@
-# Code Of Conduct {#code-of-conduct}
+# Kodex chování {#code-of-conduct}
 
-## Our Pledge {#our-pledge}
+## Náš slib {#our-pledge}
 
-In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, political party, or sexual identity and orientation. Note, however, that religion, political party, or other ideological affiliation provide no exemptions for the behavior we outline as unacceptable in this Code of Conduct.
+V zájmu podpory otevřeného a přívětivého prostředí se jako přispěvatelé a správci zavazujeme, že se našeho projektu a fungování naší komunity budeme účastnit tak, abychom vytvořili prostor bez obtěžování pro každého, bez ohledu na věk, váhu, vzhled, tělesné postižení, etnický původ, sexuální charakteristiky, genderovou identitu a vyjádření, úroveň zkušeností, vzdělání, socioekonomický status, národnost, rasu, náboženství, politickou stranu nebo sexuální identitu a orientaci. Upozorňujeme však, že náboženství, politická strana nebo jiná ideologická příslušnost neposkytují žádné výjimky pro chování, které v tomto Kodexu chování označujeme za nepřijatelné.
 
-## Our Standards {#our-standards}
+## Naše standardy {#our-standards}
 
-Examples of behavior that contributes to creating a positive environment include:
+Příklady chování, které přispívá k vytváření pozitivního prostředí, jsou například:
 
-- Using welcoming and inclusive language
-- Being respectful of differing viewpoints and experiences
-- Gracefully accepting constructive criticism
-- Focusing on what is best for the community
-- Showing empathy towards other community members
+- Používání vstřícného a inkluzivního jazyka
+- Respektování různých názorů a zkušeností
+- Slušné přijetí konstruktivní kritiku
+- Zaměření na to, co je pro komunitu nejlepší
+- Projevení empatie vůči ostatním členům komunity
 
-Examples of unacceptable behavior by participants include:
+Příklady nepřijatelného chování účastníků jsou například:
 
-- The use of sexualized language or imagery and unwelcome sexual attention or advances
-- Trolling, insulting/derogatory comments, and personal or political attacks
-- Public or private harassment
-- Publishing others' private information, such as a physical or electronic address, without explicit permission
-- Other conduct which could reasonably be considered inappropriate in a professional setting
+- Používání jazyka či obrázků se sexuáním podtextem a nevítaná sexuální pozornost nebo návrhy
+- Trolling, urážlivé/hanlivé komentáře a osobní nebo politické útoky
+- Veřejné nebo soukromé obtěžování
+- Zveřejňování soukromých informací jiných osob, jako je fyzická nebo elektronická adresa, bez výslovného povolení
+- Jiné chování, které by mohlo být v profesionálním prostředí důvodně považováno za nevhodné
 
-## Our Responsibilities {#our-responsibilities}
+## Naše odpovědnosti {#our-responsibilities}
 
-Project maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.
+Správci projektu jsou odpovědní za vyjasnění standardů přijatelného chování a očekává se od nich, že přijmou vhodná a spravedlivá nápravná opatření v reakci na jakékoli případy nepřijatelného chování.
 
-Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.
+Správci projektu mají právo a odpovědnost odstranit, upravit nebo odmítnout komentáře, úpravy kódu, úpravy wiki, issues a další příspěvky, které nejsou v souladu s tímto Kodexem chování, nebo dočasně či trvale zakázat kteréhokoliv přispěvatele za jiné chování, které považují za nevhodné, výhružné, urážlivé nebo škodlivé.
 
-## Scope {#scope}
+## Rozsah {#scope}
 
-This Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers.
+Tento Kodex chování platí jak v rámci projektu, tak i ve veřejném prostoru, kde jednotlivec zastupuje projekt nebo jeho komunitu. Mezi příklady zastupování projektu nebo komunity patří používání oficiální e-mailové adresy projektu, zveřejňování příspěvků prostřednictvím oficiálních účtů na sociálních sítích nebo jednání jako jmenovaný zástupce na online nebo offline akci. Správci projektu mohou definici dále rozvíjet a upřesňovat.
 
-## Enforcement {#enforcement}
+## Vymáhání {#enforcement}
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at community@vuejs.org. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
+Případy hrubého, obtěžujícího nebo jinak nepřijatelného chování lze nahlásit kontaktováním projektového týmu na adrese community@vuejs.org. Všechny stížnosti budou přezkoumány a prošetřeny a výsledkem bude odpověď, která bude považována za nezbytnou a přiměřenou okolnostem. Projektový tým je povinen zachovávat mlčenlivost s ohledem na oznamovatele incidentu. Další podrobnosti o konkrétních zásadách prosazování mohou být zveřejněny samostatně.
 
-Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project's leadership.
+Správci projektu, kteří nebudou Kodex chování dodržovat či vymáhat správně, mohou čelit dočasným nebo trvalým následkům určeným ostatními členy vedení projektu.
 
-## Attribution {#attribution}
+## Zdroj {#attribution}
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4, available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
+Tento Kodex chování je převzatý z [Contributor Covenant][homepage], verze 1.4, dostupné na https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
 
 [homepage]: https://www.contributor-covenant.org

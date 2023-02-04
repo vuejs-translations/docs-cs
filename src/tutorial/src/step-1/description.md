@@ -2,7 +2,7 @@
 
 Vítejte u Vue tutoriálu!
 
-Úkolem tohoto tutoriálu je rychle vám zprostředkovat, jaké je to pracovat s Vue přímo v prohlížeči. Nesnaží se být obsáhlý a nemusíte předem rozumět všemu. Nicméně, jakmile ho dokončíte, určitě si přečtěte také <a target="_blank" href="/guide/introduction.html">Příručku</a>, které každé téma pokrývá více do hloubky.
+Úkolem tohoto tutoriálu je rychle vám zprostředkovat, jaké je to pracovat s Vue přímo v prohlížeči. Nesnaží se být obsáhlý a nemusíte předem rozumět všemu. Nicméně, jakmile ho dokončíte, určitě si přečtěte také <a target="_blank" href="/guide/introduction.html">Průvodce</a>, který každé téma pokrývá více do hloubky.
 
 ## Předpoklady {#prerequisites}
 

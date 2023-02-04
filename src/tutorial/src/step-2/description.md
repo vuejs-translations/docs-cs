@@ -34,7 +34,7 @@ console.log(message.value) // "Hello World!"
 message.value = 'Changed'
 ```
 
-Detaily fungování `reactive()` a `ref()` jsou popsány v <a target="_blank" href="/guide/essentials/reactivity-fundamentals.html">příručce Základy reaktivity</a>.
+Detaily fungování `reactive()` a `ref()` jsou popsány v <a target="_blank" href="/guide/essentials/reactivity-fundamentals.html">průvodci Základy reaktivity</a>.
 
 <div class="sfc">
 

@@ -229,8 +229,8 @@ Různí vývojáři mají různé způsoby učení. Vyberte si způsob, který v
     <p class="next-steps-caption">Pro ty, kterým vyhovuje, když si mohou věci sami vyzkoušet.</p>
   </a>
   <a class="vt-box" href="/guide/quick-start.html">
-    <p class="next-steps-link">Přečtěte si příručku</p>
-    <p class="next-steps-caption">Příručka vás detailně provede všemi vlastnostmi frameworku.</p>
+    <p class="next-steps-link">Přečtěte si průvodce</p>
+    <p class="next-steps-caption">Průvodce vás detailně provede všemi vlastnostmi frameworku.</p>
   </a>
   <a class="vt-box" href="/examples/">
     <p class="next-steps-link">Podívejte se na příklady</p>

@@ -176,7 +176,7 @@ Dosavadní příklady jsou používány při development buildech Vue - pokud ch
 
 ### Rozdělování modulů {#splitting-up-the-modules}
 
-Jak se budeme nořit hlouběji do příručky, možná budete potřebovat rozdělit kód do samostatných JavaScript souborů, aby je bylo možné jednodušeji udržovat. Například:
+Jak se budeme nořit hlouběji do průvodce, možná budete potřebovat rozdělit kód do samostatných JavaScript souborů, aby je bylo možné jednodušeji udržovat. Například:
 
 ```html
 <!-- index.html -->
@@ -215,8 +215,8 @@ Pokud jste překročili [Představení](/guide/introduction), silně doporučujm
 
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/guide/essentials/application.html">
-    <p class="next-steps-link">Pokračovat s příručkou</p>
-    <p class="next-steps-caption">Příručka vás detailně provede všemi vlastnostmi frameworku.</p>
+    <p class="next-steps-link">Pokračovat s průvodcem</p>
+    <p class="next-steps-caption">Průvodce vás detailně provede všemi vlastnostmi frameworku.</p>
   </a>
   <a class="vt-box" href="/tutorial/">
     <p class="next-steps-link">Vyzkoušejte tutorial</p>
