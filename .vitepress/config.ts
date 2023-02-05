@@ -238,7 +238,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
         { text: 'Tooling', link: '/guide/scaling-up/tooling' },
         { text: 'Routing', link: '/guide/scaling-up/routing' },
         {
-          text: 'Stavový management',
+          text: 'State management',
           link: '/guide/scaling-up/state-management'
         },
         { text: 'Testování', link: '/guide/scaling-up/testing' },

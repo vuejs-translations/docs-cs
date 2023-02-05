@@ -1,6 +1,3 @@
-/about
-faq
-
 /api
 application.md
 built-in-components.md

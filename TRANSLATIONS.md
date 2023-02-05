@@ -8,7 +8,9 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 Keep EN term
 
 ## LIST
+* 🟥 API = API
 * 🟩 array = pole
+* 🟥 backend = backend
 * 🟩 build-in (adj.) = vestavěný
 * 🟩 Code of Conduct = Kodex chování
 * 🟥 Composition API = Composition API
@@ -16,11 +18,15 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 check out = podívejte se na
 * 🟩 declarative renderting = deklarativní rendering
 * 🟩 declare = deklarovat
+* 🟥 DOM = DOM
+* 🟥 element = element
 * 🟩 expose (v.) = vystavit
 * 🟩 expression = výraz
 * 🟥 framework = framework
+* 🟥 frontend = frontend
 * 🟩 fundamentals = základy
 * 🟩 guide = průvodce
+* 🟥 IDE = IDE
 * 🟨 JavaScript state = stav JavaScript objektů
 * 🟩 notice (v.) = všimněte si
 * 🟥 open source = open source
@@ -35,13 +41,17 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 reactivity = reaktivita
 * 🟩 release = verze
 * 🟩 rendering = vykreslování
+* 🟥 routing = routing
 * 🟩 sidebar = postranní panel
 * 🟨 Single-File component = Single-File komponenta (SFC)
+* 🟥 slot = slot
 * 🟩 state = stav
+* 🟥 state management = state management
 * 🟨 technology stack = technologický stack
 * 🟩 template = šablona
 * 🟩 theme = šablona
 * 🟩 this is how = tímto způsobem můžeme
 * 🟩 trigger (v.) = vyvolat
 * 🟩 type = typ
+* 🟩 use case = případ užití
 * 🟩 using the = pomocí
