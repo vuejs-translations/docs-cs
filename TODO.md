@@ -31,17 +31,6 @@ utility-types.md
 api.data.ts
 ApiIndex.vue
 
-/ecosystem
-themes/themes.json
-themes/ThemeContact.vue
-themes/ThemeHero.vue
-themes/ThemeList.vue
-themes/ThemeListItem.vue
-themes/ThemePage.vue
-themes/ThemeProduct.vue
-newsletters.md
-themes.md
-
 /example
 attribute-bindings\
 cells\

@@ -42,7 +42,7 @@ const nav: ThemeConfig['nav'] = [
         text: 'Zdroje',
         items: [
           { text: 'Partneři', link: '/partners/' },
-          { text: 'Themes', link: '/ecosystem/themes' },
+          { text: 'Šablony', link: '/ecosystem/themes' },
           { text: 'Nabídka práce', link: 'https://vuejobs.com/?ref=vuejs' },
           { text: 'Trička e-shop', link: 'https://vue.threadless.com/' }
         ]

@@ -23,9 +23,11 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 guide = průvodce
 * 🟨 JavaScript state = stav JavaScript objektů
 * 🟩 notice (v.) = všimněte si
+* 🟥 open source = open source
 * 🟥 Options API = Options API
 * 🟥 package = package
 * 🟩 passed to = posílaný do
+* 🟥 pull request = pull request
 * 🟩 prerequisities = předpoklady
 * 🟩 property = vlastnost
 * 🟥 proxy = proxy
@@ -36,7 +38,9 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 sidebar = postranní panel
 * 🟨 Single-File component = Single-File komponenta (SFC)
 * 🟩 state = stav
-* 🟨 template = šablona
+* 🟨 technology stack = technologický stack
+* 🟩 template = šablona
+* 🟩 theme = šablona
 * 🟩 this is how = tímto způsobem můžeme
 * 🟩 trigger (v.) = vyvolat
 * 🟩 type = typ
