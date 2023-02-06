@@ -29,7 +29,7 @@ onMounted(() => {
 
     <div class="featured">
       <h2>Vybraní partneři</h2>
-      <PartnerList :filter="(p) => p.platinum" />
+      <PartnerList :filter="(p) => p.platinum" showLinkToAll />
       <a class="browse-all" href="./all.html">Všichni partneři</a>
     </div>
 
