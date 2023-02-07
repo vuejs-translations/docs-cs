@@ -531,7 +531,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/style-guide/'
         },
         {
-          text: 'A - Základy',
+          text: 'A - Zásadní',
           link: '/style-guide/rules-essential'
         },
         {

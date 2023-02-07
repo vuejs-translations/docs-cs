@@ -64,11 +64,8 @@ introduction.md
 quick-start.md
 
 /style-guide
-index.md
-rules-essential.md
 rules-recommended.md
 rules-strongly-recommended.md
-rules-use-with-caution.md
 
 /tutorial
 /src/step-3

@@ -1,21 +1,21 @@
-# Priority D Rules: Use with Caution {#priority-d-rules-use-with-caution}
+# Pravidla priority D: Používejte s rozvahou {#priority-d-rules-use-with-caution}
 
-Some features of Vue exist to accommodate rare edge cases or smoother migrations from a legacy code base. When overused however, they can make your code more difficult to maintain or even become a source of bugs. These rules shine a light on potentially risky features, describing when and why they should be avoided.
+Některé funkce Vue existují pro přizpůsobení se vzácným okrajovým případům nebo kvůli hladší migraci z legacy kódu. Při nadměrném používání však mohou ztížit údržbu vašeho kódu nebo se dokonce stát zdrojem chyb. Tato pravidla upozorňují na potenciálně rizikové funkce a popisují, kdy a proč je třeba se jim vyhnout.
 
-## Element selectors with `scoped` {#element-selectors-with-scoped}
+## Selektory prvků + `scoped` {#element-selectors-with-scoped}
 
-**Element selectors should be avoided with `scoped`.**
+**Selektory prvků by neměly být v rámci `scoped` používány.**
 
-Prefer class selectors over element selectors in `scoped` styles, because large numbers of element selectors are slow.
+Upřednostněte selektory tříd před selektory prvků ve `scoped` stylech, protože velké počty selektorů prvků jsou pomalé.
 
-::: details Detailed Explanation
-To scope styles, Vue adds a unique attribute to component elements, such as `data-v-f3f3eg9`. Then selectors are modified so that only matching elements with this attribute are selected (e.g. `button[data-v-f3f3eg9]`).
+::: details Podrobné vysvětlení
+Pro zajištění omezení stylů přidává Vue do prvků komponent jedinečný atribut, jako je `data-v-f3f3eg9`. Poté jsou selektory upraveny tak, aby byly vybírány pouze odpovídající prvky s tímto atributem (např. `button[data-v-f3f3eg9]`).
 
-The problem is that large numbers of element-attribute selectors (e.g. `button[data-v-f3f3eg9]`) will be considerably slower than class-attribute selectors (e.g. `.btn-close[data-v-f3f3eg9]`), so class selectors should be preferred whenever possible.
+Problém je v tom, že velký počet selektorů atributů prvku (např. `button[data-v-f3f3eg9]`) bude podstatně pomalejší než selektory atributů třídy (např. `.btn-close[data-v-f3f3eg9]` ). Proto by selektory tříd měly být preferovány, kdykoli je to možné.
 :::
 
 <div class="style-example style-example-bad">
-<h3>Bad</h3>
+<h3>Špatně</h3>
 
 ```vue-html
 <template>
@@ -32,7 +32,7 @@ button {
 </div>
 
 <div class="style-example style-example-good">
-<h3>Good</h3>
+<h3>Dobře</h3>
 
 ```vue-html
 <template>
@@ -48,16 +48,16 @@ button {
 
 </div>
 
-## Implicit parent-child communication {#implicit-parent-child-communication}
+## Impliitní komunikace rodič-potomek {#implicit-parent-child-communication}
 
-**Props and events should be preferred for parent-child component communication, instead of `this.$parent` or mutating props.**
+**Vlastnosti (props) a události (events) by měly být v komunikaci rodič-potomek mezi komponentami upřednostňovány před `this.$parent` nebo modifikacemi vlastností.**
 
-An ideal Vue application is props down, events up. Sticking to this convention makes your components much easier to understand. However, there are edge cases where prop mutation or `this.$parent` can simplify two components that are already deeply coupled.
+Ideální Vue aplikace posílá vlastnosti dolů a události nahoru. Pokud se budete držet této konvence, budou vaše komponenty mnohem srozumitelnější. Existují však okrajové případy, kdy modifikace vlastností nebo použití `this.$parent` může zjednodušit dvě komponenty, které již stejně jsou pevně svázány.
 
-The problem is, there are also many _simple_ cases where these patterns may offer convenience. Beware: do not be seduced into trading simplicity (being able to understand the flow of your state) for short-term convenience (writing less code).
+Problém je, že existuje také mnoho _jednoduchých_ případů, kdy tyto vzory mohou nabízet zdánlivé pohodlí. Pozor: nenechte se svést k výměně jednoduchosti (být schopen porozumět toku vašeho aplikačního stavu) za krátkodobé pohodlí (napsat méně kódu).
 
 <div class="style-example style-example-bad">
-<h3>Bad</h3>
+<h3>Špatně</h3>
 
 ```js
 app.component('TodoItem', {
@@ -103,7 +103,7 @@ app.component('TodoItem', {
 </div>
 
 <div class="style-example style-example-good">
-<h3>Good</h3>
+<h3>Dobře</h3>
 
 ```js
 app.component('TodoItem', {
