@@ -13,7 +13,7 @@ aside: false
 ## Probíhající překlady {#work-in-progress-languages}
 
 - [Українська / Ukrajinština](https://ua.vuejs.org) [[zdrojové kódy](https://github.com/vuejs-translations/docs-ua)]
-- [Français / Francouzština](https://vuejs-docs-fr.netlify.app) [[zdrojové kódy](https://github.com/vuejs-translations/docs-fr)]
+- [Français / Francouzština](https://fr.vuejs.org) [[zdrojové kódy](https://github.com/vuejs-translations/docs-fr)]
 
 ## Začít nový překlad {#starting-a-new-translation}
 
