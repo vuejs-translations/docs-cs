@@ -64,8 +64,7 @@ introduction.md
 quick-start.md
 
 /style-guide
-rules-recommended.md
-rules-strongly-recommended.md
+rules-strongly-recommended.md (7-16)
 
 /tutorial
 /src/step-3

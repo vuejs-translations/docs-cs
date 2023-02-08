@@ -1,12 +1,12 @@
-# Priority B Rules: Strongly Recommended {#priority-b-rules-strongly-recommended}
+# Pravidla priority B: Silně doporučeno {#priority-b-rules-strongly-recommended}
 
-These rules have been found to improve readability and/or developer experience in most projects. Your code will still run if you violate them, but violations should be rare and well-justified.
+Tato pravidla byla zavedena pro zlepšení čitelnosti a/nebo komfortu pro vývojáře na většině projektů. Pokud je porušíte, váš kód bude stále fungovat, ale porušení by měla být vzácná a dobře odůvodněná.
 
-## Component files {#component-files}
+## Soubory komponent {#component-files}
 
-**Whenever a build system is available to concatenate files, each component should be in its own file.**
+**Kdykoli je k dispozici build systém pro poskládání souborů, každá komponenta by měla být ve svém vlastním souboru.**
 
-This helps you to more quickly find a component when you need to edit it or review how to use it.
+To vám pomůže rychleji najít komponentu, když ji potřebujete upravit nebo zkontrolovat, jak ji používat.
 
 <div class="style-example style-example-bad">
 <h3>Špatně</h3>
@@ -40,11 +40,11 @@ components/
 
 </div>
 
-## Single-file component filename casing {#single-file-component-filename-casing}
+## Velká a malá písmena v názvech Single-file komponent (SFC) {#single-file-component-filename-casing}
 
-**Filenames of [Single-File Components](/guide/scaling-up/sfc.html) should either be always PascalCase or always kebab-case.**
+**Názvy souborů [Single-File komponent (SFC)](/guide/scaling-up/sfc.html) by měly být buďto vždy PascalCase nebo vždy kebab-case.**
 
-PascalCase works best with autocompletion in code editors, as it's consistent with how we reference components in JS(X) and templates, wherever possible. However, mixed case filenames can sometimes create issues on case-insensitive file systems, which is why kebab-case is also perfectly acceptable.
+PascalCase funguje nejlépe s automatickým dokončováním v editorech kódu, protože je konzistentní s tím, jak odkazujeme na komponenty v JS(X) a v šablonách, kdykoli je to možné. Názvy s mixem malých a velkých písmen však mohou někdy způsobit problémy v case-insensitive souborových systémech, a proto je kebab-case také dokonale přijatelný.
 
 <div class="style-example style-example-bad">
 <h3>Špatně</h3>
@@ -76,28 +76,28 @@ components/
 
 </div>
 
-## Base component names {#base-component-names}
+## Názvy základních komponent {#base-component-names}
 
-**Base components (a.k.a. presentational, dumb, or pure components) that apply app-specific styling and conventions should all begin with a specific prefix, such as `Base`, `App`, or `V`.**
+**Základní komponenty (alias prezentační (presentational), hloupé (dumb) nebo čisté (pure) komponenty), ve kterých platí pravidla stylování a konvence typické pro aplikaci, by měly vždy začít se speciální předponou, například `Base`, `App`, or `V`.**
 
 ::: details Podrobné vysvětlení
-These components lay the foundation for consistent styling and behavior in your application. They may **only** contain:
+Tyto komponenty pokládají základy pro konzistentní stylování a chování ve vaší aplikaci. Mohou obsahovat **pouze**:
 
-- HTML elements,
-- other base components, and
-- 3rd-party UI components.
+- HTML elementy,
+- jiné základní komponenty
+- UI komponenty třetích stran.
 
-But they'll **never** contain global state (např. from a [Pinia](https://pinia.vuejs.org/) store).
+Ale **nikdy** neobsahují globální stav (např. state z [Pinia](https://pinia.vuejs.org/) store).
 
-Their names often include the name of an element they wrap (např. `BaseButton`, `BaseTable`), unless no element exists for their specific purpose (např. `BaseIcon`). If you build similar components for a more specific context, they will almost always consume these components (např. `BaseButton` may be used in `ButtonSubmit`).
+Jejich názvy často obsahují název prvku, který obalují (např. `BaseButton`, `BaseTable`), ledaže neexistuje žádný prvek pro jejich konkrétní účel (např. `BaseIcon`). Pokud vytváříte podobné komponenty pro specifičtější kontext, tyto komponenty je téměř vždy použijí (např. `BaseButton` může být použita v `ButtonSubmit`).
 
-Some advantages of this convention:
+Některé výhody této konvence:
 
-- When organized alphabetically in editors, your app's base components are all listed together, making them easier to identify.
+- Když jsou v editoru uspořádány abecedně, základní součásti vaší aplikace jsou uvedeny společně, což usnadňuje jejich identifikaci.
 
-- Since component names should always be multi-word, this convention prevents you from having to choose an arbitrary prefix for simple component wrappers (např. `MyButton`, `VueButton`).
+- Vzhledem k tomu, že názvy komponent by měly být vždy víceslovné, tato konvence vám brání volit libovolnou předponu pro jednoduché obaly komponent (např. `MyButton`, `VueButton`).
 
-- Since these components are so frequently used, you may want to simply make them global instead of importing them everywhere. A prefix makes this possible with Webpack:
+- Vzhledem k tomu, že se tyto komponenty používají často, možná budete chtít, aby byly globální, místo abyste je všude importovali. Předpona to v kombinaci s Webpackem umožňuje:
 
   ```js
   const requireComponent = require.context(
@@ -156,11 +156,11 @@ components/
 
 </div>
 
-## Single-instance component names {#single-instance-component-names}
+## Jména komponent s jedinou instancí {#single-instance-component-names}
 
-**Components that should only ever have a single active instance should begin with the `The` prefix, to denote that there can be only one.**
+**Komponenty, které by vždy měly mít pouze jednu aktivní instanci, by měly začínat na `The`, aby bylo označeno, že může být pouze jedna.**
 
-This does not mean the component is only used in a single page, but it will only be used once _per page_. These components never accept any props, since they are specific to your app, not their context within your app. If you find the need to add props, it's a good indication that this is actually a reusable component that is only used once per page _for now_.
+To neznamená, že komponenta je použita pouze na jedné stránce, ale bude použita pouze jednou _na stránku_. Tyto komponenty nikdy nepřijímají žádné vlastnosti (props), protože jsou specifické pro vaši aplikaci, nikoli jejich kontext ve vaší aplikaci. Pokud zjistíte, že je potřeba přidat vlastnosti, je to dobrá známka toho, že se ve skutečnosti jedná o opakovaně použitelnou komponentu, která se _prozatím_ používá pouze jednou na stránku.
 
 <div class="style-example style-example-bad">
 <h3>Špatně</h3>
@@ -184,14 +184,14 @@ components/
 
 </div>
 
-## Tightly coupled component names {#tightly-coupled-component-names}
+## Těsně provázané názvy komponent {#tightly-coupled-component-names}
 
-**Child components that are tightly coupled with their parent should include the parent component name as a prefix.**
+**Komponenty potomků, ktero jsou těsně provázané s jejich rodičovskou komponentou, by měly obsahovat název nadřazené komponenty jako předponu.**
 
-If a component only makes sense in the context of a single parent component, that relationship should be evident in its name. Since editors typically organize files alphabetically, this also keeps these related files next to each other.
+Pokud má komponenta smysl pouze v kontextu jedné nadřazené komponenty, měl by být tento vztah zřejmý z jejího názvu. Vzhledem k tomu, že editory obvykle řadí soubory abecedně, toto také drží související soubory vedle sebe.
 
 ::: details Podrobné vysvětlení
-You might be tempted to solve this problem by nesting child components in directories named after their parent. For example:
+Možná budete v pokušení řešit tento problém vnořením podřízených komponent do adresářů pojmenovaných po jejich rodiči. Například:
 
 ```
 components/
@@ -213,10 +213,10 @@ components/
 |- TodoList.vue
 ```
 
-This isn't recommended, as it results in:
+To se nedoporučuje, protože to má za následek:
 
-- Many files with similar names, making rapid file switching in code editors more difficult.
-- Many nested sub-directories, which increases the time it takes to browse components in an editor's sidebar.
+- Mnoho souborů s podobnými názvy, což ztěžuje rychlé přepínání souborů v editorech kódu.
+- Mnoho vnořených podadresářů, což prodlužuje čas potřebný k procházení komponent v postranním panelu editoru.
   :::
 
 <div class="style-example style-example-bad">
@@ -255,24 +255,28 @@ components/
 
 </div>
 
-## Order of words in component names {#order-of-words-in-component-names}
+## Pořadí slov v názvech komponent {#order-of-words-in-component-names}
 
-**Component names should start with the highest-level (often most general) words and end with descriptive modifying words.**
+**Názvy komponent by měly začínat (většinou) nejobecnějšími slovy a končit popisnými modifikujícími výrazy.**
 
 ::: details Podrobné vysvětlení
-You may be wondering:
+Možná se ptáte:
 
-> "Why would we force component names to use less natural language?"
+> ""Proč bychom nutili názvy komponent používat méně přirozený jazyk?"
 
-In natural English, adjectives and other descriptors do typically appear before the nouns, while exceptions require connector words. For example:
+V přirozené angličtině se přídavná jména a další deskriptory obvykle objevují před podstatnými jmény, zatímco výjimky vyžadují spojovací slova. Například:
 
 - Coffee _with_ milk
 - Soup _of the_ day
 - Visitor _to the_ museum
 
-You can definitely include these connector words in component names if you'd like, but the order is still important.
+Pokud chcete, určitě můžete tato spojovací slova zahrnout do názvů komponent, ale pořadí je stále důležité.
 
-Also note that **what's considered "highest-level" will be contextual to your app**. For example, imagine an app with a search form. It may include components like this one:
+:::warning Čeština
+Výše uvedený text platí spíše pro anglický jazyk. V češtině sice také říkáme _Káva s mlékem_, ale vystačíme si s _Polévka dne_ a _Návštěvník muzea_ i bez spojovacích slov.
+:::
+
+Také si uvědomte, že **co je považováno za "nejvyšší level" bude platit v kontextu vaší aplikace**. Představte si například aplikaci s vyhledávacím formulářem. Může obsahovat komponenty jako jsou tato:
 
 ```
 components/
@@ -284,7 +288,7 @@ components/
 |- TermsCheckbox.vue
 ```
 
-As you might notice, it's quite difficult to see which components are specific to the search. Now let's rename the components according to the rule:
+Jak jste si mohli všimnout, je docela obtížné zjistit, které komponenty jsou specifické pro vyhledávání. Nyní přejmenujme komponenty podle pravidla:
 
 ```
 components/
@@ -296,13 +300,13 @@ components/
 |- SettingsCheckboxTerms.vue
 ```
 
-Since editors typically organize files alphabetically, all the important relationships between components are now evident at a glance.
+Protože editory obvykle organizují soubory abecedně, všechny důležité vztahy mezi komponentami jsou nyní zřejmé na první pohled.
 
-You might be tempted to solve this problem differently, nesting all the search components under a "search" directory, then all the settings components under a "settings" directory. We only recommend considering this approach in very large apps (např. 100+ components), for these reasons:
+Možná budete chtít vyřešit tento problém jinak, vnořit všechny komponenty vyhledávání do adresáře „search“ a poté všechny komponenty nastavení do adresáře „settings“. Tento přístup doporučujeme zvážit pouze ve velmi velkých aplikacích (např. 100+ komponent), a to z těchto důvodů:
 
-- It generally takes more time to navigate through nested sub-directories, than scrolling through a single `components` directory.
-- Name conflicts (např. multiple `ButtonDelete.vue` components) make it more difficult to quickly navigate to a specific component in a code editor.
-- Refactoring becomes more difficult, because find-and-replace often isn't sufficient to update relative references to a moved component.
+- Procházení vnořenými podadresáři obvykle zabere více času než procházení jediným adresářem `components`.
+- Konflikty názvů (např. více komponent `ButtonDelete.vue`) ztěžují rychlou navigaci ke konkrétní komponentě v editoru kódu.
+- Refaktorování se stává obtížnějším, protože funkce find-and-replace často nestačí k aktualizaci relativních odkazů na přesouvanou komponentu.
   :::
 
 <div class="style-example style-example-bad">

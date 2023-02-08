@@ -53,6 +53,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 proxy = proxy
 * 🟩 reactive = reaktivní
 * 🟩 reactivity = reaktivita
+* 🟨 refactoring = refaktoring
 * 🟩 release = verze
 * 🟩 rendering = vykreslování
 * 🟥 routing = routing
@@ -63,8 +64,10 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 slot = slot
 * 🟩 state = stav
 * 🟥 state management = state management
+* 🟥 store = store
 * 🟨 technology stack = technologický stack
 * 🟩 template = šablona
+* 🟩 tightly coupled = těsně provázané
 * 🟩 theme = šablona
 * 🟩 this is how = tímto způsobem můžeme
 * 🟩 throw an error = vyhodit výjimku
