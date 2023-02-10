@@ -165,7 +165,7 @@ Do import mapy můžete přidat i záznamy pro další závislosti - ujistěte s
 :::tip Podpora Import Maps v prohlížečích
 Import mapy jsou defaultně podporované v Chromium-based prohlížečích, takže během učení doporučujeme používat Chrome nebo Edge.
 
-Pokud používáte Firefox, podpora je až od verze 102+ a v tuto chvíli je nutné ji povolit přes nastavení `dom.importMaps.enabled`  v `about:config`.
+Pokud používáte Firefox, defaultní podpora je od verze 108+, případně od verze 102+ lze nastvit `dom.importMaps.enabled` v `about:config` na hodnotu true.
 
 Pokud váš oblíbený prohlížeč import mapy zatím nepodporuje, můžete použít polyfill [es-module-shims](https://github.com/guybedford/es-module-shims).
 :::
@@ -180,6 +180,8 @@ Jak se budeme nořit hlouběji do průvodce, možná budete potřebovat rozděli
 
 ```html
 <!-- index.html -->
+<div id="app"></div>
+
 <script type="module">
   import { createApp } from 'vue'
   import MyComponent from './my-component.js'
