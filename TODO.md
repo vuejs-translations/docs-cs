@@ -63,9 +63,6 @@ typescript\
 introduction.md
 quick-start.md
 
-/style-guide
-rules-strongly-recommended.md (7-16)
-
 /tutorial
 /src/step-3
 /src/step-4

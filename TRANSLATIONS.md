@@ -25,6 +25,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 declarative renderting = deklarativní rendering
 * 🟩 declare = deklarovat
 * 🟥 DOM = DOM
+* 🟨 DOM template = DOM-šablona
 * 🟩 e.g. = např.
 * 🟥 element = element
 * 🟥 emits = emits
@@ -38,6 +39,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 guide = průvodce
 * 🟥 IDE = IDE
 * 🟨 JavaScript state = stav JavaScript objektů
+* 🟥 kebab-case = kebab-case
 * 🟥 layout = layout
 * 🟨 legacy code = legacy kód
 * 🟩 mutation = modifikace
@@ -45,6 +47,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 open source = open source
 * 🟥 Options API = Options API
 * 🟥 package = package
+* 🟥 PascalCase = PascalCase
 * 🟩 passed to = posílaný do
 * 🟥 pull request = pull request
 * 🟩 prerequisities = předpoklady
@@ -59,12 +62,14 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 routing = routing
 * 🟥 scoped = scoped
 * 🟨 selector = selektor
+* 🟨 self-closing = nepárový (self-closing)
 * 🟩 sidebar = postranní panel
 * 🟨 Single-File component = Single-File komponenta (SFC)
 * 🟥 slot = slot
 * 🟩 state = stav
 * 🟥 state management = state management
 * 🟥 store = store
+* 🟨 string template = string-šablona
 * 🟨 technology stack = technologický stack
 * 🟩 template = šablona
 * 🟩 tightly coupled = těsně provázané
@@ -75,3 +80,4 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 type = typ
 * 🟩 use case = případ užití
 * 🟩 using the = pomocí
+* 🟥 Web Component = Web Component
