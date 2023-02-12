@@ -295,7 +295,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/guide/extras/composition-api-faq'
         },
         {
-          text: 'Reactivita podrobně',
+          text: 'Reaktivita podrobně',
           link: '/guide/extras/reactivity-in-depth'
         },
         {

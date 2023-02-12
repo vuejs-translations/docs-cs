@@ -17,7 +17,7 @@ Pokud jste zkušený vývojář přecházející z Vue 2 nebo jiných framework�
 <details>
 <summary>Detaily možného nastavení</summary>
 
-- Vue nabízí dva API styly: Options API a Composition API. Tento tutoriál jen navržen pro práci s oběna - můžete si vybrat preferovaný styl pomocí  **API Preference** přepínače nahoře. <a target="_blank" href="/guide/introduction.html#api-styles">Zjistit víc o API stylech</a>.
+- Vue nabízí dva API styly: Options API a Composition API. Tento tutoriál jen navržen pro práci s oběna - můžete si vybrat preferovaný styl pomocí  **přepínače API preference** vlevo nahoře. <a target="_blank" href="/guide/introduction.html#api-styles">Zjistit víc o API stylech</a>.
 
 - Můžete také přepínat mezi SFC-módem a HTML-módem. První z nich zobrazí příklady kódu ve formátu <a target="_blank" href="/guide/introduction.html#single-file-components">Single-File komponenty</a> (SFC), který používá většina vývojářů, pokud pracují s Vue s build fází. HTML-mód ukazuje použití bez build fáze.
 

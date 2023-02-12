@@ -50,9 +50,9 @@ button {
 
 ## Impliitní komunikace rodič-potomek {#implicit-parent-child-communication}
 
-**Vlastnosti (props) a události (events) by měly být v komunikaci rodič-potomek mezi komponentami upřednostňovány před `this.$parent` nebo modifikacemi vlastností.**
+**Vlastnosti (props) a události (events) by měly být v komunikaci rodič-potomek mezi komponentami upřednostňovány před `this.$parent` nebo změnami vlastností.**
 
-Ideální Vue aplikace posílá vlastnosti dolů a události nahoru. Pokud se budete držet této konvence, budou vaše komponenty mnohem srozumitelnější. Existují však okrajové případy, kdy modifikace vlastností nebo použití `this.$parent` může zjednodušit dvě komponenty, které již stejně jsou pevně svázány.
+Ideální Vue aplikace posílá vlastnosti dolů a události nahoru. Pokud se budete držet této konvence, budou vaše komponenty mnohem srozumitelnější. Existují však okrajové případy, kdy změna vlastností nebo použití `this.$parent` může zjednodušit dvě komponenty, které již stejně jsou pevně svázány.
 
 Problém je, že existuje také mnoho _jednoduchých_ případů, kdy tyto vzory mohou nabízet zdánlivé pohodlí. Pozor: nenechte se svést k výměně jednoduchosti (být schopen porozumět toku vašeho aplikačního stavu) za krátkodobé pohodlí (napsat méně kódu).
 

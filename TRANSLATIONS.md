@@ -40,6 +40,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 emits = emits
 * 🟥 engine = engine
 * 🟨 events = události (events)
+* 🟥 event listner = event listner
 * 🟩 expose (v.) = vystavit
 * 🟩 expression = výraz
 * 🟥 focus = focus
@@ -55,12 +56,14 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 kebab-case = kebab-case
 * 🟥 layout = layout
 * 🟨 legacy code = legacy kód
+* 🟥 lifecycle hook = lifecycle hook
 * 🟨 mount = připojení (mount)
 * 🟨 "Mustache" syntax = "Mustache" syntaxe
-* 🟩 mutation = modifikace
+* 🟩 mutate (v.) = měnit
+* 🟩 mutation = změna
 * 🟩 notice (v.) = všimněte si
 * 🟥 open source = open source
-* 🟩 option = nastavení
+* 🟩 option = nastavení / proměnná / vlastnost (dle kontextu)
 * 🟥 Options API = Options API
 * 🟥 package = package
 * 🟩 parent = rodič
@@ -69,7 +72,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 passed to = posílaný do
 * 🟥 pull request = pull request
 * 🟩 prerequisities = předpoklady
-* 🟩 property = vlastnost
+* 🟩 property = vlastnost / proměnná
 * 🟨 props = vlastnosti (props)
 * 🟥 proxy = proxy
 * 🟩 reactive = reaktivní
@@ -81,6 +84,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟨 root component = root komponenta
 * 🟥 routing = routing
 * 🟥 scope = scope
+* 🟩 see also = viz také
 * 🟨 selector = selektor
 * 🟨 self-closing = nepárový (self-closing)
 * 🟩 sidebar = postranní panel
@@ -97,6 +101,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 theme = šablona
 * 🟩 this is how = tímto způsobem můžeme
 * 🟩 throw an error = vyhodit výjimku
+* 🟩 top level <sth> = <něco> nejvyšší úrovně / globální <něco> (pokud to odpovídá kontextu)
 * 🟩 trigger (v.) = vyvolat
 * 🟩 type = typ
 * 🟩 under the hood = interně

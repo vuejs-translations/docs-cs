@@ -213,7 +213,7 @@ Pokud jste ve Vue nováčky, zde je naše základní doporučení:
 
   - Zvolte Composition API + Single-File Components pokud plánujete vytvořit celou aplikaci ve Vue.
 
-V průběhu vašeho učení se nemusíte upsat jednomu stylu. Zbytek dokumentace poskytuje příklady kódu pro oba styly tam, kde to je možné, a můžete mezi nimi kdykoliv přemínat pomocí **API Preference přepínače** nahoře ve sloupci levého menu.
+V průběhu vašeho učení se nemusíte upsat jednomu stylu. Zbytek dokumentace poskytuje příklady kódu pro oba styly tam, kde to je možné, a můžete mezi nimi kdykoliv přemínat pomocí **přepínače API preference** nahoře ve sloupci levého menu.
 
 ## Máte další otázky? {#still-got-questions}
 
