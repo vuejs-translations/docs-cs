@@ -13,7 +13,9 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 app-level = globální
 * 🟩 application instance = aplikační instance
 * 🟩 argument = parametr
+* 🟨 arrow functions = arrow funkce
 * 🟩 asset = zdroj
+* 🟩 assign = přiřadit
 * 🟩 attribute = atribut
 * 🟩 array = pole
 * 🟥 backend = backend
@@ -21,6 +23,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 bug = chyba ('bug' lze občas nechat, ale určitě raději "zdroj chyb" než "zdroj bugů")
 * 🟩 build step = build fáze
 * 🟩 build-in (adj.) = vestavěný
+* 🟥 callback = callback
 * 🟩 check out = podívejte se na
 * 🟩 child = potomek
 * 🟩 Code of Conduct = Kodex chování
@@ -32,6 +35,8 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 content = obsah
 * 🟩 declarative renderting = deklarativní rendering
 * 🟩 declare = deklarovat
+* 🟩 deep = vnořený (za předpokladu, že odpovídá kontext, např. "deep reactivity")
+* 🟩 destructure = dekonstruovat
 * 🟨 directive = direktiva
 * 🟥 DOM = DOM
 * 🟨 DOM template = DOM-šablona
@@ -50,6 +55,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 globals = globální objekty
 * 🟩 guide = průvodce
 * 🟥 handler = handler
+* 🟩 holding = obsahovat
 * 🟨 in-DOM template = DOM-šablona (kvůli konzisteci s "DOM template")
 * 🟥 IDE = IDE
 * 🟨 JavaScript state = stav JavaScript objektů
@@ -62,6 +68,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 mutate (v.) = měnit
 * 🟩 mutation = změna
 * 🟩 notice (v.) = všimněte si
+* 🟩 object types = objektové typy
 * 🟥 open source = open source
 * 🟩 option = nastavení / proměnná / vlastnost (dle kontextu)
 * 🟥 Options API = Options API
@@ -72,6 +79,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 passed to = posílaný do
 * 🟥 pull request = pull request
 * 🟩 prerequisities = předpoklady
+* 🟨 primitive types = primitivní datové typy
 * 🟩 property = vlastnost / proměnná
 * 🟨 props = vlastnosti (props)
 * 🟥 proxy = proxy
@@ -92,6 +100,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 slot = slot
 * 🟩 state = stav
 * 🟥 state management = state management
+* 🟥 stateful = stateful
 * 🟥 store = store
 * 🟥 string = string
 * 🟨 string template = string-šablona

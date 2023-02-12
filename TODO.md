@@ -65,7 +65,6 @@ essentials\event-handling.md
 essentials\forms.md
 essentials\lifecycle.md
 essentials\list.md
-essentials\reactivity-fundamentals.md
 essentials\template-refs.md
 essentials\watchers.md
 
@@ -73,8 +72,6 @@ extras\
 reusability\
 scaling-up\
 typescript\
-introduction.md
-quick-start.md
 
 /tutorial
 /src/step-3
