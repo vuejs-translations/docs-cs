@@ -67,7 +67,6 @@ essentials\lifecycle.md
 essentials\list.md
 essentials\reactivity-fundamentals.md
 essentials\template-refs.md
-essentials\template-syntax.md
 essentials\watchers.md
 
 extras\
