@@ -108,7 +108,7 @@ A "meta component" for rendering dynamic components or elements.
 
   In practice, this edge case isn't common as native form fields are typically wrapped in components in real applications. If you do need to use a native element directly then you can split the `v-model` into an attribute and event manually.
 
-- **See also:** [Dynamic Components](/guide/essentials/component-basics.html#dynamic-components)
+- **Viz také:** [Dynamic Components](/guide/essentials/component-basics.html#dynamic-components)
 
 ## `<slot>` {#slot}
 
@@ -138,7 +138,7 @@ Denotes slot content outlets in templates.
 
   `<slot>` elements in Vue templates are compiled into JavaScript, so they are not to be confused with [native `<slot>` elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot).
 
-- **See also:** [Component - Slots](/guide/components/slots.html)
+- **Viz také:** [Component - Slots](/guide/components/slots.html)
 
 ## `<template>` {#template}
 
@@ -158,7 +158,7 @@ The `<template>` tag is used as a placeholder when we want to use a built-in dir
 
   Single-file components use a [top-level `<template>` tag](/api/sfc-spec.html#language-blocks) to wrap the entire template. That usage is separate from the use of `<template>` described above. That top-level tag is not part of the template itself and doesn't support template syntax, such as directives.  
 
-- **See also:**
+- **Viz také:**
   - [Guide - `v-if` on `<template>`](/guide/essentials/conditional.html#v-if-on-template) 
   - [Guide - `v-for` on `<template>`](/guide/essentials/list.html#v-for-on-template) 
   - [Guide - Named slots](/guide/components/slots.html#named-slots) 

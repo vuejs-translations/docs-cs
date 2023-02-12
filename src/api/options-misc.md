@@ -104,7 +104,7 @@ Controls whether the default component attribute fallthrough behavior should be 
 
   </div>
 
-- **See also:** [Fallthrough Attributes](/guide/components/attrs.html)
+- **Viz také:** [Fallthrough Attributes](/guide/components/attrs.html)
 
 ## components {#components}
 
@@ -134,7 +134,7 @@ An object that registers components to be made available to the component instan
   }
   ```
 
-- **See also:** [Component Registration](/guide/components/registration.html)
+- **Viz také:** [Component Registration](/guide/components/registration.html)
 
 ## directives {#directives}
 
@@ -169,4 +169,4 @@ An object that registers directives to be made available to the component instan
 
   A hash of directives to be made available to the component instance.
 
-- **See also:** [Custom Directives](/guide/reusability/custom-directives.html)
+- **Viz také:** [Custom Directives](/guide/reusability/custom-directives.html)

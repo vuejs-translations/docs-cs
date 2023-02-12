@@ -1,6 +1,6 @@
 # Reactivity API: Core {#reactivity-api-core}
 
-:::info See also
+:::info Viz také
 To better understand the Reactivity APIs, it is recommended to read the following chapters in the guide:
 
 - [Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals.html) (with the API preference set to Composition API)
@@ -39,7 +39,7 @@ Takes an inner value and returns a reactive and mutable ref object, which has a 
   console.log(count.value) // 1
   ```
 
-- **See also:**
+- **Viz také:**
   - [Guide - Reactive Variables with `ref()`](/guide/essentials/reactivity-fundamentals.html#reactive-variables-with-ref)
   - [Guide - Typing `ref()`](/guide/typescript/composition-api.html#typing-ref) <sup class="vt-badge ts" />
 
@@ -108,7 +108,7 @@ Takes a getter function and returns a readonly reactive [ref](#ref) object for t
   })
   ```
 
-- **See also:**
+- **Viz také:**
   - [Guide - Computed Properties](/guide/essentials/computed.html)
   - [Guide - Computed Debugging](/guide/extras/reactivity-in-depth.html#computed-debugging)
   - [Guide - Typing `computed()`](/guide/typescript/composition-api.html#typing-computed) <sup class="vt-badge ts" />
@@ -186,7 +186,7 @@ Returns a reactive proxy of the object.
   console.log(obj.count === count.value) // true
   ```
 
-- **See also:**
+- **Viz také:**
   - [Guide - Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals.html)
   - [Guide - Typing `reactive()`](/guide/typescript/composition-api.html#typing-reactive) <sup class="vt-badge ts" />
 
@@ -308,7 +308,7 @@ Runs a function immediately while reactively tracking its dependencies and re-ru
   })
   ```
 
-- **See also**:
+- **Viz také**:
   - [Guide - Watchers](/guide/essentials/watchers.html#watcheffect)
   - [Guide - Watcher Debugging](/guide/extras/reactivity-in-depth.html#watcher-debugging)
 
@@ -481,7 +481,7 @@ Watches one or more reactive data sources and invokes a callback function when t
   })
   ```
 
-- **See also**:
+- **Viz také**:
 
   - [Guide - Watchers](/guide/essentials/watchers.html)
   - [Guide - Watcher Debugging](/guide/extras/reactivity-in-depth.html#watcher-debugging)

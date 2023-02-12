@@ -52,7 +52,7 @@ Provide values that can be injected by descendant components.
 
   Note in the above example, the provided `msg` will NOT be reactive. See [Working with Reactivity](/guide/components/provide-inject.html#working-with-reactivity) for more details.
 
-- **See also:** [Provide / Inject](/guide/components/provide-inject.html)
+- **Viz také:** [Provide / Inject](/guide/components/provide-inject.html)
 
 ## inject {#inject}
 
@@ -167,7 +167,7 @@ Declare properties to inject into the current component by locating them from an
   }
   ```
 
-- **See also:** [Provide / Inject](/guide/components/provide-inject.html)
+- **Viz také:** [Provide / Inject](/guide/components/provide-inject.html)
 
 ## mixins {#mixins}
 

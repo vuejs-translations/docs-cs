@@ -18,7 +18,7 @@ Update the element's text content.
   <span>{{msg}}</span>
   ```
 
-- **See also:** [Template Syntax - Text Interpolation](/guide/essentials/template-syntax.html#text-interpolation)
+- **Viz také:** [Template Syntax - Text Interpolation](/guide/essentials/template-syntax.html#text-interpolation)
 
 ## v-html {#v-html}
 
@@ -42,7 +42,7 @@ Update the element's [innerHTML](https://developer.mozilla.org/en-US/docs/Web/AP
   <div v-html="html"></div>
   ```
 
-- **See also:** [Template Syntax - Raw HTML](/guide/essentials/template-syntax.html#raw-html)
+- **Viz také:** [Template Syntax - Raw HTML](/guide/essentials/template-syntax.html#raw-html)
 
 ## v-show {#v-show}
 
@@ -54,7 +54,7 @@ Toggle the element's visibility based on the truthy-ness of the expression value
 
   `v-show` works by setting the `display` CSS property via inline styles, and will try to respect the initial `display` value when the element is visible. It also triggers transitions when its condition changes.
 
-- **See also:** [Conditional Rendering - v-show](/guide/essentials/conditional.html#v-show)
+- **Viz také:** [Conditional Rendering - v-show](/guide/essentials/conditional.html#v-show)
 
 ## v-if {#v-if}
 
@@ -72,7 +72,7 @@ Conditionally render an element or a template fragment based on the truthy-ness 
 
   When used together, `v-if` has a higher priority than `v-for`. We don't recommend using these two directives together on one element — see the [list rendering guide](/guide/essentials/list.html#v-for-with-v-if) for details.
 
-- **See also:** [Conditional Rendering - v-if](/guide/essentials/conditional.html#v-if)
+- **Viz také:** [Conditional Rendering - v-if](/guide/essentials/conditional.html#v-if)
 
 ## v-else {#v-else}
 
@@ -97,7 +97,7 @@ Denote the "else block" for `v-if` or a `v-if` / `v-else-if` chain.
   </div>
   ```
 
-- **See also:** [Conditional Rendering - v-else](/guide/essentials/conditional.html#v-else)
+- **Viz také:** [Conditional Rendering - v-else](/guide/essentials/conditional.html#v-else)
 
 ## v-else-if {#v-else-if}
 
@@ -128,7 +128,7 @@ Denote the "else if block" for `v-if`. Can be chained.
   </div>
   ```
 
-- **See also:** [Conditional Rendering - v-else-if](/guide/essentials/conditional.html#v-else-if)
+- **Viz také:** [Conditional Rendering - v-else-if](/guide/essentials/conditional.html#v-else-if)
 
 ## v-for {#v-for}
 
@@ -164,7 +164,7 @@ Render the element or template block multiple times based on the source data.
 
   `v-for` can also work on values that implement the [Iterable Protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol), including native `Map` and `Set`.
 
-- **See also:**
+- **Viz také:**
   - [List Rendering](/guide/essentials/list.html)
 
 ## v-on {#v-on}
@@ -249,7 +249,7 @@ Attach an event listener to the element.
   <MyComponent @my-event="handleThis(123, $event)" />
   ```
 
-- **See also:**
+- **Viz také:**
   - [Event Handling](/guide/essentials/event-handling.html)
   - [Components - Custom Events](/guide/essentials/component-basics.html#listening-to-events)
 
@@ -336,7 +336,7 @@ Dynamically bind one or more attributes, or a component prop to an expression.
 
   `.camel` is not needed if you are using string templates, or pre-compiling the template with a build step.
 
-- **See also:**
+- **Viz také:**
   - [Class and Style Bindings](/guide/essentials/class-and-style.html)
   - [Components - Prop Passing Details](/guide/components/props.html#prop-passing-details)
 
@@ -359,7 +359,7 @@ Create a two-way binding on a form input element or a component.
   - [`.number`](/guide/essentials/forms.html#number) - cast valid input string to numbers
   - [`.trim`](/guide/essentials/forms.html#trim) - trim input
 
-- **See also:**
+- **Viz také:**
 
   - [Form Input Bindings](/guide/essentials/forms.html)
   - [Component Events - Usage with `v-model`](/guide/components/v-model.html)
@@ -412,7 +412,7 @@ Denote named slots or scoped slots that expect to receive props.
   </Mouse>
   ```
 
-- **See also:**
+- **Viz také:**
   - [Components - Slots](/guide/components/slots.html)
 
 ## v-pre {#v-pre}
@@ -459,7 +459,7 @@ Render the element and component once only, and skip future updates.
 
   Since 3.2, you can also memoize part of the template with invalidation conditions using [`v-memo`](#v-memo).
 
-- **See also:**
+- **Viz také:**
   - [Data Binding Syntax - interpolations](/guide/essentials/template-syntax.html#text-interpolation)
   - [v-memo](#v-memo)
 
@@ -500,7 +500,7 @@ Render the element and component once only, and skip future updates.
 
   `v-memo` can also be used on components to manually prevent unwanted updates in certain edge cases where the child component update check has been de-optimized. But again, it is the developer's responsibility to specify correct dependency arrays to avoid skipping necessary updates.
 
-- **See also:**
+- **Viz také:**
   - [v-once](#v-once)
 
 ## v-cloak {#v-cloak}

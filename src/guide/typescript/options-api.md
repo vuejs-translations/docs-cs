@@ -228,7 +228,7 @@ declare module 'vue' {
 }
 ```
 
-See also:
+Viz také:
 
 - [TypeScript unit tests for component type extensions](https://github.com/vuejs/core/blob/main/packages/dts-test/componentTypeExtensions.test-d.tsx)
 
@@ -288,6 +288,6 @@ Now the `beforeRouteEnter` option will be properly typed. Note this is just an e
 
 The placement of this augmentation is subject the [same restrictions](#type-augmentation-placement) as global property augmentations.
 
-See also:
+Viz také:
 
 - [TypeScript unit tests for component type extensions](https://github.com/vuejs/core/blob/main/packages/dts-test/componentTypeExtensions.test-d.tsx)

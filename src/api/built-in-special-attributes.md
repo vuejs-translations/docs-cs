@@ -35,7 +35,7 @@ The `key` special attribute is primarily used as a hint for Vue's virtual DOM al
 
   When `text` changes, the `<span>` will always be replaced instead of patched, so a transition will be triggered.
 
-- **See also:** [Guide - List Rendering - Maintaining State with `key`](/guide/essentials/list.html#maintaining-state-with-key)
+- **Viz také:** [Guide - List Rendering - Maintaining State with `key`](/guide/essentials/list.html#maintaining-state-with-key)
 
 ## ref {#ref}
 
@@ -80,7 +80,7 @@ Denotes a [template ref](/guide/essentials/template-refs.html).
 
   `this.$refs` is also non-reactive, therefore you should not attempt to use it in templates for data-binding.
 
-- **See also:**
+- **Viz také:**
   - [Guide - Template Refs](/guide/essentials/template-refs.html)
   - [Guide - Typing Template Refs](/guide/typescript/composition-api.html#typing-template-refs) <sup class="vt-badge ts" />
   - [Guide - Typing Component Template Refs](/guide/typescript/composition-api.html#typing-component-template-refs) <sup class="vt-badge ts" />
@@ -103,7 +103,7 @@ Used for binding [dynamic components](/guide/essentials/component-basics.html#dy
   </table>
   ```
 
-- **See also:**
+- **Viz také:**
 
   - [Built-in Special Element - `<component>`](/api/built-in-special-elements.html#component)
   - [Dynamic Components](/guide/essentials/component-basics.html#dynamic-components)
