@@ -150,7 +150,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/guide/essentials/reactivity-fundamentals'
         },
         {
-          text: 'Dynamické proměnné',
+          text: 'Computed proměnné',
           link: '/guide/essentials/computed'
         },
         {
@@ -249,7 +249,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
       ]
     },
     {
-      text: 'Nejlepší praxe',
+      text: 'Osvědčené postupy',
       items: [
         {
           text: 'Produkční release',

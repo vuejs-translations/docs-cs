@@ -16,9 +16,11 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟨 arrow functions = arrow funkce
 * 🟩 asset = zdroj
 * 🟩 assign = přiřadit
+* 🟩 async request = asynchronní volání
 * 🟩 attribute = atribut
 * 🟩 array = pole
 * 🟥 backend = backend
+* 🟩 best practice = osvědčené postupy
 * 🟥 binding = binding
 * 🟩 bug = chyba ('bug' lze občas nechat, ale určitě raději "zdroj chyb" než "zdroj bugů")
 * 🟩 build step = build fáze
@@ -56,8 +58,9 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 guide = průvodce
 * 🟥 handler = handler
 * 🟩 holding = obsahovat
-* 🟨 in-DOM template = DOM-šablona (kvůli konzisteci s "DOM template")
 * 🟥 IDE = IDE
+* 🟨 in-DOM template = DOM-šablona (kvůli konzisteci s "DOM template")
+* 🟩 invoke = zavolat (metodu)
 * 🟨 JavaScript state = stav JavaScript objektů
 * 🟥 kebab-case = kebab-case
 * 🟥 layout = layout
