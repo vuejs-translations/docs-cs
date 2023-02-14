@@ -158,10 +158,10 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/guide/essentials/class-and-style'
         },
         {
-          text: 'Podmíněný rendering',
+          text: 'Podmíněné vykreslování',
           link: '/guide/essentials/conditional'
         },
-        { text: 'Rendering seznamu', link: '/guide/essentials/list' },
+        { text: 'Vykreslování seznamu', link: '/guide/essentials/list' },
         {
           text: 'Obsluha udáostí',
           link: '/guide/essentials/event-handling'
@@ -299,7 +299,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/guide/extras/reactivity-in-depth'
         },
         {
-          text: 'Nechanismus vykreslování',
+          text: 'Mechanismus vykreslování',
           link: '/guide/extras/rendering-mechanism'
         },
         {

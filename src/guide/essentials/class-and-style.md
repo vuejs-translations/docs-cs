@@ -1,28 +1,30 @@
-# Class and Style Bindings {#class-and-style-bindings}
+# Binding tříd a stylů {#class-and-style-bindings}
 
 A common need for data binding is manipulating an element's class list and inline styles. Since `class` and `style` are both attributes, we can use `v-bind` to assign them a string value dynamically, much like with other attributes. However, trying to generate those values using string concatenation can be annoying and error-prone. For this reason, Vue provides special enhancements when `v-bind` is used with `class` and `style`. In addition to strings, the expressions can also evaluate to objects or arrays.
 
-## Binding HTML Classes {#binding-html-classes}
+Běžným požadavkem na data binding je manipulace se seznamem tříd elementu a inline styly. Protože `class` a `style` jsou oba atributy, můžeme podobně jako k jiným atributům použít `v-bind` k dynamickému přiřazení string hodnoty. Pokus o generování těchto hodnot pomocí spojování textových řetězců však může být otravný a náchylný k chybám. Z tohoto důvodu Vue poskytuje speciální vylepšení, když se `v-bind` používá s `class` a `style`. Kromě řetězců lze výrazy také vyhodnocovat jako objekty nebo pole.
+
+## Binding HTML tříd {#binding-html-classes}
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/dynamic-css-classes-with-vue-3" title="Free Vue.js Dynamic CSS Classes Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/dynamic-css-classes-with-vue-3" title="Lekce o dynamickém CSS ve Vue.js zdarma"/>
 </div>
 
 <div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-dynamic-css-classes-with-vue" title="Free Vue.js Dynamic CSS Classes Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-dynamic-css-classes-with-vue" title="Lekce o dynamickém CSS ve Vue.js zdarma"/>
 </div>
 
-### Binding to Objects {#binding-to-objects}
+### Binding na objekty {#binding-to-objects}
 
-We can pass an object to `:class` (short for `v-bind:class`) to dynamically toggle classes:
+Do `:class` (zkrácený zápis `v-bind:class`) můžeme pro dynamickou aplikaci tříd přiřadit objekt:
 
 ```vue-html
 <div :class="{ active: isActive }"></div>
 ```
 
-The above syntax means the presence of the `active` class will be determined by the [truthiness](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) of the data property `isActive`.
+Výše uvedený zápis znamená, že přítomnost třídy `active` bude vyhodnocena na základě [pravdivosti](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) datové vlastnosti `isActive`.
 
-You can have multiple classes toggled by having more fields in the object. In addition, the `:class` directive can also co-exist with the plain `class` attribute. So given the following state:
+ Více tříd můžete přepínat tím, že budete mít v objektu více hodnot. Kromě toho může direktiva `:class` koexistovat s prostým atributem `class`. Tedy za následujícího stavu:
 
 <div class="composition-api">
 
@@ -46,7 +48,7 @@ data() {
 
 </div>
 
-And the following template:
+A s následující šablonou:
 
 ```vue-html
 <div
@@ -55,15 +57,15 @@ And the following template:
 ></div>
 ```
 
-It will render:
+Se vykreslí:
 
 ```vue-html
 <div class="static active"></div>
 ```
 
-When `isActive` or `hasError` changes, the class list will be updated accordingly. For example, if `hasError` becomes `true`, the class list will become `"static active text-danger"`.
+Když se `isActive` nebo `hasError` změní, seznam tříd bude automaticky upraven podle potřeby. Například když se `hasError` stane `true`, seznam tříd se změní na `"static active text-danger"`.
 
-The bound object doesn't have to be inline:
+Připojený objekt nemusí být inline:
 
 <div class="composition-api">
 
@@ -95,7 +97,7 @@ data() {
 <div :class="classObject"></div>
 ```
 
-This will render the same result. We can also bind to a [computed property](./computed) that returns an object. This is a common and powerful pattern:
+Toto vykreslí stejný výsledek. Můžeme také provést binding na [computed proměnnou](./computed), která vrací objekt. Toto je běžný a účinný vzorec:
 
 <div class="composition-api">
 
@@ -136,9 +138,9 @@ computed: {
 <div :class="classObject"></div>
 ```
 
-### Binding to Arrays {#binding-to-arrays}
+### Binding na pole {#binding-to-arrays}
 
-We can bind `:class` to an array to apply a list of classes:
+Do `:class` můžeme přiřadit pole a aplikovat seznam tříd, které obsahuje:
 
 <div class="composition-api">
 
@@ -166,90 +168,90 @@ data() {
 <div :class="[activeClass, errorClass]"></div>
 ```
 
-Which will render:
+Což vykreslí:
 
 ```vue-html
 <div class="active text-danger"></div>
 ```
 
-If you would like to also toggle a class in the list conditionally, you can do it with a ternary expression:
+Pokud byste chtěli třídu v seznamu také přepnout podmíněně, můžete to udělat pomocí ternárního výrazu:
 
 ```vue-html
 <div :class="[isActive ? activeClass : '', errorClass]"></div>
 ```
 
-This will always apply `errorClass`, but `activeClass` will only be applied when `isActive` is truthy.
+S tímto bude vždy aplikována `errorClass`, ale `activeClass` bude přidána pouze, pokud je `isActive` pravdivé.
 
-However, this can be a bit verbose if you have multiple conditional classes. That's why it's also possible to use the object syntax inside array syntax:
+To však může být trochu nepřehledné, pokud máte podmíněných tříd více. Proto je také možné uvnitř pole použít i objektovou syntaxi:
 
 ```vue-html
 <div :class="[{ active: isActive }, errorClass]"></div>
 ```
 
-### With Components {#with-components}
+### S komponentami {#with-components}
 
-> This section assumes knowledge of [Components](/guide/essentials/component-basics). Feel free to skip it and come back later.
+> Tato sekce předpokládá znalost [komponent](/guide/essentials/component-basics). Klidně ji teď přeskočte a vraťte se později.
 
-When you use the `class` attribute on a component with a single root element, those classes will be added to the component's root element, and merged with any existing class already on it.
+Když použijete atribut `class` na komponentu s jedním root elementem, budou tyto třídy přidány do root elementu v komponentě a sloučeny s jakoukoli existující třídou, která se na něm již nachází.
 
-For example, if we have a component named `MyComponent` with the following template:
+Například pokud máme komponentnu pojmenovanou `MyComponent` s následující šablonou:
 
 ```vue-html
 <!-- child component template -->
-<p class="foo bar">Hi!</p>
+<p class="foo bar">Ahoj!</p>
 ```
 
-Then add some classes when using it:
+A poté při použití přidáme nějaké třídy:
 
 ```vue-html
 <!-- when using the component -->
 <MyComponent class="baz boo" />
 ```
 
-The rendered HTML will be:
+Vykreslené HTML bude:
 
 ```vue-html
-<p class="foo bar baz boo">Hi</p>
+<p class="foo bar baz boo">Ahoj!</p>
 ```
 
-The same is true for class bindings:
+To samé platí pro binding tříd:
 
 ```vue-html
 <MyComponent :class="{ active: isActive }" />
 ```
 
-When `isActive` is truthy, the rendered HTML will be:
+Pokud je `isActive` pravdivé, vykreslené HTML bude:
 
 ```vue-html
-<p class="foo bar active">Hi</p>
+<p class="foo bar active">Ahoj!</p>
 ```
 
-If your component has multiple root elements, you would need to define which element will receive this class. You can do this using the `$attrs` component property:
+Pokud má vaše komponenta root elementů víc, budete muset definovat, který prvek třídu obdrží. Můžete to udělat pomocí vlastnosti komponenty `$attrs`:
 
 ```vue-html
-<!-- MyComponent template using $attrs -->
-<p :class="$attrs.class">Hi!</p>
-<span>This is a child component</span>
+<!-- Šablona MyComponent s použitím $attrs -->
+<p :class="$attrs.class">Ahoj!</p>
+<span>Toto je potomek</span>
 ```
 
 ```vue-html
 <MyComponent class="baz" />
 ```
 
-Will render:
+Výše uvedené vykreslí:
 
 ```html
-<p class="baz">Hi!</p>
-<span>This is a child component</span>
+<p class="baz">Ahoj!</p>
+<span>Toto je potomek</span>
 ```
 
-You can learn more about component attribute inheritance in [Fallthrough Attributes](/guide/components/attrs.html) section.
+O dědičnosti atributů v komponentách se můžete dozvědět více v sekci [Fallthrough atributy](/guide/components/attrs.html).
 
-## Binding Inline Styles {#binding-inline-styles}
+## Binding inline stylů {#binding-inline-styles}
 
-### Binding to Objects {#binding-to-objects-1}
+### Binding na objekty {#binding-to-objects-1}
 
-`:style` supports binding to JavaScript object values - it corresponds to an [HTML element's `style` property](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style):
+`:style` podporuje binding na hodnoty JavaScript objektů - v souladu s [atributem HTML elementu `style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style):
 
 <div class="composition-api">
 
@@ -277,13 +279,13 @@ data() {
 <div :style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
 ```
 
-Although camelCase keys are recommended, `:style` also supports kebab-cased CSS property keys (corresponds to how they are used in actual CSS) - for example:
+Ačkoliv se doporučuje camelCase, `:style` podporuje i CSS klíče zapsané kebab-case (v souladů s tím, jak jsou používány ve skutečném CSS) - například:
 
 ```vue-html
 <div :style="{ 'font-size': fontSize + 'px' }"></div>
 ```
 
-It is often a good idea to bind to a style object directly so that the template is cleaner:
+Často je dobrý nápad provést binding přímo s objektem stylu, aby byla šablona čistší:
 
 <div class="composition-api">
 
@@ -315,11 +317,11 @@ data() {
 <div :style="styleObject"></div>
 ```
 
-Again, object style binding is often used in conjunction with computed properties that return objects.
+Binding objektovým stylem se opět často používá ve spojení s computed proměnnými, které vracejí objekty.
 
-### Binding to Arrays {#binding-to-arrays-1}
+### Binding na pole {#binding-to-arrays-1}
 
-We can bind `:style` to an array of multiple style objects. These objects will be merged and applied to the same element:
+Můžeme provést binding `:style` na pole více stylových objektů. Tyto objekty budou sloučeny a použity na stejný element:
 
 ```vue-html
 <div :style="[baseStyles, overridingStyles]"></div>
@@ -327,14 +329,14 @@ We can bind `:style` to an array of multiple style objects. These objects will b
 
 ### Auto-prefixing {#auto-prefixing}
 
-When you use a CSS property that requires a [vendor prefix](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) in `:style`, Vue will automatically add the appropriate prefix. Vue does this by checking at runtime to see which style properties are supported in the current browser. If the browser doesn't support a particular property then various prefixed variants will be tested to try to find one that is supported.
+Když použijete CSS vlastnost, která vyžaduje [vendor prefix](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) v `:style`, Vue příslušnou předponu automaticky přidá. Dělá to tak, že za běhu zkontroluje, které vlastnosti stylu jsou podporovány v aktuálním prohlížeči. Pokud prohlížeč určitou vlastnost nepodporuje, budou testovány různé varianty s předponou, abychom se pokusili najít tu, která podporována je.
 
-### Multiple Values {#multiple-values}
+### Více hodnot {#multiple-values}
 
-You can provide an array of multiple (prefixed) values to a style property, for example:
+Vlastnosti stylu můžete poskytnout pole více hodnot s předponou, například:
 
 ```vue-html
 <div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div>
 ```
 
-This will only render the last value in the array which the browser supports. In this example, it will render `display: flex` for browsers that support the unprefixed version of flexbox.
+Tím se vykreslí pouze poslední hodnota v poli, kterou prohlížeč podporuje. V tomto případě vykreslí `display: flex` pro prohlížeče, které podporují vlastnost flexbox bez předpony.

@@ -4,3 +4,4 @@
 4. Where to translate "Search" in Algolia search input?
 5. Do translate names/descriptions in /ecosystem/themes/themes.json?
 6. DO translate introduction texts in /parters/partners.json?
+7. How to change font-family? We need something else for national-alphabet specific characters...

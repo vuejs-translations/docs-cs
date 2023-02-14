@@ -57,9 +57,7 @@ built-ins\
 components\
 
 essentials\
-essentials\class-and-style.md
 essentials\component-basics.md
-essentials\conditional.md
 essentials\event-handling.md
 essentials\forms.md
 essentials\lifecycle.md

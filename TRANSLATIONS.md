@@ -35,7 +35,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟨 computed property = computed proměnná
 * 🟨 container element = mateřský element
 * 🟩 content = obsah
-* 🟩 declarative renderting = deklarativní rendering
+* 🟩 declarative rendering = deklarativní rendering
 * 🟩 declare = deklarovat
 * 🟩 deep = vnořený (za předpokladu, že odpovídá kontext, např. "deep reactivity")
 * 🟩 destructure = dekonstruovat
@@ -60,6 +60,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 holding = obsahovat
 * 🟥 IDE = IDE
 * 🟨 in-DOM template = DOM-šablona (kvůli konzisteci s "DOM template")
+* 🟨 inline styles = inline styly
 * 🟩 invoke = zavolat (metodu)
 * 🟨 JavaScript state = stav JavaScript objektů
 * 🟥 kebab-case = kebab-case
@@ -92,6 +93,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 release = verze
 * 🟩 rendering = vykreslování
 * 🟩 reusable = znovupoužitelný
+* 🟥 root element = root element
 * 🟨 root component = root komponenta
 * 🟥 routing = routing
 * 🟥 scope = scope
