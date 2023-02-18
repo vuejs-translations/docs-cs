@@ -22,13 +22,13 @@ Tato pravidla pomáhají předcházet chybám, proto se je za každou cenu nauč
 
 - [Zobrazit všechna pravidla priorty A](./rules-essential)
 
-### Priorita B: Silně doporučeno {#priority-b-strongly-recommended}
+### Priorita B: Silně doporučené {#priority-b-strongly-recommended}
 
 Tato pravidla byla zavedena pro zlepšení čitelnosti a/nebo komfortu pro vývojáře na většině projektů. Pokud je porušíte, váš kód bude stále fungovat, ale porušení by měla být vzácná a dobře odůvodněná.
 
 - [Zobrazit všechna pravidla priorty B](./rules-strongly-recommended)
 
-### Priorita C: Doporučeno {#priority-c-recommended}
+### Priorita C: Doporučené {#priority-c-recommended}
 
 Tam, kde existuje více stejně dobrých možností, lze pro zajištění konzistence vybrat libovolnou z nich. V těchto pravidlech popisujeme každou přijatelnou možnost a navrhujeme výchozí variantu. To znamená, že se můžete ve své vlastní kódové bázi volně rozhodnout, pokud budete konzistentní a máte pro to dobrý důvod. Ale mějte prosím dobrý důvod! Přizpůsobením se standardu komunity budete:
 

@@ -1,4 +1,4 @@
-# Pravidla priority B: Silně doporučeno {#priority-b-rules-strongly-recommended}
+# Pravidla priority B: Silně doporučené {#priority-b-rules-strongly-recommended}
 
 Tato pravidla byla zavedena pro zlepšení čitelnosti a/nebo komfortu pro vývojáře na většině projektů. Pokud je porušíte, váš kód bude stále fungovat, ale porušení by měla být vzácná a dobře odůvodněná.
 

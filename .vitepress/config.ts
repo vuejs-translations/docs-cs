@@ -205,7 +205,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
       ]
     },
     {
-      text: 'Znovupoučitelnost',
+      text: 'Znovupoužitelnost',
       items: [
         {
           text: 'Composables',

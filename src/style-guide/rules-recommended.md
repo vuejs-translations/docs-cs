@@ -1,4 +1,4 @@
-# Pravidla priority C: Doporučeno {#priority-c-rules-recommended}
+# Pravidla priority C: Doporučené {#priority-c-rules-recommended}
 
 Tam, kde existuje více stejně dobrých možností, lze pro zajištění konzistence vybrat libovolnou z nich. V těchto pravidlech popisujeme každou přijatelnou možnost a navrhujeme výchozí variantu. To znamená, že se můžete ve své vlastní kódové bázi volně rozhodnout, pokud budete konzistentní a máte pro to dobrý důvod. Ale mějte prosím dobrý důvod! Přizpůsobením se standardu komunity budete:
 
