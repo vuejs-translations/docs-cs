@@ -134,7 +134,7 @@ Aby byl zápis bližší JavaScript syntaxi pro iterátory, můžete také míst
 
 ## `v-for` nad objektem {#v-for-with-an-object}
 
-Direktivu `v-for` můžete také použít pro iteraci nad vlastnostmi objektu. Pořadí iterace bude záviset na výsledku volání metody `Object.keys()` na daný objekt:
+Direktivu `v-for` můžete také použít pro iteraci nad vlastnostmi objektu. Pořadí iterace bude záviset na výsledku volání funkce `Object.keys()` na daný objekt:
 
 <div class="composition-api">
 
@@ -315,9 +315,9 @@ Podívejte se na [tento příklad jednoduchého TODO listu](https://sfc.vuejs.or
 
 ## Detekce změny pole {#array-change-detection}
 
-### Změnové metody {#mutation-methods}
+### Změnové funkce {#mutation-methods}
 
-Vue umí detekovat, když jsou volány změnové metody reaktivního pole, a vyvolat potřebné aktualizace. Tyto změnové metody jsou:
+Vue umí detekovat, když jsou volány změnové funkce reaktivního pole, a vyvolat potřebné aktualizace. Tyto změnové funkce jsou:
 
 - `push()`
 - `pop()`
@@ -329,7 +329,7 @@ Vue umí detekovat, když jsou volány změnové metody reaktivního pole, a vyv
 
 ### Nahrazení pole {#replacing-an-array}
 
-Změnové metody, jak název napovídá, mění původní pole, na kterém jsou volány. Pro srovnání existují i metody, které pole nemění, např. `filter()`, `concat()` a `slice()`, které nemění původní pole, ale **vždy vrátí nové pole**. Při práci s těmito metodami bychom měli staré pole nahradit novým:
+Změnové funkce, jak název napovídá, mění původní pole, na kterém jsou volány. Pro srovnání existují i funkce, které pole nemění, např. `filter()`, `concat()` a `slice()`, které nemění původní pole, ale **vždy vrátí nové pole**. Při práci s těmito funkcemi bychom měli staré pole nahradit novým:
 
 <div class="composition-api">
 
@@ -426,7 +426,7 @@ methods: {
 </ul>
 ```
 
-U computed proměnných buďte opatrní s `reverse()` a `sort()`! Tyto dvě metody mění původní pole, čemuž je třeba se u computed getterů vyhnout. Před voláním těchto metod vytvořte kopii původního pole:
+U computed proměnných buďte opatrní s `reverse()` a `sort()`! Tyto dvě funkce mění původní pole, čemuž je třeba se u computed getterů vyhnout. Před voláním těchto funkcí vytvořte kopii původního pole:
 
 ```diff
 - return numbers.reverse()

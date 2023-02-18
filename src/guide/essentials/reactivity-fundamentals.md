@@ -13,7 +13,7 @@ Tato stránka a mnoho dalších kapitol dále v průvodci obsahuje různý obsah
 
 <div class="options-api">
 
-S Options API používáme k deklaraci reaktivního stavu komponenty vlastnost `data`. Hodnota vlastnosti by měla být funkce, která vrací objekt. Vue zavolá funkci při vytváření nové instance komponenty a zabalí vrácený objekt do svého systému reaktivity. Jakékoli vlastnosti nejvyšší úrovně tohoto objektu jsou proxy na instanci komponenty (`this` v metodách a lifecycle hooks):
+S Options API používáme k deklaraci reaktivního stavu komponenty vlastnost `data`. Hodnota vlastnosti by měla být funkce, která vrací objekt. Vue zavolá funkci při vytváření nové instance komponenty a zabalí vrácený objekt do svého systému reaktivity. Jakékoli vlastnosti nejvyšší úrovně tohoto objektu jsou proxy na instanci komponenty (`this` ve funkcích a lifecycle hooks):
 
 ```js{2-6}
 export default {
@@ -102,7 +102,7 @@ export default {
 <div>{{ state.count }}</div>
 ```
 
-Podobně můžeme deklarovat funkce, které mění reaktivní stav ve stejném scope, a zpřístupnit je jako metody spolu se stavem:
+Podobně můžeme deklarovat funkce, které mění reaktivní stav ve stejném scope, a zpřístupnit je spolu se stavem:
 
 ```js{7-9,14}
 import { reactive } from 'vue'
@@ -124,7 +124,7 @@ export default {
 }
 ```
 
-Vystavené metody se obvykle používají jako event listenery:
+Vystavené funkce se obvykle používají jako event listenery:
 
 ```vue-html
 <button @click="increment">
@@ -134,7 +134,7 @@ Vystavené metody se obvykle používají jako event listenery:
 
 ### `<script setup>` \*\* {#script-setup}
 
-Ruční vystavování stavu a metod pomocí `setup()` může být zbytečně složité. Naštěstí je to nutné pouze tehdy, když nepoužíváte build fázi. Při použití Single-File komponent (SFC) můžeme použití výrazně zjednodušit pomocí `<script setup>`:
+Ruční vystavování stavu a funkcí pomocí `setup()` může být zbytečně složité. Naštěstí je to nutné pouze tehdy, když nepoužíváte build fázi. Při použití Single-File komponent (SFC) můžeme použití výrazně zjednodušit pomocí `<script setup>`:
 
 ```vue
 <script setup>
@@ -164,11 +164,11 @@ Importy nejvyšší úrovně a proměnné deklarované v `<script setup>` jsou v
 
 <div class="options-api">
 
-## Deklarace metod \* {#declaring-methods}
+## Deklarace funkcí \* {#declaring-methods}
 
-<VueSchoolLink href="https://vueschool.io/lessons/methods-in-vue-3" title="Lekce o Vue.js metodách zdarma"/>
+<VueSchoolLink href="https://vueschool.io/lessons/methods-in-vue-3" title="Lekce o Vue.js funkcí zdarma"/>
 
-Pro přidání metod do instance komponenty používáme vlastnost `methods`. Měl by to být objekt obsahující zamýšlené metody:
+Pro přidání funkcí do instance komponenty používáme vlastnost `methods`. Měl by to být objekt obsahující zamýšlené funkce:
 
 ```js{7-11}
 export default {
@@ -183,13 +183,13 @@ export default {
     }
   },
   mounted() {
-    // metody mohou být být volány v lifecycle hooks nebo v jiných metodách
+    // funkce mohou být být volány v lifecycle hooks nebo v jiných funkcích
     this.increment()
   }
 }
 ```
 
-Vue pro `methods` automaticky provede binding hodnoty `this` tak, aby vždy odkazovala na instanci komponenty. To zajišťuje, že metoda zachová správnou hodnotu `this`, pokud je použita jako event listener nebo callback. Při definování `methods` byste se měli vyvarovat použití arrow funkcí, protože to zabraňuje Vue správně provést binding hodnoty `this`:
+Vue pro `methods` automaticky provede binding hodnoty `this` tak, aby vždy odkazovala na instanci komponenty. To zajišťuje, že funkce zachová správnou hodnotu `this`, pokud je použita jako event listener nebo callback. Při definování `methods` byste se měli vyvarovat použití arrow funkcí, protože to zabraňuje Vue správně provést binding hodnoty `this`:
 
 ```js
 export default {
@@ -209,7 +209,7 @@ Stejně jako všechny ostatní vlastnosti instance komponenty jsou `methods` př
 
 [Vyzkoušejte si to](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgY291bnQ6IDBcbiAgICB9XG4gIH0sXG4gIG1ldGhvZHM6IHtcbiAgICBpbmNyZW1lbnQoKSB7XG4gICAgICB0aGlzLmNvdW50KytcbiAgICB9XG4gIH0sXG4gIG1vdW50ZWQoKSB7XG4gICAgdGhpcy5pbmNyZW1lbnQoKVxuICB9XG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8YnV0dG9uIEBjbGljaz1cImluY3JlbWVudFwiPnt7IGNvdW50IH19PC9idXR0b24+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0ifQ==)
 
-Ve výše uvedeném příkladu je zavolána metoda `increment` ve chvíli, kdy je stisknuto tlačítko `<button>`.
+Ve výše uvedeném příkladu je zavolána funkce `increment` ve chvíli, kdy je stisknuto tlačítko `<button>`.
 
 </div>
 
@@ -340,7 +340,7 @@ console.log(proxy.nested === raw) // false
 
 ### Limity `reactive()` API \*\* {#limitations-of-reactive}
 
-API metoda `reactive()` má dvě omezení:
+API funkce `reactive()` má dvě omezení:
 
 1. Funguje pouze pro objektové typy (objekty, pole a [typy kolekcí](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects#keyed_collections), jako jsou `Map` a ` Set`). Nemůže obsahovat [primitivní datové typy](https://developer.mozilla.org/en-US/docs/Glossary/Primitive), jako je `string`, `number` nebo `boolean`.
 
@@ -533,9 +533,9 @@ console.log(map.get('count').value)
 
 <div class="options-api">
 
-### Stateful metody \* {#stateful-methods}
+### Stateful funkce \* {#stateful-methods}
 
-V některých případech možná budeme potřebovat vytvořit funkci metody dynamicky, například vytvořit "debounced" event handler:
+V některých případech možná budeme potřebovat vytvořit funkci komponenty dynamicky, například vytvořit "debounced" event handler:
 
 ```js
 import { debounce } from 'lodash-es'

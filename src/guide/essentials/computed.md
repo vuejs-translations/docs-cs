@@ -138,9 +138,9 @@ Viz také: [Typování Computed](/guide/typescript/composition-api.html#typing-c
 
 </div>
 
-## Computed caching vs. metody {#computed-caching-vs-methods}
+## Computed caching vs. funkce {#computed-caching-vs-methods}
 
-Možná jste si všimli, že stejného výsledku můžeme dosáhnout zavoláním metody ve výrazu šablony:
+Možná jste si všimli, že stejného výsledku můžeme dosáhnout zavoláním funkce ve výrazu šablony:
 
 ```vue-html
 <p>{{ calculateBooksMessage() }}</p>
@@ -170,7 +170,7 @@ function calculateBooksMessage() {
 
 </div>
 
-Místo computed proměnné můžeme stejnou funkci definovat jako metodu. Pro konečný výsledek jsou oba přístupy skutečně naprosto stejné. Rozdíl je však v tom, že **computed proměnné se na základě jejich reaktivních závislostí ukládají do mezipaměti**. Computed proměnná se přehodnotí pouze tehdy, když se změní některé její reaktivní závislosti. To znamená, že pokud se `author.books` nezmění, vícenásobný přístup k `publishedBooksMessage` okamžitě vrátí dříve vypočítaný výsledek, aniž by bylo nutné znovu spouštět getter funkci.
+Místo computed proměnné můžeme stejnou logiku definovat jako funkci. Pro konečný výsledek jsou oba přístupy skutečně naprosto stejné. Rozdíl je však v tom, že **computed proměnné se na základě jejich reaktivních závislostí ukládají do mezipaměti**. Computed proměnná se přehodnotí pouze tehdy, když se změní některé její reaktivní závislosti. To znamená, že pokud se `author.books` nezmění, vícenásobný přístup k `publishedBooksMessage` okamžitě vrátí dříve vypočítaný výsledek, aniž by bylo nutné znovu spouštět getter funkci.
 
 To také znamená, že následující computed proměnná se neaktualizuje nikdy, protože `Date.now()` není reaktivní závislost:
 
@@ -194,9 +194,9 @@ const now = computed(() => Date.now())
 
 </div>
 
-Ve srovnání s tím vyvolání metody **vždy** spustí funkci, kdykoli dojde k opětovnému vykreslení.
+Ve srovnání s tím vyvolání funkce **vždy** spustí funkci, kdykoli dojde k opětovnému vykreslení.
 
-Proč caching potřebujeme? Představte si, že máme složitě získávanou proměnnou `list`, která vyžaduje procházení obrovského pole a spoustu výpočtů. Pak můžeme mít další computed proměnné, které na `list` závisí. Bez ukládání do mezipaměti bychom spouštěli getter pro `list` mnohem častěji, než je nutné! V případech, kdy caching nechcete, použijte místo toho volání metody.
+Proč caching potřebujeme? Představte si, že máme složitě získávanou proměnnou `list`, která vyžaduje procházení obrovského pole a spoustu výpočtů. Pak můžeme mít další computed proměnné, které na `list` závisí. Bez ukládání do mezipaměti bychom spouštěli getter pro `list` mnohem častěji, než je nutné! V případech, kdy caching nechcete, použijte místo toho volání funkce.
 
 ## Computed proměnná, kterou lze přepisovat {#writable-computed}
 
@@ -261,7 +261,7 @@ Když teď zadáte `this.fullName = 'John Doe'`, zavolá se setter a `this.first
 
 ## Osvěčené postupy {#best-practices}
 
-### Getter metody by neměly mít vedlejší účinky {#getters-should-be-side-effect-free}
+### Getter funkce by neměly mít vedlejší účinky {#getters-should-be-side-effect-free}
 
 Je důležité si zapamatovat, že getter funkce pro computed proměnné by měly provádět pouze čisté výpočty a neměly by mít vedlejší účinky. Například **uvnitř computed getter funkce nevytvářejte asynchronní volání ani neměňte DOM**! Představte si computed proměnnou jako deklarativní popis, jak odvodit hodnotu na základě jiných hodnot – její jedinou odpovědností by měl být výpočet a návrat této hodnoty. Později v příručce probereme, jak můžeme vedlejší účinky v reakci na změny stavu provádět pomocí [watchers](./watchers).
 

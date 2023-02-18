@@ -644,9 +644,9 @@ V JavaScriptu je dělení objektů s více vlastnostmi na více řádků obecně
 
 ## Jednoduché výrazy v šablonách {#simple-expressions-in-templates}
 
-**Šablony komponent by měly obsahovat pouze jednoduché výrazy a složitější výrazy přepracované do computed proměnných nebo metod.**
+**Šablony komponent by měly obsahovat pouze jednoduché výrazy a složitější výrazy přepracované do computed proměnných nebo funkcí.**
 
-Složité výrazy ve vašich šablonách je učiní méně deklarativní. Měli bychom se snažit popsat _co_ by se mělo objevit, nikoli _jak_ tuto hodnotu počítáme. Computed proměnné a metody také umožňují opětovné použití kódu.
+Složité výrazy ve vašich šablonách je učiní méně deklarativní. Měli bychom se snažit popsat _co_ by se mělo objevit, nikoli _jak_ tuto hodnotu počítáme. Computed proměnné a funkce také umožňují opětovné použití kódu.
 
 <div class="style-example style-example-bad">
 <h3>Špatně</h3>

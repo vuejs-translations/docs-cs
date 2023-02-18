@@ -163,7 +163,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
         },
         { text: 'Vykreslování seznamu', link: '/guide/essentials/list' },
         {
-          text: 'Obsluha udáostí',
+          text: 'Obsluha událostí',
           link: '/guide/essentials/event-handling'
         },
         { text: 'Binding formulářových dat', link: '/guide/essentials/forms' },

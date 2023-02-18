@@ -43,7 +43,7 @@ V dalších částech průvodce probereme, jak definovat více komponent a sklá
 
 ## Připojení (mount) Vue aplikace {#mounting-the-app}
 
-Aplikační instance nic nevykreslí, dokud není zavolána její metoda `.mount()`. Metoda jako svůj parametr očekává „kontejner“, což může být buď skutečný prvek DOM, nebo řetězec selektoru:
+Aplikační instance nic nevykreslí, dokud není zavolána její funkce `.mount()`. Funkce jako svůj parametr očekává „kontejner“, což může být buď skutečný prvek DOM, nebo řetězec selektoru:
 
 ```html
 <div id="app"></div>
@@ -55,7 +55,7 @@ app.mount('#app')
 
 Obsah root komponenty aplikace bude vykreslen uvnitř zadaného kontejneru. Samotný element kontejneru není považován za součást aplikace.
 
-Metoda `.mount()` by měla být vždy volána po dokončení všech aplikačních konfigurací a registrací zdrojů. Všimněte si, že narozdíl od metod pro registraci zdrojů je její návratovou hodnotou instance root komponenty namísto aplikační instance.
+Funkce `.mount()` by měla být vždy volána po dokončení všech aplikačních konfigurací a registrací zdrojů. Všimněte si, že narozdíl od funkcí pro registraci zdrojů je její návratovou hodnotou instance root komponenty namísto aplikační instance.
 
 ### DOM-šablona root komponenty {#in-dom-root-component-template}
 
@@ -93,15 +93,15 @@ app.config.errorHandler = (err) => {
 }
 ```
 
-Aplikační instance také poskytuje několik metod pro registraci globálních zdrojů. Například registrace komponenty:
+Aplikační instance také poskytuje několik funkcí pro registraci globálních zdrojů. Například registrace komponenty:
 
 ```js
 app.component('TodoDeleteButton', TodoDeleteButton)
 ```
 
-Díky tomu je `TodoDeleteButton` dostupný pro použití kdekoli v naší aplikaci. Registraci komponent a dalších typů zdrojů se budeme věnovat víc v dalších částech průvodce. Můžete si také projít úplný seznam API metod aplikační instance v [API referenci](/api/application).
+Díky tomu je `TodoDeleteButton` dostupný pro použití kdekoli v naší aplikaci. Registraci komponent a dalších typů zdrojů se budeme věnovat víc v dalších částech průvodce. Můžete si také projít úplný seznam API funkcí aplikační instance v [API referenci](/api/application).
 
-Ujistěte se, že jste všechny aplikační konfigurace použili před voláním metody `.mount()`!
+Ujistěte se, že jste všechny aplikační konfigurace použili před voláním funkce `.mount()`!
 
 ## Více aplikačních instancí {#multiple-application-instances}
 

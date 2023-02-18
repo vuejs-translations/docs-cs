@@ -13,7 +13,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 app-level = globální
 * 🟩 application instance = aplikační instance
 * 🟩 argument = parametr
-* 🟨 arrow functions = arrow funkce
+* 🟨 arrow function = arrow funkce
 * 🟩 asset = zdroj
 * 🟩 assign = přiřadit
 * 🟩 async request = asynchronní volání
@@ -46,7 +46,8 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 element = element
 * 🟥 emits = emits
 * 🟥 engine = engine
-* 🟨 events = události (events)
+* 🟨 event = událost (event)
+* 🟥 event handler = event handler
 * 🟥 event listner = event listner
 * 🟩 expose (v.) = vystavit
 * 🟩 expression = výraz
@@ -60,14 +61,17 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 holding = obsahovat
 * 🟥 IDE = IDE
 * 🟨 in-DOM template = DOM-šablona (kvůli konzisteci s "DOM template")
+* 🟥 inline = inline
 * 🟨 inline styles = inline styly
-* 🟩 invoke = zavolat (metodu)
+* 🟩 invoke = zavolat (funkci)
 * 🟨 JavaScript state = stav JavaScript objektů
 * 🟥 kebab-case = kebab-case
 * 🟥 layout = layout
 * 🟨 legacy code = legacy kód
 * 🟥 lifecycle hook = lifecycle hook
 * 🟩 loop = cyklus
+* 🟩 method = funkce
+* 🟥 method handler = method handler
 * 🟨 mount = připojení (mount)
 * 🟨 "Mustache" syntax = "Mustache" syntaxe
 * 🟩 mutate (v.) = měnit

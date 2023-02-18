@@ -58,7 +58,6 @@ components\
 
 essentials\
 essentials\component-basics.md
-essentials\event-handling.md
 essentials\forms.md
 essentials\lifecycle.md
 essentials\template-refs.md

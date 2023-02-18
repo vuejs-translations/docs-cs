@@ -138,7 +138,7 @@ export default {
     }
   },
 
-  // metody a funkce, které mění stav a spouští aktualizace
+  // funkce, které mění stav a spouští aktualizace
   // mohou být navázány jako 'event listener' v šablonách
   methods: {
     increment() {

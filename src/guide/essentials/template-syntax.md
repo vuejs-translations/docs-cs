@@ -147,7 +147,7 @@ Kvůli tomu **NEBUDE** fungovat následující:
 
 ### Volání funkcí {#calling-functions}
 
-Uvnitř binding výrazu je možné volat metodu vystavenou v komponentě:
+Uvnitř binding výrazu je možné volat funkci vystavenou v komponentě:
 
 ```vue-html
 <span :title="toTitleDate(date)">
@@ -199,9 +199,7 @@ Jiný příklad je direktiva `v-on`, která naslouchá DOM událostem (events):
 <a @click="akcePoKliknuti"> ... </a>
 ```
 
-Zde je parametrem událost (event), jíž se naslouchá: `click`. `v-on` má rovněž odpovídající zkrácený zápis, a sice znak `@`. We will talk about event handling in more detail too.
-
-O obsluze událostí (event handling) budeme později hovořit podrobněji.
+Zde je parametrem událost (event), jíž se naslouchá: `click`. `v-on` má rovněž odpovídající zkrácený zápis, a sice znak `@`. O obsluze událostí (event handling) budeme později hovořit podrobněji.
 
 ### Dynamické parametry {#dynamic-arguments}
 
