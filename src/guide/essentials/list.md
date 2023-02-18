@@ -1,16 +1,16 @@
-# List Rendering {#list-rendering}
+# Vykreslování seznamu {#list-rendering}
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/list-rendering-in-vue-3" title="Free Vue.js List Rendering Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/list-rendering-in-vue-3" title="Lekce o vykreslování seznamu ve Vue.js zdarma"/>
 </div>
 
 <div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-list-rendering-in-vue" title="Free Vue.js List Rendering Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-list-rendering-in-vue" title="Lekce o vykreslování seznamu ve Vue.js zdarma"/>
 </div>
 
 ## `v-for` {#v-for}
 
-We can use the `v-for` directive to render a list of items based on an array. The `v-for` directive requires a special syntax in the form of `item in items`, where `items` is the source data array and `item` is an **alias** for the array element being iterated on:
+Pro vykreslení senzamu založeného na hodnotách pole můžeme použít direktivu `v-for`. Zápis `v-for` vyžaduje speciální syntaxi ve formě `item in items`, kde `items` je zdrojové datové pole a `item` je **alias** pro prvek pole, přes který se iteruje:
 
 <div class="composition-api">
 
@@ -38,7 +38,7 @@ data() {
 </li>
 ```
 
-Inside the `v-for` scope, template expressions have access to all parent scope properties. In addition, `v-for` also supports an optional second alias for the index of the current item:
+Uvnitř elementu s `v-for` mají výrazy šablony přístup ke všem vlastnostem nadřazeného scope. Navíc `v-for` podporuje ještě volitelný druhý alias pro index aktuální položky:
 
 <div class="composition-api">
 
@@ -88,7 +88,7 @@ const items = [{ message: 'Foo' }, { message: 'Bar' }]
 
 </div>
 
-The variable scoping of `v-for` is similar to the following JavaScript:
+Scope proměnné z `v-for` je obdobný jako v následujícímu JavaScript kódu:
 
 ```js
 const parentMessage = 'Parent'
@@ -97,13 +97,13 @@ const items = [
 ]
 
 items.forEach((item, index) => {
-  // has access to outer scope `parentMessage`
-  // but `item` and `index` are only available in here
+  // má přístup do vnejšího scope`parentMessage`
+  // ale `item` a `index` jsou dostupné pouze zde
   console.log(parentMessage, item.message, index)
 })
 ```
 
-Notice how the `v-for` value matches the function signature of the `forEach` callback. In fact, you can use destructuring on the `v-for` item alias similar to destructuring function arguments:
+Všimněte si, jak se hodnota `v-for` shoduje s definicí callback funkce `forEach`. Dokonce můžete dekonstrukci na alias položky `v-for` použít podobně jako na argumenty funkce:
 
 ```vue-html
 <li v-for="{ message } in items">
@@ -116,7 +116,7 @@ Notice how the `v-for` value matches the function signature of the `forEach` cal
 </li>
 ```
 
-For nested `v-for`, scoping also works similar to nested functions. Each `v-for` scope has access to parent scopes:
+Pro vnořené `v-for` funguje scope také stejně jako ve vnořených funkcích. Každý scope `v-for` má přístup do rodičovského scope:
 
 ```vue-html
 <li v-for="item in items">
@@ -126,15 +126,15 @@ For nested `v-for`, scoping also works similar to nested functions. Each `v-for`
 </li>
 ```
 
-You can also use `of` as the delimiter instead of `in`, so that it is closer to JavaScript's syntax for iterators:
+Aby byl zápis bližší JavaScript syntaxi pro iterátory, můžete také místo `in` použít `of`:
 
 ```vue-html
 <div v-for="item of items"></div>
 ```
 
-## `v-for` with an Object {#v-for-with-an-object}
+## `v-for` nad objektem {#v-for-with-an-object}
 
-You can also use `v-for` to iterate through the properties of an object. The iteration order will be based on the result of calling `Object.keys()` on the object:
+Direktivu `v-for` můžete také použít pro iteraci nad vlastnostmi objektu. Pořadí iterace bude záviset na výsledku volání metody `Object.keys()` na daný objekt:
 
 <div class="composition-api">
 
@@ -171,7 +171,7 @@ data() {
 </ul>
 ```
 
-You can also provide a second alias for the property's name (a.k.a. key):
+Můžete také úvést druhý alias (klíč) pro název vlastnosti:
 
 ```vue-html
 <li v-for="(value, key) in myObject">
@@ -179,7 +179,7 @@ You can also provide a second alias for the property's name (a.k.a. key):
 </li>
 ```
 
-And another for the index:
+A ještě další pro její pořadí:
 
 ```vue-html
 <li v-for="(value, key, index) in myObject">
@@ -198,19 +198,19 @@ And another for the index:
 
 </div>
 
-## `v-for` with a Range {#v-for-with-a-range}
+## `v-for` nad rozsahem hodnot {#v-for-with-a-range}
 
-`v-for` can also take an integer. In this case it will repeat the template that many times, based on a range of `1...n`.
+`v-for` akceptuje jako parametr i číslo. V tomto případě se bude šablona opakovat n-krát, na základě rozsahu `1...n`.
 
 ```vue-html
 <span v-for="n in 10">{{ n }}</span>
 ```
 
-Note here `n` starts with an initial value of `1` instead of `0`.
+Dejte pozor, že `n` začíná s úvodníh hodnotou `1` místo obvyklé `0`.
 
-## `v-for` on `<template>` {#v-for-on-template}
+## `v-for` nad `<template>` {#v-for-on-template}
 
-Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to render a block of multiple elements. For example:
+Podobně jako u `v-if`, je možné tag `<template>` použití i s `v-for` pro vícenásobné vykreslení bloku. Například:
 
 ```vue-html
 <ul>
@@ -221,25 +221,25 @@ Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to 
 </ul>
 ```
 
-## `v-for` with `v-if` {#v-for-with-v-if}
+## `v-for` s `v-if` {#v-for-with-v-if}
 
-:::warning Note
-It's **not** recommended to use `v-if` and `v-for` on the same element due to implicit precedence. Refer to [style guide](/style-guide/rules-essential.html#avoid-v-if-with-v-for) for details.
+::: warning Note
+**Nedoporučuje se** používat `v-if` a `v-for` na stejném prvku kvůli jejich implicitní prioritě. Podrobnosti naleznete v [Průvodci stylováním](/style-guide/rules-essential.html#avoid-v-if-with-v-for).
 :::
 
-When they exist on the same node, `v-if` has a higher priority than `v-for`. That means the `v-if` condition will not have access to variables from the scope of the `v-for`:
+Když existují na stejném elementu, `v-if` má vyšší prioritu než `v-for`. To znamená, že podmínka `v-if` nebude mít přístup k proměnným z `v-for` scope:
 
 ```vue-html
 <!--
-This will throw an error because property "todo"
-is not defined on instance.
+Toto vyvolá výjimku, protože "toto"
+není definovaná jako proměnná instance
 -->
 <li v-for="todo in todos" v-if="!todo.isComplete">
   {{ todo.name }}
 </li>
 ```
 
-This can be fixed by moving `v-for` to a wrapping `<template>` tag (which is also more explicit):
+Toto lze napravit přesunutím `v-for` do obalujícího `<template>` tagu (což je také přehlednější):
 
 ```vue-html
 <template v-for="todo in todos">
@@ -249,13 +249,13 @@ This can be fixed by moving `v-for` to a wrapping `<template>` tag (which is als
 </template>
 ```
 
-## Maintaining State with `key` {#maintaining-state-with-key}
+## Udržování stavu pomocí `key` {#maintaining-state-with-key}
 
-When Vue is updating a list of elements rendered with `v-for`, by default it uses an "in-place patch" strategy. If the order of the data items has changed, instead of moving the DOM elements to match the order of the items, Vue will patch each element in-place and make sure it reflects what should be rendered at that particular index.
+Když Vue aktualizuje seznam prvků vykreslených pomocí `v-for`, ve výchozím nastavení používá strategii „opravy na místě“. Pokud se pořadí datových položek změnilo, namísto přesování prvků DOM tak, aby odpovídaly pořadí položek, Vue každý prvek opraví na jeho místě a zajistí, aby odrážel to, co by se na daném místě mělo vykreslit.
 
-This default mode is efficient, but **only suitable when your list render output does not rely on child component state or temporary DOM state (e.g. form input values)**.
+Tento výchozí režim je efektivní, ale **vhodný pouze tehdy, když výsledek vykreslení vašeho seznamu nezávisí na stavu podřízené komponenty nebo dočasném stavu DOM (např. vstupní hodnoty formulářů)**.
 
-To give Vue a hint so that it can track each node's identity, and thus reuse and reorder existing elements, you need to provide a unique `key` attribute for each item:
+Chcete-li Vue poskytnout nápovědu, aby mohlo sledovat identitu každého uzlu, a tedy znovupoužít a změnit pořadí existujících prvků, musíte pro každou položku poskytnout jedinečný atribut `key`:
 
 ```vue-html
 <div v-for="item in items" :key="item.id">
@@ -263,7 +263,7 @@ To give Vue a hint so that it can track each node's identity, and thus reuse and
 </div>
 ```
 
-When using `<template v-for>`, the `key` should be placed on the `<template>` container:
+Při použití `<template v-for>`, by měl být `key` umístěn do `<template>` tagu:
 
 ```vue-html
 <template v-for="todo in todos" :key="todo.name">
@@ -271,25 +271,25 @@ When using `<template v-for>`, the `key` should be placed on the `<template>` co
 </template>
 ```
 
-:::tip Note
-`key` here is a special attribute being bound with `v-bind`. It should not be confused with the property key variable when [using `v-for` with an object](#v-for-with-an-object).
+:::tip Poznámka
+Zde uvedený `key` je speciální atribut propojený s `v-bind`. Nemělo by se zaměňovat s klíčem pro vlastnosti při [použití `v-for` nad objektem](#v-for-with-an-object).
 :::
 
-[It is recommended](/style-guide/rules-essential.html#use-keyed-v-for) to provide a `key` attribute with `v-for` whenever possible, unless the iterated DOM content is simple (i.e. contains no components or stateful DOM elements), or you are intentionally relying on the default behavior for performance gains.
+[Je doporučeno](/style-guide/rules-essential.html#use-keyed-v-for) použití atributu `key` s `v-for`, kdykoli je to možné. Výjimkou mohou být situace, kdy je iterovaný obsah DOM velmi jednoduchý (tj. neobsahuje žádné komponenty nebo stavové elementy DOM), nebo se záměrně spoléháte na výchozí chování pro zvýšení výkonu.
 
-The `key` binding expects primitive values - i.e. strings and numbers. Do not use objects as `v-for` keys. For detailed usage of the `key` attribute, please see the [`key` API documentation](/api/built-in-special-attributes.html#key).
+Direktiva `key` očekává vazbu na primitivní hodnoty – tedy string a number. Nepoužívejte jako klíče `v-for` objekty. Podrobné použití atributu `key` naleznete v [API dokumentaci pro `key`](/api/built-in-special-attributes.html#key).
 
-## `v-for` with a Component {#v-for-with-a-component}
+## `v-for` nad komponentou {#v-for-with-a-component}
 
-> This section assumes knowledge of [Components](/guide/essentials/component-basics). Feel free to skip it and come back later.
+> Tato sekce předpokládá znalost [komponent](/guide/essentials/component-basics). Klidně ji teď přeskočte a vraťte se později.
 
-You can directly use `v-for` on a component, like any normal element (don't forget to provide a `key`):
+Je možné použít `v-for` přímo na komponentu, jako by to byl jiný standardní element (nezapomeňte definovat `key`):
 
 ```vue-html
 <MyComponent v-for="item in items" :key="item.id" />
 ```
 
-However, this won't automatically pass any data to the component, because components have isolated scopes of their own. In order to pass the iterated data into the component, we should also use props:
+To však komponentě automaticky nepředá žádná data, protože komponenty mají své vlastní izolované scope. Abychom předali do komponenty iterovaná data, měli bychom použít také vlastnosti (props):
 
 ```vue-html
 <MyComponent
@@ -300,24 +300,24 @@ However, this won't automatically pass any data to the component, because compon
 />
 ```
 
-The reason for not automatically injecting `item` into the component is because that makes the component tightly coupled to how `v-for` works. Being explicit about where its data comes from makes the component reusable in other situations.
+Důvodem, proč se `item` do komponenty automaticky nevkládá, je, že díky tomu by byla komponenta pevně spojena s tím, jak funguje `v-for`. Určovat explicitně odkud data pocházejí umožňuje, že je komponenta znovupoužitelná i v jiných situacích.
 
 <div class="composition-api">
 
-Check out [this example of a simple todo list](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcbmltcG9ydCBUb2RvSXRlbSBmcm9tICcuL1RvZG9JdGVtLnZ1ZSdcbiAgXG5jb25zdCBuZXdUb2RvVGV4dCA9IHJlZignJylcbmNvbnN0IHRvZG9zID0gcmVmKFtcbiAge1xuICAgIGlkOiAxLFxuICAgIHRpdGxlOiAnRG8gdGhlIGRpc2hlcydcbiAgfSxcbiAge1xuICAgIGlkOiAyLFxuICAgIHRpdGxlOiAnVGFrZSBvdXQgdGhlIHRyYXNoJ1xuICB9LFxuICB7XG4gICAgaWQ6IDMsXG4gICAgdGl0bGU6ICdNb3cgdGhlIGxhd24nXG4gIH1cbl0pXG5cbmxldCBuZXh0VG9kb0lkID0gNFxuXG5mdW5jdGlvbiBhZGROZXdUb2RvKCkge1xuICB0b2Rvcy52YWx1ZS5wdXNoKHtcbiAgICBpZDogbmV4dFRvZG9JZCsrLFxuICAgIHRpdGxlOiBuZXdUb2RvVGV4dC52YWx1ZVxuICB9KVxuICBuZXdUb2RvVGV4dC52YWx1ZSA9ICcnXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8Zm9ybSB2LW9uOnN1Ym1pdC5wcmV2ZW50PVwiYWRkTmV3VG9kb1wiPlxuICAgIDxsYWJlbCBmb3I9XCJuZXctdG9kb1wiPkFkZCBhIHRvZG88L2xhYmVsPlxuICAgIDxpbnB1dFxuICAgICAgdi1tb2RlbD1cIm5ld1RvZG9UZXh0XCJcbiAgICAgIGlkPVwibmV3LXRvZG9cIlxuICAgICAgcGxhY2Vob2xkZXI9XCJFLmcuIEZlZWQgdGhlIGNhdFwiXG4gICAgLz5cbiAgICA8YnV0dG9uPkFkZDwvYnV0dG9uPlxuICA8L2Zvcm0+XG4gIDx1bD5cbiAgICA8dG9kby1pdGVtXG4gICAgICB2LWZvcj1cIih0b2RvLCBpbmRleCkgaW4gdG9kb3NcIlxuICAgICAgOmtleT1cInRvZG8uaWRcIlxuICAgICAgOnRpdGxlPVwidG9kby50aXRsZVwiXG4gICAgICBAcmVtb3ZlPVwidG9kb3Muc3BsaWNlKGluZGV4LCAxKVwiXG4gICAgPjwvdG9kby1pdGVtPlxuICA8L3VsPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiVG9kb0l0ZW0udnVlIjoiPHNjcmlwdCBzZXR1cD5cbmRlZmluZVByb3BzKFsndGl0bGUnXSlcbmRlZmluZUVtaXRzKFsncmVtb3ZlJ10pXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8bGk+XG4gICAge3sgdGl0bGUgfX1cbiAgICA8YnV0dG9uIEBjbGljaz1cIiRlbWl0KCdyZW1vdmUnKVwiPlJlbW92ZTwvYnV0dG9uPlxuICA8L2xpPlxuPC90ZW1wbGF0ZT4ifQ==) to see how to render a list of components using `v-for`, passing different data to each instance.
+Podívejte se na [tento příklad jednoduchého TODO listu](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdCBzZXR1cD5cbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSdcbmltcG9ydCBUb2RvSXRlbSBmcm9tICcuL1RvZG9JdGVtLnZ1ZSdcbiAgXG5jb25zdCBuZXdUb2RvVGV4dCA9IHJlZignJylcbmNvbnN0IHRvZG9zID0gcmVmKFtcbiAge1xuICAgIGlkOiAxLFxuICAgIHRpdGxlOiAnRG8gdGhlIGRpc2hlcydcbiAgfSxcbiAge1xuICAgIGlkOiAyLFxuICAgIHRpdGxlOiAnVGFrZSBvdXQgdGhlIHRyYXNoJ1xuICB9LFxuICB7XG4gICAgaWQ6IDMsXG4gICAgdGl0bGU6ICdNb3cgdGhlIGxhd24nXG4gIH1cbl0pXG5cbmxldCBuZXh0VG9kb0lkID0gNFxuXG5mdW5jdGlvbiBhZGROZXdUb2RvKCkge1xuICB0b2Rvcy52YWx1ZS5wdXNoKHtcbiAgICBpZDogbmV4dFRvZG9JZCsrLFxuICAgIHRpdGxlOiBuZXdUb2RvVGV4dC52YWx1ZVxuICB9KVxuICBuZXdUb2RvVGV4dC52YWx1ZSA9ICcnXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuXHQ8Zm9ybSB2LW9uOnN1Ym1pdC5wcmV2ZW50PVwiYWRkTmV3VG9kb1wiPlxuICAgIDxsYWJlbCBmb3I9XCJuZXctdG9kb1wiPkFkZCBhIHRvZG88L2xhYmVsPlxuICAgIDxpbnB1dFxuICAgICAgdi1tb2RlbD1cIm5ld1RvZG9UZXh0XCJcbiAgICAgIGlkPVwibmV3LXRvZG9cIlxuICAgICAgcGxhY2Vob2xkZXI9XCJFLmcuIEZlZWQgdGhlIGNhdFwiXG4gICAgLz5cbiAgICA8YnV0dG9uPkFkZDwvYnV0dG9uPlxuICA8L2Zvcm0+XG4gIDx1bD5cbiAgICA8dG9kby1pdGVtXG4gICAgICB2LWZvcj1cIih0b2RvLCBpbmRleCkgaW4gdG9kb3NcIlxuICAgICAgOmtleT1cInRvZG8uaWRcIlxuICAgICAgOnRpdGxlPVwidG9kby50aXRsZVwiXG4gICAgICBAcmVtb3ZlPVwidG9kb3Muc3BsaWNlKGluZGV4LCAxKVwiXG4gICAgPjwvdG9kby1pdGVtPlxuICA8L3VsPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiVG9kb0l0ZW0udnVlIjoiPHNjcmlwdCBzZXR1cD5cbmRlZmluZVByb3BzKFsndGl0bGUnXSlcbmRlZmluZUVtaXRzKFsncmVtb3ZlJ10pXG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8bGk+XG4gICAge3sgdGl0bGUgfX1cbiAgICA8YnV0dG9uIEBjbGljaz1cIiRlbWl0KCdyZW1vdmUnKVwiPlJlbW92ZTwvYnV0dG9uPlxuICA8L2xpPlxuPC90ZW1wbGF0ZT4ifQ==) abyste viděli, jak vykreslit seznam komponent pomocí `v-for` a každé instanci předat jiná data.
 
 </div>
 <div class="options-api">
 
-Check out [this example of a simple todo list](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBUb2RvSXRlbSBmcm9tICcuL1RvZG9JdGVtLnZ1ZSdcbiAgXG5leHBvcnQgZGVmYXVsdCB7XG4gIGNvbXBvbmVudHM6IHsgVG9kb0l0ZW0gfSxcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbmV3VG9kb1RleHQ6ICcnLFxuICAgICAgdG9kb3M6IFtcbiAgICAgICAge1xuICAgICAgICAgIGlkOiAxLFxuICAgICAgICAgIHRpdGxlOiAnRG8gdGhlIGRpc2hlcydcbiAgICAgICAgfSxcbiAgICAgICAge1xuICAgICAgICAgIGlkOiAyLFxuICAgICAgICAgIHRpdGxlOiAnVGFrZSBvdXQgdGhlIHRyYXNoJ1xuICAgICAgICB9LFxuICAgICAgICB7XG4gICAgICAgICAgaWQ6IDMsXG4gICAgICAgICAgdGl0bGU6ICdNb3cgdGhlIGxhd24nXG4gICAgICAgIH1cbiAgICAgIF0sXG4gICAgICBuZXh0VG9kb0lkOiA0XG4gICAgfVxuICB9LFxuICBtZXRob2RzOiB7XG4gICAgYWRkTmV3VG9kbygpIHtcbiAgICAgIHRoaXMudG9kb3MucHVzaCh7XG4gICAgICAgIGlkOiB0aGlzLm5leHRUb2RvSWQrKyxcbiAgICAgICAgdGl0bGU6IHRoaXMubmV3VG9kb1RleHRcbiAgICAgIH0pXG4gICAgICB0aGlzLm5ld1RvZG9UZXh0ID0gJydcbiAgICB9XG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG5cdDxmb3JtIHYtb246c3VibWl0LnByZXZlbnQ9XCJhZGROZXdUb2RvXCI+XG4gICAgPGxhYmVsIGZvcj1cIm5ldy10b2RvXCI+QWRkIGEgdG9kbzwvbGFiZWw+XG4gICAgPGlucHV0XG4gICAgICB2LW1vZGVsPVwibmV3VG9kb1RleHRcIlxuICAgICAgaWQ9XCJuZXctdG9kb1wiXG4gICAgICBwbGFjZWhvbGRlcj1cIkUuZy4gRmVlZCB0aGUgY2F0XCJcbiAgICAvPlxuICAgIDxidXR0b24+QWRkPC9idXR0b24+XG4gIDwvZm9ybT5cbiAgPHVsPlxuICAgIDx0b2RvLWl0ZW1cbiAgICAgIHYtZm9yPVwiKHRvZG8sIGluZGV4KSBpbiB0b2Rvc1wiXG4gICAgICA6a2V5PVwidG9kby5pZFwiXG4gICAgICA6dGl0bGU9XCJ0b2RvLnRpdGxlXCJcbiAgICAgIEByZW1vdmU9XCJ0b2Rvcy5zcGxpY2UoaW5kZXgsIDEpXCJcbiAgICA+PC90b2RvLWl0ZW0+XG4gIDwvdWw+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJUb2RvSXRlbS52dWUiOiI8c2NyaXB0PlxuZXhwb3J0IGRlZmF1bHQge1xuXHRwcm9wczogWyd0aXRsZSddLFxuICBlbWl0czogWydyZW1vdmUnXVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPGxpPlxuICAgIHt7IHRpdGxlIH19XG4gICAgPGJ1dHRvbiBAY2xpY2s9XCIkZW1pdCgncmVtb3ZlJylcIj5SZW1vdmU8L2J1dHRvbj5cbiAgPC9saT5cbjwvdGVtcGxhdGU+In0=) to see how to render a list of components using `v-for`, passing different data to each instance.
+Podívejte se na [tento příklad jednoduchého TODO listu](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBUb2RvSXRlbSBmcm9tICcuL1RvZG9JdGVtLnZ1ZSdcbiAgXG5leHBvcnQgZGVmYXVsdCB7XG4gIGNvbXBvbmVudHM6IHsgVG9kb0l0ZW0gfSxcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbmV3VG9kb1RleHQ6ICcnLFxuICAgICAgdG9kb3M6IFtcbiAgICAgICAge1xuICAgICAgICAgIGlkOiAxLFxuICAgICAgICAgIHRpdGxlOiAnRG8gdGhlIGRpc2hlcydcbiAgICAgICAgfSxcbiAgICAgICAge1xuICAgICAgICAgIGlkOiAyLFxuICAgICAgICAgIHRpdGxlOiAnVGFrZSBvdXQgdGhlIHRyYXNoJ1xuICAgICAgICB9LFxuICAgICAgICB7XG4gICAgICAgICAgaWQ6IDMsXG4gICAgICAgICAgdGl0bGU6ICdNb3cgdGhlIGxhd24nXG4gICAgICAgIH1cbiAgICAgIF0sXG4gICAgICBuZXh0VG9kb0lkOiA0XG4gICAgfVxuICB9LFxuICBtZXRob2RzOiB7XG4gICAgYWRkTmV3VG9kbygpIHtcbiAgICAgIHRoaXMudG9kb3MucHVzaCh7XG4gICAgICAgIGlkOiB0aGlzLm5leHRUb2RvSWQrKyxcbiAgICAgICAgdGl0bGU6IHRoaXMubmV3VG9kb1RleHRcbiAgICAgIH0pXG4gICAgICB0aGlzLm5ld1RvZG9UZXh0ID0gJydcbiAgICB9XG4gIH1cbn1cbjwvc2NyaXB0PlxuXG48dGVtcGxhdGU+XG5cdDxmb3JtIHYtb246c3VibWl0LnByZXZlbnQ9XCJhZGROZXdUb2RvXCI+XG4gICAgPGxhYmVsIGZvcj1cIm5ldy10b2RvXCI+QWRkIGEgdG9kbzwvbGFiZWw+XG4gICAgPGlucHV0XG4gICAgICB2LW1vZGVsPVwibmV3VG9kb1RleHRcIlxuICAgICAgaWQ9XCJuZXctdG9kb1wiXG4gICAgICBwbGFjZWhvbGRlcj1cIkUuZy4gRmVlZCB0aGUgY2F0XCJcbiAgICAvPlxuICAgIDxidXR0b24+QWRkPC9idXR0b24+XG4gIDwvZm9ybT5cbiAgPHVsPlxuICAgIDx0b2RvLWl0ZW1cbiAgICAgIHYtZm9yPVwiKHRvZG8sIGluZGV4KSBpbiB0b2Rvc1wiXG4gICAgICA6a2V5PVwidG9kby5pZFwiXG4gICAgICA6dGl0bGU9XCJ0b2RvLnRpdGxlXCJcbiAgICAgIEByZW1vdmU9XCJ0b2Rvcy5zcGxpY2UoaW5kZXgsIDEpXCJcbiAgICA+PC90b2RvLWl0ZW0+XG4gIDwvdWw+XG48L3RlbXBsYXRlPiIsImltcG9ydC1tYXAuanNvbiI6IntcbiAgXCJpbXBvcnRzXCI6IHtcbiAgICBcInZ1ZVwiOiBcImh0dHBzOi8vc2ZjLnZ1ZWpzLm9yZy92dWUucnVudGltZS5lc20tYnJvd3Nlci5qc1wiXG4gIH1cbn0iLCJUb2RvSXRlbS52dWUiOiI8c2NyaXB0PlxuZXhwb3J0IGRlZmF1bHQge1xuXHRwcm9wczogWyd0aXRsZSddLFxuICBlbWl0czogWydyZW1vdmUnXVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPGxpPlxuICAgIHt7IHRpdGxlIH19XG4gICAgPGJ1dHRvbiBAY2xpY2s9XCIkZW1pdCgncmVtb3ZlJylcIj5SZW1vdmU8L2J1dHRvbj5cbiAgPC9saT5cbjwvdGVtcGxhdGU+In0=) abyste viděli, jak vykreslit seznam komponent pomocí `v-for` a každé instanci předat jiná data.
 
 </div>
 
-## Array Change Detection {#array-change-detection}
+## Detekce změny pole {#array-change-detection}
 
-### Mutation Methods {#mutation-methods}
+### Změnové metody {#mutation-methods}
 
-Vue is able to detect when a reactive array's mutation methods are called and trigger necessary updates. These mutation methods are:
+Vue umí detekovat, když jsou volány změnové metody reaktivního pole, a vyvolat potřebné aktualizace. Tyto změnové metody jsou:
 
 - `push()`
 - `pop()`
@@ -327,14 +327,14 @@ Vue is able to detect when a reactive array's mutation methods are called and tr
 - `sort()`
 - `reverse()`
 
-### Replacing an Array {#replacing-an-array}
+### Nahrazení pole {#replacing-an-array}
 
-Mutation methods, as the name suggests, mutate the original array they are called on. In comparison, there are also non-mutating methods, e.g. `filter()`, `concat()` and `slice()`, which do not mutate the original array but **always return a new array**. When working with non-mutating methods, we should replace the old array with the new one:
+Změnové metody, jak název napovídá, mění původní pole, na kterém jsou volány. Pro srovnání existují i metody, které pole nemění, např. `filter()`, `concat()` a `slice()`, které nemění původní pole, ale **vždy vrátí nové pole**. Při práci s těmito metodami bychom měli staré pole nahradit novým:
 
 <div class="composition-api">
 
 ```js
-// `items` is a ref with array value
+// `items` je ref obsahující pole
 items.value = items.value.filter((item) => item.message.match(/Foo/))
 ```
 
@@ -347,13 +347,13 @@ this.items = this.items.filter((item) => item.message.match(/Foo/))
 
 </div>
 
-You might think this will cause Vue to throw away the existing DOM and re-render the entire list - luckily, that is not the case. Vue implements some smart heuristics to maximize DOM element reuse, so replacing an array with another array containing overlapping objects is a very efficient operation.
+Možná  byste si mysleli, že to způsobí, že Vue zahodí stávající DOM a vykreslí celý seznam znovu – naštěstí tomu tak není. Vue implementuje některé chytré heuristiky pro maximalizaci znovupoužití DOM elementů, takže nahrazení jednoho pole jiným polem obsahujícím překrývající se objekty je velmi efektivní operace.
 
-## Displaying Filtered/Sorted Results {#displaying-filtered-sorted-results}
+## Zobrazení filtrovaných/seřazených výsledků {#displaying-filtered-sorted-results}
 
-Sometimes we want to display a filtered or sorted version of an array without actually mutating or resetting the original data. In this case, you can create a computed property that returns the filtered or sorted array.
+Někdy chceme zobrazit filtrovanou nebo seřazenou verzi pole, aniž bychom skutečně měnili nebo resetovali původní data. V tomto případě můžete vytvořit computed proměnnou, která vrátí pole filtrované nebo seřazené.
 
-For example:
+Například:
 
 <div class="composition-api">
 
@@ -387,7 +387,7 @@ computed: {
 <li v-for="n in evenNumbers">{{ n }}</li>
 ```
 
-In situations where computed properties are not feasible (e.g. inside nested `v-for` loops), you can use a method:
+V situacích, kdy computed proměnné nejsou proveditelné (např. uvnitř vnořených `v-for` cyklů), můžete použít funkci:
 
 <div class="composition-api">
 
@@ -426,7 +426,7 @@ methods: {
 </ul>
 ```
 
-Be careful with `reverse()` and `sort()` in a computed property! These two methods will mutate the original array, which should be avoided in computed getters. Create a copy of the original array before calling these methods:
+U computed proměnných buďte opatrní s `reverse()` a `sort()`! Tyto dvě metody mění původní pole, čemuž je třeba se u computed getterů vyhnout. Před voláním těchto metod vytvořte kopii původního pole:
 
 ```diff
 - return numbers.reverse()

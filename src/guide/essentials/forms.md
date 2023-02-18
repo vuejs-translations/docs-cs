@@ -268,7 +268,7 @@ Single select:
 
 </div>
 
-:::tip Note
+:::tip Poznámka
 If the initial value of your `v-model` expression does not match any of the options, the `<select>` element will render in an "unselected" state. On iOS this will cause the user not being able to select the first item because iOS does not fire a change event in this case. It is therefore recommended to provide a disabled option with an empty value, as demonstrated in the example above.
 :::
 

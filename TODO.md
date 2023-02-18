@@ -61,7 +61,6 @@ essentials\component-basics.md
 essentials\event-handling.md
 essentials\forms.md
 essentials\lifecycle.md
-essentials\list.md
 essentials\template-refs.md
 essentials\watchers.md
 

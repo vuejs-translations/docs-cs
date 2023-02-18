@@ -67,10 +67,12 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 layout = layout
 * 🟨 legacy code = legacy kód
 * 🟥 lifecycle hook = lifecycle hook
+* 🟩 loop = cyklus
 * 🟨 mount = připojení (mount)
 * 🟨 "Mustache" syntax = "Mustache" syntaxe
 * 🟩 mutate (v.) = měnit
 * 🟩 mutation = změna
+* 🟩 nested = vnořený
 * 🟩 notice (v.) = všimněte si
 * 🟩 object types = objektové typy
 * 🟥 open source = open source
@@ -114,7 +116,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 tightly coupled = těsně provázané
 * 🟩 theme = šablona
 * 🟩 this is how = tímto způsobem můžeme
-* 🟩 throw an error = vyhodit výjimku
+* 🟩 throw an error = vyvolat výjimku
 * 🟩 top level <sth> = <něco> nejvyšší úrovně / globální <něco> (pokud to odpovídá kontextu)
 * 🟩 trigger (v.) = vyvolat
 * 🟩 type = typ

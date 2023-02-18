@@ -210,7 +210,7 @@ Když Vue zpracovává direktivy, `v-if` má vyšší priorotu než `v-for`. V t
 </ul>
 ```
 
-vyhodí výjimku, protože `v-if` direktiva bude vyhodnocena první a proměnná `user`, přes kterou se iteruje nebude v tom okamžiku existovat.
+vyvolá výjimku, protože `v-if` direktiva bude vyhodnocena první a proměnná `user`, přes kterou se iteruje nebude v tom okamžiku existovat.
 
 To se dá napravit iterací přes computed proměnnou, například takto:
 
