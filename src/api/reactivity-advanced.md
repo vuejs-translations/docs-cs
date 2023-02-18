@@ -260,7 +260,7 @@ Marks an object so that it will never be converted to a proxy. Returns the objec
 
   - Skipping proxy conversion can provide performance improvements when rendering large lists with immutable data sources.
 
-  They are considered advanced because the raw opt-out is only at the root level, so if you set a nested, non-marked raw object into a reactive object and then access it again, you get the proxied version back. This can lead to **identity hazards** - i.e. performing an operation that relies on object identity but using both the raw and the proxied version of the same object:
+  They are considered advanced because the raw opt-out is only at the root level, so if you set a nested, non-marked raw object into a reactive object and then access it again, you get the proxied version back. This can lead to **identity hazards** - tj. performing an operation that relies on object identity but using both the raw and the proxied version of the same object:
 
   ```js
   const foo = markRaw({
@@ -281,7 +281,7 @@ Marks an object so that it will never be converted to a proxy. Returns the objec
 
 ## effectScope() {#effectscope}
 
-Creates an effect scope object which can capture the reactive effects (i.e. computed and watchers) created within it so that these effects can be disposed together. For detailed use cases of this API, please consult its corresponding [RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0041-reactivity-effect-scope.md).
+Creates an effect scope object which can capture the reactive effects (tj. computed and watchers) created within it so that these effects can be disposed together. For detailed use cases of this API, please consult its corresponding [RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0041-reactivity-effect-scope.md).
 
 - **Type**
 

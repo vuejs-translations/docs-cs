@@ -36,7 +36,7 @@ With `scoped`, the parent component's styles will not leak into child components
 
 ### Deep Selectors {#deep-selectors}
 
-If you want a selector in `scoped` styles to be "deep", i.e. affecting child components, you can use the `:deep()` pseudo-class:
+If you want a selector in `scoped` styles to be "deep", tj. affecting child components, you can use the `:deep()` pseudo-class:
 
 ```vue
 <style scoped>
@@ -98,7 +98,7 @@ You can also include both scoped and non-scoped styles in the same component:
 
 ### Scoped Style Tips {#scoped-style-tips}
 
-- **Scoped styles do not eliminate the need for classes**. Due to the way browsers render various CSS selectors, `p { color: red }` will be many times slower when scoped (i.e. when combined with an attribute selector). If you use classes or ids instead, such as in `.example { color: red }`, then you virtually eliminate that performance hit.
+- **Scoped styles do not eliminate the need for classes**. Due to the way browsers render various CSS selectors, `p { color: red }` will be many times slower when scoped (tj. when combined with an attribute selector). If you use classes or ids instead, such as in `.example { color: red }`, then you virtually eliminate that performance hit.
 
 - **Be careful with descendant selectors in recursive components!** For a CSS rule with the selector `.a .b`, if the element that matches `.a` contains a recursive child component, then all `.b` in that child component will be matched by the rule.
 

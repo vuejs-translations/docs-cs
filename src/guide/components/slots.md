@@ -104,7 +104,7 @@ Slot content does **not** have access to the child component's data. Expressions
 
 ## Fallback Content {#fallback-content}
 
-There are cases when it's useful to specify fallback (i.e. default) content for a slot, to be rendered only when no content is provided. For example, in a `<SubmitButton>` component:
+There are cases when it's useful to specify fallback (tj. default) content for a slot, to be rendered only when no content is provided. For example, in a `<SubmitButton>` component:
 
 ```vue-html
 <button type="submit">

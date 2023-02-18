@@ -1,7 +1,7 @@
 # Component Instance {#component-instance}
 
 :::info
-This page documents the built-in properties and methods exposed on the component public instance, i.e. `this`.
+This page documents the built-in properties and methods exposed on the component public instance, tj. `this`.
 
 All properties listed on this page are readonly (except nested properties in `$data`).
 :::

@@ -23,7 +23,7 @@ Takes an inner value and returns a reactive and mutable ref object, which has a 
 
 - **Details**
 
-  The ref object is mutable - i.e. you can assign new values to `.value`. It is also reactive - i.e. any read operations to `.value` are tracked, and write operations will trigger associated effects.
+  The ref object is mutable - tj. you can assign new values to `.value`. It is also reactive - tj. any read operations to `.value` are tracked, and write operations will trigger associated effects.
 
   If an object is assigned as a ref's value, the object is made deeply reactive with [reactive()](#reactive). This also means if the object contains nested refs, they will be deeply unwrapped.
 
@@ -367,7 +367,7 @@ Watches one or more reactive data sources and invokes a callback function when t
 
 - **Details**
 
-  `watch()` is lazy by default - i.e. the callback is only called when the watched source has changed.
+  `watch()` is lazy by default - tj. the callback is only called when the watched source has changed.
 
   The first argument is the watcher's **source**. The source can be one of the following:
 

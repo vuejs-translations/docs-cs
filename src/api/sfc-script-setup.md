@@ -179,7 +179,7 @@ If you are using TypeScript, it is also possible to [declare props and emits usi
 
 ## defineExpose() {#defineexpose}
 
-Components using `<script setup>` are **closed by default** - i.e. the public instance of the component, which is retrieved via template refs or `$parent` chains, will **not** expose any of the bindings declared inside `<script setup>`.
+Components using `<script setup>` are **closed by default** - tj. the public instance of the component, which is retrieved via template refs or `$parent` chains, will **not** expose any of the bindings declared inside `<script setup>`.
 
 To explicitly expose properties in a `<script setup>` component, use the `defineExpose` compiler macro:
 

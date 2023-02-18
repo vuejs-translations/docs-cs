@@ -235,7 +235,7 @@ const vnode = <div id={dynamicId}>hello, {userName}</div>
 Although first introduced by React, JSX actually has no defined runtime semantics and can be compiled into various different outputs. If you have worked with JSX before, do note that **Vue JSX transform is different from React's JSX transform**, so you can't use React's JSX transform in Vue applications. Some notable differences from React JSX include:
 
 - You can use HTML attributes such as `class` and `for` as props - no need to use `className` or `htmlFor`.
-- Passing children to components (i.e. slots) [works differently](#passing-slots).
+- Passing children to components (tj. slots) [works differently](#passing-slots).
 
 Vue's type definition also provides type inference for TSX usage. When using TSX, make sure to specify `"jsx": "preserve"` in `tsconfig.json` so that TypeScript leaves the JSX syntax intact for Vue JSX transform to process.
 
@@ -649,7 +649,7 @@ If the directive is registered by name and cannot be imported directly, it can b
 
 ## Functional Components {#functional-components}
 
-Functional components are an alternative form of component that don't have any state of their own. They act like pure functions: props in, vnodes out. They are rendered without creating a component instance (i.e. no `this`), and without the usual component lifecycle hooks.
+Functional components are an alternative form of component that don't have any state of their own. They act like pure functions: props in, vnodes out. They are rendered without creating a component instance (tj. no `this`), and without the usual component lifecycle hooks.
 
 To create a functional component we use a plain function, rather than an options object. The function is effectively the `render` function for the component.
 

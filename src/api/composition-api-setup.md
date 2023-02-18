@@ -121,7 +121,7 @@ export default {
 export default {
   setup(props, { expose }) {
     // make the instance "closed" -
-    // i.e. do not expose anything to the parent
+    // tj. do not expose anything to the parent
     expose()
 
     const publicCount = ref(0)

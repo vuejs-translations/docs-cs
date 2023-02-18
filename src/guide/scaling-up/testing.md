@@ -261,7 +261,7 @@ While developers have traditionally relied on scanning logs in a terminal window
 
 #### Visibility in headless mode {#visibility-in-headless-mode}
 
-When end-to-end (E2E) tests are run in continuous integration / deployment pipelines, they are often run in headless browsers (i.e., no visible browser is opened for the user to watch). A critical feature of modern E2E testing frameworks is the ability to see snapshots and/or videos of the application during testing, providing some insight into why errors are happening. Historically, it was tedious to maintain these integrations.
+When end-to-end (E2E) tests are run in continuous integration / deployment pipelines, they are often run in headless browsers (tj., no visible browser is opened for the user to watch). A critical feature of modern E2E testing frameworks is the ability to see snapshots and/or videos of the application during testing, providing some insight into why errors are happening. Historically, it was tedious to maintain these integrations.
 
 ### Recommendation {#recommendation-2}
 

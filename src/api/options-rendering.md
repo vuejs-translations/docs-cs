@@ -80,6 +80,6 @@ Configure runtime compiler options for the component's template.
 
 - **Details**
 
-  This config option is only respected when using the full build (i.e. the standalone `vue.js` that can compile templates in the browser). It supports the same options as the app-level [app.config.compilerOptions](/api/application.html#app-config-compileroptions), and has higher priority for the current component.
+  This config option is only respected when using the full build (tj. the standalone `vue.js` that can compile templates in the browser). It supports the same options as the app-level [app.config.compilerOptions](/api/application.html#app-config-compileroptions), and has higher priority for the current component.
 
 - **Viz také:** [app.config.compilerOptions](/api/application.html#app-config-compileroptions)
