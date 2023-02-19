@@ -166,7 +166,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
           text: 'Obsluha událostí',
           link: '/guide/essentials/event-handling'
         },
-        { text: 'Binding formulářových dat', link: '/guide/essentials/forms' },
+        { text: 'Binding dat z formulářů', link: '/guide/essentials/forms' },
         {
           text: 'Lifecycle Hooks',
           link: '/guide/essentials/lifecycle'
@@ -441,7 +441,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/examples/#conditionals-and-loops'
         },
         {
-          text: 'Binding formulářů',
+          text: 'Binding dat z formulářů',
           link: '/examples/#form-bindings'
         },
         {

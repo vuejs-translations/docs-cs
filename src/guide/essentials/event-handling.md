@@ -317,7 +317,7 @@ Následující modifikátory můžete použít k vyvolání event listenerů nas
 - `.shift`
 - `.meta`
 
-::: tip Note
+::: tip Poznámka
 Na klávesnicích Macintosh je meta klávesa příkazu (⌘). Na klávesnicích Windows je meta klávesa Windows (⊞). Na klávesnicích Sun Microsystems je meta označena jako plný kosočtverec (◆). Na určitých klávesnicích, konkrétně na strojových klávesnicích MIT a Lisp a jejich nástupcích jako je Knight keyboard a space-cadet keyboard, je meta označena jako „META“. Na klávesnicích Symbolics je meta označena „META“ nebo „Meta“.
 :::
 

@@ -21,11 +21,13 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 array = pole
 * 🟥 backend = backend
 * 🟩 best practice = osvědčené postupy
+* 🟩 bind (v.) = provést binding
 * 🟥 binding = binding
 * 🟩 bug = chyba ('bug' lze občas nechat, ale určitě raději "zdroj chyb" než "zdroj bugů")
 * 🟩 build step = build fáze
 * 🟩 build-in (adj.) = vestavěný
 * 🟥 callback = callback
+* 🟨 callback function = callback funkce
 * 🟩 check out = podívejte se na
 * 🟩 child = potomek
 * 🟩 Code of Conduct = Kodex chování
@@ -77,6 +79,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 mutate (v.) = měnit
 * 🟩 mutation = změna
 * 🟩 nested = vnořený
+* 🟩 node (DOM) = element (dle mého není třeba rozlišovat mezi "element" (obecný) a "node" (konkrétní))
 * 🟩 notice (v.) = všimněte si
 * 🟩 object types = objektové typy
 * 🟥 open source = open source

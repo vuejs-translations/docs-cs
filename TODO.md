@@ -58,8 +58,6 @@ components\
 
 essentials\
 essentials\component-basics.md
-essentials\forms.md
-essentials\lifecycle.md
 essentials\template-refs.md
 essentials\watchers.md
 
