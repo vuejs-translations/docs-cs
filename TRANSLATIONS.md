@@ -9,6 +9,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 
 ## LIST
 * 🟩 3rd-party = třetí strana
+* 🟩 accessibility feature = funkce usnadnění
 * 🟥 API = API
 * 🟥 app-level = globální
 * 🟩 application instance = aplikační instance
@@ -26,10 +27,12 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 bug = chyba ('bug' lze občas nechat, ale určitě raději "zdroj chyb" než "zdroj bugů")
 * 🟩 build step = build fáze
 * 🟩 build-in (adj.) = vestavěný
+* 🟩 by default = ve výchozím nastavení
 * 🟥 callback = callback
 * 🟨 callback function = callback funkce
 * 🟩 check out = podívejte se na
 * 🟩 child = potomek
+* 🟩 child component = komponenta potomka
 * 🟩 Code of Conduct = Kodex chování
 * 🟩 codebase = kódová báze
 * 🟩 compiler = překadač ('kompilátor' lze tolerovat)
@@ -40,6 +43,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 declarative rendering = deklarativní rendering
 * 🟩 declare = deklarovat
 * 🟩 deep = vnořený (za předpokladu, že odpovídá kontext, např. "deep reactivity")
+* 🟥 default export = default export
 * 🟩 destructure = dekonstruovat
 * 🟨 directive = direktiva
 * 🟥 DOM = DOM
@@ -88,6 +92,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 Options API = Options API
 * 🟥 package = package
 * 🟩 parent = rodič
+* 🟩 parent component = komponenta rodiče
 * 🟥 parser = parser
 * 🟥 PascalCase = PascalCase
 * 🟩 passed to = posílaný do
@@ -114,12 +119,14 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 sidebar = postranní panel
 * 🟨 Single-File component = Single-File komponenta (SFC)
 * 🟥 slot = slot
+* 🟩 snippet = kus kódu
 * 🟩 state = stav
 * 🟥 state management = state management
 * 🟥 stateful = stateful
 * 🟥 store = store
 * 🟥 string = string
 * 🟨 string template = string-šablona
+* 🟥 tag = tag
 * 🟨 technology stack = technologický stack
 * 🟩 template = šablona
 * 🟩 tightly coupled = těsně provázané

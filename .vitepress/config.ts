@@ -31,7 +31,7 @@ const nav: ThemeConfig['nav'] = [
     link: '/api/'
   },
   {
-    text: 'Hřiště',
+    text: 'Hřiště (Vue SFC Playground)',
     link: 'https://sfc.vuejs.org'
   },
   {

@@ -55,10 +55,6 @@ tree\
 best-practices\
 built-ins\
 components\
-
-essentials\
-essentials\component-basics.md
-
 extras\
 reusability\
 scaling-up\
