@@ -58,8 +58,6 @@ components\
 
 essentials\
 essentials\component-basics.md
-essentials\template-refs.md
-essentials\watchers.md
 
 extras\
 reusability\
@@ -80,3 +78,8 @@ typescript\
 /src/step-13
 /src/step-14
 /src/step-15
+
+TODO iteration 2
+Revisions
+Example code translations...
+České úvozovky místo anglických

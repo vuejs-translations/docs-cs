@@ -57,6 +57,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 framework = framework
 * 🟥 frontend = frontend
 * 🟩 fundamentals = základy
+* 🟨 getter = getter funkce
 * 🟩 globals = globální objekty
 * 🟩 guide = průvodce
 * 🟥 handler = handler
@@ -83,7 +84,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 notice (v.) = všimněte si
 * 🟩 object types = objektové typy
 * 🟥 open source = open source
-* 🟩 option = nastavení / proměnná / vlastnost (dle kontextu)
+* 🟩 option = nastavení / proměnná / vlastnost / volba (dle kontextu)
 * 🟥 Options API = Options API
 * 🟥 package = package
 * 🟩 parent = rodič
@@ -98,6 +99,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 proxy = proxy
 * 🟩 reactive = reaktivní
 * 🟩 reactivity = reaktivita
+* 🟥 ref = ref
 * 🟨 refactoring = refaktoring
 * 🟩 release = verze
 * 🟩 rendering = vykreslování
