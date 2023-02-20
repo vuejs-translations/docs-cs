@@ -2,10 +2,10 @@ import { ref } from 'vue'
 
 export default {
   setup() {
-    const titleClass = ref('title')
+    const h1Class = ref('title')
 
     return {
-      titleClass
+      h1Class
     }
   }
 }

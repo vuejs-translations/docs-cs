@@ -1,19 +1,19 @@
-# Attribute Bindings {#attribute-bindings}
+# Binding atributů {#attribute-bindings}
 
-In Vue, mustaches are only used for text interpolation. To bind an attribute to a dynamic value, we use the `v-bind` directive:
-
-```vue-html
-<div v-bind:id="dynamicId"></div>
-```
-
-A **directive** is a special attribute that starts with the `v-` prefix. They are part of Vue's template syntax. Similar to text interpolations, directive values are JavaScript expressions that have access to the component's state. The full details of `v-bind` and directive syntax are discussed in <a target="_blank" href="/guide/essentials/template-syntax.html">Guide - Template Syntax</a>.
-
-The part after the colon (`:id`) is the "argument" of the directive. Here, the element's `id` attribute will be synced with the `dynamicId` property from the component's state.
-
-Because `v-bind` is used so frequently, it has a dedicated shorthand syntax:
+Syntaxi 'mustache' lze ve Vue použít pouze pro textové interpolace. Pro binding dynamické hodnoty do atributu usíme použít direktivu  `v-bind`:
 
 ```vue-html
-<div :id="dynamicId"></div>
+<div v-bind:id="dynamickeId"></div>
 ```
 
-Now, try to add a dynamic `class` binding to the `<h1>`, using the `titleClass` <span class="options-api">data property</span><span class="composition-api">ref</span> as its value. If it's bound correctly, the text should turn red.
+**Direktiva** je speciální atribut, který začíná předponou `v-`. Jsou to součástí syntaxe Vue šablon. Podobně jako u textových interpolací jsou hodnoty direktivy JavaScript výrazy, které mají přístup ke stavu komponenty. Podrobnosti o `v-bind` a použití direktiv jsou popsány v <a target="_blank" href="/guide/essentials/template-syntax.html">Průvodci Template syntaxe</a>.
+
+Část za dvojtečkou (`:id`) je "parametr" direktivy. Zde bude atribut `id` na elementu `<div>` synchronizován s proměnnou  `dynamickeId` ze stavu komponenty.
+
+Protože je `v-bind` používáno velmi často, má určený svůj zkrácený zápis:
+
+```vue-html
+<div :id="dynamickeId"></div>
+```
+
+Nyní zkuste přidat dynamický binding atributu `class` na element `<h1>` s použitím <span class="options-api">proměnné</span><span class="composition-api">ref</span> `h1Class` jako jeho hodnoty. Pokud bude provedený správně, text by měl zčervenat.
