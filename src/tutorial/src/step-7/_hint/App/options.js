@@ -1,4 +1,4 @@
-// give each todo a unique id
+// každý `todo` objekt dostane unikátní ID
 let id = 0
 
 export default {
@@ -6,9 +6,9 @@ export default {
     return {
       newTodo: '',
       todos: [
-        { id: id++, text: 'Learn HTML' },
-        { id: id++, text: 'Learn JavaScript' },
-        { id: id++, text: 'Learn Vue' }
+        { id: id++, text: 'Naučit se HTML' },
+        { id: id++, text: 'Naučit se JavaScript' },
+        { id: id++, text: 'Naučit se Vue' }
       ]
     }
   },
