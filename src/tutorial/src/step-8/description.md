@@ -1,6 +1,6 @@
-# Computed Property {#computed-property}
+# Computed proměnné {#computed-property}
 
-Let's keep building on top of the todo list from the last step. Here, we've already added a toggle functionality to each todo. This is done by adding a `done` property to each todo object, and using `v-model` to bind it to a checkbox:
+Pokračujme v práci nad seznamem úkolů z posledního kroku. Zde jsme již ke každému úkolu přidali funkci přepínání. Toho dosáhnete přidáním vlastnosti `done` ke každému objektu úkolu a provedením bindingu na checkbox pomocí `v-model`:
 
 ```vue-html{2}
 <li v-for="todo in todos">
@@ -9,11 +9,11 @@ Let's keep building on top of the todo list from the last step. Here, we've alre
 </li>
 ```
 
-The next improvement we can add is to be able to hide already completed todos. We already have a button that toggles the `hideCompleted` state. But how do we render different list items based on that state?
+Dalším vylepšením, které můžeme přidat, je schopnost skrýt již dokončené úkoly. Již máme tlačítko, které přepíná stav `hideCompleted`. Jak ale na základě tohoto stavu vykreslíme různé položky seznamu?
 
 <div class="options-api">
 
-Introducing <a target="_blank" href="/guide/essentials/computed.html">computed property</a>. We can declare a property that is reactively computed from other properties using the `computed` option:
+Představujeme <a target="_blank" href="/guide/essentials/computed.html">computed proměnné</a>. Vlastnost, která je reaktivně vypočítána z jiných vlastností, můžeme deklarovat v rámci sekce `computed`:
 
 <div class="sfc">
 
@@ -22,7 +22,7 @@ export default {
   // ...
   computed: {
     filteredTodos() {
-      // return filtered todos based on `this.hideCompleted`
+      // vrací filtrovaný seznamu `todos` v závislosti na `this.hideCompleted`
     }
   }
 }
@@ -36,7 +36,7 @@ createApp({
   // ...
   computed: {
     filteredTodos() {
-      // return filtered todos based on `this.hideCompleted`
+      // vrací filtrovaný seznamu `todos` v závislosti na `this.hideCompleted`
     }
   }
 })
@@ -47,7 +47,7 @@ createApp({
 </div>
 <div class="composition-api">
 
-Introducing <a target="_blank" href="/guide/essentials/computed.html">`computed()`</a>. We can create a computed ref that computes its `.value` based on other reactive data sources:
+Představujeme <a target="_blank" href="/guide/essentials/computed.html">`computed()`</a>. Můžeme vytvořit "computed ref", který počítá svou `.value` dynamicky na základě jiných reaktivních zdrojů dat:
 
 <div class="sfc">
 
@@ -60,7 +60,7 @@ const todos = ref([
 ])
 
 const filteredTodos = computed(() => {
-  // return filtered todos based on
+  // vrací filtrovaný seznamu `todos` v závislosti na
   // `todos.value` & `hideCompleted.value`
 })
 ```
@@ -79,7 +79,7 @@ createApp({
     ])
 
     const filteredTodos = computed(() => {
-      // return filtered todos based on
+      // vrací filtrovaný seznamu `todos` v závislosti na
       // `todos.value` & `hideCompleted.value`
     })
 
@@ -99,6 +99,6 @@ createApp({
 + <li v-for="todo in filteredTodos">
 ```
 
-A computed property tracks other reactive state used in its computation as dependencies. It caches the result and automatically updates it when its dependencies change.
+Computed proměnná sleduje další reaktivní stavy použité při jejím výpočtu jako své závislosti. Výsledek uloží do mezipaměti (cache) a automaticky jej aktualizuje, když se jeho závislosti změní.
 
-Now, try to add the `filteredTodos` computed property and implement its computation logic! If implemented correctly, checking off a todo when hiding completed items should instantly hide it as well.
+Nyní zkuste přidat computed proměnnou `filteredTodos` a implementujte její výpočetní logiku! Pokud je implementována správně, při zapnutém skrývání dokončených položek by mělo zaškrtnutí úkolu okamžitě příslušný úkol skrýt.
