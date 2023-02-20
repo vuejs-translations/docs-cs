@@ -1,6 +1,6 @@
-# Form Bindings {#form-bindings}
+# Binding dat z formulářů {#form-bindings}
 
-Using `v-bind` and `v-on` together, we can create two-way bindings on form input elements:
+Použitím `v-bind` a `v-on` dohromady můžeme vytvořit obousměrný (two-way) binding na vstupní elementy formulářů:
 
 ```vue-html
 <input :value="text" @input="onInput">
@@ -11,8 +11,7 @@ Using `v-bind` and `v-on` together, we can create two-way bindings on form input
 ```js
 methods: {
   onInput(e) {
-    // a v-on handler receives the native DOM event
-    // as the argument.
+    // `v-on` handler obdrží jako parametr nativní událost DOM
     this.text = e.target.value
   }
 }
@@ -24,24 +23,23 @@ methods: {
 
 ```js
 function onInput(e) {
-  // a v-on handler receives the native DOM event
-  // as the argument.
+  // `v-on` handler obdrží jako parametr nativní událost DOM
   text.value = e.target.value
 }
 ```
 
 </div>
 
-Try typing in the input box - you should see the text in `<p>` updating as you type.
+Zkuste začít do vstupního pole psát – text v `<p>` by se měl během psaní aktualizovat.
 
-To simplify two-way bindings, Vue provides a directive, `v-model`, which is essentially a syntax sugar for the above:
+Pro zjednodušení two-way bindingu, Vue obsahuje direktivu `v-model`, která je prakticky pouze aliasem pro výše uvedené:
 
 ```vue-html
 <input v-model="text">
 ```
 
-`v-model` automatically syncs the `<input>`'s value with the bound state, so we no longer need to use an event handler for that.
+`v-model` automaticky synchronizuje hodnotu `<input>` s navázaným stavem, takže pro to už nemusíme vytvářet vlastní event handler.
 
-`v-model` works not only on text inputs, but also on other input types such as checkboxes, radio buttons, and select dropdowns. We cover more details in <a target="_blank" href="/guide/essentials/forms.html">Guide - Form Bindings</a>.
+`v-model` funguje nejen na textových vstupech, ale také na jiných typech vstupů, jako je `<checkbox>`, `<radio>` a `<select>`. Další podrobnosti popisujeme v <a target="_blank" href="/guide/essentials/forms.html">Průvodci Binding dat z formulářů</a>.
 
-Now, try to refactor the code to use `v-model` instead.
+Nyní zkuste provést refaktoring kódu tak, aby místo aktuální podoby používal `v-model`.
