@@ -1,16 +1,16 @@
-# Lifecycle and Template Refs {#lifecycle-and-template-refs}
+# Životní cyklus a Template Refs {#lifecycle-and-template-refs}
 
-So far, Vue has been handling all the DOM updates for us, thanks to reactivity and declarative rendering. However, inevitably there will be cases where we need to manually work with the DOM.
+Doposud za nás Vue vyřizovalo všechny aktualizace DOM díky reaktivitě a deklarativnímu vykreslování. Nevyhnutelně však nastanou případy, kdy potřebujeme s DOM pracovat manuálně.
 
-We can request a **template ref** - tj. a reference to an element in the template - using the <a target="_blank" href="/api/built-in-special-attributes.html#ref">special `ref` attribute</a>:
+Můžeme si vyžádat **template ref** - tj. referenci na element v šabloně - pomocí <a target="_blank" href="/api/built-in-special-attributes.html#ref">speciálního atributu `ref`</a>:
 
 ```vue-html
-<p ref="p">hello</p>
+<p ref="p">Ahoj</p>
 ```
 
 <div class="composition-api">
 
-To access the ref, we need to declare<span class="html"> and expose</span> a ref with matching name:
+Abychom k _template ref_ získali přístup, musíme deklarovat<span class="html"> a vystavit</span> ref s odpovídajícím názvem:
 
 <div class="sfc">
 
@@ -33,9 +33,9 @@ setup() {
 
 </div>
 
-Notice the ref is initialized with `null` value. This is because the element doesn't exist yet when <span class="sfc">`<script setup>`</span><span class="html">`setup()`</span> is executed. The template ref is only accessible after the component is **mounted**.
+Pamatujte, že ref je inicializován hodnotou `null`. Je to proto, že element při spuštění <span class="sfc">`<script setup>`</span><span class="html">`setup()`</span> ještě neexistuje. Template ref je přístupný až poté, co je hotová komponenta připojena (**mounted**).
 
-To run code after mount, we can use the `onMounted()` function:
+Pro spuštění kódu až po připojení komponenty, můžeme použít funkci `onMounted()`:
 
 <div class="sfc">
 
@@ -43,7 +43,7 @@ To run code after mount, we can use the `onMounted()` function:
 import { onMounted } from 'vue'
 
 onMounted(() => {
-  // component is now mounted.
+  //  komponenta je nyní připojena
 })
 ```
 
@@ -56,7 +56,7 @@ import { onMounted } from 'vue'
 createApp({
   setup() {
     onMounted(() => {
-      // component is now mounted.
+      // komponenta je nyní připojena
     })
   }
 })
@@ -67,16 +67,16 @@ createApp({
 
 <div class="options-api">
 
-The element will be exposed on `this.$refs` as `this.$refs.p`. However, you can only access it after the component is **mounted**.
+Element bude vystaven v rámci `this.$refs` jako `this.$refs.p`. Můžete k němu nicméně přistoupit až poté, co je komponenta připojena (**mounted**).
 
-To run code after mount, we can use the `mounted` option:
+Pro spuštění kódu až po připojení komponenty, můžeme použít sekci `mounted`:
 
 <div class="sfc">
 
 ```js
 export default {
   mounted() {
-    // component is now mounted.
+    // komponenta je nyní připojena
   }
 }
 ```
@@ -87,7 +87,7 @@ export default {
 ```js
 createApp({
   mounted() {
-    // component is now mounted.
+    // komponenta je nyní připojena
   }
 })
 ```
@@ -95,6 +95,6 @@ createApp({
 </div>
 </div>
 
-This is called a **lifecycle hook** - it allows us to register a callback to be called at certain times of the component's lifecycle. There are other hooks such as <span class="options-api">`created` and `updated`</span><span class="composition-api">`onUpdated` and `onUnmounted`</span>. Check out the <a target="_blank" href="/guide/essentials/lifecycle.html#lifecycle-diagram">Lifecycle Diagram</a> for more details.
+Tomuto se říká **lifecycle hook** - umožňuje zaregistrovat callback funkce, které budou zavolány v určitých okamžicích životního cyklu komponenty. Existují i další jako jsou <span class="options-api">`created` a `updated`</span><span class="composition-api">`onUpdated` a `onUnmounted`</span>. Podívejte se na <a target="_blank" href="/guide/essentials/lifecycle.html#lifecycle-diagram">Diagram životního cyklu</a> pro další podrobnosti.
 
-Now, try to add <span class="options-api">a `mounted`</span><span class="composition-api">an `onMounted`</span> hook, access the `<p>` via <span class="options-api">`this.$refs.p`</span><span class="composition-api">`p.value`</span>, and perform some direct DOM operations on it (e.g. changing its `textContent`).
+Nyní zkuste přidat <span class="options-api"> `mounted`</span><span class="composition-api"> `onMounted`</span> hook, přistoupit k `<p>` pomocí <span class="options-api">`this.$refs.p`</span><span class="composition-api">`p.value`</span> a provést nad ním nějakou operaci přímo v rámci DOM (např. změnit jeho `textContent`).
