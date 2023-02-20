@@ -40,6 +40,6 @@ Pro zjednodušení two-way bindingu, Vue obsahuje direktivu `v-model`, která je
 
 `v-model` automaticky synchronizuje hodnotu `<input>` s navázaným stavem, takže pro to už nemusíme vytvářet vlastní event handler.
 
-`v-model` funguje nejen na textových vstupech, ale také na jiných typech vstupů, jako je `<checkbox>`, `<radio>` a `<select>`. Další podrobnosti popisujeme v <a target="_blank" href="/guide/essentials/forms.html">Průvodci Binding dat z formulářů</a>.
+`v-model` funguje nejen na textových vstupech, ale také na jiných typech vstupů, jako je `<checkbox>`, `<radio>` a `<select>`. Další podrobnosti popisuje <a target="_blank" href="/guide/essentials/forms.html">Průvodce - Binding dat z formulářů</a>.
 
 Nyní zkuste provést refaktoring kódu tak, aby místo aktuální podoby používal `v-model`.

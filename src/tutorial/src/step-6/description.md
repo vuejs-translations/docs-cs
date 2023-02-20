@@ -1,20 +1,20 @@
-# Conditional Rendering {#conditional-rendering}
+# Podmíněné vykreslování {#conditional-rendering}
 
-We can use the `v-if` directive to conditionally render an element:
-
-```vue-html
-<h1 v-if="awesome">Vue is awesome!</h1>
-```
-
-This `<h1>` will be rendered only if the value of `awesome` is [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy). If `awesome` changes to a [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) value, it will be removed from the DOM.
-
-We can also use `v-else` and `v-else-if` to denote other branches of the condition:
+Direktivu `v-if` můžeme použít pro podmíněné vykreslení elementu:
 
 ```vue-html
-<h1 v-if="awesome">Vue is awesome!</h1>
-<h1 v-else>Oh no 😢</h1>
+<h1 v-if="awesome">Vue je super!</h1>
 ```
 
-Currently, the demo is showing both `<h1>`s at the same time, and the button does nothing. Try to add `v-if` and `v-else` directives to them, and implement the `toggle()` method so that we can use the button to toggle between them.
+Tento nadpis `<h1>` bude vykreslen pouze tehdy, pokud má `awesome` [pravdivou (truthy)](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) hodnotu. Pokud se hodnota `awesome` změní na [nepravdivou (falsy)](https://developer.mozilla.org/en-US/docs/Glossary/Falsy), bude nadpis odstraněn z DOM.
 
-More details on `v-if`: <a target="_blank" href="/guide/essentials/conditional.html">Guide - Conditional Rendering</a>
+Můžeme použít i `v-else` a `v-else-if` k odlišení dalších větví podmínky:
+
+```vue-html
+<h1 v-if="awesome">Vue je super!</h1>
+<h1 v-else>Ale ne 😢</h1>
+```
+
+V současné době demo příklad zobrazuje obě `<h1>` současně a tlačítko nedělá nic. Zkuste k nim přidat direktivy `v-if` a `v-else` a implementujte funkci `toggle()`, abychom mezi nimi mohli pomocí tlačítka přepínat.
+
+V9ce detailů o `v-if`: <a target="_blank" href="/guide/essentials/conditional.html">Průvodce - Podmíněné vykreslování</a>

@@ -6,7 +6,7 @@ Syntaxi 'mustache' lze ve Vue použít pouze pro textové interpolace. Pro bindi
 <div v-bind:id="dynamickeId"></div>
 ```
 
-**Direktiva** je speciální atribut, který začíná předponou `v-`. Jsou to součástí syntaxe Vue šablon. Podobně jako u textových interpolací jsou hodnoty direktivy JavaScript výrazy, které mají přístup ke stavu komponenty. Podrobnosti o `v-bind` a použití direktiv jsou popsány v <a target="_blank" href="/guide/essentials/template-syntax.html">Průvodci Template syntaxe</a>.
+**Direktiva** je speciální atribut, který začíná předponou `v-`. Jsou to součástí syntaxe Vue šablon. Podobně jako u textových interpolací jsou hodnoty direktivy JavaScript výrazy, které mají přístup ke stavu komponenty. Podrobnosti o `v-bind` a použití direktiv jsou popsány v <a target="_blank" href="/guide/essentials/template-syntax.html">Průvodce - Template syntaxe</a>.
 
 Část za dvojtečkou (`:id`) je "parametr" direktivy. Zde bude atribut `id` na elementu `<div>` synchronizován s proměnnou  `dynamickeId` ze stavu komponenty.
 
