@@ -16,11 +16,11 @@ Stav, který může vyvolat aktualizace se nazývá **reaktivní**. Můžeme dek
 import { reactive } from 'vue'
 
 const counter = reactive({
-  count: 0
+  pocet: 0
 })
 
-console.log(counter.count) // 0
-counter.count++
+console.log(counter.pocet) // 0
+counter.pocet++
 ```
 
 `reactive()` funguje pouze na objekty (vč. polí a built-in typů jako `Map` a `Set`). Naproti tomu `ref()` umí vzít jakýkoliv datový typ a vytvořit objekt, který vystaví vnitřní hodnotu pod vlastností `.value`:
@@ -28,10 +28,10 @@ counter.count++
 ```js
 import { ref } from 'vue'
 
-const message = ref('Hello World!')
+const message = ref('Ahoj, Vue!')
 
-console.log(message.value) // "Hello World!"
-message.value = 'Changed'
+console.log(message.value) // "Ahoj, Vue!"
+message.value = 'Změněno'
 ```
 
 Detaily fungování `reactive()` a `ref()` jsou popsány v <a target="_blank" href="/guide/essentials/reactivity-fundamentals.html">průvodci Základy reaktivity</a>.
@@ -48,8 +48,8 @@ Objekt posílaný do `createApp()` je Vue komponenta. Stav komponenty by měl b�
 
 ```js{2,5}
 setup() {
-  const counter = reactive({ count: 0 })
-  const message = ref('Hello World!')
+  const counter = reactive({ pocet: 0 })
+  const message = ref('Ahoj, Vue!')
   return {
     counter,
     message
@@ -64,7 +64,7 @@ Properties in the returned object will be made available in the template. Tímto
 
 ```vue-html
 <h1>{{ message }}</h1>
-<p>count is: {{ counter.count }}</p>
+<p>Počet: {{ counter.pocet }}</p>
 ```
 
 Všimněte si, že nepotřebujeme `.value` když přistupujeme k `message` ref objektu v šabloně: hotnota je automaticky rozbalena pro stručnější použití.
@@ -83,7 +83,7 @@ V komponentě můžeme deklarovat reaktivní stav pomocí volby `data`, což by 
 export default {
   data() {
     return {
-      message: 'Hello World!'
+      message: 'Ahoj, Vue!'
     }
   }
 }
@@ -96,7 +96,7 @@ export default {
 createApp({
   data() {
     return {
-      message: 'Hello World!'
+      message: 'Ahoj, Vue!'
     }
   }
 })
@@ -112,7 +112,7 @@ Vlastnost `message` bude zpřístupněna v šabloně. Tímto způsobem můžeme 
 
 </div>
 
-Obsah uvnitř 'mustaches' není limitován jen na identifikátory nebo cesty - lze použít jakýkoliv platný JavaScript výraz:
+Obsah uvnitř 'mustaches' není omezen jen na identifikátory nebo cesty - lze použít jakýkoliv platný JavaScript výraz:
 
 ```vue-html
 <h1>{{ message.split('').reverse().join('') }}</h1>

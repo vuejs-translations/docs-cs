@@ -1,9 +1,9 @@
 export default {
   data() {
     return {
-      message: 'Hello World!',
+      message: 'Ahoj, Vue!',
       counter: {
-        count: 0
+        pocet: 0
       }
     }
   }
