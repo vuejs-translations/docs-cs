@@ -6,10 +6,10 @@ export default {
     ChildComp
   },
   setup() {
-    const greeting = ref('Hello from parent')
+    const pozdrav = ref('Ahoj od rodiče')
 
     return {
-      greeting
+      pozdrav
     }
   }
 }

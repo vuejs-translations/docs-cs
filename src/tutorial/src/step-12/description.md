@@ -1,6 +1,6 @@
 # Props {#props}
 
-A child component can accept input from the parent via **props**. First, it needs to declare the props it accepts:
+Komponenta potomka přijímá vstup z rodiče přes vlastnosti (**props**). Nejprve je třeba deklarovat props, které přijímá:
 
 <div class="composition-api">
 <div class="sfc">
@@ -14,25 +14,25 @@ const props = defineProps({
 </script>
 ```
 
-Note `defineProps()` is a compile-time macro and doesn't need to be imported. Once declared, the `msg` prop can be used in the child component's template. It can also be accessed in JavaScript via the returned object of `defineProps()`.
+Poznámka: `defineProps()` je compile-time makro a není nutné jej importovat. Po deklaraci lze vlastnost `msg` použít v šabloně podřízené komponenty. Lze k ní také přistupovat v JavaScript kódu prostřednictvím objektu vráceného z `defineProps()`.
 
 </div>
 
 <div class="html">
 
 ```js
-// in child component
+// v komponentě potomka
 export default {
   props: {
     msg: String
   },
   setup(props) {
-    // access props.msg
+    // přístup k props.msg
   }
 }
 ```
 
-Once declared, the `msg` prop is exposed on `this` and can be used in the child component's template. The received props are passed to `setup()` as the first argument.
+Jakmile je deklarována, vlastnost `msg` je vystavena přes `this` a může být použita v šabloně komponenty potomka. Přijaté vlastnosti (props) jsou předávány do funkce `setup()` jako první parametr.
 
 </div>
 
@@ -41,7 +41,7 @@ Once declared, the `msg` prop is exposed on `this` and can be used in the child 
 <div class="options-api">
 
 ```js
-// in child component
+// v komponentě potomka
 export default {
   props: {
     msg: String
@@ -49,25 +49,25 @@ export default {
 }
 ```
 
-Once declared, the `msg` prop is exposed on `this` and can be used in the child component's template.
+Jakmile je deklarována, vlastnost `msg` je vystavena přes `this` a může být použita v šabloně komponenty potomka.
 
 </div>
 
-The parent can pass the prop to the child just like attributes. To pass a dynamic value, we can also use the `v-bind` syntax:
+Rodič může předat vlastnosti svému potomkovi stejně jako atributy. K předání dynamické hodnoty můžeme také použít `v-bind` syntaxi:
 
 <div class="sfc">
 
 ```vue-html
-<ChildComp :msg="greeting" />
+<ChildComp :msg="pozdrav" />
 ```
 
 </div>
 <div class="html">
 
 ```vue-html
-<child-comp :msg="greeting"></child-comp>
+<child-comp :msg="pozdrav"></child-comp>
 ```
 
 </div>
 
-Now try it yourself in the editor.
+Nyní to zkuste sami v editoru.
