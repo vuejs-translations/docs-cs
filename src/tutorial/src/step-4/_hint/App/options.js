@@ -1,12 +1,12 @@
 export default {
   data() {
     return {
-      count: 0
+      pocet: 0
     }
   },
   methods: {
     increment() {
-      this.count++
+      this.pocet++
     }
   }
 }
