@@ -199,7 +199,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/guide/components/provide-inject'
         },
         {
-          text: 'Async komponenty',
+          text: 'Asynchronní komponenty',
           link: '/guide/components/async'
         }
       ]

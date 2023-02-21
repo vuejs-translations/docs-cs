@@ -2,23 +2,24 @@
 
 ## Základní použití {#basic-usage}
 
-In large applications, we may need to divide the app into smaller chunks and only load a component from the server when it's needed. To make that possible, Vue has a [`defineAsyncComponent`](/api/general.html#defineasynccomponent) function:
+V rozsáhlých aplikacích můžeme potřebovat rozdělit aplikaci na menší části a načíst komponentu ze serveru pouze v případě potřeby. Aby to bylo možné, má Vue funkci [`defineAsyncComponent`](/api/general.html#defineasynccomponent):
 
 ```js
 import { defineAsyncComponent } from 'vue'
 
 const AsyncComp = defineAsyncComponent(() => {
   return new Promise((resolve, reject) => {
-    // ...load component from server
-    resolve(/* loaded component */)
+    // ...načíst komponentu ze serveru
+    resolve(/* načtená komponenta */)
   })
 })
-// ... use `AsyncComp` like a normal component
+// ... použití `AsyncComp` jako běžné komponenty
 ```
 
-As you can see, `defineAsyncComponent` accepts a loader function that returns a Promise. The Promise's `resolve` callback should be called when you have retrieved your component definition from the server. You can also call `reject(reason)` to indicate the load has failed.
+Jak můžete vidět, funkce `defineAsyncComponent` přijímá funkci "loader", která vrací Promise. Callback funkce `resolve` tohoto Promise by se měla zavolat po načtení definice komponenty ze serveru. Můžete také zavolat `reject(reason)`, abyste dali najevo, že se načtení nezdařilo.
 
-[ES module dynamic import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import) also returns a Promise, so most of the time we will use it in combination with `defineAsyncComponent`. Bundlers like Vite and webpack also support the syntax (and will use it as bundle split points), so we can use it to import Vue SFCs:
+[Dynamický import ES modulů](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import) také vrací Promise,
+takže jej většinou budeme v kombinaci s `defineAsyncComponent` používat. Bundler nástroje jako Vite nebo webpack tuto syntaxi také podporují (a budou ji používat jako body pro rozdělení balíčků), takže ji můžeme použít k importu Vue Single-File komponent (SFC):
 
 ```js
 import { defineAsyncComponent } from 'vue'
@@ -28,9 +29,9 @@ const AsyncComp = defineAsyncComponent(() =>
 )
 ```
 
-The resulting `AsyncComp` is a wrapper component that only calls the loader function when it is actually rendered on the page. In addition, it will pass along any props and slots to the inner component, so you can use the async wrapper to seamlessly replace the original component while achieving lazy loading.
+Výsledná `AsyncComp` je obalová (wrapper) komponenta, která zavolá "loader" funkci až při skutečném vykreslení na stránce. Kromě toho předá vnitřní komponentě všechny vlastnosti (props) a sloty (slots), takže můžete tento asynchronní wrapper použít k plynulému nahrazení původní komponenty a zároveň dosáhnout "lazy" načítání.
 
-As with normal components, async components can be [registered globally](/guide/components/registration.html#global-registration) using `app.component()`:
+Stejně jako normální komponenty, mohou být i asynchronní komponenty [registrovány globálně](/guide/components/registration.html#global-registration) pomocí `app.component()`:
 
 ```js
 app.component('MyComponent', defineAsyncComponent(() =>
@@ -40,7 +41,7 @@ app.component('MyComponent', defineAsyncComponent(() =>
 
 <div class="options-api">
 
-You can also use `defineAsyncComponent` when [registering a component locally](/guide/components/registration.html#local-registration):
+Také můžete použít `defineAsyncComponent` když [registrujete komponentu lokálně](/guide/components/registration.html#local-registration):
 
 ```vue
 <script>
@@ -64,7 +65,7 @@ export default {
 
 <div class="composition-api">
 
-They can also be defined directly inside their parent component:
+Lze je také definovat přímo uvnitř jejich rodičovské komponenty:
 
 ```vue
 <script setup>
@@ -82,32 +83,32 @@ const AdminPage = defineAsyncComponent(() =>
 
 </div>
 
-## Loading and Error States {#loading-and-error-states}
+## Načítání a chybové stavy {#loading-and-error-states}
 
-Asynchronous operations inevitably involve loading and error states - `defineAsyncComponent()` supports handling these states via advanced options:
+Asynchronní operace nevyhnutelně zahrnují stav načítání a chybový stav - `defineAsyncComponent()` podporuje zpracování těchto stavů pomocí pokročilých možností nastavení:
 
 ```js
 const AsyncComp = defineAsyncComponent({
-  // the loader function
+  // "loader" funkce
   loader: () => import('./Foo.vue'),
 
-  // A component to use while the async component is loading
+  // Komponenta, která bude použita během asynchronního načítání
   loadingComponent: LoadingComponent,
-  // Delay before showing the loading component. Default: 200ms.
+  // Zpoždění před zobrazením komponenty pro načítání. Výchozí: 200ms.
   delay: 200,
 
-  // A component to use if the load fails
+  // Komponenta, která bude použita, pokud načítání selže
   errorComponent: ErrorComponent,
-  // The error component will be displayed if a timeout is
-  // provided and exceeded. Default: Infinity.
+  // Chybová komponenta bude zobrazena,
+  // pokud je zadán a překročen timeout. Výchozí: nekonečno.
   timeout: 3000
 })
 ```
 
-If a loading component is provided, it will be displayed first while the inner component is being loaded. There is a default 200ms delay before the loading component is shown - this is because on fast networks, an instant loading state may get replaced too fast and end up looking like a flicker.
+Pokud je předána komponenta pro načítání, zobrazí se jako první, zatímco se vnitřní komponenta načítá. Než se načítací komponenta zobrazí, je výchozí prodleva 200 ms - to proto, že v rychlých sítích může být stav načítání nahrazen příliš rychle a vypadalo by to jako blikání.
 
-If an error component is provided, it will be displayed when the Promise returned by the loader function is rejected. You can also specify a timeout to show the error component when the request is taking too long.
+Pokud je předána komponenta pro chybový stav, zobrazí se, když je Promise vrácený "loader" funkcí odmítnut (rejected). Můžete také zadat časový limit pro zobrazení chybové komponenty, pokud požadavek trvá příliš dlouho.
 
-## Using with Suspense {#using-with-suspense}
+## Použití s Suspense {#using-with-suspense}
 
-Async components can be used with the `<Suspense>` built-in component. The interaction between `<Suspense>` and async components is documented in the [dedicated chapter for `<Suspense>`](/guide/built-ins/suspense.html).
+Asynchronní komponenty lze použít dohromady s vestavěnou komponentou `<Suspense>`. Interakce `<Suspense>` a ansynchronními komponentami je popsána v [kapitole určené pro `<Suspense>`](/guide/built-ins/suspense.html).

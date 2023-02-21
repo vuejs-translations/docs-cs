@@ -99,6 +99,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 pull request = pull request
 * 🟩 prerequisities = předpoklady
 * 🟨 primitive types = primitivní datové typy
+* 🟥 Promise = Promise (název JS třídy)
 * 🟩 property = vlastnost / proměnná
 * 🟨 props = vlastnosti (props)
 * 🟥 proxy = proxy

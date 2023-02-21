@@ -4,7 +4,6 @@ TODO iteration 1
 /guide
 
 components\
-components\async.md
 components\attrs.md
 components\events.md
 components\props.md
