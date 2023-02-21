@@ -4,7 +4,7 @@
 
 `<Teleport>` is a built-in component that allows us to "teleport" a part of a component's template into a DOM node that exists outside the DOM hierarchy of that component.
 
-## Basic Usage {#basic-usage}
+## Základní použití {#basic-usage}
 
 Sometimes we may run into the following scenario: a part of a component's template belongs to it logically, but from a visual standpoint, it should be displayed somewhere else in the DOM, outside of the Vue application.
 

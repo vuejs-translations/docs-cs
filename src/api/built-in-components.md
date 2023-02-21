@@ -203,7 +203,7 @@ Caches dynamically toggled components wrapped inside.
 
 - **Example**
 
-  Basic usage:
+  Základní použití:
 
   ```vue-html
   <KeepAlive>

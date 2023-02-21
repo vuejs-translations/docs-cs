@@ -20,7 +20,7 @@ Provide values that can be injected by descendant components.
 
 - **Example**
 
-  Basic usage:
+  Základní použití:
 
   ```js
   const s = Symbol()
@@ -92,7 +92,7 @@ Declare properties to inject into the current component by locating them from an
 
 - **Example**
 
-  Basic usage:
+  Základní použití:
 
   ```js
   export default {
