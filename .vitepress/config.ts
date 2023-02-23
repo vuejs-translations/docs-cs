@@ -314,10 +314,6 @@ export const sidebar: ThemeConfig['sidebar'] = {
           text: 'Techniky animace',
           link: '/guide/extras/animation'
         },
-        {
-          text: 'Reaktivní transformace',
-          link: '/guide/extras/reactivity-transform'
-        }
         // {
         //   text: 'Building a Library for Vue',
         //   link: '/guide/extras/building-a-library'
