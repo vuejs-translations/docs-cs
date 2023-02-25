@@ -5,8 +5,6 @@ TODO iteration 1
 
 components\
 components\attrs.md
-components\events.md
-components\props.md
 components\provide-inject.md
 components\slots.md
 components\v-model.md

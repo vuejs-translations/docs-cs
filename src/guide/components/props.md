@@ -1,18 +1,18 @@
-# Props {#props}
+# Vlastnosti (Props) {#props}
 
-> This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
+> Tato stránka předpokládá, že už jste četli [Základy komponent](/guide/essentials/component-basics). Pokud jsou pro vás komponenty nové, přečtěte si je jako první.
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-3-reusable-components-with-props" title="Free Vue.js Props Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-3-reusable-components-with-props" title="Lekce o props ve Vue.js zdarma"/>
 </div>
 
-## Props Declaration {#props-declaration}
+## Deklarace vlastností {#props-declaration}
 
-Vue components require explicit props declaration so that Vue knows what external props passed to the component should be treated as fallthrough attributes (which will be discussed in [its dedicated section](/guide/components/attrs)).
+Vue komponenty vyžadují explicitní deklaraci vlastností, aby Vue vědělo, které externí hodnoty předávané komponentě mají být považovány za "fallthrough" atributy (což bude probráno v [příslušné sekci](/guide/components/attrs)).
 
 <div class="composition-api">
 
-In SFCs using `<script setup>`, props can be declared using the `defineProps()` macro:
+V Single-file komponentách (SFC) s využitím `<script setup>`, je možné vlastnosti deklarovat pomocí makra `defineProps()`:
 
 ```vue
 <script setup>
@@ -22,31 +22,31 @@ console.log(props.foo)
 </script>
 ```
 
-In non-`<script setup>` components, props are declared using the [`props`](/api/options-state.html#props) option:
+Ve komponentách bez `<script setup>`, se vlastnosti deklarují v sekci [`props`](/api/options-state.html#props):
 
 ```js
 export default {
   props: ['foo'],
   setup(props) {
-    // setup() receives props as the first argument.
+    // setup() obdrží `props` jako první parametr
     console.log(props.foo)
   }
 }
 ```
 
-Notice the argument passed to `defineProps()` is the same as the value provided to the `props` options: the same props options API is shared between the two declaration styles.
+Všimněte si, že parametr předávaný do `defineProps()` je stejný jako hodnota předávaná ze sekce `props`: pro deklaraci vlastností je mezi oběma styly deklarace sdíleno stejné API.
 
 </div>
 
 <div class="options-api">
 
-Props are declared using the [`props`](/api/options-state.html#props) option:
+Vlastnosti se deklarují v sekci [`props`](/api/options-state.html#props):
 
 ```js
 export default {
   props: ['foo'],
   created() {
-    // props are exposed on `this`
+    // props jsou vystaveny přes `this`
     console.log(this.foo)
   }
 }
@@ -54,7 +54,7 @@ export default {
 
 </div>
 
-In addition to declaring props using an array of strings, we can also use the object syntax:
+Kromě deklarace vlastností pomocí pole řetězců můžeme použít také objektovou syntaxi:
 
 <div class="options-api">
 
@@ -71,7 +71,7 @@ export default {
 <div class="composition-api">
 
 ```js
-// in <script setup>
+// v rámci `<script setup>`
 defineProps({
   title: String,
   likes: Number
@@ -79,7 +79,7 @@ defineProps({
 ```
 
 ```js
-// in non-<script setup>
+// pokud není použito `<script setup>`
 export default {
   props: {
     title: String,
@@ -90,19 +90,19 @@ export default {
 
 </div>
 
-For each property in the object declaration syntax, the key is the name of the prop, while the value should be the constructor function of the expected type.
+Pro každou vlastnost deklarovanou objektovou syntaxí je klíčem jméno vlastnosti, zatímco hodnotou by měla být funkce konstruktoru očekávaného typu.
 
-This not only documents your component, but will also warn other developers using your component in the browser console if they pass the wrong type. We will discuss more details about [prop validation](#prop-validation) further down this page.
+Nejen, že to vaší komponentu popisuje, ale také budou prostřednictvím výpisu do konzole prohlížeče varováni ostatní vývojáři, kteří vaši komponetu použjí, pokud budou předávat špatný datový typ. O [validaci vlastností](#prop-validation) budeme více mluvit později níže na této stránce.
 
 <div class="options-api">
 
-Viz také: [Typing Component Props](/guide/typescript/options-api.html#typing-component-props) <sup class="vt-badge ts" />
+Viz také: [Typování vlastností komponent](/guide/typescript/options-api.html#typing-component-props) <sup class="vt-badge ts" />
 
 </div>
 
 <div class="composition-api">
 
-If you are using TypeScript with `<script setup>`, it's also possible to declare props using pure type annotations:
+Pokud používáte TypeScript a `<script setup>`, je také možné deklarovat vlastnosti s použitím "pure" typových anotací:
 
 ```vue
 <script setup lang="ts">
@@ -113,15 +113,15 @@ defineProps<{
 </script>
 ```
 
-More details: [Typing Component Props](/guide/typescript/composition-api.html#typing-component-props) <sup class="vt-badge ts" />
+Více informací: [Typování vlastností komponent](/guide/typescript/composition-api.html#typing-component-props) <sup class="vt-badge ts" />
 
 </div>
 
-## Prop Passing Details {#prop-passing-details}
+## Detaily předávání vlastností {#prop-passing-details}
 
-### Prop Name Casing {#prop-name-casing}
+### Velká a malá písmena v názvech vlastností {#prop-name-casing}
 
-We declare long prop names using camelCase because this avoids having to use quotes when using them as property keys, and allows us to reference them directly in template expressions because they are valid JavaScript identifiers:
+Dlouhé názvy vlastností deklarujeme pomocí camelCase, protože se tak vyhneme nutnosti doplňovat uvozovky při jejich použití jako klíčů vlastností a umožní nám to odkazovat přímo na ně ve výrazech šablon, protože se jedná o platné JavaScript identifikátory:
 
 <div class="composition-api">
 
@@ -148,77 +148,77 @@ export default {
 <span>{{ greetingMessage }}</span>
 ```
 
-Technically, you can also use camelCase when passing props to a child component (except in [DOM templates](/guide/essentials/component-basics.html#dom-template-parsing-caveats)). However, the convention is using kebab-case in all cases to align with HTML attributes:
+Technicky lze camelCase použít i při předávání vlastností do komponenty potomka (kromě [DOM-šablon](/guide/essentials/component-basics.html#dom-template-parsing-caveats)). Konvence však ve všech případech používá kebab-case, aby se sladila s HTML atributy:
 
 ```vue-html
 <MyComponent greeting-message="hello" />
 ```
 
-We use [PascalCase for component tags](/guide/components/registration.html#component-name-casing) when possible because it improves template readability by differentiating Vue components from native elements. However, there isn't as much practical benefit in using camelCase when passing props, so we choose to follow each language's conventions.
+Kdykoliv je to možné, používáme [pro tagy komponent PascalCase](/guide/components/registration.html#component-name-casing), protože to zlepšuje čitelnost šablony tím, že odlišuje Vue komponenty od nativních elementů. Použití camelCase při předávání vlastností však takový praktický přínos nemá, proto jsme se rozhodli dodržovat konvence jednotlivých jazyků.
 
-### Static vs. Dynamic Props {#static-vs-dynamic-props}
+### Statické vs. dynamické vlastnosti {#static-vs-dynamic-props}
 
-So far, you've seen props passed as static values, like in:
+Zatím jste viděli vlastnosti předávané jako statické hodnoty, jako např.:
 
 ```vue-html
-<BlogPost title="My journey with Vue" />
+<BlogPost title="Moje cesta s Vue" />
 ```
 
-You've also seen props assigned dynamically with `v-bind` or its `:` shortcut, such as in:
+Viděli jste také dynamické přiřazování vlastností pomocí `v-bind` nebo jeho zkratky `:`, jako třeba v:
 
 ```vue-html
-<!-- Dynamically assign the value of a variable -->
+<!-- Dynamicky přiřazená hodnota z jiné proměnné -->
 <BlogPost :title="post.title" />
 
-<!-- Dynamically assign the value of a complex expression -->
-<BlogPost :title="post.title + ' by ' + post.author.name" />
+<!-- Dynamicky přiřazená hodnota komplexního výrazu -->
+<BlogPost :title="post.title + ' od ' + post.author.name" />
 ```
 
-### Passing Different Value Types {#passing-different-value-types}
+### Předávání různých datových typů {#passing-different-value-types}
 
-In the two examples above, we happen to pass string values, but _any_ type of value can be passed to a prop.
+Ve dvou výše uvedených příkladech jsme předávali hodnoty typu string, ale jako vlastnost lze předat _jakýkoli_ datový typ.
 
-#### Number {#number}
+#### Číslo {#number}
 
 ```vue-html
-<!-- Even though `42` is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.       -->
+<!-- I když je `42` statická hodnota, potřebujeme v-bind, abychom řekli Vue, -->
+<!-- že toto je JavaScript výraz a nikoliv prostý string. -->
 <BlogPost :likes="42" />
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Dynamicky přiřazená hodnota z jiné proměnné -->
 <BlogPost :likes="post.likes" />
 ```
 
 #### Boolean {#boolean}
 
 ```vue-html
-<!-- Including the prop with no value will imply `true`. -->
+<!-- Vlastnost bez hodnoty bude mít implicitně hodnotu `true`. -->
 <BlogPost is-published />
 
-<!-- Even though `false` is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.          -->
+<!-- I když je `false` statická hodnota, potřebujeme v-bind, abychom řekli Vue, -->
+<!-- že toto je JavaScript výraz a nikoliv prostý string. -->
 <BlogPost :is-published="false" />
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Dynamicky přiřazená hodnota z jiné proměnné -->
 <BlogPost :is-published="post.isPublished" />
 ```
 
-#### Array {#array}
+#### Pole {#array}
 
 ```vue-html
-<!-- Even though the array is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.            -->
+<!-- I když je hodnota pole statická, potřebujeme v-bind, abychom řekli Vue, -->
+<!-- že toto je JavaScript výraz a nikoliv prostý string. -->
 <BlogPost :comment-ids="[234, 266, 273]" />
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Dynamicky přiřazená hodnota z jiné proměnné -->
 <BlogPost :comment-ids="post.commentIds" />
 ```
 
-#### Object {#object}
+#### Objekt {#object}
 
 ```vue-html
-<!-- Even though the object is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.             -->
+<!-- I když je hodnota objektu statická, potřebujeme v-bind, abychom řekli Vue, -->
+<!-- že toto je JavaScript výraz a nikoliv prostý string. -->
 <BlogPost
   :author="{
     name: 'Veronica',
@@ -226,13 +226,13 @@ In the two examples above, we happen to pass string values, but _any_ type of va
   }"
  />
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Dynamicky přiřazená hodnota z jiné proměnné -->
 <BlogPost :author="post.author" />
 ```
 
-### Binding Multiple Properties Using an Object {#binding-multiple-properties-using-an-object}
+### Binding více vlastností s využitím objektu {#binding-multiple-properties-using-an-object}
 
-If you want to pass all the properties of an object as props, you can use [`v-bind` without an argument](/guide/essentials/template-syntax.html#dynamically-binding-multiple-attributes) (`v-bind` instead of `:prop-name`). For example, given a `post` object:
+Pokud chcete předat všechny vlastnosti objektu najednou, můžete použít [`v-bind` bez argumentu](/guide/essentials/template-syntax.html#dynamically-binding-multiple-attributes) (`v-bind` místo `:prop-name`). Například pokud máte objekt `post`:
 
 <div class="options-api">
 
@@ -242,7 +242,7 @@ export default {
     return {
       post: {
         id: 1,
-        title: 'My Journey with Vue'
+        title: 'Moje cesta s Vue'
       }
     }
   }
@@ -255,29 +255,29 @@ export default {
 ```js
 const post = {
   id: 1,
-  title: 'My Journey with Vue'
+  title: 'Moje cesta s Vue'
 }
 ```
 
 </div>
 
-The following template:
+Následující šablona:
 
 ```vue-html
 <BlogPost v-bind="post" />
 ```
 
-Will be equivalent to:
+Bude stejná jako:
 
 ```vue-html
 <BlogPost :id="post.id" :title="post.title" />
 ```
 
-## One-Way Data Flow {#one-way-data-flow}
+## Jednosměrný datový tok {#one-way-data-flow}
 
-All props form a **one-way-down binding** between the child property and the parent one: when the parent property updates, it will flow down to the child, but not the other way around. This prevents child components from accidentally mutating the parent's state, which can make your app's data flow harder to understand.
+Všechny vlastnosti tvoří **jednosměrný binding směrem dolů** mezí podřízenou a nadřízenou vlastností: když se aktualizuje vlastnost v rodiči, přenese se to dolů na vlastnost potomka, ale nikoliv naopak. To zabraňuje tomu, aby komponenty potomků omylem měnily stav vlastností rodiče, což by mohlo způsobit, že bude těžší pochopit tok dat ve vaší aplikaci.
 
-In addition, every time the parent component is updated, all props in the child component will be refreshed with the latest value. This means you should **not** attempt to mutate a prop inside a child component. If you do, Vue will warn you in the console:
+Kromě toho se při každé aktualizaci komponenty rodiče obnoví všechny vlastnosti v komponentě potomka o nejnovější hodnotu. To znamená, že byste se **neměli** pokoušet měnit vlastnost uvnitř komponenty potomka. Pokud to uděláte, Vue vás na to upozorní v konzoli:
 
 <div class="composition-api">
 
@@ -303,17 +303,17 @@ export default {
 
 </div>
 
-There are usually two cases where it's tempting to mutate a prop:
+Obvykle jsou dva případy, kdy vypadá lákavě vlastnost měnit:
 
-1. **The prop is used to pass in an initial value; the child component wants to use it as a local data property afterwards.** In this case, it's best to define a local data property that uses the prop as its initial value:
+1. **Vlastnost slouží k předání počáteční hodnoty; komponenta potomka ji chce následně použít jako lokální datovou hodnotu.** V tomto případě je nejlepší definovat lokální datovou proměnnou, která používá předanou vlastnost jako svou výchozí hodnotu:
 
    <div class="composition-api">
 
    ```js
    const props = defineProps(['initialCounter'])
 
-   // counter only uses props.initialCounter as the initial value;
-   // it is disconnected from future prop updates.
+   // counter použije `props.initialCounter` pouze jako výchozí hodnotu;
+   // od budoucích aktualizací je odpojen
    const counter = ref(props.initialCounter)
    ```
 
@@ -325,8 +325,8 @@ There are usually two cases where it's tempting to mutate a prop:
      props: ['initialCounter'],
      data() {
        return {
-         // counter only uses this.initialCounter as the initial value;
-         // it is disconnected from future prop updates.
+         // counter použije `props.initialCounter` pouze jako výchozí hodnotu;
+         // od budoucích aktualizací je odpojen
          counter: this.initialCounter
        }
      }
@@ -335,14 +335,14 @@ There are usually two cases where it's tempting to mutate a prop:
 
    </div>
 
-2. **The prop is passed in as a raw value that needs to be transformed.** In this case, it's best to define a computed property using the prop's value:
+2. **Vlastnost je předána jako surová (raw) hodnota, kterou je třeba transformovat.** V tomto případě je nejlepší pomocí hodnoty vlastnosti definovat computed proměnnou:
 
    <div class="composition-api">
 
    ```js
    const props = defineProps(['size'])
 
-   // computed property that auto-updates when the prop changes
+   // computed proměnná, která se automaticky aktualizuje, pokud se vlastnost změní
    const normalizedSize = computed(() => props.size.trim().toLowerCase())
    ```
 
@@ -353,7 +353,7 @@ There are usually two cases where it's tempting to mutate a prop:
    export default {
      props: ['size'],
      computed: {
-       // computed property that auto-updates when the prop changes
+       // computed proměnná, která se automaticky aktualizuje, pokud se vlastnost změní
        normalizedSize() {
          return this.size.trim().toLowerCase()
        }
@@ -363,58 +363,60 @@ There are usually two cases where it's tempting to mutate a prop:
 
    </div>
 
-### Mutating Object / Array Props {#mutating-object-array-props}
+### Změny vlastností typu objekt / pole {#mutating-object-array-props}
 
-When objects and arrays are passed as props, while the child component cannot mutate the prop binding, it **will** be able to mutate the object or array's nested properties. This is because in JavaScript objects and arrays are passed by reference, and it is unreasonably expensive for Vue to prevent such mutations.
+Pokud jsou objekty a pole předávány jako vlastnosti, komponenta potomka sice nemůže mutovat binding na vlastnosti, ale **bude moci** měnit vnořené prvky objektu nebo pole. Je to proto, že v jazyce JavaScript se objekty a pole předávají pomocí odkazů (pass by reference) a pro Vue je nepřiměřeně nákladné takovým změnám zabránit.
 
-The main drawback of such mutations is that it allows the child component to affect parent state in a way that isn't obvious to the parent component, potentially making it more difficult to reason about the data flow in the future. As a best practice, you should avoid such mutations unless the parent and child are tightly coupled by design. In most cases, the child should [emit an event](/guide/components/events.html) to let the parent perform the mutation.
+Hlavní nevýhodou takových změn je, že umožňují komponentám potomka ovlivňovat stav rodičů způsobem, který není pro komponentu rodiče zřejmý, což může v budoucnu ztížit uvažování o toku dat. V rámci osvědčených postupů byste se měli takovým změnám vyhnout, pokud nejsou komponenty rodiče a potomka už z definice úzce propojeny. Ve většině případů by měl potomek [vyvolat událost](/guide/components/events.html), aby nechal změnu provést rodiče.
 
-## Prop Validation {#prop-validation}
+## Validace vlastností {#prop-validation}
 
-Components can specify requirements for their props, such as the types you've already seen. If a requirement is not met, Vue will warn you in the browser's JavaScript console. This is especially useful when developing a component that is intended to be used by others.
+Komponenty mohou specifikovat požadavky na své vlastnosti, například datové typy, které jste již viděli. Pokud některý požadavek není splněn, Vue vás na to upozorní v JavaScript konzoli prohlížeče. To je užitečné zejména při vývoji komponenty, která má být používána jinými uživateli.
 
-To specify prop validations, you can provide an object with validation requirements to the <span class="composition-api">`defineProps()` macro</span><span class="options-api">`props` option</span>, instead of an array of strings. For example:
+Chcete-li zadat ověřování vlastností, můžete <span class="composition-api">makru `defineProps()`</span><span class="options-api">v sekci `props`</span> místo pole řetězců zadat objekt s požadavky na ověření. Například:
 
 <div class="composition-api">
 
 ```js
 defineProps({
-  // Basic type check
-  //  (`null` and `undefined` values will allow any type)
+  // základní kontrola typu
+  //  (hodnoty `null` a `undefined` umožní jakýkoliv typ)
   propA: Number,
-  // Multiple possible types
+  // více možných typů
   propB: [String, Number],
-  // Required string
+  // povinný string
   propC: {
     type: String,
     required: true
   },
-  // Number with a default value
+  // číslo s výchozí hodnotou
   propD: {
     type: Number,
     default: 100
   },
-  // Object with a default value
+  // objekt s výchozí hodnotou
   propE: {
     type: Object,
-    // Object or array defaults must be returned from
-    // a factory function. The function receives the raw
-    // props received by the component as the argument.
+    // výchozí hodnota objektu či pole musí být
+    // vrácena z tovární (factory) metody
+    // argumentem funkce budou surové (raw) vlastnosti,
+    // které jsou předány do komponenty
     default(rawProps) {
       return { message: 'hello' }
     }
   },
-  // Custom validator function
+  // vlastní validační funkce
   propF: {
     validator(value) {
-      // The value must match one of these strings
+      // hodnota musí odpovídat jednomu z těchto tří řetězců
       return ['success', 'warning', 'danger'].includes(value)
     }
   },
-  // Function with a default value
+  // funkce s výchozí hodnotou
   propG: {
     type: Function,
-    // Unlike object or array default, this is not a factory function - this is a function to serve as a default value
+    // na rozdíl od výchozí hodnoty objektu či pole, toto není tovární (factory) metoda
+    // toto je funkce, která bude nabídnuta jako výchozí hodnota
     default() {
       return 'Default function'
     }
@@ -423,7 +425,7 @@ defineProps({
 ```
 
 :::tip
-Code inside the `defineProps()` argument **cannot access other variables declared in `<script setup>`**, because the entire expression is moved to an outer function scope when compiled.
+Kód uvnitř makra `defineProps()` **nemůže přistupovat k jiným proměnným deklarovaným v `<script setup>`**, protože celý výraz je při kompilaci přesunut do vnějšího function scope.
 :::
 
 </div>
@@ -432,42 +434,44 @@ Code inside the `defineProps()` argument **cannot access other variables declare
 ```js
 export default {
   props: {
-    // Basic type check
-    //  (`null` and `undefined` values will allow any type)
+    // základní kontrola typu
+    //  (hodnoty `null` a `undefined` umožní jakýkoliv typ)
     propA: Number,
-    // Multiple possible types
+    // více možných typů
     propB: [String, Number],
-    // Required string
+    // povinný string
     propC: {
       type: String,
       required: true
     },
-    // Number with a default value
+    // číslo s výchozí hodnotou
     propD: {
       type: Number,
       default: 100
     },
-    // Object with a default value
+    // objekt s výchozí hodnotou
     propE: {
       type: Object,
-      // Object or array defaults must be returned from
-      // a factory function. The function receives the raw
-      // props received by the component as the argument.
+      // výchozí hodnota objektu či pole musí být
+      // vrácena z tovární (factory) metody
+      // argumentem funkce budou surové (raw) vlastnosti,
+      // které jsou předány do komponenty
       default(rawProps) {
         return { message: 'hello' }
       }
     },
-    // Custom validator function
+    // vlastní validační funkce
     propF: {
       validator(value) {
-        // The value must match one of these strings
+        // hodnota musí odpovídat jednomu z těchto tří řetězců
         return ['success', 'warning', 'danger'].includes(value)
       }
     },
-    // Function with a default value
+    // funkce s výchozí hodnotou
     propG: {
       type: Function,
-      // Unlike object or array default, this is not a factory function - this is a function to serve as a default value
+      // na rozdíl od výchozí hodnoty objektu či pole, toto není tovární (factory) metoda
+      // toto je funkce, která bude nabídnuta jako výchozí hodnota
       default() {
         return 'Default function'
       }
@@ -478,34 +482,34 @@ export default {
 
 </div>
 
-Additional details:
+Další podrobnosti:
 
-- All props are optional by default, unless `required: true` is specified.
+- Všechny vlastnosti jsou ve výchozím nastavení nepovinné, pokud není zadáno `required: true`.
 
-- An absent optional prop other than `Boolean` will have `undefined` value.
+- Neuvedená nepovinná vlastnost kromě `Boolean` bude mít hodnotu `undefined`.
 
-- The `Boolean` absent props will be cast to `false`. You can change this by setting a `default` for it — tj.: `default: undefined` to behave as a non-Boolean prop.
+- Neuvedená `Boolean` vlastnost bude převedena na hodnotu `false`. To můžete změnit nastavením `default` - tj.: `default: undefined`, aby se chovala jako ne-Boolean vlastnost.
 
-- If a `default` value is specified, it will be used if the resolved prop value is `undefined` - this includes both when the prop is absent, or an explicit `undefined` value is passed.
+- Pokud je zadána `default` hodnota, bude použita, pokud je předáváná hodnota vlastnosti `undefined` - to se týká jak případů, kdy vlastnost chybí, tak těch, kdy je předána explicitní hodnota `undefined`.
 
-When prop validation fails, Vue will produce a console warning (if using the development build).
+Pokud validace vlastnosti selže, zobrazí Vue varování do konzole (pokud je aplikace sestavena v development módu).
 
 <div class="composition-api">
 
-If using [Type-based props declarations](/api/sfc-script-setup.html#typescript-only-features) <sup class="vt-badge ts" />, Vue will try its best to compile the type annotations into equivalent runtime prop declarations. For example, `defineProps<{ msg: string }>` will be compiled into `{ msg: { type: String, required: true }}`.
+Pokud používáte [Type-based deklarace vlastností](/api/sfc-script-setup.html#typescript-only-features) <sup class="vt-badge ts" />, Vue se pokusí kompilovat typové anotace na odpovídající runtime deklarace vlastností jak nejlépe dovede. Například, `defineProps<{ msg: string }>` bude při kompilaci převedeno na`{ msg: { type: String, required: true }}`.
 
 </div>
 <div class="options-api">
 
-::: tip Note
-Note that props are validated **before** a component instance is created, so instance properties (e.g. `data`, `computed`, etc.) will not be available inside `default` or `validator` functions.
+::: tip Poznámka
+Zapamatujte si, že vlastnosti jsou validovány **dříve** než je vytvořena instance komponenty, takže proměnné instance (např. `data`, `computed`, atd.) nebudou uvnitř `default` či `validator` funkcí dostupné.
 :::
 
 </div>
 
-### Runtime Type Checks {#runtime-type-checks}
+### Kontrola typů za běhu {#runtime-type-checks}
 
-The `type` can be one of the following native constructors:
+Hodnota `type` může být jeden z následujících nativních konstruktorů:
 
 - `String`
 - `Number`
@@ -516,7 +520,7 @@ The `type` can be one of the following native constructors:
 - `Function`
 - `Symbol`
 
-In addition, `type` can also be a custom class or constructor function and the assertion will be made with an `instanceof` check. For example, given the following class:
+Kromě toho může být `type` také vlastní třída nebo funkce konstruktoru a ověření bude provedeno pomocí kontroly `instanceof`. Například následující třídu:
 
 ```js
 class Person {
@@ -527,7 +531,7 @@ class Person {
 }
 ```
 
-You could use it as a prop's type:
+Můžete použít jako typ vlastnosti:
 
 <div class="composition-api">
 
@@ -550,11 +554,11 @@ export default {
 
 </div>
 
-Vue will use `instanceof Person` to validate whether the value of the `author` prop is indeed an instance of the `Person` class.
+Vue použije `instanceof Person` k ověření, zda hodnota vlastnosti `author` skutečně je instancí třídy `Person`.
 
-## Boolean Casting {#boolean-casting}
+## Přetypování Boolean {#boolean-casting}
 
-Props with `Boolean` type have special casting rules to mimic the behavior of native boolean attributes. Given a `<MyComponent>` with the following declaration:
+Vlastnosti typu `Boolean` mají speciální pravidla přetypování k napodobení chování nativních boolean atributů. Pokud máme `<MyComponent>` s následující definicí:
 
 <div class="composition-api">
 
@@ -577,17 +581,17 @@ export default {
 
 </div>
 
-The component can be used like this:
+Lze komponentu použít i tímto způsobem:
 
 ```vue-html
-<!-- equivalent of passing :disabled="true" -->
+<!-- stejé jako předání :disabled="true" -->
 <MyComponent disabled />
 
-<!-- equivalent of passing :disabled="false" -->
+<!-- stejé jako předání :disabled="false" -->
 <MyComponent />
 ```
 
-When a prop is declared to allow multiple types, e.g.
+Když je vlastnost deklarována, aby umožnila více typů, např.:
 
 <div class="composition-api">
 
@@ -610,4 +614,4 @@ export default {
 
 </div>
 
-The casting rules for `Boolean` will apply regardless of type appearance order.
+Pravidla pro přetypování `Boolean` se bez ohledu na pořadí typů uplatní.

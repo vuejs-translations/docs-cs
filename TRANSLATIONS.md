@@ -76,6 +76,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 layout = layout
 * 🟨 legacy code = legacy kód
 * 🟥 lifecycle hook = lifecycle hook
+* 🟩 listen (to event) = naslouchat (události)
 * 🟩 loop = cyklus
 * 🟩 method = funkce
 * 🟥 method handler = method handler
@@ -125,7 +126,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 state management = state management
 * 🟥 stateful = stateful
 * 🟥 store = store
-* 🟥 string = string
+* 🟥 string = string (výjíměčně "řetězec" (obvykle je-li třeba skloňovat))
 * 🟨 string template = string-šablona
 * 🟥 tag = tag
 * 🟨 technology stack = technologický stack
