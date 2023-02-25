@@ -104,7 +104,7 @@ These fallthrough attributes can be accessed directly in template expressions as
 <span>Fallthrough attributes: {{ $attrs }}</span>
 ```
 
-The `$attrs` object includes all attributes that are not declared by the component's `props` or `emits` options (e.g., `class`, `style`, `v-on` listeners, etc.).
+The `$attrs` object includes all attributes that are not declared by the component's `props` or `emits` options (např., `class`, `style`, `v-on` listeners, etc.).
 
 Some notes:
 

@@ -57,11 +57,11 @@ whenDepsChange(update)
 
 This `whenDepsChange()` function has the following tasks:
 
-1. Track when a variable is read. E.g. when evaluating the expression `A0 + A1`, both `A0` and `A1` are read.
+1. Track when a variable is read. např. when evaluating the expression `A0 + A1`, both `A0` and `A1` are read.
 
-2. If a variable is read when there is a currently running effect, make that effect a subscriber to that variable. E.g. because `A0` and `A1` are read when `update()` is being executed, `update()` becomes a subscriber to both `A0` and `A1` after the first call.
+2. If a variable is read when there is a currently running effect, make that effect a subscriber to that variable. např. because `A0` and `A1` are read when `update()` is being executed, `update()` becomes a subscriber to both `A0` and `A1` after the first call.
 
-3. Detect when a variable is mutated. E.g. when `A0` is assigned a new value, notify all its subscriber effects to re-run.
+3. Detect when a variable is mutated. např. when `A0` is assigned a new value, notify all its subscriber effects to re-run.
 
 ## How Reactivity Works in Vue {#how-reactivity-works-in-vue}
 
@@ -342,7 +342,7 @@ watchEffect(callback, {
 
 ## Integration with External State Systems {#integration-with-external-state-systems}
 
-Vue's reactivity system works by deeply converting plain JavaScript objects into reactive proxies. The deep conversion can be unnecessary or sometimes unwanted when integrating with external state management systems (e.g. if an external solution also uses Proxies).
+Vue's reactivity system works by deeply converting plain JavaScript objects into reactive proxies. The deep conversion can be unnecessary or sometimes unwanted when integrating with external state management systems (např. if an external solution also uses Proxies).
 
 The general idea of integrating Vue's reactivity system with an external state management solution is to hold the external state in a [`shallowRef`](/api/reactivity-advanced.html#shallowref). A shallow ref is only reactive when its `.value` property is accessed - the inner value is left intact. When the external state changes, replace the ref value to trigger updates.
 

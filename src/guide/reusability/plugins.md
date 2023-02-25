@@ -32,7 +32,7 @@ There is no strictly defined scope for a plugin, but common scenarios where plug
 
 3. Add some global instance properties or methods by attaching them to [`app.config.globalProperties`](/api/application.html#app-config-globalproperties).
 
-4. A library that needs to perform some combination of the above (e.g. [vue-router](https://github.com/vuejs/vue-router-next)).
+4. A library that needs to perform some combination of the above (např. [vue-router](https://github.com/vuejs/vue-router-next)).
 
 ## Writing a Plugin {#writing-a-plugin}
 

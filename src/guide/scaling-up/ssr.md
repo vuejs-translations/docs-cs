@@ -42,7 +42,7 @@ Before using SSR for your app, the first question you should ask is whether you 
 
 SSG retains the same performance characteristics of SSR apps: it provides great time-to-content performance. At the same time, it is cheaper and easier to deploy than SSR apps because the output is static HTML and assets. The keyword here is **static**: SSG can only be applied to pages consuming static data, tj. data that is known at build time and does not change between deploys. Every time the data changes, a new deployment is needed.
 
-If you're only investigating SSR to improve the SEO of a handful of marketing pages (e.g. `/`, `/about`, `/contact`, etc.), then you probably want SSG instead of SSR. SSG is also great for content-based websites such as documentation sites or blogs. In fact, this website you are reading right now is statically generated using [VitePress](https://vitepress.vuejs.org/), a Vue-powered static site generator.
+If you're only investigating SSR to improve the SEO of a handful of marketing pages (např. `/`, `/about`, `/contact`, etc.), then you probably want SSG instead of SSR. SSG is also great for content-based websites such as documentation sites or blogs. In fact, this website you are reading right now is statically generated using [VitePress](https://vitepress.vuejs.org/), a Vue-powered static site generator.
 
 ## Basic Tutorial {#basic-tutorial}
 
@@ -308,7 +308,7 @@ If the DOM structure of the pre-rendered HTML does not match the expected output
 
    1. Use `v-if` + `onMounted` to render the part that depends on random values only on the client. Your framework may also have built-in features to make this easier, for example the `<ClientOnly>` component in VitePress.
 
-   2. Use a random number generator library that supports generating with seeds, and guarantee the server run and the client run are using the same seed (e.g. by including the seed in serialized state and retrieving it on the client).
+   2. Use a random number generator library that supports generating with seeds, and guarantee the server run and the client run are using the same seed (např. by including the seed in serialized state and retrieving it on the client).
 
 3. The server and the client are in different time zones. Sometimes, we may want to convert a timestamp into the user's local time. However, the timezone during the server run and the timezone during the client run are not always the same, and we may not reliably know the user's timezone during the server run. In such cases, the local time conversion should also be performed as a client-only operation.
 
@@ -354,5 +354,5 @@ You need to inject the teleport markup into the correct location in your final p
 :::tip
 Avoid targeting `body` when using Teleports and SSR together - usually, `<body>` will contain other server-rendered content which makes it impossible for Teleports to determine the correct starting location for hydration.
 
-Instead, prefer a dedicated container, e.g. `<div id="teleported"></div>` which contains only teleported content.
+Instead, prefer a dedicated container, např. `<div id="teleported"></div>` which contains only teleported content.
 :::

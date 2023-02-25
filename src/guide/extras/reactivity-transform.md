@@ -89,7 +89,7 @@ const __temp = useMouse(),
 console.log(x.value, y.value)
 ```
 
-Note that if `x` is already a ref, `toRef(__temp, 'x')` will simply return it as-is and no additional ref will be created. If a destructured value is not a ref (e.g. a function), it will still work - the value will be wrapped in a ref so the rest of the code works as expected.
+Note that if `x` is already a ref, `toRef(__temp, 'x')` will simply return it as-is and no additional ref will be created. If a destructured value is not a ref (např. a function), it will still work - the value will be wrapped in a ref so the rest of the code works as expected.
 
 `$()` destructure works on both reactive objects **and** plain objects containing refs.
 
@@ -162,7 +162,7 @@ While reactive variables relieve us from having to use `.value` everywhere, it c
 
 ### Passing into function as argument {#passing-into-function-as-argument}
 
-Given a function that expects a ref as an argument, e.g.:
+Given a function that expects a ref as an argument, např.:
 
 ```ts
 function trackChange(x: Ref<number>) {
@@ -273,7 +273,7 @@ Vue provides typings for these macros (available globally) and all types will wo
 
 This also means the macros can work in any files where valid JS / TS are allowed - not just inside Vue SFCs.
 
-Since the macros are available globally, their types need to be explicitly referenced (e.g. in a `env.d.ts` file):
+Since the macros are available globally, their types need to be explicitly referenced (např. in a `env.d.ts` file):
 
 ```ts
 /// <reference types="vue/macros-global" />
