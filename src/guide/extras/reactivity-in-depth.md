@@ -208,24 +208,11 @@ The `ref()`, `computed()` and `watchEffect()` APIs are all part of the Compositi
 
 ## Runtime vs. Compile-time Reactivity {#runtime-vs-compile-time-reactivity}
 
-Vue's reactivity system is primarily runtime-based: the tracking and triggering are all performed while the code is running directly in the browser. The pros of runtime reactivity are that it can work without a build step, and there are fewer edge cases. On the other hand, this makes it constrained by the syntax limitations of JavaScript.
+Vue's reactivity system is primarily runtime-based: the tracking and triggering are all performed while the code is running directly in the browser. The pros of runtime reactivity are that it can work without a build step, and there are fewer edge cases. On the other hand, this makes it constrained by the syntax limitations of JavaScript, leading to the need of value containers like Vue refs.
 
-We have already encountered a limitation in the previous example: JavaScript does not provide a way for us to intercept the reading and writing of local variables, so we have to always access reactive state as object properties, using either reactive objects or refs.
+Some frameworks, such as [Svelte](https://svelte.dev/), choose to overcome such limitations by implementing reactivity during compilation. It analyzes and transforms the code in order to simulate reactivity. The compilation step allows the framework to alter the semantics of JavaScript itself - for example, implicitly injecting code that performs dependency analysis and effect triggering around access to locally defined variables. The downside is that such transforms require a build step, and altering JavaScript semantics is essentially creating a language that looks like JavaScript but compiles into something else.
 
-We have been experimenting with the [Reactivity Transform](/guide/extras/reactivity-transform.html) feature to reduce the code verbosity:
-
-```js
-let A0 = $ref(0)
-let A1 = $ref(1)
-
-// track on variable read
-const A2 = $computed(() => A0 + A1)
-
-// trigger on variable write
-A0 = 2
-```
-
-This snippet compiles into exactly what we'd have written without the transform, by automatically appending `.value` after references to the variables. With Reactivity Transform, Vue's reactivity system becomes a hybrid one.
+The Vue team did explore this direction via an experimental feature called [Reactivity Transform](/guide/extras/reactivity-transform.html), but in the end we have decided that it would not be a good fit for the project due to [the reasoning here](https://github.com/vuejs/rfcs/discussions/369#discussioncomment-5059028).
 
 ## Reactivity Debugging {#reactivity-debugging}
 
@@ -413,20 +400,24 @@ export function useMachine(options) {
 
 ## Connection to Signals
 
-Quite a few other frameworks have introduced reactivity primitives similar to Vue refs, under the term "signals":
+Quite a few other frameworks have introduced reactivity primitives similar to refs from Vue's Composition API, under the term "signals":
 
 - [Solid Signals](https://www.solidjs.com/docs/latest/api#createsignal)
 - [Angular Signals](https://github.com/angular/angular/discussions/49090)
 - [Preact Signals](https://preactjs.com/guide/v10/signals/)
 - [Qwik Signals](https://qwik.builder.io/docs/components/state/#usesignal)
 
-Fundamentally, signals are the same kind of reactivity primitive as Vue refs. It's a value container that provides dependency tracking on access and effect trigger on mutation. In some contexts, signals are also related to the rendering model where updates are performed through fine-grained subscriptions, although it is not a necessary trait for something to be called signals.
+Fundamentally, signals are the same kind of reactivity primitive as Vue refs. It's a value container that provides dependency tracking on access, and side-effect triggering on mutation. This reactivity-primitive-based paradigm isn't a particularly new concept in the frontend world: it dates back to implementations like [Knockout observables](https://knockoutjs.com/documentation/observables.html) and [Meteor Tracker](https://docs.meteor.com/api/tracker.html) from more than a decade ago. Vue Options API and the React state management library [MobX](https://mobx.js.org/) are also based on the same principles, but hide the primitives behind object properties.
 
-Among these implementations, the design of Preact and Qwik's signals are very similar to Vue's [shallowRef](/api/reactivity-advanced.html#shallowref): all three provide a mutable interface via the `.value` property.
+Although not a necessary trait for something to qualify as signals, today the concept is often discussed alongside the rendering model where updates are performed through fine-grained subscriptions. Due to the use of Virtual DOM, Vue currently [relies on compilers to achieve similar optimizations](https://vuejs.org/guide/extras/rendering-mechanism.html#compiler-informed-virtual-dom). However, we are also exploring a new Solid-inspired compilation strategy (Vapor Mode) that does not rely on Virtual DOM and takes more advantage of Vue's built-in reactivity system.
 
-### Solid Signals
+### API Design Trade-Offs
 
-Solid's `useSignal()` API design emphasizes read / write segregation. Signals are exposed as a read-only getter and a separate setter:
+The design of Preact and Qwik's signals are very similar to Vue's [shallowRef](/api/reactivity-advanced.html#shallowref): all three provide a mutable interface via the `.value` property. We will focus the discussion on Solid and Angular signals.
+
+#### Solid Signals
+
+Solid's `createSignal()` API design emphasizes read / write segregation. Signals are exposed as a read-only getter and a separate setter:
 
 ```js
 const [count, setCount] = createSignal(0)
@@ -453,7 +444,7 @@ export function createSignal(value, options) {
 
 [Try it in the Playground](https://sfc.vuejs.org/#eNp9UsFu2zAM/RVCl9iYY63XwE437A+2Y9WD69KOOlvSKNndEPjfR8lOsnZAbxTfIx/Jp7P46lw5TygOovItaRfAY5jcURk9OksBztASNgF/6N40AyzQkR1hV0pvB/289yldvvidMsq01vgAD62dTChip28xeoT6TZPsc65MJVc9VuJHwNENTOAXQHW6O55ZN9ZmOSxLJTmTkKcpBGvgSzvo9metxEUim6E+wgyf4C5XInEBtGHVEU1IpXKtZaySVzlRiHXP/dg43sIavsQ58tUGeCUOkDIxx6eKbyVOITh/kNJ3bbzfiy8t9ZKjkngcPWKJftw/kX31SNxYieKfHpKTM9Ke0DwjIX3U8x31v76x7aLMwqu8s4RXuZroT80w2Nfv2BUQSPc9EsdXO1kuGYi/E7+bTBs0H/qNbXMzTFiAdRHy+XqV1XJii28SK5NNvsA9Biawl2wSlQm9gexhBOeEbpfeSJwPfxzajq2t6xp2l8F2cA9ztrFyOMC8Wd5Bts13X+KvqRl8Kuw4YN5t84zSeHw4FuMfTwYeeMr0aR/jNZe/yX4QHw==)
 
-### Angular Signals
+#### Angular Signals
 
 Angular is undergoing some fundamental changes by foregoing dirty-checking and introducing its own implementation of a reactivity primitive. The Angular Signal API looks like this:
 
