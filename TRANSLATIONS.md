@@ -57,6 +57,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 event listner = event listner
 * 🟩 expose (v.) = vystavit
 * 🟩 expression = výraz
+* 🟩 factory function = tovární metoda
 * 🟥 focus = focus
 * 🟥 framework = framework
 * 🟥 frontend = frontend
@@ -68,6 +69,8 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 holding = obsahovat
 * 🟥 IDE = IDE
 * 🟨 in-DOM template = DOM-šablona (kvůli konzisteci s "DOM template")
+* 🟩 inject = implementovat
+* 🟥 injection key = injection key
 * 🟥 inline = inline
 * 🟨 inline styles = inline styly
 * 🟩 instance property = instanční promměná
@@ -90,7 +93,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 notice (v.) = všimněte si
 * 🟩 object types = objektové typy
 * 🟥 open source = open source
-* 🟩 option = nastavení / proměnná / vlastnost / volba (dle kontextu)
+* 🟩 option = nastavení / proměnná / sekce / vlastnost / volba (dle kontextu)
 * 🟥 Options API = Options API
 * 🟥 package = package
 * 🟩 parent = rodič
@@ -104,6 +107,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 Promise = Promise (název JS třídy)
 * 🟩 property = vlastnost / proměnná
 * 🟨 props = vlastnosti (props)
+* 🟩 provide = poskytovat
 * 🟥 proxy = proxy
 * 🟩 reactive = reaktivní
 * 🟩 reactivity = reaktivita
@@ -119,6 +123,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 see also = viz také
 * 🟨 selector = selektor
 * 🟨 self-closing = nepárový (self-closing)
+* 🟩 shorthand = zkrácený zápis
 * 🟩 sidebar = postranní panel
 * 🟨 Single-File component = Single-File komponenta (SFC)
 * 🟥 slot = slot

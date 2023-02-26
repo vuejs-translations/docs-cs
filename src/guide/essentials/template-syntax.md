@@ -1,6 +1,6 @@
-# Template syntaxe {#template-syntax}
+# Syntaxeš šablon {#template-syntax}
 
-Vue používá pro šablony syntaxi založenou na HTML. Ta vám umožňuje deklarativně propojit vykreslený DOM s daty instance komponenty v pozadí. Všechny Vue šablony jsou syntakticky platný HTML kód, který může být analyzován prohlížeči a HTML parsery odpovídajícími specifikaci.
+Vue používá pro šablony (template) syntaxi založenou na HTML. Ta vám umožňuje deklarativně propojit vykreslený DOM s daty instance komponenty v pozadí. Všechny Vue šablony jsou syntakticky platný HTML kód, který může být analyzován prohlížeči a HTML parsery odpovídajícími specifikaci.
 
 Vue interně kompiluje šablony do vysoce optimalizovaného JavaScript kódu. V kombinaci se systémem reaktivity dokáže Vue inteligentně zjistit minimální počet komponent k opětovnému vykreslení a použít minimální množství DOM manipulací ve chvíli, kdy se změní stav aplikace.
 

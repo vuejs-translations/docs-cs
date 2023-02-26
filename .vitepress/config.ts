@@ -142,7 +142,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/guide/essentials/application'
         },
         {
-          text: 'Template syntaxe',
+          text: 'Syntaxe šablon',
           link: '/guide/essentials/template-syntax'
         },
         {
@@ -195,7 +195,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
         },
         { text: 'Sloty (Slots)', link: '/guide/components/slots' },
         {
-          text: 'Provide / inject',
+          text: 'Provide / Inject',
           link: '/guide/components/provide-inject'
         },
         {

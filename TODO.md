@@ -3,10 +3,6 @@ TODO iteration 1
 
 /guide
 
-components\
-components\provide-inject.md
-components\slots.md
-
 reusability\
 reusability\composables.md
 reusability\custom-directives.md
