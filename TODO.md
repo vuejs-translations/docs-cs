@@ -4,10 +4,8 @@ TODO iteration 1
 /guide
 
 components\
-components\attrs.md
 components\provide-inject.md
 components\slots.md
-components\v-model.md
 
 reusability\
 reusability\composables.md

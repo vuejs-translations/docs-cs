@@ -1,14 +1,14 @@
-# Component v-model {#component-v-model}
+# Binding přes v-model {#component-v-model}
 
-`v-model` can be used on a component to implement a two-way binding.
+Direkrivu `v-model` lze použít pro implementaci obousměrného (two-way) bindingu.
 
-First let's revisit how `v-model` is used on a native element:
+Napřed si připomeňme, jak se `v-model` používá v nativních elementech:
 
 ```vue-html
 <input v-model="searchText" />
 ```
 
-Under the hood, the template compiler expands `v-model` to the more verbose equivalent for us. So the above code does the same as the following:
+Kompilátor šablon zápis `v-model` na pozadí expanduje. Výše uvedený kód se chová stejně jako následující:
 
 ```vue-html
 <input
@@ -17,7 +17,7 @@ Under the hood, the template compiler expands `v-model` to the more verbose equi
 />
 ```
 
-When used on a component, `v-model` instead expands to this:
+Při použití na komponentě, je `v-model` místo toho expandován na toto:
 
 ```vue-html
 <CustomInput
@@ -26,12 +26,12 @@ When used on a component, `v-model` instead expands to this:
 />
 ```
 
-For this to actually work though, the `<CustomInput>` component must do two things:
+Aby to však mohlo fungovat, musí komponenta `<CustomInput>` udělat dvě věci:
 
-1. Bind the `value` attribute of a native `<input>` element to the `modelValue` prop
-2. When a native `input` event is triggered, emit an `update:modelValue` custom event with the new value
+1. Provést binding atributu `value` nativního `<input>` elementu na vlastnost (prop) `modelValue`
+2. Když je vyvolána nativní událost (event) `input`, vyvolat (emit) vlastní událost `update:modelValue` s novou hodnotou
 
-Here's that in action:
+Zde to vidíte v praxi:
 
 <div class="options-api">
 
@@ -72,7 +72,7 @@ defineEmits(['update:modelValue'])
 
 </div>
 
-Now `v-model` should work perfectly with this component:
+Na této komponentě by nyní měl `v-model` perfektně fungovat:
 
 ```vue-html
 <CustomInput v-model="searchText" />
@@ -89,7 +89,7 @@ Now `v-model` should work perfectly with this component:
 
 </div>
 
-Another way of implementing `v-model` within this component is to use a writable `computed` property with both a getter and a setter. The `get` method should return the `modelValue` property and the `set` method should emit the corresponding event:
+Dalším způsobem implementace `v-model` v rámci této komponenty je použití zapisovatelné `computed` proměnné s getterem a setterem. Metoda `get` by měla vracet vlastnost `modelValue` a metoda `set` by měla vyvolat odpovídající událost:
 
 <div class="options-api">
 
@@ -145,15 +145,15 @@ const value = computed({
 
 </div>
 
-## `v-model` arguments {#v-model-arguments}
+## `v-model` parametry {#v-model-arguments}
 
-By default, `v-model` on a component uses `modelValue` as the prop and `update:modelValue` as the event. We can modify these names passing an argument to `v-model`:
+Ve výchozím nastavení používá `v-model` u komponent `modelValue` jako vlastnost a `update:modelValue` jako událost. Tyto názvy můžeme změnit předáním parametru příkazu `v-model`:
 
 ```vue-html
 <MyComponent v-model:title="bookTitle" />
 ```
 
-In this case, the child component should expect a `title` prop and emit an `update:title` event to update the parent value:
+V tomto případě by komponenta potomka měla očekávat vlastnost `title` a pro aktualizaci hodnoty v rodiči vyvolávat událost `update:title`:
 
 <div class="composition-api">
 
@@ -200,11 +200,11 @@ export default {
 
 </div>
 
-## Multiple `v-model` bindings {#multiple-v-model-bindings}
+## Vícenásobný binding přes `v-model` {#multiple-v-model-bindings}
 
-By leveraging the ability to target a particular prop and event as we learned before with [`v-model` arguments](#v-model-arguments), we can now create multiple `v-model` bindings on a single component instance.
+yužitím možnosti zaměřit se na konkrétní vlastnost a událost, jak jsme se to naučili dříve pomocí [`v-model` parametrů](#v-model-arguments), můžeme nyní na jedné instanci komponenty vytvořit více `v-model` vazeb.
 
-Each `v-model` will sync to a different prop, without the need for extra options in the component:
+Každý `v-model` se bude synchronizovat s jinou vlastností bez nutnosti speciální konfigurace uvnitř komponenty:
 
 ```vue-html
 <UserName
@@ -273,17 +273,17 @@ export default {
 
 </div>
 
-## Handling `v-model` modifiers {#handling-v-model-modifiers}
+## Obsluha `v-model` modifikátorů {#handling-v-model-modifiers}
 
-When we were learning about form input bindings, we saw that `v-model` has [built-in modifiers](/guide/essentials/forms.html#modifiers) - `.trim`, `.number` and `.lazy`. In some cases, you might also want the `v-model` on your custom input component to support custom modifiers.
+Když jsme se učili o bindingu dat z formuláře, viděli jsme, že `v-model` má [vestavěné modifikátory](/guide/essentials/forms.html#modifiers) - `.trim`, `.number` a `.lazy`. V některých případech můžete chtít, aby `v-model` na vaší vlastní input komponentě podporoval vlastní modifikátory také.
 
-Let's create an example custom modifier, `capitalize`, that capitalizes the first letter of the string provided by the `v-model` binding:
+Pojďme vytvořit příklad vlastního modifikátoru `capitalize`, který bude psát první znak řetězce zadaného přes `v-model` binding velkými písmeny:
 
 ```vue-html
 <MyComponent v-model.capitalize="myText" />
 ```
 
-Modifiers added to a component `v-model` will be provided to the component via the `modelModifiers` prop. In the below example, we have created a component that contains a `modelModifiers` prop that defaults to an empty object:
+Modifikátory přidávané do `v-model` komponenty budou v komponentě vystaveny přes vlastnost `modelModifiers`. V příkladu níže jsme vytvořili komponentu, která obsahuje vlastnost `modelModifiers`, jejíž výchozí hodnotou je prázdný objekt:
 
 <div class="composition-api">
 
@@ -338,9 +338,9 @@ export default {
 
 </div>
 
-Notice the component's `modelModifiers` prop contains `capitalize` and its value is `true` - due to it being set on the `v-model` binding `v-model.capitalize="myText"`.
+Všimněte si, že vlastnost `modelModifiers` na komponentě obsahuje klíč `capitalize` a jeho hodnota je `true` - protože byla nastavena v rámci `v-model` bindingu `v-model.capitalize="myText"`.
 
-Now that we have our prop set up, we can check the `modelModifiers` object keys and write a handler to change the emitted value. In the code below we will capitalize the string whenever the `<input />` element fires an `input` event.
+Teď, když máme naši vlastnost nastavenou, můžeme zkontrolovat klíče objektu `modelModifiers` a napsat handler pro změnu emitované hodnoty. V níže uvedeném kódu nastavíme první písmeno řetězce velké, kdykoli prvek `<input />` vyvolá událost `vstup`.
 
 <div class="composition-api">
 
@@ -403,13 +403,13 @@ export default {
 
 </div>
 
-For `v-model` bindings with both argument and modifiers, the generated prop name will be `arg + "Modifiers"`. For example:
+Pro `v-model` binding, kde jsou jak parametry, tak modifikátory, bude vygenerované jméno vlastnosti `arg + "Modifiers"`. Například:
 
 ```vue-html
 <MyComponent v-model:title.capitalize="myText">
 ```
 
-The corresponding declarations should be:
+Odpovídající deklarace by měla být:
 
 <div class="composition-api">
 

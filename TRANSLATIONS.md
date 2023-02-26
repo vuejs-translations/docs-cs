@@ -70,6 +70,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟨 in-DOM template = DOM-šablona (kvůli konzisteci s "DOM template")
 * 🟥 inline = inline
 * 🟨 inline styles = inline styly
+* 🟩 instance property = instanční promměná
 * 🟩 invoke = zavolat (funkci)
 * 🟨 JavaScript state = stav JavaScript objektů
 * 🟥 kebab-case = kebab-case
