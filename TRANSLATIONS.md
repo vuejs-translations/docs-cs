@@ -40,6 +40,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟨 computed property = computed proměnná
 * 🟨 container element = mateřský element
 * 🟩 content = obsah
+* 🟨 custom = custom / vlastní (dle citu)
 * 🟩 declarative rendering = deklarativní rendering
 * 🟩 declare = deklarovat
 * 🟩 deep = vnořený (za předpokladu, že odpovídá kontext, např. "deep reactivity")
@@ -124,6 +125,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟨 selector = selektor
 * 🟨 self-closing = nepárový (self-closing)
 * 🟩 shorthand = zkrácený zápis
+* 🟩 side effect = vedlejší efekt
 * 🟩 sidebar = postranní panel
 * 🟨 Single-File component = Single-File komponenta (SFC)
 * 🟥 slot = slot

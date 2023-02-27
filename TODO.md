@@ -4,7 +4,6 @@ TODO iteration 1
 /guide
 
 reusability\
-reusability\composables.md
 reusability\custom-directives.md
 reusability\plugins.md
 
