@@ -458,4 +458,4 @@ Pokud chcete z uživatelského vstupu automaticky odstranit bílé znaky (whites
 
 > Pokud ještě nejste seznámeni s Vue komponentami, můžete toto prozatím přeskočit.
 
-Vestavěné typy HTML vstupů nebudou vždy vyhovovat vašim potřebám. Naštěstí vám Vue komponenty umožňují vytvářet znovupoužitelné vstupy se zcela přizpůsobitelným chováním. Tyto vstupy dokonce také fungují s `v-model`! Chcete-li se dozvědět více, přečtěte si o [použití s `v-model`](/guide/components/v-model.html) v průvodci Komponentami.
+Vestavěné typy HTML vstupů nebudou vždy vyhovovat vašim potřebám. Naštěstí vám Vue komponenty umožňují vytvářet znovupoužitelné vstupy se zcela přizpůsobitelným chováním. Tyto vstupy dokonce také fungují s `v-model`! Chcete-li se dozvědět více, přečtěte si o [použití s `v-model`](/guide/components/v-model) v průvodci Komponentami.

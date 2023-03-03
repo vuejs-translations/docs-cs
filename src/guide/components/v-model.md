@@ -275,7 +275,7 @@ export default {
 
 ## Obsluha `v-model` modifikátorů {#handling-v-model-modifiers}
 
-Když jsme se učili o bindingu dat z formuláře, viděli jsme, že `v-model` má [vestavěné modifikátory](/guide/essentials/forms.html#modifiers) - `.trim`, `.number` a `.lazy`. V některých případech můžete chtít, aby `v-model` na vaší vlastní input komponentě podporoval vlastní modifikátory také.
+Když jsme se učili o bindingu dat z formuláře, viděli jsme, že `v-model` má [vestavěné modifikátory](/guide/essentials/forms#modifiers) - `.trim`, `.number` a `.lazy`. V některých případech můžete chtít, aby `v-model` na vaší vlastní input komponentě podporoval vlastní modifikátory také.
 
 Pojďme vytvořit příklad vlastního modifikátoru `capitalize`, který bude psát první znak řetězce zadaného přes `v-model` binding velkými písmeny:
 

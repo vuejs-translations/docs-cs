@@ -48,7 +48,7 @@ V zátěžových testech podle [js-framework-benchmark](https://rawgit.com/kraus
 
 Je třeba si uvědomit, že syntetické benchmarky, jako je výše uvedený, se zaměřují na čistý výkon vykreslování s dedikovanými optimalizacemi a nemusí plně reprezentovat výsledky výkonu v reálné aplikaci. Pokud vám více záleží na výkonu načítání stránek, můžete zkontrolovat třeba právě tento web pomocí [WebPageTest](https://www.webpagetest.org/lighthouse) nebo [PageSpeed Insights](https://pagespeed.web.dev/). Tato webová stránka je sama o sobě poháněna Vue, s SSG pre-renderingem, full-page hydratací a SPA navigací na straně klienta. Výkon na emulovaném Moto G4 se 4x CPU throttlingem přes pomalé 4G sítě dosahuje 100 bodů.
 
-Další informace, jak Vue automaticky optimalizuje svůj výkon za běhu, se můžete dozvědět v sekci [Mechanismus vykreslování](/guide/extras/rendering-mechanism.html). Jak optimalizovat Vue aplikaci ve zvláště náročných případech najdete v [Průvodci optimalizací výkonu]( /guide/best-practices/performance.html).
+Další informace, jak Vue automaticky optimalizuje svůj výkon za běhu, se můžete dozvědět v sekci [Mechanismus vykreslování](/guide/extras/rendering-mechanism). Jak optimalizovat Vue aplikaci ve zvláště náročných případech najdete v [Průvodci optimalizací výkonu]( /guide/best-practices/performance).
 
 ## Je Vue lightweight? {#is-vue-lightweight}
 
@@ -68,17 +68,17 @@ Ano. Navzdory běžné mylné představě, že Vue je vhodné pouze pro jednoduc
 
 - [Composition API](/guide/reusability/composables) poskytuje prvotřídní integraci TypeScriptu a umožňuje čisté vzory pro organizování, extrahování a opětovné použití složité logiky.
 
-- [Rozsáhlá tooling podpora](/guide/scaling-up/tooling.html) zajišťuje hladký vývoj, zatímco aplikace roste.
+- [Rozsáhlá tooling podpora](/guide/scaling-up/tooling) zajišťuje hladký vývoj, zatímco aplikace roste.
 
 - Strmá křivka učení a vynikající dokumentace se promítají do nižších vstupních nákladů na zapojení a školení nových vývojářů.
 
 ## Jak mohu Vue přispět? {#how-do-i-contribute-to-vue}
 
-Vážíme si vašeho zájmu. Podívejte se prosím na našeho [Průvodce komunitou](/about/community-guide.html).
+Vážíme si vašeho zájmu. Podívejte se prosím na našeho [Průvodce komunitou](/about/community-guide).
 
 ## Mám používat Options API nebo Composition API? {#should-i-use-options-api-or-composition-api}
 
-Pokud jste ve Vue nováčci, nabízíme high-level srovnání těchto dvou stylů [zde](/guide/introduction.html#which-to-choose).
+Pokud jste ve Vue nováčci, nabízíme high-level srovnání těchto dvou stylů [zde](/guide/introduction#which-to-choose).
 
 Pokud jste již dříve používali Options API a právě teď přemýšlíte o Composition API, podívejte se na [tyto FAQ](/guide/extras/composition-api-faq).
 

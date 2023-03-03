@@ -22,7 +22,7 @@ Drilling vlastností můžeme řešit pomocí `provide` a `inject`. Komponenta r
 
 <div class="composition-api">
 
-Pro poskytnutí dat komponentám potomků použijte funkci [`provide()`](/api/composition-api-dependency-injection.html#provide) function:
+Pro poskytnutí dat komponentám potomků použijte funkci [`provide()`](/api/composition-api-dependency-injection#provide) function:
 
 ```vue
 <script setup>
@@ -61,7 +61,7 @@ Poskytnutí reaktivních hodnot umožňuje komponentám potomků, které poskytn
 
 <div class="options-api">
 
-Pro poskytnutí dat komponentám potomků použijte sekci [`provide`](/api/options-composition.html#provide):
+Pro poskytnutí dat komponentám potomků použijte sekci [`provide`](/api/options-composition#provide):
 
 ```js
 export default {
@@ -107,13 +107,13 @@ const app = createApp({})
 app.provide(/* klíč */ 'message', /* hodnota */ 'Ahoj!')
 ```
 
-Provide na úrovni aplikace je k dispozici všem komponentám vykresleným v aplikaci. To je obzvláště užitečné při psaní [pluginů](/guide/reusability/plugins.html), protože pluginy obvykle nejsou schopny poskytovat hodnoty pomocí komponent.
+Provide na úrovni aplikace je k dispozici všem komponentám vykresleným v aplikaci. To je obzvláště užitečné při psaní [pluginů](/guide/reusability/plugins), protože pluginy obvykle nejsou schopny poskytovat hodnoty pomocí komponent.
 
 ## Inject {#inject}
 
 <div class="composition-api">
 
-Pro implementaci dat poskytnutých komponentou předka použijte funkci [`inject()`](/api/composition-api-dependency-injection.html#inject) function:
+Pro implementaci dat poskytnutých komponentou předka použijte funkci [`inject()`](/api/composition-api-dependency-injection#inject) function:
 
 ```vue
 <script setup>
@@ -144,7 +144,7 @@ export default {
 
 <div class="options-api">
 
-Pro implementaci dat poskytnutých komponentou předka použijte sekci [`inject`](/api/options-composition.html#inject):
+Pro implementaci dat poskytnutých komponentou předka použijte sekci [`inject`](/api/options-composition#inject):
 
 ```js
 export default {
@@ -275,7 +275,7 @@ const { location, updateLocation } = inject('location')
 </template>
 ```
 
-Pokud se chcete ujistit, že data předaná skrz `provide` nemohou být změněna komponentou, která je implementuje, můžte poskytovanou hdonotu obalit pomocí [`readonly()`](/api/reactivity-core.html#readonly).
+Pokud se chcete ujistit, že data předaná skrz `provide` nemohou být změněna komponentou, která je implementuje, můžte poskytovanou hdonotu obalit pomocí [`readonly()`](/api/reactivity-core#readonly).
 
 ```vue
 <script setup>
@@ -290,7 +290,7 @@ provide('read-only-count', readonly(count))
 
 <div class="options-api">
 
-Aby byla injection reaktivně propojena se komponentou poskytovatele, musíme poskytovat computed proměnnou pomocí funkce [computed()](/api/reactivity-core.html#computed):
+Aby byla injection reaktivně propojena se komponentou poskytovatele, musíme poskytovat computed proměnnou pomocí funkce [computed()](/api/reactivity-core#computed):
 
 ```js{10}
 import { computed } from 'vue'
@@ -312,7 +312,7 @@ export default {
 
 [Kompletní provide/inject příklad vč. reaktivity](https://sfc.vuejs.org/#eyJBcHAudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBDaGlsZCBmcm9tICcuL0NoaWxkLnZ1ZSdcbmltcG9ydCB7IGNvbXB1dGVkIH0gZnJvbSAndnVlJ1xuXG5leHBvcnQgZGVmYXVsdCB7XG4gIGNvbXBvbmVudHM6IHsgQ2hpbGQgfSxcbiAgZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbWVzc2FnZTogJ2hlbGxvJ1xuICAgIH1cbiAgfSxcbiAgcHJvdmlkZSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbWVzc2FnZTogY29tcHV0ZWQoKCkgPT4gdGhpcy5tZXNzYWdlKVxuICAgIH1cbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPGlucHV0IHYtbW9kZWw9XCJtZXNzYWdlXCI+XG4gIDxDaGlsZCAvPlxuPC90ZW1wbGF0ZT4iLCJpbXBvcnQtbWFwLmpzb24iOiJ7XG4gIFwiaW1wb3J0c1wiOiB7XG4gICAgXCJ2dWVcIjogXCJodHRwczovL3NmYy52dWVqcy5vcmcvdnVlLnJ1bnRpbWUuZXNtLWJyb3dzZXIuanNcIlxuICB9XG59IiwiQ2hpbGQudnVlIjoiPHNjcmlwdD5cbmltcG9ydCBHcmFuZENoaWxkIGZyb20gJy4vR3JhbmRDaGlsZC52dWUnXG5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50czoge1xuICAgIEdyYW5kQ2hpbGRcbiAgfVxufVxuPC9zY3JpcHQ+XG5cbjx0ZW1wbGF0ZT5cbiAgPEdyYW5kQ2hpbGQgLz5cbjwvdGVtcGxhdGU+IiwiR3JhbmRDaGlsZC52dWUiOiI8c2NyaXB0PlxuZXhwb3J0IGRlZmF1bHQge1xuICBpbmplY3Q6IFsnbWVzc2FnZSddXG59XG48L3NjcmlwdD5cblxuPHRlbXBsYXRlPlxuICA8cD5cbiAgICBNZXNzYWdlIHRvIGdyYW5kIGNoaWxkOiB7eyBtZXNzYWdlIH19XG4gIDwvcD5cbjwvdGVtcGxhdGU+In0=)
 
-Funkce `computed()` se typicky používá v komponentách psaných v Composition API, ale lze ji také použít pro doplnění některých případů užití v Options API. O jejím použití se můžete dočíst víc v průvodcích [Základy rektivity](/guide/essentials/reactivity-fundamentals.html) and [Computed proměnné](/guide/essentials/computed.html) s preferencí API nastavenou na Composition API.
+Funkce `computed()` se typicky používá v komponentách psaných v Composition API, ale lze ji také použít pro doplnění některých případů užití v Options API. O jejím použití se můžete dočíst víc v průvodcích [Základy rektivity](/guide/essentials/reactivity-fundamentals) and [Computed proměnné](/guide/essentials/computed) s preferencí API nastavenou na Composition API.
 
 :::warning Dočasně je potřeba nastavení
 Výše uvedené použití vyžaduje nastavení `app.config.unwrapInjectedRef = true`, aby implementace automaticky rozbalovaly vypočtené ref. Ve Vue 3.3 se to stane výchozím chováním. Tento konfigurátor je zaveden dočasně, aby se zabránilo nefunkčnostem. Po vydání verze 3.3 již nebude vyžadován.
@@ -351,7 +351,7 @@ import { myInjectionKey } from './keys.js'
 const injected = inject(myInjectionKey)
 ```
 
-Viz také: [Typování Provide / Inject](/guide/typescript/composition-api.html#typing-provide-inject) <sup class="vt-badge ts" />
+Viz také: [Typování Provide / Inject](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
 
 </div>
 

@@ -6,7 +6,7 @@ Computed proměnné nám umožňují deklarativně vypočítat odvozené hodnoty
 
 <div class="options-api">
 
-S Options API můžeme použít [sekci `watch`](/api/options-state.html#watch) k vyvolání funkce kdykoliv se změní reaktivní hodnota:
+S Options API můžeme použít [sekci `watch`](/api/options-state#watch) k vyvolání funkce kdykoliv se změní reaktivní hodnota:
 
 ```js
 export default {
@@ -65,7 +65,7 @@ export default {
 
 <div class="composition-api">
 
-S Composition API můžeme použít [funkci `watch`](/api/reactivity-core.html#watch) k vyvolání callback funkce kdykoliv se změní část reaktivního stavu:
+S Composition API můžeme použít [funkci `watch`](/api/reactivity-core#watch) k vyvolání callback funkce kdykoliv se změní část reaktivního stavu:
 
 ```vue
 <script setup>
@@ -279,7 +279,7 @@ watch(todoId, async () => {
 
 Zejména si všimněte, jak watcher používá `todoId` dvakrát, jednou jako zdroj a pak znovu uvnitř callback funkce.
 
-Toto je možné zjednodušit pomocí [`watchEffect()`](/api/reactivity-core.html#watcheffect). `watchEffect()` nám umožňuje automaticky sledovat reaktivní závislosti callback funkce. Výše uvedený watcher lze přepsat jako:
+Toto je možné zjednodušit pomocí [`watchEffect()`](/api/reactivity-core#watcheffect). `watchEffect()` nám umožňuje automaticky sledovat reaktivní závislosti callback funkce. Výše uvedený watcher lze přepsat jako:
 
 ```js
 watchEffect(async () => {
@@ -361,7 +361,7 @@ watchPostEffect(() => {
 
 ## `this.$watch()` \* {#this-watch}
 
-Je také možné bezpodmínečně vytvořit watcher imperativně pomocí [instanční metody `$watch()`](/api/component-instance.html#watch):
+Je také možné bezpodmínečně vytvořit watcher imperativně pomocí [instanční metody `$watch()`](/api/component-instance#watch):
 
 ```js
 export default {

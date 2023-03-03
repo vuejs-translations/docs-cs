@@ -20,7 +20,7 @@ footer: false
 - Nainstalovaný [Node.js](https://nodejs.org/) ve verzi 16.0 nebo vyšší
   :::
 
-V této sekci si ukážeme jak vystavět základ Vue [Single Page aplikaci](/guide/extras/ways-of-using-vue.html#single-page-application-spa) na vašem lokálním počítači. Vytvořený projekt bude používat build setup založený na [Vite](https://vitejs.dev) a umožní nám použít Vue [Single-File Components](/guide/scaling-up/sfc) (SFCs).
+V této sekci si ukážeme jak vystavět základ Vue [Single Page aplikaci](/guide/extras/ways-of-using-vue#single-page-application-spa) na vašem lokálním počítači. Vytvořený projekt bude používat build setup založený na [Vite](https://vitejs.dev) a umožní nám použít Vue [Single-File Components](/guide/scaling-up/sfc) (SFCs).
 
 Zkontrolujte, že máte nainstalovanou aktuální verzi [Node.js](https://nodejs.org/) a poté spusťte následující příkaz ve vašem příkazovém řádku (bez znaku `>`):
 
@@ -48,19 +48,19 @@ Pokud si nejste nastavením jisti, zvolte prozatím jednoduše volbu `No` stiskn
 <span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run dev</span></span>
 <span class="line"></span></code></pre></div>
 
-Nyní by už váš první Vue projekt měl běžet! Všimněte si, že ukázkové komponenty ve vygenerovaném projektu jsou napsány s využitím [Composition API](/guide/introduction.html#composition-api) a `<script setup>`, a nikoliv v [Options API](/guide/introduction.html#options-api). Zde jsou nějaké další tipy:
+Nyní by už váš první Vue projekt měl běžet! Všimněte si, že ukázkové komponenty ve vygenerovaném projektu jsou napsány s využitím [Composition API](/guide/introduction#composition-api) a `<script setup>`, a nikoliv v [Options API](/guide/introduction#options-api). Zde jsou nějaké další tipy:
 
-- Doporučené vývojové prostředí (IDE) je [Visual Studio Code](https://code.visualstudio.com/) + [plugin Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar). Pokud používáte jiný editor, zkontrolujte [sekci IDE podpory](/guide/scaling-up/tooling.html#ide-support).
-- Více o vývojových nástrojích vč. integrace s frameworky pro backend, je řešeno v sekci [Tooling průvodci](/guide/scaling-up/tooling.html).
+- Doporučené vývojové prostředí (IDE) je [Visual Studio Code](https://code.visualstudio.com/) + [plugin Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar). Pokud používáte jiný editor, zkontrolujte [sekci IDE podpory](/guide/scaling-up/tooling#ide-support).
+- Více o vývojových nástrojích vč. integrace s frameworky pro backend, je řešeno v sekci [Tooling průvodci](/guide/scaling-up/tooling).
 - Pokud se chcete dozvědět víc o build nástroji Vite v pozadí, podívejte se na [Vite dokumentaci](https://vitejs.dev).
-- Pokud si vyberete použití TypeScriptu, podívejte se na [průvodce použitím TypeScriptu](typescript/overview.html).
+- Pokud si vyberete použití TypeScriptu, podívejte se na [průvodce použitím TypeScriptu](typescript/overview).
 
 Jakmile budete připraveni nasadit vaši aplikaci do produkce, spusťte následující:
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt; </span><span style="color:#A6ACCD;">npm run build</span></span>
 <span class="line"></span></code></pre></div>
 
-Příkaz vytvoří build připravený k produkčnímu nasazení aplikace v podsložce `./dist` uvnitř projektu. Podívejte se na [průvodce Produkčním nasazením](/guide/best-practices/production-deployment.html), abyste se o nasazování vaší aplikace do produkce dozvěděli víc.
+Příkaz vytvoří build připravený k produkčnímu nasazení aplikace v podsložce `./dist` uvnitř projektu. Podívejte se na [průvodce Produkčním nasazením](/guide/best-practices/production-deployment), abyste se o nasazování vaší aplikace do produkce dozvěděli víc.
 
 [Další kroky >](#next-steps)
 
@@ -171,7 +171,7 @@ Pokud váš oblíbený prohlížeč import mapy zatím nepodporuje, můžete pou
 :::
 
 :::warning Poznámka k produkčnímu použití
-Dosavadní příklady jsou používány při development buildech Vue - pokud chcete Vue z CDN používat i v produkci, nezapomeňte zkonzultovat [Průvodce produkčním nasazením](/guide/best-practices/production-deployment.html#without-build-tools).
+Dosavadní příklady jsou používány při development buildech Vue - pokud chcete Vue z CDN používat i v produkci, nezapomeňte zkonzultovat [Průvodce produkčním nasazením](/guide/best-practices/production-deployment#without-build-tools).
 :::
 
 ### Rozdělování modulů {#splitting-up-the-modules}
@@ -209,14 +209,14 @@ Mohli jste si povšimnout, že šablona importované komponenty je zapsaná jako
 ### Použití Composition API bez Build fáze {#using-composition-api-without-a-build-step}
 
 Řada příkladů pro Composition API bude používat `<script setup>` syntaxi. Pokud plánujete používat Composition API bez build fáze,
-podívejte se na použití [`setup()` option](/api/composition-api-setup.html).
+podívejte se na použití [`setup()` option](/api/composition-api-setup).
 
 ## Další kroky {#next-steps}
 
 Pokud jste překročili [Představení](/guide/introduction), silně doporučujme přečíst si ho předtím, než se pustíte do zbytku dokumentace.
 
 <div class="vt-box-container next-steps">
-  <a class="vt-box" href="/guide/essentials/application.html">
+  <a class="vt-box" href="/guide/essentials/application">
     <p class="next-steps-link">Pokračovat s průvodcem</p>
     <p class="next-steps-caption">Průvodce vás detailně provede všemi vlastnostmi frameworku.</p>
   </a>

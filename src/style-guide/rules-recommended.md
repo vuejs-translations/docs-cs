@@ -186,7 +186,7 @@ computed: {
 
 ## Pořadí hlavních sekcí Single-file komponenty (SFC) {#single-file-component-top-level-element-order}
 
-**[Single-File komponenty (SFC)](/guide/scaling-up/sfc.html) by měly vždy řadit tagy sekcí `<script>`, `<template>` a `<style>` konzistentně, přičemž `<style>` by měl být poslední, protože je vždy nezbytný jeden ze dvou zbylých.**
+**[Single-File komponenty (SFC)](/guide/scaling-up/sfc) by měly vždy řadit tagy sekcí `<script>`, `<template>` a `<style>` konzistentně, přičemž `<style>` by měl být poslední, protože je vždy nezbytný jeden ze dvou zbylých.**
 
 <div class="style-example style-example-bad">
 <h3>Špatně</h3>

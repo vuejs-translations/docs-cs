@@ -97,7 +97,7 @@ Zkuste změnit hodnotu pole `books` v aplikačním objektu `data` a uvidíte, ja
 
 Binding computed proměnných v šablonách můžete provést stejně stejně jako u normálních proměnných. Vue si je vědomo, že `this.publishedBooksMessage` závisí na `this.author.books`, takže když se změní `this.author.books`, aktualizuje všude všechny reference na `this.publishedBooksMessage`.
 
-Viz také: [Typování Computed proměnných](/guide/typescript/options-api.html#typing-computed-properties) <sup class="vt-badge ts" />
+Viz také: [Typování Computed proměnných](/guide/typescript/options-api#typing-computed-properties) <sup class="vt-badge ts" />
 
 </div>
 
@@ -134,7 +134,7 @@ Zde jsme deklarovali computed proměnnou `publishedBooksMessage`. Funkce `comput
 
 Computed proměnná automaticky sleduje své reaktivní závislosti. Vue si je vědomo, že `publishedBooksMessage` závisí na `author.books`, takže když se změní `author.books`, aktualizuje všude všechny reference na `publishedBooksMessage`.
 
-Viz také: [Typování Computed](/guide/typescript/composition-api.html#typing-computed) <sup class="vt-badge ts" />
+Viz také: [Typování Computed](/guide/typescript/composition-api#typing-computed) <sup class="vt-badge ts" />
 
 </div>
 

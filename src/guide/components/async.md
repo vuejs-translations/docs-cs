@@ -2,7 +2,7 @@
 
 ## Základní použití {#basic-usage}
 
-V rozsáhlých aplikacích můžeme potřebovat rozdělit aplikaci na menší části a načíst komponentu ze serveru pouze v případě potřeby. Aby to bylo možné, má Vue funkci [`defineAsyncComponent`](/api/general.html#defineasynccomponent):
+V rozsáhlých aplikacích můžeme potřebovat rozdělit aplikaci na menší části a načíst komponentu ze serveru pouze v případě potřeby. Aby to bylo možné, má Vue funkci [`defineAsyncComponent`](/api/general#defineasynccomponent):
 
 ```js
 import { defineAsyncComponent } from 'vue'
@@ -31,7 +31,7 @@ const AsyncComp = defineAsyncComponent(() =>
 
 Výsledná `AsyncComp` je obalová (wrapper) komponenta, která zavolá "loader" funkci až při skutečném vykreslení na stránce. Kromě toho předá vnitřní komponentě všechny vlastnosti (props) a sloty (slots), takže můžete tento asynchronní wrapper použít k plynulému nahrazení původní komponenty a zároveň dosáhnout "lazy" načítání.
 
-Stejně jako normální komponenty, mohou být i asynchronní komponenty [registrovány globálně](/guide/components/registration.html#global-registration) pomocí `app.component()`:
+Stejně jako normální komponenty, mohou být i asynchronní komponenty [registrovány globálně](/guide/components/registration#global-registration) pomocí `app.component()`:
 
 ```js
 app.component('MyComponent', defineAsyncComponent(() =>
@@ -41,7 +41,7 @@ app.component('MyComponent', defineAsyncComponent(() =>
 
 <div class="options-api">
 
-Také můžete použít `defineAsyncComponent` když [registrujete komponentu lokálně](/guide/components/registration.html#local-registration):
+Také můžete použít `defineAsyncComponent` když [registrujete komponentu lokálně](/guide/components/registration#local-registration):
 
 ```vue
 <script>
@@ -111,4 +111,4 @@ Pokud je předána komponenta pro chybový stav, zobrazí se, když je Promise v
 
 ## Použití s Suspense {#using-with-suspense}
 
-Asynchronní komponenty lze použít dohromady s vestavěnou komponentou `<Suspense>`. Interakce `<Suspense>` a ansynchronními komponentami je popsána v [kapitole určené pro `<Suspense>`](/guide/built-ins/suspense.html).
+Asynchronní komponenty lze použít dohromady s vestavěnou komponentou `<Suspense>`. Interakce `<Suspense>` a ansynchronními komponentami je popsána v [kapitole určené pro `<Suspense>`](/guide/built-ins/suspense).

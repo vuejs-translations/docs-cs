@@ -68,7 +68,7 @@ Když přistupujete k `this.someObject` po přiřazení hodnoty, tato hodnota je
 
 <div class="composition-api">
 
-Můžeme vytvořit reaktivní objekt nebo pole pomocí funkce [`reactive()`](/api/reactivity-core.html#reactive):
+Můžeme vytvořit reaktivní objekt nebo pole pomocí funkce [`reactive()`](/api/reactivity-core#reactive):
 
 ```js
 import { reactive } from 'vue'
@@ -76,9 +76,9 @@ import { reactive } from 'vue'
 const state = reactive({ count: 0 })
 ```
 
-Reaktivní objekty jsou [JavaScript proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) a chovají se jako normální objekty. Rozdíl je v tom, že Vue je schopno sledovat přístup k vlastnostem a změnám reaktivního objektu. Pokud jste zvědaví na podrobnosti, jak systém Vue reaktivity funguje vysvětlíme v kapitole [Reaktivita podrobně](/guide/extras/reactivity-in-depth.html) – ale doporučujeme si ji přečíst až po dokončení hlavního průvodce.
+Reaktivní objekty jsou [JavaScript proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) a chovají se jako normální objekty. Rozdíl je v tom, že Vue je schopno sledovat přístup k vlastnostem a změnám reaktivního objektu. Pokud jste zvědaví na podrobnosti, jak systém Vue reaktivity funguje vysvětlíme v kapitole [Reaktivita podrobně](/guide/extras/reactivity-in-depth) – ale doporučujeme si ji přečíst až po dokončení hlavního průvodce.
 
-Viz také: [Typování `reactive()`](/guide/typescript/composition-api.html#typing-reactive) <sup class="vt-badge ts" />
+Viz také: [Typování `reactive()`](/guide/typescript/composition-api#typing-reactive) <sup class="vt-badge ts" />
 
 Chcete-li použít reaktivní stav v šabloně komponenty, deklarujte a vraťte jej z funkce `setup()` v komponentě:
 
@@ -217,7 +217,7 @@ Ve výše uvedeném příkladu je zavolána funkce `increment` ve chvíli, kdy j
 
 Když změníte reaktivní stav, DOM se automaticky aktualizuje. Je však třeba upozornit, že aktualizace DOM nejsou aplikovány synchronně. Místo toho je Vue ukládá do vyrovnávací paměti až do „příštího běhu“ (tick) aktualizačního cyklu, aby bylo zajištěno, že se každá komponenta aktualizuje pouze jednou bez ohledu na to, kolik změn stavu jste provedli.
 
-Chcete-li vyčkat na dokončení aktualizace DOM po změně stavu, můžete použít globální API [nextTick()](/api/general.html#nexttick):
+Chcete-li vyčkat na dokončení aktualizace DOM po změně stavu, můžete použít globální API [nextTick()](/api/general#nexttick):
 
 <div class="composition-api">
 
@@ -299,7 +299,7 @@ function mutateDeeply() {
 
 </div>
 
-Je také možné explicitně vytvořit tzv. [shallow reaktivní objekty](/api/reactivity-advanced.html#shallowreactive), kde je reaktivita sledována pouze na kořenové úrovni, ale takové jsou obvykle potřeba pouze v pokročilejších případech užití.
+Je také možné explicitně vytvořit tzv. [shallow reaktivní objekty](/api/reactivity-advanced#shallowreactive), kde je reaktivita sledována pouze na kořenové úrovni, ale takové jsou obvykle potřeba pouze v pokročilejších případech užití.
 
 <div class="composition-api">
 
@@ -376,7 +376,7 @@ API funkce `reactive()` má dvě omezení:
 
 ## Reaktivní proměnné s `ref()` \*\* {#reactive-variables-with-ref}
 
-Pro řešení omezení `reactive()` poskytuje Vue také funkci [`ref()`](/api/reactivity-core.html#ref), která nám umožňuje vytvářet reaktivní **"refs"**, které mohou obsahovat hodnotu jakéhokoliv typu:
+Pro řešení omezení `reactive()` poskytuje Vue také funkci [`ref()`](/api/reactivity-core#ref), která nám umožňuje vytvářet reaktivní **"refs"**, které mohou obsahovat hodnotu jakéhokoliv typu:
 
 ```js
 import { ref } from 'vue'
@@ -396,7 +396,7 @@ count.value++
 console.log(count.value) // 1
 ```
 
-Viz také: [Typování Refs](/guide/typescript/composition-api.html#typing-ref) <sup class="vt-badge ts" />
+Viz také: [Typování Refs](/guide/typescript/composition-api#typing-ref) <sup class="vt-badge ts" />
 
 Stejně jako vlastnosti na reaktivním objektu je vlastnost `.value` ref objektu také reaktivní. Navíc pokud obsahuje objektové typy, ref objekt automaticky převede svou `.value` pomocí `reactive()`.
 
@@ -426,7 +426,7 @@ callSomeFunction(obj.foo)
 const { foo, bar } = obj
 ```
 
-Jinými slovy, `ref()` nám umožňuje vytvořit "odkaz" na jakoukoli hodnotu a předávat ji dál bez ztráty reaktivity. Tato schopnost je poměrně důležitá a se často používá při extrahování logiky do [Composable funkcí](/guide/reusability/composables.html).
+Jinými slovy, `ref()` nám umožňuje vytvořit "odkaz" na jakoukoli hodnotu a předávat ji dál bez ztráty reaktivity. Tato schopnost je poměrně důležitá a se často používá při extrahování logiky do [Composable funkcí](/guide/reusability/composables).
 
 ### Rozbalování ref v šablonách \*\* {#ref-unwrapping-in-templates}
 
@@ -513,7 +513,7 @@ console.log(state.count) // 2
 console.log(count.value) // 1
 ```
 
-K rozbalení ref dochází pouze při vnoření do hluboce reaktivního objektu. Neplatí to, když se k němu přistupuje jako k vlastnosti [shallow reaktivního objektu](/api/reactivity-advanced.html#shallowreactive).
+K rozbalení ref dochází pouze při vnoření do hluboce reaktivního objektu. Neplatí to, když se k němu přistupuje jako k vlastnosti [shallow reaktivního objektu](/api/reactivity-advanced#shallowreactive).
 
 ### Rozbalování ref v polích a kolekcích {#ref-unwrapping-in-arrays-and-collections}
 
@@ -572,30 +572,5 @@ export default {
   }
 }
 ```
-
-</div>
-
-<div class="composition-api">
-
-## Reactivity Transform <sup class="vt-badge experimeental" /> \*\* {#reactivity-transform}
-
-Nutnost používat spolu s refs `.value` je nedostatek způsobený jazykovými omezeními JavaScriptu. Nicméně díky transformacím v době kompilace můžeme zlepšit ergonomii automatickým připojením `.value` na vhodná místa. Vue poskytuje transformaci v době kompilace, která nám umožňuje napsat dřívější příklad "počítadla" takto:
-
-```vue
-<script setup>
-let count = $ref(0)
-
-function increment() {
-  // není třeba .value
-  count++
-}
-</script>
-
-<template>
-  <button @click="increment">{{ count }}</button>
-</template>
-```
-
-Další informace o [Reactivity Transform](/guide/extras/reactivity-transform.html) najdete v příslušné sekci. Upozorňujeme, že je v současné době stále experimentální a před dokončením se může změnit.
 
 </div>

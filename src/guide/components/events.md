@@ -62,10 +62,10 @@ Event listenery komponenty podporují i modifikátor `.once`:
 <MyComponent @some-event.once="callback" />
 ```
 
-Stejně jako komponenty a vlastnosti poskytují názvy událostí automatickou transformaci názvů. Všimněte si, že jsme emitovali událost jako camelCase, ale můžeme jí v komponentě rodiče naslouchat pomocí listeneru s kebab-cased zápisem. Stejně jako v případě [velkých a malých písmen v názvech vlastností](/guide/components/props.html#prop-name-casing) doporučujeme v šablonách používat kebab-cased event listenery.
+Stejně jako komponenty a vlastnosti poskytují názvy událostí automatickou transformaci názvů. Všimněte si, že jsme emitovali událost jako camelCase, ale můžeme jí v komponentě rodiče naslouchat pomocí listeneru s kebab-cased zápisem. Stejně jako v případě [velkých a malých písmen v názvech vlastností](/guide/components/props#prop-name-casing) doporučujeme v šablonách používat kebab-cased event listenery.
 
 :::tip
-Na rozdíl od nativních DOM událostí, události vysílané komponentou **neprobublávají**. Můžete naslouchat pouze událostem vysílaným přímo komponentou potomka. Pokud je potřeba komunikovat mezi sourozeneckými nebo hluboce vnořenými komponentami, použijte externí sběrnici událostí (event bus) nebo [globální state management](/guide/scaling-up/state-management.html).
+Na rozdíl od nativních DOM událostí, události vysílané komponentou **neprobublávají**. Můžete naslouchat pouze událostem vysílaným přímo komponentou potomka. Pokud je potřeba komunikovat mezi sourozeneckými nebo hluboce vnořenými komponentami, použijte externí sběrnici událostí (event bus) nebo [globální state management](/guide/scaling-up/state-management).
 :::
 
 ## Parametry událostí {#event-arguments}
@@ -119,7 +119,7 @@ Všechny další parametry předané do `$emit()` za názvem události budou př
 
 ## Deklarování vysílaných událostí {#declaring-emitted-events}
 
-Komponenta může explicitně deklarovat události, které bude vysílat, pomocí <span class="composition-api">makra [`defineEmits()`](/api/sfc-script-setup.html#defineprops-defineemits)</span><span class="options-api">sekce [`emits`](/api/options-state.html#emits)</span>:
+Komponenta může explicitně deklarovat události, které bude vysílat, pomocí <span class="composition-api">makra [`defineEmits()`](/api/sfc-script-setup#defineprops-defineemits)</span><span class="options-api">sekce [`emits`](/api/options-state#emits)</span>:
 
 <div class="composition-api">
 
@@ -143,7 +143,7 @@ function buttonClick() {
 
 Makro `defineEmits()` **nemůže** být použito uvnitř funkce, musí být umístěno přímo do `<script setup>` jako ve výše uvedeném případě.
 
-Pokud používáte explicitní funkci `setup` místo `<script setup>`, měly by být události deklarovány pomocí sekce [`emits`](/api/options-state.html#emits) a funkce `emit` je vystavena v kontextu `setup()`:
+Pokud používáte explicitní funkci `setup` místo `<script setup>`, měly by být události deklarovány pomocí sekce [`emits`](/api/options-state#emits) a funkce `emit` je vystavena v kontextu `setup()`:
 
 ```js
 export default {
@@ -202,7 +202,7 @@ const emit = defineEmits<{
 </script>
 ```
 
-Více detailů: [Typování událostí komponent](/guide/typescript/composition-api.html#typing-component-emits) <sup class="vt-badge ts" />
+Více detailů: [Typování událostí komponent](/guide/typescript/composition-api#typing-component-emits) <sup class="vt-badge ts" />
 
 </div>
 <div class="options-api">
@@ -218,11 +218,11 @@ export default {
 }
 ```
 
-Viz také: [Typování událostí komponent](/guide/typescript/options-api.html#typing-component-emits) <sup class="vt-badge ts" />
+Viz také: [Typování událostí komponent](/guide/typescript/options-api#typing-component-emits) <sup class="vt-badge ts" />
 
 </div>
 
-Ačkoli to není povinné, doporučuje se definovat všechny vysílané události, aby bylo možné lépe zdokumentovat, jak má komponenta fungovat. Umožňuje to také Vue vyloučit známé listenery z ["fallthrough" atributů](/guide/components/attrs.html#v-on-listener-inheritance), čímž se vyhnete okrajovým případům způsobeným DOM událostmi odesílanými ručně kódem třetí strany.
+Ačkoli to není povinné, doporučuje se definovat všechny vysílané události, aby bylo možné lépe zdokumentovat, jak má komponenta fungovat. Umožňuje to také Vue vyloučit známé listenery z ["fallthrough" atributů](/guide/components/attrs#v-on-listener-inheritance), čímž se vyhnete okrajovým případům způsobeným DOM událostmi odesílanými ručně kódem třetí strany.
 
 :::tip
 Pokud je v možnosti `emits` definována nativní událost (např. `click`), bude nyní listener naslouchat pouze událostem `click` vysílaným komponentou a nebude již reagovat na nativní události `click`.

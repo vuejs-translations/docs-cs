@@ -4,7 +4,7 @@ Vue používá pro šablony (template) syntaxi založenou na HTML. Ta vám umož
 
 Vue interně kompiluje šablony do vysoce optimalizovaného JavaScript kódu. V kombinaci se systémem reaktivity dokáže Vue inteligentně zjistit minimální počet komponent k opětovnému vykreslení a použít minimální množství DOM manipulací ve chvíli, kdy se změní stav aplikace.
 
-Pokud jste obeznámeni s koncepty Virtual DOM a dáváte přednost hrubé síle JavaScriptu, můžete také místo šablon [přímo psát funkce pro vykreslování](/guide/extras/render-function.html) s volitelnou podporou JSX. Pamatujte ale, že nemohou využít stejnou úroveň optimalizací v době kompilace jako šablony.
+Pokud jste obeznámeni s koncepty Virtual DOM a dáváte přednost hrubé síle JavaScriptu, můžete také místo šablon [přímo psát funkce pro vykreslování](/guide/extras/render-function) s volitelnou podporou JSX. Pamatujte ale, že nemohou využít stejnou úroveň optimalizací v době kompilace jako šablony.
 
 ## Interpolace textu {#text-interpolation}
 
@@ -17,7 +17,7 @@ Značka pro "Mustache" bude nahrazena hodnotou `msg` z odpovídající instance 
 
 ## HTML kód {#raw-html}
 
-"Mustache" syntaxe interpretuje data jako prostý text, nikoli HTML. K vykreslení stylovaného HTML budete muset použít direktivu [`v-html`](/api/built-in-directives.html#v-html):
+"Mustache" syntaxe interpretuje data jako prostý text, nikoli HTML. K vykreslení stylovaného HTML budete muset použít direktivu [`v-html`](/api/built-in-directives#v-html):
 
 ```vue-html
 <p>S použitím textové interpolace: {{ rawHtml }}</p>
@@ -43,7 +43,7 @@ Dynamické vykreslování libovolného HTML kódu na vaší webové stránce mů
 
 ## Binding atributů {#attribute-bindings}
 
-"Mustache" syntaxi nelze použít uvnitř HTML atributů. Místo toho, použijte [direktivu `v-bind`](/api/built-in-directives.html#v-bind):
+"Mustache" syntaxi nelze použít uvnitř HTML atributů. Místo toho, použijte [direktivu `v-bind`](/api/built-in-directives#v-bind):
 
 ```vue-html
 <div v-bind:id="dynamicId"></div>
@@ -163,13 +163,13 @@ Funkce volané uvnitř binding výrazů budou volány při každé aktualizaci k
 
 Výrazy v šablonách jsou sandboxovány a mají přístup pouze k [omezenému seznamu globálních objektů](https://github.com/vuejs/core/blob/main/packages/shared/src/globalsWhitelist.ts#L3). Seznam vystavuje běžně používané vestavěné globální objekty, jako jsou `Math` a `Date`.
 
-Globální objekty, které nejsou explicitně uvedeny v seznamu, například vlastnosti připojené uživatelem k instanci `window`, nebudou ve výrazech šablony přístupné. Můžete však explicitně definovat další globální objekty pro všechny Vue výrazy jejich přidáním do [`app.config.globalProperties`](/api/application.html#app-config-globalproperties).
+Globální objekty, které nejsou explicitně uvedeny v seznamu, například vlastnosti připojené uživatelem k instanci `window`, nebudou ve výrazech šablony přístupné. Můžete však explicitně definovat další globální objekty pro všechny Vue výrazy jejich přidáním do [`app.config.globalProperties`](/api/application#app-config-globalproperties).
 
 ## Direktivy {#directives}
 
-Direktivy jsou speciální atributy s předponou `v-`. Vue poskytuje řadu [vestavěných direktiv](/api/built-in-directives.html), včetně `v-html` a `v-bind`, které jsme již představili výše.
+Direktivy jsou speciální atributy s předponou `v-`. Vue poskytuje řadu [vestavěných direktiv](/api/built-in-directives), včetně `v-html` a `v-bind`, které jsme již představili výše.
 
-Jako hodnoty direktivních atributů jsou očekávány samostatné JavaScriptové výrazy (s výjimkou výrazů `v-for`, `v-on` a `v-slot`, které budou popsány v příslušných částech později). Úkolem direktivy je reaktivně aplikovat aktualizace na DOM, když se změní hodnota jejího výrazu. Jako příklad si vezměme [`v-if`](/api/built-in-directives.html#v-if):
+Jako hodnoty direktivních atributů jsou očekávány samostatné JavaScriptové výrazy (s výjimkou výrazů `v-for`, `v-on` a `v-slot`, které budou popsány v příslušných částech později). Úkolem direktivy je reaktivně aplikovat aktualizace na DOM, když se změní hodnota jejího výrazu. Jako příklad si vezměme [`v-if`](/api/built-in-directives#v-if):
 
 ```vue-html
 <p v-if="seen">Teď mě vidíte</p>
@@ -242,7 +242,7 @@ Výrazy pro dynamické parametry mají určitá omezení syntaxe, protože někt
 <a :['foo' + bar]="value"> ... </a>
 ```
 
-Pokud potřebujete předat složitý dynamický parametr, je pravděpodobně lepší použít [computed proměnnou](./computed.html), kterou si již brzy probereme.
+Pokud potřebujete předat složitý dynamický parametr, je pravděpodobně lepší použít [computed proměnnou](./computed), kterou si již brzy probereme.
 
 Při používání DOM-šablon (šablony zapsané přímo v HTML souboru) byste se také měli vyvarovat pojmenovávání klíčů velkými písmeny, protože prohlížeče budou názvy atributů vynuceně převádět na malá písmena:
 
@@ -260,7 +260,7 @@ Modifikátory jsou speciální přípony označené tečkou, které označují, 
 <form @submit.prevent="onSubmit">...</form>
 ```
 
-Další příklady modifikátorů uvidíte později, [pro `v-on`](./event-handling.html#event-modifiers) a [pro `v-model`](./forms.html#modifiers), až budeme objevovat jejich možnosti.
+Další příklady modifikátorů uvidíte později, [pro `v-on`](./event-handling#event-modifiers) a [pro `v-model`](./forms#modifiers), až budeme objevovat jejich možnosti.
 
 Na závěr je zde zobrazena úplná syntaxe direktivy:
 

@@ -37,7 +37,7 @@ Názvy vašich vlastních komponent by měly být vždy víceslovné, s výjimko
 V hotovém kódu by definice vlastností (props) měly být vždy co nejpodrobnější, přinejmenším by měly specifikovat typ(y).
 
 ::: details Podrobné vysvětlení
-Podrobná [definice vlastností](/guide/components/props.html#prop-validation) má dvě výhody:
+Podrobná [definice vlastností](/guide/components/props#prop-validation) má dvě výhody:
 
 - Dokumentují API komponenty, takže je snadněji vidět, jak má být komponenta používána.
 - Během vývoje vás Vue upozorní, pokud budou komponentě předávané vlastnosti v chybném formátu, což vám pomůže zachytit potenciální zdroje chyb.
@@ -294,7 +294,7 @@ Nebo můžete použít tag `<template>` s `v-for`, kterým obalíte `<li>` eleme
 
 V aplikacích mohou být styly na nejvyšší úrovni komponenty `App` a v layout komponentách globální, ale všechy ostatní komponenty by měly mít styly vždy omezené (scoped).
 
-To platí pouze pro [Single-File komponenty (SFC)](/guide/scaling-up/sfc.html). _Není_ nezbytné používat [atribut `scoped`](https://vue-loader.vuejs.org/en/features/scoped-css.html). Omezení lze zajistit pomocí [CSS modulů](https://vue-loader.vuejs.org/en/features/css-modules.html), a class-based strategie jako je [BEM](http://getbem.com/), či jiné knihovny/konvence.
+To platí pouze pro [Single-File komponenty (SFC)](/guide/scaling-up/sfc). _Není_ nezbytné používat [atribut `scoped`](https://vue-loader.vuejs.org/en/features/scoped-css.html). Omezení lze zajistit pomocí [CSS modulů](https://vue-loader.vuejs.org/en/features/css-modules.html), a class-based strategie jako je [BEM](http://getbem.com/), či jiné knihovny/konvence.
 
 **Komponenty knihoven by nicméně měly class-based strategii místo používání atributu `scoped` upřednostňovat.**
 

@@ -8,7 +8,7 @@ outline: deep
 
 ## Dědičnost attributů {#attribute-inheritance}
 
-"Fallthrough" atribut je atribut nebo `v-on` event listener, který je předáván do komponenty, ale není explicitně deklarován ve [vlastnostech (props)](./props) nebo [emitovaných událostech (emits)](./events.html#declaring-emitted-events) cílové komponenty. Typickými příklady jsou atributy `class`, `style`, a `id`.
+"Fallthrough" atribut je atribut nebo `v-on` event listener, který je předáván do komponenty, ale není explicitně deklarován ve [vlastnostech (props)](./props) nebo [emitovaných událostech (emits)](./events#declaring-emitted-events) cílové komponenty. Typickými příklady jsou atributy `class`, `style`, a `id`.
 
 Když komponenta vykresluje jediný root element, budou k atributům root elementu automaticky přidány fallthrough atributy. Například pro komponentu `<MyButton>` s následující šablonou:
 
@@ -128,7 +128,7 @@ Chceme, aby všechny falltrough atributy jako `class` nebo `v-on` listener byly 
 </div>
 ```
 
-Pamatujte, že [`v-bind` bez parametrů](/guide/essentials/template-syntax.html#dynamically-binding-multiple-attributes) naváže na cílový element všechny vlastnosti objektu jako atributy.
+Pamatujte, že [`v-bind` bez parametrů](/guide/essentials/template-syntax#dynamically-binding-multiple-attributes) naváže na cílový element všechny vlastnosti objektu jako atributy.
 
 ## Dědičnost atributů na více root elementech {#attribute-inheritance-on-multiple-root-nodes}
 

@@ -120,12 +120,12 @@ Method handler automaticky přijímá objekt nativní události DOM, který ji v
 
 <div class="composition-api">
 
-Viz také: [Typování Event handlerů](/guide/typescript/composition-api.html#typing-event-handlers) <sup class="vt-badge ts" />
+Viz také: [Typování Event handlerů](/guide/typescript/composition-api#typing-event-handlers) <sup class="vt-badge ts" />
 
 </div>
 <div class="options-api">
 
-Viz také: [Typování Event handlerů](/guide/typescript/options-api.html#typing-event-handlers) <sup class="vt-badge ts" />
+Viz také: [Typování Event handlerů](/guide/typescript/options-api#typing-event-handlers) <sup class="vt-badge ts" />
 
 </div>
 

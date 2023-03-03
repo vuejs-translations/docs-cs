@@ -1,14 +1,14 @@
 # Registrace komponent {#component-registration}
 
-<VueSchoolLink href="https://vueschool.io/lessons/vue-3-global-vs-local-vue-components" title="Lekce o registraci komponent ve Vue.js zdarma"/>
-
 > Tato stránka předpokládá, že už jste četli [Základy komponent](/guide/essentials/component-basics). Pokud jsou pro vás komponenty nové, přečtěte si je jako první.
+
+<VueSchoolLink href="https://vueschool.io/lessons/vue-3-global-vs-local-vue-components" title="Lekce o registraci komponent ve Vue.js zdarma"/>
 
 Komponenta Vue musí být "zaregistrována", aby Vue vědělo, kde má najít její implementaci, když na ni narazí v šabloně. Existují dva způsoby registrace komponent: globální a lokální.
 
 ## Globální registrace {#global-registration}
 
-Komponenty můžeme zpřístupnit globálně v aktuální [Vue aplikaci](/guide/essentials/application.html) pomocí metody `app.component()`:
+Komponenty můžeme zpřístupnit globálně v aktuální [Vue aplikaci](/guide/essentials/application) pomocí metody `app.component()`:
 
 ```js
 import { createApp } from 'vue'
@@ -136,6 +136,6 @@ V celém průvodci používáme při registraci komponent PascalCase názvy. Je 
 
 2. `<PascalCase />` činí zřejmější, že se v šablonách jedná o Vue komponentu, nikoli o nativní HTML element. Odlišuje také Vue komponenty od jiných custom prvků (Web Components).
 
-Toto je doporučený způsob když pracujete s SFC nebo string šablonami. Nicméně jak rozebíráme v části [Omezení při anlýze DOM-šablon](/guide/essentials/component-basics.html#dom-template-parsing-caveats), PascalCase tagy nelze použít v DOM-šablonách.
+Toto je doporučený způsob když pracujete s SFC nebo string šablonami. Nicméně jak rozebíráme v části [Omezení při anlýze DOM-šablon](/guide/essentials/component-basics#dom-template-parsing-caveats), PascalCase tagy nelze použít v DOM-šablonách.
 
 Vue naštěstí podporuje překlad kebab-case tagů na komponenty registrované pomocí PascalCase. To znamená, že na komponentu registrovanou jako `MyComponent` lze v šabloně odkazovat jak prostřednictvím `<MyComponent>`, tak i `<my-component>`. To nám umožňuje používat stejný JavaScript kód registrace komponent bez ohledu na zdroj šablony.

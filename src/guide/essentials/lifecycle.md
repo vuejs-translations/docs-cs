@@ -31,7 +31,7 @@ export default {
 
 </div>
 
-Existují další hooks, které budu volány v různých fázích životního cyklu instance komponenty. Nejčastěji používané jsou <span class="composition-api">[`onMounted`](/api/composition-api-lifecycle.html#onmounted), [`onUpdated`](/api/composition-api-lifecycle.html#onupdated) a [`onUnmounted`](/api/composition-api-lifecycle.html#onunmounted).</span><span class="options-api">[`mounted`](/api/options-lifecycle.html#mounted), [`updated`](/api/options-lifecycle.html#updated) a [`unmounted`](/api/options-lifecycle.html#unmounted).</span>
+Existují další hooks, které budu volány v různých fázích životního cyklu instance komponenty. Nejčastěji používané jsou <span class="composition-api">[`onMounted`](/api/composition-api-lifecycle#onmounted), [`onUpdated`](/api/composition-api-lifecycle#onupdated) a [`onUnmounted`](/api/composition-api-lifecycle#onunmounted).</span><span class="options-api">[`mounted`](/api/options-lifecycle#mounted), [`updated`](/api/options-lifecycle#updated) a [`unmounted`](/api/options-lifecycle#unmounted).</span>
 
 <div class="options-api">
 
@@ -63,4 +63,4 @@ Níže je schéma životního cyklu instance. Nemusíte ještě plně rozumět v
 
 <!-- https://www.figma.com/file/Xw3UeNMOralY6NV7gSjWdS/Vue-Lifecycle -->
 
-Podívejte se na <span class="composition-api">[API referenci pro Lifecycle Hooks](/api/composition-api-lifecycle.html)</span><span class="options-api">[API referenci pro Lifecycle Hooks](/api/options-lifecycle.html)</span> ohledně detailů všech lifecycle hooks a jejich případů užití.
+Podívejte se na <span class="composition-api">[API referenci pro Lifecycle Hooks](/api/composition-api-lifecycle)</span><span class="options-api">[API referenci pro Lifecycle Hooks](/api/options-lifecycle)</span> ohledně detailů všech lifecycle hooks a jejich případů užití.

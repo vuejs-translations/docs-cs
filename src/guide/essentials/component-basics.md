@@ -6,11 +6,11 @@ Komponenty nám umožňují rozdělit UI na nezávislé a znovupoužitelné čá
 
 <!-- https://www.figma.com/file/qa7WHDQRWuEZNRs7iZRZSI/components -->
 
-Je to velmi podobné tomu, jak vnořujeme nativní HTML elementy, ale Vue implementuje svůj vlastní model komponent, který nám umožňuje zapouzdřit do každé komponenty její vlastní obsah a logiku. Vue také funguje dobře s nativními Web Components. Pokud vás zajímá vztah mezi Vue komponentami a nativními Web Components, [přečtěte si více zde](/guide/extras/web-components.html).
+Je to velmi podobné tomu, jak vnořujeme nativní HTML elementy, ale Vue implementuje svůj vlastní model komponent, který nám umožňuje zapouzdřit do každé komponenty její vlastní obsah a logiku. Vue také funguje dobře s nativními Web Components. Pokud vás zajímá vztah mezi Vue komponentami a nativními Web Components, [přečtěte si více zde](/guide/extras/web-components).
 
 ## Definice komponenty {#defining-a-component}
 
-Při použití build fáze obvykle definujeme každou Vue komponentu ve vyhrazeném souboru pomocí přípony `.vue` - známém jako [Single-File komponenta](/guide/scaling-up/sfc.html) (zkráceně SFC):
+Při použití build fáze obvykle definujeme každou Vue komponentu ve vyhrazeném souboru pomocí přípony `.vue` - známém jako [Single-File komponenta](/guide/scaling-up/sfc) (zkráceně SFC):
 
 <div class="options-api">
 
@@ -117,7 +117,7 @@ export default {
 </template>
 ```
 
-Abychom mohli importovanou komponentu vystavit pro naší šablonu, musíme ji [zaregistrovat](/guide/components/registration.html) prostřednictvím oddílu `components`. Komponenta pak bude dostupná jako tag s názvem klíče, pod kterým je registrována.
+Abychom mohli importovanou komponentu vystavit pro naší šablonu, musíme ji [zaregistrovat](/guide/components/registration) prostřednictvím oddílu `components`. Komponenta pak bude dostupná jako tag s názvem klíče, pod kterým je registrována.
 
 </div>
 
@@ -138,7 +138,7 @@ S využitím `<script setup>` budou importované komponenty v šabloně dostupn�
 
 </div>
 
-Je také možné zaregistrovat komponentu globálně a zpřístupnit ji všem komponentám v dané aplikaci, aniž byste ji museli importovat. Klady a zápory globální vs. lokální registrace jsou rozebírány ve vyhrazené části [Registrace komponent](/guide/components/registration.html).
+Je také možné zaregistrovat komponentu globálně a zpřístupnit ji všem komponentám v dané aplikaci, aniž byste ji museli importovat. Klady a zápory globální vs. lokální registrace jsou rozebírány ve vyhrazené části [Registrace komponent](/guide/components/registration).
 
 Komponenty lze použít opakovaně kolikrát budete chtít:
 
@@ -179,7 +179,7 @@ Pro více detailů se podívejte na [upozornění na omezení při anlýze DOM-�
 
 Pokud vytváříme blog, budeme pravděpodobně potřebovat komponentu představující příspěvek na blogu. Chceme, aby všechny příspěvky sdílely stejné vizuální rozvržení, ale s jiným obsahem. Taková komponenta nebude užitečná, pokud jí nebudete moci předat data, jako je název a obsah konkrétního příspěvku, který chceme zobrazit. Zde přicházejí na řadu vlastnosti (props).
 
-Props jsou vlastní atributy, které můžete na komponentě zaregistrovat. Abychom naší komponentě předali název blogového příspěvku, musíme jej deklarovat v seznamu vlastností, které tato komponenta přijímá, pomocí <span class="options-api">[`props`](/api/options-state.html# možnost props)</span><span class="composition-api">makra [`defineProps`](/api/sfc-script-setup.html#defineprops-defineemits)</span>:
+Props jsou vlastní atributy, které můžete na komponentě zaregistrovat. Abychom naší komponentě předali název blogového příspěvku, musíme jej deklarovat v seznamu vlastností, které tato komponenta přijímá, pomocí <span class="options-api">[`props`](/api/options-state.html# možnost props)</span><span class="composition-api">makra [`defineProps`](/api/sfc-script-setup#defineprops-defineemits)</span>:
 
 <div class="options-api">
 
@@ -219,7 +219,7 @@ const props = defineProps(['title'])
 console.log(props.title)
 ```
 
-Viz také: [Typování Component Props](/guide/typescript/composition-api.html#typing-component-props) <sup class="vt-badge ts" />
+Viz také: [Typování Component Props](/guide/typescript/composition-api#typing-component-props) <sup class="vt-badge ts" />
 
 Pokud nepoužíváte `<script setup>`, props by měly být deklarovány pomocí sekce `props` a props objekt předán funkci `setup()` jako první parametr:
 
@@ -299,7 +299,7 @@ A potom pro každý z nich vykreslit jeho vlastní kompomentu pomocí `v-for`:
 
 Všimněte si, jak je k předávání dynamických prop hodnot použitá direktiva `v-bind`. To je užitečné zejména tehdy, když předem přesně nevíte, jaký obsah se chystáte vykreslit.
 
-To je zatím vše, co o props potřebujete vědět. Poté, co si přečtete tuto stránku a budete se s jejím obsahem cítit seznámeni, však doporučujeme později se vrátit a přečíst si úplného [Props průvodce](/guide/components/props.html).
+To je zatím vše, co o props potřebujete vědět. Poté, co si přečtete tuto stránku a budete se s jejím obsahem cítit seznámeni, však doporučujeme později se vrátit a přečíst si úplného [Props průvodce](/guide/components/props).
 
 ## Naslouchání událostem (events) {#listening-to-events}
 
@@ -366,7 +366,7 @@ Tlačítko zatím nic nedělá – chceme kliknutím na tlačítko sdělit kompo
  />
 ```
 
-Potom může komponenta potomka vyvolat událost sama na sobě voláním vestavěné metody [**`$emit`**](/api/component-instance.html#emit) a předáním názvu události:
+Potom může komponenta potomka vyvolat událost sama na sobě voláním vestavěné metody [**`$emit`**](/api/component-instance#emit) a předáním názvu události:
 
 ```vue{5}
 <!-- BlogPost.vue, s vynecháním <script> -->
@@ -391,7 +391,7 @@ Díky event listeneru `@enlarge-text="postFontSize += 0.1"` obdrží rodičovsk�
 
 </div>
 
-Vysílané (emit) události můžeme nepovinně deklarovat s pomocí <span class="options-api">oddílu [`emits`](/api/options-state.html#emits)</span><span class="composition-api">makra [`defineEmits`](/api/sfc-script-setup.html#defineprops-defineemits)</span>:
+Vysílané (emit) události můžeme nepovinně deklarovat s pomocí <span class="options-api">oddílu [`emits`](/api/options-state#emits)</span><span class="composition-api">makra [`defineEmits`](/api/sfc-script-setup#defineprops-defineemits)</span>:
 
 <div class="options-api">
 
@@ -418,7 +418,7 @@ defineEmits(['enlarge-text'])
 
 </div>
 
-To dokumentuje všechny události, které komponenta vysílá, a volitelně [je ověřuje](/guide/components/events.html#events-validation). Také to Vue umožňuje vyhnout se jejich implicitnímu použití jako nativních event listenerů na kořenovém prvku komponenty potomka.
+To dokumentuje všechny události, které komponenta vysílá, a volitelně [je ověřuje](/guide/components/events#events-validation). Také to Vue umožňuje vyhnout se jejich implicitnímu použití jako nativních event listenerů na kořenovém prvku komponenty potomka.
 
 <div class="composition-api">
 
@@ -432,7 +432,7 @@ emit('enlarge-text')
 </script>
 ```
 
-Viz také: [Typování Component Emits](/guide/typescript/composition-api.html#typing-component-emits) <sup class="vt-badge ts" />
+Viz také: [Typování Component Emits](/guide/typescript/composition-api#typing-component-emits) <sup class="vt-badge ts" />
 
 Pokud nepoužíváte `<script setup>`, můžete deklarovat emitované události prostřectvím oddílu `emits`. K funkci `emit` můžete přistuput jako k vlastnosti setup kontextu (předávaný do `setup()` jako druhý parametr):
 
@@ -538,7 +538,7 @@ V předchozím příkladu může hodnota předávaná do `:is` obsahovat:
 
 Atribut `is` můžete také použít pro vytváření běžných HTML elementů.
 
-Při přepínání mezi více komponentami pomocí `<component :is="...">` bude komponenta odpojena (unmounted), když je z ní přepnuto jinam. Neaktivní komponenty můžete donutit, aby zůstaly "naživu" pomocí vestavěné [komponenty `<KeepAlive>`](/guide/built-ins/keep-alive.html).
+Při přepínání mezi více komponentami pomocí `<component :is="...">` bude komponenta odpojena (unmounted), když je z ní přepnuto jinam. Neaktivní komponenty můžete donutit, aby zůstaly "naživu" pomocí vestavěné [komponenty `<KeepAlive>`](/guide/built-ins/keep-alive).
 
 ## Omezení při anlýze DOM-šablon {#dom-template-parsing-caveats}
 
@@ -615,7 +615,7 @@ To povede k problémům při používání komponent s elementy, které mají ta
 </table>
 ```
 
-Naše komponenta `<blog-post-row>` bude vytažena (hoisted) jako neplatný obsah, což v případném vykresleném výstupu způsobí chyby. Toto můžeme obejít s použitím speciálního [atributu `is`](/api/built-in-special-attributes.html#is):
+Naše komponenta `<blog-post-row>` bude vytažena (hoisted) jako neplatný obsah, což v případném vykresleném výstupu způsobí chyby. Toto můžeme obejít s použitím speciálního [atributu `is`](/api/built-in-special-attributes#is):
 
 ```vue-html
 <table>

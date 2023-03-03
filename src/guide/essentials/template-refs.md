@@ -83,7 +83,7 @@ watchEffect(() => {
 })
 ```
 
-Viz také: [Typování Template Refs](/guide/typescript/composition-api.html#typing-template-refs) <sup class="vt-badge ts" />
+Viz také: [Typování Template Refs](/guide/typescript/composition-api#typing-template-refs) <sup class="vt-badge ts" />
 
 </div>
 
@@ -237,7 +237,7 @@ defineExpose({
 
 Když rodič získá instanci této komponenty prostřednictvím template refs, získaná instance bude mít tvar `{ a: number, b: number}` (refs se automaticky rozbalí stejně jako u normálních instancí).
 
-Viz také: [Typování Template Refs v komponentách](/guide/typescript/composition-api.html#typing-component-template-refs) <sup class="vt-badge ts" />
+Viz také: [Typování Template Refs v komponentách](/guide/typescript/composition-api#typing-component-template-refs) <sup class="vt-badge ts" />
 
 </div>
 <div class="options-api">

@@ -42,7 +42,7 @@ components/
 
 ## Velká a malá písmena v názvech Single-file komponent (SFC) {#single-file-component-filename-casing}
 
-**Názvy souborů [Single-File komponent (SFC)](/guide/scaling-up/sfc.html) by měly být buďto vždy PascalCase nebo vždy kebab-case.**
+**Názvy souborů [Single-File komponent (SFC)](/guide/scaling-up/sfc) by měly být buďto vždy PascalCase nebo vždy kebab-case.**
 
 PascalCase funguje nejlépe s automatickým dokončováním v editorech kódu, protože je konzistentní s tím, jak odkazujeme na komponenty v JS(X) a v šablonách, kdykoli je to možné. Názvy s mixem malých a velkých písmen však mohou někdy způsobit problémy v case-insensitive souborových systémech, a proto je kebab-case také dokonale přijatelný.
 
@@ -341,7 +341,7 @@ components/
 
 ## Self-closing komponenty {#self-closing-components}
 
-**Komponenty, kter nemají žádný obsah, by měly být zapsány jako nepárové (self-closing) v [Single-File komponentách (SFC)](/guide/scaling-up/sfc.html), string-šablonách, a [JSX](/guide/extras/render-function.html#jsx-tsx) - nikdy však v DOM-šablonách.**
+**Komponenty, kter nemají žádný obsah, by měly být zapsány jako nepárové (self-closing) v [Single-File komponentách (SFC)](/guide/scaling-up/sfc), string-šablonách, a [JSX](/guide/extras/render-function#jsx-tsx) - nikdy však v DOM-šablonách.**
 
 Komponenty zapsané jako nepárový (self-closing) tag sdělují nejen, že nemají žádný obsah, ale ani **nemají** žádný obsah mít. Je to rozdíl mezi prázdnou stránkou v knize a stránkou označenou „Tato stránka byla záměrně ponechána prázdná“. Váš kód je také bez zbytečného uzavíracího tagu čistší.
 
@@ -379,7 +379,7 @@ HTML bohužel neumožňuje uživatelské nepárové (self-closing) elementy – 
 
 ## Velká a malá písmena v názvech komponent v šablonách {#component-name-casing-in-templates}
 
-**Ve většině projektů názvy komponent v [Single-File komponentách (SFC)](/guide/scaling-up/sfc.html) a string-šablonách měly být vždy PascalCase – ale v DOM-šablonách by názvy měly být kebab-case.**
+**Ve většině projektů názvy komponent v [Single-File komponentách (SFC)](/guide/scaling-up/sfc) a string-šablonách měly být vždy PascalCase – ale v DOM-šablonách by názvy měly být kebab-case.**
 
 PascalCase má oproti kebab-case několik výhod:
 
@@ -435,7 +435,7 @@ NEBO
 
 ## Velká a malá písmena v názvech komponent v JS/JSX {#component-name-casing-in-js-jsx}
 
-**Názvy komponent v JS/[JSX](/guide/extras/render-function.html#jsx-tsx) by měly být vždy PascalCase, přestože mohou být kebab-case uvnitř řetězců pro jednodušší aplikace, které používají pouze globální registraci komponent skrz `app.component`.**
+**Názvy komponent v JS/[JSX](/guide/extras/render-function#jsx-tsx) by měly být vždy PascalCase, přestože mohou být kebab-case uvnitř řetězců pro jednodušší aplikace, které používají pouze globální registraci komponent skrz `app.component`.**
 
 ::: details Podrobné vysvětlení
 V JavaScriptu je PascalCase konvencí pro třídy a prototype konstruktory - v podstatě pro cokoli, co může mít odlišné instance. Vue komponenty mají také instance, takže dává smysl rovněž používat PascalCase. Další výhodou je, že používání PascalCase v rámci JSX (a šablon) umožňuje čtenářům kódu snadněji rozlišovat mezi komponentami a HTML elementy.
@@ -533,7 +533,7 @@ components/
 
 ## Velká a malá písmena v názvech vlastností (props) {#prop-name-casing}
 
-**Názvy vlastností (props) by měly při deklaraci vždy používat camelCase. Při použití uvnitř DOM-šablon by vlastnosti měly být psány kebab-case. Šablony Single-File komponent (SFC) a [JSX](/guide/extras/render-function.html#jsx-tsx) mohou pro vlastnosti používat jak kebab-case, tak camelCase. Použití by mělo být konzistentní – pokud se rozhodnete použít rekvizity camelCased identifikátory, ujistěte se, že ve své aplikaci nepoužíváte i ty s kebab-case.**
+**Názvy vlastností (props) by měly při deklaraci vždy používat camelCase. Při použití uvnitř DOM-šablon by vlastnosti měly být psány kebab-case. Šablony Single-File komponent (SFC) a [JSX](/guide/extras/render-function#jsx-tsx) mohou pro vlastnosti používat jak kebab-case, tak camelCase. Použití by mělo být konzistentní – pokud se rozhodnete použít rekvizity camelCased identifikátory, ujistěte se, že ve své aplikaci nepoužíváte i ty s kebab-case.**
 
 <div class="style-example style-example-bad">
 <h3>Špatně</h3>
@@ -607,7 +607,7 @@ const props = defineProps({
 
 **Elementy s více atributy by měly měly být roztaženy na více řádků, s jedním atributem na řádek.**
 
-V JavaScriptu je dělení objektů s více vlastnostmi na více řádků obecně považováno za dobrou praxi, protože je mnohem snáz čitelné. Naše šablony a [JSX](/guide/extras/render-function.html#jsx-tsx) si zaslouží stejnou úvahu.
+V JavaScriptu je dělení objektů s více vlastnostmi na více řádků obecně považováno za dobrou praxi, protože je mnohem snáz čitelné. Naše šablony a [JSX](/guide/extras/render-function#jsx-tsx) si zaslouží stejnou úvahu.
 
 <div class="style-example style-example-bad">
 <h3>Špatně</h3>

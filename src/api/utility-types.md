@@ -30,7 +30,7 @@ Used to annotate a prop with more advanced types when using runtime props declar
   }
   ```
 
-- **Viz také:** [Guide - Typing Component Props](/guide/typescript/options-api.html#typing-component-props)
+- **Viz také:** [Guide - Typing Component Props](/guide/typescript/options-api#typing-component-props)
 
 ## ComponentCustomProperties {#componentcustomproperties}
 
@@ -50,10 +50,10 @@ Used to augment the component instance type to support custom global properties.
   ```
 
   :::tip
-  Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api.html#augmenting-global-properties) for more details.
+  Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api#augmenting-global-properties) for more details.
   :::
 
-- **Viz také:** [Guide - Augmenting Global Properties](/guide/typescript/options-api.html#augmenting-global-properties)
+- **Viz také:** [Guide - Augmenting Global Properties](/guide/typescript/options-api#augmenting-global-properties)
 
 ## ComponentCustomOptions {#componentcustomoptions}
 
@@ -72,10 +72,10 @@ Used to augment the component options type to support custom options.
   ```
 
   :::tip
-  Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api.html#augmenting-global-properties) for more details.
+  Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api#augmenting-global-properties) for more details.
   :::
 
-- **Viz také:** [Guide - Augmenting Custom Options](/guide/typescript/options-api.html#augmenting-custom-options)
+- **Viz také:** [Guide - Augmenting Custom Options](/guide/typescript/options-api#augmenting-custom-options)
 
 ## ComponentCustomProps {#componentcustomprops}
 
@@ -99,7 +99,7 @@ Used to augment allowed TSX props in order to use non-declared props on TSX elem
   ```
 
   :::tip
-  Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api.html#augmenting-global-properties) for more details.
+  Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api#augmenting-global-properties) for more details.
   :::
 
 ## CSSProperties {#cssproperties}
@@ -126,11 +126,11 @@ Used to augment allowed values in style property bindings.
   ```
 
  :::tip
-  Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api.html#augmenting-global-properties) for more details.
+  Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api#augmenting-global-properties) for more details.
   :::
   
   :::info Viz také
-SFC `<style>` tags support linking CSS values to dynamic component state using the `v-bind` CSS function. This allows for custom properties without type augmentation. 
+  SFC `<style>` tags support linking CSS values to dynamic component state using the `v-bind` CSS function. This allows for custom properties without type augmentation.
 
-- [v-bind() in CSS](/api/sfc-css-features.html#v-bind-in-css)
+  - [v-bind() in CSS](/api/sfc-css-features#v-bind-in-css)
   :::

@@ -245,7 +245,7 @@ Výše uvedené vykreslí:
 <span>Toto je potomek</span>
 ```
 
-O dědičnosti atributů v komponentách se můžete dozvědět více v sekci [Fallthrough atributy](/guide/components/attrs.html).
+O dědičnosti atributů v komponentách se můžete dozvědět více v sekci [Fallthrough atributy](/guide/components/attrs).
 
 ## Binding inline stylů {#binding-inline-styles}
 

@@ -22,7 +22,7 @@ console.log(props.foo)
 </script>
 ```
 
-Ve komponentách bez `<script setup>`, se vlastnosti deklarují v sekci [`props`](/api/options-state.html#props):
+Ve komponentách bez `<script setup>`, se vlastnosti deklarují v sekci [`props`](/api/options-state#props):
 
 ```js
 export default {
@@ -40,7 +40,7 @@ Všimněte si, že parametr předávaný do `defineProps()` je stejný jako hodn
 
 <div class="options-api">
 
-Vlastnosti se deklarují v sekci [`props`](/api/options-state.html#props):
+Vlastnosti se deklarují v sekci [`props`](/api/options-state#props):
 
 ```js
 export default {
@@ -96,7 +96,7 @@ Nejen, že to vaší komponentu popisuje, ale také budou prostřednictvím výp
 
 <div class="options-api">
 
-Viz také: [Typování vlastností komponent](/guide/typescript/options-api.html#typing-component-props) <sup class="vt-badge ts" />
+Viz také: [Typování vlastností komponent](/guide/typescript/options-api#typing-component-props) <sup class="vt-badge ts" />
 
 </div>
 
@@ -113,7 +113,7 @@ defineProps<{
 </script>
 ```
 
-Více informací: [Typování vlastností komponent](/guide/typescript/composition-api.html#typing-component-props) <sup class="vt-badge ts" />
+Více informací: [Typování vlastností komponent](/guide/typescript/composition-api#typing-component-props) <sup class="vt-badge ts" />
 
 </div>
 
@@ -148,13 +148,13 @@ export default {
 <span>{{ greetingMessage }}</span>
 ```
 
-Technicky lze camelCase použít i při předávání vlastností do komponenty potomka (kromě [DOM-šablon](/guide/essentials/component-basics.html#dom-template-parsing-caveats)). Konvence však ve všech případech používá kebab-case, aby se sladila s HTML atributy:
+Technicky lze camelCase použít i při předávání vlastností do komponenty potomka (kromě [DOM-šablon](/guide/essentials/component-basics#dom-template-parsing-caveats)). Konvence však ve všech případech používá kebab-case, aby se sladila s HTML atributy:
 
 ```vue-html
 <MyComponent greeting-message="hello" />
 ```
 
-Kdykoliv je to možné, používáme [pro tagy komponent PascalCase](/guide/components/registration.html#component-name-casing), protože to zlepšuje čitelnost šablony tím, že odlišuje Vue komponenty od nativních elementů. Použití camelCase při předávání vlastností však takový praktický přínos nemá, proto jsme se rozhodli dodržovat konvence jednotlivých jazyků.
+Kdykoliv je to možné, používáme [pro tagy komponent PascalCase](/guide/components/registration#component-name-casing), protože to zlepšuje čitelnost šablony tím, že odlišuje Vue komponenty od nativních elementů. Použití camelCase při předávání vlastností však takový praktický přínos nemá, proto jsme se rozhodli dodržovat konvence jednotlivých jazyků.
 
 ### Statické vs. dynamické vlastnosti {#static-vs-dynamic-props}
 
@@ -232,7 +232,7 @@ Ve dvou výše uvedených příkladech jsme předávali hodnoty typu string, ale
 
 ### Binding více vlastností s využitím objektu {#binding-multiple-properties-using-an-object}
 
-Pokud chcete předat všechny vlastnosti objektu najednou, můžete použít [`v-bind` bez argumentu](/guide/essentials/template-syntax.html#dynamically-binding-multiple-attributes) (`v-bind` místo `:prop-name`). Například pokud máte objekt `post`:
+Pokud chcete předat všechny vlastnosti objektu najednou, můžete použít [`v-bind` bez argumentu](/guide/essentials/template-syntax#dynamically-binding-multiple-attributes) (`v-bind` místo `:prop-name`). Například pokud máte objekt `post`:
 
 <div class="options-api">
 
@@ -367,7 +367,7 @@ Obvykle jsou dva případy, kdy vypadá lákavě vlastnost měnit:
 
 Pokud jsou objekty a pole předávány jako vlastnosti, komponenta potomka sice nemůže mutovat binding na vlastnosti, ale **bude moci** měnit vnořené prvky objektu nebo pole. Je to proto, že v jazyce JavaScript se objekty a pole předávají pomocí odkazů (pass by reference) a pro Vue je nepřiměřeně nákladné takovým změnám zabránit.
 
-Hlavní nevýhodou takových změn je, že umožňují komponentám potomka ovlivňovat stav rodičů způsobem, který není pro komponentu rodiče zřejmý, což může v budoucnu ztížit uvažování o toku dat. V rámci osvědčených postupů byste se měli takovým změnám vyhnout, pokud nejsou komponenty rodiče a potomka už z definice úzce propojeny. Ve většině případů by měl potomek [vyvolat událost](/guide/components/events.html), aby nechal změnu provést rodiče.
+Hlavní nevýhodou takových změn je, že umožňují komponentám potomka ovlivňovat stav rodičů způsobem, který není pro komponentu rodiče zřejmý, což může v budoucnu ztížit uvažování o toku dat. V rámci osvědčených postupů byste se měli takovým změnám vyhnout, pokud nejsou komponenty rodiče a potomka už z definice úzce propojeny. Ve většině případů by měl potomek [vyvolat událost](/guide/components/events), aby nechal změnu provést rodiče.
 
 ## Validace vlastností {#prop-validation}
 
@@ -496,7 +496,7 @@ Pokud validace vlastnosti selže, zobrazí Vue varování do konzole (pokud je a
 
 <div class="composition-api">
 
-Pokud používáte [Type-based deklarace vlastností](/api/sfc-script-setup.html#typescript-only-features) <sup class="vt-badge ts" />, Vue se pokusí kompilovat typové anotace na odpovídající runtime deklarace vlastností jak nejlépe dovede. Například, `defineProps<{ msg: string }>` bude při kompilaci převedeno na`{ msg: { type: String, required: true }}`.
+Pokud používáte [Type-based deklarace vlastností](/api/sfc-script-setup#typescript-only-features) <sup class="vt-badge ts" />, Vue se pokusí kompilovat typové anotace na odpovídající runtime deklarace vlastností jak nejlépe dovede. Například, `defineProps<{ msg: string }>` bude při kompilaci převedeno na`{ msg: { type: String, required: true }}`.
 
 </div>
 <div class="options-api">

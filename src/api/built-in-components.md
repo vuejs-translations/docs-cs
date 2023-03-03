@@ -7,7 +7,7 @@ pageClass: api
 :::info Registration and Usage
 Built-in components can be used directly in templates without needing to be registered. They are also tree-shakeable: they are only included in the build when they are used.
 
-When using them in [render functions](/guide/extras/render-function.html), they need to be imported explicitly. For example:
+When using them in [render functions](/guide/extras/render-function), they need to be imported explicitly. For example:
 
 ```js
 import { h, Transition } from 'vue'
@@ -118,7 +118,7 @@ Provides animated transition effects to a **single** element or component.
   </Transition>
   ```
 
-- **Viz také:** [`<Transition>` Guide](/guide/built-ins/transition.html)
+- **Viz také:** [`<Transition>` Guide](/guide/built-ins/transition)
 
 ## `<TransitionGroup>` {#transitiongroup}
 
@@ -150,7 +150,7 @@ Provides transition effects for **multiple** elements or components in a list.
 
   By default, `<TransitionGroup>` doesn't render a wrapper DOM element, but one can be defined via the `tag` prop.
 
-  Note that every child in a `<transition-group>` must be [**uniquely keyed**](/guide/essentials/list.html#maintaining-state-with-key) for the animations to work properly.
+  Note that every child in a `<transition-group>` must be [**uniquely keyed**](/guide/essentials/list#maintaining-state-with-key) for the animations to work properly.
 
   `<TransitionGroup>` supports moving transitions via CSS transform. When a child's position on screen has changed after an update, it will get applied a moving CSS class (auto generated from the `name` attribute or configured with the `move-class` prop). If the CSS `transform` property is "transition-able" when the moving class is applied, the element will be smoothly animated to its destination using the [FLIP technique](https://aerotwist.com/blog/flip-your-animations/).
 
@@ -164,7 +164,7 @@ Provides transition effects for **multiple** elements or components in a list.
   </TransitionGroup>
   ```
 
-- **Viz také:** [Guide - TransitionGroup](/guide/built-ins/transition-group.html)
+- **Viz také:** [Guide - TransitionGroup](/guide/built-ins/transition-group)
 
 ## `<KeepAlive>` {#keepalive}
 
@@ -257,7 +257,7 @@ Caches dynamically toggled components wrapped inside.
   </KeepAlive>
   ```
 
-- **Viz také:** [Guide - KeepAlive](/guide/built-ins/keep-alive.html)
+- **Viz také:** [Guide - KeepAlive](/guide/built-ins/keep-alive)
 
 ## `<Teleport>` {#teleport}
 
@@ -299,7 +299,7 @@ Renders its slot content to another part of the DOM.
   </teleport>
   ```
 
-- **Viz také:** [Guide - Teleport](/guide/built-ins/teleport.html)
+- **Viz také:** [Guide - Teleport](/guide/built-ins/teleport)
 
 ## `<Suspense>` <sup class="vt-badge experimental" /> {#suspense}
 
@@ -323,6 +323,6 @@ Used for orchestrating nested async dependencies in a component tree.
 
   `<Suspense>` accepts two slots: the `#default` slot and the `#fallback` slot. It will display the content of the fallback slot while rendering the default slot in memory.
 
-  If it encounters async dependencies ([Async Components](/guide/components/async.html) and components with [`async setup()`](/guide/built-ins/suspense.html#async-setup)) while rendering the default slot, it will wait until all of them are resolved before displaying the default slot.
+  If it encounters async dependencies ([Async Components](/guide/components/async) and components with [`async setup()`](/guide/built-ins/suspense#async-setup)) while rendering the default slot, it will wait until all of them are resolved before displaying the default slot.
 
-- **Viz také:** [Guide - Suspense](/guide/built-ins/suspense.html)
+- **Viz také:** [Guide - Suspense](/guide/built-ins/suspense)

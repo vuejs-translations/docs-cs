@@ -224,7 +224,7 @@ Podobně jako u `v-if`, je možné tag `<template>` použití i s `v-for` pro v�
 ## `v-for` s `v-if` {#v-for-with-v-if}
 
 ::: warning Note
-**Nedoporučuje se** používat `v-if` a `v-for` na stejném prvku kvůli jejich implicitní prioritě. Podrobnosti naleznete v [Průvodci stylováním](/style-guide/rules-essential.html#avoid-v-if-with-v-for).
+**Nedoporučuje se** používat `v-if` a `v-for` na stejném prvku kvůli jejich implicitní prioritě. Podrobnosti naleznete v [Průvodci stylováním](/style-guide/rules-essential#avoid-v-if-with-v-for).
 :::
 
 Když existují na stejném elementu, `v-if` má vyšší prioritu než `v-for`. To znamená, že podmínka `v-if` nebude mít přístup k proměnným z `v-for` scope:
@@ -275,9 +275,9 @@ Při použití `<template v-for>`, by měl být `key` umístěn do `<template>` 
 Zde uvedený `key` je speciální atribut propojený s `v-bind`. Nemělo by se zaměňovat s klíčem pro vlastnosti při [použití `v-for` nad objektem](#v-for-with-an-object).
 :::
 
-[Je doporučeno](/style-guide/rules-essential.html#use-keyed-v-for) použití atributu `key` s `v-for`, kdykoli je to možné. Výjimkou mohou být situace, kdy je iterovaný obsah DOM velmi jednoduchý (tj. neobsahuje žádné komponenty nebo stavové elementy DOM), nebo se záměrně spoléháte na výchozí chování pro zvýšení výkonu.
+[Je doporučeno](/style-guide/rules-essential#use-keyed-v-for) použití atributu `key` s `v-for`, kdykoli je to možné. Výjimkou mohou být situace, kdy je iterovaný obsah DOM velmi jednoduchý (tj. neobsahuje žádné komponenty nebo stavové elementy DOM), nebo se záměrně spoléháte na výchozí chování pro zvýšení výkonu.
 
-Direktiva `key` očekává vazbu na primitivní hodnoty – tedy string a number. Nepoužívejte jako klíče `v-for` objekty. Podrobné použití atributu `key` naleznete v [API dokumentaci pro `key`](/api/built-in-special-attributes.html#key).
+Direktiva `key` očekává vazbu na primitivní hodnoty – tedy string a number. Nepoužívejte jako klíče `v-for` objekty. Podrobné použití atributu `key` naleznete v [API dokumentaci pro `key`](/api/built-in-special-attributes#key).
 
 ## `v-for` nad komponentou {#v-for-with-a-component}
 
