@@ -3,10 +3,6 @@ TODO iteration 1
 
 /guide
 
-reusability\
-reusability\custom-directives.md
-reusability\plugins.md
-
 built-ins\
 built-ins\keep-alive-demos\
 built-ins\transition-demos\

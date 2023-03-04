@@ -102,6 +102,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 parser = parser
 * 🟥 PascalCase = PascalCase
 * 🟩 passed to = posílaný do
+* 🟥 plugin = plugin
 * 🟥 pull request = pull request
 * 🟩 prerequisities = předpoklady
 * 🟨 primitive types = primitivní datové typy
@@ -112,6 +113,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 proxy = proxy
 * 🟩 reactive = reaktivní
 * 🟩 reactivity = reaktivita
+* 🟥 read-only - read-only
 * 🟥 ref = ref
 * 🟨 refactoring = refaktoring
 * 🟩 release = verze

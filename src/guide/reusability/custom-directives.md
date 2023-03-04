@@ -1,4 +1,4 @@
-# Custom Directives {#custom-directives}
+# Vlastní direktivy {#custom-directives}
 
 <script setup>
 const vFocus = {
@@ -8,19 +8,19 @@ const vFocus = {
 }
 </script>
 
-## Introduction {#introduction}
+## Představení {#introduction}
 
-In addition to the default set of directives shipped in core (like `v-model` or `v-show`), Vue also allows you to register your own custom directives.
+Kromě výchozí sady vestavěných direktiv (jako je `v-model` nebo `v-show`) umožňuje Vue také registraci vašich vlastních (custom) direktiv.
 
-We have introduced two forms of code reuse in Vue: [components](/guide/essentials/component-basics) and [composables](./composables). Components are the main building blocks, while composables are focused on reusing stateful logic. Custom directives, on the other hand, are mainly intended for reusing logic that involves low-level DOM access on plain elements.
+Ve Vue jsme zavedli dvě formy znovupoužitelného kódu: [komponenty](/guide/essentials/component-basics) a [composables](./composables). Komponenty jsou hlavními stavebními bloky, zatímco composables se zaměřují na znovupoužití stavové logiky. Vlastní direktivy jsou naproti tomu určeny hlavně ke znovupoužití logiky, která se týká low-level přístupu k DOM na prostých elementech.
 
-A custom directive is defined as an object containing lifecycle hooks similar to those of a component. The hooks receive the element the directive is bound to. Here is an example of a directive that focuses an input when the element is inserted into the DOM by Vue:
+Vlastní direktiva je definována jako objekt obsahující lifecycle hooks podobné těm, které má komponenta. Hooks obdrží element, na který je direktiva navázána. Zde je příklad direktivy, která provede focus na input, když je element vložen do DOM pomocí Vue:
 
 <div class="composition-api">
 
 ```vue
 <script setup>
-// enables v-focus in templates
+// umožní v šablonách v-focus
 const vFocus = {
   mounted: (el) => el.focus()
 }
@@ -42,7 +42,7 @@ const focus = {
 
 export default {
   directives: {
-    // enables v-focus in template
+    // umožní v šablonách v-focus
     focus
   }
 }
@@ -55,16 +55,16 @@ export default {
 </div>
 
 <div class="demo">
-  <input v-focus placeholder="This should be focused" />
+  <input v-focus placeholder="Na tento prvek by měl být focus" />
 </div>
 
-Assuming you haven't clicked elsewhere on the page, the input above should be auto-focused. This directive is more useful than the `autofocus` attribute because it works not just on page load - it also works when the element is dynamically inserted by Vue.
+Za předpokladu, že jste na stránce neklikli jinam, by měl být na výše uvedeném input elementu automaticky nastavený focus. Tato direktiva je užitečnější než atribut `autofocus`, protože funguje nejen při načítání stránky - funguje i tehdy, když je prvek vkládán dynamicky pomocí Vue.
 
 <div class="composition-api">
 
-In `<script setup>`, any camelCase variable that starts with the `v` prefix can be used as a custom directive. In the example above, `vFocus` can be used in the template as `v-focus`.
+Ve `<script setup>` lze jako vlastní direktivu použít jakoukoli proměnnou zapsanou v camelCase tvaru, která začíná předponou `v`. Ve výše uvedeném příkladu lze `vFocus` použít v šabloně jako `v-focus`.
 
-If not using `<script setup>`, custom directives can be registered using the `directives` option:
+Pokud se `<script setup>` nepoužvá, lze vlastní direktivy registrovat pomocí sekce `directives`:
 
 ```js
 export default {
@@ -72,7 +72,7 @@ export default {
     /*...*/
   },
   directives: {
-    // enables v-focus in template
+    // umožní v šablonách v-focus
     focus: {
       /* ... */
     }
@@ -84,103 +84,103 @@ export default {
 
 <div class="options-api">
 
-Similar to components, custom directives must be registered so that they can be used in templates. In the example above, we are using local registration via the `directives` option.
+Podobně jako u komponent musí být vlastní direktivy zaregistrovány, aby je bylo možné použít v šablonách. Ve výše uvedeném příkladu používáme lokální registraci pomocí sekce `directives`.
 
 </div>
 
-It is also common to globally register custom directives at the app level:
+Běžné je i registrovat vlastní direktivy globálně na úrovni aplikace:
 
 ```js
 const app = createApp({})
 
-// make v-focus usable in all components
+// v-focus bude použitelný ve všech komponentách
 app.directive('focus', {
   /* ... */
 })
 ```
 
 :::tip
-Custom directives should only be used when the desired functionality can only be achieved via direct DOM manipulation. Prefer declarative templating using built-in directives such as `v-bind` when possible because they are more efficient and server-rendering friendly.
+Vlastní direktivy by se měly používat pouze v případě, že požadované funkcionality lze dosáhnout pouze přímou manipulací s DOM. Pokud je to možné, dávejte přednost deklarativnímu použití šablon pomocí vestavěných direktiv, jako je `v-bind`, protože jsou efektivnější a šetrnější k vykreslování na serveru.
 :::
 
-## Directive Hooks {#directive-hooks}
+## Lifecycle Hooks direktiv {#directive-hooks}
 
-A directive definition object can provide several hook functions (all optional):
+Objekt definice direktivy může poskytovat několik "hook" funkcí (všechny jsou nepovinné):
 
 ```js
-const myDirective = {
-  // called before bound element's attributes
-  // or event listeners are applied
+const mojeDirektiva = {
+  // volána před aplikací
+  // navázaných atributů elementů či event listenerů
   created(el, binding, vnode, prevVnode) {
-    // see below for details on arguments
+    // detaily jednotlivých argumentů viz níže
   },
-  // called right before the element is inserted into the DOM.
+  // volána těsně před vložením elementu do DOM
   beforeMount(el, binding, vnode, prevVnode) {},
-  // called when the bound element's parent component
-  // and all its children are mounted.
+  // volána po `mounted` (vložení do DOM) 
+  // na komponentě rodiče a všech jejích potomcích
   mounted(el, binding, vnode, prevVnode) {},
-  // called before the parent component is updated
+  // volána před `updated` na komponentě rodiče
   beforeUpdate(el, binding, vnode, prevVnode) {},
-  // called after the parent component and
-  // all of its children have updated
+  // volána po `updated` na komponentě rodiče
+  // a všech jejích potomcích
   updated(el, binding, vnode, prevVnode) {},
-  // called before the parent component is unmounted
+  // volána před `unmounted` na komponentě rodiče
   beforeUnmount(el, binding, vnode, prevVnode) {},
-  // called when the parent component is unmounted
+  // volána po `unmounted` na komponentě rodiče
   unmounted(el, binding, vnode, prevVnode) {}
 }
 ```
 
-### Hook Arguments {#hook-arguments}
+### Parametry lifecycle hooks direktiv {#hook-arguments}
 
-Directive hooks are passed these arguments:
+Hooks direktiv obdrží tyto parametry:
 
-- `el`: the element the directive is bound to. This can be used to directly manipulate the DOM.
+- `el`: Prvek, na který je direktiva navázána. Lze jej použít k přímé manipulaci s DOM.
 
-- `binding`: an object containing the following properties.
+- `binding`: Objekt, který obsahuje následující vlastnosti:
 
-  - `value`: The value passed to the directive. For example in `v-my-directive="1 + 1"`, the value would be `2`.
-  - `oldValue`: The previous value, only available in `beforeUpdate` and `updated`. It is available whether or not the value has changed.
-  - `arg`: The argument passed to the directive, if any. For example in `v-my-directive:foo`, the arg would be `"foo"`.
-  - `modifiers`: An object containing modifiers, if any. For example in `v-my-directive.foo.bar`, the modifiers object would be `{ foo: true, bar: true }`.
-  - `instance`: The instance of the component where the directive is used.
-  - `dir`: the directive definition object.
+  - `value`: Hodnota předávaná do direktivy. Například pro `v-my-directive="1 + 1"` bude hodnota `2`.
+  - `oldValue`: Předchozí hodnota. Dostupná pouze v `beforeUpdate` a `updated`. Je dostupná, ať už se hodnota změnila nebo ne.
+  - `arg`: Parametr předávaný do direktivy, pokud existuje. Například pro `v-my-directive:foo` bude parametr `"foo"`.
+  - `modifiers`: Objekt, který obsahuje modifikátory, pokud jsou. Například pro `v-my-directive.foo.bar` bude objekt modifikátorů `{ foo: true, bar: true }`.
+  - `instance`: Instance komponent, ve které je direktiva použita.
+  - `dir`: Objekt definice direktivy
 
-- `vnode`: the underlying VNode representing the bound element.
-- `prevNode`: the VNode representing the bound element from the previous render. Only available in the `beforeUpdate` and `updated` hooks.
+- `vnode`: VNode objekt, který představuje navázaný element.
+- `prevNode`: VNode objekt, který představoval navázaný element při předchozím vykreslení. Dostupný pouze v `beforeUpdate` a `updated`.
 
-As an example, consider the following directive usage:
+Jako příklad uvažte následující použití direktivy:
 
 ```vue-html
 <div v-example:foo.bar="baz">
 ```
 
-The `binding` argument would be an object in the shape of:
+Parametr `binding` bude objekt ve tvaru:
 
 ```js
 {
   arg: 'foo',
   modifiers: { bar: true },
-  value: /* value of `baz` */,
-  oldValue: /* value of `baz` from previous update */
+  value: /* hodnota `baz` */,
+  oldValue: /* hodnota `baz` z předchozího `update` */
 }
 ```
 
-Similar to built-in directives, custom directive arguments can be dynamic. For example:
+Podobně jako vestavěné direktivy mohou být argumenty vlastních direktiv dynamické. Například:
 
 ```vue-html
 <div v-example:[arg]="value"></div>
 ```
 
-Here the directive argument will be reactively updated based on `arg` property in our component state.
+Zde bude parametr směrnice reaktivně aktualizován na základě vlastnosti `arg` ze stavu naší komponenty.
 
 :::tip Poznámka
-Apart from `el`, you should treat these arguments as read-only and never modify them. If you need to share information across hooks, it is recommended to do so through element's [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
+Kromě `el` byste s těmito argumenty měli zacházet jako s read-only hodnotami a nikdy je neměnit. Pokud potřebujete sdílet informace napříč hooks, doporučujeme to dělat prostřednictvím elementu [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
 :::
 
-## Function Shorthand {#function-shorthand}
+## Zkrácený zápis funkcí {#function-shorthand}
 
-It's common for a custom directive to have the same behavior for `mounted` and `updated`, with no need for the other hooks. In such cases we can define the directive as a function:
+Pro vlastní direktivy je běžné, že mají stejné chování pro `mounted` i `updated` a nepotřebují další hooks. V takových případech můžeme direktivu definovat jako funkci:
 
 ```vue-html
 <div v-color="color"></div>
@@ -188,40 +188,40 @@ It's common for a custom directive to have the same behavior for `mounted` and `
 
 ```js
 app.directive('color', (el, binding) => {
-  // this will be called for both `mounted` and `updated`
+  // toto bude zavoláno pro `mounted` i `updated`
   el.style.color = binding.value
 })
 ```
 
 ## Object Literals {#object-literals}
 
-If your directive needs multiple values, you can also pass in a JavaScript object literal. Remember, directives can take any valid JavaScript expression.
+Pokud vaše direktiva potřebuje více hodnot, můžete předat také JavaScript object literal. Vzpomeňte, že direktivy mohou přebírat libovolný platný JavaScript výraz.
 
 ```vue-html
-<div v-demo="{ color: 'white', text: 'hello!' }"></div>
+<div v-demo="{ color: 'bílá', text: 'Ahoj!' }"></div>
 ```
 
 ```js
 app.directive('demo', (el, binding) => {
-  console.log(binding.value.color) // => "white"
-  console.log(binding.value.text) // => "hello!"
+  console.log(binding.value.color) // => "bílá"
+  console.log(binding.value.text) // => "Ahoj!"
 })
 ```
 
-## Usage on Components {#usage-on-components}
+## Použití na komponenty {#usage-on-components}
 
-When used on components, custom directives will always apply to a component's root node, similar to [Fallthrough Attributes](/guide/components/attrs).
+Při použití na komponenty se vlastní direktivy vždy vztahují na root element komponenty, podobně jako u [Fallthrough atributů](/guide/components/attrs).
 
 ```vue-html
 <MyComponent v-demo="test" />
 ```
 
 ```vue-html
-<!-- template of MyComponent -->
+<!-- šablona MyComponent -->
 
-<div> <!-- v-demo directive will be applied here -->
-  <span>My component content</span>
+<div> <!-- direktiva v-demo bude aplikována zde -->
+  <span>Obsah mé komponenty</span>
 </div>
 ```
 
-Note that components can potentially have more than one root node. When applied to a multi-root component, a directive will be ignored and a warning will be thrown. Unlike attributes, directives can't be passed to a different element with `v-bind="$attrs"`. In general, it is **not** recommended to use custom directives on components.
+Pamatujte, že komponenty mohou mít potenciálně více než jeden root element. Při použití na multi-root komponentu bude direktiva ignorována a bude vypsáno varování. Na rozdíl od atributů předat direktivy jinému elementu pomocí `v-bind="$attrs"` nelze. Obecně se **nedoporučuje** používat vlastní direktivy u komponent.
