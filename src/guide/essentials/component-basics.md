@@ -179,7 +179,7 @@ Pro více detailů se podívejte na [upozornění na omezení při anlýze DOM-�
 
 Pokud vytváříme blog, budeme pravděpodobně potřebovat komponentu představující příspěvek na blogu. Chceme, aby všechny příspěvky sdílely stejné vizuální rozvržení, ale s jiným obsahem. Taková komponenta nebude užitečná, pokud jí nebudete moci předat data, jako je název a obsah konkrétního příspěvku, který chceme zobrazit. Zde přicházejí na řadu vlastnosti (props).
 
-Props jsou vlastní atributy, které můžete na komponentě zaregistrovat. Abychom naší komponentě předali název blogového příspěvku, musíme jej deklarovat v seznamu vlastností, které tato komponenta přijímá, pomocí <span class="options-api">[`props`](/api/options-state.html# možnost props)</span><span class="composition-api">makra [`defineProps`](/api/sfc-script-setup#defineprops-defineemits)</span>:
+Props jsou vlastní atributy, které můžete na komponentě zaregistrovat. Abychom naší komponentě předali název blogového příspěvku, musíme jej deklarovat v seznamu vlastností, které tato komponenta přijímá, pomocí <span class="options-api">[`props`](/api/options-state# možnost props)</span><span class="composition-api">makra [`defineProps`](/api/sfc-script-setup#defineprops-defineemits)</span>:
 
 <div class="options-api">
 
