@@ -4,34 +4,34 @@ import SwitchComponent from './keep-alive-demos/SwitchComponent.vue'
 
 # KeepAlive {#keepalive}
 
-`<KeepAlive>` is a built-in component that allows us to conditionally cache component instances when dynamically switching between multiple components.
+`<KeepAlive>` je vestavěná komponenta, která nám umožňuje podmíněně ukládat instance komponent do cache při dynamickém přepínání mezi více komponentami.
 
 ## Základní použití {#basic-usage}
 
-In the Component Basics chapter, we introduced the syntax for [Dynamic Components](/guide/essentials/component-basics#dynamic-components), using the `<component>` special element:
+V kapitole Základy komponent jsme představili syntaxi pro [Dynamické komponenty](/guide/essentials/component-basics#dynamic-components) s použitím speciálního elementu `<component>`:
 
 ```vue-html
 <component :is="activeComponent" />
 ```
 
-By default, an active component instance will be unmounted when switching away from it. This will cause any changed state it holds to be lost. When this component is displayed again, a new instance will be created with only the initial state.
+Ve výchozím nastavení bude instance aktivní komponenty odpojena (unmounted), když se z ní přesunete jinam. To způsobí ztrátu jakýchkoliv změn stavu, které si drží. Když se tato komponenta znovu zobrazí, vytvoří se nová instance pouze ve výchozím stavu.
 
-In the example below, we have two stateful components - A contains a counter, while B contains a message synced with an input via `v-model`. Try updating the state of one of them, switch away, and then switch back to it:
+V příkladu níže máme dvě stavové komponenty – A obsahuje počítadlo, zatímco B obsahuje zprávu synchronizovanou s uživatelským vstupem přes `v-model`. Zkuste aktualizovat stav jedné z nich, přepněte na druhou a poté se do ni přepněte zpátky:
 
 <SwitchComponent />
 
-You'll notice that when switched back, the previous changed state would have been reset.
+Uvidíte, že po přepnutí zpět byl předchozí změněný stav resetován.
 
-Creating fresh component instance on switch is normally useful behavior, but in this case, we'd really like the two component instances to be preserved even when they are inactive. To solve this problem, we can wrap our dynamic component with the `<KeepAlive>` built-in component:
+Vytváření nové instance komponenty po přepnutí je normálně užitečné chování, ale v tomto případě bychom opravdu rádi, aby byly tyto dvě instance komponent zachovány, i když jsou neaktivní. Abychom tento problém vyřešili, můžeme naši dynamickou komponentu zabalit  do vestavěné komponenty `<KeepAlive>`:
 
 ```vue-html
-<!-- Inactive components will be cached! -->
+<!-- neaktivní komponenty budou umístěny do cache -->
 <KeepAlive>
   <component :is="activeComponent" />
 </KeepAlive>
 ```
 
-Now, the state will be persisted across component switches:
+Nyní bude mezi přepínámím komponent stav zachován:
 
 <SwitchComponent use-KeepAlive />
 
@@ -47,39 +47,39 @@ Now, the state will be persisted across component switches:
 </div>
 
 :::tip
-When used in [DOM templates](/guide/essentials/component-basics#dom-template-parsing-caveats), it should be referenced as `<keep-alive>`.
+Při použití v [DOM-šablonách](/guide/essentials/component-basics#dom-template-parsing-caveats), měla by být používána jako `<keep-alive>`.
 :::
 
 ## Include / Exclude {#include-exclude}
 
-By default, `<KeepAlive>` will cache any component instance inside. We can customize this behavior via the `include` and `exclude` props. Both props can be a comma-delimited string, a `RegExp`, or an array containing either types:
+Ve výchozím nastavení `<KeepAlive>` bude do cache umisťovat každou komponentu uvnitř. Můžeme toto chování upravit pomocí vlastností (props) `include` a `exclude`. Obě vlastnosti mohou být řetězce oddělený čárkami, regulární výraz nebo pole obsahující libovolné hodnoty obou typů:
 
 ```vue-html
-<!-- comma-delimited string -->
+<!-- řetězce oddělené čárkami -->
 <KeepAlive include="a,b">
   <component :is="view" />
 </KeepAlive>
 
-<!-- regex (use `v-bind`) -->
+<!-- regex (použijete `v-bind`) -->
 <KeepAlive :include="/a|b/">
   <component :is="view" />
 </KeepAlive>
 
-<!-- Array (use `v-bind`) -->
+<!-- pole (použijete `v-bind`) -->
 <KeepAlive :include="['a', 'b']">
   <component :is="view" />
 </KeepAlive>
 ```
 
-The match is checked against the component's [`name`](/api/options-misc#name) option, so components that need to be conditionally cached by `KeepAlive` must explicitly declare a `name` option.
+Shoda je porovnávána s atributem [`name`] (/api/options-misc#name) komponenty, takže ty, které je třeba podmíněně uložit do cache pomocí `KeepAlive`, musí explicitně deklarovat atribut `name`.
 
 :::tip
-Since version 3.2.34, a single-file component using `<script setup>` will automatically infer its `name` option based on the filename, removing the need to manually declare the name.
+Od verze 3.2.34 odvodí Single-File komponenta (SFC) používající `<script setup>` svou vlastnost `name` automaticky na základě názvu souboru, čímž nutnost deklarovat jméno ručně odpadá.
 :::
 
-## Max Cached Instances {#max-cached-instances}
+## Maximální počet cached instancí {#max-cached-instances}
 
-We can limit the maximum number of component instances that can be cached via the `max` prop. When `max` is specified, `<KeepAlive>` behaves like an [LRU cache](<https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)>): if the number of cached instances is about to exceed the specified max count, the least recently accessed cached instance will be destroyed to make room for the new one.
+Můžeme omezit maximální počet instancí komponent, které lze uložit do cache pomocí vlastnosti `max`. Když je zadáno `max`, `<KeepAlive>` se chová jako [LRU cache](<https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)>): pokud by měl počet instancí uložených v cache překročit zadaný maximální počet, bude nejdéle nepoužívaná instance v cache zničena, aby se pro novou uvolnilo místo.
 
 ```vue-html
 <KeepAlive :max="10">
@@ -87,26 +87,26 @@ We can limit the maximum number of component instances that can be cached via th
 </KeepAlive>
 ```
 
-## Lifecycle of Cached Instance {#lifecycle-of-cached-instance}
+## Životní cyklus cached instance {#lifecycle-of-cached-instance}
 
-When a component instance is removed from the DOM but is part of a component tree cached by `<KeepAlive>`, it goes into a **deactivated** state instead of being unmounted. When a component instance is inserted into the DOM as part of a cached tree, it is **activated**.
+Když je instance komponenty odstraněna z DOM, ale je součástí stromu komponent uloženého v cache prostřednictvím `<KeepAlive>`, přejde místo **unmounted** do stavu **deactivated**. Když je instance komponenty vložena do DOM jako součást stromu komponent uloženého v cache, stane se **activated**.
 
 <div class="composition-api">
 
-A kept-alive component can register lifecycle hooks for these two states using [`onActivated()`](/api/composition-api-lifecycle#onactivated) and [`onDeactivated()`](/api/composition-api-lifecycle#ondeactivated):
+"Kept-alive" komponenta může registrovat lifecycle hooks pro tyto dva stavy pomocí [`onActivated()`](/api/composition-api-lifecycle#onactivated) a [`onDeactivated()`](/api/composition-api-lifecycle#ondeactivated):
 
 ```vue
 <script setup>
 import { onActivated, onDeactivated } from 'vue'
 
 onActivated(() => {
-  // called on initial mount
-  // and every time it is re-inserted from the cache
+  // zavolá se při úvodním připojení (mounted)
+  // a pokaždé, když je komponenta znvou vložena z cache
 })
 
 onDeactivated(() => {
-  // called when removed from the DOM into the cache
-  // and also when unmounted
+  // zavolá se při odebrání z DOM a uložení do cache
+  // a také při odpojení (unmounted)
 })
 </script>
 ```
@@ -114,31 +114,31 @@ onDeactivated(() => {
 </div>
 <div class="options-api">
 
-A kept-alive component can register lifecycle hooks for these two states using [`activated`](/api/options-lifecycle#activated) and [`deactivated`](/api/options-lifecycle#deactivated) hooks:
+"Kept-alive" komponenta může registrovat lifecycle hooks pro tyto dva stavy pomocí sekcí [`activated`](/api/options-lifecycle#activated) a [`deactivated`](/api/options-lifecycle#deactivated):
 
 ```js
 export default {
   activated() {
-    // called on initial mount
-    // and every time it is re-inserted from the cache
+    // zavolá se při úvodním připojení (mounted)
+    // a pokaždé, když je komponenta znvou vložena z cache
   },
   deactivated() {
-    // called when removed from the DOM into the cache
-    // and also when unmounted
+    // zavolá se při odebrání z DOM a uložení do cache
+    // a také při odpojení (unmounted)
   }
 }
 ```
 
 </div>
 
-Note that:
+Pamatujte, že:
 
-- <span class="composition-api">`onActivated`</span><span class="options-api">`activated`</span> is also called on mount, and <span class="composition-api">`onDeactivated`</span><span class="options-api">`deactivated`</span> on unmount.
+- <span class="composition-api">`onActivated`</span><span class="options-api">`activated`</span> se také volá při úvodním připojení (mounted), a <span class="composition-api">`onDeactivated`</span><span class="options-api">`deactivated`</span> při závěrečném odpojení (unmounted).
 
-- Both hooks work for not only the root component cached by `<KeepAlive>`, but also descendant components in the cached tree.
+- Oba lifecycle hooks fungují nejen pro root komponentu uloženou v cache `<KeepAlive>`, ale také pro komponenty potomků v uloženém stromu komponent.
 
 ---
 
-**Related**
+**Související**
 
 - [`<KeepAlive>` API reference](/api/built-in-components#keepalive)

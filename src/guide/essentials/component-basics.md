@@ -117,7 +117,7 @@ export default {
 </template>
 ```
 
-Abychom mohli importovanou komponentu vystavit pro naší šablonu, musíme ji [zaregistrovat](/guide/components/registration) prostřednictvím oddílu `components`. Komponenta pak bude dostupná jako tag s názvem klíče, pod kterým je registrována.
+Abychom mohli importovanou komponentu vystavit pro naší šablonu, musíme ji [zaregistrovat](/guide/components/registration) prostřednictvím sekce `components`. Komponenta pak bude dostupná jako tag s názvem klíče, pod kterým je registrována.
 
 </div>
 
@@ -391,7 +391,7 @@ Díky event listeneru `@enlarge-text="postFontSize += 0.1"` obdrží rodičovsk�
 
 </div>
 
-Vysílané (emit) události můžeme nepovinně deklarovat s pomocí <span class="options-api">oddílu [`emits`](/api/options-state#emits)</span><span class="composition-api">makra [`defineEmits`](/api/sfc-script-setup#defineprops-defineemits)</span>:
+Vysílané (emit) události můžeme nepovinně deklarovat s pomocí <span class="options-api">sekce [`emits`](/api/options-state#emits)</span><span class="composition-api">makra [`defineEmits`](/api/sfc-script-setup#defineprops-defineemits)</span>:
 
 <div class="options-api">
 
@@ -434,7 +434,7 @@ emit('enlarge-text')
 
 Viz také: [Typování Component Emits](/guide/typescript/composition-api#typing-component-emits) <sup class="vt-badge ts" />
 
-Pokud nepoužíváte `<script setup>`, můžete deklarovat emitované události prostřectvím oddílu `emits`. K funkci `emit` můžete přistuput jako k vlastnosti setup kontextu (předávaný do `setup()` jako druhý parametr):
+Pokud nepoužíváte `<script setup>`, můžete deklarovat emitované události prostřectvím sekce `emits`. K funkci `emit` můžete přistuput jako k vlastnosti setup kontextu (předávaný do `setup()` jako druhý parametr):
 
 ```js
 export default {

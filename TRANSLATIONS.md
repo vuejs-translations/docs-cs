@@ -28,6 +28,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 build step = build fáze
 * 🟩 build-in (adj.) = vestavěný
 * 🟩 by default = ve výchozím nastavení
+* 🟥 cache = cache
 * 🟥 callback = callback
 * 🟨 callback function = callback funkce
 * 🟩 check out = podívejte se na
