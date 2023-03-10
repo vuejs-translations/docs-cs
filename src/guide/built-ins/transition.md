@@ -29,9 +29,9 @@ Aside from these two components, we can also apply animations in Vue using other
 This is an example of the most basic usage:
 
 ```vue-html
-<button @click="show = !show">Toggle</button>
+<button @click="show = !show">Změnit zobrazení</button>
 <Transition>
-  <p v-if="show">hello</p>
+  <p v-if="show">Ahoj</p>
 </Transition>
 ```
 
@@ -129,7 +129,7 @@ Here is a more advanced example that transitions multiple properties, with diffe
 
 ```vue-html
 <Transition name="slide-fade">
-  <p v-if="show">hello</p>
+  <p v-if="show">Ahoj</p>
 </Transition>
 ```
 
@@ -175,7 +175,7 @@ For most CSS animations, we can simply declare them under the `*-enter-active` a
 ```vue-html
 <Transition name="bounce">
   <p v-if="show" style="text-align: center;">
-    Hello here is some bouncy text!
+    Ahoj, já jsem skákací text!
   </p>
 </Transition>
 ```
@@ -233,7 +233,7 @@ These will override the conventional class names. This is especially useful when
   enter-active-class="animate__animated animate__tada"
   leave-active-class="animate__animated animate__bounceOutRight"
 >
-  <p v-if="show">hello</p>
+  <p v-if="show">Ahoj</p>
 </Transition>
 ```
 
@@ -266,7 +266,7 @@ Although the transition classes are only applied to the direct child element in 
 <Transition name="nested">
   <div v-if="show" class="outer">
     <div class="inner">
-      Hello
+      Ahoj
     </div>
   </div>
 </Transition>
@@ -493,7 +493,7 @@ Now `MyTransition` can be imported and used just like the built-in version:
 
 ```vue-html
 <MyTransition>
-  <div v-if="show">Hello</div>
+  <div v-if="show">Ahoj</div>
 </MyTransition>
 ```
 
@@ -513,9 +513,9 @@ In addition to toggling an element with `v-if` / `v-show`, we can also transitio
 
 ```vue-html
 <Transition>
-  <button v-if="docState === 'saved'">Edit</button>
-  <button v-else-if="docState === 'edited'">Save</button>
-  <button v-else-if="docState === 'editing'">Cancel</button>
+  <button v-if="docState === 'saved'">Editovat</button>
+  <button v-else-if="docState === 'edited'">Uložit</button>
+  <button v-else-if="docState === 'editing'">Zrušit</button>
 </Transition>
 ```
 

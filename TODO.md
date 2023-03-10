@@ -4,8 +4,6 @@ TODO iteration 1
 /guide
 
 built-ins\
-built-ins\keep-alive-demos\
-built-ins\transition-demos\
 built-ins\keep-alive.md
 built-ins\suspense.md
 built-ins\teleport.md
