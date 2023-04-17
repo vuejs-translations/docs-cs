@@ -13,7 +13,7 @@ Nejzákladnější formou datové vazby je textová interpolace pomocí "Mustach
 ```vue-html
 <span>Zpráva: {{ msg }}</span>
 ```
-Značka pro "Mustache" bude nahrazena hodnotou `msg` z odpovídající instance komponenty. Bude také aktualizována při každé změně hodnoty `msg` proměnné.
+Značka pro "Mustache" bude nahrazena hodnotou `msg` z [odpovídající instance komponenty](/guide/essentials/reactivity-fundamentals#declaring-reactive-state). Bude také aktualizována při každé změně hodnoty `msg` proměnné.
 
 ## HTML kód {#raw-html}
 

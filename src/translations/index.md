@@ -9,11 +9,10 @@ aside: false
 - [English / Angličtina](https://vuejs.org/) [[zdrojové kódy](https://github.com/vuejs/docs)]
 - [简体中文 / Čínština (zjednodušená)](https://cn.vuejs.org/) [[zdrojové kódy](https://github.com/vuejs-translations/docs-zh-cn)]
 - [日本語 / Japonština](https://ja.vuejs.org/) [[zdrojové kódy](https://github.com/vuejs-translations/docs-ja)]
-
-## Probíhající překlady {#work-in-progress-languages}
-
 - [Українська / Ukrajinština](https://ua.vuejs.org) [[zdrojové kódy](https://github.com/vuejs-translations/docs-ua)]
 - [Français / Francouzština](https://fr.vuejs.org) [[zdrojové kódy](https://github.com/vuejs-translations/docs-fr)]
+
+<!-- ## Probíhající překlady {#work-in-progress-languages} -->
 
 ## Začít nový překlad {#starting-a-new-translation}
 

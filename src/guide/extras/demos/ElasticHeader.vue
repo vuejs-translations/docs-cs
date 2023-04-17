@@ -1,20 +1,19 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { reactive, computed } from 'vue'
 import dynamics from 'dynamics.js'
 
 const headerHeight = 120
 
 let isDragging = false
 const start = { x: 0, y: 0 }
-const x = ref(headerHeight)
-const y = ref(headerHeight)
+const c = reactive({ x: headerHeight, y: headerHeight })
 
 const headerPath = computed(() => {
-  return `M0,0 L320,0 320,${headerHeight}Q${x.value},${y.value} 0,${headerHeight}`
+  return `M0,0 L320,0 320,${headerHeight}Q${c.x},${c.y} 0,${headerHeight}`
 })
 
 const contentPosition = computed(() => {
-  const dy = y.value - headerHeight
+  const dy = c.y - headerHeight
   const dampen = dy > 0 ? 2 : 4
   return {
     transform: `translate(0,${dy / dampen}px)`
@@ -31,10 +30,10 @@ function startDrag(e) {
 function onDrag(e) {
   e = e.changedTouches ? e.changedTouches[0] : e
   if (isDragging) {
-    x.value = headerHeight + (e.pageX - start.x)
+    c.x = headerHeight + (e.pageX - start.x)
     const dy = e.pageY - start.y
     const dampen = dy > 0 ? 1.5 : 4
-    y.value = headerHeight + dy / dampen
+    c.y = headerHeight + dy / dampen
   }
 }
 
@@ -42,7 +41,7 @@ function stopDrag() {
   if (isDragging) {
     isDragging = false
     dynamics.animate(
-      { x: x.value, y: y.value },
+      c,
       { x: headerHeight, y: headerHeight },
       { type: dynamics.spring, duration: 700, friction: 280 }
     )
@@ -67,7 +66,7 @@ function stopDrag() {
     <div class="header">Drag Me</div>
     <div class="content" :style="contentPosition">
       <a
-        href="https://sfc.vuejs.org/#eNqlVmtv2zYU/SuEGqAOFkl2Hl2hOdkDw9APK9AB+7BhGhBapGS1EkmQlGPH8H/vISnZluMABQoEDnkf5x7ee3nFbfSrUsmq41EWzU2ha2WJ4bZTD7moWyW1JWwjaFsXhpRatuTtsE0+m7e5yEUhhbFkySnj+gOvq6Ul92R2PXW6hltSm981rapaVJCXtDF88DGWAv6ebMk6I9MrssEv2QWvAvILzcuJVx6je7tRuN3lKY9P1C4dQCFb1VnOJpNLcv9AtrkgRON0WpDHj9OrKfnz5tr9c78X22PQ3V8X2yJZ7yAuks0O9E70j7k4jotfy4X9JE1tayleCx6M2QZ6wJJ4dJAjA9oq7kBg+YCk/EyuSUZuj+h7NEKspsKUUrcZefTrhlo+cWThmfY4O7W+BF3ichs4l50oPE1fAlefCb8MmBxReVIsqag4+1t2xZIbxD8V/Tf9H4xQSjIusNWdF3rgZO3BFK34PwehO3wQ/gs+IzpSfC+XkkwOfHoYZNUzGTXND2TSM0MVerbIjbc+FKnnuTfZjCxeVGmW3A11ckEdwknQo7IMFTkpiFQ+Bz33Vw507lI5+f5yUtxe1wpBDDJXw+pbLtSRsd0onh1wjdIIekVYp6kjnJEfp7i6pa49/4xcv/d32Dn7dIYTztMwWzBVsLG8Va5RsSNkzupVn7CGGnOfR8wdjS4ankdB8UsrO8OZfBLQ7lt2r7WuDbz4rNo7t3LFoQ0NNvY8r/JenfKIoSRjLy7YOZ13azj1kGOtPy3Oa1bV/qgL6MhTzewSG0wh7Ja+BtjevcO2d4KbcjMtc0EPMw7mZd00kL25+eNu9tsdHOapsxyCpYg2rJHofeCAAXPHj3zk8xTac4b9YEOkzNhN4451MusA8oE3jTxADKt5elRpbD0AMYVUnEGS7Asd2npBiy+Vlp1gcSEbqTPypizLn7xKrmOzpGgB9424VWsye4cfXS0opp37eLi/ZHZ36c19RjM31tXaC0JS0Z23gwRF12Xj8JY1Y1x4YUs17hQcYUVoZ6WXqv6gGYYvDlOvuBdbvrYxbeoKigL54NqLS2QnNvUzbs0MRA+yp57DzXTqhWgUHbtmKSAUUgTUhdQoTKwpqzuTkfceATcoWVQhSwc2dGFkgy9MYCMVUuOXDS+BGNbPcS0Yd9/XHiYUHhc86ct4ijo64959FjJBGcP1Dwk6FKZ+9sKeOkSjWMOXb1zRoSJ4KRwnKSTumrcv87aQDQvA6GrXSWih6CoKr5S4pQovEinwjvHx8l5h8igbpmYe4aHj9uh/a5XJ0tSUhXv9fDaJ1FWKVaI7YeuWJ9y08ULLJ1QJwHnUz0SMp8MDaIxVMJGYLxuFNk4YX6Ujw707YqTARPvFGkOEa3cNX6d0YvqC1jBjo91Xn6ZCFA=="
+        href="https://play.vuejs.org/#eNqlVmtv2zYU/SsXboE6mC3bSdwVmpM9MAz9sAIdsA8b5gGhRUrWKpEESTl2DP/3HZKSbbkuUKBA4Ij3ce65D15pP/hZ62TTiEE6WNjMlNqRFa7Rj0tZ1loZR3sygmWu3IgRZarWjROcDpQbVdMbeL45WvKdZHWZ2VbXHZP/LGyWMlPSOloLxoV5L8pi7eiBZrdTr6uEo9L+alhRlLKAPGeVFZ2PdQzwD6CyTWk6oh1+6dBpM2g6isNgch4jWPeCHm4u2Xxkbg2QLrvh8IYeHmm/lARg1xhJTx+moyn9fnfr//nf1/tzzMMfr/dZsj1AnCW7Azhe6J+W8jwsfp2Q7qOypSuV/ELsaMt3Xp3saNxL48yA1Vp4DFg+ojA/0i2ldH/GPqAROcOkzZWpU3oKzxVzYui5wnPS4hz09gZsydc3Us4bidqCZWiD79FQ3ERMgagiydZMFoL/qZpsLSziX4r+mf4LRmgn9ZvsTBOEATjZBjDNCvHXSeiTj8K/wadHR8lv5ZLT8MSnhUFVA5PeyHxHw5YZutCyRW2C9alJLc+jya5n8VmXZsm865MP6hEugp61pevIRUOUDjVouX8hoWsXy8uPF5ThBvtRiGKQGXVPX3OdzozdTov0hGu1QdAR8cYwTzil76e4vrkpA/+Ubt+Fe+ydQzljhotJ3ETYQTg4UWs/qDgRLXi5aQtWMWsflgPuU2OrSiwHUfFTrRoruHqW0B5H9qh1fgyC+Ko6ONdqI6CNA9b3vK4KXo0OiLElfS8h+TVdcKsEC5B9bcgW+dpNcUx1BR09l9ytccASwmkdeoDj/C2OrRPctN9oqQ962nAwz8uqguzV3W/z2S9zOCwm3rILNkG07hmFPgaOGDD3/OiDWEygvWbY7jVESq3bVT6ti1UHkPeiqtQJontaTM46jWMAIJspLTgkybHRcaxXLPtUGNVIPs5UpUxKr/I8/yGo1HZs1wwj4N8T93pLs7f4McWKYdv5F4j/S2bzm2AeKpr6ra63QRCLium87yRouskrj7cuORcyCGtmcKfgCCtijVNBqttEUyxfJIN3UhA7sXVjVpUFFBnqIUwQ56jO2JYvuDUzED3JnlsOd9NpEGJQzNgPSwahVDKirpRBY8aG8bKxKb0LCLhByaqIVTqxYSurKrxhIhulUZrwWIkciPH5ZVxKLvw7toWJjccFT9o2XqL2cjy6z2IlGOe4/rFAp8aUL0HYUoeoF6t78/U72nUEXwvnRYqFuxX153VbqYpHYEy1nySM0GA0iF8q45ppfJUoia+eEG/ZKuxykHZbE6vl9AHj5bgHzmmbTiYZl4n9tNMYwYSLzaRn2O2xweF/7cIdbA=="
         target="_blank"
         >Source code</a
       >
