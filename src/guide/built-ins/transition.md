@@ -10,24 +10,24 @@ import BetweenComponents from './transition-demos/BetweenComponents.vue'
 
 # Transition {#transition}
 
-Vue offers two built-in components that can help work with transitions and animations in response to changing state:
+Vue nabízí dvě vestavěné komponenty, které pomáhají pracovat s přechody a animacemi v reakci na změny stavu:
 
-- `<Transition>` for applying animations when an element or component is entering and leaving the DOM. This is covered on this page.
+- `<Transition>` pro aplikaci animací, když element nebo komponenta vstupuje či vystupuje z DOM. Tomu se věnuje tato stránka.
 
-- `<TransitionGroup>` for applying animations when an element or component is inserted into, removed from, or moved within a `v-for` list. This is covered in [the next chapter](/guide/built-ins/transition-group).
+- `<TransitionGroup>` pro aplikaci animací při vložení elementu nebo komponenty do seznamu `v-for`, při odebrání elementu nebo komponenty z tohoto seznamu nebo při jejich přesunu v rámci seznamu. Tím se zabývá [další kapitola](/guide/built-ins/transition-group).
 
-Aside from these two components, we can also apply animations in Vue using other techniques such as toggling CSS classes or state-driven animations via style bindings. These additional techniques are covered in the [Animation Techniques](/guide/extras/animation) chapter.
+Kromě těchto dvou komponent můžeme ve Vue aplikovat animace také pomocí dalších technik, jako je přepínání CSS tříd nebo stavově řízené animace pomocí bindingu stylů. Tyto další techniky jsou popsány v kapitole [Techniky animace](/guide/extras/animation).
 
-## The `<Transition>` Component {#the-transition-component}
+## Komponenta `<Transition>` {#the-transition-component}
 
-`<Transition>` is a built-in component: this means it is available in any component's template without having to register it. It can be used to apply enter and leave animations on elements or components passed to it via its default slot. The enter or leave can be triggered by one of the following:
+`<Transition>` je vestavěná komponenta: to znamená, že je k dispozici v jakékoli šabloně komponenty, aniž by bylo nutné ji registrovat. Lze ji použít k aplikaci vstupních a výstupních animací na elementy nebo komponenty, které jsou jí předány prostřednictvím výchozího slotu. Vstup nebo výstup může být spuštěn jednou z následujících akcí:
 
-- Conditional rendering via `v-if`
-- Conditional display via `v-show`
-- Dynamic components toggling via the `<component>` special element
-- Changing the special `key` attribute
+- Podmíněné vykreslování přes `v-if`
+- Podmíněné zobrazení přes `v-show`
+- Dynamické přepínání komponent přes speciální element `<component>`
+- Změna speciálního atributu `key`
 
-This is an example of the most basic usage:
+Toto je příklad nejzákladnějšího použití:
 
 ```vue-html
 <button @click="show = !show">Změnit zobrazení</button>
@@ -37,7 +37,7 @@ This is an example of the most basic usage:
 ```
 
 ```css
-/* we will explain what these classes do next! */
+/* vzápětí vysvětlíme, co tyto třídy znamenají! */
 .v-enter-active,
 .v-leave-active {
   transition: opacity 0.5s ease;
