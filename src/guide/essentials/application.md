@@ -59,7 +59,7 @@ Funkce `.mount()` by měla být vždy volána po dokončení všech aplikačníc
 
 ### DOM-šablona root komponenty {#in-dom-root-component-template}
 
-Při použití Vue bez build fáze můžeme zapsat šablonu naší root komponenty přímo do elementu kontejneru určeného pro připojení (mount):
+Šablona root komponenty je většinou součástí komponenty samotné. Ale můžeme také poskytnout šablonu samostatně, pokud ji zapíšeme přímo do elementu určeného pro připojení komponenty (mount container):
 
 ```html
 <div id="app">
@@ -82,6 +82,8 @@ app.mount('#app')
 ```
 
 Vue automaticky použije atribut `innerHTML` kontejneru jako šablonu, pokud root komponenta ještě nemá vlastní nastavení `template`.
+
+In-DOM šablony jsou často používány v aplikacích, které [používají Vue bez build fáze](/guide/quick-start.html#using-vue-from-cdn). Mohou být také použity ve spojení se server-side frameworky, kde může být root šablona dynamicky generována serverem.
 
 ## Nastavení aplikace {#app-configurations}
 

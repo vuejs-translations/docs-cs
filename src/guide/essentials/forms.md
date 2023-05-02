@@ -44,7 +44,7 @@ Navíc může být `v-model` použita i na další druhy vstupů, elementy `<tex
 - `<select>` používá atribut `value` a událost `change`.
 
 ::: tip Poznámka
-`v-model` bude ignorovat výchozí atributy `value`, `checked` či `selected` nalezené na jakýchkoli prvcích formuláře. Vždy bude za zdroj pravdy považovat aktuální binding JavaScript stavu. Počáteční hodnotu byste měli deklarovat na straně JavaScriptu pomocí <span class="options-api">proměnné `data`</span><span class="composition-api">API pro reaktivitu</span>.
+`v-model` bude ignorovat výchozí atributy `value`, `checked` či `selected` nalezené na jakýchkoli prvcích formuláře. Vždy bude za zdroj pravdy považovat aktuální binding JavaScript stavu. Počáteční hodnotu byste měli deklarovat na straně JavaScriptu pomocí <span class="options-api">proměnné [`data`](/api/options-state.html#data)</span><span class="composition-api">[API pro reaktivitu](/api/reactivity-core.html#reactivity-api-core)</span>.
 :::
 
 ## Základní použití {#basic-usage}

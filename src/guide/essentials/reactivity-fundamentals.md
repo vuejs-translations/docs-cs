@@ -5,7 +5,6 @@ outline: deep
 # Základy reaktivity {#reactivity-fundamentals}
 
 :::tip API preference
-
 Tato stránka a mnoho dalších kapitol dále v průvodci obsahuje různý obsah pro Options API a Composition API. Vaše aktuální preference je <span class="options-api">Options API</span><span class="composition-api">Composition API</span>. Mezi API styly můžete přepínat pomocí přepínače "API preference" vlevo nahoře.
 :::
 
