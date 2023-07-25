@@ -80,7 +80,8 @@ export default {
     <button @click="count++">
       You clicked me {{ count }} times.
     </button>`
-  // nebo `template: '#my-template-element'`
+  // může také adresovat in-DOM šablonu
+  // template: '#my-template-element'
 }
 ```
 

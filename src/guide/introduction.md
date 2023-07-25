@@ -30,6 +30,8 @@ Vue (výslovnost /vjú/) je  JavaScriptový framework pro tvorbu uživatelského
 
 Zde je minimální příklad:
 
+<div class="options-api">
+
 ```js
 import { createApp } from 'vue'
 
@@ -41,6 +43,23 @@ createApp({
   }
 }).mount('#app')
 ```
+
+</div>
+<div class="composition-api">
+
+```js
+import { createApp, ref } from 'vue'
+
+createApp({
+  setup() {
+    return {
+      count: ref(0)
+    }
+  }
+}).mount('#app')
+```
+
+</div>
 
 ```vue-html
 <div id="app">
@@ -95,6 +114,8 @@ Navzdory flexibilitě je základní znalost o fungování Vue sdílená napří�
 
 Ve většině build-tool-enabled Vue projektech používáme Vue komponenty v HTML-like souborovém formátu nazývaném **Single-File Component** (také známé jako `*.vue` soubory, zkráceně **SFC**). Vue SFC, jak název napovídá, obaluje logiku (JavaScript), šablonu (HTML) a styly (CSS) do jednoho souboru. Zde je přechozí příklad přepsaný do SFC formátu:
 
+<div class="options-api">
+
 ```vue
 <script>
 export default {
@@ -116,6 +137,28 @@ button {
 }
 </style>
 ```
+
+</div>
+<div class="composition-api">
+
+```vue
+<script setup>
+import { ref } from 'vue'
+const count = ref(0)
+</script>
+
+<template>
+  <button @click="count++">Count is: {{ count }}</button>
+</template>
+
+<style scoped>
+button {
+  font-weight: bold;
+}
+</style>
+```
+
+</div>
 
 SFC je určující vlastnost Vue a je to doporučený postup jak tvořit Vue komponenty, **pokud** váš případ použití zahrnuje build fázi. Více o tématu [jak a proč na SFC](/guide/scaling-up/sfc) v k tomu určené sekci - prozatím je potřeba vědět, že Vue zvládne veškeré nastavení build nástrojů za vás.
 

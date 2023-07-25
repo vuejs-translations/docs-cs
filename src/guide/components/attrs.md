@@ -79,18 +79,14 @@ Pokud **nechcete**, aby komponenta automaticky dědila atributy, můžete v jej�
 
 <div class="composition-api">
 
-Pokud používáte `<script setup>`, budete muset toto nastavení deklarovat v samostatném, normálním `<script>` bloku:
+ Od Vue 3.3 můžete pouužít [`defineOptions`](/api/sfc-script-setup#defineoptions) i přímo uvnitř `<script setup>`:
 
 ```vue
-<script>
-// použijte normální <script> k deklaraci nastavení
-export default {
-  inheritAttrs: false
-}
-</script>
-
 <script setup>
-// ...`setup` logika
+defineOptions({
+  inheritAttrs: false
+})
+// ...setup logika
 </script>
 ```
 

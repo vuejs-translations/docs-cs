@@ -1,5 +1,5 @@
 export default {
   mounted() {
-    this.$refs.p.textContent = 'připojeno!'
+    this.$refs.pElementRef.textContent = 'připojeno!'
   }
 }

@@ -5,7 +5,7 @@ Doposud za nás Vue vyřizovalo všechny aktualizace DOM díky reaktivitě a dek
 Můžeme si vyžádat **template ref** - tj. referenci na element v šabloně - pomocí <a target="_blank" href="/api/built-in-special-attributes.html#ref">speciálního atributu `ref`</a>:
 
 ```vue-html
-<p ref="p">Ahoj</p>
+<p ref="pElementRef">Ahoj</p>
 ```
 
 <div class="composition-api">
@@ -15,7 +15,7 @@ Abychom k _template ref_ získali přístup, musíme deklarovat<span class="html
 <div class="sfc">
 
 ```js
-const p = ref(null)
+const pElementRef = ref(null)
 ```
 
 </div>
@@ -23,10 +23,10 @@ const p = ref(null)
 
 ```js
 setup() {
-  const p = ref(null)
+  const pElementRef = ref(null)
 
   return {
-    p
+    pElementRef
   }
 }
 ```
@@ -67,7 +67,7 @@ createApp({
 
 <div class="options-api">
 
-Element bude vystaven v rámci `this.$refs` jako `this.$refs.p`. Můžete k němu nicméně přistoupit až poté, co je komponenta připojena (**mounted**).
+Element bude vystaven v rámci `this.$refs` jako `this.$refs.pElementRef`. Můžete k němu nicméně přistoupit až poté, co je komponenta připojena (**mounted**).
 
 Pro spuštění kódu až po připojení komponenty, můžeme použít sekci `mounted`:
 
@@ -97,4 +97,4 @@ createApp({
 
 Tomuto se říká **lifecycle hook** - umožňuje zaregistrovat callback funkce, které budou zavolány v určitých okamžicích životního cyklu komponenty. Existují i další jako jsou <span class="options-api">`created` a `updated`</span><span class="composition-api">`onUpdated` a `onUnmounted`</span>. Podívejte se na <a target="_blank" href="/guide/essentials/lifecycle.html#lifecycle-diagram">Diagram životního cyklu</a> pro další podrobnosti.
 
-Nyní zkuste přidat <span class="options-api"> `mounted`</span><span class="composition-api"> `onMounted`</span> hook, přistoupit k `<p>` pomocí <span class="options-api">`this.$refs.p`</span><span class="composition-api">`p.value`</span> a provést nad ním nějakou operaci přímo v rámci DOM (např. změnit jeho `textContent`).
+Nyní zkuste přidat <span class="options-api"> `mounted`</span><span class="composition-api"> `onMounted`</span> hook, přistoupit k `<p>` pomocí <span class="options-api">`this.$refs.pElementRef`</span><span class="composition-api">`pElementRef.value`</span> a provést nad ním nějakou operaci přímo v rámci DOM (např. změnit jeho `textContent`).

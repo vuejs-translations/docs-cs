@@ -8,9 +8,10 @@ outline: deep
 Tato stránka a mnoho dalších kapitol dále v průvodci obsahuje různý obsah pro Options API a Composition API. Vaše aktuální preference je <span class="options-api">Options API</span><span class="composition-api">Composition API</span>. Mezi API styly můžete přepínat pomocí přepínače "API preference" vlevo nahoře.
 :::
 
-## Deklarace reaktivního stavu {#declaring-reactive-state}
-
 <div class="options-api">
+
+## Deklarace reaktivního stavu \* {#declaring-reactive-state}
+
 
 S Options API používáme k deklaraci reaktivního stavu komponenty vlastnost `data`. Hodnota vlastnosti by měla být funkce, která vrací objekt. Vue zavolá funkci při vytváření nové instance komponenty a zabalí vrácený objekt do svého systému reaktivity. Jakékoli vlastnosti nejvyšší úrovně tohoto objektu jsou proxy na instanci komponenty (`this` ve funkcích a lifecycle hooks):
 
@@ -67,56 +68,81 @@ Když přistupujete k `this.someObject` po přiřazení hodnoty, tato hodnota je
 
 <div class="composition-api">
 
-Můžeme vytvořit reaktivní objekt nebo pole pomocí funkce [`reactive()`](/api/reactivity-core#reactive):
+## Deklarace reaktivního stavu \*\* {#declaring-reactive-state-1}
+
+### `ref()` \*\* {#ref}
+
+V rámci Composition API je doporučený způsob deklarace reaktivního stavu použitím funkce [`ref()`](/api/reactivity-core#ref):
 
 ```js
-import { reactive } from 'vue'
+import { ref } from 'vue'
 
-const state = reactive({ count: 0 })
+const count = ref(0)
 ```
 
-Reaktivní objekty jsou [JavaScript proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) a chovají se jako normální objekty. Rozdíl je v tom, že Vue je schopno sledovat přístup k vlastnostem a změnám reaktivního objektu. Pokud jste zvědaví na podrobnosti, jak systém Vue reaktivity funguje vysvětlíme v kapitole [Reaktivita podrobně](/guide/extras/reactivity-in-depth) – ale doporučujeme si ji přečíst až po dokončení hlavního průvodce.
+`ref()` přijímá vstupní parametr a vrací jej obalený uvnitř ref objektu s vlastností `.value`:
 
-Viz také: [Typování `reactive()`](/guide/typescript/composition-api#typing-reactive) <sup class="vt-badge ts" />
+```js
+const count = ref(0)
+
+console.log(count) // { value: 0 }
+console.log(count.value) // 0
+
+count.value++
+console.log(count.value) // 1
+```
+
+> Viz také:  [Typování Refs](/guide/typescript/composition-api#typing-ref) <sup class="vt-badge ts" />
 
 Chcete-li použít reaktivní stav v šabloně komponenty, deklarujte a vraťte jej z funkce `setup()` v komponentě:
 
 ```js{5,9-11}
-import { reactive } from 'vue'
+import { ref } from 'vue'
 
 export default {
   // `setup` je speciální hook určený pro Composition API.
   setup() {
-    const state = reactive({ count: 0 })
+    const count = ref(0)
 
     // zpřístupnit stav pro šablonu komponenty
     return {
-      state
+      count
     }
   }
 }
 ```
 
 ```vue-html
-<div>{{ state.count }}</div>
+<div>{{ count }}</div>
 ```
 
-Podobně můžeme deklarovat funkce, které mění reaktivní stav ve stejném scope, a zpřístupnit je spolu se stavem:
+Notice that we did **not** need to append `.value` when using the ref in the template. For convenience, refs are automatically unwrapped when used inside templates (with a few [caveats](#caveat-when-unwrapping-in-templates)).
 
-```js{7-9,14}
-import { reactive } from 'vue'
+You can also mutate a ref directly in event handlers:
+
+```vue-html{1}
+<button @click="count++">
+  {{ count }}
+</button>
+```
+
+For more complex logic, we can declare functions that mutate refs in the same scope and expose them as methods alongside the state:
+
+```js{7-10,15}
+import { ref } from 'vue'
 
 export default {
   setup() {
-    const state = reactive({ count: 0 })
+    const count = ref(0)
 
     function increment() {
-      state.count++
+      // .value is needed in JavaScript
+      count.value++
     }
 
     // nezapomeňte zpřístupnit i funkce
     return {
-      state,
+      count,
       increment
     }
   }
@@ -125,40 +151,73 @@ export default {
 
 Vystavené funkce se obvykle používají jako event listenery:
 
-```vue-html
+```vue-html{1}
 <button @click="increment">
-  {{ state.count }}
+  {{ count }}
 </button>
 ```
 
+Here's the example live on [Codepen](https://codepen.io/vuejs-examples/pen/WNYbaqo), without using any build tools.
+
 ### `<script setup>` \*\* {#script-setup}
 
-Ruční vystavování stavu a funkcí pomocí `setup()` může být zbytečně složité. Naštěstí je to nutné pouze tehdy, když nepoužíváte build fázi. Při použití Single-File komponent (SFC) můžeme použití výrazně zjednodušit pomocí `<script setup>`:
+Ruční vystavování stavu a funkcí pomocí `setup()` může být zbytečně složité. Naštěstí je to nutné pouze tehdy, když nepoužíváte build fázi. Při použití [Single-File komponent (SFC)](/guide/scaling-up/sfc) můžeme použití výrazně zjednodušit pomocí `<script setup>`:
 
-```vue
+```vue{1}
 <script setup>
-import { reactive } from 'vue'
+import { ref } from 'vue'
 
-const state = reactive({ count: 0 })
+const count = ref(0)
 
 function increment() {
-  state.count++
+  count.value++
 }
 </script>
 
 <template>
   <button @click="increment">
-    {{ state.count }}
+    {{ count }}
   </button>
 </template>
 ```
 
-[Vyzkoušejte si to](https://play.vuejs.org/#eNpNjkEKgzAURK8yZFNF0K5FS3uPbGyIEKo/If64Cbl7fxWky2HePCarVwjtnqzq1bCZ6AJjs5zCQ5Nbg4+MjGgnw263KJijX3ET/qZJk/G0Cc8TW4wXVmUYn4h73FHqHzcnksYTHJloV0tc1ciacG7bA28aTUXT0J035IAEtmtYBJEEDO/ELJanWZz5jFpdOq0OAMj5X4kiQtl151CYobuMqnwBBoFaVA==)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNo9jUEKgzAQRa8yZKMiaNcllvYe2dgwQqiZhDhxE3L3jrW4/DPvv1/UK8Zhz6juSm82uciwIef4MOR8DImhQMIFKiwpeGgEbQwZsoE2BhsyMUwH0d66475ksuwCgSOb0CNx20ExBCc77POase8NVUN6PBdlSwKjj+vMKAlAvzOzWJ52dfYzGXXpjPoBAKX856uopDGeFfnq8XKp+gWq4FAi)
 
-Importy nejvyšší úrovně a proměnné deklarované v `<script setup>` jsou v šabloně stejné komponenty použitelné automaticky.
+Importy nejvyšší úrovně a proměnné deklarované v `<script setup>` jsou v šabloně stejné komponenty použitelné automaticky. Přemýšlejte o šablonách jako o JavaScript funkcích deklarovaných ve stejném scope - přirozeně mají přístup ke všemu, co je kolem ní deklarováno.
 
 > Ve zbytku průvodce budeme pro příklady kódu Composition API primárně používat syntaxi SFC + `<script setup>`, protože to je pro Vue vývojáře nejběžnější použití.
 
+If you are not using SFC, you can still use Composition API with the [`setup()`](/api/composition-api-setup) option.
+:::
+
+### Why Refs? \*\* {#why-refs}
+
+You might be wondering why we need refs with the `.value` instead of plain variables. To explain that, we will need to briefly discuss how Vue's reactivity system works.
+
+When you use a ref in a template, and change the ref's value later, Vue automatically detects the change and updates the DOM accordingly. This is made possible with a dependency-tracking based reactivity system. When a component is rendered for the first time, Vue **tracks** every ref that was used during the render. Later on, when a ref is mutated, it will **trigger** a re-render for components that are tracking it.
+
+In standard JavaScript, there is no way to detect the access or mutation of plain variables. However, we can intercept the get and set operations of an object's properties using getter and setter methods.
+
+The `.value` property gives Vue the opportunity to detect when a ref has been accessed or mutated. Under the hood, Vue performs the tracking in its getter, and performs triggering in its setter. Conceptually, you can think of a ref as an object that looks like this:
+
+```js
+// pseudo code, not actual implementation
+const myRef = {
+  _value: 0,
+  get value() {
+    track()
+    return this._value
+  },
+  set value(newValue) {
+    this._value = newValue
+    trigger()
+  }
+}
+```
+
+Another nice trait of refs is that unlike plain variables, you can pass refs into functions while retaining access to the latest value and the reactivity connection. This is particularly useful when refactoring complex logic into reusable code.
+
+The reactivity system is discussed in more details in the [Reactivity in Depth](/guide/extras/reactivity-in-depth) section.
 </div>
 
 <div class="options-api">
@@ -212,50 +271,11 @@ Ve výše uvedeném příkladu je zavolána funkce `increment` ve chvíli, kdy j
 
 </div>
 
-### Časování aktualizací DOM {#dom-update-timing}
-
-Když změníte reaktivní stav, DOM se automaticky aktualizuje. Je však třeba upozornit, že aktualizace DOM nejsou aplikovány synchronně. Místo toho je Vue ukládá do vyrovnávací paměti až do „příštího běhu“ (tick) aktualizačního cyklu, aby bylo zajištěno, že se každá komponenta aktualizuje pouze jednou bez ohledu na to, kolik změn stavu jste provedli.
-
-Chcete-li vyčkat na dokončení aktualizace DOM po změně stavu, můžete použít globální API [nextTick()](/api/general#nexttick):
-
-<div class="composition-api">
-
-```js
-import { nextTick } from 'vue'
-
-function increment() {
-  state.count++
-  nextTick(() => {
-    // přístup k aktualizovanému DOM
-  })
-}
-```
-
-</div>
-<div class="options-api">
-
-```js
-import { nextTick } from 'vue'
-
-export default {
-  methods: {
-    increment() {
-      this.count++
-      nextTick(() => {
-        // přístup k aktualizovanému DOM
-      })
-    }
-  }
-}
-```
-
-</div>
-
 ### Vnořená reaktivita {#deep-reactivity}
 
-Ve Vue ve výchozím nastavení je stav hluboce reaktivní. To znamená, že můžete očekávat, že změny budou detekovány, i když změníte vnořené objekty nebo pole:
-
 <div class="options-api">
+
+Ve Vue ve výchozím nastavení je stav hluboce reaktivní. To znamená, že můžete očekávat, že změny budou detekovány, i když změníte vnořené objekty nebo pole:
 
 ```js
 export default {
@@ -281,26 +301,98 @@ export default {
 
 <div class="composition-api">
 
-```js
-import { reactive } from 'vue'
+Refs can hold any value type, including deeply nested objects, arrays, or JavaScript built-in data structures like `Map`.
 
-const obj = reactive({
+A ref will make its value deeply reactive. This means you can expect changes to be detected even when you mutate nested objects or arrays:
+
+```js
+import { ref } from 'vue'
+
+const obj = ref({
   nested: { count: 0 },
   arr: ['foo', 'bar']
 })
 
 function mutateDeeply() {
   // bude fungovat podle očekávání
-  obj.nested.count++
-  obj.arr.push('baz')
+  obj.value.nested.count++
+  obj.value.arr.push('baz')
+}
+```
+
+Non-primitive values are turned into reactive proxies via [`reactive()`](#reactive), which is discussed below.
+
+It is also possible to opt-out of deep reactivity with [shallow refs](/api/reactivity-advanced#shallowref). For shallow refs, only `.value` access is tracked for reactivity. Shallow refs can be used for optimizing performance by avoiding the observation cost of large objects, or in cases where the inner state is managed by an external library.
+
+Further reading:
+
+- [Reduce Reactivity Overhead for Large Immutable Structures](/guide/best-practices/performance#reduce-reactivity-overhead-for-large-immutable-structures)
+- [Integration with External State Systems](/guide/extras/reactivity-in-depth#integration-with-external-state-systems)
+
+</div>
+
+### DOM Update Timing {#dom-update-timing}
+
+When you mutate reactive state, the DOM is updated automatically. However, it should be noted that the DOM updates are not applied synchronously. Instead, Vue buffers them until the "next tick" in the update cycle to ensure that each component updates only once no matter how many state changes you have made.
+
+To wait for the DOM update to complete after a state change, you can use the [nextTick()](/api/general#nexttick) global API:
+
+<div class="composition-api">
+
+```js
+import { nextTick } from 'vue'
+
+async function increment() {
+  count.value++
+  await nextTick()
+  // Now the DOM is updated
+}
+```
+
+</div>
+<div class="options-api">
+
+```js
+import { nextTick } from 'vue'
+
+export default {
+  methods: {
+    async increment() {
+      this.count++
+      await nextTick()
+      // Now the DOM is updated
+    }
+  }
 }
 ```
 
 </div>
 
-Je také možné explicitně vytvořit tzv. [shallow reaktivní objekty](/api/reactivity-advanced#shallowreactive), kde je reaktivita sledována pouze na kořenové úrovni, ale takové jsou obvykle potřeba pouze v pokročilejších případech užití.
-
 <div class="composition-api">
+
+## `reactive()` \*\* {#reactive}
+
+There is another way to declare reactive state, with the `reactive()` API. Unlike a ref which wraps the inner value in a special object, `reactive()` makes an object itself reactive:
+
+```js
+import { reactive } from 'vue'
+
+const state = reactive({ count: 0 })
+```
+
+> See also: [Typing Reactive](/guide/typescript/composition-api#typing-reactive) <sup class="vt-badge ts" />
+
+Usage in template:
+
+```vue-html
+<button @click="state.count++">
+  {{ state.count }}
+</button>
+```
+
+Reactive objects are [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) and behave just like normal objects. The difference is that Vue is able to intercept the access and mutation of all properties of a reactive object for reactivity tracking and triggering.
+
+`reactive()` converts the object deeply: nested objects are also wrapped with `reactive()` when accessed. It is also called by `ref()` internally when the ref value is an object. Similar to shallow refs, there is also the [`shallowReactive()`](/api/reactivity-advanced#shallowreactive) API for opting-out of deep reactivity.
 
 ### Reaktivní proxy vs. originál \*\* {#reactive-proxy-vs-original-1}
 
@@ -352,33 +444,29 @@ API funkce `reactive()` má dvě omezení:
    state = reactive({ count: 1 })
    ```
 
-   To také znamená, že když přiřazujeme nebo dekonstruujme (destructure) vlastnost reaktivního objektu do lokálních proměnných nebo když tuto vlastnost předáme jako parametr funkci, ztratíme spojení reaktivity:
+3. **Není destructure-friendly:** ldyž dekonstruujme (destructure) vlastnosti reaktivního objektu do lokálních proměnných nebo když tuto vlastnost předáme jako parametr funkci, ztratíme spojení reaktivity:
 
    ```js
    const state = reactive({ count: 0 })
 
-   // n je lokální proměnná, která je odpojena
-   // od state.count.
-   let n = state.count
-   // neovlivní původní stav
-   n++
-
-   // count je také odpojena od state.count.
+   // count je při dekonstrukci odpojena od state.count
    let { count } = state
    // neovlivní původní stav
    count++
 
    // funkce obdrží pouze prosté číslo
    // a nebude moci sledovat změny state.count
+   // pro zachování reaktivity musíme předat celá objekt
    callSomeFunction(state.count)
    ```
+
+Kvůli těmto omezením doporučujeme používat `ref()` jako primární API pro deklaraci reaktivního stavu.
 
 ## Reaktivní proměnné s `ref()` \*\* {#reactive-variables-with-ref}
 
 Pro řešení omezení `reactive()` poskytuje Vue také funkci [`ref()`](/api/reactivity-core#ref), která nám umožňuje vytvářet reaktivní **"refs"**, které mohou obsahovat hodnotu jakéhokoliv typu:
 
-```js
-import { ref } from 'vue'
+### As Reactive Object Property \*\* {#ref-unwrapping-as-reactive-object-property}
 
 const count = ref(0)
 ```
@@ -488,6 +576,7 @@ Toto je pouze užitečná vlastnost funkce textové interpolace a je ekvivalentn
 ### Rozbalování ref v reaktivních objektech \*\* {#ref-unwrapping-in-reactive-objects}
 
 Když je k instanci 'ref' přistupováno nebo je měněno jako vlastnost reaktivního objektu, je také automaticky rozbaleno, takže se chová jako normální vlastnost:
+A ref is automatically unwrapped when accessed or mutated as a property of a reactive object. In other words, it behaves like a normal property :
 
 ```js
 const count = ref(0)
@@ -517,6 +606,9 @@ K rozbalení ref dochází pouze při vnoření do hluboce reaktivního objektu.
 ### Rozbalování ref v polích a kolekcích {#ref-unwrapping-in-arrays-and-collections}
 
 Na rozdíl od reaktivních objektů nedochází k žádnému rozbalení, když se k ref přistupuje jako k prvku reaktivního pole nebo nativního typu kolekce, jako je `Map`:
+### Caveat in Arrays and Collections \*\* {#caveat-in-arrays-and-collections}
+
+Unlike reactive objects, there is **no** unwrapping performed when the ref is accessed as an element of a reactive array or a native collection type like `Map`:
 
 ```js
 const books = reactive([ref('Vue 3 Guide')])
@@ -527,6 +619,49 @@ const map = reactive(new Map([['count', ref(0)]]))
 // zde je třeba .value
 console.log(map.get('count').value)
 ```
+
+### Caveat when Unwrapping in Templates \*\* {#caveat-when-unwrapping-in-templates}
+
+Ref unwrapping in templates only applies if the ref is a top-level property in the template render context.
+
+In the example below, `count` and `object` are top-level properties, but `object.id` is not:
+
+```js
+const count = ref(0)
+const object = { id: ref(0) }
+```
+
+Therefore, this expression works as expected:
+
+```vue-html
+{{ count + 1 }}
+```
+
+...while this one does **NOT**:
+
+```vue-html
+{{ object.id + 1 }}
+```
+
+The rendered result will be `[object Object]1` because `object.id` is not unwrapped when evaluating the expression and remains a ref object. To fix this, we can destructure `id` into a top-level property:
+
+```js
+const { id } = object
+```
+
+```vue-html
+{{ id + 1 }}
+```
+
+Now the render result will be `2`.
+
+Another thing to note is that a ref does get unwrapped if it is the final evaluated value of a text interpolation (i.e. a <code v-pre>{{ }}</code> tag), so the following will render `1`:
+
+```vue-html
+{{ object.id }}
+```
+
+This is just a convenience feature of text interpolation and is equivalent to <code v-pre>{{ object.id.value }}</code>.
 
 </div>
 

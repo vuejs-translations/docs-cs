@@ -2,14 +2,14 @@ import { ref, onMounted } from 'vue'
 
 export default {
   setup() {
-    const p = ref(null)
+    const pElementRef = ref(null)
 
     onMounted(() => {
-      p.value.textContent = 'připojeno!'
+      pElementRef.value.textContent = 'připojeno!'
     })
 
     return {
-      p
+      pElementRef
     }
   }
 }

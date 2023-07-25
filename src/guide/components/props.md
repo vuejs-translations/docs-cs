@@ -496,7 +496,7 @@ Pokud validace vlastnosti selže, zobrazí Vue varování do konzole (pokud je a
 
 <div class="composition-api">
 
-Pokud používáte [Type-based deklarace vlastností](/api/sfc-script-setup#typescript-only-features) <sup class="vt-badge ts" />, Vue se pokusí kompilovat typové anotace na odpovídající runtime deklarace vlastností jak nejlépe dovede. Například, `defineProps<{ msg: string }>` bude při kompilaci převedeno na`{ msg: { type: String, required: true }}`.
+Pokud používáte [Type-based deklarace vlastností](/api/sfc-script-setup#type-only-props-emit-declarations) <sup class="vt-badge ts" />, Vue se pokusí kompilovat typové anotace na odpovídající runtime deklarace vlastností jak nejlépe dovede. Například, `defineProps<{ msg: string }>` bude při kompilaci převedeno na`{ msg: { type: String, required: true }}`.
 
 </div>
 <div class="options-api">
@@ -592,12 +592,29 @@ Lze komponentu použít i tímto způsobem:
 ```
 
 Když je vlastnost deklarována, aby umožnila více typů, např.:
+Když je vlastnost deklarována, aby umožnila více typů, budou uplatněna rovněž pravidla přetypování pro `Boolean`. Ovšem je tu krajní případ, kdy jsou povoleny jak `String`, tak `Boolean` - pravidlo přetypování na Boolean bude uplatněno pouze pokud se Boolean objeví před String:
 
 <div class="composition-api">
 
 ```js
+// disabled bude přetypováno na true
 defineProps({
   disabled: [Boolean, Number]
+})
+  
+// disabled bude přetypováno na true
+defineProps({
+  disabled: [Boolean, String]
+})
+  
+// disabled bude přetypováno na true
+defineProps({
+  disabled: [Number, Boolean]
+})
+  
+// disabled bude chápáno jako prázdný string (disabled="")
+defineProps({
+  disabled: [String, Boolean]
 })
 ```
 
@@ -605,13 +622,33 @@ defineProps({
 <div class="options-api">
 
 ```js
+// disabled bude přetypováno na true
 export default {
   props: {
     disabled: [Boolean, Number]
   }
 }
+  
+// disabled bude přetypováno na true
+export default {
+  props: {
+    disabled: [Boolean, String]
+  }
+}
+  
+// disabled bude přetypováno na true
+export default {
+  props: {
+    disabled: [Number, Boolean]
+  }
+}
+  
+// disabled bude chápáno jako prázdný string (disabled="")
+export default {
+  props: {
+    disabled: [String, Boolean]
+  }
+}
 ```
 
 </div>
-
-Pravidla pro přetypování `Boolean` se bez ohledu na pořadí typů uplatní.

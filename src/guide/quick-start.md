@@ -22,7 +22,7 @@ footer: false
 
 V této sekci si ukážeme jak vystavět základ Vue [Single Page aplikaci](/guide/extras/ways-of-using-vue#single-page-application-spa) na vašem lokálním počítači. Vytvořený projekt bude používat build setup založený na [Vite](https://vitejs.dev) a umožní nám použít Vue [Single-File Components](/guide/scaling-up/sfc) (SFCs).
 
-Zkontrolujte, že máte nainstalovanou aktuální verzi [Node.js](https://nodejs.org/) a poté spusťte následující příkaz ve vašem příkazovém řádku (bez znaku `>`):
+Zkontrolujte, že máte nainstalovanou aktuální verzi [Node.js](https://nodejs.org/) a váš aktuální pracovní adresář je ten, v němž chcete založit projekt. Spusťte následující příkaz ve vašem příkazovém řádku (bez znaku `>`):
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">&gt;</span> <span style="color:#A6ACCD;">npm init vue@latest</span></span></code></pre></div>
 
@@ -34,7 +34,7 @@ Tento příkaz nainstaluje a spustí [create-vue](https://github.com/vuejs/creat
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Vue Router for Single Page Application development? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Pinia for state management? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Vitest for Unit testing? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
-<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Cypress for both Unit and End-to-End testing? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
+<span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add an End-to-End Testing Solution? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Cypress / Playwright</span></span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add ESLint for code quality? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
 <span style="color:var(--vt-c-green);">✔</span> <span style="color:#A6ACCD;">Add Prettier for code formatting? <span style="color:#888;">… <span style="color:#89DDFF;text-decoration:underline">No</span> / Yes</span></span>
 <span></span>
@@ -78,7 +78,9 @@ Při použití Vue z CDN není v procesu žádný "build step". Díky tomu je p�
 
 ### Použití globálního buildu {#using-the-global-build}
 
-výše uvedený odkaz vede na *globalní build* Vue, kde jsou všechny API nejvyšší úrovně publikované jako vlastnosti globálního `Vue` objektu. Zde je kompletní příklad s použitím globálního buildu:
+výše uvedený odkaz vede na _globalní build_ Vue, kde jsou všechny API nejvyšší úrovně publikované jako vlastnosti globálního `Vue` objektu. Zde je kompletní příklad s použitím globálního buildu:
+
+<div class="options-api">
 
 ```html
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -98,11 +100,44 @@ výše uvedený odkaz vede na *globalní build* Vue, kde jsou všechny API nejvy
 </script>
 ```
 
-[JSFiddle demo](https://jsfiddle.net/yyx990803/nw1xg8Lj/)
+[Codepen demo](https://codepen.io/vuejs-examples/pen/QWJwJLp)
+
+</div>
+
+<div class="composition-api">
+
+```html
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app">{{ message }}</div>
+
+<script>
+  const { createApp, ref } = Vue
+
+  createApp({
+    setup() {
+      const message = ref('Hello vue!')
+      return {
+        message
+      }
+    }
+  }).mount('#app')
+</script>
+```
+
+[Codepen demo](https://codepen.io/vuejs-examples/pen/eYQpQEG)
+
+:::tip
+Many of the examples for Composition API throughout the guide will be using the `<script setup>` syntax, which requires build tools. If you intend to use Composition API without a build step, consult the usage of the [`setup()` option](/api/composition-api-setup).
+:::
+
+</div>
 
 ### Použití ES Module buildu {#using-the-es-module-build}
 
 Ve zbytku dokumentace budeme primárně používat [ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) syntaxi. Téměř všechny moderní prohlížeče dnes přirozeně podporují ES moduly, takže můžeme použít Vue z CDN přes nativní ES moduly takto:
+
+<div class="options-api">
 
 ```html{3,4}
 <div id="app">{{ message }}</div>
@@ -120,9 +155,41 @@ Ve zbytku dokumentace budeme primárně používat [ES modules](https://develope
 </script>
 ```
 
+</div>
+
+<div class="composition-api">
+
+```html{3,4}
+<div id="app">{{ message }}</div>
+
+<script type="module">
+  import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+  createApp({
+    setup() {
+      const message = ref('Hello Vue!')
+      return {
+        message
+      }
+    }
+  }).mount('#app')
+</script>
+```
+
+</div>
+
 Všimněte si, že používáme `<script type="module">` a importovaná CDN URL vede na  **ES modules build** verzi Vue.
 
-[JSFiddle demo](https://jsfiddle.net/yyx990803/vo23c470/)
+<div class="options-api">
+
+[Codepen demo](https://codepen.io/vuejs-examples/pen/VwVYVZO)
+
+</div>
+<div class="composition-api">
+
+[Codepen demo](https://codepen.io/vuejs-examples/pen/MWzazEv)
+
+</div>
 
 ### Použití Import map {#enabling-import-maps}
 
@@ -133,6 +200,8 @@ import { createApp } from 'vue'
 ```
 
 Můžeme naučit prohlížeč, kde najde `vue` import s využitím [Import Maps](https://caniuse.com/import-maps):
+
+<div class="options-api">
 
 ```html{1-7,12}
 <script type="importmap">
@@ -158,16 +227,45 @@ Můžeme naučit prohlížeč, kde najde `vue` import s využitím [Import Maps]
 </script>
 ```
 
-[JSFiddle demo](https://jsfiddle.net/yyx990803/2ke1ab0z/)
+[Codepen demo](https://codepen.io/vuejs-examples/pen/wvQKQyM)
+
+</div>
+
+<div class="composition-api">
+
+```html{1-7,12}
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+    }
+  }
+</script>
+
+<div id="app">{{ message }}</div>
+
+<script type="module">
+  import { createApp, ref } from 'vue'
+
+  createApp({
+    setup() {
+      const message = ref('Hello Vue!')
+      return {
+        message
+      }
+    }
+  }).mount('#app')
+</script>
+```
+
+[Codepen demo](https://codepen.io/vuejs-examples/pen/YzRyRYM)
+
+</div>
 
 Do import mapy můžete přidat i záznamy pro další závislosti - ujistěte se ale, že ukazují na ES modules verzi knihovny, kterou chcete použít.
 
 :::tip Podpora Import Maps v prohlížečích
-Import mapy jsou defaultně podporované v Chromium-based prohlížečích, takže během učení doporučujeme používat Chrome nebo Edge.
-
-Pokud používáte Firefox, defaultní podpora je od verze 108+, případně od verze 102+ lze nastvit `dom.importMaps.enabled` v `about:config` na hodnotu true.
-
-Pokud váš oblíbený prohlížeč import mapy zatím nepodporuje, můžete použít polyfill [es-module-shims](https://github.com/guybedford/es-module-shims).
+Import Maps jsou relativně nová funkcionalita prohlížečů. Ujistěte se že používáte prohlížeč, který je [podporuje](https://caniuse.com/import-maps). Zejména pozor, že jsou podporovány až od Safari 16.4+.
 :::
 
 :::warning Poznámka k produkčnímu použití
@@ -190,6 +288,8 @@ Jak se budeme nořit hlouběji do průvodce, možná budete potřebovat rozděli
 </script>
 ```
 
+<div class="options-api">
+
 ```js
 // my-component.js
 export default {
@@ -200,18 +300,32 @@ export default {
 }
 ```
 
-Pokud otevřete výše uvedené `index.html` v prohlížeči, uvidíte, že stránka vrací chybu, protože ES moduly neumí pracovat přes  `file://` protokol. Aby to mohlo fungovat, musíte svůj `index.html` vystavit přes `http://` protokol,  pomocí lokálního HTTP serveru.
+</div>
+<div class="composition-api">
+
+```js
+// my-component.js
+import { ref } from 'vue'
+export default {
+  setup() {
+    const count = ref(0)
+    return { count }
+  },
+  template: `<div>count is {{ count }}</div>`
+}
+```
+
+</div>
+
+Pokud otevřete výše uvedené `index.html` v prohlížeči, uvidíte, že stránka vrací chybu, protože ES moduly neumí pracovat přes  `file://` protokol, což je protokol, který prohlížeč používá pro otevírání lokálních souborů.
+
+Z bezpečnostních důvodů mohou ES moduly fungovat jen přes `http://` protokol používaný prohlížeči při otevírání webových stránek. Aby ES moduly fungovaly i na vašem lokálním stroji, musíme `index.html` servírovat přes `http://` protokol pomocí lokálního HTTP serveru.
 
 Pro spuštění lokálního HTTP serveru napřed nainstalujte [Node.js](https://nodejs.org/en/) a potom zadejte `npx serve` z příkazové řádky ve stejném adresáři, v jakém je váš HTML soubor. Můžete použít i jakýkoliv jiný HTTP server, který umí poskytovat statické soubory se správnými MIME typy.
 
 Mohli jste si povšimnout, že šablona importované komponenty je zapsaná jako inline JavaScript řetězec. Pokud používáte VSCode, můžete nainstalovat [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) rozšíření a uvodit řetězce předponou `/*html*/` pro zapnutí zvýraznění syntaxe.
 
-### Použití Composition API bez Build fáze {#using-composition-api-without-a-build-step}
-
-Řada příkladů pro Composition API bude používat `<script setup>` syntaxi. Pokud plánujete používat Composition API bez build fáze,
-podívejte se na použití [`setup()` option](/api/composition-api-setup).
-
-## Další kroky {#next-steps}
+## Next Steps {#next-steps}
 
 Pokud jste překročili [Představení](/guide/introduction), silně doporučujme přečíst si ho předtím, než se pustíte do zbytku dokumentace.
 

@@ -26,7 +26,7 @@ Update the element's [innerHTML](https://developer.mozilla.org/en-US/docs/Web/AP
 
 - **Expects:** `string`
 
-- **Details:**
+- **Details**
 
   Contents of `v-html` are inserted as plain HTML - Vue template syntax will not be processed. If you find yourself trying to compose templates using `v-html`, try to rethink the solution by using components instead.
 
@@ -36,7 +36,7 @@ Update the element's [innerHTML](https://developer.mozilla.org/en-US/docs/Web/AP
 
   In [Single-File Components](/guide/scaling-up/sfc), `scoped` styles will not apply to content inside `v-html`, because that HTML is not processed by Vue's template compiler. If you want to target `v-html` content with scoped CSS, you can instead use [CSS modules](./sfc-css-features#css-modules) or an additional, global `<style>` element with a manual scoping strategy such as BEM.
 
-- **Example:**
+- **Example**
 
   ```vue-html
   <div v-html="html"></div>
@@ -177,7 +177,7 @@ Attach an event listener to the element.
 
 - **Argument:** `event` (optional if using Object syntax)
 
-- **Modifiers:**
+- **Modifiers**
 
   - `.stop` - call `event.stopPropagation()`.
   - `.prevent` - call `event.preventDefault()`.
@@ -200,7 +200,7 @@ Attach an event listener to the element.
 
   `v-on` also supports binding to an object of event / listener pairs without an argument. Note when using the object syntax, it does not support any modifiers.
 
-- **Example:**
+- **Example**
 
   ```vue-html
   <!-- method handler -->
@@ -263,13 +263,13 @@ Dynamically bind one or more attributes, or a component prop to an expression.
 
 - **Argument:** `attrOrProp (optional)`
 
-- **Modifiers:**
+- **Modifiers**
 
   - `.camel` - transform the kebab-case attribute name into camelCase.
   - `.prop` - force a binding to be set as a DOM property. <sup class="vt-badge">3.2+</sup>
   - `.attr` - force a binding to be set as a DOM attribute. <sup class="vt-badge">3.2+</sup>
 
-- **Usage:**
+- **Usage**
 
   When used to bind the `class` or `style` attribute, `v-bind` supports additional value types such as Array or Objects. See linked guide section below for more details.
 
@@ -279,7 +279,7 @@ Dynamically bind one or more attributes, or a component prop to an expression.
 
   When used without an argument, can be used to bind an object containing attribute name-value pairs.
 
-- **Example:**
+- **Example**
 
   ```vue-html
   <!-- bind an attribute -->
@@ -353,7 +353,7 @@ Create a two-way binding on a form input element or a component.
   - `<textarea>`
   - components
 
-- **Modifiers:**
+- **Modifiers**
 
   - [`.lazy`](/guide/essentials/forms#lazy) - listen to `change` events instead of `input`
   - [`.number`](/guide/essentials/forms#number) - cast valid input string to numbers
@@ -379,7 +379,7 @@ Denote named slots or scoped slots that expect to receive props.
   - `<template>`
   - [components](/guide/components/slots#scoped-slots) (for a lone default slot with props)
 
-- **Example:**
+- **Example**
 
   ```vue-html
   <!-- Named slots -->
@@ -425,7 +425,7 @@ Skip compilation for this element and all its children.
 
   Inside the element with `v-pre`, all Vue template syntax will be preserved and rendered as-is. The most common use case of this is displaying raw mustache tags.
 
-- **Example:**
+- **Example**
 
   ```vue-html
   <span v-pre>{{ this will not be compiled }}</span>
@@ -517,7 +517,7 @@ Used to hide un-compiled template until it is ready.
 
   `v-cloak` will remain on the element until the associated component instance is mounted. Combined with CSS rules such as `[v-cloak] { display: none }`, it can be used to hide the raw templates until the component is ready.
 
-- **Example:**
+- **Example**
 
   ```css
   [v-cloak] {

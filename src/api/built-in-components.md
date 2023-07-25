@@ -103,7 +103,7 @@ Provides animated transition effects to a **single** element or component.
   ```
 
   Forcing a transition by changing the `key` attribute:
-  
+
   ```vue-html
   <Transition>
     <div :key="text">{{ text }}</div>

@@ -150,9 +150,9 @@ Kvůli tomu **NEBUDE** fungovat následující:
 Uvnitř binding výrazu je možné volat funkci vystavenou v komponentě:
 
 ```vue-html
-<span :title="toTitleDate(date)">
+<time :title="toTitleDate(date)" :datetime="date">
   {{ formatDate(date) }}
-</span>
+</time>
 ```
 
 :::tip
@@ -161,7 +161,7 @@ Funkce volané uvnitř binding výrazů budou volány při každé aktualizaci k
 
 ### Omezení globální přístup {#restricted-globals-access}
 
-Výrazy v šablonách jsou sandboxovány a mají přístup pouze k [omezenému seznamu globálních objektů](https://github.com/vuejs/core/blob/main/packages/shared/src/globalsWhitelist.ts#L3). Seznam vystavuje běžně používané vestavěné globální objekty, jako jsou `Math` a `Date`.
+Výrazy v šablonách jsou sandboxovány a mají přístup pouze k [omezenému seznamu globálních objektů](https://github.com/vuejs/core/blob/main/packages/shared/src/globalsAllowList.ts#L3). Seznam vystavuje běžně používané vestavěné globální objekty, jako jsou `Math` a `Date`.
 
 Globální objekty, které nejsou explicitně uvedeny v seznamu, například vlastnosti připojené uživatelem k instanci `window`, nebudou ve výrazech šablony přístupné. Můžete však explicitně definovat další globální objekty pro všechny Vue výrazy jejich přidáním do [`app.config.globalProperties`](/api/application#app-config-globalproperties).
 

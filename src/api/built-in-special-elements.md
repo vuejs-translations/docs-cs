@@ -144,7 +144,7 @@ Denotes slot content outlets in templates.
 
 The `<template>` tag is used as a placeholder when we want to use a built-in directive without rendering an element in the DOM.
 
-- **Details:**
+- **Details**
 
   The special handling for `<template>` is only triggered if it is used with one of these directives:
 

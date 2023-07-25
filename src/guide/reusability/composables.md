@@ -185,43 +185,60 @@ const { data, error } = useFetch('...')
 </script>
 ```
 
-`useFetch()` přijímá jako vstup statický URL string - načtení tedy provede pouze jednou a poté je hotovo. Co když chceme, aby se načítání opakovalo, kdykoli se změní adresa URL? Toho můžeme dosáhnout tím, že jako parametr přijmeme také refs:
+### Přijímání reaktivního stavu {#accepting-reactive-state}
+
+`useFetch()` přijímá jako vstup statický URL string - načtení tedy provede pouze jednou a poté je hotovo. Co když chceme, aby se načítání opakovalo, kdykoli se změní adresa URL? Toho můžeme dosáhnout tím, že do composable funkce předáme reaktivní stav a necháme composable vytvořit watchery, které budou provádět akce s použitím předaného stavu.
+
+Například `useFetch()` by mělo být schopno akceptovat ref:
 
 ```js
+const url = ref('/initial-url')
+
+const { data, error } = useFetch(url)
+
+// toto by mělo spustit re-fetch
+url.value = '/new-url'
+```
+
+Nebo akceptovat getter funkci:
+
+```js
+// re-fetch when props.id changes
+const { data, error } = useFetch(() => `/posts/${props.id}`)
+```
+
+Můžeme refaktorovat naši existující implemntaci pomocí API funkcí [`watchEffect()`](/api/reactivity-core.html#watcheffect) a [`toValue()`](/api/reactivity-utilities.html#tovalue):
+
+```js{8,13}
 // fetch.js
-import { ref, isRef, unref, watchEffect } from 'vue'
+import { ref, watchEffect, toValue } from 'vue'
 
 export function useFetch(url) {
   const data = ref(null)
   const error = ref(null)
 
-  function doFetch() {
-    // před načtením dat resetovat stav...
+  watchEffect(() => {
+    // resetovat stav před načtením hodnot
     data.value = null
     error.value = null
-    // unref() rozbalí potenciální refs
-    fetch(unref(url))
+    // toValue() rozbalí potenciální refs či gettery
+    fetch(toValue(url))
       .then((res) => res.json())
       .then((json) => (data.value = json))
       .catch((err) => (error.value = err))
-  }
-
-  if (isRef(url)) {
-    // nastavit reaktivní znovunačtení, pokud je vstupní URL ref
-    watchEffect(doFetch)
-  } else {
-    // jinak načteme pouze jednou
-    // a vyhneme se dodatečné režii s použitím watcheru
-    doFetch()
-  }
+  })
 
   return { data, error }
 }
 ```
 
-Tato verze `useFetch()` nyní přijímá jak statický URL string, tak ref na URL string. Pokud zjistí, že URL je dynamický ref pomocí [`isRef()`](/api/reactivity-utilities#isref), nastaví reaktivní efekt pomocí [`watchEffect()`](/api/reactivity-core#watcheffect). Efekt se okamžitě spustí a bude také sledovat URL ref jako svou závislost. Kdykoli se URL ref změní, data se vynulují a načtou se znovu.
+`toValue()` je API přidané ve Vue 3.3. Je určeno k normalizaci refs a getter funkcí na hodnoty. Pokud je vstupním parametrem ref, vrátí jeho .value, pokud je parametrem funkce, zavolá funkci a vrátí její návratovou hodnotu. Jinak vrátí parametr tak, jak byl předán. Funguje podobně jako [`unref()`](/api/reactivity-utilities.html#unref), ale se speciálním přístupem k funkcím.
 
-Zde je [aktualizovaná verze `useFetch()`](https://play.vuejs.org/#eNptVMFu2zAM/RXOl7hYancYdgnSYAO2nTZsKLadfFFsulHrSIYkJwuC/PtISnbdrpc4ksjH9x4pnbNPfV8cBsxW2drXTvcBPIah31RG73vrApzBYbuE2u77IWADF2id3cOCkhazoMHjVwz1bjovynGrePAUWZnaGh9gqzz+dh3cwmIXQu9XZfngrek7VePOdg26Ipx6XdsGCypaBttYXxJATNcNZRKjfPFucTVuDoI3UszzK7jdTIXeUk5xUN2AFD9mnKFRQS0BnbNuSYDBnYj67aQjJ0yKX5fRFfKDFgH3xDMgrQC+WdVAb4XTijfW2yEEa+Bw3Vp3W2UatIEPVQYf607Xj7zD5HWVbc5n0HC5rMuYIuhVWDf6QNm6pVAhRpEMTND95oft/Rv4wtuApGIwAR02KyAsCS726L26R8HlBkpi4jRREKWEe8ffWX0KLal8/Bd5YOcxkmGvKOczfaAj2Vx23TtkHXwWS9L6VYwNO6XNfVEU4/m6nKzMltlsUGgOn8+d9nf8GYysjorCvrQt1uHFIFYG/0peO5g6aJL8rJNwZlKx98I4DpEZOu7yeCI+Pj/iQ+VPpn4CbmzETaAAZUkZdG3AB1IEW6T+I7QcJLJjFJeNc0gVGD1ux979vz+Htt0BIexQBj2GMqWds8YOvjuBt6DDwkNwqn6kS6o8qAmgwR5NQzNzgu1pbmEu0kfxhP0nsRC30w144sJXJCkWXOWCbnWtVUclOnUC4qpMQz2Jw0uRVSD3jkoHCHqPdkgleZsAYpkrOOqu4ys4OCMqaTep1G3UpXiPr0gqbSnMHbWPrsRYQdlyNgOJCdfaJwEhaiQvSV5kJP1hkaKaWy3oz9oUIymLRtOa0a8L1Gwi5DiNwMs+YorkD/3wh7TkMs1i7Hx45MWlKormixrt8Fq4iXpDTxr8vvtGF2F0gbPmXUzzKOQuwDduhj05tYSHgRyIyNbUieE0zDOmqRWvvZGrMYFjJfyVQajMdFemtkdKCdngEX7S5SVaeZ7mmws8kBx5uxN/MuZXAohv+uQ2m/ldhV0RJ45ON3BTvJ/1g4sJ8Ni1l+bEEC6ZMx95WfPFXZxgWS2unlJTP5fw/uYmekW/l+zyD/mIah0=), with an artificial delay and randomized error for demo purposes.
+Všimněte si, že `toValue(url)` je voláno **uvnitř** callbacku funkce `watchEffect`. Toto zajišťuje, že všechny reaktivní závislosti navštívené během normalizace v rámci `toValue()` jsou sledovány watcherem.
+
+Tato verze `useFetch()` nyní přijímá statický URL string, refs i gettery, což ji dělá více fleibilní. `watchEffect()` se ihned spustí a bude sledovat jakékoliv závislosti navštívené během `toValue(url)`. Pokud nejsou sledovány žádné závislosti (např. url už je statický string), efekt proběhne pouze jednou; jinak se spustí znovu pokaždé, když se sledovaná závislost změní.
+
+Zde je [aktualizovaná verze `useFetch()`](https://play.vuejs.org/#eNptVMFu2zAM/RXOFztYZncodgmSYAPWnTZsKLadfFFsulHrSIZEJwuC/PtIyXaTtkALxxT5yPf45FPypevyfY/JIln6yumOwCP13bo0etdZR3ACh80cKrvresIaztA4u4OUi9KLpN7jN6RqO53nxRjKHz1nlqayxhNslMc/roUVpFuizi+K4tFb07Wqwq1ta3Q5HTtd2RpzblqQra0vGCCW65oreaIs/ZjOxmAf8MYRs2wGq/XU6D3X5HvV9sj5Y8UJakVqDuicdXMGJHfk0VcTj4wxOX9ZRFVYD34h3PGchPwG8N2qGjobZlpIYLnpiayB/YfGulWZaNAGPpUJfK5aXT1JRIbXZbI+nUDD+bwsYklAL2lZ6z1X64ZTw2CcKcAM3a1/2s6/gzsJAzKL3hA6rBfAWCE536H36gEDriwwFA4zTSMEpox7L8+L/pxacPv4K86Brcc4jGjFNV/5AS3TlrbLzqHwkLPYkt/fxFiLUto85Hk+ni+LScpknlwYhX147buD4oO7psGK5kD2r+zxhQdLg/9CSdObijSzvVoinGSeuPYwbPSP6VtZ8HgSJHx5JP8XA2TKH00F0V4BFaAouISvDHhiNrBB3j1CI90D5ZglfaMHuYXAx3Dc2+v4JbRt9wi0xWDymCpTbJ01tvftEbwFTakHcqp64guqPKgJoMYOTc1+OcLmeMUlEBzZM3ZUdjVqPPj/eRq5IAPngKwc6UZXWrXcpFVH4GmVqXkt0boiHwGog9IEpHdo+6GphBmgN6L1DA66beUC9s4EnhwdeOomMlMSkwsytLac5g7aR11ibkDZSLUABRk+aD8QoMiS1WSCcaKwISEZ2MqXIaBfLSpmchUb05pRsTNUIiNkOFjr9SZxyJTHOXx1YGR49eGRDP4rzRt6lmay86Re7DcgGTzAL74GrEOWDUaRL9kjb/fSoWzO3wPAlXNB9M1+KNrmcXF8uoab/PaCljQLwCN5oS93+jpFWmYyT/g8Zel9NEJ4S2fPpYMsc7i9uQlREeecnP8DWEwr0Q==), s umělým zpožděním a náhodnými chybami pro demo účely.
 
 ## Konvence a osvědčené postupy {#conventions-and-best-practices}
 
@@ -231,19 +248,22 @@ Composable funkce se podle koncence pojmenovávají camelCase jmény, která za�
 
 ### Vstupní parametry {#input-arguments}
 
-Composable může přijímat parametry typu ref, i když se na ně při reaktivitě nespoléhá. Pokud píšete composable, který mohou používat i jiní vývojáři, je dobré ošetřit případ, kdy jsou namísto surových hodnot vstupními parametry ref. K tomuto účelu se bude hodit pomocná funkce [`unref()`](/api/reactivity-utilities#unref):
+Composable může přijímat parametry typu ref nebo gettery, i když se na ně při reaktivitě nespoléhá. Pokud píšete composable, který mohou používat i jiní vývojáři, je dobré ošetřit případ, kdy jsou namísto surových hodnot vstupními parametry ref nebo gettery. K tomuto účelu se bude hodit pomocná funkce [`toValue()`](/api/reactivity-utilities#tovalue):
 
 ```js
-import { unref } from 'vue'
+import { toValue } from 'vue'
 
-function useFeature(maybeRef) {
-  // pokud je `maybeRef` opravdu ref, bude vrácena jeho `.value`
-  // jinak bude `maybeRef` vrácen ve své aktuální podobě
-  const value = unref(maybeRef)
+function useFeature(maybeRefOrGetter) {
+  // pokud je `maybeRefOrGetter` ref nebo getter
+  // bude vrácena jeho normalizovaná hodnota
+  // jinak bude `maybeRefOrGetter` vrácen ve své aktuální podobě
+  const value = toValue(maybeRefOrGetter)
 }
 ```
 
-Pokud vaše composable vytváří reaktivní efekty, pokud je vstupem ref, ujistěte se, že ref buďto explicitně sledujete pomocí `watch()`, nebo uvnitř `watchEffect()` zavolejte `unref()`, aby byl sledován správně.
+Pokud vaše composable vytváří reaktivní efekty, pokud je vstupem ref nebo getter, ujistěte se, že ref / getter buďto explicitně sledujete pomocí `watch()`, nebo uvnitř `watchEffect()` zavolejte `toValue()`, aby byl sledován správně.
+
+Implementace [useFetch() představená dříve](#accepting-reactive-state) poskytuje konkrétní příklad composable, která přijímá refs, gettery i prosté hodnoty jako vstupní parametry.
 
 ### Návratové hodnoty {#return-values}
 
@@ -278,9 +298,9 @@ Je v pořádku rovádět vedlejší efekty uvnitř composables (např. přidáva
 
 ### Omezení použití {#usage-restrictions}
 
-Composables by měly být volány pouze **synchrononně** v rámci `<script setup>` nebo uvnitř `setup()`. V některých případech je můžete volat také v lifecycle hooks jako je `onMounted()`.
+Composables by měly být volány v rámci `<script setup>` nebo uvnitř `setup()`. V těchto kontextech by také měly být volány **synchrononně**. V některých případech je můžete volat také v lifecycle hooks jako je `onMounted()`.
 
-Jedná se o kontexty, ve kterých je Vue schopno určit právě aktivní instanci komponenty. Přístup k aktivní instanci komponenty je nutný, aby do ní bylo možné:
+Tato omezení jsou důležitá, protože se jedná o kontexty, ve kterých je Vue schopno určit právě aktivní instanci komponenty. Přístup k aktivní instanci komponenty je nutný, aby do ní bylo možné:
 
 1. Registrovat lifecycle hooks.
 
