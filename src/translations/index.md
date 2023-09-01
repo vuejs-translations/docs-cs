@@ -11,6 +11,8 @@ aside: false
 - [日本語 / Japonština](https://ja.vuejs.org/) [[zdrojové kódy](https://github.com/vuejs-translations/docs-ja)]
 - [Українська / Ukrajinština](https://ua.vuejs.org) [[zdrojové kódy](https://github.com/vuejs-translations/docs-ua)]
 - [Français / Francouzština](https://fr.vuejs.org) [[zdrojové kódy](https://github.com/vuejs-translations/docs-fr)]
+- [한국어 / Korejština](https://ko.vuejs.org) [[zdrojové kódy](https://github.com/vuejs-translations/docs-ko)]
+- [Português / Portugalština](https://pt.vuejs.org) [[zdrojové kódy](https://github.com/vuejs-translations/docs-pt)]
 
 <!-- ## Probíhající překlady {#work-in-progress-languages} -->
 
