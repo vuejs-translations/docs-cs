@@ -61,6 +61,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 factory function = tovární metoda
 * 🟥 fallback = fallback
 * 🟩 feature = funkce
+* 🟩 flaw = nedostatek
 * 🟥 focus = focus
 * 🟥 framework = framework
 * 🟥 frontend = frontend
@@ -151,6 +152,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 this is how = tímto způsobem můžeme
 * 🟩 throw an error = vyvolat výjimku
 * 🟩 top level <sth> = <něco> nejvyšší úrovně / globální <něco> (pokud to odpovídá kontextu)
+* 🟥 transition = transition
 * 🟩 tree = strom
 * 🟩 trigger (v.) = vyvolat
 * 🟩 type = typ

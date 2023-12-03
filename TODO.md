@@ -5,7 +5,6 @@ TODO iteration 1
 
 built-ins\
 built-ins\transition.md
-built-ins\transition-group.md
 
 scaling-up\
 scaling-up\routing.md
