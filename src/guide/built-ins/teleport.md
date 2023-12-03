@@ -1,27 +1,27 @@
 # Teleport {#teleport}
 
- <VueSchoolLink href="https://vueschool.io/lessons/vue-3-teleport" title="Free Vue.js Teleport Lesson"/>
+ <VueSchoolLink href="https://vueschool.io/lessons/vue-3-teleport" title="Lekce o komponentě Teleport ve Vue.js zdarma"/>
 
-`<Teleport>` is a built-in component that allows us to "teleport" a part of a component's template into a DOM node that exists outside the DOM hierarchy of that component.
+`<Teleport>` je vestavěná komponenta, který nám umožňuje "teleportovat" část šablony komponenty do DOM elementu, který existuje mimo DOM hierarchii této komponenty.
 
 ## Základní použití {#basic-usage}
 
-Sometimes we may run into the following scenario: a part of a component's template belongs to it logically, but from a visual standpoint, it should be displayed somewhere else in the DOM, outside of the Vue application.
+Někdy se můžeme setkat s následujícím scénářem: část šablony komponenty k ní patří logicky, ale z vizuálního hlediska by měla být zobrazena jinde v DOM, mimo Vue aplikaci.
 
-The most common example of this is when building a full-screen modal. Ideally, we want the modal's button and the modal itself to live within the same component, since they are both related to the open / close state of the modal. But that means the modal will be rendered alongside the button, deeply nested in the application's DOM hierarchy. This can create some tricky issues when positioning the modal via CSS.
+Nejběžnějším příkladem je vytváření modálního okna přes celou obrazovku. Ideálně bychom chtěli, aby tlačítko modálního okna a samotné modální okno existovaly uvnitř stejné komponenty, protože obě souvisí se stavem otevření/zavření modálního okna. Ale to znamená, že modální okno bude vykresleno spolu s tlačítkem, hluboce vnořeno v DOM hierarchii aplikace. To může přinést různé záludné problémy při pozicování modálního okna pomocí CSS.
 
-Consider the following HTML structure.
+Představte si následující HTML strukturu.
 
 ```vue-html
 <div class="outer">
-  <h3>Vue Teleport Example</h3>
+  <h3>Příklad na Vue Teleport</h3>
   <div>
     <MyModal />
   </div>
 </div>
 ```
 
-And here is the implementation of `<MyModal>`:
+A zde je implementace komponenty `<MyModal>`:
 
 <div class="composition-api">
 
@@ -33,11 +33,11 @@ const open = ref(false)
 </script>
 
 <template>
-  <button @click="open = true">Open Modal</button>
+  <button @click="open = true">Otevřít modální okno</button>
 
   <div v-if="open" class="modal">
-    <p>Hello from the modal!</p>
-    <button @click="open = false">Close</button>
+    <p>Ahoj z modálního okna!</p>
+    <button @click="open = false">Zavřít</button>
   </div>
 </template>
 
@@ -68,11 +68,11 @@ export default {
 </script>
 
 <template>
-  <button @click="open = true">Open Modal</button>
+  <button @click="open = true">Otevřít modální okno</button>
 
   <div v-if="open" class="modal">
-    <p>Hello from the modal!</p>
-    <button @click="open = false">Close</button>
+    <p>Ahoj z modálního okna!</p>
+    <button @click="open = false">Zavřít</button>
   </div>
 </template>
 
@@ -90,30 +90,30 @@ export default {
 
 </div>
 
-The component contains a `<button>` to trigger the opening of the modal, and a `<div>` with a class of `.modal`, which will contain the modal's content and a button to self-close.
+Komponenta obsahuje `<button>`, který vyvolá otevření modálního okna, a element `<div>` s třídou `.modal`, který obklopuje samotný obsah modálního okna a tlačítko pro jeho uzavření.
 
-When using this component inside the initial HTML structure, there are a number of potential issues:
+Při použití této komponenty uvnitř původní HTML struktury může nastat několik potenciálních problémů:
 
-- `position: fixed` only places the element relative to the viewport when no ancestor element has `transform`, `perspective` or `filter` property set. If, for example, we intend to animate the ancestor `<div class="outer">` with a CSS transform, it would break the modal layout!
+- `position: fixed` umisťuje prvek relativně k oknu prohlížeče pouze tehdy, když žádný nadřazený prvek nemá nastavenou vlastnost `transform`, `perspective` nebo `filter`. Pokud například chceme animovat nadřazený prvek `<div class="outer">` pomocí CSS transformace, způsobí to narušení layoutu modálního okna!
 
-- The modal's `z-index` is constrained by its containing elements. If there is another element that overlaps with `<div class="outer">` and has a higher `z-index`, it would cover our modal.
+- `z-index` modálního okna je omezen na jeho nadřazené prvky. Pokud existuje jiný prvek, který překrývá `<div class="outer">` a má vyšší `z-index`, překryje náš modální dialog.
 
-`<Teleport>` provides a clean way to work around these, by allowing us to break out of the nested DOM structure. Let's modify `<MyModal>` to use `<Teleport>`:
+`<Teleport>` poskytuje čistý způsob, jak tyto problémy obejít, umožňuje nám vymanit se z vnořené DOM struktury. Upravme komponentu `<MyModal>`, aby používala `<Teleport>`:
 
 ```vue-html{3,8}
-<button @click="open = true">Open Modal</button>
+<button @click="open = true">Otevřít modální okno</button>
 
 <Teleport to="body">
   <div v-if="open" class="modal">
-    <p>Hello from the modal!</p>
-    <button @click="open = false">Close</button>
+    <p>Ahoj z modálního okna!</p>
+    <button @click="open = false">Zavřít</button>
   </div>
 </Teleport>
 ```
 
-The `to` target of `<Teleport>` expects a CSS selector string or an actual DOM node. Here, we are essentially telling Vue to "**teleport** this template fragment **to** the **`body`** tag".
+Atribut `to` uvnitř `<Teleport>` slouží jako cíl a očekává CSS selektor nebo samotný DOM element. Zde v podstatě říkáme Vue, aby "**teleportoval** tento fragment šablony **do** tagu **`body`**".
 
-You can click the button below and inspect the `<body>` tag via your browser's devtools:
+Můžete kliknout na tlačítko níže a pomocí nástrojů pro vývojáře ve vašem prohlížeči zkontrolovat tag `<body>`:
 
 <script setup>
 import { ref } from 'vue'
@@ -121,12 +121,12 @@ const open = ref(false)
 </script>
 
 <div class="demo">
-  <button @click="open = true">Open Modal</button>
+  <button @click="open = true">Otevřít modální okno</button>
   <ClientOnly>
     <Teleport to="body">
       <div v-if="open" class="demo modal-demo">
-        <p style="margin-bottom:20px">Hello from the modal!</p>
-        <button @click="open = false">Close</button>
+        <p style="margin-bottom:20px">Ahoj z modálního okna!</p>
+        <button @click="open = false">Zavřít</button>
       </div>
     </Teleport>
   </ClientOnly>
@@ -147,21 +147,21 @@ const open = ref(false)
 }
 </style>
 
-You can combine `<Teleport>` with [`<Transition>`](./transition) to create animated modals - see [Example here](/examples/#modal).
+Pro vytvoření animovaných modálních oken můžete kombinovat `<Teleport>` s [`<Transition>`](./transition) - viz [příklad zde](/examples/#modal).
 
 :::tip
-The teleport `to` target must be already in the DOM when the `<Teleport>` component is mounted. Ideally, this should be an element outside the entire Vue application. If targeting another element rendered by Vue, you need to make sure that element is mounted before the `<Teleport>`.
+Cíl teleportace `to` musí být už v DOM, když je připojena (mounted) komponenta `<Teleport>`. Ideálně by to měl být prvek mimo celou Vue aplikaci. Pokud je cílem teleportace jiný prvek vykreslený Vue, musíte se ujistit, že je tento prvek připojen dříve než `<Teleport>`.
 :::
 
-## Using with Components {#using-with-components}
+## Použití s komponentami {#using-with-components}
 
-`<Teleport>` only alters the rendered DOM structure - it does not affect the logical hierarchy of the components. That is to say, if `<Teleport>` contains a component, that component will remain a logical child of the parent component containing the `<Teleport>`. Props passing and event emitting will continue to work the same way.
+`<Teleport>` upravuje pouze vykreslenou strukturu DOM - neovlivňuje logickou hierarchii komponent. To znamená, že pokud `<Teleport>` obsahuje komponentu, tato komponenta zůstane logickým potomkem rodičovské komponenty obsahující `<Teleport>`. Předávání vlastností (props) a emitování událostí (emits) bude fungovat stále stejným způsobem.
 
-This also means that injections from a parent component work as expected, and that the child component will be nested below the parent component in the Vue Devtools, instead of being placed where the actual content moved to.
+To také znamená, že `inject` z rodičovské komponenty funguje podle očekávání a že komponenta potomka bude pod komponentu rodiče vnořena i ve Vue Devtools, místo aby byla umístěna tam, kam se přesunul výsledný obsah.
 
-## Disabling Teleport {#disabling-teleport}
+## Zakázání teleportace {#disabling-teleport}
 
-In some cases, we may want to conditionally disable `<Teleport>`. For example, we may want to render a component as an overlay for desktop, but inline on mobile. `<Teleport>` supports the `disabled` prop which can be dynamically toggled:
+V některých případech můžeme chtít `<Teleport>` podmíněně zakázat. Například můžeme chtít vykreslit komponentu jako overlay pro desktop, ale inline na mobilu. `<Teleport>` podporuje vlastnost `disabled`, která může být dynamicky přepínána:
 
 ```vue-html
 <Teleport :disabled="isMobile">
@@ -169,13 +169,13 @@ In some cases, we may want to conditionally disable `<Teleport>`. For example, w
 </Teleport>
 ```
 
-Where the `isMobile` state can be dynamically updated by detecting media query changes.
+Stav `isMobile` může být dynamicky aktualizován pomocí detekce změn v media query.
 
-## Multiple Teleports on the Same Target {#multiple-teleports-on-the-same-target}
+## Více teleportací na stejný cíl {#multiple-teleports-on-the-same-target}
 
-A common use case would be a reusable `<Modal>` component, with the potential for multiple instances to be active at the same time. For this kind of scenario, multiple `<Teleport>` components can mount their content to the same target element. The order will be a simple append - later mounts will be located after earlier ones within the target element.
+Běžným použitím by byla znovupoužitelná komponenta `<Modal>`, která může mít současně více aktivních  instancí. Pro tento případ může více komponent `<Teleport>` připojit svůj obsah ke stejnému cílovému elementu. Pořadí bude jednoduché připojení - pozdější připojení budou umístěna za dřívějšími uvnitř cílového elementu.
 
-Given the following usage:
+S následujícím použitím:
 
 ```vue-html
 <Teleport to="#modals">
@@ -186,7 +186,7 @@ Given the following usage:
 </Teleport>
 ```
 
-The rendered result would be:
+Bude vykreslený výsledkem:
 
 ```html
 <div id="modals">
@@ -197,7 +197,7 @@ The rendered result would be:
 
 ---
 
-**Related**
+**Související**
 
-- [`<Teleport>` API reference](/api/built-in-components#teleport)
-- [Handling Teleports in SSR](/guide/scaling-up/ssr#teleports)
+- [API reference pro `<Teleport>`](/api/built-in-components#teleport)
+- [Zpracování teleportů v SSR režimu](/guide/scaling-up/ssr#teleports)
