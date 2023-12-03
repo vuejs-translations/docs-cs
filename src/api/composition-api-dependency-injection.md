@@ -23,17 +23,17 @@ Provides a value that can be injected by descendant components.
   ```vue
   <script setup>
   import { ref, provide } from 'vue'
-  import { fooSymbol } from './injectionSymbols'
+  import { countSymbol } from './injectionSymbols'
 
   // provide static value
-  provide('foo', 'bar')
+  provide('path', '/project/')
 
   // provide reactive value
   const count = ref(0)
   provide('count', count)
 
   // provide with Symbol keys
-  provide(fooSymbol, count)
+  provide(countSymbol, count)
   </script>
   ```
 
@@ -81,19 +81,19 @@ Injects a value provided by an ancestor component or the application (via `app.p
   ```vue
   <script setup>
   import { inject } from 'vue'
-  import { fooSymbol } from './injectionSymbols'
+  import { countSymbol } from './injectionSymbols'
 
   // inject static value without default
-  const foo = inject('foo')
+  const path = inject('path')
 
   // inject reactive value
   const count = inject('count')
 
   // inject with Symbol keys
-  const foo2 = inject(fooSymbol)
+  const count2 = inject(countSymbol)
 
   // inject with default value
-  const bar = inject('foo', 'default value')
+  const bar = inject('path', '/default-path')
 
   // inject with function default value
   const fn = inject('function', () => {})
@@ -101,6 +101,16 @@ Injects a value provided by an ancestor component or the application (via `app.p
   // inject with default value factory
   const baz = inject('factory', () => new ExpensiveObject(), true)
   </script>
+  ```
+
+## hasInjectionContext() <sup class="vt-badge" data-text="3.3+" /> {#has-injection-context}
+
+Vrací true pokud může být funkce [inject()](#inject) použita, aniž by vyvolala varování, že je volána na špatném místě (např. mimo `setup()`). Tato metoda je navržena pro použití v knihovnách, které chtějí používat `inject()` interně bez výpisu varování pro koncové uživatele.
+
+- **Type**
+
+  ```ts
+  function hasInjectionContext(): boolean
   ```
 
 - **Viz také**:

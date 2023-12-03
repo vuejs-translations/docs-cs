@@ -91,7 +91,7 @@ Výše uvedený příklad ukazuje dva klíčové principy Vue:
 Pokud k tomu už teď máte otázky - žádný strach. Ve zbytku dokumentace pokryjeme každý jednotilvý detail. Prozatím prosím pokračujte  ve čtení, ať získáte obecné povědomí o tom, co Vue nabízí.
 
 :::tip Předpoklady
-Zbytek dokumentace předpokládá základní znalost HTML, CSS a JavaScriptu. Pokud je pro vás frontend vývoj úplnou novinkou, není možná nejlepší nápad vrhnout se jako první rovnou na framework - raději se napřed trochu seznamte se základy a teprve poté se vraťte zpět! Úroveň svých znalostí si můžete vyzkoušet na [tomto JavaScriptovém přehledu](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Předchozí zkušenost s jinými frameworky pomůže, ale není nezbytná.
+Zbytek dokumentace předpokládá základní znalost HTML, CSS a JavaScriptu. Pokud je pro vás frontend vývoj úplnou novinkou, není možná nejlepší nápad vrhnout se jako první rovnou na framework - raději se napřed trochu seznamte se základy a teprve poté se vraťte zpět! Úroveň svých znalostí si můžete vyzkoušet na těchto [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript), [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML) a [CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps) přehledech. Předchozí zkušenost s jinými frameworky pomůže, ale není nezbytná.
 :::
 
 ## Progresivní framework {#the-progressive-framework}
@@ -280,3 +280,4 @@ Různí vývojáři mají různé způsoby učení. Vyberte si způsob, který v
     <p class="next-steps-caption">Prozkoumejte příklady základních vlastností a běžných UI úkolů.</p>
   </a>
 </div>
+

@@ -17,7 +17,7 @@ if (typeof window !== 'undefined') {
   }
 }
 </script>
-# Události (Events) {#component-events}
+# Události komponent (Events) {#component-events}
 
 > Tato stránka předpokládá, že už jste četli [Základy komponent](/guide/essentials/component-basics). Pokud jsou pro vás komponenty nové, přečtěte si je jako první.
 
@@ -176,14 +176,14 @@ export default {
 
 </div>
 
-Sekce `emits` také podporuje objektovou syntaxi, která nám umožňuje provádět runtime validaci obsahu (payload) emitovaných událostí:
+Sekce `emits` a `defineEmits()` makro také podporují objektovou syntaxi. Při použití TypeScriptu je možné typovat argumenty, což nám umožňuje provádět runtime validaci obsahu (payload) emitovaných událostí:
 
 <div class="composition-api">
 
 ```vue
 <script setup>
 const emit = defineEmits({
-  submit(payload) {
+  submit(payload: { email: string, password: string }) {
     // vrací `true` nebo `false` pro určení,
     // zda validace prošla / selhala
   }
@@ -210,7 +210,7 @@ Více detailů: [Typování událostí komponent](/guide/typescript/composition-
 ```js
 export default {
   emits: {
-    submit(payload) {
+    submit(payload: { email: string, password: string }) {
     // vrací `true` nebo `false` pro určení,
     // zda validace prošla / selhala
     }
@@ -287,3 +287,14 @@ export default {
 ```
 
 </div>
+
+## Events as Props {#events-props}
+
+You may also declare and pass `events` as `props`, by prefixing the capitalized event name with `on`
+Using `props.onEvent` has a different behaviour than using `emit('event')`, as the former will pass only handle the property based listener (either `@event` or `:on-event`)
+
+:::warning
+If both `:onEvent` and `@event` are passed `props.onEvent` might be an array of `functions` instead of `function`, this behavior is not stable and might change in the future.
+:::
+
+Because of this, it is recommended to use `emit('event')` instead of `props.onEvent` when emitting events.

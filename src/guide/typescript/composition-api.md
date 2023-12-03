@@ -143,6 +143,18 @@ In `<script setup>`, the `emit` function can also be typed using either runtime 
 // runtime
 const emit = defineEmits(['change', 'update'])
 
+// options based
+const emit = defineEmits({
+  change: (id: number) => {
+    // return `true` or `false` to indicate
+    // validation pass / fail
+  },
+  update: (value: string) => {
+    // return `true` or `false` to indicate
+    // validation pass / fail
+  }
+})
+
 // type-based
 const emit = defineEmits<{
   (e: 'change', id: number): void
@@ -351,6 +363,8 @@ onMounted(() => {
   <input ref="el" />
 </template>
 ```
+
+To get the right DOM interface you can check pages like [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#technical_summary).
 
 Note that for strict type safety, it is necessary to use optional chaining or type guards when accessing `el.value`. This is because the initial ref value is `null` until the component is mounted, and it can also be set to `null` if the referenced element is unmounted by `v-if`.
 

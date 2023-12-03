@@ -42,7 +42,7 @@ Vue používají v různých kapacitách v produkci renomované organizace po ce
 
 Vue 3 je jedním z nejvýkonnějších mainstreamových frontend frameworků a snano zvládá většinu případů užití webových aplikací, bez nutnosti ručních optimalizací.
 
-V zátěžových testech podle [js-framework-benchmark](https://rawgit.com/krausest/js-framework-benchmark/master/webdriver-ts-results/table.html) Vue překonává React a Angular se slušným náskokem. S některými z nejrychlejších produkčních non-virtual-DOM frameworků drží v tomto benchmarku krok.
+V zátěžových testech podle [js-framework-benchmark](https://krausest.github.io/js-framework-benchmark/current.html) Vue překonává React a Angular se slušným náskokem. Krok v tomto benchmarku drží i s některými z nejrychlejších produkčních non-virtual-DOM frameworků.
 
 Je třeba si uvědomit, že syntetické benchmarky, jako je výše uvedený, se zaměřují na čistý výkon vykreslování s dedikovanými optimalizacemi a nemusí plně reprezentovat výsledky výkonu v reálné aplikaci. Pokud vám více záleží na výkonu načítání stránek, můžete zkontrolovat třeba právě tento web pomocí [WebPageTest](https://www.webpagetest.org/lighthouse) nebo [PageSpeed Insights](https://pagespeed.web.dev/). Tato webová stránka je sama o sobě poháněna Vue, s SSG pre-renderingem, full-page hydratací a SPA navigací na straně klienta. Výkon na emulovaném Moto G4 se 4x CPU throttlingem přes pomalé 4G sítě dosahuje 100 bodů.
 

@@ -39,7 +39,7 @@ Direktiva `v-model` nám pomáhá výše uvedené zjednodušit na:
 
 Navíc může být `v-model` použita i na další druhy vstupů, elementy `<textarea>` a `<select>`. Automaticky se navazuje na různé DOM atributy a páry událostí podle toho, na jakém elementu je použita:
 
-- Element `<input>` s textovým typem a `<textarea>` používá atribut `value` a událost `input`;
+- Element `<input>` s textovými typy a `<textarea>` používá atribut `value` a událost `input`;
 - `<input type="checkbox">` a `<input type="radio">` používá atribut `checked` a událost `change`;
 - `<select>` používá atribut `value` a událost `change`.
 
@@ -341,7 +341,7 @@ export default {
 
 ```vue-html
 <select v-model="selected">
-  <option v-for="option in options" :key="option.value" :value="option.value">
+  <option v-for="option in options" :value="option.value">
     {{ option.text }}
   </option>
 </select>

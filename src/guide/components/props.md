@@ -148,7 +148,7 @@ export default {
 <span>{{ greetingMessage }}</span>
 ```
 
-Technicky lze camelCase použít i při předávání vlastností do komponenty potomka (kromě [DOM-šablon](/guide/essentials/component-basics#dom-template-parsing-caveats)). Konvence však ve všech případech používá kebab-case, aby se sladila s HTML atributy:
+Technicky lze camelCase použít i při předávání vlastností do komponenty potomka (kromě [in-DOM-šablon](/guide/essentials/component-basics#in-dom-template-parsing-caveats)). Konvence však ve všech případech používá kebab-case, aby se sladila s HTML atributy:
 
 ```vue-html
 <MyComponent greeting-message="hello" />

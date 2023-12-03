@@ -1,4 +1,4 @@
 <p>ID úkolu: {{ todoId }}</p>
-<button @click="todoId++">Načíst další úkol</button>
+<button @click="todoId++" :disabled="!todoData">Načíst další úkol</button>
 <p v-if="!todoData">Načítání...</p>
 <pre v-else>{{ todoData }}</pre>

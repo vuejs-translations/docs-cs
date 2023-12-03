@@ -271,7 +271,7 @@ Modifikátory `.capture`, `.once` a `.passive` představují [možnosti natívn�
 <div @scroll.passive="onScroll">...</div>
 ```
 
-Modifikátor `.passive` je typicky používán s dotykovými event listenery pro [zlepšení výkonu na mobilních zařízeních](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#improving_scrolling_performance_with_passive_listeners).
+Modifikátor `.passive` je typicky používán s dotykovými event listenery pro [zlepšení výkonu na mobilních zařízeních](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#improving_scroll_performance_using_passive_listeners).
 
 ::: tip
 Nepoužívejte `.passive` a `.prevent` dohromady, protože `.passive` již prohlížeči naznačuje, že _nemáte_ v úmyslu bránit výchozímu chování události. Pokud tak přesto učiníte, pravděpodobně se vám zobrazí varování z prohlížeče.

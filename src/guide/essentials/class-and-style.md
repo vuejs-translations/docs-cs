@@ -97,7 +97,13 @@ data() {
 <div :class="classObject"></div>
 ```
 
-Toto vykreslí stejný výsledek. Můžeme také provést binding na [computed proměnnou](./computed), která vrací objekt. Toto je běžný a účinný vzorec:
+Toto vykreslí:
+
+```vue-html
+<div class="active"></div>
+```
+
+Můžeme také provést binding na [computed proměnnou](./computed), která vrací objekt. Toto je běžný a účinný vzorec:
 
 <div class="composition-api">
 

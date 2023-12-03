@@ -56,6 +56,8 @@ Ideální Vue aplikace posílá vlastnosti dolů a události nahoru. Pokud se bu
 
 Problém je, že existuje také mnoho _jednoduchých_ případů, kdy tyto vzory mohou nabízet zdánlivé pohodlí. Pozor: nenechte se svést k výměně jednoduchosti (být schopen porozumět toku vašeho aplikačního stavu) za krátkodobé pohodlí (napsat méně kódu).
 
+<div class="options-api">
+
 <div class="style-example style-example-bad">
 <h3>Špatně</h3>
 
@@ -146,5 +148,104 @@ app.component('TodoItem', {
   `
 })
 ```
+
+</div>
+
+</div>
+
+<div class="composition-api">
+
+<div class="style-example style-example-bad">
+<h3>Bad</h3>
+
+```vue
+<script setup>
+defineProps({
+  todo: {
+    type: Object,
+    required: true
+  }
+})
+</script>
+
+<template>
+  <input v-model="todo.text" />
+</template>
+```
+
+```vue
+<script setup>
+import { getCurrentInstance } from 'vue'
+
+const props = defineProps({
+  todo: {
+    type: Object,
+    required: true
+  }
+})
+
+const instance = getCurrentInstance()
+
+function removeTodo() {
+  const parent = instance.parent
+  if (!parent) return
+
+  parent.props.todos = parent.props.todos.filter((todo) => {
+    return todo.id !== props.todo.id
+  })
+}
+</script>
+
+<template>
+  <span>
+    {{ todo.text }}
+    <button @click="removeTodo">×</button>
+  </span>
+</template>
+```
+
+</div>
+
+<div class="style-example style-example-good">
+<h3>Good</h3>
+
+```vue
+<script setup>
+defineProps({
+  todo: {
+    type: Object,
+    required: true
+  }
+})
+
+const emit = defineEmits(['input'])
+</script>
+
+<template>
+  <input :value="todo.text" @input="emit('input', $event.target.value)" />
+</template>
+```
+
+```vue
+<script setup>
+defineProps({
+  todo: {
+    type: Object,
+    required: true
+  }
+})
+
+const emit = defineEmits(['delete'])
+</script>
+
+<template>
+  <span>
+    {{ todo.text }}
+    <button @click="emit('delete')">×</button>
+  </span>
+</template>
+```
+
+</div>
 
 </div>

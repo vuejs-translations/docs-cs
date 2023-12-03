@@ -58,6 +58,8 @@ To se týká pouze autorů knihoven, protože v aplikacích je verze kompilátor
 
 Minor verze obvykle procházejí předem neurčeným počtem beta verzí. Major verze projdou fází alfa a fází beta.
 
+Kromě toho na GitHubu publikujeme každý týden experimentální (canary) vydání z `main` a `minor` větve. Jsou publikovány jako samostatné balíčky, aby nedošlo k nafouknutí npm metadat u stabilního produkčního kanálu. Můžete je nainstalovat pomocí `npx install-vue@canary` nebo `npx install-vue@canary-minor`.
+
 Pre-release verze jsou určeny pro testování integrace / stability a pro early adopters, kteří poskytují zpětnou vazbu pro nestabilní funkce. V produkci pre-release verze nepoužívejte. Všechny pre-release verze jsou považovány za nestabilní a může mezi nimi docházet k přelomovým změnám, proto se při používání pre-release verzí vždy držte konkrétního čísla verze.
 
 ## Deprecations {#deprecations}

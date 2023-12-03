@@ -127,8 +127,10 @@ Toto je výchozí pořadí, které doporučujeme pro atributy komponent. Jsou ro
 
 Když komponenty začnou vypadat stísněně nebo obtížně čitelné, přidání mezer mezi víceřádkové vlastnosti může usnadnit jejich opětovné procházení. V některých editorech jako Vim, mohou tyto varianty formátování také usnadnit navigaci pomocí klávesnice.
 
-<div class="style-example style-example-good">
-<h3>Dobře</h3>
+<div class="options-api">
+
+<div class="style-example style-example-bad">
+<h3>Špatně</h3>
 
 ```js
 props: {
@@ -156,6 +158,11 @@ computed: {
   }
 }
 ```
+
+</div>
+
+<div class="style-example style-example-good">
+<h3>Dobře</h3>
 
 ```js
 // je v pořádku nemít žádné mezery, dokud je komponenta
@@ -181,6 +188,68 @@ computed: {
   }
 }
 ```
+
+</div>
+
+</div>
+
+<div class="composition-api">
+
+<div class="style-example style-example-bad">
+<h3>Špatně</h3>
+
+```js
+defineProps({
+  value: {
+    type: String,
+    required: true
+  },
+  focused: {
+    type: Boolean,
+    default: false
+  },
+  label: String,
+  icon: String
+})
+const formattedValue = computed(() => {
+  // ...
+})
+const inputClasses = computed(() => {
+  // ...
+})
+```
+
+</div>
+
+<div class="style-example style-example-good">
+<h3>Dobře</h3>
+
+```js
+defineProps({
+  value: {
+    type: String,
+    required: true
+  },
+
+  focused: {
+    type: Boolean,
+    default: false
+  },
+
+  label: String,
+  icon: String
+})
+
+const formattedValue = computed(() => {
+  // ...
+})
+
+const inputClasses = computed(() => {
+  // ...
+})
+```
+
+</div>
 
 </div>
 

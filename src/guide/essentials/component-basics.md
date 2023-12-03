@@ -174,7 +174,7 @@ Pokud vaše šablony vytváříte přímo v DOM (např. jako obsah nativního el
 <button-counter></button-counter>
 ```
 
-Pro více detailů se podívejte na [upozornění na omezení při anlýze DOM-šablon](#dom-template-parsing-caveats).
+Pro více detailů se podívejte na [upozornění na omezení při anlýze in-DOM-šablon](#in-dom-template-parsing-caveats).
 
 ## Předávání vlastností (props) {#passing-props}
 
@@ -541,7 +541,7 @@ Atribut `is` můžete také použít pro vytváření běžných HTML elementů.
 
 Při přepínání mezi více komponentami pomocí `<component :is="...">` bude komponenta odpojena (unmounted), když je z ní přepnuto jinam. Neaktivní komponenty můžete donutit, aby zůstaly "naživu" pomocí vestavěné [komponenty `<KeepAlive>`](/guide/built-ins/keep-alive).
 
-## Omezení při anlýze DOM-šablon {#dom-template-parsing-caveats}
+## Omezení při parsování in-DOM-šablon {#in-dom-template-parsing-caveats}
 
 Pokud píšete své Vue šablony přímo v DOM, Vue bude muset definici šablony (string template) z DOM načíst. To vede k určitým omezením kvůli chování prohlížečů při nativní analýze HTML.
 
@@ -583,7 +583,7 @@ V předchozích ukázkách kódu jsme pro komponenty používali samouzavírací
 
 Je to proto, že parser Vue šablon respektuje `/>` jako indikaci ukončení jakéhokoliv tagu, bez ohledu na jeho typ.
 
-V DOM-šablonách však musíme vždy zahrnout explicitní uzavírací tagy:
+V in-DOM-šablonách však musíme vždy zahrnout explicitní uzavírací tagy:
 
 ```vue-html
 <my-component></my-component>
@@ -628,6 +628,6 @@ Naše komponenta `<blog-post-row>` bude vytažena (hoisted) jako neplatný obsah
 Při použití na nativní HTML elementy musí být hodnota `is` uvedena předponou `vue:`, aby mohla být interpretována jako Vue komponenta. Je to nutné, aby nedošlo k záměně s nativními [přizpůsobenými vestavěnými elementy](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example).
 :::
 
-To je vše, co zatím potřebujete vědět o omezeních při analýze DOM-šablon – a vlastně konec _Základů_ Vue. Gratulujeme! Je stále co se učit, ale nejprve doporučujeme, abyste si udělali přestávku a sami si s Vue hráli – vytvořit něco zábavného, nebo se podívat na některé [Příklady](/examples/), pokud jste tak ještě neučinili.
+To je vše, co zatím potřebujete vědět o omezeních při parsování in-DOM-šablon – a vlastně konec _Základů_ Vue. Gratulujeme! Je stále co se učit, ale nejprve doporučujeme, abyste si udělali přestávku a sami si s Vue hráli – vytvořit něco zábavného, nebo se podívat na některé [Příklady](/examples/), pokud jste tak ještě neučinili.
 
 Jakmile si budete jisti znalostmi, které jste právě nabrali, pokračujte v průvodci, abyste se o komponentách dozvěděli více do hloubky.

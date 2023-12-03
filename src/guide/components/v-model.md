@@ -21,8 +21,8 @@ Při použití na komponentě, je `v-model` místo toho expandován na toto:
 
 ```vue-html
 <CustomInput
-  :modelValue="searchText"
-  @update:modelValue="newValue => searchText = newValue"
+  :model-value="searchText"
+  @update:model-value="newValue => searchText = newValue"
 />
 ```
 

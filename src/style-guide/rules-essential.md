@@ -44,6 +44,7 @@ Podrobná [definice vlastností](/guide/components/props#prop-validation) má dv
   :::
 
 <div class="options-api">
+
 <div class="style-example style-example-bad">
 <h3>Špatně</h3>
 
@@ -83,9 +84,11 @@ props: {
 ```
 
 </div>
+
 </div>
 
 <div class="composition-api">
+
 <div class="style-example style-example-bad">
 <h3>Špatně</h3>
 
@@ -123,6 +126,7 @@ const props = defineProps({
 ```
 
 </div>
+
 </div>
 
 ## Používejte `v-for` spolu s klíčem {#use-keyed-v-for}
@@ -131,6 +135,8 @@ const props = defineProps({
 
 ::: details Podrobné vysvětlení
 Řekněme že máte seznam TODO prvků:
+
+<div class="options-api">
 
 ```js
 data() {
@@ -148,6 +154,25 @@ data() {
   }
 }
 ```
+
+</div>
+
+<div class="composition-api">
+
+```js
+const todos = ref([
+  {
+    id: 1,
+    text: 'Naucit se pouzivat v-for'
+  },
+  {
+    id: 2,
+    text: 'Naucit se pouzivat key'
+  }
+])
+```
+
+</div>
 
 Pak je seřadíte podle abecedy. Při aktualizaci DOM Vue optimalizuje vykreslování tak, aby se provedly co nejmenší změny DOM. To může znamenat odstranění prvního TODO prvku a jeho opětovné přidání na konec seznamu.
 
@@ -214,6 +239,8 @@ vyvolá výjimku, protože `v-if` direktiva bude vyhodnocena první a proměnná
 
 To se dá napravit iterací přes computed proměnnou, například takto:
 
+<div class="options-api">
+
 ```js
 computed: {
   activeUsers() {
@@ -221,6 +248,18 @@ computed: {
   }
 }
 ```
+
+</div>
+
+<div class="composition-api">
+
+```js
+const activeUsers = computed(() => {
+  return users.filter((user) => user.isActive)
+})
+```
+
+</div>
 
 ```vue-html
 <ul>
