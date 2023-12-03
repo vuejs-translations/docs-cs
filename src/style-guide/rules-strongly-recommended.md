@@ -341,7 +341,7 @@ components/
 
 ## Self-closing komponenty {#self-closing-components}
 
-**Komponenty, kter nemají žádný obsah, by měly být zapsány jako nepárové (self-closing) v [Single-File komponentách (SFC)](/guide/scaling-up/sfc), string-šablonách, a [JSX](/guide/extras/render-function#jsx-tsx) - nikdy však v in-DOM-šablonách.**
+**Komponenty, kter nemají žádný obsah, by měly být zapsány jako nepárové (self-closing) v [Single-File komponentách (SFC)](/guide/scaling-up/sfc), string-šablonách, a [JSX](/guide/extras/render-function#jsx-tsx) - nikdy však v in-DOM šablonách.**
 
 Komponenty zapsané jako nepárový (self-closing) tag sdělují nejen, že nemají žádný obsah, ale ani **nemají** žádný obsah mít. Je to rozdíl mezi prázdnou stránkou v knize a stránkou označenou „Tato stránka byla záměrně ponechána prázdná“. Váš kód je také bez zbytečného uzavíracího tagu čistší.
 
@@ -356,7 +356,7 @@ HTML bohužel neumožňuje uživatelské nepárové (self-closing) elementy – 
 ```
 
 ```vue-html
-<!-- in-DOM-šablony -->
+<!-- in-DOM šablony -->
 <my-component/>
 ```
 
@@ -371,7 +371,7 @@ HTML bohužel neumožňuje uživatelské nepárové (self-closing) elementy – 
 ```
 
 ```vue-html
-<!-- in-DOM-šablony -->
+<!-- in-DOM šablony -->
 <my-component></my-component>
 ```
 
@@ -379,7 +379,7 @@ HTML bohužel neumožňuje uživatelské nepárové (self-closing) elementy – 
 
 ## Velká a malá písmena v názvech komponent v šablonách {#component-name-casing-in-templates}
 
-**Ve většině projektů názvy komponent v [Single-File komponentách (SFC)](/guide/scaling-up/sfc) a string-šablonách měly být vždy PascalCase – ale v in-DOM-šablonách by názvy měly být kebab-case.**
+**Ve většině projektů názvy komponent v [Single-File komponentách (SFC)](/guide/scaling-up/sfc) a string-šablonách měly být vždy PascalCase – ale v in-DOM šablonách by názvy měly být kebab-case.**
 
 PascalCase má oproti kebab-case několik výhod:
 
@@ -387,7 +387,7 @@ PascalCase má oproti kebab-case několik výhod:
 - `<MyComponent>` je vizuálně odlišnější od jednoslovného HTML elementu než `<my-component>`, protože existují dva rozdílné znaky (dvě velká písmena), nikoli pouze jeden (pomlčka).
 - Pokud ve svých šablonách použijete jakékoli custom prvky mimo Vue, jako je Web Component, PascalCase zajistí, že vaše Vue komponenty zůstanou zřetelně viditelné.
 
-Bohužel kvůli necitlivosti HTML na malá a velká písmena musí in-DOM-šablony nadále používat kebab-case.
+Bohužel kvůli necitlivosti HTML na malá a velká písmena musí in-DOM šablony nadále používat kebab-case.
 
 Také vezměte do úvahy, že pokud jste již do kebab-case investovali hodně úsilí, může být konzistence s HTML konvencemi a možnost používat velká a malá písmena stejně ve všech vašich projektech důležitější než výše uvedené výhody. V těchto případech je také přijatelné **používání kebab-case všude.**
 
@@ -405,7 +405,7 @@ Také vezměte do úvahy, že pokud jste již do kebab-case investovali hodně �
 ```
 
 ```vue-html
-<!-- in-DOM-šablony -->
+<!-- in-DOM šablony -->
 <MyComponent></MyComponent>
 ```
 
@@ -420,7 +420,7 @@ Také vezměte do úvahy, že pokud jste již do kebab-case investovali hodně �
 ```
 
 ```vue-html
-<!-- in-DOM-šablony -->
+<!-- in-DOM šablony -->
 <my-component></my-component>
 ```
 

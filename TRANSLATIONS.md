@@ -49,7 +49,6 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 destructure = dekonstruovat
 * 🟨 directive = direktiva
 * 🟥 DOM = DOM
-* 🟨 DOM template = DOM-šablona
 * 🟩 e.g. = např.
 * 🟥 element = element
 * 🟥 emits = emits
@@ -70,7 +69,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 handler = handler
 * 🟩 holding = obsahovat
 * 🟥 IDE = IDE
-* 🟨 in-DOM template = DOM-šablona (kvůli konzisteci s "DOM template")
+* 🟨 in-DOM template = in-DOM šablona
 * 🟩 inject = implementovat
 * 🟥 injection key = injection key
 * 🟥 inline = inline

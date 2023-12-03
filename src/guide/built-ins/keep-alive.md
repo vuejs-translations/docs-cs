@@ -47,7 +47,7 @@ Nyní bude mezi přepínámím komponent stav zachován:
 </div>
 
 :::tip
-Při použití v [in-DOM-šablonách](/guide/essentials/component-basics#in-dom-template-parsing-caveats), měla by být používána jako `<keep-alive>`.
+Při použití v [in-DOM šablonách](/guide/essentials/component-basics#in-dom-template-parsing-caveats), měla by být používána jako `<keep-alive>`.
 :::
 
 ## Include / Exclude {#include-exclude}
