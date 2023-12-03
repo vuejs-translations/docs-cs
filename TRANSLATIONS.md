@@ -59,6 +59,8 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 expose (v.) = vystavit
 * 🟩 expression = výraz
 * 🟩 factory function = tovární metoda
+* 🟥 fallback = fallback
+* 🟩 feature = funkce
 * 🟥 focus = focus
 * 🟥 framework = framework
 * 🟥 frontend = frontend
@@ -67,7 +69,9 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 globals = globální objekty
 * 🟩 guide = průvodce
 * 🟥 handler = handler
+* 🟩 handling = obsluha (error handling = obsluha chyb)
 * 🟩 holding = obsahovat
+* 🟥 hook = hook
 * 🟥 IDE = IDE
 * 🟨 in-DOM template = in-DOM šablona
 * 🟩 inject = implementovat
@@ -118,6 +122,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟨 refactoring = refaktoring
 * 🟩 release = verze
 * 🟩 rendering = vykreslování
+* 🟩 resource = zdroj ("prostředek" možná ve vztahu k OS)
 * 🟩 reusable = znovupoužitelný
 * 🟥 root element = root element
 * 🟨 root component = root komponenta
@@ -146,9 +151,11 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 this is how = tímto způsobem můžeme
 * 🟩 throw an error = vyvolat výjimku
 * 🟩 top level <sth> = <něco> nejvyšší úrovně / globální <něco> (pokud to odpovídá kontextu)
+* 🟩 tree = strom
 * 🟩 trigger (v.) = vyvolat
 * 🟩 type = typ
 * 🟩 under the hood = interně
 * 🟩 use case = případ užití
 * 🟩 using the = pomocí
 * 🟥 Web Component = Web Component
+* 🟩 worst case scenario = krajní případ

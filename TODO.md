@@ -4,7 +4,6 @@ TODO iteration 1
 /guide
 
 built-ins\
-built-ins\suspense.md
 built-ins\teleport.md
 built-ins\transition.md
 built-ins\transition-group.md
