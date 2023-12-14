@@ -1,32 +1,32 @@
-# Application API {#application-api}
+# Aplikační API {#application-api}
 
 ## createApp() {#createapp}
 
-Creates an application instance.
+Vytvoří instanci aplikace.
 
-- **Type**
+- **Typ**
 
   ```ts
   function createApp(rootComponent: Component, rootProps?: object): App
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  The first argument is the root component. The second optional argument is the props to be passed to the root component.
+  První argument je root komponenta. Druhý volitelný argument jsou vlastnosti, které se mají root komponentě předat.
 
-- **Example**
+- **Příklad**
 
-  With inline root component:
+  Inline root komponenta:
 
   ```js
   import { createApp } from 'vue'
 
   const app = createApp({
-    /* root component options */
+    /* vlastnosti root komponenty */
   })
   ```
 
-  With imported component:
+  Importovaná root komponenta:
 
   ```js
   import { createApp } from 'vue'
@@ -35,17 +35,17 @@ Creates an application instance.
   const app = createApp(App)
   ```
 
-- **Viz také:** [Guide - Creating a Vue Application](/guide/essentials/application)
+- **Viz také:** [Průvodce - Vytvoření Vue aplikace](/guide/essentials/application)
 
 ## createSSRApp() {#createssrapp}
 
-Creates an application instance in [SSR Hydration](/guide/scaling-up/ssr#client-hydration) mode. Usage is exactly the same as `createApp()`.
+Vytvoří instanci aplikace v režimu [SSR hydratace](/guide/scaling-up/ssr#client-hydration). Použití je zcela totožné jako u `createApp()`.
 
 ## app.mount() {#app-mount}
 
-Mounts the application instance in a container element.
+Připojí (mount) instanci aplikace do mateřského elementu.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface App {
@@ -53,17 +53,17 @@ Mounts the application instance in a container element.
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  The argument can either be an actual DOM element or a CSS selector (the first matched element will be used). Returns the root component instance.
+  Argumentem může být buď skutečný DOM element nebo CSS selektor (bude použit první vyhovující element). Vrací instanci root komponenty.
 
-  If the component has a template or a render function defined, it will replace any existing DOM nodes inside the container. Otherwise, if the runtime compiler is available, the `innerHTML` of the container will be used as the template.
+  Pokud má komponenta definovanou šablonu nebo vykreslovací funkci, nahradí všechny existující DOM elementy uvnitř kontejneru. Jinak, pokud je k dispozici runtime kompilátor, bude jako šablona použito `innerHTML` kontejneru.
 
-  In SSR hydration mode, it will hydrate the existing DOM nodes inside the container. If there are [mismatches](/guide/scaling-up/ssr#hydration-mismatch), the existing DOM nodes will be morphed to match the expected output.
+  V režimu SSR hydratace, provede hydrataci existujících DOM elementů uvnitř kontejneru. Pokud existují [neshody](/guide/scaling-up/ssr#hydration-mismatch), existující DOM elementy budou změněny tak, aby odpovídaly očekávanému výstupu.
 
-  For each app instance, `mount()` can only be called once.
+  Pro každou instanci aplikace lze `mount()` zavolat pouze jednou.
 
-- **Example**
+- **Příklad**
 
   ```js
   import { createApp } from 'vue'
@@ -72,7 +72,7 @@ Mounts the application instance in a container element.
   app.mount('#app')
   ```
 
-  Can also mount to an actual DOM element:
+  Lze také připojit ke konkrétnímu DOM elementu:
 
   ```js
   app.mount(document.body.firstChild)
@@ -80,9 +80,9 @@ Mounts the application instance in a container element.
 
 ## app.unmount() {#app-unmount}
 
-Unmounts a mounted application instance, triggering the unmount lifecycle hooks for all components in the application's component tree.
+Odstraní (unmount) připojenou instanci aplikace a spustí 'unmount' lifecycle hooky pro všechny komponenty v aplikačním stromu komponent.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface App {
@@ -92,9 +92,9 @@ Unmounts a mounted application instance, triggering the unmount lifecycle hooks 
 
 ## app.component() {#app-component}
 
-Registers a global component if passing both a name string and a component definition, or retrieves an already registered one if only the name is passed.
+Registruje globální komponentu, pokud je zadán jak název, tak definice komponenty, nebo vrátí již registrovanou komponentu, pokud je zadán pouze název.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface App {
@@ -103,29 +103,29 @@ Registers a global component if passing both a name string and a component defin
   }
   ```
 
-- **Example**
+- **Příklad**
 
   ```js
   import { createApp } from 'vue'
 
   const app = createApp({})
 
-  // register an options object
+  // zaregistrovat objekt vlastností
   app.component('my-component', {
     /* ... */
   })
 
-  // retrieve a registered component
+  // získat již registrovanou komponentu
   const MyComponent = app.component('my-component')
   ```
 
-- **See also** [Component Registration](/guide/components/registration)
+- **Viz také** [Registrace komponent](/guide/components/registration)
 
 ## app.directive() {#app-directive}
 
-Registers a global custom directive if passing both a name string and a directive definition, or retrieves an already registered one if only the name is passed.
+Registruje globální vlastní direktivu, pokud je zadán jak název, tak definice direktivy, nebo získá již registrovanou direktivu, pokud je zadán pouze název.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface App {
@@ -134,7 +134,7 @@ Registers a global custom directive if passing both a name string and a directiv
   }
   ```
 
-- **Example**
+- **Příklad**
 
   ```js
   import { createApp } from 'vue'
@@ -143,27 +143,27 @@ Registers a global custom directive if passing both a name string and a directiv
     /* ... */
   })
 
-  // register (object directive)
+  // zaregistrovat direktivu (objektová notace)
   app.directive('my-directive', {
-    /* custom directive hooks */
+    /* vlastní hooks direktivy */
   })
 
-  // register (function directive shorthand)
+  // zaregistrovat direktivu (zkrácená funkční notace)
   app.directive('my-directive', () => {
     /* ... */
   })
 
-  // retrieve a registered directive
+  // získat již registrovanou direktivu
   const myDirective = app.directive('my-directive')
   ```
 
-- **See also** [Custom Directives](/guide/reusability/custom-directives)
+- **Viz také** [Vlastní direktivy](/guide/reusability/custom-directives)
 
 ## app.use() {#app-use}
 
-Installs a [plugin](/guide/reusability/plugins).
+Nainstaluje [plugin](/guide/reusability/plugins).
 
-- **Type**
+- **Typ**
 
   ```ts
   interface App {
@@ -171,15 +171,15 @@ Installs a [plugin](/guide/reusability/plugins).
   }
   ```
 
-- **Details**
+- **Detaily**
 
-  Expects the plugin as the first argument, and optional plugin options as the second argument.
+Očekává plugin jako první argument a volitelně vlastnosti pluginu jako druhý argument.
 
-  The plugin can either be an object with an `install()` method, or just a function that will be used as the `install()` method. The options (second argument of `app.use()`) will be passed along to the plugin's `install()` method.
+Plugin může být buď objekt s metodou `install()`, nebo pouze funkce, která bude použita jako metoda `install()`. Vlastnosti (druhý argument `app.use()`) budou do metody `install()` předány.
 
-  When `app.use()` is called on the same plugin multiple times, the plugin will be installed only once.
+Když je na stejný plugin voláno `app.use()` vícekrát, plugin bude nainstalován pouze jednou.
 
-- **Example**
+- **Příklad**
 
   ```js
   import { createApp } from 'vue'
@@ -192,19 +192,19 @@ Installs a [plugin](/guide/reusability/plugins).
   app.use(MyPlugin)
   ```
 
-- **See also** [Plugins](/guide/reusability/plugins)
+- **Viz také** [Pluginy](/guide/reusability/plugins)
 
 ## app.mixin() {#app-mixin}
 
-Applies a global mixin (scoped to the application). A global mixin applies its included options to every component instance in the application.
+Použije globální mixin (omezený na aplikaci). Globální mixin aplikuje své obsažené vlastnosti na každou instanci komponenty v aplikaci.
 
-:::warning Not Recommended
-Mixins are supported in Vue 3 mainly for backwards compatibility, due to their widespread use in ecosystem libraries. Use of mixins, especially global mixins, should be avoided in application code.
+:::warning Nedoporučeno
+Mixin jsou ve Vue 3 podporovány hlavně z důvodu zpětné kompatibility kvůli jejich rozsáhlému používání v knihovnách ekosystému. Používání mixinů, zejména globálních, byste se měli ve vlastním kódu aplikace vyhnout.
 
-For logic reuse, prefer [Composables](/guide/reusability/composables) instead.
+Pro opakované použití logiky je lepší použít [Composables](/guide/reusability/composables).
 :::
 
-- **Type**
+- **Typ**
 
   ```ts
   interface App {
@@ -214,9 +214,9 @@ For logic reuse, prefer [Composables](/guide/reusability/composables) instead.
 
 ## app.provide() {#app-provide}
 
-Provide a value that can be injected in all descendant components within the application.
+Poskytne hodnotu, která může být vložena (injected) do všech komponent potomků v rámci aplikace.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface App {
@@ -224,11 +224,11 @@ Provide a value that can be injected in all descendant components within the app
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  Expects the injection key as the first argument, and the provided value as the second. Returns the application instance itself.
+  Očekává 'injection key' jako první a poskytnutou hodnotu jako druhý argument. Vrací instanci aplikace jako takovou.
 
-- **Example**
+- **Příklad**
 
   ```js
   import { createApp } from 'vue'
@@ -238,7 +238,7 @@ Provide a value that can be injected in all descendant components within the app
   app.provide('message', 'hello')
   ```
 
-  Inside a component in the application:
+  Uvnitř komponenty v aplikaci:
 
   <div class="composition-api">
 
@@ -252,30 +252,30 @@ Provide a value that can be injected in all descendant components within the app
   }
   ```
 
-  </div>
-  <div class="options-api">
+</div>
+<div class="options-api">
 
-  ```js
-  export default {
-    inject: ['message'],
-    created() {
-      console.log(this.message) // 'hello'
-    }
+```js
+export default {
+  inject: ['message'],
+  created() {
+    console.log(this.message) // 'ahoj'
   }
-  ```
+}
+```
 
-  </div>
+</div>
 
-- **Viz také:**
+- **See also:**
   - [Provide / Inject](/guide/components/provide-inject)
-  - [App-level Provide](/guide/components/provide-inject#app-level-provide)
+  - [Provide na úprvni aplikace](/guide/components/provide-inject#app-level-provide)
   - [app.runWithContext()](#app-runwithcontext)
 
 ## app.runWithContext()<sup class="vt-badge" data-text="3.3+" /> {#app-runwithcontext}
 
-Execute a callback with the current app as injection context.
+Spustí callback s aktuální aplikací jako kontextem (injection context).
 
-- **Type**
+- **Typ**
 
   ```ts
   interface App {
@@ -283,11 +283,11 @@ Execute a callback with the current app as injection context.
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  Expects a callback function and runs the callback immediately. During the synchronous call of the callback,  `inject()` calls are able to look up injections from the values provided by the current app, even when there is no current active component instance. The return value of the callback will also be returned.
+  Očekává callback a okamžitě ji spustí. Během synchronního volání callbacku jsou `inject()` volání schopny vyhledávat hodnoty poskytované v rácmi aktuální aplikace, i když neexistuje žádná aktuální aktivní instance komponenty. Návratová hodnota callback funkce bude také vrácena.
 
-- **Example**
+- **Příklad**
 
   ```js
   import { inject } from 'vue'
@@ -303,9 +303,9 @@ Execute a callback with the current app as injection context.
 
 ## app.version {#app-version}
 
-Provides the version of Vue that the application was created with. This is useful inside [plugins](/guide/reusability/plugins), where you might need conditional logic based on different Vue versions.
+Poskytuje verzi Vue, se kterou byla aplikace vytvořena. To se hodí uvnitř [pluginů](/guide/reusability/plugins), kde můžete potřebovat podmíněnou logiku založenou na různých verzích Vue.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface App {
@@ -313,26 +313,26 @@ Provides the version of Vue that the application was created with. This is usefu
   }
   ```
 
-- **Example**
+- **Příklad**
 
-  Performing a version check inside a plugin:
+  Kontrola verze uvnitř pluginu:
 
   ```js
   export default {
     install(app) {
       const version = Number(app.version.split('.')[0])
       if (version < 3) {
-        console.warn('This plugin requires Vue 3')
+        console.warn('Tento plugin vyžaduje Vue 3')
       }
     }
   }
   ```
 
-- **Viz také:** [Global API - version](/api/general#version)
+- **Viz také:** [Globální API - version](/api/general#version)
 
 ## app.config {#app-config}
 
-Every application instance exposes a `config` object that contains the configuration settings for that application. You can modify its properties (documented below) before mounting your application.
+Každá instance aplikace vystavuje objekt `config`, který obsahuje konfigurační nastavení dané aplikace. Před nasazením vaší aplikace můžete upravit její vlastnosti (dokumentováno níže).
 
 ```js
 import { createApp } from 'vue'
@@ -344,49 +344,49 @@ console.log(app.config)
 
 ## app.config.errorHandler {#app-config-errorhandler}
 
-Assign a global handler for uncaught errors propagating from within the application.
+Přiřadí globální handler pro nezachycené chyby propagované z aplikace.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface AppConfig {
     errorHandler?: (
       err: unknown,
       instance: ComponentPublicInstance | null,
-      // `info` is a Vue-specific error info,
-      // e.g. which lifecycle hook the error was thrown in
+      // `info` je informace o Vue chybě,
+      // např. ve kterém lifecycle hooku chyba vznikla
       info: string
     ) => void
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  The error handler receives three arguments: the error, the component instance that triggered the error, and an information string specifying the error source type.
+  Error handler přijímá tři argumenty: objekt chyby, instanci komponenty, která chybu vyvolala, a informační string, který specifikuje typ zdroje chyby.
 
-  It can capture errors from the following sources:
+  Může zachytit chyby z následujících zdrojů:
 
-  - Component renders
-  - Event handlers
-  - Lifecycle hooks
-  - `setup()` function
-  - Watchers
-  - Custom directive hooks
-  - Transition hooks
+  - Vykreselení komponenty
+  - Event handlery
+  - Metody životního cyklu
+  - Funkce `setup()`
+  - Watchery
+  - Vlastní direktivy
+  - Transition metody
 
-- **Example**
+- **Příklad**
 
   ```js
   app.config.errorHandler = (err, instance, info) => {
-    // handle error, e.g. report to a service
+    // zpracování chyby, např. nahlášení službě
   }
   ```
 
 ## app.config.warnHandler {#app-config-warnhandler}
 
-Assign a custom handler for runtime warnings from Vue.
+Přiřadí vlastní handler pro Vue runtime varování.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface AppConfig {
@@ -398,86 +398,86 @@ Assign a custom handler for runtime warnings from Vue.
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  The warning handler receives the warning message as the first argument, the source component instance as the second argument, and a component trace string as the third.
+  Warning handler přijímá jako první argument zprávu varování, jako druhý argument instanci zdrojové komponenty a jako třetí argument trace string.
 
-  It can be used to filter out specific warnings to reduce console verbosity. All Vue warnings should be addressed during development, so this is only recommended during debug sessions to focus on specific warnings among many, and should be removed once the debugging is done.
+  Může být použit k odfiltrování konkrétních varování pro snížení množství výpisů do konzole. Všechna Vue varování by měla být řešena během vývoje, takže se použití doporučuje pouze během ladění se zaměřením na jedno konkrétní varování po skončení debuggingu metodu opět odstranit.
 
   :::tip
-  Warnings only work during development, so this config is ignored in production mode.
+  Varování fungují pouze během vývoje, takže tato konfigurace je v produkčním režimu ignorována.
   :::
 
-- **Example**
+- **Příklad**
 
   ```js
   app.config.warnHandler = (msg, instance, trace) => {
-    // `trace` is the component hierarchy trace
+    // `trace` je trasování hierarchie komponent
   }
   ```
 
 ## app.config.performance {#app-config-performance}
 
-Set this to `true` to enable component init, compile, render and patch performance tracing in the browser devtool performance/timeline panel. Only works in development mode and in browsers that support the [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark) API.
+Nastavte tuto vlastnost na `true`, abyste povolili sledování výkonu inicializace, kompilace, vykreslování a běhových úprav komponent v panelu výkon/časová osa (performance/timeine) nástroje pro vývojáře (devtools) v prohlížeči. Funguje pouze v režimu vývoje a v prohlížečích, které podporují rozhraní [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark).
 
-- **Type:** `boolean`
+- **Typ:** `boolean`
 
-- **Viz také:** [Guide - Performance](/guide/best-practices/performance)
+- **Viz také:** [Průvodce - Výkon](/guide/best-practices/performance)
 
 ## app.config.compilerOptions {#app-config-compileroptions}
 
-Configure runtime compiler options. Values set on this object will be passed to the in-browser template compiler and affect every component in the configured app. Note you can also override these options on a per-component basis using the [`compilerOptions` option](/api/options-rendering#compileroptions).
+Runtime konfigurace vlastností překladače. Hodnoty nastavené v tomto objektu budou předány překladači šablon v prohlížeči a ovlivní každou komponentu v konfigurované aplikaci. Poznámka: Tyto možnosti lze také přepsat pro každou komponentu pomocí [volby `compilerOptions`](/api/options-rendering#compileroptions).
 
-::: warning Important
-This config option is only respected when using the full build (tj. the standalone `vue.js` that can compile templates in the browser). If you are using the runtime-only build with a build setup, compiler options must be passed to `@vue/compiler-dom` via build tool configurations instead.
+::: warning Důležité
+Tato možnost konfigurace je možná pouze při použití plného buildu (tj. samostatného `vue.js`, který může v prohlížeči kompilovat šablony). Pokud používáte runtime-only build + build setup, vlastnosti překladače musí být předány do `@vue/compiler-dom` pomocí konfigurace build nástroje.
 
-- For `vue-loader`: [pass via the `compilerOptions` loader option](https://vue-loader.vuejs.org/options.html#compileroptions). Also see [how to configure it in `vue-cli`](https://cli.vuejs.org/guide/webpack.html#modifying-options-of-a-loader).
+- Pro `vue-loader`: [předejte pomocí volby `compilerOptions`](https://vue-loader.vuejs.org/options.html#compileroptions). Viz také [jak jej nakonfigurovat v `vue-cli`](https://cli.vuejs.org/guide/webpack.html#modifying-options-of-a-loader).
 
-- For `vite`: [pass via `@vitejs/plugin-vue` options](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#options).
-  :::
+- Pro `vite`: [předejte pomocí nastavení `@vitejs/plugin-vue`](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#options).
+  ::: 
 
 ### app.config.compilerOptions.isCustomElement {#app-config-compileroptions-iscustomelement}
 
-Specifies a check method to recognize native custom elements.
+Definuje ověřovací metodu pro rozpoznání custom nativních prvků.
 
-- **Type:** `(tag: string) => boolean`
+- **Typ:** `(tag: string) => boolean`
 
-- **Details**
+- **Podrobnosti**
 
-  Should return `true` if the tag should be treated as a native custom element. For a matched tag, Vue will render it as a native element instead of attempting to resolve it as a Vue component.
+  Metoda by měla vrátit `true`, pokud má být nějaký tag považován za nativní element. Odpovídající tag bude Vue vykreslovat nativně, místo aby se pokoušelo jej zpracovat jako Vue komponentu.
 
-  Native HTML and SVG tags don't need to be matched in this function - Vue's parser recognizes them automatically.
+  Nativní HTML a SVG tagy není třeba v této funkci řešit - Vue parser je rozpozná automaticky.
 
-- **Example**
+- **Příklad**
 
   ```js
-  // treat all tags starting with 'ion-' as custom elements
+  // pokládá všechny tagy, které začínají 'ion-', za custom nativní elementy
   app.config.compilerOptions.isCustomElement = (tag) => {
     return tag.startsWith('ion-')
   }
   ```
 
-- **Viz také:** [Vue and Web Components](/guide/extras/web-components)
+- **Viz také:** [Vue a Web Components](/guide/extras/web-components)
 
 ### app.config.compilerOptions.whitespace {#app-config-compileroptions-whitespace}
 
-Adjusts template whitespace handling behavior.
+Upravuje chování manipulace s mezerami (whitespace) v šablonách.
 
-- **Type:** `'condense' | 'preserve'`
+- **Typ:** `'condense' | 'preserve'`
 
-- **Default:** `'condense'`
+- **Výchozí hodnota:** `'condense'`
 
-- **Details**
+- **Podrobnosti**
 
-  Vue removes / condenses whitespace characters in templates to produce more efficient compiled output. The default strategy is "condense", with the following behavior:
+  Vue odstraňuje / zhušťuje bílé znaky v šablonách, aby byl vytvořený zkompilovaný výstup efektivnější. Výchozí strategie je "condense" s následujícím chováním:
 
-  1. Leading / ending whitespace characters inside an element are condensed into a single space.
-  2. Whitespace characters between elements that contain newlines are removed.
-  3. Consecutive whitespace characters in text nodes are condensed into a single space.
+  1. Počáteční / koncové mezery uvnitř prvku jsou zhuštěny do jedné mezery.
+  2. Mezery mezi prvky, které obsahují nové řádky, jsou odstraněny.
+  3. Po sobě jdoucí mezery ve textových elementech jsou zhuštěny do jedné mezery.
 
-  Setting this option to `'preserve'` will disable (2) and (3).
+  Nastavení této možnosti na `'preserve'` zakáže (2) a (3).
 
-- **Example**
+- **Příklad**
 
   ```js
   app.config.compilerOptions.whitespace = 'preserve'
@@ -485,36 +485,36 @@ Adjusts template whitespace handling behavior.
 
 ### app.config.compilerOptions.delimiters {#app-config-compileroptions-delimiters}
 
-Adjusts the delimiters used for text interpolation within the template.
+Upravuje oddělovače používané pro textovou interpolaci ve šabloně.
 
-- **Type:** `[string, string]`
+- **Typ:** `[string, string]`
 
-- **Default:** `{{ "['\u007b\u007b', '\u007d\u007d']" }}`
+- **Výchozí hodnota:** `{{ "['\u007b\u007b', '\u007d\u007d']" }}`
 
-- **Details**
+- **Podrobnosti**
 
-  This is typically used to avoid conflicting with server-side frameworks that also use mustache syntax.
+  Toto se typicky používá pro předcházení konfliktům se serverovými frameworky, které také používají "mustache" syntaxi.
 
-- **Example**
+- **Příklad**
 
   ```js
-  // Delimiters changed to ES6 template string style
+  // Oddělovače změněny na ES6 styl šablon 
   app.config.compilerOptions.delimiters = ['${', '}']
   ```
 
 ### app.config.compilerOptions.comments {#app-config-compileroptions-comments}
 
-Adjusts treatment of HTML comments in templates.
+Upravuje zpracování HTML komentářů ve šablonách.
 
-- **Type:** `boolean`
+- **Typ:** `boolean`
 
-- **Default:** `false`
+- **Výchozí hodnota:** `false`
 
-- **Details**
+- **Podrobnosti**
 
-  By default, Vue will remove the comments in production. Setting this option to `true` will force Vue to preserve comments even in production. Comments are always preserved during development. This option is typically used when Vue is used with other libraries that rely on HTML comments.
+  Ve výchozím nastavení Vue v produkčním prostředí komentáře odstraňuje. Nastavení této možnosti na `true` donutí Vue komentáře zachovávat i pro produkci. Během vývoje jsou komentáře zachovány vždy. Tato možnost se obvykle používá, když je Vue používáno s jinými knihovnami, které na HTML komentáře spoléhají.
 
-- **Example**
+- **Příklad**
 
   ```js
   app.config.compilerOptions.comments = true
@@ -522,9 +522,9 @@ Adjusts treatment of HTML comments in templates.
 
 ## app.config.globalProperties {#app-config-globalproperties}
 
-An object that can be used to register global properties that can be accessed on any component instance inside the application.
+Objekt, který může být použit k registraci globálních vlastností, ke kterým lze přistupovat z jakéhokoli instance komponenty v rámci aplikace.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface AppConfig {
@@ -532,35 +532,35 @@ An object that can be used to register global properties that can be accessed on
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  This is a replacement of Vue 2's `Vue.prototype` which is no longer present in Vue 3. As with anything global, this should be used sparingly.
+  Toto je náhrada za `Vue.prototype` z Vue 2, který již není ve Vue 3 přítomen. Stejně jako cokoliv globálního, by měly být používány střídmě a s rozmyslem.
 
-  If a global property conflicts with a component’s own property, the component's own property will have higher priority.
+  Pokud dojde ke konfliktu názvů globální vlastnosti s vlastností komponenty, vlastnost uvnitř komponenty bude mít vyšší prioritu.
 
-- **Usage**
+- **Použití**
 
   ```js
-  app.config.globalProperties.msg = 'hello'
+  app.config.globalProperties.msg = 'ahoj'
   ```
 
-  This makes `msg` available inside any component template in the application, and also on `this` of any component instance:
+Umožňí použití `msg` uvnitř kterékoliv šablony a také na `this` libovolné instance komoonenty:
 
   ```js
   export default {
     mounted() {
-      console.log(this.msg) // 'hello'
+      console.log(this.msg) // 'ahoj'
     }
   }
   ```
-  
-- **Viz také:** [Guide - Augmenting Global Properties](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
+
+- **Viz také:** [Průvodce - Rozšiřování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
 
 ## app.config.optionMergeStrategies {#app-config-optionmergestrategies}
 
-An object for defining merging strategies for custom component options.
+Objekt pro definici strategií pro slučování custom vlastností komponenty.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface AppConfig {
@@ -570,39 +570,39 @@ An object for defining merging strategies for custom component options.
   type OptionMergeFunction = (to: unknown, from: unknown) => any
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  Some plugins / libraries add support for custom component options (by injecting global mixins). These options may require special merging logic when the same option needs to be "merged" from multiple sources (e.g. mixins or component inheritance).
+  Některé pluginy / knihovny přidávají podporu pro custom vlastnosti komponent (implementací globálních mixinů (mixins)). Tyto vlastnosti mohou vyžadovat speciální logiku pro slučování, když je třeba "sloučit" vlastnost z více zdrojů (např. mixinů nebo dědičnosti komponenty).
 
-  A merge strategy function can be registered for a custom option by assigning it on the `app.config.optionMergeStrategies` object using the option's name as the key.
+  Funkce pro strategii slučování může být pro custom vlastnost zaregistrována jejím přiřazením na objekt `app.config.optionMergeStrategies` s použitím názvu vlastnosti jako klíče.
 
-  The merge strategy function receives the value of that option defined on the parent and child instances as the first and second arguments, respectively.
+  Funkce přijímá hodnotu této vlastnosti definovanou na instancích komponenty rodiče a potomka jako první a druhý parametr.
 
-- **Example**
+- **Příklad**
 
   ```js
   const app = createApp({
-    // option from self
+    // vlastnost z aplikace (self)
     msg: 'Vue',
-    // option from a mixin
+    // vlastnost z mixinu
     mixins: [
       {
-        msg: 'Hello '
+        msg: 'Ahoj '
       }
     ],
     mounted() {
-      // merged options exposed on this.$options
+      // sloučené volby vystavené na this.$options
       console.log(this.$options.msg)
     }
   })
 
-  // define a custom merge strategy for `msg`
+  // definování strategie pro sloučení `msg`
   app.config.optionMergeStrategies.msg = (parent, child) => {
     return (parent || '') + (child || '')
   }
 
   app.mount('#app')
-  // logs 'Hello Vue'
+  // vypíše 'Ahoj Vue'
   ```
 
-- **Viz také:** [Component Instance - `$options`](/api/component-instance#options)
+- **Viz také:** [Instance komponenty - `$options`](/api/component-instance#options)

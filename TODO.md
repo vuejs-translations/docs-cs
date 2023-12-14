@@ -40,7 +40,6 @@ extras\web-components.md
 
 
 /api
-application.md
 built-in-components.md
 built-in-directives.md
 built-in-special-attributes.md

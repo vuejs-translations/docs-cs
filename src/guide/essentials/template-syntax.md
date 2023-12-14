@@ -8,16 +8,16 @@ Pokud jste obeznámeni s koncepty Virtual DOM a dáváte přednost hrubé síle 
 
 ## Interpolace textu {#text-interpolation}
 
-Nejzákladnější formou datové vazby je textová interpolace pomocí "Mustache" syntaxe (dvojité složené závorky):
+Nejzákladnější formou datové vazby je textová interpolace pomocí "mustache" syntaxe (dvojité složené závorky):
 
 ```vue-html
 <span>Zpráva: {{ msg }}</span>
 ```
-Značka pro "Mustache" bude nahrazena hodnotou `msg` z [odpovídající instance komponenty](/guide/essentials/reactivity-fundamentals#declaring-reactive-state). Bude také aktualizována při každé změně hodnoty `msg` proměnné.
+Značka pro "mustache" bude nahrazena hodnotou `msg` z [odpovídající instance komponenty](/guide/essentials/reactivity-fundamentals#declaring-reactive-state). Bude také aktualizována při každé změně hodnoty `msg` proměnné.
 
 ## HTML kód {#raw-html}
 
-"Mustache" syntaxe interpretuje data jako prostý text, nikoli HTML. K vykreslení stylovaného HTML budete muset použít direktivu [`v-html`](/api/built-in-directives#v-html):
+"mustache" syntaxe interpretuje data jako prostý text, nikoli HTML. K vykreslení stylovaného HTML budete muset použít direktivu [`v-html`](/api/built-in-directives#v-html):
 
 ```vue-html
 <p>S použitím textové interpolace: {{ rawHtml }}</p>
@@ -43,7 +43,7 @@ Dynamické vykreslování libovolného HTML kódu na vaší webové stránce mů
 
 ## Binding atributů {#attribute-bindings}
 
-"Mustache" syntaxi nelze použít uvnitř HTML atributů. Místo toho, použijte [direktivu `v-bind`](/api/built-in-directives#v-bind):
+"mustache" syntaxi nelze použít uvnitř HTML atributů. Místo toho, použijte [direktivu `v-bind`](/api/built-in-directives#v-bind):
 
 ```vue-html
 <div v-bind:id="dynamicId"></div>
@@ -128,7 +128,7 @@ Tyto výrazy budou vyhodnoceny jako JavaScript s použitím datového scope aktu
 
 V Vue šablonách lze JavaScriptové výrazy použít na následujících místech:
 
-- Uvnitř textových interpolací ("Mustache" syntaxe)
+- Uvnitř textových interpolací ("mustache" syntaxe)
 - V hodnotě atributu kterékoliv Vue direktivy (speciální atributy začínající na `v-`)
 
 ### Pouze výrazy {#expressions-only}

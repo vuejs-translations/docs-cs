@@ -47,6 +47,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 deep = vnořený (za předpokladu, že odpovídá kontext, např. "deep reactivity")
 * 🟥 default export = default export
 * 🟩 destructure = dekonstruovat
+* 🟩 details = podrobnosti
 * 🟨 directive = direktiva
 * 🟥 DOM = DOM
 * 🟩 e.g. = např.
@@ -56,6 +57,8 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟨 event = událost (event)
 * 🟥 event handler = event handler
 * 🟥 event listner = event listner
+* 🟩 error = chyba
+* 🟩 example = příklad
 * 🟩 expose (v.) = vystavit
 * 🟩 expression = výraz
 * 🟩 factory function = tovární metoda
@@ -73,6 +76,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 handling = obsluha (error handling = obsluha chyb)
 * 🟩 holding = obsahovat
 * 🟥 hook = hook
+* 🟨 hydration = hydratace
 * 🟥 IDE = IDE
 * 🟨 in-DOM template = in-DOM šablona
 * 🟩 inject = implementovat
@@ -85,13 +89,14 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 kebab-case = kebab-case
 * 🟥 layout = layout
 * 🟨 legacy code = legacy kód
-* 🟥 lifecycle hook = lifecycle hook
+* 🟥 lifecycle hook = metoda životního cyklu
 * 🟩 listen (to event) = naslouchat (události)
 * 🟩 loop = cyklus
 * 🟩 method = funkce
 * 🟥 method handler = method handler
+* 🟥 mixin = mixin
 * 🟨 mount = připojení (mount)
-* 🟨 "Mustache" syntax = "Mustache" syntaxe
+* 🟨 "mustache" syntax = "mustache" syntaxe
 * 🟩 mutate (v.) = měnit
 * 🟩 mutation = změna
 * 🟩 nested = vnořený
@@ -138,6 +143,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟨 Single-File component = Single-File komponenta (SFC)
 * 🟥 slot = slot
 * 🟩 snippet = kus kódu
+* 🟩 specify (v.) = definovat
 * 🟩 state = stav
 * 🟥 state management = state management
 * 🟥 stateful = stateful
@@ -159,5 +165,6 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 under the hood = interně
 * 🟩 use case = případ užití
 * 🟩 using the = pomocí
+* 🟩 warning = varování
 * 🟥 Web Component = Web Component
 * 🟩 worst case scenario = krajní případ
