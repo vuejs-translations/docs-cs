@@ -151,6 +151,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 store = store
 * 🟥 string = string (výjíměčně "řetězec" (obvykle je-li třeba skloňovat))
 * 🟨 string template = string-šablona
+* 🟩 syntactic sugar = alias pro
 * 🟥 tag = tag
 * 🟨 technology stack = technologický stack
 * 🟩 template = šablona
