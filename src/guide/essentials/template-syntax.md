@@ -114,7 +114,7 @@ Můžete provést binding na element pomocí `v-bind` bez atributu:
 
 Zatím jsme se v našich šablonách vázali pouze jednoduše na hodnoty proměnných. Vue ovšem uvnitř všech datových vazeb podporuje plnou škálu JavaScriptových výrazů (expressions):
 
-```html
+```vue-html
 {{ number + 1 }}
 
 {{ ok ? 'ANO' : 'NE' }}
@@ -149,7 +149,7 @@ Kvůli tomu **NEBUDE** fungovat následující:
 
 Uvnitř binding výrazu je možné volat funkci vystavenou v komponentě:
 
-```html
+```vue-html
 <time :title="toTitleDate(date)" :datetime="date">
   {{ formatDate(date) }}
 </time>

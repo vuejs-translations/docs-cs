@@ -6,7 +6,7 @@ Komponenty nám umožňují rozdělit UI na nezávislé a znovupoužitelné čá
 
 <!-- https://www.figma.com/file/qa7WHDQRWuEZNRs7iZRZSI/components -->
 
-Je to velmi podobné tomu, jak vnořujeme nativní HTML elementy, ale Vue implementuje svůj vlastní model komponent, který nám umožňuje zapouzdřit do každé komponenty její vlastní obsah a logiku. Vue také funguje dobře s nativními Web Components. Pokud vás zajímá vztah mezi Vue komponentami a nativními Web Components, [přečtěte si více zde](/guide/extras/web-components).
+Je to velmi podobné tomu, jak vnořujeme nativní HTML elementy, ale Vue implementuje svůj vlastní model komponent, který nám umožňuje zapouzdřit do každé komponenty její vlastní obsah a logiku. Vue také dobře funguje s nativními Web Components. Pokud vás zajímá vztah mezi Vue komponentami a nativními Web Components, [přečtěte si více zde](/guide/extras/web-components).
 
 ## Definice komponenty {#defining-a-component}
 

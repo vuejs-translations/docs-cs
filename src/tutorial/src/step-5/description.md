@@ -32,7 +32,7 @@ function onInput(e) {
 
 Zkuste začít do vstupního pole psát – text v `<p>` by se měl během psaní aktualizovat.
 
-Pro zjednodušení two-way bindingu, Vue obsahuje direktivu `v-model`, která je prakticky pouze aliasem pro výše uvedené:
+Pro zjednodušení two-way bindingu, obsahuje Vue direktivu `v-model`, která je prakticky pouze aliasem pro výše uvedené:
 
 ```vue-html
 <input v-model="text">

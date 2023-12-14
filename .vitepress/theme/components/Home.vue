@@ -40,9 +40,8 @@ onMounted(async () => {
     </p>
   </section>
 
-  <section id="special-sponsor">
+  <section v-if="data && data.special" id="special-sponsor">
     <span class="lead">Speciální sponzor</span>
-    <template v-if="data && data.special">
       <template v-for="{ url, img, name, description } of data.special">
         <a :href="url" target="_blank" rel="sponsored noopener">
           <picture v-if="img.endsWith('png')">
@@ -59,9 +58,9 @@ onMounted(async () => {
             :src="`${base}/images/${img}`"
             :alt="name"
           />
+          <img :src="`${base}/images/${img}`" :alt="name" />
         </a>
-        <span>{{ description }}</span>
-      </template>
+      <span>{{ description }}</span>
     </template>
   </section>
 

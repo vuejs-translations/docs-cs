@@ -67,7 +67,7 @@ export default {
 
 </div>
 
-Upozorňujeme, že k ref můžete přistupovat pouze **po připojení komponenty**. Pokud se pokusíte o přístup k <span class="options-api">`$refs.input`</span><span class="composition- api">`input`</span> ve výrazu šablony, bude při prvním vykreslení `null`. Je to proto, že element existuje až po prvním vykreslení!
+Upozorňujeme, že k ref můžete přistupovat pouze **po připojení komponenty**. Pokud se pokusíte o přístup k <span class="options-api">`$refs.input`</span><span class="composition- api">`input`</span> ve výrazu šablony, bude při prvním vykreslení <span class="options-api">`undefined`</span><span class="composition-api">`null`</span>. Je to proto, že element existuje až po prvním vykreslení!
 
 <div class="composition-api">
 

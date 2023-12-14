@@ -316,10 +316,6 @@ export default {
 
 Funkce `computed()` se typicky používá v komponentách psaných v Composition API, ale lze ji také použít pro doplnění některých případů užití v Options API. O jejím použití se můžete dočíst víc v průvodcích [Základy rektivity](/guide/essentials/reactivity-fundamentals) and [Computed proměnné](/guide/essentials/computed) s preferencí API nastavenou na Composition API.
 
-:::warning Dočasně je potřeba nastavení
-Výše uvedené použití vyžaduje nastavení `app.config.unwrapInjectedRef = true`, aby implementace automaticky rozbalovaly vypočtené ref. Ve Vue 3.3 se to stane výchozím chováním. Tento konfigurátor je zaveden dočasně, aby se zabránilo nefunkčnostem. Po vydání verze 3.3 již nebude vyžadován.
-:::
-
 </div>
 
 ## Práce s klíči typu Symbol {#working-with-symbol-keys}
