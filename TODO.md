@@ -50,7 +50,6 @@ composition-api-lifecycle.md
 composition-api-setup.md
 custom-renderer.md
 general.md
-index.md
 options-composition.md
 options-lifecycle.md
 options-misc.md
@@ -65,8 +64,6 @@ sfc-script-setup.md
 sfc-spec.md
 ssr.md
 utility-types.md
-api.data.ts
-ApiIndex.vue
 
 /example
 attribute-bindings\
