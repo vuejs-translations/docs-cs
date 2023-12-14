@@ -112,6 +112,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 parser = parser
 * 🟥 PascalCase = PascalCase
 * 🟩 passed to = posílaný do
+* 🟥 placeholder = placeholder
 * 🟥 plugin = plugin
 * 🟥 pull request = pull request
 * 🟩 prerequisities = předpoklady

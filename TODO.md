@@ -42,8 +42,6 @@ extras\web-components.md
 /api
 built-in-components.md
 built-in-directives.md
-built-in-special-attributes.md
-built-in-special-elements.md
 component-instance.md
 composition-api-dependency-injection.md
 composition-api-lifecycle.md
