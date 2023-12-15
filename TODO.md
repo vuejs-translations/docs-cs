@@ -3,9 +3,6 @@ TODO iteration 1
 
 /guide
 
-built-ins\
-built-ins\transition.md
-
 scaling-up\
 scaling-up\routing.md
 scaling-up\sfc.md
