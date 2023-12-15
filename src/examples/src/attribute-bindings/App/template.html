@@ -1,18 +1,18 @@
 <p>
   <span :title="message">
-    Hover your mouse over me for a few seconds to see my dynamically bound title!
+    Najeď na mě na pár vteřin myší, abys viděl můj dynamicky přiřazený titulek!
   </span>
 </p>
 
 <!--
-class bindings have special support for objects and arrays
-in addition to plain strings
+  binding tříd má speciální podporu pro objekty a pole
+  navíc k obyčejným řetěžcům
 -->
 <p :class="{ red: isRed }" @click="toggleRed">
-  This should be red... but click me to toggle it.
+  Toto se na kliknutí přepíná mezi červenou a černou.
 </p>
 
-<!-- style bindings also support object and arrays -->
+<!-- binding stylů také podporuje objekty a pole -->
 <p :style="{ color }" @click="toggleColor">
-  This should be green, and should toggle between green and blue on click.
+  Toto se na kliknutí přepíná mezi zelenou a modrou.
 </p>

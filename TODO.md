@@ -61,7 +61,6 @@ ssr.md
 utility-types.md
 
 /example
-attribute-bindings\
 cells\
 circle-drawer\
 conditionals-and-loops\
@@ -71,8 +70,6 @@ fetching-data\
 flight-booker\
 form-bindings\
 grid\
-handling-input\
-hello-world\
 list-transition\
 markdown\
 modal\
@@ -82,6 +79,8 @@ temperature-converter\
 timer\
 todomvc\
 tree\
+
+/glossary
 
 
 TODO iteration 2

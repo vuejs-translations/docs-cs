@@ -1,1 +1,1 @@
-Say Hello World with Vue!
+Řekněte 'Ahoj, Vue!' s pomocí Vue!
