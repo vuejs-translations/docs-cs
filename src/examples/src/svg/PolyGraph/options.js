@@ -9,12 +9,12 @@ export default {
     stats: Array
   },
   computed: {
-    // a computed property for the polygon's points
+    // computed proměnná pro body (polygonu)
     points() {
       const total = this.stats.length
       return this.stats
         .map((stat, i) => {
-          const { x, y } = valueToPoint(stat.value, i, total)
+          const { x, y } = valueToPoint(stat.hodnota, i, total)
           return `${x},${y}`
         })
         .join(' ')

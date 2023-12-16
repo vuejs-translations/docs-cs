@@ -60,26 +60,6 @@ sfc-spec.md
 ssr.md
 utility-types.md
 
-/example
-cells\
-circle-drawer\
-conditionals-and-loops\
-counter\
-crud\
-fetching-data\
-flight-booker\
-form-bindings\
-grid\
-list-transition\
-markdown\
-modal\
-simple-component\
-svg\
-temperature-converter\
-timer\
-todomvc\
-tree\
-
 /glossary
 
 

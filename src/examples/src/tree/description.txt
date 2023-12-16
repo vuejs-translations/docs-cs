@@ -1,2 +1,2 @@
-A nested tree component that recursively renders itself.
-You can double click on an item to turn it into a folder.
+Vnořená stromová komponenta, která rekurzivně vykresluje sama sebe.
+Dvojklik na záznam z něj vytvoří složku.
