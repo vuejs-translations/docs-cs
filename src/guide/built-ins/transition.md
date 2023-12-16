@@ -321,11 +321,11 @@ Pokud je to nutné, můžete specifikovat i samostatné hodnoty pro dobu trván�
 
 Můžete si všimnout, že animace zobrazené výše využívají převážně vlastnosti jako `transform` a `opacity`. Tyto vlastnosti jsou efektivní pro animaci, protože:
 
-1. Neovlivňují rozvržení dokumentu během animace, takže nevyvolávají nákladné výpočty CSS rozvržení při každém snímku animace.
+1. Neovlivňují layout dokumentu během animace, takže nevyvolávají nákladné výpočty CSS layoutu při každém snímku animace.
 
 2. Většina moderních prohlížečů může využít hardwarovou akceleraci GPU během `transform` animace.
 
-Naopak vlastnosti jako `height` nebo `margin` vyvolají změnu CSS rozvržení, takže jsou na animaci mnohem dražší a měly by být používány opatrně. Abychom zjistili, které všechny CSS vlastnosti vyvolají při animaci změnu rozvržení, můžeme zkontrolovat zdroje jako [CSS-Triggers](https://csstriggers.com/).
+Naopak vlastnosti jako `height` nebo `margin` vyvolají změnu CSS layoutu, takže jsou na animaci mnohem dražší a měly by být používány opatrně. Abychom zjistili, které všechny CSS vlastnosti vyvolají při animaci změnu layoutu, můžeme zkontrolovat zdroje jako [CSS-Triggers](https://csstriggers.com/).
 
 ## JavaScript události {#javascript-hooks}
 
@@ -529,7 +529,7 @@ Kromě přepínání pomocí `v-if` / `v-show` můžeme mezi dvěma elementy tak
 
 ## Režimy přechodu {#transition-modes}
 
-V předchozím příkladu byly vstupující a odcházející prvky animovány současně a museli jsme je nastavit na `position: absolute`, abychom se vyhnuli problému s rozvržením, když jsou v DOM přítomny oba prvky.
+V předchozím příkladu byly vstupující a odcházející prvky animovány současně a museli jsme je nastavit na `position: absolute`, abychom se vyhnuli problému s layoutem, když jsou v DOM přítomny oba prvky.
 
 To však v některých případech není možné nebo to jednoduše není požadované chování. Můžeme chtít, aby odcházející prvek byl nejprve animován pryč a vstupující prvek byl vložen až **po** dokončení animace odcházejícího prvku. Manuální orchestrace takových animací by byla velmi složitá - naštěstí můžeme toto chování povolit předáním vlastnosti (prop) `mode` do `<Transition>`:
 
