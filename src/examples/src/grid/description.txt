@@ -1,1 +1,1 @@
-An example of creating a reusable grid component and using it with external data.
+Ukázka vytvoření znovupoužitlené 'tabulkové' (grid) komponenty a její použití s externími daty.

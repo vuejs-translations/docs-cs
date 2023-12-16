@@ -9,8 +9,8 @@ export const cells = reactive(
   )
 )
 
-// adapted from https://codesandbox.io/s/jotai-7guis-task7-cells-mzoit?file=/src/atoms.ts
-// by @dai-shi
+// převzato a upraveno podle https://codesandbox.io/s/jotai-7guis-task7-cells-mzoit?file=/src/atoms.ts
+// od @dai-shi
 export function evalCell(exp) {
   if (!exp.startsWith('=')) {
     return exp

@@ -464,7 +464,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/examples/#fetching-data'
         },
         {
-          text: 'Grid s tříděním a filtrováním',
+          text: 'Tabulka s tříděním a filtrováním',
           link: '/examples/#grid'
         },
         {

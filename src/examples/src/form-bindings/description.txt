@@ -1,1 +1,1 @@
-We can create two-way bindings between state and form inputs using the v-model directive.
+Můžeme vytvořit obousměrný binding mezi stave a vstupy formuláře pomocí direktivy v-model.
