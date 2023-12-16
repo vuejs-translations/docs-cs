@@ -60,8 +60,6 @@ sfc-spec.md
 ssr.md
 utility-types.md
 
-/glossary
-
 
 TODO iteration 2
 ================

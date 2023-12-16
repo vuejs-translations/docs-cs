@@ -1,4 +1,4 @@
-# Syntaxeš šablon {#template-syntax}
+# Syntaxe šablon {#template-syntax}
 
 Vue používá pro šablony (template) syntaxi založenou na HTML. Ta vám umožňuje deklarativně propojit vykreslený DOM s daty instance komponenty v pozadí. Všechny Vue šablony jsou syntakticky platný HTML kód, který může být analyzován prohlížeči a HTML parsery odpovídajícími specifikaci.
 

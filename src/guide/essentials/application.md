@@ -57,7 +57,7 @@ Obsah root komponenty aplikace bude vykreslen uvnitř zadaného kontejneru. Samo
 
 Funkce `.mount()` by měla být vždy volána po dokončení všech aplikačních konfigurací a registrací zdrojů. Všimněte si, že narozdíl od funkcí pro registraci zdrojů je její návratovou hodnotou instance root komponenty namísto aplikační instance.
 
-### DOM-šablona root komponenty {#in-dom-root-component-template}
+### In-DOM šablona root komponenty {#in-dom-root-component-template}
 
 Šablona root komponenty je většinou součástí komponenty samotné. Ale můžeme také poskytnout šablonu samostatně, pokud ji zapíšeme přímo do elementu určeného pro připojení komponenty (mount container):
 

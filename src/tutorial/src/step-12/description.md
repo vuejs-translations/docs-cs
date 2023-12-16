@@ -14,7 +14,7 @@ const props = defineProps({
 </script>
 ```
 
-Poznámka: `defineProps()` je compile-time makro a není nutné jej importovat. Po deklaraci lze vlastnost `msg` použít v šabloně podřízené komponenty. Lze k ní také přistupovat v JavaScript kódu prostřednictvím objektu vráceného z `defineProps()`.
+Poznámka: `defineProps()` je makro překladače a není nutné jej importovat. Po deklaraci lze vlastnost `msg` použít v šabloně podřízené komponenty. Lze k ní také přistupovat v JavaScript kódu prostřednictvím objektu vráceného z `defineProps()`.
 
 </div>
 

@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Render Functions & JSX {#render-functions-jsx}
+# Funkce pro vykreslování & JSX {#render-functions-jsx}
 
 Vue recommends using templates to build applications in the vast majority of cases. However, there are situations where we need the full programmatic power of JavaScript. That's where we can use the **render function**.
 
@@ -692,7 +692,7 @@ export default {
 
 </div>
 
-## Functional Components {#functional-components}
+## Funkční komponenty {#functional-components}
 
 Functional components are an alternative form of component that don't have any state of their own. They act like pure functions: props in, vnodes out. They are rendered without creating a component instance (tj. no `this`), and without the usual component lifecycle hooks.
 

@@ -37,6 +37,8 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 Code of Conduct = Kodex chování
 * 🟩 codebase = kódová báze
 * 🟩 compiler = překadač ('kompilátor' lze tolerovat)
+* 🟩 compiler macro = makro překladače
+* 🟥 composable = composable
 * 🟥 Composition API = Composition API
 * 🟨 computed property = computed proměnná
 * 🟨 container element = mateřský element
@@ -59,6 +61,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 event listner = event listner
 * 🟩 error = chyba
 * 🟩 example = příklad
+* 🟩 execution = vykonávání
 * 🟩 expose (v.) = vystavit
 * 🟩 expression = výraz
 * 🟩 factory function = tovární metoda
@@ -89,6 +92,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 kebab-case = kebab-case
 * 🟥 layout = layout
 * 🟨 legacy code = legacy kód
+* 🟨 lazy loading = "lazy" načítání
 * 🟥 lifecycle hook = metoda životního cyklu
 * 🟩 listen (to event) = naslouchat (události)
 * 🟩 loop = cyklus
@@ -124,17 +128,20 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 proxy = proxy
 * 🟩 reactive = reaktivní
 * 🟩 reactivity = reaktivita
+* 🟩 reactivity system = systém reaktivity
 * 🟥 read-only - read-only
 * 🟥 ref = ref
 * 🟨 refactoring = refaktoring
 * 🟩 release = verze
 * 🟩 rendering = vykreslování
+* 🟩 render function = funkce pro vykreslování
 * 🟩 resource = zdroj ("prostředek" možná ve vztahu k OS)
 * 🟩 reusable = znovupoužitelný
 * 🟥 root element = root element
 * 🟨 root component = root komponenta
 * 🟥 routing = routing
 * 🟥 scope = scope
+* 🟥 scheduler = scheduler
 * 🟩 see also = viz také
 * 🟨 selector = selektor
 * 🟨 self-closing = nepárový (self-closing)
@@ -155,6 +162,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 tag = tag
 * 🟨 technology stack = technologický stack
 * 🟩 template = šablona
+* 🟥 template ref = template ref
 * 🟩 tightly coupled = těsně provázané
 * 🟩 theme = šablona
 * 🟩 this is how = tímto způsobem můžeme

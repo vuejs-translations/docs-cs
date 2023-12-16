@@ -213,7 +213,7 @@ defineProps(['title'])
 </template>
 ```
 
-`defineProps` je compile-time makro, které je dostupné pouze ve `<script setup>` a nemusí být explicitně importováno. Deklarované vlastnosti jsou automaticky zpřístupněny šabloně. `defineProps` také vrátí objekt, který obsahuje všechny vlastnosti předané komponentě, takže k nim můžeme v případě potřeby přistupovat v JavaScriptu:
+`defineProps` je makro překladače, které je dostupné pouze ve `<script setup>` a nemusí být explicitně importováno. Deklarované vlastnosti jsou automaticky zpřístupněny šabloně. `defineProps` také vrátí objekt, který obsahuje všechny vlastnosti předané komponentě, takže k nim můžeme v případě potřeby přistupovat v JavaScriptu:
 
 ```js
 const props = defineProps(['title'])
