@@ -1,34 +1,34 @@
 # Composition API: Lifecycle Hooks {#composition-api-lifecycle-hooks}
 
-:::info Usage Note
-All APIs listed on this page must be called synchronously during the `setup()` phase of a component. See [Guide - Lifecycle Hooks](/guide/essentials/lifecycle) for more details.
+:::info Poznámka k použití
+Všechny API funkce uvedené na této stránce musí být volány synchronně během `setup()` fáze komponenty. Pro více informací se podívejte na [Průvodce - Lifecycle Hooks](/guide/essentials/lifecycle).
 :::
 
 ## onMounted() {#onmounted}
 
-Registers a callback to be called after the component has been mounted.
+Registruje callback, který se volá po připojení komponenty.
 
-- **Type**
+- **Typ**
 
   ```ts
   function onMounted(callback: () => void): void
   ```
 
-- **Details**
+- **Detaily**
 
-  A component is considered mounted after:
+  Komponenta je považována za připojenou poté, co:
 
-  - All of its synchronous child components have been mounted (does not include async components or components inside `<Suspense>` trees).
+  - Byly připojeny všechny její synchronní podřízené komponenty (neplatí pro asynchronní komponenty nebo komponenty uvnitř `<Suspense>` hierarchie).
 
-  - Its own DOM tree has been created and inserted into the parent container. Note it only guarantees that the component's DOM tree is in-document if the application's root container is also in-document.
+  - Byl vytvořen její vlastní DOM a vložen do rodičovského kontejneru. Všimněte si, že to zaručuje, že DOM komponenty je v dokumentu pouze tehdy, pokud je v dokumentu také root kontejner aplikace.
 
-  This hook is typically used for performing side effects that need access to the component's rendered DOM, or for limiting DOM-related code to the client in a [server-rendered application](/guide/scaling-up/ssr).
+  Tento hook se typicky používá pro provádění vedlejších efektů, které potřebují přístup k vykreslenému DOM komponenty, nebo pro omezení kódu souvisejícího s DOM na klientovi v [aplikaci vykreslené na serveru](/guide/scaling-up/ssr).
 
-  **This hook is not called during server-side rendering.**
+  **Tento hook není volán během vykreslování na serveru (SSR).**
 
-- **Example**
+- **Příklad**
 
-  Accessing an element via template ref:
+  Přístup k elementu pomocí template ref:
 
   ```vue
   <script setup>
@@ -48,29 +48,29 @@ Registers a callback to be called after the component has been mounted.
 
 ## onUpdated() {#onupdated}
 
-Registers a callback to be called after the component has updated its DOM tree due to a reactive state change.
+Registruje callback, který se volá poté, co komponenta aktualizuje svůj DOM v důsledku změny reaktivního stavu.
 
-- **Type**
+- **Typ**
 
   ```ts
   function onUpdated(callback: () => void): void
   ```
 
-- **Details**
+- **Detaily**
 
-  A parent component's updated hook is called after that of its child components.
+  Hook `updated` nadřazené komponenty se volá až po `updated` komponent potomků.
 
-  This hook is called after any DOM update of the component, which can be caused by different state changes, because multiple state changes can be batched into a single render cycle for performance reasons. If you need to access the updated DOM after a specific state change, use [nextTick()](/api/general#nexttick) instead.
+  Tento hook se volá po každé aktualizaci DOM komponenty, která může být způsobena různými změnami stavu, protože z důvodu optimalizace výkonu může být více změn stavu seskupeno do jednoho vykreslovací cyklu. Pokud potřebujete přistupovat k aktualizovanému DOM po konkrétní změně stavu, použijte místo toho [nextTick()](/api/general#nexttick).
 
-  **This hook is not called during server-side rendering.**
+**Tento hook není volán během vykreslování na serveru (SSR).**
 
-  :::warning
-  Do not mutate component state in the updated hook - this will likely lead to an infinite update loop!
-  :::
+:::warning
+ V hooku `updated` neměňte stav komponenty - to pravděpodobně povede k nekonečné smyčce aktualizací!
+:::
 
-- **Example**
+- **Příklad**
 
-  Accessing updated DOM:
+  Přístup k aktualizovanému DOM:
 
   ```vue
   <script setup>
@@ -79,7 +79,7 @@ Registers a callback to be called after the component has updated its DOM tree d
   const count = ref(0)
 
   onUpdated(() => {
-    // text content should be the same as current `count.value`
+    // textový obsah by měl být stejný jako aktuální `count.value`
     console.log(document.getElementById('count').textContent)
   })
   </script>
@@ -91,27 +91,27 @@ Registers a callback to be called after the component has updated its DOM tree d
 
 ## onUnmounted() {#onunmounted}
 
-Registers a callback to be called after the component has been unmounted.
+Registruje callback, který se zavolá po odstranění komponenty.
 
-- **Type**
+- **Typ**
 
   ```ts
   function onUnmounted(callback: () => void): void
   ```
 
-- **Details**
+- **Detaily**
 
-  A component is considered unmounted after:
+  Komponenta je považována za odstraněnou poté, co:
 
-  - All of its child components have been unmounted.
+  - Byly odstraněny všechny její podřízené komponenty.
 
-  - All of its associated reactive effects (render effect and computed / watchers created during `setup()`) have been stopped.
+  - Byly zastaveny všechny asociované reaktivní efekty (efekt vykreslování a computed proměnné / watchery vytvořené během `setup()`) 
 
-  Use this hook to clean up manually created side effects such as timers, DOM event listeners or server connections.
+  Použijte tento hook k ručnímu čištění vytvořených vedlejších efektů, jako jsou časovače, DOM event listenery nebo serverová připojení.
 
-  **This hook is not called during server-side rendering.**
+  **Tento hook není volán během vykreslování na serveru (SSR).**
 
-- **Example**
+- **Příklad**
 
   ```vue
   <script setup>
@@ -130,57 +130,57 @@ Registers a callback to be called after the component has been unmounted.
 
 ## onBeforeMount() {#onbeforemount}
 
-Registers a hook to be called right before the component is to be mounted.
+Registruje callback, který se zavolá před tím, než se má komponenta připojit.
 
-- **Type**
+- **Typ**
 
   ```ts
   function onBeforeMount(callback: () => void): void
   ```
 
-- **Details**
+- **Detaily**
 
-  When this hook is called, the component has finished setting up its reactive state, but no DOM nodes have been created yet. It is about to execute its DOM render effect for the first time.
+  Když je tento hook zavolán, komponenta dokončila nastavení svého reaktivního stavu, ale ještě nebyly vytvořeny žádné DOM elementy. Je připravena poprvé vykonat svůj efekt pro vykreslování DOM.
 
-  **This hook is not called during server-side rendering.**
+  **Tento hook není volán během vykreslování na serveru (SSR).**
 
 ## onBeforeUpdate() {#onbeforeupdate}
 
-Registers a hook to be called right before the component is about to update its DOM tree due to a reactive state change.
+Registruje callback, který se zavolá před tím, než se komponenta chystá aktualizovat svůj DOM kvůli změně reaktivního stavu.
 
-- **Type**
+- **Typ**
 
   ```ts
   function onBeforeUpdate(callback: () => void): void
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  This hook can be used to access the DOM state before Vue updates the DOM. It is also safe to modify component state inside this hook.
+  Tento hook lze použít k přístupu ke stavu DOM před aktualizací DOM Vue. Je také bezpečné upravovat stav komponenty uvnitř tohoto hooku.
 
-  **This hook is not called during server-side rendering.**
+  **Tento hook není volán během vykreslování na serveru (SSR).**
 
 ## onBeforeUnmount() {#onbeforeunmount}
 
-Registers a hook to be called right before a component instance is to be unmounted.
+Registruje hook, který se má volat před odstraněním instance komponenty.
 
-- **Type**
+- **Typ**
 
   ```ts
   function onBeforeUnmount(callback: () => void): void
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  When this hook is called, the component instance is still fully functional.
+  Když je tento hook zavolán, instance komponenty je stále plně funkční.
 
-  **This hook is not called during server-side rendering.**
+  **Tento hook není volán během vykreslování na serveru (SSR).**
 
 ## onErrorCaptured() {#onerrorcaptured}
 
-Registers a hook to be called when an error propagating from a descendant component has been captured.
+Registruje callback, který se má volat, když je zachycena chyba propagující se z komponenty potomka.
 
-- **Type**
+- **Typ**
 
   ```ts
   function onErrorCaptured(callback: ErrorCapturedHook): void
@@ -192,41 +192,41 @@ Registers a hook to be called when an error propagating from a descendant compon
   ) => boolean | void
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  Errors can be captured from the following sources:
+  Chyby lze zachytit z následujících zdrojů:
 
-  - Component renders
-  - Event handlers
+  - Vykreslování komponenty
+  - Obsluha událostí
   - Lifecycle hooks
-  - `setup()` function
-  - Watchers
+  - Funkce `setup()`
+  - Watchery
   - Custom directive hooks
   - Transition hooks
 
-  The hook receives three arguments: the error, the component instance that triggered the error, and an information string specifying the error source type.
+  Hook dostává tři argumenty: chybu, instanci komponenty, která chybu vyvolala, a řetězec s informací, která specifikuje typ zdroje chyby.
 
-  You can modify component state in `errorCaptured()` to display an error state to the user. However, it is important that the error state should not render the original content that caused the error; otherwise the component will be thrown into an infinite render loop.
+  Pro zobrazení stavu chyby uživateli můžete upravit stav komponenty v `errorCaptured()`. Je však důležité, aby stav chyby nevykresloval původní obsah, který způsobil chybu; jinak bude komponenta vržena do nekonečné smyčky vykreslování.
 
-  The hook can return `false` to stop the error from propagating further. See error propagation details below.
+  Hook může vrátit `false`, aby zastavil další propagaci chyby. Podrobnosti o propagaci chyb naleznete níže.
 
-  **Error Propagation Rules**
+  **Pravidla propagace chyb**
 
-  - By default, all errors are still sent to the application-level [`app.config.errorHandler`](/api/application#app-config-errorhandler) if it is defined, so that these errors can still be reported to an analytics service in a single place.
+  - Ve výchozím nastavení jsou všechny chyby stále odesílány až na úroveň aplikace do [`app.config.errorHandler`](/api/application#app-config-errorhandler), pokud je definován, aby mohly být tyto chyby stále hlášeny do analytické služby na jednom místě.
 
-  - If multiple `errorCaptured` hooks exist on a component's inheritance chain or parent chain, all of them will be invoked on the same error, in the order of bottom to top. This is similar to the bubbling mechanism of native DOM events.
+- Pokud existuje více `errorCaptured` hooks v hierarchii dědičnosti komponenty nebo hierarchii rodičů, všechny budou volány se stejnou chybou, v pořadí odspodu nahoru. To je podobné mechanismu probublávání nativních DOM událostí.
 
-  - If the `errorCaptured` hook itself throws an error, both this error and the original captured error are sent to `app.config.errorHandler`.
+- Pokud `errorCaptured` hook sám vyvolá chybu, tato chyba a původní zachycená chyba jsou odeslány do `app.config.errorHandler`.
 
-  - An `errorCaptured` hook can return `false` to prevent the error from propagating further. This is essentially saying "this error has been handled and should be ignored." It will prevent any additional `errorCaptured` hooks or `app.config.errorHandler` from being invoked for this error.
+- Hook `errorCaptured` může vrátit `false`, aby zabránil propagaci chyby dále. To v podstatě znamená "tato chyba byla zpracována a měla by být ignorována." Pro tuto chybu to zabrání volání dalších `errorCaptured` hooks nebo `app.config.errorHandler`.
 
 ## onRenderTracked() <sup class="vt-badge dev-only" /> {#onrendertracked}
 
-Registers a debug hook to be called when a reactive dependency has been tracked by the component's render effect.
+Registruje debug hook, který je zavolán, když byla reaktivní závislost sledována vykreslovacím efektem komponenty.
 
-**This hook is development-mode-only and not called during server-side rendering.**
+**Tento hook se volá pouze v režimu vývoje (dev) a není volán během vykreslování na serveru (SSR).**
 
-- **Type**
+- **Typ**
 
   ```ts
   function onRenderTracked(callback: DebuggerHook): void
@@ -241,15 +241,15 @@ Registers a debug hook to be called when a reactive dependency has been tracked 
   }
   ```
 
-- **Viz také:** [Reactivity in Depth](/guide/extras/reactivity-in-depth)
+- **Viz také:** [Reaktivita podrobně](/guide/extras/reactivity-in-depth)
 
 ## onRenderTriggered() <sup class="vt-badge dev-only" /> {#onrendertriggered}
 
-Registers a debug hook to be called when a reactive dependency triggers the component's render effect to be re-run.
+Registruje debug hook, který se volá, když reaktivní závislost vyvolá nové spuštění vykreslovacího efektu komponenty.
 
-**This hook is development-mode-only and not called during server-side rendering.**
+**Tento hook se volá pouze v režimu vývoje (dev) a není volán během vykreslování na serveru (SSR).**
 
-- **Type**
+- **Typ**
 
   ```ts
   function onRenderTriggered(callback: DebuggerHook): void
@@ -267,53 +267,53 @@ Registers a debug hook to be called when a reactive dependency triggers the comp
   }
   ```
 
-- **Viz také:** [Reactivity in Depth](/guide/extras/reactivity-in-depth)
+- **Viz také:** [Reaktivita podrobně](/guide/extras/reactivity-in-depth)
 
 ## onActivated() {#onactivated}
 
-Registers a callback to be called after the component instance is inserted into the DOM as part of a tree cached by [`<KeepAlive>`](/api/built-in-components#keepalive).
+Registruje callback, který se zavolá poté, co je instance komponenty vložena do DOM coby součást stromu uloženého pomocí [`<KeepAlive>`](/api/built-in-components#keepalive).
 
-**This hook is not called during server-side rendering.**
+**Tento hook není volán během vykreslování na serveru (SSR).**
 
-- **Type**
+- **Typ**
 
   ```ts
   function onActivated(callback: () => void): void
   ```
 
-- **Viz také:** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
+- **Viz také:** [Průvodce - Životní cyklus cached instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
 
 ## onDeactivated() {#ondeactivated}
 
-Registers a callback to be called after the component instance is removed from the DOM as part of a tree cached by [`<KeepAlive>`](/api/built-in-components#keepalive).
+Registruje callback, který se zavolá poté, co je instance komponenty odebrána z DOM coby součást stromu uloženého pomocí [`<KeepAlive>`](/api/built-in-components#keepalive).
 
-**This hook is not called during server-side rendering.**
+**Tento hook není volán během vykreslování na serveru (SSR).**
 
-- **Type**
+- **Typ**
 
   ```ts
   function onDeactivated(callback: () => void): void
   ```
 
-- **Viz také:** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
+- **Viz také:** [Průvodce - Životní cyklus cached instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
 
-## onServerPrefetch() <sup class="vt-badge" data-text="SSR only" /> {#onserverprefetch}
+## onServerPrefetch() <sup class="vt-badge" data-text="Pouze SSR" /> {#onserverprefetch}
 
-Registers an async function to be resolved before the component instance is to be rendered on the server.
+Registruje asynchronní funkci, která se vyhodnotí před vykreslením instance komponenty na serveru.
 
-- **Type**
+- **Typ**
 
   ```ts
   function onServerPrefetch(callback: () => Promise<any>): void
   ```
 
-- **Details**
+- **Detaily**
 
-  If the callback returns a Promise, the server renderer will wait until the Promise is resolved before rendering the component.
+  Pokud callback vrátí Promise, server počká, dokud se Promise nevyřeší, než vykreslí komponentu.
 
-  This hook is only called during server-side rendering can be used to perform server-only data fetching.
+  Tento hook se volá pouze během vykreslování na serveru (SSR) a může být použit pro načítání dat pouze na serveru.
 
-- **Example**
+- **Příklad**
 
   ```vue
   <script setup>
@@ -322,20 +322,20 @@ Registers an async function to be resolved before the component instance is to b
   const data = ref(null)
 
   onServerPrefetch(async () => {
-    // component is rendered as part of the initial request
-    // pre-fetch data on server as it is faster than on the client
+    // komponenta je vykreslena jako součást výcozího požadavku
+    // data se načítají na serveru, protože to je rychlejší než na klientovi
     data.value = await fetchOnServer(/* ... */)
   })
 
   onMounted(async () => {
     if (!data.value) {
-      // if data is null on mount, it means the component
-      // is dynamically rendered on the client. Perform a
-      // client-side fetch instead.
+      // pokud jsou při připojení data null, znamená to, že komponenta
+      // je dynamicky vykreslena na klientovi
+      // proto načíst data na klientovi
       data.value = await fetchOnClient(/* ... */)
     }
   })
   </script>
   ```
 
-- **Viz také:** [Server-Side Rendering](/guide/scaling-up/ssr)
+- **See also:** [Server-Side Rendering](/guide/scaling-up/ssr)

@@ -2,59 +2,59 @@
 
 ## provide() {#provide}
 
-Provides a value that can be injected by descendant components.
+Poskytuje hodnotu, která může být implementována komponentami potomka.
 
-- **Type**
+- **Typ**
 
   ```ts
   function provide<T>(key: InjectionKey<T> | string, value: T): void
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  `provide()` takes two arguments: the key, which can be a string or a symbol, and the value to be injected.
+  `provide()` přijímá dva argumenty: klíč (injection key) kterým může být řetězec nebo symbol, a hodnotu, která má být implementována.
 
-  When using TypeScript, the key can be a symbol casted as `InjectionKey` - a Vue provided utility type that extends `Symbol`, which can be used to sync the value type between `provide()` and `inject()`.
+  Při použití TypeScriptu může být klíč symbolem přetypovaným jako `InjectionKey` - typem poskytovaným Vue, který rozšiřuje `Symbol` a který lze použít k synchronizaci typu hodnoty mezi `provide()` a `inject()`.
 
-  Similar to lifecycle hook registration APIs, `provide()` must be called synchronously during a component's `setup()` phase.
+  Podobně jako u API pro registraci lifecycle hooks musí být `provide()` voláno synchronně během `setup()` fáze komponenty.
 
-- **Example**
+- **Příklad**
 
   ```vue
   <script setup>
   import { ref, provide } from 'vue'
   import { countSymbol } from './injectionSymbols'
 
-  // provide static value
+  // poskytnutí statické hodnoty
   provide('path', '/project/')
 
-  // provide reactive value
+  // poskytnutí reaktivní hodnoty
   const count = ref(0)
   provide('count', count)
 
-  // provide with Symbol keys
+  // poskytnutí s klíčem typu Symbol
   provide(countSymbol, count)
   </script>
   ```
 
 - **Viz také**:
-  - [Guide - Provide / Inject](/guide/components/provide-inject)
-  - [Guide - Typing Provide / Inject](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
+  - [Průvodce - Provide / Inject](/guide/components/provide-inject)
+  - [Průvodce - Typování Provide / Inject](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
 
 ## inject() {#inject}
 
-Injects a value provided by an ancestor component or the application (via `app.provide()`).
+Implementuje hodnotu poskytnutou komponentou předka nebo aplikací (pomocí `app.provide()`).
 
-- **Type**
+- **Typ**
 
   ```ts
-  // without default value
+  // bez výchozí hodnoty
   function inject<T>(key: InjectionKey<T> | string): T | undefined
 
-  // with default value
+  // s výchozí hodnotou
   function inject<T>(key: InjectionKey<T> | string, defaultValue: T): T
 
-  // with factory
+  // s tovární funkcí
   function inject<T>(
     key: InjectionKey<T> | string,
     defaultValue: () => T,
@@ -62,43 +62,43 @@ Injects a value provided by an ancestor component or the application (via `app.p
   ): T
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  The first argument is the injection key. Vue will walk up the parent chain to locate a provided value with a matching key. If multiple components in the parent chain provides the same key, the one closest to the injecting component will "shadow" those higher up the chain. If no value with matching key was found, `inject()` returns `undefined` unless a default value is provided.
+  První argument je klíč pro implementaci (injection key). Vue se bude procházet hierarchií rodičovských komponent, aby našelo poskytovanou hodnotu s odpovídajícím klíčem. Pokud více komponent v hierarchii poskytuje stejný klíč, ten z nejbližší komponenty "překryje" ty vyšší v řetězci. Pokud nebyla nalezena žádná hodnota s odpovídajícím klíčem, `inject()` vrátí `undefined`, pokud není poskytnuta výchozí hodnota.
 
-  The second argument is optional and is the default value to be used when no matching value was found.
+Druhý argument je volitelný a jde o výchozí hodnotou, která se použije, pokud nebyla nalezena žádná odpovídající poskytnutá hodnota.
 
-  The second argument can also be a factory function that returns values that are expensive to create. In this case, `true` must be passed as the third argument to indicate that the function should be used as a factory instead of the value itself.
+Druhý argument může být také tovární funkce, která vrací hodnoty, které jsou nákladné na vytvoření. V tomto případě musí být jako třetí argument předáno `true` pro indikaci, že by měla být funkce použita jako tovární metoda místo samotné hodnoty.
 
-  Similar to lifecycle hook registration APIs, `inject()` must be called synchronously during a component's `setup()` phase.
+Podobně jako u API pro registraci lifecycle hooks, musí být `inject()` voláno synchronně během `setup()` fáze komponenty.
 
-  When using TypeScript, the key can be of type of `InjectionKey` - a Vue-provided utility type that extends `Symbol`, which can be used to sync the value type between `provide()` and `inject()`.
+Při použití TypeScriptu může být klíč typu `InjectionKey` - typu poskytovaného Vue, který rozšiřuje `Symbol` a který lze použít k synchronizaci typu hodnoty mezi `provide()` a `inject()`.
 
-- **Example**
+- **Příklad**
 
-  Assuming a parent component has provided values as shown in the previous `provide()` example:
+  Za předpokladu, že rodičovská komponenta poskytuje hodnoty, jak je ukázáno v předchozím příkladu `provide()`:
 
   ```vue
   <script setup>
   import { inject } from 'vue'
   import { countSymbol } from './injectionSymbols'
 
-  // inject static value without default
+  // implementace statické hodnoty bez výchozí hodnoty
   const path = inject('path')
 
-  // inject reactive value
+  // implementace reaktivní hodnoty
   const count = inject('count')
 
-  // inject with Symbol keys
+  // implementace s použitím klíče typu Symbol
   const count2 = inject(countSymbol)
 
-  // inject with default value
+  // implementace s výchozí hodnotou
   const bar = inject('path', '/default-path')
 
-  // inject with function default value
+  // implementace s výchozí hodnotou ve formě funkce
   const fn = inject('function', () => {})
 
-  // inject with default value factory
+  // implementace s výchozí hodnotou ve formě tovární funkce
   const baz = inject('factory', () => new ExpensiveObject(), true)
   </script>
   ```
@@ -107,12 +107,12 @@ Injects a value provided by an ancestor component or the application (via `app.p
 
 Vrací true pokud může být funkce [inject()](#inject) použita, aniž by vyvolala varování, že je volána na špatném místě (např. mimo `setup()`). Tato metoda je navržena pro použití v knihovnách, které chtějí používat `inject()` interně bez výpisu varování pro koncové uživatele.
 
-- **Type**
+- **Typ**
 
   ```ts
   function hasInjectionContext(): boolean
   ```
 
 - **Viz také**:
-  - [Guide - Provide / Inject](/guide/components/provide-inject)
-  - [Guide - Typing Provide / Inject](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
+  - [Průvodce - Provide / Inject](/guide/components/provide-inject)
+  - [Průvodce - Typování Provide / Inject](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />

@@ -128,6 +128,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 proxy = proxy
 * 🟩 reactive = reaktivní
 * 🟩 reactivity = reaktivita
+* 🟨 Reactivity API = Reaktivní API
 * 🟩 reactivity system = systém reaktivity
 * 🟥 read-only - read-only
 * 🟥 ref = ref

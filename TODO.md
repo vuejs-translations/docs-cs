@@ -40,9 +40,6 @@ extras\web-components.md
 built-in-components.md
 built-in-directives.md
 component-instance.md
-composition-api-dependency-injection.md
-composition-api-lifecycle.md
-composition-api-setup.md
 custom-renderer.md
 general.md
 options-composition.md
