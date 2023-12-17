@@ -40,8 +40,6 @@ extras\web-components.md
 built-in-components.md
 built-in-directives.md
 component-instance.md
-custom-renderer.md
-general.md
 options-composition.md
 options-lifecycle.md
 options-misc.md
@@ -55,7 +53,6 @@ sfc-css-features.md
 sfc-script-setup.md
 sfc-spec.md
 ssr.md
-utility-types.md
 
 
 TODO iteration 2

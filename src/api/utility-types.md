@@ -1,14 +1,14 @@
-# Utility Types {#utility-types}
+# Utility typy {#utility-types}
 
 :::info
-This page only lists a few commonly used utility types that may need explanation for their usage. For a full list of exported types, consult the [source code](https://github.com/vuejs/core/blob/main/packages/runtime-core/src/index.ts#L131).
+Tato stránka vypisuje pouze několik běžně používaných utility typů, které pro své použití mohou vyžadovat vysvětlení. Pro úplný seznam exportovaných typů se podívejte do [zdrojového kódu](https://github.com/vuejs/core/blob/main/packages/runtime-core/src/index.ts#L131).
 :::
 
 ## PropType\<T> {#proptype-t}
 
-Used to annotate a prop with more advanced types when using runtime props declarations.
+Používá se k anotaci vlastnosti (prop) s pokročilejšími typy při použití runtime props deklarací.
 
-- **Example**
+- **Příklad**
 
   ```ts
   import type { PropType } from 'vue'
@@ -22,7 +22,7 @@ Used to annotate a prop with more advanced types when using runtime props declar
   export default {
     props: {
       book: {
-        // provide more specific type to `Object`
+        // poskytne konkrétnější typ k základnímu `Object`
         type: Object as PropType<Book>,
         required: true
       }
@@ -30,27 +30,27 @@ Used to annotate a prop with more advanced types when using runtime props declar
   }
   ```
 
-- **Viz také:** [Guide - Typing Component Props](/guide/typescript/options-api#typing-component-props)
+- **Viz také:** [Průvodce - Typování vlastností (props) komponent](/guide/typescript/options-api#typing-component-props)
 
 ## MaybeRef\<T> {#mayberef}
 
-Alias for `T | Ref<T>`. Useful for annotating arguments of [Composables](/guide/reusability/composables.html).
+Alias pro `T | Ref<T>`. Užitečné pro anotaci vstupních parametrů v [Composables](/guide/reusability/composables.html).
 
-- Only supported in 3.3+.
+- Podporováno pouze od verze 3.3+.
 
 ## MaybeRefOrGetter\<T> {#maybereforgetter}
 
-Alias for `T | Ref<T> | (() => T)`. Useful for annotating arguments of [Composables](/guide/reusability/composables.html).
+Alias pro `T | Ref<T> | (() => T)`. Užitečné pro anotaci vstupních parametrů v [Composables](/guide/reusability/composables.html).
 
-- Only supported in 3.3+.
+- Podporováno pouze od verze 3.3+.
 
 ## ExtractPropTypes\<T> {#extractproptypes}
 
-Extract prop types from a runtime props options object. The extracted types are internal facing - i.e. the resolved props received by the component. This means boolean props and props with default values are always defined, even if they are not required.
+Extrahuje typy vlastností (props) z objektu s runtime props. Extrahované typy jsou interně orientované - tj. vyřešené vlastnosti přijaté komponentou. To znamená, že vlastnosti typu boolean a vlastnosti s výchozími hodnotami jsou vždy definovány, i když nejsou povinné.
 
-To extract public facing props, i.e. props that the parent is allowed to pass, use [`ExtractPublicPropTypes`](#extractpublicproptypes).
+Pro extrakci veřejně orientovaných vlastností, tj. vlastností, které může předat rodič, použijte [`ExtractPublicPropTypes`](#extractpublicproptypes).
 
-- **Example**
+- **Příklad**
 
   ```ts
   const propsOptions = {
@@ -77,9 +77,9 @@ To extract public facing props, i.e. props that the parent is allowed to pass, u
 
 ## ExtractPublicPropTypes\<T> {#extractpublicproptypes}
 
-Extract prop types from a runtime props options object. The extracted types are public facing - i.e. the props that the parent is allowed to pass.
+Extrahuje typy vlastností (props) z objektu s runtime props. veřejně orientované - tj. vlastnost, které může předat rodič. 
 
-- **Example**
+- **Příklad**
 
   ```ts
   const propsOptions = {
@@ -106,9 +106,9 @@ Extract prop types from a runtime props options object. The extracted types are 
 
 ## ComponentCustomProperties {#componentcustomproperties}
 
-Used to augment the component instance type to support custom global properties.
+Používá se k rozšíření typu instance komponenty pro podporu custom globálních vlastností.
 
-- **Example**
+- **Příklad**
 
   ```ts
   import axios from 'axios'
@@ -122,16 +122,16 @@ Used to augment the component instance type to support custom global properties.
   ```
 
   :::tip
-  Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api#augmenting-global-properties) for more details.
+  Rozšíření musí být umístěno v souboru modulu `.ts` nebo `.d.ts`. Pro více informací se podívejte na [rozšiřování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties).
   :::
 
-- **Viz také:** [Guide - Augmenting Global Properties](/guide/typescript/options-api#augmenting-global-properties)
+- **Viz také:** [Průvodce - Rozšiřování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties)
 
 ## ComponentCustomOptions {#componentcustomoptions}
 
-Used to augment the component options type to support custom options.
+Používá se k rozšíření typu vlastností komponenty pro podporu custom vlastností.
 
-- **Example**
+- **Příklad**
 
   ```ts
   import { Route } from 'vue-router'
@@ -144,16 +144,16 @@ Used to augment the component options type to support custom options.
   ```
 
   :::tip
-  Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api#augmenting-global-properties) for more details.
+  Rozšíření musí být umístěno v souboru modulu `.ts` nebo `.d.ts`. Pro více informací se podívejte na [rozšiřování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties).
   :::
 
-- **Viz také:** [Guide - Augmenting Custom Options](/guide/typescript/options-api#augmenting-custom-options)
+- **Viz také:** [ Rozšiřování globálních vlastností](/guide/typescript/options-api#augmenting-custom-options)
 
 ## ComponentCustomProps {#componentcustomprops}
 
-Used to augment allowed TSX props in order to use non-declared props on TSX elements.
+Používá se k rozšíření povolených TSX vlastností (props) pro použití nedeklarovaných vlastností na prvcích TSX.
 
-- **Example**
+- **Příklad**
 
   ```ts
   declare module 'vue' {
@@ -166,21 +166,21 @@ Used to augment allowed TSX props in order to use non-declared props on TSX elem
   ```
 
   ```tsx
-  // now works even if hello is not a declared prop
+  // nyní funguje i když hello není deklarovanou vlastností
   <MyComponent hello="world" />
   ```
 
   :::tip
-  Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api#augmenting-global-properties) for more details.
+  Rozšíření musí být umístěno v souboru modulu `.ts` nebo `.d.ts`. Pro více informací se podívejte na [rozšiřování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties).
   :::
 
 ## CSSProperties {#cssproperties}
 
-Used to augment allowed values in style property bindings.
+Používá se k rozšíření povolených hodnot u vazeb vlastností stylů.
 
-- **Example**
+- **Příklad**
 
-  Allow any custom CSS property
+  Povolí libovolnou custom CSS vlastnost
 
   ```ts
   declare module 'vue' {
@@ -199,11 +199,11 @@ Used to augment allowed values in style property bindings.
   ```
 
 :::tip
-Augmentations must be placed in a module `.ts` or `.d.ts` file. See [Type Augmentation Placement](/guide/typescript/options-api#augmenting-global-properties) for more details.
+Rozšíření musí být umístěno v souboru modulu `.ts` nebo `.d.ts`. Pro více informací se podívejte na [rozšiřování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties).
 :::
 
-:::info See also
-SFC `<style>` tags support linking CSS values to dynamic component state using the `v-bind` CSS function. This allows for custom properties without type augmentation.
+:::info Viz také
+Podpora SFC `<style>` tagů pro propojení hodnot CSS s dynamickým stavem komponenty pomocí CSS funkce `v-bind`. To umožňuje custom vlastnosti bez rozšíření typů.
 
-- [v-bind() in CSS](/api/sfc-css-features#v-bind-in-css)
+- [v-bind() v CSS](/api/sfc-css-features#v-bind-in-css)
   :::
