@@ -1,10 +1,10 @@
-# Server-Side Rendering API {#server-side-rendering-api}
+# API pro vykreslování na serveru (SSR){#server-side-rendering-api}
 
 ## renderToString() {#rendertostring}
 
-- **Exported from `vue/server-renderer`**
+- **Exportováno z `vue/server-renderer`**
 
-- **Type**
+- **Typ**
 
   ```ts
   function renderToString(
@@ -13,14 +13,14 @@
   ): Promise<string>
   ```
 
-- **Example**
+- **Příklad**
 
   ```js
   import { createSSRApp } from 'vue'
   import { renderToString } from 'vue/server-renderer'
 
   const app = createSSRApp({
-    data: () => ({ msg: 'hello' }),
+    data: () => ({ msg: 'ahoj' }),
     template: `<div>{{ msg }}</div>`
   })
 
@@ -30,28 +30,28 @@
   })()
   ```
 
-  ### SSR Context {#ssr-context}
+  ### SSR Kontext {#ssr-context}
 
-  You can pass an optional context object, which can be used to record additional data during the render, for example [accessing content of Teleports](/guide/scaling-up/ssr#teleports):
+  Volitelně můžete předat objekt kontextu, který lze použít k zaznamenání dalších dat během vykreslování, například [přístupu k obsahu Teleports](/guide/scaling-up/ssr#teleports):
 
   ```js
   const ctx = {}
   const html = await renderToString(app, ctx)
 
-  console.log(ctx.teleports) // { '#teleported': 'teleported content' }
+  console.log(ctx.teleports) // { '#teleported': 'obsah teleportu' }
   ```
 
-  Most other SSR APIs on this page also optionally accept a context object. The context object can be accessed in component code via the [useSSRContext](#usessrcontext) helper.
+  Většina dalších SSR API na této stránce volitelný objekt kontextu přijímá také. Objekt kontextu je  v kódu komponenty přístupný přes pomocnou composable [useSSRContext](#usessrcontext).
 
-- **Viz také:** [Guide - Server-Side Rendering](/guide/scaling-up/ssr)
+- **Viz také:** [Průvodce - Vykreslování na serveru (SSR)](/guide/scaling-up/ssr)
 
 ## renderToNodeStream() {#rendertonodestream}
 
-Renders input as a [Node.js Readable stream](https://nodejs.org/api/stream.html#stream_class_stream_readable).
+Vykreslí vstup jako [Stream čitelný v Node.js](https://nodejs.org/api/stream.html#stream_class_stream_readable).
 
-- **Exported from `vue/server-renderer`**
+- **Exportováno z `vue/server-renderer`**
 
-- **Type**
+- **Typ**
 
   ```ts
   function renderToNodeStream(
@@ -60,24 +60,24 @@ Renders input as a [Node.js Readable stream](https://nodejs.org/api/stream.html#
   ): Readable
   ```
 
-- **Example**
+- **Příklad**
 
   ```js
-  // inside a Node.js http handler
+  // uvnitř Node.js http handleru
   renderToNodeStream(app).pipe(res)
   ```
 
   :::tip Poznámka
-  This method is not supported in the ESM build of `vue/server-renderer`, which is decoupled from Node.js environments. Use [`pipeToNodeWritable`](#pipetonodewritable) instead.
+  Tato metoda není podporována v ESM buildu balíčku `vue/server-renderer`, který je od prostředí Node.js oddělený. Použijte místo toho [`pipeToNodeWritable`](#pipetonodewritable).
   :::
 
 ## pipeToNodeWritable() {#pipetonodewritable}
 
-Render and pipe to an existing [Node.js Writable stream](https://nodejs.org/api/stream.html#stream_writable_streams) instance.
+Vykreslí vstup a připojí ho k existující instanci [Streamu zapisovatelného v Node.js](https://nodejs.org/api/stream.html#stream_writable_streams).
 
-- **Exported from `vue/server-renderer`**
+- **Exportováno z `vue/server-renderer`**
 
-- **Type**
+- **Typ**
 
   ```ts
   function pipeToNodeWritable(
@@ -87,20 +87,20 @@ Render and pipe to an existing [Node.js Writable stream](https://nodejs.org/api/
   ): void
   ```
 
-- **Example**
+- **Příklad**
 
   ```js
-  // inside a Node.js http handler
+  // uvnitř Node.js http handleru
   pipeToNodeWritable(app, {}, res)
   ```
 
 ## renderToWebStream() {#rendertowebstream}
 
-Renders input as a [Web ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API).
+Vykreslí vstup jako [Web ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API).
 
-- **Exported from `vue/server-renderer`**
+- **Exportováno z `vue/server-renderer`**
 
-- **Type**
+- **Typ**
 
   ```ts
   function renderToWebStream(
@@ -109,24 +109,24 @@ Renders input as a [Web ReadableStream](https://developer.mozilla.org/en-US/docs
   ): ReadableStream
   ```
 
-- **Example**
+- **Příklad**
 
   ```js
-  // inside an environment with ReadableStream support
+  // v prostředí s podporou ReadableStream
   return new Response(renderToWebStream(app))
   ```
 
   :::tip Poznámka
-  In environments that do not expose `ReadableStream` constructor in the global scope, [`pipeToWebWritable()`](#pipetowebwritable) should be used instead.
+  V prostředích, která nevystavují konstruktor `ReadableStream` ve globálním rozsahu, by měla být místo toho použita funkce [`pipeToWebWritable()`](#pipetowebwritable).
   :::
 
 ## pipeToWebWritable() {#pipetowebwritable}
 
-Render and pipe to an existing [Web WritableStream](https://developer.mozilla.org/en-US/docs/Web/API/WritableStream) instance.
+Vykreslí vstup a přesune ho do existující instance [Web WritableStream](https://developer.mozilla.org/en-US/docs/Web/API/WritableStream).
 
-- **Exported from `vue/server-renderer`**
+- **Exportováno z `vue/server-renderer`**
 
-- **Type**
+- **Typ**
 
   ```ts
   function pipeToWebWritable(
@@ -136,13 +136,13 @@ Render and pipe to an existing [Web WritableStream](https://developer.mozilla.or
   ): void
   ```
 
-- **Example**
+- **Příklad**
 
-  This is typically used in combination with [`TransformStream`](https://developer.mozilla.org/en-US/docs/Web/API/TransformStream):
+  Toto se obvykle používá ve spojení s [`TransformStream`](https://developer.mozilla.org/en-US/docs/Web/API/TransformStream):
 
   ```js
-  // TransformStream is available in environments such as CloudFlare workers.
-  // in Node.js, TransformStream needs to be explicitly imported from 'stream/web'
+  // TransformStream je dostupný v prostředích jako jsou CloudFlare workers.
+  // v Node.js je potřeba TransformStream explicitně importovat z 'stream/web'
   const { readable, writable } = new TransformStream()
   pipeToWebWritable(app, {}, writable)
 
@@ -151,11 +151,11 @@ Render and pipe to an existing [Web WritableStream](https://developer.mozilla.or
 
 ## renderToSimpleStream() {#rendertosimplestream}
 
-Renders input in streaming mode using a simple readable interface.
+Vykreslí vstup v režimu streamování pomocí jednoduše čitelného rozhraní.
 
-- **Exported from `vue/server-renderer`**
+- **Exportováno z `vue/server-renderer`**
 
-- **Type**
+- **Typ**
 
   ```ts
   function renderToSimpleStream(
@@ -163,14 +163,16 @@ Renders input in streaming mode using a simple readable interface.
     context: SSRContext,
     options: SimpleReadable
   ): SimpleReadable
+  ```
 
+```typescript
   interface SimpleReadable {
     push(content: string | null): void
     destroy(err: any): void
   }
   ```
 
-- **Example**
+- **Příklad**
 
   ```js
   let res = ''
@@ -181,14 +183,14 @@ Renders input in streaming mode using a simple readable interface.
     {
       push(chunk) {
         if (chunk === null) {
-          // done
+          // hotovo
           console(`render complete: ${res}`)
         } else {
           res += chunk
         }
       },
       destroy(err) {
-        // error encountered
+        // vyskytla se chyba
       }
     }
   )
@@ -196,27 +198,27 @@ Renders input in streaming mode using a simple readable interface.
 
 ## useSSRContext() {#usessrcontext}
 
-A runtime API used to retrieve the context object passed to `renderToString()` or other server render APIs.
+Runtime API používané k získání kontextového objektu předaného do `renderToString()` nebo jiných API pro vykreslování na serveru.
 
-- **Type**
+- **Typ**
 
   ```ts
   function useSSRContext<T = Record<string, any>>(): T | undefined
   ```
 
-- **Example**
+- **Příklad**
 
-  The retrieved context can be used to attach information that is needed for rendering the final HTML (e.g. head metadata).
+  Získaný kontext může být použit k připojení informací, které jsou potřebné pro vykreslení finálního HTML (např. metadata hlavičky).
 
   ```vue
   <script setup>
   import { useSSRContext } from 'vue'
 
-  // make sure to only call it during SSR
+  // ujistěte se, že funkci voláte pouze během SSR
   // https://vitejs.dev/guide/ssr.html#conditional-logic
   if (import.meta.env.SSR) {
     const ctx = useSSRContext()
-    // ...attach properties to the context
+    // ...připojit do kontextu vlastnosti
   }
   </script>
   ```

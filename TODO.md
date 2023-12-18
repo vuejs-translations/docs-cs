@@ -52,7 +52,6 @@ render-function.md
 sfc-css-features.md
 sfc-script-setup.md
 sfc-spec.md
-ssr.md
 
 
 TODO iteration 2
