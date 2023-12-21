@@ -149,6 +149,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 see also = viz také
 * 🟨 selector = selektor
 * 🟨 self-closing = nepárový (self-closing)
+* 🟩 server-side rendering = vykreslování na serveru (SSR)
 * 🟩 shorthand = zkrácený zápis
 * 🟩 side effect = vedlejší efekt
 * 🟩 sidebar = postranní panel

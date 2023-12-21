@@ -14,9 +14,6 @@ scaling-up\TestingApiSwitcher.vue
 
 best-practices\
 best-practices\accessibility.md
-best-practices\performance.md
-best-practices\production-deployment.md
-best-practices\security.md
 
 typescript\
 typescript\composition-api.md
