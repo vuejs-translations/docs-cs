@@ -20,7 +20,6 @@ typescript\composition-api.md
 typescript\options-api.md
 
 extras\
-extras\demos\
 extras\animation.md
 extras\composition-api-faq.md
 extras\custom-renderer.md
@@ -46,7 +45,7 @@ reactivity-core.md
 reactivity-utilities.md
 render-function.md
 
-To go: 31
+To go: 30
 
 
 TODO iteration 2

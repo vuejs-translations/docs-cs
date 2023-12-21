@@ -9,13 +9,13 @@ export const cells = reactive(
   )
 )
 
-// initial state for demo
+// úvodní stav dema
 cells[0][0] = '1'
 cells[0][1] = '2'
 cells[0][2] = '= A0 + A1'
 
-// adapted from https://codesandbox.io/s/jotai-7guis-task7-cells-mzoit?file=/src/atoms.ts
-// by @dai-shi
+// převzato z https://codesandbox.io/s/jotai-7guis-task7-cells-mzoit?file=/src/atoms.ts
+// od @dai-shi
 export function evalCell(exp) {
   if (!exp.startsWith('=')) {
     return exp
