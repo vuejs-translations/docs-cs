@@ -156,34 +156,6 @@ components/
 
 </div>
 
-## Jména komponent s jedinou instancí {#single-instance-component-names}
-
-**Komponenty, které by vždy měly mít pouze jednu aktivní instanci, by měly začínat na `The`, aby bylo označeno, že může být pouze jedna.**
-
-To neznamená, že komponenta je použita pouze na jedné stránce, ale bude použita pouze jednou _na stránku_. Tyto komponenty nikdy nepřijímají žádné vlastnosti (props), protože jsou specifické pro vaši aplikaci, nikoli jejich kontext ve vaší aplikaci. Pokud zjistíte, že je potřeba přidat vlastnosti, je to dobrá známka toho, že se ve skutečnosti jedná o opakovaně použitelnou komponentu, která se _prozatím_ používá pouze jednou na stránku.
-
-<div class="style-example style-example-bad">
-<h3>Špatně</h3>
-
-```
-components/
-|- Heading.vue
-|- MySidebar.vue
-```
-
-</div>
-
-<div class="style-example style-example-good">
-<h3>Dobře</h3>
-
-```
-components/
-|- TheHeading.vue
-|- TheSidebar.vue
-```
-
-</div>
-
 ## Těsně provázané názvy komponent {#tightly-coupled-component-names}
 
 **Komponenty potomků, ktero jsou těsně provázané s jejich rodičovskou komponentou, by měly obsahovat název nadřazené komponenty jako předponu.**
