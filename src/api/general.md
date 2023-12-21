@@ -96,7 +96,7 @@ Pomocná funkce pro čekání na příští aktualizaci DOM.
 
 ## defineComponent() {#definecomponent}
 
-Pomocník pro podporu typů při definování Vue komponenty s typovou inferencí.
+Pomocná funkce pro podporu typů při definování Vue komponenty s odvozováním typů.
 
 - **Typ**
 
@@ -117,9 +117,9 @@ Pomocník pro podporu typů při definování Vue komponenty s typovou inferenc�
 
 - **Podrobnosti**
 
-  První parametr očekává objekt s možnostmi (options) komponenty. Návratová hodnota bude stejný objekt s možnostmi, protože tato funkce se spouští pouze pro účely inferencí typů bez vedlejších efektů.
+  První parametr očekává objekt s možnostmi (options) komponenty. Návratová hodnota bude stejný objekt s možnostmi, protože tato funkce se spouští pouze pro účely odvozování typů bez vedlejších efektů.
 
-  Vemte však na vědomí, že návratový typ je trochu specifický: bude to typ konstruktoru, jehož instanční typ je odvozen z inferovaného typu instance komponenty na základě options. To se používá pro inferenci typů, když je vrácený typ použit jako tag v TSX.
+  Vemte však na vědomí, že návratový typ je trochu specifický: bude to typ konstruktoru, jehož instanční typ je určen z odvozeného typu instance komponenty na základě options. To se používá pro odvozování typů, když je vrácený typ použit jako tag v TSX.
 
   Typ instance komponenty (ekvivalent typu `this` v jeho options) můžete získat z návratového typu `defineComponent()` takto:
 
