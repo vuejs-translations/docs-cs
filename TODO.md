@@ -18,7 +18,6 @@ best-practices\accessibility.md
 typescript\
 typescript\composition-api.md
 typescript\options-api.md
-typescript\overview.md
 
 extras\
 extras\demos\
@@ -46,6 +45,8 @@ reactivity-advanced.md
 reactivity-core.md
 reactivity-utilities.md
 render-function.md
+
+To go: 31
 
 
 TODO iteration 2
