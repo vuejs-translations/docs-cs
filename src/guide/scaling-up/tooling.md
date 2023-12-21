@@ -121,7 +121,7 @@ Users previously using Vue CLI may be used to having linters configured via webp
 
 - Alternatively, [Prettier](https://prettier.io/) provides built-in Vue SFC formatting support.
 
-## SFC Custom Block Integrations {#sfc-custom-block-integrations}
+## Nástroje pro integraci vlastních bloků SFC {#sfc-custom-block-integrations}
 
 Custom blocks are compiled into imports to the same Vue file with different request queries. It is up to the underlying build tool to handle these import requests.
 

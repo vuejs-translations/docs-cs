@@ -1,10 +1,10 @@
-# SFC Syntax Specification {#sfc-syntax-specification}
+# Specifikace syntaxe SFC {#sfc-syntax-specification}
 
-## Overview {#overview}
+## Přehled {#overview}
 
-A Vue Single-File Component (SFC), conventionally using the `*.vue` file extension, is a custom file format that uses an HTML-like syntax to describe a Vue component. A Vue SFC is syntactically compatible with HTML.
+Vue Single-File komponenta (SFC), dle konvence označována příponou `*.vue`, je proprietární formát souboru, který používá syntaxi podobnou HTML k popisu Vue komponent. Vue SFC je syntakticky kompatibilní s HTML.
 
-Each `*.vue` file consists of three types of top-level language blocks: `<template>`, `<script>`, and `<style>`, and optionally additional custom blocks:
+Každý soubor `*.vue` se skládá ze tří typů bloků nejvyšší úrovně: `<template>`, `<script>` a `<style>`, a volitelně dalších vlastních bloků:
 
 ```vue
 <template>
@@ -15,7 +15,7 @@ Each `*.vue` file consists of three types of top-level language blocks: `<templa
 export default {
   data() {
     return {
-      msg: 'Hello world!'
+      msg: 'Ahoj, Vue!'
     }
   }
 }
@@ -28,67 +28,67 @@ export default {
 </style>
 
 <custom1>
-  This could be e.g. documentation for the component.
+  Toto může být například dokumentace komponenty.
 </custom1>
 ```
 
-## Language Blocks {#language-blocks}
+## Jazykové bloky {#language-blocks}
 
 ### `<template>` {#template}
 
-- Each `*.vue` file can contain at most one top-level `<template>` block.
+- Každý soubor `*.vue` může obsahovat maximálně jeden blok `<template>` nejvyšší úrovně.
 
-- Contents will be extracted and passed on to `@vue/compiler-dom`, pre-compiled into JavaScript render functions, and attached to the exported component as its `render` option.
+- Obsah bude extrahován a předán do `@vue/compiler-dom`, předkompilován do JavaScriptových funkcí pro vykreslování a připojen k exportované komponentě jako její možnost (option) `render`.
 
 ### `<script>` {#script}
 
-- Each `*.vue` file can contain at most one `<script>` block (excluding [`<script setup>`](/api/sfc-script-setup)).
+- Každý soubor `*.vue` může obsahovat maximálně jeden blok `<script>` (s výjimkou [`<script setup>`](/api/sfc-script-setup)).
 
-- The script is executed as an ES Module.
+- Skript je spuštěn jako ES modul.
 
-- The **default export** should be a Vue component options object, either as a plain object or as the return value of [defineComponent](/api/general#definecomponent).
+- **Default export** by měl být objekt s možnostmi Vue komponenty, buď jako prostý objekt nebo jako návratová hodnota funkce [defineComponent](/api/general#definecomponent).
 
 ### `<script setup>` {#script-setup}
 
-- Each `*.vue` file can contain at most one `<script setup>` block (excluding normal `<script>`).
+- Každý soubor `*.vue` může obsahovat maximálně jeden blok `<script setup>` (s výjimkou normálního `<script>`).
 
-- The script is pre-processed and used as the component's `setup()` function, which means it will be executed **for each instance of the component**. Top-level bindings in `<script setup>` are automatically exposed to the template. For more details, see [dedicated documentation on `<script setup>`](/api/sfc-script-setup).
+- Skript je předzpracován a používán jako `setup()` funkce komponenty, což znamená, že bude spuštěn **pro každou instanci komponenty**. Hlavní (top-level) vazby uvnitř `<script setup>` jsou automaticky vystaveny šabloně. Pro více informací se podívejte na [samostatnou dokumentaci pro `<script setup>`](/api/sfc-script-setup).
 
 ### `<style>` {#style}
 
-- A single `*.vue` file can contain multiple `<style>` tags.
+- Každý soubor `*.vue` může obsahovat více bloků `<style>`.
 
-- A `<style>` tag can have `scoped` or `module` attributes (see [SFC Style Features](/api/sfc-css-features) for more details) to help encapsulate the styles to the current component. Multiple `<style>` tags with different encapsulation modes can be mixed in the same component.
+- Element `<style>` může mít atributy `scoped` nebo `module` (podrobnosti naleznete na stránce [Funkce CSS pro SFC](/api/sfc-css-features)), které pomáhají zapouzdřit styly do aktuální komponenty. V jedné komponentě mohou být smíchány různé značky `<style>` s různými režimy zapouzdření.
 
-### Custom Blocks {#custom-blocks}
+### Vlastní bloky {#custom-blocks}
 
-Additional custom blocks can be included in a `*.vue` file for any project-specific needs, for example a `<docs>` block. Some real-world examples of custom blocks include:
+Do souboru `*.vue` můžete navíc přidat další vlastní bloky pro potřeby konkrétního projektu, například blok `<docs>`. Některé příklady vlastních bloků z reálného světa zahrnují:
 
 - [Gridsome: `<page-query>`](https://gridsome.org/docs/querying-data/)
 - [vite-plugin-vue-gql: `<gql>`](https://github.com/wheatjs/vite-plugin-vue-gql)
 - [vue-i18n: `<i18n>`](https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n#i18n-custom-block)
 
-Handling of Custom Blocks will depend on tooling - if you want to build your own custom block integrations, see the [SFC custom block integrations tooling section](/guide/scaling-up/tooling#sfc-custom-block-integrations) for more details.
+Zpracování vlastních bloků závisí na nástrojích - pokud chcete vytvořit vlastní integrace bloků, podívejte se pro další informace na sekci [Nástroje pro integraci vlastních bloků SFC](/guide/scaling-up/tooling#sfc-custom-block-integrations).
 
-## Automatic Name Inference {#automatic-name-inference}
+## Automatické odvození názvu {#automatic-name-inference}
 
-An SFC automatically infers the component's name from its **filename** in the following cases:
+SFC v následujících případech automaticky odvozuje název komponenty z jejího **názvu souboru**:
 
-- Dev warning formatting
-- DevTools inspection
-- Recursive self-reference, e.g. a file named `FooBar.vue` can refer to itself as `<FooBar/>` in its template. This has lower priority than explicitly registered/imported components.
+- Formátování varování pro vývojáře
+- Inspekce v DevTools
+- Rekurzivní odkaz na sebe sama, například soubor pojmenovaný `FooBar.vue` se může ve své šabloně odkazovat sám na sebe jako `<FooBar/>`. Toto má nižší prioritu než explicitně registrované/importované komponenty.
 
-## Pre-Processors {#pre-processors}
+## Pre-Procesory {#pre-processors}
 
-Blocks can declare pre-processor languages using the `lang` attribute. The most common case is using TypeScript for the `<script>` block:
+Bloky mohou pomocí atributu `lang` deklarovat programovací jazyk, v němž má proběhnout pre-processing. Nejběžnější případ je použití TypeScriptu pro blok `<script>`:
 
 ```vue-html
 <script lang="ts">
-  // use TypeScript
+  // použití TypeScriptu
 </script>
 ```
 
-`lang` can be applied to any block - for example we can use `<style>` with [Sass](https://sass-lang.com/) and `<template>` with [Pug](https://pugjs.org/api/getting-started.html):
+`lang` lze použít na jakýkoli blok - například můžeme použít `<style>` s [Sass](https://sass-lang.com/) a `<template>` + [Pug](https://pugjs.org/api/getting-started.html):
 
 ```vue-html
 <template lang="pug">
@@ -103,15 +103,15 @@ p {{ msg }}
 </style>
 ```
 
-Note that integration with various pre-processors may differ by toolchain. Check out the respective documentation for examples:
+Dejte pozor, že integrace s různými pre-procesory se může lišit podle zvolené sady softwarových nástrojů. Pro příklady se podívejte do příslušné dokumentace:
 
 - [Vite](https://vitejs.dev/guide/features.html#css-pre-processors)
 - [Vue CLI](https://cli.vuejs.org/guide/css.html#pre-processors)
 - [webpack + vue-loader](https://vue-loader.vuejs.org/guide/pre-processors.html#using-pre-processors)
 
-## `src` Imports {#src-imports}
+## `src` importy {#src-imports}
 
-If you prefer splitting up your `*.vue` components into multiple files, you can use the `src` attribute to import an external file for a language block:
+Pokud dáváte přednost rozdělení vašich `*.vue` komponent do více souborů, můžete použít atribut `src` pro import externího souboru do příslušného bloku jazyka:
 
 ```vue
 <template src="./template.html"></template>
@@ -119,23 +119,23 @@ If you prefer splitting up your `*.vue` components into multiple files, you can 
 <script src="./script.js"></script>
 ```
 
-Beware that `src` imports follow the same path resolution rules as webpack module requests, which means:
+Pozor na to, že pro importy pomocí `src` platí stejná pravidla pro zadávání cest jako pro požadavky na webpack moduly, což znamená:
 
-- Relative paths need to start with `./`
-- You can import resources from npm dependencies:
+- Relativní cesty musí začínat s `./`
+- Můžete importovat zdroje z npm závislostí:
 
 ```vue
-<!-- import a file from the installed "todomvc-app-css" npm package -->
+<!-- import souboru z nainstalovaného npm balíčku "todomvc-app-css" -->
 <style src="todomvc-app-css/index.css" />
 ```
 
-`src` imports also work with custom blocks, e.g.:
+`src` importy fungují í s vlastními bloky, např.:
 
 ```vue
 <unit-test src="./unit-test.js">
 </unit-test>
 ```
 
-## Comments {#comments}
+## Komentáře {#comments}
 
-Inside each block you shall use the comment syntax of the language being used (HTML, CSS, JavaScript, Pug, etc.). For top-level comments, use HTML comment syntax: `<!-- comment contents here -->`
+V každém bloku byste měli používat syntaxi komentářů používanou v daném jazyce (HTML, CSS, JavaScript, Pug, atd.). Pro komentáře na nejvyšší úrovni použijte syntaxi HTML komentářů: `<!-- obsah komentáře -->`

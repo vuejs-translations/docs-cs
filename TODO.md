@@ -49,9 +49,6 @@ reactivity-advanced.md
 reactivity-core.md
 reactivity-utilities.md
 render-function.md
-sfc-css-features.md
-sfc-script-setup.md
-sfc-spec.md
 
 
 TODO iteration 2

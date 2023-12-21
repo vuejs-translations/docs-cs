@@ -77,11 +77,13 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 guide = průvodce
 * 🟥 handler = handler
 * 🟩 handling = obsluha (error handling = obsluha chyb)
+* 🟩 helper = pomocná funkce
 * 🟩 holding = obsahovat
 * 🟥 hook = hook
 * 🟨 hydration = hydratace
 * 🟥 IDE = IDE
 * 🟨 in-DOM template = in-DOM šablona
+* 🟩 inference = odvození
 * 🟩 inject = implementovat
 * 🟥 injection key = injection key
 * 🟥 inline = inline
@@ -141,6 +143,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 root element = root element
 * 🟨 root component = root komponenta
 * 🟥 routing = routing
+* 🟥 runtime = runtime
 * 🟥 scope = scope
 * 🟥 scheduler = scheduler
 * 🟩 see also = viz také
@@ -173,6 +176,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 tree = strom
 * 🟩 trigger (v.) = vyvolat
 * 🟩 type = typ
+* 🟩 type inference = odvozování typů
 * 🟩 under the hood = interně
 * 🟩 use case = případ užití
 * 🟩 using the = pomocí
