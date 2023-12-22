@@ -4,13 +4,9 @@ TODO iteration 1
 /guide
 
 scaling-up\
-scaling-up\routing.md
-scaling-up\sfc.md
 scaling-up\ssr.md
 scaling-up\state-management.md
 scaling-up\testing.md
-scaling-up\tooling.md
-scaling-up\TestingApiSwitcher.vue
 
 best-practices\
 best-practices\accessibility.md
@@ -45,7 +41,7 @@ reactivity-core.md
 reactivity-utilities.md
 render-function.md
 
-To go: 30
+To go: 27
 
 
 TODO iteration 2

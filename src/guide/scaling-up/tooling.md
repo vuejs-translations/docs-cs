@@ -1,167 +1,167 @@
-# Tooling {#tooling}
+# Nástroje {#tooling}
 
-## Try It Online {#try-it-online}
+## Vyzkoušejte si to online {#try-it-online}
 
-You don't need to install anything on your machine to try out Vue SFCs - there are online playgrounds that allow you to do so right in the browser:
+Abyste si mohli vyzkoušet Vue SFC, nemusíte na svém počítači nic instalovat - existují online "hřiště", která vám to umožní udělat přímo ve webovém prohlížeči:
 
 - [Vue SFC Playground](https://play.vuejs.org)
-  - Always deployed from latest commit
-  - Designed for inspecting component compilation results
-- [Vue + Vite on StackBlitz](https://vite.new/vue)
-  - IDE-like environment running actual Vite dev server in the browser
-  - Closest to local setup
+  - Vždy nasazeno z nejnovějšího commitu
+  - Navrženo pro prohlížení výsledků kompilace komponent
+- [Vue + Vite na StackBlitz](https://vite.new/vue)
+  - Prostředí podobné IDE, které spouští skutečný Vite dev server ve webovém prohlížeči
+  - Nejbližší k lokálnímu nastavení
 
-It is also recommended to use these online playgrounds to provide reproductions when reporting bugs.
+Tato online hřiště je rovněž doporučeno používat pro poskytování reprodukcí při hlášení chyb.
 
-## Project Scaffolding {#project-scaffolding}
+## Scaffolding projektu {#project-scaffolding}
 
 ### Vite {#vite}
 
-[Vite](https://vitejs.dev/) is a lightweight and fast build tool with first-class Vue SFC support. It is created by Evan You, who is also the author of Vue!
+[Vite](https://vitejs.dev/) je odlehčený a rychlý build tool s prvotřídní podpory pro Vue SFC. Je vytvořen Evanem You, který je také autorem Vue!
 
-To get started with Vite + Vue, simply run:
+Pro zahájení práce s Vite + Vue jednoduše spusťte:
 
 <div class="language-sh"><pre><code><span class="line"><span style="color:var(--vt-c-green);">$</span> <span style="color:#A6ACCD;">npm create vue@latest</span></span></code></pre></div>
 
-This command will install and execute [create-vue](https://github.com/vuejs/create-vue), the official Vue project scaffolding tool.
+Tento příkaz nainstaluje a spustí [create-vue](https://github.com/vuejs/create-vue), oficiální nástroj pro sestavení Vue projektů.
 
-- To learn more about Vite, check out the [Vite docs](https://vitejs.dev).
-- To configure Vue-specific behavior in a Vite project, for example passing options to the Vue compiler, check out the docs for [@vitejs/plugin-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#readme).
+- Chcete-li se o Vite dozvědět víc, podívejte se do [Vite dokumentace](https://vitejs.dev).
+- Chcete-li ve Vite projektu nakonfigurovat chování specifické pro Vue, například předávání možností (options) kompilátoru Vue, podívejte se do dokumentace pro [@vitejs/plugin-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#readme).
 
-Both online playgrounds mentioned above also support downloading files as a Vite project.
+Obě výše zmíněná online hřiště také podporují stahování souborů ve formě Vite projektu.
 
 ### Vue CLI {#vue-cli}
 
-[Vue CLI](https://cli.vuejs.org/) is the official webpack-based toolchain for Vue. It is now in maintenance mode and we recommend starting new projects with Vite unless you rely on specific webpack-only features. Vite will provide superior developer experience in most cases.
+[Vue CLI](https://cli.vuejs.org/) je oficiální sada nástrojů pro Vue založená na technologii webpack. Nyní už je pouze v režimu údržby a doporučujeme začínat nové projekty s Vite, pokud se nespoléháte na funkce specifické pouze pro webpack. Ve většině případů poskytne Vite vývojářům lepší DX.
 
-For information on migrating from Vue CLI to Vite:
+Pro informace o migraci z Vue CLI na Vite:
 
-- [Vue CLI -> Vite Migration Guide from VueSchool.io](https://vueschool.io/articles/vuejs-tutorials/how-to-migrate-from-vue-cli-to-vite/)
-- [Tools / Plugins that help with auto migration](https://github.com/vitejs/awesome-vite#vue-cli)
+- [Průvodce migrací Vue CLI -> Vite od VueSchool.io](https://vueschool.io/articles/vuejs-tutorials/how-to-migrate-from-vue-cli-to-vite/)
+- [Nástroje / Pluginy, které pomáhají s automatickou migrací](https://github.com/vitejs/awesome-vite#vue-cli)
 
-### Note on In-Browser Template Compilation {#note-on-in-browser-template-compilation}
+### Poznámka k kompilaci šablon v prohlížeči {#note-on-in-browser-template-compilation}
 
-When using Vue without a build step, component templates are written either directly in the page's HTML or as inlined JavaScript strings. In such cases, Vue needs to ship the template compiler to the browser in order to perform on-the-fly template compilation. On the other hand, the compiler would be unnecessary if we pre-compile the templates with a build step. To reduce client bundle size, Vue provides [different "builds"](https://unpkg.com/browse/vue@3/dist/) optimized for different use cases.
+Při použití Vue bez build fáze jsou šablony komponent psány buďto přímo v HTML stránky nebo jako vložené JavaScriptové řetězce. V takových případech musí Vue dodat kompilátor šablon do prohlížeče, aby bylo možné provádět kompilaci šablon na požádání (on-the-fly). Na druhou stranu, kompilátor není potřebný, pokud šablony během build fáze předkompilujeme. Pro snížení velikosti klientského JS balíčku Vue poskytuje [různé "buildy"](https://unpkg.com/browse/vue@3/dist/) optimalizované pro různé použití.
 
-- Build files that start with `vue.runtime.*` are **runtime-only builds**: they do not include the compiler. When using these builds, all templates must be pre-compiled via a build step.
+- Soubory buildu, které začínají `vue.runtime.*`, jsou **buildy pouze pro runtime**: neobsahují kompilátor. Při použití těchto buildů musí být všechny šablony předkompilovány pomocí build fáze.
 
-- Build files that do not include `.runtime` are **full builds**: they include the compiler and support compiling templates directly in the browser. However, they will increase the payload by ~14kb.
+- Soubory buildu, které neobsahují `.runtime`, jsou **úplné buildy**: obsahují kompilátor a podporují kompilaci šablon přímo v prohlížeči. Nicméně zvětší velikost přeneseného balíčku o ~14kb.
 
-Our default tooling setups use the runtime-only build since all templates in SFCs are pre-compiled. If, for some reason, you need in-browser template compilation even with a build step, you can do so by configuring the build tool to alias `vue` to `vue/dist/vue.esm-bundler.js` instead.
+Naše výchozí nástroje používají build pouze pro runtime, protože všechny šablony ve SFC jsou předkompilovány. Pokud z nějakého důvodu potřebujete kompilaci šablon v prohlížeči i s build fází, můžete tak učinit konfigurací nástroje pro sestavení, který přiřadí `vue` na `vue/dist/vue.esm-bundler.js`.
 
-If you are looking for a lighter-weight alternative for no-build-step usage, check out [petite-vue](https://github.com/vuejs/petite-vue).
+Pokud hledáte odlehčenou alternativu pro použití bez build fáze, podívejte se na [petite-vue](https://github.com/vuejs/petite-vue).
 
-## IDE Support {#ide-support}
+## Podpora v IDE {#ide-support}
 
-- The recommended IDE setup is [VSCode](https://code.visualstudio.com/) + the [Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) extension. The extension provides syntax highlighting, TypeScript support, and intellisense for template expressions and component props.
+- Doporučené nastavení IDE je [VSCode](https://code.visualstudio.com/) + rozšíření [Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar). Rozšíření poskytuje zvýrazňování syntaxe, podporu TypeScriptu a inteligentní nápovědu pro výrazy šablon a vlastnosti (props) komponent.
 
   :::tip
-  Volar replaces [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), our previous official VSCode extension for Vue 2. If you have Vetur currently installed, make sure to disable it in Vue 3 projects.
+    Volar nahrazuje [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), naše předchozí oficiální rozšíření VSCode pro Vue 2. Pokud máte momentálně nainstalovaný Vetur, ujistěte se, že ho ve Vue 3 projektech vypnete.
   :::
 
-- [WebStorm](https://www.jetbrains.com/webstorm/) also provides great built-in support for Vue SFCs.
+- [WebStorm](https://www.jetbrains.com/webstorm/) též poskytuje skvělou vestavěnou podporu pro Vue SFC.
 
-- Other IDEs that support the [Language Service Protocol](https://microsoft.github.io/language-server-protocol/) (LSP) can also leverage Volar's core functionalities via LSP:
+- Další IDE, která podporují [Language Service Protocol](https://microsoft.github.io/language-server-protocol/) (LSP), mohou základní Volar funkce pomocí LSP také využívat:
 
-  - Sublime Text support via [LSP-Volar](https://github.com/sublimelsp/LSP-volar).
+  - Podpora v Sublime Textu pomocí [LSP-Volar](https://github.com/sublimelsp/LSP-volar).
 
-  - vim / Neovim support via [coc-volar](https://github.com/yaegassy/coc-volar).
+  - Podpora ve vim / Neovim pomocí [coc-volar](https://github.com/yaegassy/coc-volar).
 
-  - emacs support via [lsp-mode](https://emacs-lsp.github.io/lsp-mode/page/lsp-volar/)
+  - Podpora v emacs pomocí [lsp-mode](https://emacs-lsp.github.io/lsp-mode/page/lsp-volar/)
 
-## Browser Devtools {#browser-devtools}
+## Devtools pro prohlížeč {#browser-devtools}
 
-<VueSchoolLink href="https://vueschool.io/lessons/using-vue-dev-tools-with-vuejs-3" title="Free Vue.js Devtools Lesson"/>
+<VueSchoolLink href="https://vueschool.io/lessons/using-vue-dev-tools-with-vuejs-3" title="Lekce o Vue.js Devtools zdarma"/>
 
-The Vue browser devtools extension allows you to explore a Vue app's component tree, inspect the state of individual components, track state management events, and profile performance.
+Rozšíření prohlížeče Vue devtools vám umožňuje prozkoumat strom komponent Vue aplikace, prohlédnout si stav jednotlivých komponent, sledovat události správy stavu a profilovat výkon.
 
-![devtools screenshot](https://raw.githubusercontent.com/vuejs/devtools/main/media/screenshot-shadow.png)
+![Screenshot z devtools](https://raw.githubusercontent.com/vuejs/devtools/main/media/screenshot-shadow.png)
 
-- [Documentation](https://devtools.vuejs.org/)
-- [Chrome Extension](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-- [Firefox Addon](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-- [Edge Extension](https://microsoftedge.microsoft.com/addons/detail/vuejs-devtools/olofadcdnkkjdfgjcmjaadnlehnnihnl)
-- [Standalone Electron app](https://devtools.vuejs.org/guide/installation.html#standalone)
+- [Dokumentace](https://devtools.vuejs.org/)
+- [Rozšíření pro Chrome](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
+- [Addon pro Firefox](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+- [Rozšíření pro Edge](https://microsoftedge.microsoft.com/addons/detail/vuejs-devtools/olofadcdnkkjdfgjcmjaadnlehnnihnl)
+- [Samostatná aplikace Electron](https://devtools.vuejs.org/guide/installation.html#standalone)
 
 ## TypeScript {#typescript}
 
-Main article: [Using Vue with TypeScript](/guide/typescript/overview).
+Hlavní článek: [Používání Vue s TypeScriptem](/guide/typescript/overview).
 
-- [Volar](https://github.com/johnsoncodehk/volar) provides type checking for SFCs using `<script lang="ts">` blocks, including template expressions and cross-component props validation.
+- [Volar](https://github.com/johnsoncodehk/volar) poskytuje typovou pro SFC pomocí bloků `<script lang="ts">`, včetně výrazů šablony a ověřování vlastností (props) mezi komponentami.
 
-- Use [`vue-tsc`](https://github.com/vuejs/language-tools/tree/master/packages/tsc) for performing the same type checking from the command line, or for generating `d.ts` files for SFCs.
+- Použijte [`vue-tsc`](https://github.com/vuejs/language-tools/tree/master/packages/tsc) pro provádění stejné typové kontroly z příkazového řádku nebo pro generování souborů `d.ts` pro SFC.
 
-## Testing {#testing}
+## Testování {#testing}
 
-Main article: [Testing Guide](/guide/scaling-up/testing).
+Hlavní článek: [Průvodce testováním](/guide/scaling-up/testing).
 
-- [Cypress](https://www.cypress.io/) is recommended for E2E tests. It can also be used for component testing for Vue SFCs via the [Cypress Component Test Runner](https://docs.cypress.io/guides/component-testing/introduction).
+- [Cypress](https://www.cypress.io/) je doporučen pro E2E testy. Lze jej také použít pro component testing Vue SFC pomocí [Cypress Component Test Runner](https://docs.cypress.io/guides/component-testing/introduction).
 
-- [Vitest](https://vitest.dev/) is a test runner created by Vue / Vite team members that focuses on speed. It is specifically designed for Vite-based applications to provide the same instant feedback loop for unit / component testing.
+- [Vitest](https://vitest.dev/) je testovací nástroj vytvořený členy týmu Vue / Vite, který se zaměřuje na rychlost. Je speciálně navržen pro aplikace založené na Vite, aby poskytoval stejnou okamžitou zpětnou vazbu pro unit / component testing.
 
-- [Jest](https://jestjs.io/) can be made to work with Vite via [vite-jest](https://github.com/sodatea/vite-jest). However, this is only recommended if you have existing Jest-based test suites that you need to migrate over to a Vite-based setup, as Vitest provides similar functionalities with a much more efficient integration.
+- [Jest](https://jestjs.io/) lze použít s Vite pomocí [vite-jest](https://github.com/sodatea/vite-jest). Nicméně, toto se doporučuje pouze v případě, že máte existující sady testů založené na Jest, které potřebujete migrovat do projektu založeného na Vite, protože Vitest poskytuje podobné funkcionality s mnohem efektivnější integrací.
 
 ## Linting {#linting}
 
-The Vue team maintains [eslint-plugin-vue](https://github.com/vuejs/eslint-plugin-vue), an [ESLint](https://eslint.org/) plugin that supports SFC-specific linting rules.
+Vue tým udržuje [eslint-plugin-vue](https://github.com/vuejs/eslint-plugin-vue), plugin pro [ESLint](https://eslint.org/), který podporuje lintovací pravidla specifická pro SFC.
 
-Users previously using Vue CLI may be used to having linters configured via webpack loaders. However when using a Vite-based build setup, our general recommendation is:
+Uživatelé, kteří dříve používali Vue CLI, mohou být zvyklí na konfiguraci linterů pomocí webpack loaderů. Nicméně, při použití nastavení založeného na Vite je naše obecné doporučení:
 
-1. `npm install -D eslint eslint-plugin-vue`, then follow `eslint-plugin-vue`'s [configuration guide](https://eslint.vuejs.org/user-guide/#usage).
+1. `npm install -D eslint eslint-plugin-vue`, poté postupujte podle [průvodce konfigurací](https://eslint.vuejs.org/user-guide/#usage) `eslint-plugin-vue`.
 
-2. Setup ESLint IDE extensions, for example [ESLint for VSCode](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), so you get linter feedback right in your editor during development. This also avoids unnecessary linting cost when starting the dev server.
+2. Nastavte rozšíření IDE pro ESLint, například [ESLint pro VSCode](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), abyste měli během vývoje zpětnou vazbu linteru přímo ve vašem editoru. Tím se také zabrání zbytečným nákladům na lintování při spuštění vývojového (dev) serveru.
 
-3. Run ESLint as part of the production build command, so you get full linter feedback before shipping to production.
+3. Spusťte ESLint jako součást příkazu pro produkční build, abyste získali úplnou zpětnou vazbu linteru před odesláním do produkce.
 
-4. (Optional) Setup tools like [lint-staged](https://github.com/okonet/lint-staged) to automatically lint modified files on git commit.
+4. (Volitelné) Nastavte nástroje jako [lint-staged](https://github.com/okonet/lint-staged), abyste automaticky lintovali upravené soubory při commitu do gitu.
 
-## Formatting {#formatting}
+## Formátování {#formatting}
 
-- The [Volar](https://github.com/johnsoncodehk/volar) VSCode extension provides formatting for Vue SFCs out of the box.
+- Rozšíření [Volar](https://github.com/johnsoncodehk/volar) pro VSCode samo o sobě poskytuje formátování pro Vue SFC.
 
-- Alternatively, [Prettier](https://prettier.io/) provides built-in Vue SFC formatting support.
+- Alternativně, [Prettier](https://prettier.io/) poskytuje vestavěnou podporu pro formátování Vue SFC.
 
-## Nástroje pro integraci vlastních bloků SFC {#sfc-custom-block-integrations}
+## Nástroje pro integraci vlastních SFC bloků  {#sfc-custom-block-integrations}
 
-Custom blocks are compiled into imports to the same Vue file with different request queries. It is up to the underlying build tool to handle these import requests.
+Vlastní bloky jsou zkompilovány do importů do stejného Vue souboru s různými request queries. Je na v projektu použitém build nástroji, jak se s těmito importy zachází.
 
-- If using Vite, a custom Vite plugin should be used to transform matched custom blocks into executable JavaScript. [Example](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#example-for-transforming-custom-blocks)
+- Pokud používáte Vite, měl by být k přeměně odpovídajících vlastních bloků na spustitelný JavaScript použit vlastní Vite plugin. [Příklad](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#example-for-transforming-custom-blocks)
 
-- If using Vue CLI or plain webpack, a webpack loader should be configured to transform the matched blocks. [Example](https://vue-loader.vuejs.org/guide/custom-blocks.html)
+- Pokud používáte Vue CLI nebo čistý webpack, měl by být k přeměně odpovídajících bloků nakonfigurován webpack loader. [Příklad](https://vue-loader.vuejs.org/guide/custom-blocks.html)
 
-## Lower-Level Packages {#lower-level-packages}
+## Balíčky nižší úrovně {#lower-level-packages}
 
 ### `@vue/compiler-sfc` {#vue-compiler-sfc}
 
-- [Docs](https://github.com/vuejs/core/tree/main/packages/compiler-sfc)
+- [Dokumentace](https://github.com/vuejs/core/tree/main/packages/compiler-sfc)
 
-This package is part of the Vue core monorepo and is always published with the same version as the main `vue` package. It is included as a dependency of the main `vue` package and proxied under `vue/compiler-sfc` so you don't need to install it individually.
+Tento balíček je součástí monorepa Vue jádra a je vždy publikován se stejnou verzí jako hlavní balíček `vue`. Je zahrnut jako závislost hlavního balíčku `vue` a je nastaven jako proxy pod `vue/compiler-sfc`, takže jej nemusíte samostatně instalovat.
 
-The package itself provides lower-level utilities for processing Vue SFCs and is only meant for tooling authors that need to support Vue SFCs in custom tools.
+Samotný balíček poskytuje nástroje nižší úrovně pro zpracování Vue SFC a je určen pouze pro autory nástrojů, kteří potřebují podporovat Vue SFC ve vlastních knihovnách.
 
 :::tip
-Always prefer using this package via the `vue/compiler-sfc` deep import since this ensures its version is in sync with the Vue runtime.
+Vždy upřednostňujte použití tohoto balíčku pomocí deep importu `vue/compiler-sfc`, protože to zajišťuje, že jeho verze je synchronizována s běhovým prostředím Vue.
 :::
 
 ### `@vitejs/plugin-vue` {#vitejs-plugin-vue}
 
-- [Docs](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue)
+- [Dokumentace](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue)
 
-Official plugin that provides Vue SFC support in Vite.
+Oficiální plugin, který poskytuje podporu Vue SFC pro Vite.
 
 ### `vue-loader` {#vue-loader}
 
-- [Docs](https://vue-loader.vuejs.org/)
+- [Dokumentace](https://vue-loader.vuejs.org/)
 
-The official loader that provides Vue SFC support in webpack. If you are using Vue CLI, also see [docs on modifying `vue-loader` options in Vue CLI](https://cli.vuejs.org/guide/webpack.html#modifying-options-of-a-loader).
+Oficiální loader, který poskytuje podporu Vue SFC pro webpack. Pokud používáte Vue CLI, podívejte se také na [dokumentaci k úpravě nastavení `vue-loader` ve Vue CLI](https://cli.vuejs.org/guide/webpack.html#modifying-options-of-a-loader).
 
-## Other Online Playgrounds {#other-online-playgrounds}
+## Ostatní online hřiště {#other-online-playgrounds}
 
 - [VueUse Playground](https://play.vueuse.org)
-- [Vue + Vite on Repl.it](https://replit.com/@templates/VueJS-with-Vite)
-- [Vue on CodeSandbox](https://codesandbox.io/s/vue-3)
-- [Vue on Codepen](https://codepen.io/pen/editor/vue)
-- [Vue on Components.studio](https://components.studio/create/vue3)
-- [Vue on WebComponents.dev](https://webcomponents.dev/create/cevue)
+- [Vue + Vite na Repl.it](https://replit.com/@templates/VueJS-with-Vite)
+- [Vue na CodeSandbox](https://codesandbox.io/s/vue-3)
+- [Vue na Codepen](https://codepen.io/pen/editor/vue)
+- [Vue na Components.studio](https://components.studio/create/vue3)
+- [Vue na WebComponents.dev](https://webcomponents.dev/create/cevue)
 
 <!-- TODO ## Backend Framework Integrations -->

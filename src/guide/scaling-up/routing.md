@@ -1,29 +1,29 @@
-# Routing {#routing}
+# Směrování {#routing}
 
-## Client-Side vs. Server-Side Routing {#client-side-vs-server-side-routing}
+## Směrování na straně klienta vs. na straně serveru{#client-side-vs-server-side-routing}
 
-Routing on the server side means the server sending a response based on the URL path that the user is visiting. When we click on a link in a traditional server-rendered web app, the browser receives an HTML response from the server and reloads the entire page with the new HTML.
+Směrování (routing) na straně serveru znamená, že server odesílá odpověď na základě URL cesty, kterou chce uživatel navštívit. Když klikneme na odkaz v tradiční webové aplikaci s vykreslováním na straně serveru (SSR), prohlížeč obdrží od serveru HTML odpověď a znovu načte celou stránku s novým HTML obsahem.
 
-In a [Single-Page Application](https://developer.mozilla.org/en-US/docs/Glossary/SPA) (SPA), however, the client-side JavaScript can intercept the navigation, dynamically fetch new data, and update the current page without full page reloads. This typically results in a more snappy user experience, especially for use cases that are more like actual "applications", where the user is expected to perform many interactions over a long period of time.
+V [Single-page aplikaci](https://developer.mozilla.org/cs/docs/Glossary/SPA) (SPA) však může klientský JavaScript zachytit navigaci, dynamicky načíst nová data a aktualizovat zobrazenou stránku bez plného reloadu stránky. To obvykle vede k rychlejší odezvě a lepšímu uživatelskému zážitku, zejména v případech, které připomínají skutečné "aplikace", kde se od uživatele očekává provádění mnoha interakcí po delší dobu.
 
-In such SPAs, the "routing" is done on the client side, in the browser. A client-side router is responsible for managing the application's rendered view using browser APIs such as [History API](https://developer.mozilla.org/en-US/docs/Web/API/History) or the [`hashchange` event](https://developer.mozilla.org/en-US/docs/Web/API/Window/hashchange_event).
+V takových SPA je "směrování" prováděno na straně klienta, v prohlížeči. Router na klientovi je zodpovědný za správu vykresleného obsahu aplikace pomocí API prohlížečě, jako je [History API](https://developer.mozilla.org/cs/docs/Web/API/History) nebo událost [`hashchange`](https://developer.mozilla.org/cs/docs/Web/API/Window/hashchange_event).
 
-## Official Router {#official-router}
+## Oficiální router {#official-router}
 
-<!-- TODO update links -->
+<!-- TODO aktualizovat odkazy -->
 <div>
-  <VueSchoolLink href="https://vueschool.io/courses/vue-router-4-for-everyone" title="Free Vue Router Course">
-    Watch a Free Video Course on Vue School
+  <VueSchoolLink href="https://vueschool.io/courses/vue-router-4-for-everyone" title="Lekce o Vue Router zdarma">
+    Podívejte se na bezplatný video kurz od Vue School
   </VueSchoolLink>
 </div>
 
-Vue is well-suited for building SPAs. For most SPAs, it's recommended to use the officially-supported [Vue Router library](https://github.com/vuejs/router). For more details, see Vue Router's [documentation](https://router.vuejs.org/).
+Vue je pro vytváření SPA dobře připraveno. Pro většinu SPA se doporučuje použít oficiálně podporovanou [knihovnu Vue Router](https://github.com/vuejs/router). Další podrobnosti naleznete v [dokumentaci](https://router.vuejs.org/) Vue Routeru.
 
-## Simple Routing from Scratch {#simple-routing-from-scratch}
+## Jednoduché směrování od základů {#simple-routing-from-scratch}
 
-If you only need very simple routing and do not wish to involve a full-featured router library, you can do so with [Dynamic Components](/guide/essentials/component-basics#dynamic-components) and update the current component state by listening to browser [`hashchange` events](https://developer.mozilla.org/en-US/docs/Web/API/Window/hashchange_event) or using the [History API](https://developer.mozilla.org/en-US/docs/Web/API/History).
+Pokud potřebujete pouze velmi jednoduché směrování a nechcete používat plnohodnotnou knihovnu, můžete to udělat pomocí [dynamických komponent](/guide/essentials/component-basics#dynamic-components) a aktualizovat aktuální stav komponenty posloucháním událostí [`hashchange`](https://developer.mozilla.org/cs/docs/Web/API/Window/hashchange_event) v prohlížeči nebo pomocí [History API](https://developer.mozilla.org/cs/docs/Web/API/History).
 
-Here's a bare-bone example:
+Zde je příklad základní struktury:
 
 <div class="composition-api">
 
@@ -51,9 +51,9 @@ const currentView = computed(() => {
 </script>
 
 <template>
-  <a href="#/">Home</a> |
-  <a href="#/about">About</a> |
-  <a href="#/non-existent-path">Broken Link</a>
+  <a href="#/">Domů</a> |
+  <a href="#/about">O nás</a> |
+  <a href="#/non-existent-path">Chybný odkaz</a>
   <component :is="currentView" />
 </template>
 ```
@@ -95,9 +95,9 @@ export default {
 </script>
 
 <template>
-  <a href="#/">Home</a> |
-  <a href="#/about">About</a> |
-  <a href="#/non-existent-path">Broken Link</a>
+  <a href="#/">Domů</a> |
+  <a href="#/about">O nás</a> |
+  <a href="#/non-existent-path">Chybný odkaz</a>
   <component :is="currentView" />
 </template>
 ```
