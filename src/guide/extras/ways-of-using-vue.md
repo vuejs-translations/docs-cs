@@ -1,59 +1,59 @@
-# Ways of Using Vue {#ways-of-using-vue}
+# Způsoby použití Vue {#ways-of-using-vue}
 
-We believe there is no "one size fits all" story for the web. This is why Vue is designed to be flexible and incrementally adoptable. Depending on your use case, Vue can be used in different ways to strike the optimal balance between stack complexity, developer experience and end performance.
+Věříme, že pro web neexistuje "univerzální řešení". Proto je Vue navrženo tak, aby bylo flexibilní a adoptovatelné postupně. V závislosti na vašich potřebých může být Vueo použit různými způsoby, abyste dosáhli optimální rovnováhy mezi složitostí technologického stacku, zkušenostmi vývojáře a cílovým výkonem aplikace.
 
-## Standalone Script {#standalone-script}
+## Samostatný skript {#standalone-script}
 
-Vue can be used as a standalone script file - no build step required! If you have a backend framework already rendering most of the HTML, or your frontend logic isn't complex enough to justify a build step, this is the easiest way to integrate Vue into your stack. You can think of Vue as a more declarative replacement of jQuery in such cases.
+Vue může být použito jako samostatný skript soubor - není vyžadována žádná build fáze! Pokud již máte backendový framework, který renderuje většinu HTML, nebo pokud vaše frontendová logika není dostatečně složitá na to, aby build fázi opravňovala, je to nejjednodušší způsob, jak integrovat Vue do vašeho stacku. V takových případech můžete Vue považovat za deklarativní náhradu jQuery.
 
-Vue also provides an alternative distribution called [petite-vue](https://github.com/vuejs/petite-vue) that is specifically optimized for progressively enhancing existing HTML. It has a smaller feature set, but is extremely lightweight and uses an implementation that is more efficient in no-build-step scenarios.
+Vue také poskytuje alternativní distribuci nazvanou [petite-vue](https://github.com/vuejs/petite-vue), která je speciálně optimalizována pro postupné vylepšování existujícího HTML. Má menší soubor funkcí, ale je extrémně odlehčená a používá implementaci, která je v případech bez build fáze efektivnější.
 
-## Embedded Web Components {#embedded-web-components}
+## Vložené webové komponenty {#embedded-web-components}
 
-You can use Vue to [build standard Web Components](/guide/extras/web-components) that can be embedded in any HTML page, regardless of how they are rendered. This option allows you to leverage Vue in a completely consumer-agnostic fashion: the resulting web components can be embedded in legacy applications, static HTML, or even applications built with other frameworks.
+Vue můžete použít k [vytvoření standardních Web Components](/guide/extras/web-components), které lze vložit do libovolné HTML stránky, bez ohledu na to, jak je vykreslována. Tato možnost vám umožňuje využít Vue zcela nezávisle na spotřebiteli: výsledné webové komponenty lze vložit do zastaralých aplikací, statického HTML nebo dokonce do aplikací postavených s jinými frameworky.
 
-## Single-Page Application (SPA) {#single-page-application-spa}
+## Single-Page aplikace (SPA) {#single-page-application-spa}
 
-Some applications require rich interactivity, deep session depth, and non-trivial stateful logic on the frontend. The best way to build such applications is to use an architecture where Vue not only controls the entire page, but also handles data updates and navigation without having to reload the page. This type of application is typically referred to as a Single-Page Application (SPA).
+Některé aplikace vyžadují bohatou interaktivitu, větší hloubku session a netriviální stavovou logiku na frontendu. Nejlepším způsobem, jak takové aplikace vytvářet, je použití architektury, kde Vue nejen ovládá celou stránku, ale také zajišťuje aktualizace dat a navigaci bez nutnosti stránku znovu načítat. Tento typ aplikace se obvykle označuje jako Single-Page aplikace (SPA).
 
-Vue provides core libraries and [comprehensive tooling support](/guide/scaling-up/tooling) with amazing developer experience for building modern SPAs, including:
+Vue poskytuje core knihovny a [komplexní podpůrné nástroje](/guide/scaling-up/tooling) se skvělou developer experience pro vytváření moderních SPA, včetně:
 
-- Client-side router
-- Blazing fast build tool chain
-- IDE support
-- Browser devtools
-- TypeScript integrations
-- Testing utilities
+- Routeru na straně klienta
+- Extrémně rychlého build nástroje
+- Podpory v IDE
+- Devtools v prohlížeči
+- Integrace s TypeScriptem
+- Pomůcek pro testování
 
-SPAs typically require the backend to expose API endpoints - but you can also pair Vue with solutions like [Inertia.js](https://inertiajs.com) to get the SPA benefits while retaining a server-centric development model.
+SPA obvykle vyžadují, aby backend poskytoval API endpointy - ale můžete také spojit Vue s řešeními jako [Inertia.js](https://inertiajs.com), abyste získali výhody SPA a zároveň zachovali model vývoje zaměřený na server (server-centric).
 
 ## Fullstack / SSR {#fullstack-ssr}
 
-Pure client-side SPAs are problematic when the app is sensitive to SEO and time-to-content. This is because the browser will receive a largely empty HTML page, and has to wait until the JavaScript is loaded before rendering anything.
+Čistě klientské SPA jsou problematické, pokud aplikace závisí na SEO a čase do načtení obsahu (time-to-content). To je způsobeno tím, že prohlížeč obdrží převážně prázdnou HTML stránku a musí čekat, dokud se nenačte JavaScript, než se začne cokoli vykreslovat.
 
-Vue provides first-class APIs to "render" a Vue app into HTML strings on the server. This allows the server to send back already-rendered HTML, allowing end users to see the content immediately while the JavaScript is being downloaded. Vue will then "hydrate" the application on the client side to make it interactive. This is called [Server-Side Rendering (SSR)](/guide/scaling-up/ssr) and it greatly improves Core Web Vital metrics such as [Largest Contentful Paint (LCP)](https://web.dev/lcp/).
+Vue poskytuje prvotřídní API pro "vykreslování" Vue aplikace do HTML řetězců na serveru. To umožňuje serveru poslat již vykreslené HTML a koncovým uživatelům okamžitě vidět obsah, zatímco se stahuje JavaScript. Vue pak aplikaci na straně klienta "hydratuje", aby byla interaktivní. Toto se nazývá [Server-Side Rendering (SSR)](/guide/scaling-up/ssr) a výrazně zlepšuje metriky Core Web Vitals, jako je [Largest Contentful Paint (LCP)](https://web.dev/lcp/).
 
-There are higher-level Vue-based frameworks built on top of this paradigm, such as [Nuxt](https://nuxt.com/), which allow you to develop a fullstack application using Vue and JavaScript.
+Existují vyšší úrovně frameworků založených na Vue postavených na tomto paradigmatu, jako je [Nuxt](https://nuxt.com/), který vám umožní vyvíjet fullstack aplikaci pomocí Vue a JavaScriptu.
 
 ## JAMStack / SSG {#jamstack-ssg}
 
-Server-side rendering can be done ahead of time if the required data is static. This means we can pre-render an entire application into HTML and serve them as static files. This improves site performance and makes deployment a lot simpler since we no longer need to dynamically render pages on each request. Vue can still hydrate such applications to provide rich interactivity on the client. This technique is commonly referred to as Static-Site Generation (SSG), also known as [JAMStack](https://jamstack.org/what-is-jamstack/).
+Server-side rendering lze provést předem, pokud jsou požadovaná data statická. To znamená, že můžeme předem vykreslit celou aplikaci do HTML a poskytovat ji jako statické soubory. To zlepšuje výkon webu a zjednodušuje nasazení, protože již nemusíme při každém požadavku dynamicky vykreslovat stránky. Vue stále může takové aplikace hydratovat a poskytovat na straně klienta bohatou interaktivitu. Tato technika se obvykle nazývá Static-Site Generation (SSG), také známá jako [JAMStack](https://jamstack.org/what-is-jamstack/).
 
-There are two flavors of SSG: single-page and multi-page. Both flavors pre-render the site into static HTML, the difference is that:
+Existují dvě varianty SSG: single-page a multi-page. Oba typy předem vykreslují web do statického HTML, rozdíl spočívá v tom, že:
 
-- After the initial page load, a single-page SSG "hydrates" the page into an SPA. This requires more upfront JS payload and hydration cost, but subsequent navigations will be faster, since it only needs to partially update the page content instead of reloading the entire page.
+- Počáteční načtení stránky single-page SSG "hydratuje" stránku do SPA. To vyžaduje vyšší počáteční zatížení JS a náklady na hydrataci, ale následné navigace budou rychlejší, protože je třeba obsah stránky pouze částečně aktualizovat místo načítání celé stránky znovu.
 
-- A multi-page SSG loads a new page on every navigation. The upside is that it can ship minimal JS - or no JS at all if the page requires no interaction! Some multi-page SSG frameworks such as [Astro](https://astro.build/) also support "partial hydration" - which allows you to use Vue components to create interactive "islands" inside static HTML.
+- Multi-page SSG načítá novou stránku při každé navigaci. Výhodou je, že může odeslat minimální množství JS - nebo dokonce žádný JS, pokud stránka žádnou interakci nevyžaduje! Některé vícestránkové SSG frameworky, jako například [Astro](https://astro.build/), také podporují "částečné hydratace" - což vám umožní používat Vue komponenty k vytváření interaktivních "ostrovů" uvnitř statického HTML.
 
-Single-page SSGs are better suited if you expect non-trivial interactivity, deep session lengths, or persisted elements / state across navigations. Otherwise, multi-page SSG would be the better choice.
+Jednostránkové SSG jsou vhodnější, pokud očekáváte složitou interaktivitu, dlouhotrvající session nebo trvalé prvky/stavy při navigaci. V opačném případě bude lepší volbou vícestránkové SSG.
 
-The Vue team also maintains a static-site generator called [VitePress](https://vitepress.dev/), which powers this website you are reading right now! VitePress supports both flavors of SSG. [Nuxt](https://nuxt.com/) also supports SSG. You can even mix SSR and SSG for different routes in the same Nuxt app.
+Tým Vue také spravuje statický generátor webu s názvem [VitePress](https://vitepress.dev/), který pohání i tuto webovou stránku, kterou právě čtete! VitePress podporuje oba druhy SSG. [Nuxt](https://nuxt.com/) SSG také podporuje. Dokonce můžete kombinovat SSR a SSG pro různé cesty ve stejné Nuxt aplikaci.
 
-## Beyond the Web {#beyond-the-web}
+## Mimo web {#beyond-the-web}
 
-Although Vue is primarily designed for building web applications, it is by no means limited to just the browser. You can:
+I když je Vue primárně navrženo pro tvorbu webových aplikací, neznamená to, že je omezeno pouze na prohlížeč. Můžete:
 
-- Build desktop apps with [Electron](https://www.electronjs.org/) or [Tauri](https://tauri.studio/en/)
-- Build mobile apps with [Ionic Vue](https://ionicframework.com/docs/vue/overview)
-- Build desktop and mobile apps from the same codebase with [Quasar](https://quasar.dev/)
-- Use Vue's [Custom Renderer API](/api/custom-renderer) to build custom renderers targeting [WebGL](https://troisjs.github.io/) or even [the terminal](https://github.com/vue-terminal/vue-termui)!
+- Vytvářet desktopové aplikace s [Electron](https://www.electronjs.org/) nebo [Tauri](https://tauri.studio/en/)
+- Vytvářet mobilní aplikace s [Ionic Vue](https://ionicframework.com/docs/vue/overview)
+- Vytvářet desktopové a mobilní aplikace ze stejného kódu s [Quasar](https://quasar.dev/)
+- Používat Vue [Custom Renderer API](/api/custom-renderer) pro tvorbu vlastních nástrojů pro vykreslování zaměřených na [WebGL](https://troisjs.github.io/) nebo dokonce [terminál](https://github.com/vue-terminal/vue-termui)!

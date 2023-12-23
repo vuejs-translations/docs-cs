@@ -16,14 +16,11 @@ typescript\composition-api.md
 typescript\options-api.md
 
 extras\
-extras\animation.md
-extras\composition-api-faq.md
 extras\custom-renderer.md
 extras\reactivity-in-depth.md
 extras\reactivity-transform.md
 extras\render-function.md
 extras\rendering-mechanism.md
-extras\ways-of-using-vue.md
 extras\web-components.md
 
 
@@ -41,7 +38,7 @@ reactivity-core.md
 reactivity-utilities.md
 render-function.md
 
-To go: 27
+To go: 24
 
 
 TODO iteration 2

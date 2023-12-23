@@ -49,6 +49,8 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 deep = vnořený (za předpokladu, že odpovídá kontext, např. "deep reactivity")
 * 🟥 default export = default export
 * 🟩 destructure = dekonstruovat
+* 🟥 developer experience = developer experiences (lze užít zkratku "DX")
+* 🟥 development experience = development experiences (lze užít zkratku "DX")
 * 🟩 details = podrobnosti
 * 🟨 directive = direktiva
 * 🟥 DOM = DOM

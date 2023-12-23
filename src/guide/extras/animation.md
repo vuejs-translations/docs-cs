@@ -5,13 +5,13 @@ import Colors from './demos/Colors.vue'
 import AnimateWatcher from './demos/AnimateWatcher.vue'
 </script>
 
-# Animation Techniques {#animation-techniques}
+# Techniky animace {#animation-techniques}
 
-Vue provides the [`<Transition>`](/guide/built-ins/transition) and [`<TransitionGroup>`](/guide/built-ins/transition-group) components for handling enter / leave and list transitions. However, there are many other ways of using animations on the web, even in a Vue application. Here we will discuss a few additional techniques.
+Vue poskytuje komponenty [`<Transition>`](/guide/built-ins/transition) a [`<TransitionGroup>`](/guide/built-ins/transition-group) pro zpracování vstupů/odchodů a přechodů v rámci seznamu. Na webu ovšem existuje mnoho dalších způsobů použití animací, dokonce i ve Vue aplkacích. Zde si představíme několik dalších technik.
 
-## Class-based Animations {#class-based-animations}
+## Animace založené na třídách {#class-based-animations}
 
-For elements that are not entering / leaving the DOM, we can trigger animations by dynamically adding a CSS class:
+Pro prvky, které nevstupují do/neodcházejí z DOM, můžeme animace spouštět dynamickým přidáním CSS třídy:
 
 <div class="composition-api">
 
@@ -51,8 +51,8 @@ export default {
 
 ```vue-html
 <div :class="{ shake: disabled }">
-  <button @click="warnDisabled">Click me</button>
-  <span v-if="disabled">This feature is disabled!</span>
+  <button @click="warnDisabled">Klikni na mě</button>
+  <span v-if="disabled">Tato funkce je vypnuta!</span>
 </div>
 ```
 
@@ -88,9 +88,9 @@ export default {
 
 <DisabledButton />
 
-## State-driven Animations {#state-driven-animations}
+## Animace řízené stavem {#state-driven-animations}
 
-Some transition effects can be applied by interpolating values, for instance by binding a style to an element while an interaction occurs. Take this example for instance:
+Některé přechodové efekty lze aplikovat interpolací hodnot, například bindingem stylu na element během interakce. Vezměte si například tento příklad:
 
 <div class="composition-api">
 
@@ -128,7 +128,7 @@ export default {
   :style="{ backgroundColor: `hsl(${x}, 80%, 50%)` }"
   class="movearea"
 >
-  <p>Move your mouse across this div...</p>
+  <p>Pohybujte myší přes tuto oblast...</p>
   <p>x: {{ x }}</p>
 </div>
 ```
@@ -141,13 +141,13 @@ export default {
 
 <Colors />
 
-In addition to color, you can also use style bindings to animate transform, width, or height. You can even animate SVG paths using spring physics - after all, they are all attribute data bindings:
+Kromě barvy můžete binding stylů použít i pro animaci transformace, šířky nebo výšky. Dokonce můžete animovat SVG cesty pomocí pružinové fyziky (spring physics) - koneckonců jsou to všechny datové vazby atributů:
 
 <ElasticHeader />
 
-## Animating with Watchers {#animating-with-watchers}
+## Animace s pomocí watcherů {#animating-with-watchers}
 
-With some creativity, we can use watchers to animate anything based on some numerical state. For example, we can animate the number itself:
+S trochou kreativity můžeme pomocí watcherů animovat cokoli na základě číselného stavu. Například můžeme animovat samotné číslo:
 
 <div class="composition-api">
 
@@ -166,7 +166,7 @@ watch(number, (n) => {
 ```
 
 ```vue-html
-Type a number: <input v-model.number="number" />
+Zadejte číslo: <input v-model.number="number" />
 <p>{{ tweened.number.toFixed(0) }}</p>
 ```
 
@@ -192,7 +192,7 @@ export default {
 ```
 
 ```vue-html
-Type a number: <input v-model.number="number" />
+Zadejte číslo: <input v-model.number="number" />
 <p>{{ tweened.toFixed(0) }}</p>
 ```
 

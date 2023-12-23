@@ -14,7 +14,7 @@ function onMousemove(e) {
     :style="{ backgroundColor: `hsl(${x}, 80%, 50%)` }"
     class="demo movearea"
   >
-    <p>Pohybujte myší přes tento div...</p>
+    <p>Pohybujte myší přes tuto oblast...</p>
     <p>x: {{ x }}</p>
   </div>
 </template>
