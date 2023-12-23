@@ -266,7 +266,7 @@ defineOptions({
 ```
 
 - Podporováno pouze ve verzi 3.3 a vyšší.
-- Jedná se o makro. Vlastnosti budou vyzvednuty (hoisted) na úroveň modulu a nebudou mít přístup k lokálním proměnným ve `<script setup>`, které nejsou konstantní literály.
+- Jedná se o makro. Vlastnosti budou vytaženy (hoisted) na úroveň modulu a nebudou mít přístup k lokálním proměnným ve `<script setup>`, které nejsou konstantní literály.
 
 ## defineSlots()<sup class="vt-badge ts"/> {#defineslots}
 

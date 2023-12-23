@@ -20,7 +20,6 @@ extras\custom-renderer.md
 extras\reactivity-in-depth.md
 extras\reactivity-transform.md
 extras\render-function.md
-extras\rendering-mechanism.md
 extras\web-components.md
 
 
@@ -38,7 +37,7 @@ reactivity-core.md
 reactivity-utilities.md
 render-function.md
 
-To go: 24
+To go: 23
 
 
 TODO iteration 2

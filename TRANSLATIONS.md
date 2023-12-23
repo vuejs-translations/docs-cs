@@ -80,6 +80,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 handler = handler
 * 🟩 handling = obsluha (error handling = obsluha chyb)
 * 🟩 helper = pomocná funkce
+* 🟨 hoist (v.) = vytáhnout (hoist)
 * 🟩 holding = obsahovat
 * 🟥 hook = hook
 * 🟨 hydration = hydratace
@@ -120,6 +121,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 parser = parser
 * 🟥 PascalCase = PascalCase
 * 🟩 passed to = posílaný do
+* 🟩 patch = aktualizace
 * 🟥 placeholder = placeholder
 * 🟥 plugin = plugin
 * 🟥 pull request = pull request
@@ -140,6 +142,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 release = verze
 * 🟩 rendering = vykreslování
 * 🟩 render function = funkce pro vykreslování
+* 🟥 renderer = renderer
 * 🟩 resource = zdroj ("prostředek" možná ve vztahu k OS)
 * 🟩 reusable = znovupoužitelný
 * 🟥 root element = root element
