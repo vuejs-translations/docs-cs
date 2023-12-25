@@ -20,6 +20,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 async request = asynchronní volání
 * 🟩 attribute = atribut
 * 🟩 array = pole
+* 🟩 augment = rozšíření
 * 🟥 backend = backend
 * 🟩 best practice = osvědčené postupy
 * 🟩 bind (v.) = provést binding
@@ -181,8 +182,9 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 transition = transition
 * 🟩 tree = strom
 * 🟩 trigger (v.) = vyvolat
-* 🟩 type = typ
+* 🟨 type = typ
 * 🟩 type inference = odvozování typů
+* 🟨 type literal = typový literál
 * 🟩 under the hood = interně
 * 🟩 use case = případ užití
 * 🟩 using the = pomocí

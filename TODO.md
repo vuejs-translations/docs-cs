@@ -10,10 +10,6 @@ scaling-up\testing.md
 best-practices\
 best-practices\accessibility.md
 
-typescript\
-typescript\composition-api.md
-typescript\options-api.md
-
 extras\
 extras\reactivity-in-depth.md
 extras\reactivity-transform.md
@@ -35,7 +31,7 @@ reactivity-core.md
 reactivity-utilities.md
 render-function.md
 
-To go: 21
+To go: 19
 
 
 TODO iteration 2

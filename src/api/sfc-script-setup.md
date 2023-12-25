@@ -198,7 +198,7 @@ const emit = defineEmits<{
 }>()
 ```
 
-- `defineProps` nebo `defineEmits` mohou používat pouze BUĎ runtime deklaraci NEBO deklaraci typu. Použití obojího zároveň povede k chybovému sestavení.
+- `defineProps` nebo `defineEmits` mohou používat pouze BUĎ runtime deklaraci NEBO deklaraci na zákldě typu. Použití obojího zároveň povede k chybovému sestavení.
 
 - Při použití deklarace typu je automaticky generována ekvivalentní runtime deklarace z analýzy statického kódu, aby se odstránila potřeba dvojité deklarace a zároveň zajistila správná funkčnost za běhu.
 
@@ -208,7 +208,7 @@ const emit = defineEmits<{
 
 - Ve verzi 3.2 a nižší byl generický typový parametr pro `defineProps()` omezen na type literal nebo odkaz na lokální rozhraní.
 
-  Toto omezení bylo vyřešeno ve verzi 3.3. Nejnovější verze Vue podporuje odkazování na importované a omezenou sadu složitějších typů na pozici typového parametru. Nicméně, protože runtime konverze typu stále závisí na AST, některé složité typy, které vyžadují skutečnou typovu analýzu, např. podmíněné typy, podporovány nejsou. Můžete použít podmíněné typy pro typ jedné vlastnosti, ale ne pro celý objekt props.
+  Toto omezení bylo vyřešeno ve verzi 3.3. Nejnovější verze Vue podporuje odkazování na importované a omezenou sadu složitějších typů na pozici typového parametru. Nicméně, protože runtime konverze typu stále závisí na AST, některé složité typy, které vyžadují skutečnou typovu analýzu, např. podmíněné typy, podporovány nejsou. Můžete použít podmíněné typy pro typ jedné vlastnosti, ale ne pro celý objekt vlastností.
 
 ### Výchozí hodnoty props při použití deklarace typu {#default-props-values-when-using-type-declaration}
 
