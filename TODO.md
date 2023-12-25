@@ -4,7 +4,6 @@ TODO iteration 1
 /guide
 
 scaling-up\
-scaling-up\ssr.md
 scaling-up\state-management.md
 scaling-up\testing.md
 
@@ -16,7 +15,6 @@ typescript\composition-api.md
 typescript\options-api.md
 
 extras\
-extras\custom-renderer.md
 extras\reactivity-in-depth.md
 extras\reactivity-transform.md
 extras\render-function.md
@@ -37,7 +35,7 @@ reactivity-core.md
 reactivity-utilities.md
 render-function.md
 
-To go: 23
+To go: 21
 
 
 TODO iteration 2
