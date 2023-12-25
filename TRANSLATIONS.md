@@ -141,7 +141,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟨 refactoring = refaktoring
 * 🟩 release = verze
 * 🟩 rendering = vykreslování
-* 🟩 render function = funkce pro vykreslování
+* 🟩 render function = funkce pro vykreslení
 * 🟥 renderer = renderer
 * 🟩 resource = zdroj ("prostředek" možná ve vztahu k OS)
 * 🟩 reusable = znovupoužitelný

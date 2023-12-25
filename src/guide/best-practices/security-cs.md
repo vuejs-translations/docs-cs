@@ -82,7 +82,7 @@ Jak jste se již naučili, Vue automaticky escapuje obsah HTML, což vám zabrá
   <div v-html="userProvidedHtml"></div>
   ```
 
-- Použitím funkce pro vykreslování:
+- Použitím funkce pro vykreslení:
 
   ```js
   h('div', {
@@ -90,7 +90,7 @@ Jak jste se již naučili, Vue automaticky escapuje obsah HTML, což vám zabrá
   })
   ```
 
-- Použitím funkce pro vykreslování s JSX:
+- Použitím funkce pro vykreslení s JSX:
 
 ```jsx
 <div innerHTML={this.userProvidedHtml}></div>
@@ -149,7 +149,7 @@ Chcete-li uživatele před clickjackingem plně ochránit, doporučujeme povolit
 
 ### Vkládání JavaScriptu {#javascript-injection}
 
-Důrazně nedoporučujeme ve Vue kdykoliv vykreslovat prvek `<script>`, protože šablony a funkce pro vykreslování by nikdy neměly mít vedlejší účinky. To však není jediný způsob, jak zahrnout řetězce, které by byly vyhodnoceny jako JavaScript za běhu programu.
+Důrazně nedoporučujeme ve Vue kdykoliv vykreslovat prvek `<script>`, protože šablony a funkce pro vykreslení by nikdy neměly mít vedlejší účinky. To však není jediný způsob, jak zahrnout řetězce, které by byly vyhodnoceny jako JavaScript za běhu programu.
 
 Každý HTML prvek má atributy s hodnotami přijímajícími JavaScript řetězce, jako například `onclick`, `onfocus` a `onmouseenter`. Binding uživatelem poskytovaného JavaScriptu na kterýkoli z těchto událostních atributů představuje potenciální bezpečnostní riziko, a proto byste se mu měli vyhnout.
 

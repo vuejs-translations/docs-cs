@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Funkce pro vykreslování & JSX {#render-functions-jsx}
+# Funkce pro vykreslení & JSX {#render-functions-jsx}
 
 Vue recommends using templates to build applications in the vast majority of cases. However, there are situations where we need the full programmatic power of JavaScript. That's where we can use the **render function**.
 

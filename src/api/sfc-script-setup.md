@@ -4,7 +4,7 @@
 
 - Stručnější zápis s menším množstvím boilerplate kódu
 - Možnost deklarovat vlastnosti (props) a emitované události (emits) čistě v TypeScriptu
-- Lepší runtime výkon (šablona je zkompilována do funkce pro vykreslování ve stejném scope, bez prostředníka)
+- Lepší runtime výkon (šablona je zkompilována do funkce pro vykreslení ve stejném scope, bez prostředníka)
 - Lepší výkon odvozování typů v IDE (méně práce pro jazykový server při extrakci typů z kódu)
 
 ## Základní syntaxe {#basic-syntax}

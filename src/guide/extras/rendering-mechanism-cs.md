@@ -38,9 +38,9 @@ Hlavní výhodou virtuálního DOM je, že umožňuje vývojáři programově za
 
 V globálním pohledu se při připojování Vue komponenty děje následující:
 
-1. **Kompilace**: Vue šablony jsou kompilovány do **funkcí pro vykreslování**: funkcí, které vrací virtuální DOM stromy. Tento krok lze provést buď předem v rámci build fáze, nebo on-the-fly pomocí runtime kompilátoru.
+1. **Kompilace**: Vue šablony jsou kompilovány do **funkcí pro vykreslení**: funkcí, které vrací virtuální DOM stromy. Tento krok lze provést buď předem v rámci build fáze, nebo on-the-fly pomocí runtime kompilátoru.
 
-2. **Mount**: Během spouštění vykreslovacího modulu jsou volány funkce pro vykreslování, prochází se vrácený virtuální DOM strom a na jeho základě jsou vytvořeny skutečné DOM elementy. Tento krok se provádí jako [reaktivní efekt](./reactivity-in-depth), takže sleduje všechny použité reaktivní závislosti.
+2. **Mount**: Během spouštění vykreslovacího modulu jsou volány funkce pro vykreslení, prochází se vrácený virtuální DOM strom a na jeho základě jsou vytvořeny skutečné DOM elementy. Tento krok se provádí jako [reaktivní efekt](./reactivity-in-depth), takže sleduje všechny použité reaktivní závislosti.
 
 3. **Patch**: Pokud se během vykreslování změní nějaká závislost, efekt se spustí znovu. Tentokrát je vytvořen nový aktualizovaný virtuální DOM strom. Vykreslovací modul prochází nový strom, porovnává ho s tím starým a aplikuje potřebné aktualizace na skutečný DOM.
 
@@ -48,9 +48,9 @@ V globálním pohledu se při připojování Vue komponenty děje následující
 
 <!-- https://www.figma.com/file/elViLsnxGJ9lsQVsuhwqxM/Rendering-Mechanism -->
 
-## Šablony vs. Funkce pro vykreslování{#templates-vs-render-functions}
+## Šablony vs. Funkce pro vykreslení{#templates-vs-render-functions}
 
-Vue šablony jsou kompilovány do funkcí pro vykreslování virtuálního DOM. Vue také poskytuje API, která nám umožňují přeskočit krok kompilace šablony a přímo vytvářet funkce pro vykreslování. Tyto funkce jsou flexibilnější než šablony při práci s více dynamickou logikou, protože můžete pracovat s vnodes s využitím plné síly JavaScriptu.
+Vue šablony jsou kompilovány do funkcí pro vykreslování virtuálního DOM. Vue také poskytuje API, která nám umožňují přeskočit krok kompilace šablony a přímo vytvářet funkce pro vykreslení. Tyto funkce jsou flexibilnější než šablony při práci s více dynamickou logikou, protože můžete pracovat s vnodes s využitím plné síly JavaScriptu.
 
 Proč tedy Vue primárně doporučuje šablony? Existuje několik důvodů:
 
@@ -58,13 +58,13 @@ Proč tedy Vue primárně doporučuje šablony? Existuje několik důvodů:
 
 2. Šablony jsou snáze staticky analyzovatelné díky své deterministické syntaxi. To umožňuje kompilátoru Vue šablon provádět v době kompilace mnoho optimalizací, aby se zlepšil výkon virtuálního DOM (o čemž se budeme bavit níže).
 
-V praxi jsou šablony dostatečné pro většinu použití v aplikacích. Funkce pro vykreslování se obvykle používají pouze ve znovupoužitelných komponentech, které potřebují pracovat s více dynamickou vykreslovací logikou. Použití těchto funkcí je podrobněji popsáno v průvodci [Funkce pro vykresování a JSX](./render-function).
+V praxi jsou šablony dostatečné pro většinu použití v aplikacích. Funkce pro vykreslení se obvykle používají pouze ve znovupoužitelných komponentech, které potřebují pracovat s více dynamickou vykreslovací logikou. Použití těchto funkcí je podrobněji popsáno v průvodci [Funkce pro vykreslení a JSX](./render-function).
 
 ## Kompilátorem informovaný virtuální DOM {#compiler-informed-virtual-dom}
 
 Implementace virtuálního DOM v Reactu a většině dalších implementací virtuálního DOM jsou čistě runtime: srovnávací algoritmus nemůže předpokládat nic o přicházejícím virtuálním DOM stromu, takže musí strom plně procházet a porovnávat vlastnosti každého vnode, aby zajistil správnost. Navíc, i když se část stromu nikdy nemění, jsou pro ni při každém překreslení vždy vytvářeny nové vnodes, což vede k zbytečnému zatížení paměti. To je jedna z nejvíce kritizovaných stránek virtuálního DOM: poněkud hrubý proces srovnávání obětuje efektivitu ve prospěch deklarativnosti a správnosti.
 
-Ale nemusí to tak být. Ve Vue ovládá framework jak kompilátor, tak běhové prostředí. To nám umožňuje implementovat mnoho optimalizací prováděných při kompilaci, které může využít pouze pevně svázaný renderer. Kompilátor může staticky analyzovat šablonu a v generovaném kódu ponechávat nápovědy, aby běhové prostředí mohlo využívat zkratky, kdykoliv je to možné. Zároveň stále zachováváme možnost, aby uživatel přešel na úroveň funkce pro vykreslování a získal tak v okrajových případech přímější kontrolu. Tento hybridní přístup nazýváme **Kompilátorem informovaný virtuální DOM** ("Compiler-Informed Virtual DOM").
+Ale nemusí to tak být. Ve Vue ovládá framework jak kompilátor, tak běhové prostředí. To nám umožňuje implementovat mnoho optimalizací prováděných při kompilaci, které může využít pouze pevně svázaný renderer. Kompilátor může staticky analyzovat šablonu a v generovaném kódu ponechávat nápovědy, aby běhové prostředí mohlo využívat zkratky, kdykoliv je to možné. Zároveň stále zachováváme možnost, aby uživatel přešel na úroveň funkce pro vykreslení a získal tak v okrajových případech přímější kontrolu. Tento hybridní přístup nazýváme **Kompilátorem informovaný virtuální DOM** ("Compiler-Informed Virtual DOM").
 
 Níže budeme mluvit o několika hlavních optimalizacích provedených kompilátorem Vue šablon pro zlepšení runtime výkonu virtuálního DOM.
 
@@ -82,7 +82,7 @@ Velmi často se v šabloně budou nacházet části, které neobsahují žádné
 
 [Prozkoumat v Template Exploreru](https://template-explorer.vuejs.org/#eyJzcmMiOiI8ZGl2PlxuICA8ZGl2PmZvbzwvZGl2PiA8IS0tIGhvaXN0ZWQgLS0+XG4gIDxkaXY+YmFyPC9kaXY+IDwhLS0gaG9pc3RlZCAtLT5cbiAgPGRpdj57eyBkeW5hbWljIH19PC9kaXY+XG48L2Rpdj5cbiIsIm9wdGlvbnMiOnsiaG9pc3RTdGF0aWMiOnRydWV9fQ==)
 
-Div elementy `foo` a `bar` jsou statické - znovu vytvářet vnodes a porovnávat je při každém překreslení je zbytečné. Vue kompilátor automaticky vytáhne volání tvorby jejich vnodes z funkce pro vykreslování a při každém překreslení použije stejné vnodes znovu. Renderer také dokáže úplně přeskočit jejich porovnávání, když si všimne, že starý a nový vnode je ten samý.
+Div elementy `foo` a `bar` jsou statické - znovu vytvářet vnodes a porovnávat je při každém překreslení je zbytečné. Vue kompilátor automaticky vytáhne volání tvorby jejich vnodes z funkce pro vykreslení a při každém překreslení použije stejné vnodes znovu. Renderer také dokáže úplně přeskočit jejich porovnávání, když si všimne, že starý a nový vnode je ten samý.
 
 Kromě toho, když je dostatek po sobě jdoucích statických elementů, budou sloučeny do jednoho "statického vnode", který obsahuje prostý HTML řetězec pro všechny tyto elementy ([Příklad](https://template-explorer.vuejs.org/#eyJzcmMiOiI8ZGl2PlxuICA8ZGl2IGNsYXNzPVwiZm9vXCI+Zm9vPC9kaXY+XG4gIDxkaXYgY2xhc3M9XCJmb29cIj5mb288L2Rpdj5cbiAgPGRpdiBjbGFzcz1cImZvb1wiPmZvbzwvZGl2PlxuICA8ZGl2IGNsYXNzPVwiZm9vXCI+Zm9vPC9kaXY+XG4gIDxkaXYgY2xhc3M9XCJmb29cIj5mb288L2Rpdj5cbiAgPGRpdj57eyBkeW5hbWljIH19PC9kaXY+XG48L2Rpdj4iLCJzc3IiOmZhbHNlLCJvcHRpb25zIjp7ImhvaXN0U3RhdGljIjp0cnVlfX0=)). Tyto statické vnodes jsou připojeny přímo atributem `innerHTML`. Také si na počátečním připojení cachují odpovídající DOM elementy - pokud je stejný obsah použit jinde v aplikaci, jsou vytvořeny nové DOM elementy pomocí nativní funkce `cloneNode()`, což je extrémně efektivní.
 
@@ -103,7 +103,7 @@ Pro jediný element s dynamickými vazbami můžeme také v době kompilace odvo
 
 [Prozkoumat v Template Exploreru](https://template-explorer.vuejs.org/#eyJzcmMiOiI8ZGl2IDpjbGFzcz1cInsgYWN0aXZlIH1cIj48L2Rpdj5cblxuPGlucHV0IDppZD1cImlkXCIgOnZhbHVlPVwidmFsdWVcIj5cblxuPGRpdj57eyBkeW5hbWljIH19PC9kaXY+)
 
-Při generování kódu funkce pro vykreslování těchto prvků Vue zakóduje typ aktualizace, kterou každý z nich potřebuje, přímo ve volání vytváření vnode:
+Při generování kódu funkce pro vykreslení těchto prvků Vue zakóduje typ aktualizace, kterou každý z nich potřebuje, přímo ve volání vytváření vnode:
 
 ```js{3}
 createElementVNode("div", {

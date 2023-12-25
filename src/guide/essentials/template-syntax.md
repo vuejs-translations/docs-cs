@@ -4,7 +4,7 @@ Vue používá pro šablony (template) syntaxi založenou na HTML. Ta vám umož
 
 Vue interně kompiluje šablony do vysoce optimalizovaného JavaScript kódu. V kombinaci se systémem reaktivity dokáže Vue inteligentně zjistit minimální počet komponent k opětovnému vykreslení a použít minimální množství DOM manipulací ve chvíli, kdy se změní stav aplikace.
 
-Pokud jste obeznámeni s koncepty Virtual DOM a dáváte přednost hrubé síle JavaScriptu, můžete také místo šablon [přímo psát funkce pro vykreslování](/guide/extras/render-function) s volitelnou podporou JSX. Pamatujte ale, že nemohou využít stejnou úroveň optimalizací v době kompilace jako šablony.
+Pokud jste obeznámeni s koncepty Virtual DOM a dáváte přednost hrubé síle JavaScriptu, můžete také místo šablon [přímo psát funkce pro vykreslení](/guide/extras/render-function) s volitelnou podporou JSX. Pamatujte ale, že nemohou využít stejnou úroveň optimalizací v době kompilace jako šablony.
 
 ## Interpolace textu {#text-interpolation}
 

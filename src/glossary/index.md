@@ -140,12 +140,12 @@ Fragmentové uzly jsou v současné době vykreslovány do DOM jako prázdné te
 
 Definice komponenty je obvykle objekt obsahující vlastnosti. Nemusí to tak vypadat, pokud používáte `<script setup>`, ale komponenta exportovaná z `.vue` souboru bude stále objektem.
 
-*Funkční komponenta* (*Functional component*) je alternativní forma komponenty, která je deklarována pomocí funkce. Tato funkce slouží jako [funkce pro vykreslování](#render-function) pro komponentu.
+*Funkční komponenta* (*Functional component*) je alternativní forma komponenty, která je deklarována pomocí funkce. Tato funkce slouží jako [funkce pro vykreslení](#render-function) pro komponentu.
 
 Funkční komponenta nemůže mít vlastní stav. Také neprochází běžným životním cyklem komponenty, takže nemůžete používat lifecycle hooks. To je dělá o něco jednodušší než běžné stavové komponenty.
 
 Pro více podrobností viz:
-- [Průvodce - Funkce pro vykreslování a JSX - Funkční komponenty](/guide/extras/render-function.html#functional-components)
+- [Průvodce - Funkce pro vykreslení a JSX - Funkční komponenty](/guide/extras/render-function.html#functional-components)
 
 ## Hoisting {#hoisting}
 
@@ -305,12 +305,12 @@ Další podrobnosti naleznete zde:
 - [Reaktivní API: Utility](/api/reactivity-utilities.html)
 - [Reaktivní API: Pokročilé](/api/reactivity-advanced.html)
 
-## Funkce pro vykreslování {#render-function}
+## Funkce pro vykreslení {#render-function}
 
-*Funkce pro vykreslování* (*render function*) je část komponenty, která generuje VNodes používané během vykreslování. Šablony jsou během kompilace převedeny na funkce pro vykreslování.
+*Funkce pro vykreslení* (*render function*) je část komponenty, která generuje VNodes používané během vykreslování. Šablony jsou během kompilace převedeny na funkce pro vykreslení.
 
 Další podrobnosti naleznete zde:
-- [Průvodce - Funkce pro vykreslování a JSX](/guide/extras/render-function.html)
+- [Průvodce - Funkce pro vykreslení a JSX](/guide/extras/render-function.html)
 
 ## Scheduler {#scheduler}
 
@@ -397,7 +397,7 @@ Vue používá hybridní přístup, který nazýváme [Compiler-Informed Virtual
 
 Pro více informací se podívejte na:
 - [Průvodce - Mechanismus vykreslování](/guide/extras/rendering-mechanism.html)
-- [Průvodce - Funkce pro vykreslování a JSX](/guide/extras/render-function.html)
+- [Průvodce - Funkce pro vykreslení a JSX](/guide/extras/render-function.html)
 
 ## VNode {#vnode}
 

@@ -210,7 +210,7 @@ Pokud používáte Vue CLI nebo nastavení založené na nástroji webpack, Type
 
 ### Použití s TSX
 
-Vue také podporuje tvorbu komponent s JSX / TSX. Podrobnosti jsou popsány v průvodci [Funkce pro vykrslování & JSX](/guide/extras/render-function.html#jsx-tsx).
+Vue také podporuje tvorbu komponent s JSX / TSX. Podrobnosti jsou popsány v průvodci [Funkce pro vykreslení & JSX](/guide/extras/render-function.html#jsx-tsx).
 
 ## Generické komponenty {#generic-components}
 
