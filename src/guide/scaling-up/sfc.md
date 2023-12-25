@@ -1,6 +1,6 @@
-# Single-File komponenty (SFC) {#jednosouborove-komponenty}
+# Single-File komponenty (SFC) {#single-file-components}
 
-## Úvod {#uvod}
+## Úvod {#introduction}
 
 Vue Single-File komponenty (alias `*.vue` soubory, zkráceně **SFC**) jsou speciální formát souboru, který nám umožňuje zapouzdřit šablonu, logiku **a** stylování Vue komponenty do jednoho souboru. Zde je příklad SFC:
 
@@ -55,7 +55,7 @@ const greeting = ref('Ahoj, Vue!')
 
 Jak můžeme vidět, Vue SFC je přirozeným rozšířením klasické trojice HTML, CSS a JavaScriptu. Bloky `<template>`, `<script>` a `<style>` zapouzdřují a umisťují zobrazení, logiku a stylování komponenty do stejného souboru. Úplná syntaxe je definována ve [specifikaci syntaxe SFC](/api/sfc-spec).
 
-## Proč používat SFC {#proc-sfc}
+## Proč používat SFC {#why-sfc}
 
 I když je pro použití SFC potřeba build fáze, existuje mnoho výhod:
 

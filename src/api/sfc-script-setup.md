@@ -67,7 +67,7 @@ const count = ref(0)
 </template>
 ```
 
-## Použití komponent {#použití-komponent}
+## Použití komponent {#using-components}
 
 Hodnoty ve scope `<script setup>` mohou být také přímo použity jako vlastní názvy tagů komponent:
 
@@ -83,7 +83,7 @@ import MyComponent from './MyComponent.vue'
 
 Představte si `MyComponent` jako proměnnou. Pokud jste používali JSX, je to podobný mentální model. Kebab-case ekvivalent `<my-component>` funguje v šabloně také - nicméně pro konzistenci je silně doporučeno používat komponenty s PascalCase názvem. To je také pomůže odlišit od nativních vlastních elementů.
 
-### Dynamické komponenty {#dynamické-komponenty}
+### Dynamické komponenty {#dynamic-components}
 
 Protože jsou komponenty  namísto registrace pod klíči typu string odkazovány jako proměnné, měli bychom při použití dynamických komponent uvnitř `<script setup>` použít dynamické vázání `:is`:
 
@@ -101,7 +101,7 @@ import Bar from './Bar.vue'
 
 Všimněte si, jak jsou v ternárním výrazu komponenty použity jako proměnné.
 
-### Rekurzivní komponenty {#rekurzivní-komponenty}
+### Rekurzivní komponenty {#recursive-components}
 
 SFC se může implicitně odkazovat na sebe sama pomocí svého názvu souboru. Například soubor pojmenovaný `FooBar.vue` se může ve své šabloně odkazovat sám na sebe jako `<FooBar/>` 
 

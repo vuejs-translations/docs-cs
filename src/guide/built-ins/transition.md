@@ -568,7 +568,7 @@ Zde je předchozí demo s `mode="out-in"`:
 
 </div>
 
-## Dynamické přechody {#dynamicke-prechody}
+## Dynamické přechody {#dynamic-transitions}
 
 Vlastnosti (props) `<Transition>` jako `name` mohou být také dynamické! To nám umožňuje používat různé přechody operativně na základě změny stavu:
 
