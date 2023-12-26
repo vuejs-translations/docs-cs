@@ -7,7 +7,6 @@ extras\
 extras\reactivity-in-depth.md
 extras\reactivity-transform.md
 extras\render-function.md
-extras\web-components.md
 
 
 /api
@@ -24,7 +23,7 @@ reactivity-core.md
 reactivity-utilities.md
 render-function.md
 
-To go: 16
+To go: 15
 
 
 TODO iteration 2

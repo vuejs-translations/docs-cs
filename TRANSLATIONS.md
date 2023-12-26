@@ -45,6 +45,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟨 container element = mateřský element
 * 🟩 content = obsah
 * 🟨 custom = custom / vlastní (dle citu)
+* 🟥 custom element = custom element ("vlastní element" se zdá být matoucí)
 * 🟩 declarative rendering = deklarativní rendering
 * 🟩 declare = deklarovat
 * 🟩 deep = vnořený (za předpokladu, že odpovídá kontext, např. "deep reactivity")

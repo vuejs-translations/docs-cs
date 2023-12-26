@@ -227,7 +227,7 @@ Definuje asynchronní komponentu, která se načítá "lazy" až při jejím vyk
 
 ## defineCustomElement() {#definecustomelement}
 
-Tato metoda přijímá stejný parametr jako [`defineComponent`](#definecomponent), ale místo toho vrací konstruktor nativního [vlastního elementu](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements).
+Tato metoda přijímá stejný parametr jako [`defineComponent`](#definecomponent), ale místo toho vrací konstruktor nativního [custom elementu](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements).
 
 - **Typ**
 
@@ -247,7 +247,7 @@ Tato metoda přijímá stejný parametr jako [`defineComponent`](#definecomponen
 
   Kromě běžných vlastnstí komponenty podporuje `defineCustomElement()` také speciální vlastností `styles`, která by měla být polem vložených CSS řetězců, které poskytují CSS, které by mělo být vloženo do stínového root elementu.
 
-  Návratovou hodnotou je konstruktor vlastního elementu, který lze zaregistrovat pomocí [`customElements.define()`](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry/define).
+  Návratovou hodnotou je konstruktor custom elementu, který lze zaregistrovat pomocí [`customElements.define()`](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry/define).
 
 - **Příklad**
 
@@ -258,12 +258,12 @@ Tato metoda přijímá stejný parametr jako [`defineComponent`](#definecomponen
     /* vlastnosti komponenty */
   })
 
-  // Zaregistruje vlastní element.
+  // Zaregistruje custom element.
   customElements.define('my-vue-element', MyVueElement)
   ```
 
 - **Viz také:**
 
-  - [Průvodce - Vytváření vlastních elementů s Vue](/guide/extras/web-components#building-custom-elements-with-vue)
+  - [Průvodce - Vytváření custom elementů s Vue](/guide/extras/web-components#building-custom-elements-with-vue)
 
   - Také si všimněte, že `defineCustomElement()` vyžaduje [speciální konfiguraci](/guide/extras/web-components#sfc-as-custom-element), pokud se používá se Single-File komponentami (SFC).

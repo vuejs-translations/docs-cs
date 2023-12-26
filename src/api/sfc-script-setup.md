@@ -81,7 +81,7 @@ import MyComponent from './MyComponent.vue'
 </template>
 ```
 
-Představte si `MyComponent` jako proměnnou. Pokud jste používali JSX, je to podobný mentální model. Kebab-case ekvivalent `<my-component>` funguje v šabloně také - nicméně pro konzistenci je silně doporučeno používat komponenty s PascalCase názvem. To je také pomůže odlišit od nativních vlastních elementů.
+Představte si `MyComponent` jako proměnnou. Pokud jste používali JSX, je to podobný mentální model. Kebab-case ekvivalent `<my-component>` funguje v šabloně také - nicméně pro konzistenci je silně doporučeno používat komponenty s PascalCase názvem. To je také pomůže odlišit od nativních custom elementů.
 
 ### Dynamické komponenty {#dynamic-components}
 

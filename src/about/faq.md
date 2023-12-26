@@ -92,7 +92,7 @@ Přijetí TypeScriptu zahrnuje kompromis mezi složitostí úvodní adaptace a d
 
 Vue bylo vytvořeno dříve, než byly Web Components nativně dostupné, a některé aspekty Vue designu (např. sloty) byly inspirovány modelem Web Components.
 
-Specifikace Web Components jsou relativně nízké úrovně, protože jsou soustředěny kolem definování vlastních elementů. Jako framework řeší Vue další problémy vyšší úrovně, jako je efektivní vykreslování DOM, reaktivní state management, tooling, routing na straně klienta a vykreslování na straně serveru (SSR).
+Specifikace Web Components jsou relativně nízké úrovně, protože jsou soustředěny kolem definování custom elementů. Jako framework řeší Vue další problémy vyšší úrovně, jako je efektivní vykreslování DOM, reaktivní state management, tooling, routing na straně klienta a vykreslování na straně serveru (SSR).
 
 Vue také plně podporuje zpracování nebo export do nativních custom elementů – další podrobnosti najdete v [Průvodci Vue a Web Components] (/guide/extras/web-components).
 

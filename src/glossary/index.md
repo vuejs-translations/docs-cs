@@ -80,13 +80,13 @@ Termín se také používá k popisu jednoho ze dvou hlavních stylů používan
 
 Pro více informací se podívejte na [Composition API FAQ](/guide/extras/composition-api-faq).
 
-## Vlastní element {#custom-element}
+## Custom element {#custom-element}
 
-*Vlastní element* (*Custom element*) je funkce standardu [Web Components](#web-component), která je implementována v moderních webových prohlížečích. Odkazuje na schopnost používat vlastní HTML element ve vašem HTML kódu pro zahrnutí Web Compoment na daném místě stránky.
+*Custom element* je funkce standardu [Web Components](#web-component), která je implementována v moderních webových prohlížečích. Odkazuje na schopnost používat vlastní HTML element ve vašem HTML kódu pro zahrnutí Web Compoment na daném místě stránky.
 
-Vue má vestavěnou podporu pro vykreslování vlastních elementů a umožňuje je používat přímo v šablonách Vue komponent.
+Vue má vestavěnou podporu pro vykreslování custom elementů a umožňuje je používat přímo v šablonách Vue komponent.
 
-Vlastní elementy by neměly být zaměňovány s možností zahrnutí Vue komponent jako značek v šabloně jiné Vue komponenty. Vlastní elementy slouží k vytváření Web Components, nikoliv Vue komponent.
+Custom elementy by neměly být zaměňovány s možností zahrnutí Vue komponent jako tagů v šabloně jiné Vue komponenty. Custom elementy slouží k vytváření Web Components, nikoliv Vue komponent.
 
 Další podrobnosti naleznete zde:
 - [Průvodce - Vue a Web Components](/guide/extras/web-components.html)
@@ -409,7 +409,7 @@ Více informací naleznete v sekci [virtuální DOM](#virtual-dom).
 
 Standard *Web Components* je soubor funkcí implementovaných v moderních webových prohlížečích.
 
-Vue komponenty nejsou Web Components, ale funkce `defineCustomElement()` může být použita k vytvoření [vlastního elementu](#custom-element) z Vue komponenty. Vue také podporuje použití vlastních elementů uvnitř Vue komponent.
+Vue komponenty nejsou Web Components, ale funkce `defineCustomElement()` může být použita k vytvoření [custom elementu](#custom-element) z Vue komponenty. Vue také podporuje použití custom elementů uvnitř Vue komponent.
 
 Pro více informací se podívejte na:
 - [Průvodce - Vue a Web Components](/guide/extras/web-components.html)

@@ -108,7 +108,7 @@ Pár poznámek:
 
 - Event listener `v-on` jako `@click` bude v objektu zpřístupněn jako funkce `$attrs.onClick`.
 
-Při použití naši ukázkové `<MyButton>` komponenty z [předchozí sekce](#attribute-inheritance) můžeme někdy potřebovat obalit vlastní element `<button>` do extra `<div>` tagu pro účely stylování:
+Při použití naši ukázkové `<MyButton>` komponenty z [předchozí sekce](#attribute-inheritance) můžeme někdy potřebovat obalit element `<button>` do extra `<div>` tagu pro účely stylování:
 
 ```vue-html
 <div class="btn-wrapper">

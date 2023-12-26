@@ -134,7 +134,7 @@ Určuje prostor pro vložený obsah uvnitř šablon.
 
   Element `<slot>` může použít atribut `name` k určení jména slotu. Pokud není specifikováno žádné jméno, bude vykreslen výchozí (default) slot. Další atributy předané do elementu slotu budou předány jako vlastnosti (props) scoped slotu definovaného v rodičovské komponentě.
 
-  Vlastní element bude nahrazen obsahem odpovídajícího slotu.
+  Samotný element bude nahrazen obsahem odpovídajícího slotu.
 
   `<slot>` elementy ve Vue šablonách jsou kompilovány do JavaScriptu, aby nedocházelo k jejich záměně s [nativními `<slot>` elementy](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot).
 
