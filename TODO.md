@@ -7,9 +7,6 @@ scaling-up\
 scaling-up\state-management.md
 scaling-up\testing.md
 
-best-practices\
-best-practices\accessibility.md
-
 extras\
 extras\reactivity-in-depth.md
 extras\reactivity-transform.md

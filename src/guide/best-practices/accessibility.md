@@ -1,26 +1,26 @@
-# Accessibility {#accessibility}
+# Přístupnost {#accessibility}
 
-Web accessibility (also known as a11y) refers to the practice of creating websites that can be used by anyone — be that a person with a disability, a slow connection, outdated or broken hardware or simply someone in an unfavorable environment. For example, adding subtitles to a video would help both your deaf and hard-of-hearing users and your users who are in a loud environment and can't hear their phone. Similarly, making sure your text isn't too low contrast will help both your low-vision users and your users who are trying to use their phone in bright sunlight.
+Přístupnost (accessibility) webu (také známá jako a11y) označuje praxi vytváření webových stránek, které mohou být používány kýmkoli - ať už se jedná o osobu s postižením, pomalým připojením, zastaralým nebo nefunkčním hardwarem nebo jednoduše o někoho v nevhodném prostředí. Například přidání titulků k videu pomůže jak uživatelům se sluchovým postižením, tak uživatelům, kteří se nacházejí v hlučném prostředí a nemohou svůj telefon slyšet. Stejně tak ujištšní se, že váš text nemá příliš nízký kontrast, pomůže jak uživatelům se zrakovým postižením, tak uživatelům, kteří se snaží svůj telefon používat na přímém slunci.
 
-Ready to start but aren’t sure where?
+Jste připraveni začít, ale nevíte přesně jak?
 
-Checkout the [Planning and managing web accessibility guide](https://www.w3.org/WAI/planning-and-managing/) provided by [World Wide Web Consortium (W3C)](https://www.w3.org/)
+Podívejte se na [Průvodce plánováním a správou přístupnosti webu](https://www.w3.org/WAI/planning-and-managing/) poskytovaného [World Wide Web Consortium (W3C)](https://www.w3.org/)
 
-## Skip link {#skip-link}
+## Přeskočit odkaz {#skip-link}
 
-You should add a link at the top of each page that goes directly to the main content area so users can skip content that is repeated on multiple Web pages.
+ Na začátek každé stránky byste měli přidat odkaz, který vede přímo do hlavního obsahového prostoru, aby uživatelé mohli přeskočit struktury, které se opakují na více webových stránkách.
 
-Typically this is done on the top of `App.vue` as it will be the first focusable element on all your pages:
+Obvykle se to dělá na začátku souboru `App.vue`, protože to bude první focusable prvek na všech vašich stránkách:
 
 ```vue-html
 <ul class="skip-links">
   <li>
-    <a href="#main" ref="skipLink" class="skip-link">Skip to main content</a>
+    <a href="#main" ref="skipLink" class="skip-link">Přeskočit na hlavní obsah</a>
   </li>
 </ul>
 ```
 
-To hide the link unless it is focused, you can add the following style:
+Chcete-li odkaz skrýt, pokud na něm není focus, můžete přidat následující styl:
 
 ```css
 .skip-link {
@@ -40,7 +40,7 @@ To hide the link unless it is focused, you can add the following style:
 }
 ```
 
-Once a user changes route, bring focus back to the skip link. This can be achieved by calling focus on the skip link's template ref (assuming usage of `vue-router`):
+Jakmile uživatel změní cestu, vraťte focus zpět na odkaz pro přeskočení na obsah. Toho lze dosáhnout voláním funkce `focus()` na prvku v rámci template ref (pokud používáte `vue-router`):
 
 <div class="options-api">
 
@@ -78,66 +78,66 @@ watch(
 
 </div>
 
-[Read documentation on skip link to main content](https://www.w3.org/WAI/WCAG21/Techniques/general/G1.html)
+[Přečtěte si dokumentaci pro odkaz na přeskočení na hlavní obsah](https://www.w3.org/WAI/WCAG21/Techniques/general/G1.html)
 
-## Content Structure {#content-structure}
+## Struktura obsahu {#content-structure}
 
-One of the most important pieces of accessibility is making sure that design can support accessible implementation. Design should consider not only color contrast, font selection, text sizing, and language, but also how the content is structured in the application.
+Jedním z nejdůležitějších prvků přístupnosti je zajistit, aby design podporoval přístupnou implementaci. Design by měl zohledňovat nejen kontrast barev, výběr písma, velikost textu a jazyk, ale také způsob, jak je obsah v aplikaci strukturován.
 
-### Headings {#headings}
+### Nadpisy {#headings}
 
-Users can navigate an application through headings. Having descriptive headings for every section of your application makes it easier for users to predict the content of each section. When it comes to headings, there are a couple of recommended accessibility practices:
+Uživatelé mohou v aplikaci navigovat pomocí nadpisů. Mít popisné nadpisy pro každou část vaší aplikace uživatelům usnadňuje předvídat obsah každé sekce. Pokud jde o nadpisy, pro přístupnost existuje několik doporučených postupů:
 
-- Nest headings in their ranking order: `<h1>` - `<h6>`
-- Don’t skip headings within a section
-- Use actual heading tags instead of styling text to give the visual appearance of headings
+- Vnořujte nadpisy podle jejich pořadí: `<h1>` - `<h6>`
+- Nepřeskakujte nadpisy uvnitř sekce
+- Používejte skutečné tagy pro nadpisy místo stylování textu, aby vypadal jako nadpisy
 
-[Read more about headings](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-descriptive.html)
+[Více informací o nadpisech](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-descriptive.html)
 
 ```vue-html
 <main role="main" aria-labelledby="main-title">
-  <h1 id="main-title">Main title</h1>
+  <h1 id="main-title">Hlavní nadpis</h1>
   <section aria-labelledby="section-title-1">
-    <h2 id="section-title-1"> Section Title </h2>
-    <h3>Section Subtitle</h3>
-    <!-- Content -->
+    <h2 id="section-title-1">Nadpis sekce</h2>
+    <h3>Nadpis podsekce</h3>
+    <!-- Obsah -->
   </section>
   <section aria-labelledby="section-title-2">
-    <h2 id="section-title-2"> Section Title </h2>
-    <h3>Section Subtitle</h3>
-    <!-- Content -->
-    <h3>Section Subtitle</h3>
-    <!-- Content -->
+    <h2 id="section-title-2">Nadpis sekce</h2>
+    <h3>Nadpis podsekce</h3>
+    <!-- Obsah -->
+    <h3>Nadpis podsekce</h3>
+    <!-- Obsah -->
   </section>
 </main>
 ```
 
-### Landmarks {#landmarks}
+### Orientační body {#landmarks}
 
-[Landmarks](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/landmark_role) provide programmatic access to sections within an application. Users who rely on assistive technology can navigate to each section of the application and skip over content. You can use [ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) to help you achieve this.
+[Orientační body (landmarks)](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/landmark_role) poskytují programový přístup k sekcím v rámci aplikace. Uživatelé, kteří se spoléhají na asistenční technologie, mohou přejít na každou sekci aplikace a přeskočit obsah. Abyste tohoto dosáhli, můžete použít [ARIA role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles).
 
-| HTML            | ARIA Role            | Landmark Purpose                                                                                                 |
+| HTML            | ARIA Role            | Účel orientačního bodu                                                                                           |
 | --------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| header          | role="banner"        | Prime heading: title of the page                                                                                 |
-| nav             | role="navigation"    | Collection of links suitable for use when navigating the document or related documents                           |
-| main            | role="main"          | The main or central content of the document.                                                                     |
-| footer          | role="contentinfo"   | Information about the parent document: footnotes/copyrights/links to privacy statement                           |
-| aside           | role="complementary" | Supports the main content, yet is separated and meaningful on its own content                                    |
-| search          | role="search"        | This section contains the search functionality for the application                                               |
-| form            | role="form"          | Collection of form-associated elements                                                                           |
-| section         | role="region"        | Content that is relevant and that users will likely want to navigate to. Label must be provided for this element |
+| header          | role="banner"        | Hlavní nadpis: název stránky                                                                                     |
+| nav             | role="navigation"    | Sbírka odkazů vhodných pro navigaci v dokumentu nebo souvisejících dokumentech                                  |
+| main            | role="main"          | Hlavní nebo centrální obsah dokumentu                                                                             |
+| footer          | role="contentinfo"   | Informace o nadřazeném dokumentu: poznámky/kopie práv/odkazy na prohlášení o ochraně soukromí                     |
+| aside           | role="complementary" | Podporuje hlavní obsah, ale je oddělený a má vlastní význam                                             |
+| search          | role="search"        | Tato sekce obsahuje funkce pro vyhledávání v aplikaci                                                               |
+| form            | role="form"          | Sbírka prvků spojených s formulářem                                                                              |
+| section         | role="region"        | Obsah, který je relevantní a který uživatelé pravděpodobně budou chtít procházet. Pro tento prvek musí být poskytnut label |
 
 :::tip Tip:
-It is recommended to use landmark HTML elements with redundant landmark role attributes in order to maximize compatibility with legacy [browsers that don’t support HTML5 semantic elements](https://caniuse.com/#feat=html5semantic).
+Je doporučeno používat HTML prvky s redundantními atributy ARIA rolí, abyste maximalizovali kompatibilitu s [prohlížeči, které nepodporují sémantické prvky HTML5](https://caniuse.com/#feat=html5semantic).
 :::
 
-[Read more about landmarks](https://www.w3.org/TR/wai-aria-1.2/#landmark_roles)
+[Více informací o orientačních bodech](https://www.w3.org/TR/wai-aria-1.2/#landmark_roles)
 
-## Semantic Forms {#semantic-forms}
+## Sémantické formuláře {#semantic-forms}
 
-When creating a form, you can use the following elements: `<form>`, `<label>`, `<input>`, `<textarea>`, and `<button>`
+Při vytváření formuláře můžete použít následující elementy: `<form>`, `<label>`, `<input>`, `<textarea>` a `<button>`
 
-Labels are typically placed on top or to the left of the form fields:
+Popisky (labels) jsou obvykle umístěny nad nebo vlevo od polí formuláře:
 
 ```vue-html
 <form action="/dataCollectionLocation" method="post" autocomplete="on">
@@ -150,48 +150,48 @@ Labels are typically placed on top or to the left of the form fields:
       v-model="item.value"
     />
   </div>
-  <button type="submit">Submit</button>
+  <button type="submit">Odeslat</button>
 </form>
 ```
 
-<!-- <common-codepen-snippet title="Simple Form" slug="dyNzzWZ" :height="368" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
+<!-- <common-codepen-snippet title="Jednoduchý formulář" slug="dyNzzWZ" :height="368" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
-Notice how you can include `autocomplete='on'` on the form element and it will apply to all inputs in your form. You can also set different [values for autocomplete attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for each input.
+Všimněte si, že na element formuláře můžete přidat `autocomplete='on'` a bude se aplikovat na všechny vstupy ve formuláři. Pro každý vstup můžete také nastavit různé [hodnoty atributu autocomplete](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete).
 
-### Labels {#labels}
+### Popisky {#labels}
 
-Provide labels to describe the purpose of all form control; linking `for` and `id`:
+Poskytujte popisky (labels), které popisují účel všech ovládacích prvků formuláře; propojte `for` a `id`:
 
 ```vue-html
-<label for="name">Name: </label>
+<label for="name">Jméno: </label>
 <input type="text" name="name" id="name" v-model="name" />
 ```
 
-<!-- <common-codepen-snippet title="Form Label" slug="XWpaaaj" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
+<!-- <common-codepen-snippet title="Popisek formuláře" slug="XWpaaaj" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
-If you inspect this element in your chrome developer tools and open the Accessibility tab inside the Elements tab, you will see how the input gets its name from the label:
+Pokud zkontrolujete tento element v nástrojích pro vývojáře v Chrome a otevřete záložku Přístupnost (Accessibility) v rámci záložky Elements, uvidíte, jak vstup získává své jméno z popisku:
 
-![Chrome Developer Tools showing input accessible name from label](./images/AccessibleLabelChromeDevTools.png)
+![Chrome Developer Tools zobrazující přístupné jméno vstupu z popisku](./images/AccessibleLabelChromeDevTools.png)
 
-:::warning Warning:
-Though you might have seen labels wrapping the input fields like this:
+:::warning Varování:
+Možná jste viděli vstupní pole takto obalena popisky:
 
 ```vue-html
 <label>
-  Name:
+  Jméno:
   <input type="text" name="name" id="name" v-model="name" />
 </label>
 ```
 
-Explicitly setting the labels with a matching id is better supported by assistive technology.
+Explicitní nastavení popisků s odpovídajícím id je v asistenčních technologiích podporováno lépe.
 :::
 
 #### `aria-label` {#aria-label}
 
-You can also give the input an accessible name with [`aria-label`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label).
+Také můžete  vstupu přidat přístupné jméno (accessible name) pomocí [`aria-label`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label).
 
 ```vue-html
-<label for="name">Name: </label>
+<label for="name">Jméno: </label>
 <input
   type="text"
   name="name"
@@ -201,15 +201,15 @@ You can also give the input an accessible name with [`aria-label`](https://devel
 />
 ```
 
-<!-- <common-codepen-snippet title="Form ARIA label" slug="NWdvvYQ" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
+<!-- <common-codepen-snippet title="Formulář s ARIA popiskem" slug="NWdvvYQ" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
-Feel free to inspect this element in Chrome DevTools to see how the accessible name has changed:
+Můžete si tento element prohlédnout v Chrome DevTools, abyste viděli, jak se přístupné jméno změnilo:
 
-![Chrome Developer Tools showing input accessible name from aria-label](./images/AccessibleARIAlabelDevTools.png)
+![Chrome Developer Tools zobrazující přístupné jméno vstupu z aria-label](./images/AccessibleARIAlabelDevTools.png)
 
 #### `aria-labelledby` {#aria-labelledby}
 
-Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) is similar to `aria-label` except it is used if the label text is visible on screen. It is paired to other elements by their `id` and you can link multiple `id`s:
+Použití [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) je podobné jako `aria-label`, s tím rozdílem, že se používá, pokud je text štítku viditelný na obrazovce. Je propojen s dalšími prvky pomocí jejich `id` a můžete propojit více `id`:
 
 ```vue-html
 <form
@@ -218,9 +218,9 @@ Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibi
   method="post"
   autocomplete="on"
 >
-  <h1 id="billing">Billing</h1>
+  <h1 id="billing">Fakturace</h1>
   <div class="form-item">
-    <label for="name">Name: </label>
+    <label for="name">Jméno: </label>
     <input
       type="text"
       name="name"
@@ -229,17 +229,17 @@ Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibi
       aria-labelledby="billing name"
     />
   </div>
-  <button type="submit">Submit</button>
+  <button type="submit">Odeslat</button>
 </form>
 ```
 
-<!-- <common-codepen-snippet title="Form ARIA labelledby" slug="MWJvvBe" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
+<!-- <common-codepen-snippet title="Formulář s ARIA labelledby" slug="MWJvvBe" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
-![Chrome Developer Tools showing input accessible name from aria-labelledby](./images/AccessibleARIAlabelledbyDevTools.png)
+![Chrome Developer Tools zobrazující přístupné jméno vstupu z aria-labelledby](./images/AccessibleARIAlabelledbyDevTools.png)
 
 #### `aria-describedby` {#aria-describedby}
 
-[aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) is used the same way as `aria-labelledby` except provides a description with additional information that the user might need. This can be used to describe the criteria for any input:
+[aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) se používá stejným způsobem jako `aria-labelledby`, ale poskytuje popis s dodatečnými informacemi, které by uživatel mohl potřebovat. Lze to použít k popisu kritérií pro jakýkoli vstup:
 
 ```vue-html
 <form
@@ -248,9 +248,9 @@ Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibi
   method="post"
   autocomplete="on"
 >
-  <h1 id="billing">Billing</h1>
+  <h1 id="billing">Fakturace</h1>
   <div class="form-item">
-    <label for="name">Full Name: </label>
+    <label for="name">Celé jméno: </label>
     <input
       type="text"
       name="name"
@@ -259,25 +259,25 @@ Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibi
       aria-labelledby="billing name"
       aria-describedby="nameDescription"
     />
-    <p id="nameDescription">Please provide first and last name.</p>
+    <p id="nameDescription">Prosím, zadejte křestní jméno a příjmení.</p>
   </div>
-  <button type="submit">Submit</button>
+  <button type="submit">Odeslat</button>
 </form>
 ```
 
-<!-- <common-codepen-snippet title="Form ARIA describedby" slug="gOgxxQE" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
+<!-- <common-codepen-snippet title="Formulář s ARIA describedby" slug="gOgxxQE" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
-You can see the description by inspecting Chrome DevTools:
+Popis můžete vidět v Chrome DevTools:
 
-![Chrome Developer Tools showing input accessible name from aria-labelledby and description with aria-describedby](./images/AccessibleARIAdescribedby.png)
+![Chrome Developer Tools zobrazující přístupné jméno vstupu z aria-labelledby a popis z aria-describedby](./images/AccessibleARIAdescribedby.png)
 
 ### Placeholder {#placeholder}
 
-Avoid using placeholders as they can confuse many users.
+Vyhněte se používání placeholderů, protože mohou mnoho uživatelů zmást.
 
-One of the issues with placeholders is that they don't meet the [color contrast criteria](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html) by default; fixing the color contrast makes the placeholder look like pre-populated data in the input fields. Looking at the following example, you can see that the Last Name placeholder which meets the color contrast criteria looks like pre-populated data:
+Jedním z problémů s placeholdery je, že výchozí stav nesplňuje kritéria [barevného kontrastu](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html); oprava barevného kontrastu způsobí, že placeholder vypadá jako předvyplněná data ve vstupních polích. Podívejte se na následující příklad, kde můžete vidět, že placeholder pro příjmení, který splňuje kritéria barevného kontrastu, vypadá jako předvyplněná data:
 
-![Accessible placeholder](./images/AccessiblePlaceholder.png)
+![Přístupný placeholder](./images/AccessiblePlaceholder.png)
 
 ```vue-html
 <form
@@ -296,7 +296,7 @@ One of the issues with placeholders is that they don't meet the [color contrast 
       :placeholder="item.placeholder"
     />
   </div>
-  <button type="submit">Submit</button>
+  <button type="submit">Odeslat</button>
 </form>
 ```
 
@@ -320,57 +320,57 @@ One of the issues with placeholders is that they don't meet the [color contrast 
 }
 ```
 
-It is best to provide all the information the user needs to fill out forms outside any inputs.
+Nejlepší je poskytnout všechny informace, které uživatel k vyplnění formuláře potřebuje, mimo jakékoliv vstupy.
 
-### Instructions {#instructions}
+### Instrukce {#instructions}
 
-When adding instructions for your input fields, make sure to link it correctly to the input.
-You can provide additional instructions and bind multiple ids inside an [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby). This allows for more flexible design.
+Při přidávání instrukcí pro vaše vstupní pole se ujistěte, že je správně propojíte s vstupem.
+Můžete poskytnout dodatečné instrukce a propojit více ID uvnitř [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby). To umožňuje flexibilnější design.
 
 ```vue-html
 <fieldset>
-  <legend>Using aria-labelledby</legend>
-  <label id="date-label" for="date">Current Date: </label>
+  <legend>Použití aria-labelledby</legend>
+  <label id="date-label" for="date">Aktuální datum:</label>
   <input
     type="date"
     name="date"
     id="date"
     aria-labelledby="date-label date-instructions"
   />
-  <p id="date-instructions">MM/DD/YYYY</p>
+  <p id="date-instructions">DD.MM.YYYY</p>
 </fieldset>
 ```
 
-Alternatively, you can attach the instructions to the input with [`aria-describedby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby):
+Alternativně můžete instrukce k vstupu připojit pomocí [`aria-describedby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby):
 
 ```vue-html
 <fieldset>
-  <legend>Using aria-describedby</legend>
-  <label id="dob" for="dob">Date of Birth: </label>
+  <legend>Použití aria-describedby</legend>
+  <label id="dob" for="dob">Datum narození:</label>
   <input type="date" name="dob" id="dob" aria-describedby="dob-instructions" />
-  <p id="dob-instructions">MM/DD/YYYY</p>
+  <p id="dob-instructions">DD.MM.YYYY</p>
 </fieldset>
 ```
 
-<!-- <common-codepen-snippet title="Form Instructions" slug="WNREEqv" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
+<!-- <common-codepen-snippet title="Formulář s instrukcemi" slug="WNREEqv" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
-### Hiding Content {#hiding-content}
+### Skrývání obsahu {#hiding-content}
 
-Usually it is not recommended to visually hide labels, even if the input has an accessible name. However, if the functionality of the input can be understood with surrounding content, then we can hide the visual label.
+Obvykle se nedoporučuje vizuálně skrývat popisky, i když má vstup přístupné jméno. Pokud však funkčnost vstupu lz  s okolním kontextem pochopit, můžeme vizuální popisek skrýt.
 
-Let's look at this search field:
+Podívejme se na toto vyhledávací pole:
 
 ```vue-html
 <form role="search">
-  <label for="search" class="hidden-visually">Search: </label>
+  <label for="search" class="hidden-visually">Hledat:</label>
   <input type="text" name="search" id="search" v-model="search" />
-  <button type="submit">Search</button>
+  <button type="submit">Hledat</button>
 </form>
 ```
 
-We can do this because the search button will help visual users identify the purpose of the input field.
+Můžeme to udělat, protože tlačítko pro vyhledávání pomůže vizuálním uživatelům účel vstupního pole identifikovat.
 
-We can use CSS to visually hide elements but keep them available for assistive technology:
+Můžeme použít CSS k vizuálnímu skrytí prvků, ale přitom je ponechat dostupné pro asistenční technologie:
 
 ```css
 .hidden-visually {
@@ -386,154 +386,153 @@ We can use CSS to visually hide elements but keep them available for assistive t
 }
 ```
 
-<!-- <common-codepen-snippet title="Form Search" slug="QWdMqWy" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
+<!-- <common-codepen-snippet title="Formulář pro hledání" slug="QWdMqWy" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
 #### `aria-hidden="true"` {#aria-hidden-true}
 
-Adding `aria-hidden="true"` will hide the element from assistive technology but leave it visually available for other users. Do not use it on focusable elements, purely on decorative, duplicated or offscreen content.
+Přidáním `aria-hidden="true"` se prvek skryje před asistenční technologií, ale zůstane vizuálně dostupný pro ostatní uživatele. Nepoužívejte jej na ovladatelných prvcích, pouze na dekorativním, duplikovaném nebo mimo obrazovku umístěném obsahu.
 
 ```vue-html
-<p>This is not hidden from screen readers.</p>
-<p aria-hidden="true">This is hidden from screen readers.</p>
+<p>Toto není před čtečkami obrazovky skryto.</p>
+<p aria-hidden="true">Toto je před čtečkami obrazovky skryto.</p>
 ```
 
-### Buttons {#buttons}
+### Tlačítka {#buttons}
 
-When using buttons inside a form, you must set the type to prevent submitting the form.
-You can also use an input to create buttons:
+Při použití tlačítek uvnitř formuláře musíte nastavit typ, aby nedošlo k odeslání formuláře.
+Pro vytvoření tlačítek můžete také použít element `input`:
 
 ```vue-html
 <form action="/dataCollectionLocation" method="post" autocomplete="on">
-  <!-- Buttons -->
-  <button type="button">Cancel</button>
-  <button type="submit">Submit</button>
+  <!-- Tlačítka -->
+  <button type="button">Zrušit</button>
+  <button type="submit">Odeslat</button>
 
-  <!-- Input buttons -->
-  <input type="button" value="Cancel" />
-  <input type="submit" value="Submit" />
+  <!-- Input tlačítka -->
+  <input type="button" value="Zrušit" />
+  <input type="submit" value="Odeslat" />
 </form>
 ```
 
-<!-- <common-codepen-snippet title="Form Buttons" slug="JjEyrYZ" :height="467" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
+<!-- <common-codepen-snippet title="Formulář s tlačítky" slug="JjEyrYZ" :height="467" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
-### Functional Images {#functional-images}
+### Funkční obrázky {#functional-images}
 
-You can use this technique to create functional images.
+Můžete použít tuto techniku k vytvoření funkčních obrázků (functional images).
 
-- Input fields
+- Vstupní pole
 
-  - These images will act as a submit type button on forms
-
+  - Tyto obrázky budou ve formulářích sloužit jako tlačítko typu `submit`
   ```vue-html
   <form role="search">
-    <label for="search" class="hidden-visually">Search: </label>
+    <label for="search" class="hidden-visually">Hledat:</label>
     <input type="text" name="search" id="search" v-model="search" />
     <input
       type="image"
       class="btnImg"
       src="https://img.icons8.com/search"
-      alt="Search"
+      alt="Hledat"
     />
   </form>
   ```
 
-- Icons
+- Ikony
 
 ```vue-html
 <form role="search">
-  <label for="searchIcon" class="hidden-visually">Search: </label>
+  <label for="searchIcon" class="hidden-visually">Hledat:</label>
   <input type="text" name="searchIcon" id="searchIcon" v-model="searchIcon" />
   <button type="submit">
     <i class="fas fa-search" aria-hidden="true"></i>
-    <span class="hidden-visually">Search</span>
+    <span class="hidden-visually">Hledat</span>
   </button>
 </form>
 ```
 
-<!-- <common-codepen-snippet title="Functional Images" slug="jOyLGqM" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
+<!-- <common-codepen-snippet title="Funkční obrázky" slug="jOyLGqM" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
-## Standards {#standards}
+## Standardy {#standards}
 
-The World Wide Web Consortium (W3C) Web Accessibility Initiative (WAI) develops web accessibility standards for the different components:
+World Wide Web Consortium (W3C) Web Accessibility Initiative (WAI) vyvíjí standardy pro přístupnost webu pro různé komponenty:
 
-- [User Agent Accessibility Guidelines (UAAG)](https://www.w3.org/WAI/standards-guidelines/uaag/)
-  - web browsers and media players, including some aspects of assistive technologies
-- [Authoring Tool Accessibility Guidelines (ATAG)](https://www.w3.org/WAI/standards-guidelines/atag/)
-  - authoring tools
-- [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/)
-  - web content - used by developers, authoring tools, and accessibility evaluation tools
+- [Pokyny pro přístupnost uživatelských agentů (UAAG)](https://www.w3.org/WAI/standards-guidelines/uaag/)
+  - webové prohlížeče a přehrávače médií, včetně některých aspektů asistenčních technologií
+- [Pokyny pro přístupnost nástrojů pro tvorbu (ATAG)](https://www.w3.org/WAI/standards-guidelines/atag/)
+  - nástroje pro tvorbu
+- [Pokyny pro přístupnost webového obsahu (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/)
+  - webový obsah - používáno vývojáři, nástroji pro tvorbu a nástroji pro hodnocení přístupnosti
 
-### Web Content Accessibility Guidelines (WCAG) {#web-content-accessibility-guidelines-wcag}
+### Směrnice pro přístupnost webového obsahu (WCAG) {#web-content-accessibility-guidelines-wcag}
 
-[WCAG 2.1](https://www.w3.org/TR/WCAG21/) extends on [WCAG 2.0](https://www.w3.org/TR/WCAG20/) and allows implementation of new technologies by addressing changes to the web. The W3C encourages use of the most current version of WCAG when developing or updating Web accessibility policies.
+[WCAG 2.1](https://www.w3.org/TR/WCAG21/) rozšiřuje [WCAG 2.0](https://www.w3.org/TR/WCAG20/) a umožňuje implementaci nových technologií tím, že se zabývá změnami na webu. W3C doporučuje při vývoji nebo aktualizaci politiky přístupnosti webu používat nejnovější verzi WCAG.
 
-#### WCAG 2.1 Four Main Guiding Principles (abbreviated as POUR): {#wcag-2-1-four-main-guiding-principles-abbreviated-as-pour}
+#### Čtyři hlavní zásady WCAG 2.1 (zkráceně POUR): {#wcag-2-1-four-main-guiding-principles-abbreviated-as-pour}
 
-- [Perceivable](https://www.w3.org/TR/WCAG21/#perceivable)
-  - Users must be able to perceive the information being presented
-- [Operable](https://www.w3.org/TR/WCAG21/#operable)
-  - Interface forms, controls, and navigation are operable
-- [Understandable](https://www.w3.org/TR/WCAG21/#understandable)
-  - Information and the operation of user interface must be understandable to all users
-- [Robust](https://www.w3.org/TR/WCAG21/#robust)
-  - Users must be able to access the content as technologies advance
+- [Pozorovatelné (Percivable)](https://www.w3.org/TR/WCAG21/#perceivable)
+  - Uživatelé musí být schopni vnímat prezentované informace
+- [Ovladatelné (Operable)](https://www.w3.org/TR/WCAG21/#operable)
+  - Rozhraní, formuláře, ovládací prvky a navigace jsou ovladatelné
+- [Srozumitelné (Understandable)](https://www.w3.org/TR/WCAG21/#understandable)
+  - Informace a provoz uživatelského rozhraní musí být srozumitelné pro všechny uživatele
+- [Robustní (Robust)](https://www.w3.org/TR/WCAG21/#robust)
+  - Uživatelé musí být s rozvojem technologií stále schopni přistupovat k obsahu
 
 #### Web Accessibility Initiative – Accessible Rich Internet Applications (WAI-ARIA) {#web-accessibility-initiative-–-accessible-rich-internet-applications-wai-aria}
 
-W3C's WAI-ARIA provides guidance on how to build dynamic content and advanced user interface controls.
+WAI-ARIA od W3C poskytuje pokyny, jak vytvářet dynamický obsah a pokročilé ovládací prvky uživatelského rozhraní.
 
 - [Accessible Rich Internet Applications (WAI-ARIA) 1.2](https://www.w3.org/TR/wai-aria-1.2/)
 - [WAI-ARIA Authoring Practices 1.2](https://www.w3.org/TR/wai-aria-practices-1.2/)
 
-## Resources {#resources}
+## Zdroje {#resources}
 
-### Documentation {#documentation}
+### Dokumentace {#documentation}
 
 - [WCAG 2.0](https://www.w3.org/TR/WCAG20/)
 - [WCAG 2.1](https://www.w3.org/TR/WCAG21/)
 - [Accessible Rich Internet Applications (WAI-ARIA) 1.2](https://www.w3.org/TR/wai-aria-1.2/)
 - [WAI-ARIA Authoring Practices 1.2](https://www.w3.org/TR/wai-aria-practices-1.2/)
 
-### Assistive Technologies {#assistive-technologies}
+### Pomůcky pro asistenční technologie {#assistive-technologies}
 
-- Screen Readers
+- Čtečky obrazovky
   - [NVDA](https://www.nvaccess.org/download/)
   - [VoiceOver](https://www.apple.com/accessibility/mac/vision/)
   - [JAWS](https://www.freedomscientific.com/products/software/jaws/?utm_term=jaws%20screen%20reader&utm_source=adwords&utm_campaign=All+Products&utm_medium=ppc&hsa_tgt=kwd-394361346638&hsa_cam=200218713&hsa_ad=296201131673&hsa_kw=jaws%20screen%20reader&hsa_grp=52663682111&hsa_net=adwords&hsa_mt=e&hsa_src=g&hsa_acc=1684996396&hsa_ver=3&gclid=Cj0KCQjwnv71BRCOARIsAIkxW9HXKQ6kKNQD0q8a_1TXSJXnIuUyb65KJeTWmtS6BH96-5he9dsNq6oaAh6UEALw_wcB)
   - [ChromeVox](https://chrome.google.com/webstore/detail/chromevox-classic-extensi/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en)
-- Zooming Tools
+- Nástroje pro zvětšování
   - [MAGic](https://www.freedomscientific.com/products/software/magic/)
   - [ZoomText](https://www.freedomscientific.com/products/software/zoomtext/)
   - [Magnifier](https://support.microsoft.com/en-us/help/11542/windows-use-magnifier-to-make-things-easier-to-see)
 
-### Testing {#testing}
+### Testování {#testing}
 
-- Automated Tools
+- Automatické nástroje
   - [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk)
   - [WAVE](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh)
   - [ARC Toolkit](https://chrome.google.com/webstore/detail/arc-toolkit/chdkkkccnlfncngelccgbgfmjebmkmce?hl=en-US)
-- Color Tools
+- Nástroje pro barvy
   - [WebAim Color Contrast](https://webaim.org/resources/contrastchecker/)
   - [WebAim Link Color Contrast](https://webaim.org/resources/linkcontrastchecker)
-- Other Helpful Tools
+- Ostatní užitečné nástroje
   - [HeadingMap](https://chrome.google.com/webstore/detail/headingsmap/flbjommegcjonpdmenkdiocclhjacmbi?hl=en…)
   - [Color Oracle](https://colororacle.org)
   - [NerdeFocus](https://chrome.google.com/webstore/detail/nerdefocus/lpfiljldhgjecfepfljnbjnbjfhennpd?hl=en-US…)
   - [Visual Aria](https://chrome.google.com/webstore/detail/visual-aria/lhbmajchkkmakajkjenkchhnhbadmhmk?hl=en-US)
   - [Silktide Website Accessibility Simulator](https://chrome.google.com/webstore/detail/silktide-website-accessib/okcpiimdfkpkjcbihbmhppldhiebhhaf?hl=en-US)
 
-### Users {#users}
+### Uživatelé {#users}
 
-The World Health Organization estimates that 15% of the world's population has some form of disability, 2-4% of them severely so. That is an estimated 1 billion people worldwide; making people with disabilities the largest minority group in the world.
+Světová zdravotnická organizace odhaduje, že 15 % světové populace má nějakou formu postižení, z toho 2-4 % závažnou formu. To je přibližně 1 miliarda lidí po celém světě, což ze zdravotně postižených činí největší menšinovou skupinu na světě.
 
-There are a huge range of disabilities, which can be divided roughly into four categories:
+Existuje široká škála postižení, která lze hrubě rozdělit do čtyř kategorií:
 
-- _[Visual](https://webaim.org/articles/visual/)_ - These users can benefit from the use of screen readers, screen magnification, controlling screen contrast, or braille display.
-- _[Auditory](https://webaim.org/articles/auditory/)_ - These users can benefit from captioning, transcripts or sign language video.
-- _[Motor](https://webaim.org/articles/motor/)_ - These users can benefit from a range of [assistive technologies for motor impairments](https://webaim.org/articles/motor/assistive): voice recognition software, eye tracking, single-switch access, head wand, sip and puff switch, oversized trackball mouse, adaptive keyboard or other assistive technologies.
-- _[Cognitive](https://webaim.org/articles/cognitive/)_ - These users can benefit from supplemental media, structural organization of content, clear and simple writing.
+- _[Vizuální](https://webaim.org/articles/visual/)_ - Tito uživatelé mohou využít čteček obrazovky, zvětšování obrazovky, ovládání kontrastu obrazovky nebo braillova displeje.
+- _[Sluchová](https://webaim.org/articles/auditory/)_ - Tito uživatelé mohou využít titulky, přepisy nebo videa ve znakové řeči.
+- _[Motorická](https://webaim.org/articles/motor/)_ - Tito uživatelé mohou využít řadu [asistenčních technologií pro motorické postižení](https://webaim.org/articles/motor/assistive): softwaru pro rozpoznávání hlasu, sledování očí, přístupu pomocí jednoho tlačítka, hlavového ovladače, přepínacího ovladače 'sip and puff', přizpůsobeného trackballu, adaptivní klávesnice nebo jiných asistenčních technologií.
+- _[Kognitivní](https://webaim.org/articles/cognitive/)_ - Tito uživatelé mohou využít doplňková média, strukturální organizaci obsahu, jasné a jednoduché psaní.
 
-Check out the following links from WebAim to understand from users:
+Podívejte se na následující odkazy od WebAim, abyste uživatelům lépe porozuměli:
 
-- [Web Accessibility Perspectives: Explore the Impact and Benefits for Everyone](https://www.w3.org/WAI/perspective-videos/)
-- [Stories of Web Users](https://www.w3.org/WAI/people-use-web/user-stories/)
+- [Perspektivy přístupnosti webu: Prozkoumejte dopad a výhody pro všechny](https://www.w3.org/WAI/perspective-videos/)
+- [Příběhy uživatelů webu](https://www.w3.org/WAI/people-use-web/user-stories/)
