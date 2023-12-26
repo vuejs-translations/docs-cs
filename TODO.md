@@ -3,10 +3,6 @@ TODO iteration 1
 
 /guide
 
-scaling-up\
-scaling-up\state-management.md
-scaling-up\testing.md
-
 extras\
 extras\reactivity-in-depth.md
 extras\reactivity-transform.md
@@ -28,7 +24,7 @@ reactivity-core.md
 reactivity-utilities.md
 render-function.md
 
-To go: 19
+To go: 16
 
 
 TODO iteration 2
