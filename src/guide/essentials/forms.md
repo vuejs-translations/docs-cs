@@ -13,7 +13,7 @@ const selected = ref('')
 const multiSelected = ref([])
 </script>
 
-# Form Input Bindings {#form-input-bindings}
+# Vazby input elementů formuláře {#form-input-bindings}
 
 <div class="options-api">
   <VueSchoolLink href="https://vueschool.io/lessons/user-inputs-vue-devtools-in-vue-3" title="Lekce o uživatelských vstupech ve Vue.js zdarma"/>

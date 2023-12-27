@@ -10,8 +10,6 @@ extras\render-function.md
 
 
 /api
-built-in-components.md
-built-in-directives.md
 component-instance.md
 options-composition.md
 options-lifecycle.md
@@ -22,7 +20,7 @@ reactivity-advanced.md
 reactivity-core.md
 reactivity-utilities.md
 
-To go: 14
+To go: 12
 
 
 TODO iteration 2

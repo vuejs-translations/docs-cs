@@ -2,12 +2,12 @@
 pageClass: api
 ---
 
-# Built-in Components {#built-in-components}
+# Vestavěné komponenty {#built-in-components}
 
-:::info Registration and Usage
-Built-in components can be used directly in templates without needing to be registered. They are also tree-shakeable: they are only included in the build when they are used.
+:::info Registrace a použití
+Vestavěné komponenty lze používat přímo v šablonách bez nutnosti registrace. Jsou také optimalizovány pro odstranění nepoužívaného kódu (tree-shaking): ve výsledném buildu jsou zahrnuty pouze, pokud jsou použity.
 
-When using them in [render functions](/guide/extras/render-function), they need to be imported explicitly. For example:
+Pro použití ve [funkcích pro vykreslení](/guide/extras/render-function) je třeba je explicitně importovat. Například:
 
 ```js
 import { h, Transition } from 'vue'
@@ -21,50 +21,49 @@ h(Transition, {
 
 ## `<Transition>` {#transition}
 
-Provides animated transition effects to a **single** element or component.
+Poskytuje animované přechodové (transition) efekty pro **jeden** element nebo komponentu.
 
 - **Props**
 
   ```ts
   interface TransitionProps {
     /**
-     * Used to automatically generate transition CSS class names.
-     * e.g. `name: 'fade'` will auto expand to `.fade-enter`,
-     * `.fade-enter-active`, etc.
+     * Slouží k automatickému generování názvů CSS tříd pro přechody.
+     * Např. `name: 'fade'` se automaticky rozšíří na `.fade-enter`,
+     * `.fade-enter-active`, atd.
      */
     name?: string
     /**
-     * Whether to apply CSS transition classes.
-     * Default: true
+     * Určuje, zda se mají CSS třídy přechodů použít.
+     * Výchozí hodnota: true
      */
     css?: boolean
     /**
-     * Specifies the type of transition events to wait for to
-     * determine transition end timing.
-     * Default behavior is auto detecting the type that has
-     * longer duration.
+     * Určuje typ událostí přechodů, na které se má čekat
+     * pro určení času ukončení přechodu.
+     * Výchozí chování je automatické detekování typu s delší dobou trvání.
      */
     type?: 'transition' | 'animation'
     /**
-     * Specifies explicit durations of the transition.
-     * Default behavior is wait for the first `transitionend`
-     * or `animationend` event on the root transition element.
+     * Určuje explicitní doby trvání přechodu.
+     * Výchozí chování je čekání na první událost `transitionend`
+     * nebo `animationend` na root elementu přechodu.
      */
     duration?: number | { enter: number; leave: number }
     /**
-     * Controls the timing sequence of leaving/entering transitions.
-     * Default behavior is simultaneous.
+     * Ovládá časovou posloupnost přechodů při vstupu/výstupu.
+     * Výchozí chování je současné provedení.
      */
     mode?: 'in-out' | 'out-in' | 'default'
     /**
-     * Whether to apply transition on initial render.
-     * Default: false
+     * Určuje, zda se má přechod aplikovat při počátečním vykreslení.
+     * Výchozí hodnota: false
      */
     appear?: boolean
 
     /**
-     * Props for customizing transition classes.
-     * Use kebab-case in templates, e.g. enter-from-class="xxx"
+     * Vlastnosti pro přizpůsobení tříd přechodů.
+     * V šablonách použijte kebab-case zápis, např. enter-from-class="xxx"
      */
     enterFromClass?: string
     enterActiveClass?: string
@@ -78,7 +77,7 @@ Provides animated transition effects to a **single** element or component.
   }
   ```
 
-- **Events**
+- **Události**
 
   - `@before-enter`
   - `@before-leave`
@@ -89,20 +88,20 @@ Provides animated transition effects to a **single** element or component.
   - `@after-leave`
   - `@after-appear`
   - `@enter-cancelled`
-  - `@leave-cancelled` (`v-show` only)
+  - `@leave-cancelled` (pouze pro `v-show`)
   - `@appear-cancelled`
 
-- **Example**
+- **Příklad**
 
-  Simple element:
+  Jednoduchý element:
 
   ```vue-html
   <Transition>
-    <div v-if="ok">toggled content</div>
+    <div v-if="ok">přepnutý obsah</div>
   </Transition>
   ```
 
-  Forcing a transition by changing the `key` attribute:
+  Vynucení přechodu změnou atributu `key`:
 
   ```vue-html
   <Transition>
@@ -110,7 +109,7 @@ Provides animated transition effects to a **single** element or component.
   </Transition>
   ```
 
-  Dynamic component, with transition mode + animate on appear:
+  Dynamická komponenta s režimem přechodu + animace při zobrazení:
 
   ```vue-html
   <Transition name="fade" mode="out-in" appear>
@@ -118,51 +117,51 @@ Provides animated transition effects to a **single** element or component.
   </Transition>
   ```
 
-  Listening to transition events:
+  Naslouchání událostem přechodu:
 
   ```vue-html
   <Transition @after-enter="onTransitionComplete">
-    <div v-show="ok">toggled content</div>
+    <div v-show="ok">přepnutý obsah</div>
   </Transition>
   ```
 
-- **Viz také:** [`<Transition>` Guide](/guide/built-ins/transition)
+- **Viz také:** [Průvodce - Transition](/guide/built-ins/transition)
 
 ## `<TransitionGroup>` {#transitiongroup}
 
-Provides transition effects for **multiple** elements or components in a list.
+Poskytuje přechodové efekty pro **více** elementů nebo komponent v seznamu.
 
 - **Props**
 
-  `<TransitionGroup>` accepts the same props as `<Transition>` except `mode`, plus two additional props:
+  `<TransitionGroup>` přijímá stejné props jako `<Transition>` s výjimkou `mode`, plus dvě další vlastnosti:
 
   ```ts
   interface TransitionGroupProps extends Omit<TransitionProps, 'mode'> {
     /**
-     * If not defined, renders as a fragment.
+     * Pokud není definováno, vykresluje se jako fragment.
      */
     tag?: string
     /**
-     * For customizing the CSS class applied during move transitions.
-     * Use kebab-case in templates, e.g. move-class="xxx"
+     * Pro přizpůsobení CSS třídy použité během přechodových animací.
+     * V šablonách použijte kebab-case zápis, např. move-class="xxx"
      */
     moveClass?: string
   }
   ```
 
-- **Events**
+- **Události**
 
-  `<TransitionGroup>` emits the same events as `<Transition>`.
+  `<TransitionGroup>` emituje stejné události jako `<Transition>`.
 
-- **Details**
+- **Podrobnosti**
 
-  By default, `<TransitionGroup>` doesn't render a wrapper DOM element, but one can be defined via the `tag` prop.
+  Ve výchozím nastavení `<TransitionGroup>` nevykresluje obalový DOM element, ale lze jej definovat pomocí vlastnosti `tag`.
 
-  Note that every child in a `<transition-group>` must be [**uniquely keyed**](/guide/essentials/list#maintaining-state-with-key) for the animations to work properly.
+  Pamatujte, že každý potomek v `<transition-group>` musí být [**jednoznačně označen**](/guide/essentials/list#maintaining-state-with-key), aby animace fungovaly správně.
 
-  `<TransitionGroup>` supports moving transitions via CSS transform. When a child's position on screen has changed after an update, it will get applied a moving CSS class (auto generated from the `name` attribute or configured with the `move-class` prop). If the CSS `transform` property is "transition-able" when the moving class is applied, the element will be smoothly animated to its destination using the [FLIP technique](https://aerotwist.com/blog/flip-your-animations/).
+  `<TransitionGroup>` podporuje pohyblivé přechody pomocí CSS transformace. Pokud se pozice potomka na obrazovce po aktualizaci změní, bude mu aplikována pohybová CSS třída (automaticky generovaná z atributu `name` nebo konfigurovaná pomocí vlastnosti `move-class`). Pokud je CSS vlastnost `transform` při aplikaci pohybové třídy "transition-able", element bude na své cílové místo plynule animován pomocí [techniky FLIP](https://aerotwist.com/blog/flip-your-animations/).
 
-- **Example**
+- **Příklad**
 
   ```vue-html
   <TransitionGroup tag="ul" name="slide">
@@ -172,28 +171,27 @@ Provides transition effects for **multiple** elements or components in a list.
   </TransitionGroup>
   ```
 
-- **Viz také:** [Guide - TransitionGroup](/guide/built-ins/transition-group)
+- **Viz také:** [Průvodce - TransitionGroup](/guide/built-ins/transition-group)
 
 ## `<KeepAlive>` {#keepalive}
 
-Caches dynamically toggled components wrapped inside.
+Ukládá stav dynamicky přepínatelných komponent obalených uvnitř do cache.
 
 - **Props**
 
   ```ts
   interface KeepAliveProps {
     /**
-     * If specified, only components with names matched by
-     * `include` will be cached.
+     * Pokud je specifikováno, budou do cache ukládány pouze komponenty s názvy odpovídajícími
+     * `include`.
      */
     include?: MatchPattern
     /**
-     * Any component with a name matched by `exclude` will
-     * not be cached.
+     * Jakákoliv komponenta s názvem odpovídajícím `exclude` nebude ukládána do cache.
      */
     exclude?: MatchPattern
     /**
-     * The maximum number of component instances to cache.
+     * Maximální počet instancí komponenty, které se mají ukládat do cache.
      */
     max?: number | string
   }
@@ -201,15 +199,15 @@ Caches dynamically toggled components wrapped inside.
   type MatchPattern = string | RegExp | (string | RegExp)[]
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  When wrapped around a dynamic component, `<KeepAlive>` caches the inactive component instances without destroying them.
+  Když obaluje dynamickou komponentu, `<KeepAlive>` ukládá neaktivní instance komponent, aniž by je ničil.
 
-  There can only be one active component instance as the direct child of `<KeepAlive>` at any time.
+  V `<KeepAlive>` může být v každém okamžiku pouze jedna aktivní instance komponenty jako přímý potomek.
 
-  When a component is toggled inside `<KeepAlive>`, its `activated` and `deactivated` lifecycle hooks will be invoked accordingly, providing an alternative to `mounted` and `unmounted`, which are not called. This applies to the direct child of `<KeepAlive>` as well as to all of its descendants.
+  Když je komponenta uvnitř `<KeepAlive>` přepnuta, budou se volat odpovídající lifecycle hooky `activated` a `deactivated` poskytující alternativu k `mounted` a `unmounted`, které volány nejsou. To platí jak pro přímého potomka `<KeepAlive>`, tak pro všechny jeho potomky.
 
-- **Example**
+- **Příklad**
 
   Základní použití:
 
@@ -219,7 +217,7 @@ Caches dynamically toggled components wrapped inside.
   </KeepAlive>
   ```
 
-  When used with `v-if` / `v-else` branches, there must be only one component rendered at a time:
+  Při použití s větvemi `v-if` / `v-else` musí být vždy zobrazena pouze jedna komponenta:
 
   ```vue-html
   <KeepAlive>
@@ -228,7 +226,7 @@ Caches dynamically toggled components wrapped inside.
   </KeepAlive>
   ```
 
-  Used together with `<Transition>`:
+  Použití společně s `<Transition>`:
 
   ```vue-html
   <Transition>
@@ -238,60 +236,60 @@ Caches dynamically toggled components wrapped inside.
   </Transition>
   ```
 
-  Using `include` / `exclude`:
+  Použití `include` / `exclude`:
 
   ```vue-html
-  <!-- comma-delimited string -->
+  <!-- čárkami oddělený řetězec -->
   <KeepAlive include="a,b">
     <component :is="view"></component>
   </KeepAlive>
 
-  <!-- regex (use `v-bind`) -->
-  <KeepAlive :include="/a|b/">
-    <component :is="view"></component>
-  </KeepAlive>
+<!-- regex (použijte `v-bind`) -->
+<KeepAlive :include="/a|b/">
+  <component :is="view"></component>
+</KeepAlive>
 
-  <!-- Array (use `v-bind`) -->
-  <KeepAlive :include="['a', 'b']">
-    <component :is="view"></component>
-  </KeepAlive>
-  ```
+<!-- Pole (použijte `v-bind`) -->
+<KeepAlive :include="['a', 'b']">
+  <component :is="view"></component>
+</KeepAlive>
+```
 
-  Usage with `max`:
+Použití s `max`:
 
-  ```vue-html
-  <KeepAlive :max="10">
-    <component :is="view"></component>
-  </KeepAlive>
-  ```
+```vue-html
+<KeepAlive :max="10">
+  <component :is="view"></component>
+</KeepAlive>
+```
 
-- **Viz také:** [Guide - KeepAlive](/guide/built-ins/keep-alive)
+- **Viz také:** [Průvodce - KeepAlive](/guide/built-ins/keep-alive)
 
 ## `<Teleport>` {#teleport}
 
-Renders its slot content to another part of the DOM.
+Vykresluje obsah svého slotu na jiné části DOM.
 
 - **Props**
 
   ```ts
   interface TeleportProps {
     /**
-     * Required. Specify target container.
-     * Can either be a selector or an actual element.
+     * Povinné. Určuje cílový kontejner.
+     * Může být buď selektor nebo samotný element.
      */
     to: string | HTMLElement
     /**
-     * When `true`, the content will remain in its original
-     * location instead of moved into the target container.
-     * Can be changed dynamically.
+     * Když je `true`, obsah zůstane na svém původním
+     * místě místo přesunu do cílového kontejneru.
+     * Lze měnit dynamicky.
      */
     disabled?: boolean
   }
   ```
 
-- **Example**
+- **Příklad**
 
-  Specifying target container:
+  Určení cílového kontejneru:
 
   ```vue-html
   <Teleport to="#some-id" />
@@ -299,7 +297,7 @@ Renders its slot content to another part of the DOM.
   <Teleport to="[data-teleport]" />
   ```
 
-  Conditionally disabling:
+  Podmíněné vypnutí:
 
   ```vue-html
   <Teleport to="#popup" :disabled="displayVideoInline">
@@ -307,11 +305,11 @@ Renders its slot content to another part of the DOM.
   </Teleport>
   ```
 
-- **Viz také:** [Guide - Teleport](/guide/built-ins/teleport)
+- **Viz také:** [Průvodce - Teleport](/guide/built-ins/teleport)
 
 ## `<Suspense>` <sup class="vt-badge experimental" /> {#suspense}
 
-Used for orchestrating nested async dependencies in a component tree.
+Používá se pro orchestraci vnořených asynchronních závislostí ve stromu komponent.
 
 - **Props**
 
@@ -321,16 +319,16 @@ Used for orchestrating nested async dependencies in a component tree.
   }
   ```
 
-- **Events**
+- **Události**
 
   - `@resolve`
   - `@pending`
   - `@fallback`
 
-- **Details**
+- **Podrobnosti**
 
-  `<Suspense>` accepts two slots: the `#default` slot and the `#fallback` slot. It will display the content of the fallback slot while rendering the default slot in memory.
+  `<Suspense>` přijímá dva sloty: `#default` a `#fallback`. Zobrazí obsah fallback slotu, zatímco v paměti vykresluje default slot.
 
-  If it encounters async dependencies ([Async Components](/guide/components/async) and components with [`async setup()`](/guide/built-ins/suspense#async-setup)) while rendering the default slot, it will wait until all of them are resolved before displaying the default slot.
+  Pokud narazí na asynchronní závislosti ([Asynchronní komponenty](/guide/components/async) a komponenty s [`async setup()`](/guide/built-ins/suspense#async-setup)) při vykreslování default slotu, počká, dokud nebudou všechny vyřešeny, než ho zobrazí.
 
-- **Viz také:** [Guide - Suspense](/guide/built-ins/suspense)
+- **Viz také:** [Průvodce - Suspense](/guide/built-ins/suspense)
