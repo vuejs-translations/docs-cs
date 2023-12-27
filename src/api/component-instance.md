@@ -1,16 +1,16 @@
-# Component Instance {#component-instance}
+# Instance komponenty {#component-instance}
 
 :::info
-This page documents the built-in properties and methods exposed on the component public instance, tj. `this`.
+Tato stránka dokumentuje vestavěné vlastnosti a metody, které jsou přístupné na veřejné instanci komponenty, tj. `this`.
 
-All properties listed on this page are readonly (except nested properties in `$data`).
+Všechny vlastnosti uvedené na této stránce jsou pouze pro čtení (kromě vnořených vlastností v `$data`).
 :::
 
 ## $data {#data}
 
-The object returned from the [`data`](./options-state#data) option, made reactive by the component. The component instance proxies access to the properties on its data object.
+Objekt vrácený ze sekce [`data`](./options-state#data), který komponenta činí reaktivní. Instance komponenty zajišťuje proxy přístup k vlastnostem na svém objektu data.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentPublicInstance {
@@ -20,9 +20,9 @@ The object returned from the [`data`](./options-state#data) option, made reactiv
 
 ## $props {#props}
 
-An object representing the component's current, resolved props.
+Objekt představující aktuální, vyřešené vlastnosti (props) komponenty.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentPublicInstance {
@@ -30,15 +30,15 @@ An object representing the component's current, resolved props.
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  Only props declared via the [`props`](./options-state#props) option will be included. The component instance proxies access to the properties on its props object.
+  Budou zahrnuty pouze vlastnosti deklarované pomocí sekce [`props`](./options-state#props). Instance komponenty zajišťuje proxy přístup k vlastnostem na svém objektu props.
 
 ## $el {#el}
 
-The root DOM node that the component instance is managing.
+Root DOM element, který instance komponenty spravuje.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentPublicInstance {
@@ -46,23 +46,23 @@ The root DOM node that the component instance is managing.
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  `$el` will be `undefined` until the component is [mounted](./options-lifecycle#mounted).
+  `$el` bude `undefined` až do doby, než je komponenta [připojena (mounted)](./options-lifecycle#mounted).
 
-  - For components with a single root element, `$el` will point to that element.
-  - For components with text root, `$el` will point to the text node.
-  - For components with multiple root nodes, `$el` will be the placeholder DOM node that Vue uses to keep track of the component's position in the DOM (a text node, or a comment node in SSR hydration mode).
+  - Pro komponenty s jedním root elementem bude `$el` odkazovat na tento element.
+  - Pro komponenty s textovým rootem bude `$el` odkazovat na textový element.
+  - Pro komponenty s více root elementy bude `$el` představovat zástupný DOM element, který Vue používá k udržování pozice komponenty v DOM (textový element nebo komentářový element v režimu SSR hydratace).
 
   :::tip
-  For consistency, it is recommended to use [template refs](/guide/essentials/template-refs) for direct access to elements instead of relying on `$el`.
+  Pro konzistenci se pro přímý přístup k elementům doporučuje používat [template refs](/guide/essentials/template-refs) místo spoléhání na `$el`.
   :::
 
 ## $options {#options}
 
-The resolved component options used for instantiating the current component instance.
+Vyřešené možnosti (options) komponenty použité pro vytvoření aktuální instance komponenty.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentPublicInstance {
@@ -70,15 +70,15 @@ The resolved component options used for instantiating the current component inst
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  The `$options` object exposes the resolved options for the current component and is the merge result of these possible sources:
+  Objekt `$options` poskytuje vyřešené možnosti pro aktuální komponentu a je výsledkem sloučení těchto možných zdrojů:
 
-  - Global mixins
-  - Component `extends` base
-  - Component mixins
+  - Globální mixins
+  - Základ `extends` komponenty
+  - Mixins komponenty
 
-  It is typically used to support custom component options:
+  Obvykle se používá k podpoře custom options komponent:
 
   ```js
   const app = createApp({
@@ -93,9 +93,9 @@ The resolved component options used for instantiating the current component inst
 
 ## $parent {#parent}
 
-The parent instance, if the current instance has one. It will be `null` for the root instance itself.
+Instance rodičovské komponenty, pokud ji aktuální instance má. Pro root instanci bude hodnota `null`.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentPublicInstance {
@@ -105,9 +105,9 @@ The parent instance, if the current instance has one. It will be `null` for the 
 
 ## $root {#root}
 
-The root component instance of the current component tree. If the current instance has no parents this value will be itself.
+Instance root komponenty aktuálního stromu komponent. Pokud aktuální instance nemá rodiče, bude v této hodnota odkazovat na sebe sama.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentPublicInstance {
@@ -117,9 +117,9 @@ The root component instance of the current component tree. If the current instan
 
 ## $slots {#slots}
 
-An object representing the [slots](/guide/components/slots) passed by the parent component.
+Objekt představující [sloty (slots)](/guide/components/slots), které předala komponenta rodiče.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentPublicInstance {
@@ -129,21 +129,21 @@ An object representing the [slots](/guide/components/slots) passed by the parent
   type Slot = (...args: any[]) => VNode[]
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  Typically used when manually authoring [render functions](/guide/extras/render-function), but can also be used to detect whether a slot is present.
+  Obvykle se používá při ručním vytváření [funkcí pro vykreslení](/guide/extras/render-function), ale může se také použít k detekci přítomnosti slotu.
 
-  Each slot is exposed on `this.$slots` as a function that returns an array of vnodes under the key corresponding to that slot's name. The default slot is exposed as `this.$slots.default`.
+  Každý slot je vystaven na `this.$slots` jako funkce, která vrací pole VNodes pod klíčem odpovídajícím názvu slotu. Výchozí slot je přístupný jako `this.$slots.default`.
 
-  If a slot is a [scoped slot](/guide/components/slots#scoped-slots), arguments passed to the slot functions are available to the slot as its slot props.
+  Pokud je to [scoped slot](/guide/components/slots#scoped-slots), jsou parametry předané do slotových funkcí dostupné jako slot props.
 
-- **Viz také:** [Render Functions - Rendering Slots](/guide/extras/render-function#rendering-slots)
+- **Viz také:** [Funkce pro vykreslení - Vykreslení slotů](/guide/extras/render-function#rendering-slots)
 
 ## $refs {#refs}
 
-An object of DOM elements and component instances, registered via [template refs](/guide/essentials/template-refs).
+Objekt DOM elementů a instancí komponent, registrovaných pomocí [template refs](/guide/essentials/template-refs).
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentPublicInstance {
@@ -154,13 +154,13 @@ An object of DOM elements and component instances, registered via [template refs
 - **Viz také:**
 
   - [Template refs](/guide/essentials/template-refs)
-  - [Special Attributes - ref](./built-in-special-attributes.md#ref)
+  - [Vestavěné speciální atributy - ref](./built-in-special-attributes.md#ref)
 
 ## $attrs {#attrs}
 
-An object that contains the component's fallthrough attributes.
+Objekt obsahující atributy komponentu, které se předávají dále (fallthrough atributy).
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentPublicInstance {
@@ -168,21 +168,21 @@ An object that contains the component's fallthrough attributes.
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  [Fallthrough Attributes](/guide/components/attrs) are attributes and event handlers passed by the parent component, but not declared as a prop or an emitted event by the child.
+  [Fallthrough atributy](/guide/components/attrs) jsou atributy a event handlery předávané rodičovskou komponentou, které nejsou v potomkovi deklarovány jako vlastnosti (props) nebo emitované události (emits).
 
-  By default, everything in `$attrs` will be automatically inherited on the component's root element if there is only a single root element. This behavior is disabled if the component has multiple root nodes, and can be explicitly disabled with the [`inheritAttrs`](./options-misc#inheritattrs) option.
+  Ve výchozím nastavení se všechny atributy v `$attrs` automaticky zdědí na root elementu komponenty, pokud je root element pouze jeden. Toto chování je vypnuto, pokud má komponenta více root elementů, a může být explicitně zakázáno pomocí volby [`inheritAttrs`](./options-misc#inheritattrs).
 
 - **Viz také:**
 
-  - [Fallthrough Attributes](/guide/components/attrs)
+  - [Fallthrough atributy](/guide/components/attrs)
 
 ## $watch() {#watch}
 
-Imperative API for creating watchers.
+Imperativní API pro vytváření watcherů.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentPublicInstance {
@@ -200,9 +200,9 @@ Imperative API for creating watchers.
   ) => void
 
   interface WatchOptions {
-    immediate?: boolean // default: false
-    deep?: boolean // default: false
-    flush?: 'pre' | 'post' | 'sync' // default: 'pre'
+    immediate?: boolean // výchozí: false
+    deep?: boolean // výchozí: false
+    flush?: 'pre' | 'post' | 'sync' // výchozí: 'pre'
     onTrack?: (event: DebuggerEvent) => void
     onTrigger?: (event: DebuggerEvent) => void
   }
@@ -210,62 +210,62 @@ Imperative API for creating watchers.
   type StopHandle = () => void
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  The first argument is the watch source. It can be a component property name string, a simple dot-delimited path string, or a getter function.
+  Prvním parametrem je zdroj watcheru. Může to být název vlastnosti komponenty jako řetězec, jednoduchý řetězec oddělený tečkami nebo getter funkce.
 
-  The second argument is the callback function. The callback receives the new value and the old value of the watched source.
+  Druhým parametrem je callback funkce. Callback dostává novou a starou hodnotu sledovaného zdroje.
 
-  - **`immediate`**: trigger the callback immediately on watcher creation. Old value will be `undefined` on the first call.
-  - **`deep`**: force deep traversal of the source if it is an object, so that the callback fires on deep mutations. See [Deep Watchers](/guide/essentials/watchers#deep-watchers).
-  - **`flush`**: adjust the callback's flush timing. See [Callback Flush Timing](/guide/essentials/watchers#callback-flush-timing) and [`watchEffect()`](/api/reactivity-core#watcheffect).
-  - **`onTrack / onTrigger`**: debug the watcher's dependencies. See [Watcher Debugging](/guide/extras/reactivity-in-depth#watcher-debugging).
+  - **`immediate`**: spustit callback při okamžitě vytvoření watcheru. Stará hodnota bude při prvním volání `undefined`.
+  - **`deep`**: vynutit hluboký průchod zdrojem, pokud je to objekt, aby se callback spustil při vnořených změnách. Viz [Deep Watchers](/guide/essentials/watchers#deep-watchers).
+  - **`flush`**: upravit časování vyvolání callbacku. Viz [Časování provedení callback funkce](/guide/essentials/watchers#callback-flush-timing) a [`watchEffect()`](/api/reactivity-core#watcheffect).
+  - **`onTrack / onTrigger`**: ladit závislosti watcheru. Viz [Debugging watcherů](/guide/extras/reactivity-in-depth#watcher-debugging).
 
-- **Example**
+- **Příklad**
 
-  Watch a property name:
+  Sledování názvu vlastnosti:
 
   ```js
   this.$watch('a', (newVal, oldVal) => {})
   ```
 
-  Watch a dot-delimited path:
+  Sledování cesty oddělené tečkami:
 
   ```js
   this.$watch('a.b', (newVal, oldVal) => {})
   ```
 
-  Using getter for more complex expressions:
+  Použití getteru pro složitější výrazy:
 
   ```js
   this.$watch(
-    // every time the expression `this.a + this.b` yields
-    // a different result, the handler will be called.
-    // It's as if we were watching a computed property
-    // without defining the computed property itself.
+    // pokaždé, když výraz `this.a + this.b` vrátí
+    // jiný výsledek, bude zavolán handler.
+    // Je to jako bychom sledovali computed proměnnou
+    // bez definování ji samotné.
     () => this.a + this.b,
     (newVal, oldVal) => {}
   )
   ```
 
-  Stopping the watcher:
+  Zastavení watcheru:
 
   ```js
   const unwatch = this.$watch('a', cb)
 
-  // later...
+  // později...
   unwatch()
   ```
 
 - **Viz také:**
   - [Options - `watch`](/api/options-state#watch)
-  - [Guide - Watchers](/guide/essentials/watchers)
+  - [Průvodce - Watchers](/guide/essentials/watchers)
 
 ## $emit() {#emit}
 
-Trigger a custom event on the current instance. Any additional arguments will be passed into the listener's callback function.
+Spustí vlastní událost na aktuální instanci. Jakékoliv další parametry budou předány do callbacku listeneru.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentPublicInstance {
@@ -273,14 +273,14 @@ Trigger a custom event on the current instance. Any additional arguments will be
   }
   ```
 
-- **Example**
+- **Příklad**
 
   ```js
   export default {
     created() {
-      // only event
+      // pouze událost
       this.$emit('foo')
-      // with additional arguments
+      // s dalšími parametry
       this.$emit('bar', 1, 2, 3)
     }
   }
@@ -288,14 +288,14 @@ Trigger a custom event on the current instance. Any additional arguments will be
 
 - **Viz také:**
 
-  - [Component - Events](/guide/components/events)
-  - [`emits` option](./options-state#emits)
+  - [Události komponent](/guide/components/events)
+  - [Options - `emits`](./options-state#emits)
 
 ## $forceUpdate() {#forceupdate}
 
-Force the component instance to re-render.
+Vynutí překreslení instance komponenty.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentPublicInstance {
@@ -303,15 +303,15 @@ Force the component instance to re-render.
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  This should be rarely needed given Vue's fully automatic reactivity system. The only cases where you may need it is when you have explicitly created non-reactive component state using advanced reactivity APIs.
+  Mělo by být potřeba jen zřídka, díky plně automatickému reaktivnímu systému Vue. Jediné případy, kdy byste to mohli potřebovat, jsou ty, kdy jste explicitně vytvořili ne-reaktivní stav komponenty pomocí pokročilých API pro reaktivitu.
 
 ## $nextTick() {#nexttick}
 
-Instance-bound version of the global [`nextTick()`](./general#nexttick).
+Verze metody [`nextTick()`](./general#nexttick) vázaná na instanci.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentPublicInstance {
@@ -319,8 +319,8 @@ Instance-bound version of the global [`nextTick()`](./general#nexttick).
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  The only difference from the global version of `nextTick()` is that the callback passed to `this.$nextTick()` will have its `this` context bound to the current component instance.
+  Jediný rozdíl oproti globální verzi `nextTick()` je, že callback předaný `this.$nextTick()` bude mít svůj kontext `this` vázaný na aktuální instanci komponenty.
 
 - **Viz také:** [`nextTick()`](./general#nexttick)
