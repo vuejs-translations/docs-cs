@@ -1,10 +1,10 @@
-# Options: Rendering {#options-rendering}
+# Options API: Vykreslování {#options-rendering}
 
-## template {#template}
+## šablona {#template}
 
-A string template for the component.
+Šablona pro komponentu ve formě textového řetězce.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -12,25 +12,25 @@ A string template for the component.
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  A template provided via the `template` option will be compiled on-the-fly at runtime. It is only supported when using a build of Vue that includes the template compiler. The template compiler is **NOT** included in Vue builds that have the word `runtime` in their names, e.g. `vue.runtime.esm-bundler.js`. Consult the [dist file guide](https://github.com/vuejs/core/tree/main/packages/vue#which-dist-file-to-use) for more details about the different builds.
+  Šablona poskytnutá pomocí vlastnosti `template` bude kompilována na požádání (on-the-fly) za běhu. Tato volba je podporována pouze při použití takového Vue buildu, který zahrnuje kompilátor šablon. Kompilátor šablon **NENÍ** zahrnut ve Vue buildech, které mají ve svém názvu slovo `runtime`, např. `vue.runtime.esm-bundler.js`. Pro více informací o různých variantách se podívejte do [průvodce distribučními soubory](https://github.com/vuejs/core/tree/main/packages/vue#which-dist-file-to-use).
 
-  If the string starts with `#` it will be used as a `querySelector` and use the selected element's `innerHTML` as the template string. This allows the source template to be authored using native `<template>` elements.
+  Pokud řetězec začíná znakem `#`, bude použit jako `querySelector` a jako řetězec šablony se použije `innerHTML` vybraného prvku. To umožňuje vytvářet zdrojovou šablonu pomocí nativních prvků `<template>`.
 
-  If the `render` option is also present in the same component, `template` will be ignored.
+  Pokud je ve stejné komponentě přítomna i vlastnost `render`, bude `template` ignorováno.
 
-  If the root component of your application doesn't have a `template` or `render` option specified, Vue will try to use the `innerHTML` of the mounted element as the template instead.
+  Pokud root komponenta vaší aplikace nemá specifikováno `template` ani `render`, Vue se místo toho pokusí použít jako šablonu `innerHTML` připojeného prvku.
 
-  :::warning Security Note
-  Only use template sources that you can trust. Do not use user-provided content as your template. See [Security Guide](/guide/best-practices/security#rule-no-1-never-use-non-trusted-templates) for more details.
+  :::warning Bezpečnostní poznámka
+  Používejte pouze zdroje šablon, kterým důvěřujete. Nepoužívejte jako šablonu obsah poskytovaný uživatelem. Pro více informací se podívejte do [průvodce bezpečností](/guide/best-practices/security#rule-no-1-never-use-non-trusted-templates).
   :::
 
 ## render {#render}
 
-A function that programmatically returns the virtual DOM tree of the component.
+Funkce, která programově vrací virtuální DOM strom komponenty.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -51,46 +51,46 @@ A function that programmatically returns the virtual DOM tree of the component.
   type VNodeArrayChildren = (VNodeArrayChildren | VNodeChildAtom)[]
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  `render` is an alternative to string templates that allows you to leverage the full programmatic power of JavaScript to declare the render output of the component.
+  `render` je alternativou ke string templates, která vám pro deklaraci výstupu vykreslení komponenty umožňuje využít plnou programovou sílu JavaScriptu.
 
-  Pre-compiled templates, for example those in Single-File Components, are compiled into the `render` option at build time. If both `render` and `template` are present in a component, `render` will take higher priority.
+  Předkompilované šablony, například ty ve Single-File komponentách (SFC), jsou při buildu zkompilovány do možnosti `render`. Pokud jsou v komponentě přítomny jak `render`, tak `template`, `render` má vyšší prioritu.
 
 - **Viz také:**
-  - [Rendering Mechanism](/guide/extras/rendering-mechanism)
-  - [Render Functions](/guide/extras/render-function)
+  - [Mechanismus vykreslování](/guide/extras/rendering-mechanism)
+  - [Funkce pro vykreslení](/guide/extras/render-function)
 
 ## compilerOptions {#compileroptions}
 
-Configure runtime compiler options for the component's template.
+Nastavuje možnosti runtime kompilátoru pro šablonu komponenty.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
     compilerOptions?: {
       isCustomElement?: (tag: string) => boolean
-      whitespace?: 'condense' | 'preserve' // default: 'condense'
-      delimiters?: [string, string] // default: ['{{', '}}']
-      comments?: boolean // default: false
+      whitespace?: 'condense' | 'preserve' // výchozí: 'condense'
+      delimiters?: [string, string] // výchozí: ['{{', '}}']
+      comments?: boolean // výchozí: false
     }
   }
   ```
 
-- **Details**
+- **Detaily**
 
-  This config option is only respected when using the full build (tj. the standalone `vue.js` that can compile templates in the browser). It supports the same options as the app-level [app.config.compilerOptions](/api/application#app-config-compileroptions), and has higher priority for the current component.
+  Tato konfigurační vlastnost je respektována pouze při použití plného (full) buildu (tj. samostatného `vue.js`, který může kompilovat šablony v prohlížeči). Podporuje stejné parametry jako [app.config.compilerOptions](/api/application#app-config-compileroptions) na úrovni aplikace a má pro aktuální komponentu vyšší prioritu.
 
 - **Viz také:** [app.config.compilerOptions](/api/application#app-config-compileroptions)
 
 ## slots<sup class="vt-badge ts"/> {#slots}
 
-An option to assist with type inference when using slots programmatically in render functions. Only supported in 3.3+.
+Možnost pomoci s odvozením typů při programovém použití slotů ve funkcích pro vykreslení. Podporováno pouze ve verzi 3.3+.
 
-- **Details**
+- **Detaily**
 
-  This option's runtime value is not used. The actual types should be declared via type casting using the `SlotsType` type helper:
+  Runtime hodnota této vlastnosti se nepoužívá. Skutečné typy by měly být deklarovány přes přetypování prostřednictvím pomocného typu `SlotsType`:
 
   ```ts
   import { SlotsType } from 'vue'
@@ -104,9 +104,7 @@ An option to assist with type inference when using slots programmatically in ren
       expectType<
         undefined | ((scope: { foo: string; bar: number }) => any)
       >(slots.default)
-      expectType<undefined | ((scope: { data: number }) => any)>(
-        slots.item
-      )
+      expectType<undefined | ((scope: { data: number }) => any)>(slots.item)
     }
   })
   ```

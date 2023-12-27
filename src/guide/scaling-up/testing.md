@@ -10,7 +10,7 @@ Automatizované testy vám a vašemu týmu pomáhají rychle a sebejistě stavě
 
 V této příručce se budeme zabývat základní terminologií a poskytneme naše doporučení ohledně nástrojů, které si pro vaši Vue 3 aplikaci vybrat.
 
-Existuje jedna sekce specifická pro Vue, která se zabývá composable funkcemi. Podívejte se na [Testování composables](#testing-composables)  níže pro více informací.
+Existuje jedna sekce specifická pro Vue, která se zabývá composable funkcemi. Pro více informací se podívejte na [Testování composables](#testing-composables) níže.
 
 ## Kdy testovat? {#when-to-test}
 

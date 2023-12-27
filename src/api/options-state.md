@@ -1,10 +1,10 @@
-# Options: State {#options-state}
+# Options API: Stav {#options-state}
 
 ## data {#data}
 
-A function that returns the initial reactive state for the component instance.
+Funkce, která vrací počáteční reaktivní stav pro instanci komponenty.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -15,17 +15,17 @@ A function that returns the initial reactive state for the component instance.
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  The function is expected to return a plain JavaScript object, which will be made reactive by Vue. After the instance is created, the reactive data object can be accessed as `this.$data`. The component instance also proxies all the properties found on the data object, so `this.a` will be equivalent to `this.$data.a`.
+  Očekává se, že funkce vrátí prostý JavaScript objekt, který následně Vue učiní reaktivním. Po vytvoření instance je možné přistupovat k reaktivnímu datovému objektu přes `this.$data`. Instance komponenty také zajišťuje proxy přístup ke všem vlastnostem nalezeným v datovém objektu, takže `this.a` bude ekvivalentní `this.$data.a`.
 
-  All top-level data properties must be included in the returned data object. Adding new properties to `this.$data` is possible, but it is **not** recommended. If the desired value of a property is not yet available then an empty value such as `undefined` or `null` should be included as a placeholder to ensure that Vue knows that the property exists.
+  Všechny vlastnosti dat na nejvyšší úrovni musí být zahrnuty ve vráceném datovém objektu. Přidání nových vlastností do `this.$data` je možné, ale **není** doporučeno. Pokud požadovaná hodnota vlastnosti ještě není k dispozici, měla by být jako placeholder zahrnuta prázdná hodnota, jako je `undefined` nebo `null`, aby bylo zajištěno, že se Vue dozví, že vlastnost existuje.
 
-  Properties that start with `_` or `$` will **not** be proxied on the component instance because they may conflict with Vue's internal properties and API methods. You will have to access them as `this.$data._property`.
+  Vlastnosti, které začínají `_` nebo `$`, **nebudou** mít na instanci komponenty proxy přístup, protože by mohly být v konfliktu s Vue interními vlastnostmi a API metodami. Musíte k nim přistupovat přes `this.$data._vlastnost`.
 
-  It is **not** recommended to return objects with their own stateful behavior like browser API objects and prototype properties. The returned object should ideally be a plain object that only represents the state of the component.
+  **Není** doporučeno vracet objekty se svým vlastním stavovým chováním, jako jsou objekty API prohlížeče a prototypové vlastnosti. Vrácený objekt by měl ideálně být prostý objekt, který pouze reprezentuje stav komponenty.
 
-- **Example**
+- **Příklad**
 
   ```js
   export default {
@@ -39,65 +39,65 @@ A function that returns the initial reactive state for the component instance.
   }
   ```
 
-  Note that if you use an arrow function with the `data` property, `this` won't be the component's instance, but you can still access the instance as the function's first argument:
+  Mějte na paměti, že pokud s vlastností `data` používáte arrow funkce, `this` nebude instancí komponenty, ale stále můžete přistupovat k instanci jako k prvnímu parametru funkce:
 
   ```js
   data: (vm) => ({ a: vm.myProp })
   ```
 
-- **Viz také:** [Reactivity in Depth](/guide/extras/reactivity-in-depth)
+- **Viz také:** [Reaktivita podrobně](/guide/extras/reactivity-in-depth)
 
 ## props {#props}
 
-Declare the props of a component.
+Deklaruje vlastnosti (props) komponenty.
 
-- **Type**
+- **Typ**
 
-  ```ts
-  interface ComponentOptions {
-    props?: ArrayPropsOptions | ObjectPropsOptions
-  }
+```ts
+interface ComponentOptions {
+  props?: ArrayPropsOptions | ObjectPropsOptions
+}
 
-  type ArrayPropsOptions = string[]
+type ArrayPropsOptions = string[]
 
-  type ObjectPropsOptions = { [key: string]: Prop }
+type ObjectPropsOptions = { [key: string]: Prop }
 
-  type Prop<T = any> = PropOptions<T> | PropType<T> | null
+type Prop<T = any> = PropOptions<T> | PropType<T> | null
 
-  interface PropOptions<T> {
-    type?: PropType<T>
-    required?: boolean
-    default?: T | ((rawProps: object) => T)
-    validator?: (value: unknown) => boolean
-  }
+interface PropOptions<T> {
+  type?: PropType<T>
+  required?: boolean
+  default?: T | ((rawProps: object) => T)
+  validator?: (value: unknown) => boolean
+}
 
-  type PropType<T> = { new (): T } | { new (): T }[]
-  ```
+type PropType<T> = { new (): T } | { new (): T }[]
+```
 
-  > Types are simplified for readability.
+> Typy jsou pro lepší čitelnost zjednodušeny.
 
-- **Details**
+- **Podrobnosti**
 
-  In Vue, all component props need to be explicitly declared. Component props can be declared in two forms:
+  Ve Vue je třeba všechny vlastnosti komponenty explicitně deklarovat. Vlastnosti komponenty lze deklarovat ve dvou formách:
 
-  - Simple form using an array of strings
-  - Full form using an object where each property key is the name of the prop, and the value is the prop's type (a constructor function) or advanced options.
+  - Jednoduchá forma pomocí pole řetězců
+  - Plná forma pomocí objektu, kde každý klíč je název vlastnosti a hodnota je typ vlastnosti (konstruktorová funkce) nebo pokročilé možnosti.
 
-  With object-based syntax, each prop can further define the following options:
+  S objektovou syntaxí může každá vlastnost dále definovat následující možnosti:
 
-  - **`type`**: Can be one of the following native constructors: `String`, `Number`, `Boolean`, `Array`, `Object`, `Date`, `Function`, `Symbol`, any custom constructor function or an array of those. In development mode, Vue will check if a prop's value matches the declared type, and will throw a warning if it doesn't. See [Prop Validation](/guide/components/props#prop-validation) for more details.
+  - **`type`**: Může být jedním z následujících nativních konstruktorů: `String`, `Number`, `Boolean`, `Array`, `Object`, `Date`, `Function`, `Symbol`, libovolná vlastní konstruktorová funkce nebo pole těchto typů. Ve vývojovém režimu Vue zkontroluje, zda hodnota vlastnosti odpovídá deklarovanému typu, a vyvolá varování, pokud tomu tak není. Pro více informací se podívejte na [Validaci vlastností](/guide/components/props#prop-validation).
 
-    Also note that a prop with `Boolean` type affects its value casting behavior in both development and production. See [Boolean Casting](/guide/components/props#boolean-casting) for more details.
+    Také pamatujte, že vlastnost s typem `Boolean` ovlivňuje chování přetypování hodnoty jak ve vývojovém, tak ve produkčním režimu. Pro více informací se podívejte se na [Přetypování Boolean](/guide/components/props#boolean-casting).
 
-  - **`default`**: Specifies a default value for the prop when it is not passed by the parent or has `undefined` value. Object or array defaults must be returned using a factory function. The factory function also receives the raw props object as the argument.
+  - **`default`**: Určuje výchozí hodnotu pro vlastnost, pokud není předána rodičem nebo má hodnotu `undefined`. Výchozí hodnoty objektů nebo polí musí být vráceny pomocí tovární funkce. Tovární funkce také dostává jako parametr objekt s původními vlastnostmi.
 
-  - **`required`**: Defines if the prop is required. In a non-production environment, a console warning will be thrown if this value is truthy and the prop is not passed.
+  - **`required`**: Určuje, zda je vlastnost povinná. Ve vývojovém prostředí bude vyvoláno varování v konzoli, pokud je tato hodnota pravdivá a vlastnost není předána.
 
-  - **`validator`**: Custom validator function that takes the prop value as the sole argument. In development mode, a console warning will be thrown if this function returns a falsy value (tj. the validation fails).
+  - **`validator`**: Vlastní validační funkce, která přijímá hodnotu vlastnosti jako jediný parametr. Ve vývojovém režimu bude vyvoláno varování v konzoli, pokud tato funkce vrátí hodnotu, která je nepravdivá (tj. validace selže).
 
-- **Example**
+- **Příklad**
 
-  Simple declaration:
+  Jednoduchá deklarace:
 
   ```js
   export default {
@@ -105,14 +105,14 @@ Declare the props of a component.
   }
   ```
 
-  Object declaration with validations:
+  Deklarace objektu s validacemi:
 
   ```js
   export default {
     props: {
-      // type check
+      // kontrola typu
       height: Number,
-      // type check plus other validations
+      // kontrola typu a další validace
       age: {
         type: Number,
         default: 0,
@@ -126,14 +126,14 @@ Declare the props of a component.
   ```
 
 - **Viz také:**
-  - [Guide - Props](/guide/components/props)
-  - [Guide - Typing Component Props](/guide/typescript/options-api#typing-component-props) <sup class="vt-badge ts" />
+  - [Průvodce - Vlastnosti (Props)](/guide/components/props)
+  - [Průvodce - Typování vlastností komponenty](/guide/typescript/options-api#typing-component-props) <sup class="vt-badge ts" />
 
 ## computed {#computed}
 
-Declare computed properties to be exposed on the component instance.
+Deklaruje computed proměnné, které mají být vystaveny na instanci komponenty.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -158,13 +158,13 @@ Declare computed properties to be exposed on the component instance.
   }
   ```
 
-- **Details**
+- **Detaily**
 
-  The option accepts an object where the key is the name of the computed property, and the value is either a computed getter, or an object with `get` and `set` methods (for writable computed properties).
+  Tato možnost přijímá objekt, kde klíč je název computed proměnné a hodnota je buď výpočetní getter nebo objekt s metodami `get` a `set` (pro zapisovatelné computed proměnné).
 
-  All getters and setters have their `this` context automatically bound to the component instance.
+  Všechny gettery a settery mají kontext `this` automaticky vázaný na instanci komponenty.
 
-  Note that if you use an arrow function with a computed property, `this` won't point to the component's instance, but you can still access the instance as the function's first argument:
+  Pamatujte, že pokud použijete s computed proměnnou arrow funkci, `this` nebude odkazovat na instanci komponenty, ale stále můžete přistupovat k instanci jako prvnímu parametru funkce:
 
   ```js
   export default {
@@ -174,7 +174,7 @@ Declare computed properties to be exposed on the component instance.
   }
   ```
 
-- **Example**
+- **Příklad**
 
   ```js
   export default {
@@ -182,11 +182,11 @@ Declare computed properties to be exposed on the component instance.
       return { a: 1 }
     },
     computed: {
-      // readonly
+      // pouze pro čtení
       aDouble() {
         return this.a * 2
       },
-      // writable
+      // zapisovatelné
       aPlus: {
         get() {
           return this.a + 1
@@ -199,23 +199,36 @@ Declare computed properties to be exposed on the component instance.
     created() {
       console.log(this.aDouble) // => 2
       console.log(this.aPlus) // => 2
-
-      this.aPlus = 3
-      console.log(this.a) // => 2
-      console.log(this.aDouble) // => 4
     }
   }
   ```
 
+```js
+export default {
+  data() {
+    return { a: 1 }
+  },
+  methods: {
+    plus() {
+      this.a++
+    }
+  },
+  created() {
+    this.plus()
+    console.log(this.a) // => 2
+  }
+}
+```
+
 - **Viz také:**
-  - [Guide - Computed Properties](/guide/essentials/computed)
-  - [Guide - Typing Computed Properties](/guide/typescript/options-api#typing-computed-properties) <sup class="vt-badge ts" />
+  - [Průvodce - Computed proměnné](/guide/essentials/computed)
+  - [Průvodce - Typování computed proměnných](/guide/typescript/options-api#typing-computed-properties) <sup class="vt-badge ts" />
 
 ## methods {#methods}
 
-Declare methods to be mixed into the component instance.
+Deklaruje metody, které budou začleněny do instance komponenty.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -225,13 +238,13 @@ Declare methods to be mixed into the component instance.
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  Declared methods can be directly accessed on the component instance, or used in template expressions. All methods have their `this` context automatically bound to the component instance, even when passed around.
+  Na deklarované metody lze z instance komponenty přímo přistupovat nebo je používat ve výrazech šablon. Všechny metody mají kontext `this` automaticky vázaný na instanci komponenty, i když jsou předávány.
 
-  Avoid using arrow functions when declaring methods, as they will not have access to the component instance via `this`.
+  Při deklaraci metod se vyhněte používání arrow funkcí, protože nebudou mít přístup k instanci komponenty pomocí `this`.
 
-- **Example**
+- **Příklad**
 
   ```js
   export default {
@@ -250,13 +263,13 @@ Declare methods to be mixed into the component instance.
   }
   ```
 
-- **Viz také:** [Event Handling](/guide/essentials/event-handling)
+- **Viz také:** [Obsluha událostí](/guide/essentials/event-handling)
 
 ## watch {#watch}
 
-Declare watch callbacks to be invoked on data change.
+Deklarujte callbacky pro sledování změn dat.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -275,32 +288,32 @@ Declare watch callbacks to be invoked on data change.
 
   type ObjectWatchOptionItem = {
     handler: WatchCallback | string
-    immediate?: boolean // default: false
-    deep?: boolean // default: false
-    flush?: 'pre' | 'post' | 'sync' // default: 'pre'
+    immediate?: boolean // výchozí: false
+    deep?: boolean // výchozí: false
+    flush?: 'pre' | 'post' | 'sync' // výchozí: 'pre'
     onTrack?: (event: DebuggerEvent) => void
     onTrigger?: (event: DebuggerEvent) => void
   }
   ```
 
-  > Types are simplified for readability.
+  > Typy jsou pro lepší čitelnost zjednodušeny.
 
-- **Details**
+- **Podrobnosti**
 
-  The `watch` option expects an object where keys are the reactive component instance properties to watch (e.g. properties declared via `data` or `computed`) — and values are the corresponding callbacks. The callback receives the new value and the old value of the watched source.
+Možnost `watch` očekává objekt, kde klíče jsou vlastnosti reaktivní instance komponenty, které se mají sledovat (například vlastnosti deklarované pomocí `data` nebo `computed`) - a hodnoty jsou odpovídající callbacky. Callback obdrží novou a starou hodnotu sledovaného zdroje.
 
-  In addition to a root-level property, the key can also be a simple dot-delimited path, e.g. `a.b.c`. Note that this usage does **not** support complex expressions - only dot-delimited paths are supported. If you need to watch complex data sources, use the imperative [`$watch()`](/api/component-instance#watch) API instead.
+Kromě vlastnosti na root úrovni může být klíč také jednoduchá tečkou oddělená cesta, například `a.b.c`. Všimněte si, že toto použití **nepodporuje** složité výrazy - podporovány jsou pouze tečkou oddělené cesty. Pokud potřebujete sledovat složité zdroje dat, použijte imperativní [`$watch()`](/api/component-instance#watch) API.
 
-  The value can also be a string of a method name (declared via `methods`), or an object that contains additional options. When using the object syntax, the callback should be declared under the `handler` field. Additional options include:
+Hodnota může být také řetězec s názvem metody (deklarované pomocí `methods`) nebo objekt obsahující další možnosti. Při použití objektové syntaxe by měl být calback deklarován v poli `handler`. Další možnosti zahrnují:
 
-  - **`immediate`**: trigger the callback immediately on watcher creation. Old value will be `undefined` on the first call.
-  - **`deep`**: force deep traversal of the source if it is an object or an array, so that the callback fires on deep mutations. See [Deep Watchers](/guide/essentials/watchers#deep-watchers).
-  - **`flush`**: adjust the callback's flush timing. See [Callback Flush Timing](/guide/essentials/watchers#callback-flush-timing) and [`watchEffect()`](/api/reactivity-core#watcheffect).
-  - **`onTrack / onTrigger`**: debug the watcher's dependencies. See [Watcher Debugging](/guide/extras/reactivity-in-depth#watcher-debugging).
+- **`immediate`**: spustit callback při okamžitě vytvoření watcheru. Stará hodnota bude při prvním volání `undefined`.
+- **`deep`**: vynutit hluboký průchod zdrojem, pokud je to objekt, aby se callback spustil při vnořených změnách. Viz [Deep Watchers](/guide/essentials/watchers#deep-watchers).
+- **`flush`**: upravit časování vyvolání callbacku. Viz [Časování provedení callback funkce](/guide/essentials/watchers#callback-flush-timing) a [`watchEffect()`](/api/reactivity-core#watcheffect).
+- **`onTrack / onTrigger`**: ladit závislosti watcheru. Viz [Debugging watcherů](/guide/extras/reactivity-in-depth#watcher-debugging).
 
-  Avoid using arrow functions when declaring watch callbacks as they will not have access to the component instance via `this`.
+Při deklarování callbacků pro sledování stavu se vyhněte používání arrow funkcí, protože nebudou mít přístup k instanci komponenty pomocí `this`.
 
-- **Example**
+- **Příklad**
 
   ```js
   export default {
@@ -316,39 +329,39 @@ Declare watch callbacks to be invoked on data change.
       }
     },
     watch: {
-      // watching top-level property
+      // sledování vlastnosti nejvyšší úrovně
       a(val, oldVal) {
-        console.log(`new: ${val}, old: ${oldVal}`)
+        console.log(`nová hodnota: ${val}, stará hodnota: ${oldVal}`)
       },
-      // string method name
+      // řetězcový název metody
       b: 'someMethod',
-      // the callback will be called whenever any of the watched object properties change regardless of their nested depth
+      // callback bude vyvolán pokaždé, když se změní libovolná sledovaná vlastnost objektu bez ohledu na její vnořenou hloubku
       c: {
         handler(val, oldVal) {
-          console.log('c changed')
+          console.log('c se změnilo')
         },
         deep: true
       },
-      // watching a single nested property:
+      // sledování jedné vnořené vlastnosti:
       'c.d': function (val, oldVal) {
-        // do something
+        // nějaká akce
       },
-      // the callback will be called immediately after the start of the observation
+      // callback bude vyvolán okamžitě po zahájení pozorování
       e: {
         handler(val, oldVal) {
-          console.log('e changed')
+          console.log('e se změnilo')
         },
         immediate: true
       },
-      // you can pass array of callbacks, they will be called one-by-one
+      // můžete předat pole callbacků, budou volány postupně
       f: [
         'handle1',
         function handle2(val, oldVal) {
-          console.log('handle2 triggered')
+          console.log('spuštěno handle2')
         },
         {
           handler: function handle3(val, oldVal) {
-            console.log('handle3 triggered')
+            console.log('spuštěno handle3')
           }
           /* ... */
         }
@@ -356,14 +369,14 @@ Declare watch callbacks to be invoked on data change.
     },
     methods: {
       someMethod() {
-        console.log('b changed')
+        console.log('b se změnilo')
       },
       handle1() {
-        console.log('handle 1 triggered')
+        console.log('spuštěno handle1')
       }
     },
     created() {
-      this.a = 3 // => new: 3, old: 1
+      this.a = 3 // => nová hodnota: 3, stará hodnota: 1
     }
   }
   ```
@@ -372,9 +385,9 @@ Declare watch callbacks to be invoked on data change.
 
 ## emits {#emits}
 
-Declare the custom events emitted by the component.
+Deklaruje vlastní události emitované komponentou.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -388,20 +401,20 @@ Declare the custom events emitted by the component.
   type EmitValidator = (...args: unknown[]) => boolean
   ```
 
-- **Details**
+- **Detaily**
 
-  Emitted events can be declared in two forms:
+  Emitované události mohou být deklarovány ve dvou formách:
 
-  - Simple form using an array of strings
-  - Full form using an object where each property key is the name of the event, and the value is either `null` or a validator function.
+  - Jednoduchá forma pomocí pole řetězců
+  - Plná forma pomocí objektu, kde každý klíč je název události a hodnota je buď `null` nebo validační funkce.
 
-  The validation function will receive the additional arguments passed to the component's `$emit` call. For example, if `this.$emit('foo', 1)` is called, the corresponding validator for `foo` will receive the argument `1`. The validator function should return a boolean to indicate whether the event arguments are valid.
+  Validní funkce obdrží dodatečné parametry předané voláním `$emit` z komponenty. Například, pokud je zavoláno `this.$emit('foo', 1)`, odpovídající validační funkce pro `foo` obdrží parametr `1`. Validační funkce by měla vrátit boolean hodnotu, která indikuje, zda jsou parametry události platné.
 
-  Note that the `emits` option affects which event listeners are considered component event listeners, rather than native DOM event listeners. The listeners for declared events will be removed from the component's `$attrs` object, so they will not be passed through to the component's root element. See [Fallthrough Attributes](/guide/components/attrs) for more details.
+  Všimněte si, že volba `emits` ovlivňuje, které event listenery jsou považovány za event listenery komponenty a nikoli událostí nativního DOMu. Listenery pro deklarované události budou odebrány z objektu `$attrs` komponenty, takže nebudou předávány do root elementu komponenty. Pro více informací se podívejte na [Fallthrough atributy](/guide/components/attrs).
 
-- **Example**
+- **Příklad**
 
-  Array syntax:
+  Syntaxe pole řetězců:
 
   ```js
   export default {
@@ -412,20 +425,20 @@ Declare the custom events emitted by the component.
   }
   ```
 
-  Object syntax:
+  Objektová syntaxe:
 
   ```js
   export default {
     emits: {
-      // no validation
+      // žádná validace
       click: null,
 
-      // with validation
+      // s validací
       submit: (payload) => {
         if (payload.email && payload.password) {
           return true
         } else {
-          console.warn(`Invalid submit event payload!`)
+          console.warn(`Neplatný payload události submit!`)
           return false
         }
       }
@@ -434,14 +447,14 @@ Declare the custom events emitted by the component.
   ```
 
 - **Viz také:**
-  - [Guide - Fallthrough Attributes](/guide/components/attrs)
-  - [Guide - Typing Component Emits](/guide/typescript/options-api#typing-component-emits) <sup class="vt-badge ts" />
+  - [Průvodce - Fallthrough atributy](/guide/components/attrs)
+  - [Průvodce - Typování emitovaných událostí komponenty](/guide/typescript/options-api#typing-component-emits) <sup class="vt-badge ts" />
 
 ## expose {#expose}
 
-Declare exposed public properties when the component instance is accessed by a parent via template refs.
+Deklaruje veřejné vlastnosti, ke kterým má komponenta rodiče přístu, když je instance přistoupena přes template refs.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -449,19 +462,19 @@ Declare exposed public properties when the component instance is accessed by a p
   }
   ```
 
-- **Details**
+- **Detaily**
 
-  By default, a component instance exposes all instance properties to the parent when accessed via `$parent`, `$root`, or template refs. This can be undesirable, since a component most likely has internal state or methods that should be kept private to avoid tight coupling.
+  Ve výchozím nastavení komponenta vystavuje rodiči všechny své vlastnosti, když je přístup k němu získán pomocí `$parent`, `$root` nebo template refs. To může být nežádoucí, protože komponenta pravděpodobně obsahuje interní stav nebo metody, které by měly zůstat soukromé, aby se předešlo přílišnému provazování.
 
-  The `expose` option expects a list of property name strings. When `expose` is used, only the properties explicitly listed will be exposed on the component's public instance.
+  Možnost `expose` očekává seznam názvů vlastností jako řetězců. Když je volba `expose` použita, budou na veřejné instanci komponenty vystaveny pouze explicitně uvedené vlastnosti.
 
-  `expose` only affects user-defined properties - it does not filter out built-in component instance properties.
+  `expose` ovlivňuje pouze uživatelem definované vlastnosti - neodfiltruje vestavěné vlastnosti instance komponenty.
 
-- **Example**
+- **Příklad**
 
   ```js
   export default {
-    // only `publicMethod` will be available on the public instance
+    // na veřejné instanci bude dostupná pouze `publicMethod`
     expose: ['publicMethod'],
     methods: {
       publicMethod() {

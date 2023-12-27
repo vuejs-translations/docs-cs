@@ -1,4 +1,4 @@
-# Composition API: Lifecycle Hooks {#composition-api-lifecycle-hooks}
+# Composition API: Lifecycle hooks {#composition-api-lifecycle-hooks}
 
 :::info Poznámka k použití
 Všechny API funkce uvedené na této stránce musí být volány synchronně během `setup()` fáze komponenty. Pro více informací se podívejte na [Průvodce - Lifecycle Hooks](/guide/essentials/lifecycle).
@@ -18,7 +18,7 @@ Registruje callback, který se volá po připojení komponenty.
 
   Komponenta je považována za připojenou poté, co:
 
-  - Byly připojeny všechny její synchronní podřízené komponenty (neplatí pro asynchronní komponenty nebo komponenty uvnitř `<Suspense>` hierarchie).
+  - Byly připojeny všechny její synchronní komponenty potomků (neplatí pro asynchronní komponenty nebo komponenty uvnitř `<Suspense>` hierarchie).
 
   - Byl vytvořen její vlastní DOM a vložen do rodičovského kontejneru. Všimněte si, že to zaručuje, že DOM komponenty je v dokumentu pouze tehdy, pokud je v dokumentu také root kontejner aplikace.
 
@@ -214,11 +214,11 @@ Registruje callback, který se má volat, když je zachycena chyba propagující
 
   - Ve výchozím nastavení jsou všechny chyby stále odesílány až na úroveň aplikace do [`app.config.errorHandler`](/api/application#app-config-errorhandler), pokud je definován, aby mohly být tyto chyby stále hlášeny do analytické služby na jednom místě.
 
-- Pokud existuje více `errorCaptured` hooks v hierarchii dědičnosti komponenty nebo hierarchii rodičů, všechny budou volány se stejnou chybou, v pořadí odspodu nahoru. To je podobné mechanismu probublávání nativních DOM událostí.
+  - Pokud existuje více `errorCaptured` hooks v hierarchii dědičnosti komponenty nebo hierarchii rodičů, všechny budou volány se stejnou chybou, v pořadí odspodu nahoru. To je podobné mechanismu probublávání nativních DOM událostí.
 
-- Pokud `errorCaptured` hook sám vyvolá chybu, tato chyba a původní zachycená chyba jsou odeslány do `app.config.errorHandler`.
+  - Pokud `errorCaptured` hook sám vyvolá chybu, tato chyba a původní zachycená chyba jsou odeslány do `app.config.errorHandler`.
 
-- Hook `errorCaptured` může vrátit `false`, aby zabránil propagaci chyby dále. To v podstatě znamená "tato chyba byla zpracována a měla by být ignorována." Pro tuto chybu to zabrání volání dalších `errorCaptured` hooks nebo `app.config.errorHandler`.
+  - Hook `errorCaptured` může vrátit `false`, aby zabránil propagaci chyby dále. To v podstatě znamená "tato chyba byla zpracována a měla by být ignorována." Pro tuto chybu to zabrání volání dalších `errorCaptured` hooks nebo `app.config.errorHandler`.
 
 ## onRenderTracked() <sup class="vt-badge dev-only" /> {#onrendertracked}
 

@@ -241,7 +241,7 @@ Tato metoda přijímá stejný parametr jako [`defineComponent`](#definecomponen
   }
   ```
 
-  > Typ je pro čitelnost zjednodušen.
+  > Typ je pro lepší čitelnost zjednodušen.
 
 - **Podrobnosti**
 
