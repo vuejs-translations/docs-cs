@@ -21,9 +21,8 @@ options-state.md
 reactivity-advanced.md
 reactivity-core.md
 reactivity-utilities.md
-render-function.md
 
-To go: 15
+To go: 14
 
 
 TODO iteration 2

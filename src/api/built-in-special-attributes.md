@@ -2,7 +2,7 @@
 
 ## key {#key}
 
-Speciální atribut `key` se používá především jako nápověda pro virtuální DOM algoritmus Vue pro identifikaci elementů (vnodes) při porovnávání nového seznamu s původním seznamem.
+Speciální atribut `key` se používá především jako nápověda pro virtuální DOM algoritmus Vue pro identifikaci elementů (VNodes) při porovnávání nového seznamu s původním seznamem.
 
 - **Očekává:** `number | string | symbol`
 

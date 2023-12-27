@@ -10,7 +10,7 @@ Vue recommends using templates to build applications in the vast majority of cas
 
 ## Základní použití {#basic-usage}
 
-### Creating Vnodes {#creating-vnodes}
+### Vytváření VNodes {#creating-vnodes}
 
 Vue provides an `h()` function for creating vnodes:
 
@@ -371,7 +371,7 @@ h(
 </button>
 ```
 
-#### Event Modifiers {#event-modifiers}
+#### Modifikátory událostí {#event-modifiers}
 
 For the `.passive`, `.capture`, and `.once` event modifiers, they can be concatenated after the event name using camelCase.
 
@@ -413,7 +413,7 @@ h('div', {
 <div onClick={withModifiers(() => {}, ['self'])} />
 ```
 
-### Components {#components}
+### Komponenty {#components}
 
 To create a vnode for a component, the first argument passed to `h()` should be the component definition. This means when using render functions, it is unnecessary to register components - you can just use the imported components directly:
 
@@ -636,7 +636,7 @@ export default {
 
 </div>
 
-### Custom Directives {#custom-directives}
+### Vlastní direktivy {#custom-directives}
 
 Custom directives can be applied to a vnode using [`withDirectives`](/api/render-function#withdirectives):
 

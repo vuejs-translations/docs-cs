@@ -1,20 +1,20 @@
-# Render Function APIs {#render-function-apis}
+# API funkce pro vykreslení {#render-function-apis}
 
 ## h() {#h}
 
-Creates virtual DOM nodes (vnodes).
+Vytváří virtuální DOM elementy (VNodes).
 
-- **Type**
+- **Typ**
 
   ```ts
-  // full signature
+  // úplný podpis
   function h(
     type: string | Component,
     props?: object | null,
     children?: Children | Slot | Slots
   ): VNode
 
-  // omitting props
+  // vynechání props
   function h(type: string | Component, children?: Children | Slot): VNode
 
   type Children = string | number | boolean | VNode | null | Children[]
@@ -24,98 +24,99 @@ Creates virtual DOM nodes (vnodes).
   type Slots = { [name: string]: Slot }
   ```
 
-  > Types are simplified for readability.
+  > Typy jsou pro lepší čitelnost zjednodušeny.
 
-- **Details**
+- **Detaily**
 
-  The first argument can either be a string (for native elements) or a Vue component definition. The second argument is the props to be passed, and the third argument is the children.
+  První parametr může být buď řetězec (pro nativní elementy) nebo definice Vue komponenty. Druhý parametr jsou vlastosti (props), které mají být předány, a třetí parametr jsou potomci (children).
 
-  When creating a component vnode, the children must be passed as slot functions. A single slot function can be passed if the component expects only the default slot. Otherwise, the slots must be passed as an object of slot functions.
+  Při vytváření VNode komponenty musí být potomci předány jako slotové funkce. Pokud komponenta očekává pouze výchozí slot, může být předána jediná slotová funkce. Jinak musí být sloty předány jako objekt slotových funkcí.
 
-  For convenience, the props argument can be omitted when the children is not a slots object.
+  Pokud potomci nejsou objekt typu `Slots`, může být pro pohodlnější zápis parametr props vynechán.
 
-- **Example**
+- **Příklad**
 
-  Creating native elements:
+  Vytváření nativních elementů:
 
   ```js
   import { h } from 'vue'
 
-  // all arguments except the type are optional
+  // všechny parametry kromě typu jsou volitelné
   h('div')
   h('div', { id: 'foo' })
 
-  // both attributes and properties can be used in props
-  // Vue automatically picks the right way to assign it
+  // v props mohou být použity jak atributy, tak vlastnosti
+  // Vue automaticky vybere správný způsob přiřazení
   h('div', { class: 'bar', innerHTML: 'hello' })
 
-  // class and style have the same object / array
-  // value support like in templates
+  // class a style mají stejný objekt / pole
+  // podpora hodnoty je jako v šablonách
   h('div', { class: [foo, { bar }], style: { color: 'red' } })
 
-  // event listeners should be passed as onXxx
+  // event listenery je třeba předávat jako onXxx
   h('div', { onClick: () => {} })
 
-  // children can be a string
+  // potomci mohou být řetězec
   h('div', { id: 'foo' }, 'hello')
 
-  // props can be omitted when there are no props
+  // pokud neexistují žádné props, mohou být vynechány
   h('div', 'hello')
   h('div', [h('span', 'hello')])
 
-  // children array can contain mixed vnodes and strings
+  // pole potomků může obsahovat mix VNodes a řetězců
   h('div', ['hello', h('span', 'hello')])
   ```
 
-  Creating components:
+  Vytváření komponent:
 
   ```js
   import Foo from './Foo.vue'
 
-  // passing props
-  h(Foo, {
-    // equivalent of some-prop="hello"
-    someProp: 'hello',
-    // equivalent of @update="() => {}"
-    onUpdate: () => {}
-  })
+```js
+// předávání props
+h(Foo, {
+  // ekvivalent k some-prop="hello"
+  someProp: 'hello',
+  // ekvivalent k @update="() => {}"
+  onUpdate: () => {}
+})
 
-  // passing single default slot
-  h(Foo, () => 'default slot')
+// předávání jednoho výchozího slotu
+h(Foo, () => 'výchozí slot')
 
-  // passing named slots
-  // notice the `null` is required to avoid
-  // slots object being treated as props
-  h(MyComponent, null, {
-    default: () => 'default slot',
-    foo: () => h('div', 'foo'),
-    bar: () => [h('span', 'one'), h('span', 'two')]
-  })
-  ```
+// předávání pojmenovaných slotů
+// `null` je nutné použít, aby se
+// objekt slotů nezaměňoval s props
+h(MyComponent, null, {
+  default: () => 'výchozí slot',
+  foo: () => h('div', 'foo'),
+  bar: () => [h('span', 'one'), h('span', 'two')]
+})
+```
 
-- **Viz také:** [Guide - Render Functions - Creating VNodes](/guide/extras/render-function#creating-vnodes)
+- **Viz také:** [Průvodce - Funkce pro vykreslení - Vytváření VNodes](/guide/extras/render-function#creating-vnodes)
 
 ## mergeProps() {#mergeprops}
 
-Merge multiple props objects with special handling for certain props.
+Sloučí více objektů props s speciálním zpracováním některých vlastností.
 
-- **Type**
+- **Typ**
 
   ```ts
   function mergeProps(...args: object[]): object
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  `mergeProps()` supports merging multiple props objects with special handling for the following props:
+  `mergeProps()` podporuje sloučení více objektů props s speciálním zpracováním následujících vlastností:
 
   - `class`
   - `style`
-  - `onXxx` event listeners - multiple listeners with the same name will be merged into an array.
+  - `onXxx` event listenery - více posluchačů se stejným názvem bude sloučeno do pole.
 
-  If you do not need the merge behavior and want simple overwrites, native object spread can be used instead.
+  Pokud nepotřebujete sloučení a chcete jednoduché přepisy, můžete místo toho použít nativní JS spread operátor.
 
-- **Example**
+- **Příklad**
 
   ```js
   import { mergeProps } from 'vue'
@@ -141,23 +142,24 @@ Merge multiple props objects with special handling for certain props.
 
 ## cloneVNode() {#clonevnode}
 
-Clones a vnode.
+Klonuje VNode.
 
-- **Type**
+- **Typ**
 
   ```ts
   function cloneVNode(vnode: VNode, extraProps?: object): VNode
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  Returns a cloned vnode, optionally with extra props to merge with the original.
+  Vrací klonovaný VNode, volitelně s dalšími props, které se sloučí s původním.
 
-  Vnodes should be considered immutable once created, and you should not mutate the props of an existing vnode. Instead, clone it with different / extra props.
+  VNodes by měly být po vytvoření považovány za neměnné a neměli byste měnit vlastnoti existujícího VNode. Místo toho je klonujte s odlišnými / dalšími props.
 
-  Vnodes have special internal properties, so cloning them is not as simple as an object spread. `cloneVNode()` handles most of the internal logic.
+  VNodes mají speciální interní vlastnosti, takže jejich klonování není tak jednoduché jako použití JS spread operátoru. `cloneVNode()` se o většinu interní logiky postará.
+```
 
-- **Example**
+- **Příklad**
 
   ```js
   import { h, cloneVNode } from 'vue'
@@ -168,9 +170,9 @@ Clones a vnode.
 
 ## isVNode() {#isvnode}
 
-Checks if a value is a vnode.
+Zkontroluje, zda je hodnota VNode.
 
-- **Type**
+- **Typ**
 
   ```ts
   function isVNode(value: unknown): boolean
@@ -178,23 +180,23 @@ Checks if a value is a vnode.
 
 ## resolveComponent() {#resolvecomponent}
 
-For manually resolving a registered component by name.
+Pro ruční vyhledání registrované komponenty podle jména.
 
-- **Type**
+- **Typ**
 
   ```ts
   function resolveComponent(name: string): Component | string
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  **Note: you do not need this if you can import the component directly.**
+  **Poznámka: Pokud můžete komponentu importovat přímo, tuto funkci nepotřebujete.**
 
-  `resolveComponent()` must be called inside<span class="composition-api"> either `setup()` or</span> the render function in order to resolve from the correct component context.
+  `resolveComponent()` musí být volána uvnitř<span class="composition-api"> funkce `setup()` nebo</span> funkce pro vykreslení, aby se vyhledávalo ve správném kontextu komponenty.
 
-  If the component is not found, a runtime warning will be emitted, and the name string is returned.
+  Pokud komponenta není nalezena, bude vygenerováno runtime varování a vrácena string hodnota zadaného jména.
 
-- **Example**
+- **Příklad**
 
   <div class="composition-api">
 
@@ -228,33 +230,33 @@ For manually resolving a registered component by name.
 
   </div>
 
-- **Viz také:** [Guide - Render Functions - Components](/guide/extras/render-function#components)
+- **Viz také:** [Průvodce - Funkce pro vykreslení - Komponenty](/guide/extras/render-function#components)
 
 ## resolveDirective() {#resolvedirective}
 
-For manually resolving a registered directive by name.
+Pro ruční vyhledání registrované direktivy podle jména.
 
-- **Type**
+- **Typ**
 
   ```ts
   function resolveDirective(name: string): Directive | undefined
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  **Note: you do not need this if you can import the directive directly.**
+  **Poznámka: Pokud můžete direktivu importovat přímo, tuto funkci nepotřebujete.**
 
-  `resolveDirective()` must be called inside<span class="composition-api"> either `setup()` or</span> the render function in order to resolve from the correct component context.
+  `resolveDirective()` musí být volána uvnitř<span class="composition-api"> funkce `setup()` nebo</span> funkce pro vykreslení, aby se vyhledávalo ve správném kontextu komponenty.
 
-  If the directive is not found, a runtime warning will be emitted, and the function returns `undefined`.
+  Pokud direktiva není nalezena, bude vygenerováno runtime varování a funkce vrátí `undefined`.
 
-- **Viz také:** [Guide - Render Functions - Custom Directives](/guide/extras/render-function#custom-directives)
+- **Viz také:** [Průvodce - Funkce pro vykreslení - Vlastní direktivy](/guide/extras/render-function#custom-directives)
 
 ## withDirectives() {#withdirectives}
 
-For adding custom directives to vnodes.
+Pro přidání vlastních direktiv do VNode.
 
-- **Type**
+- **Typ**
 
   ```ts
   function withDirectives(
@@ -262,7 +264,7 @@ For adding custom directives to vnodes.
     directives: DirectiveArguments
   ): VNode
 
-  // [Directive, value, argument, modifiers]
+  // [direktiva, hodnota, parametr, modifikátory]
   type DirectiveArguments = Array<
     | [Directive]
     | [Directive, any]
@@ -271,16 +273,16 @@ For adding custom directives to vnodes.
   >
   ```
 
-- **Details**
+- **Detaily**
 
-  Wraps an existing vnode with custom directives. The second argument is an array of custom directives. Each custom directive is also represented as an array in the form of `[Directive, value, argument, modifiers]`. Tailing elements of the array can be omitted if not needed.
+  Obaluje existující VNode vlastními direktivami. Druhý parametr je pole vlastních direktiv. Každá vlastní direktiva je také reprezentována jako pole ve formě `[direktiva, hodnota, parametr, modifikátory]`. Poslední prvky pole mohou být vynechány, pokud nejsou potřeba.
 
-- **Example**
+- **Příklad**
 
   ```js
   import { h, withDirectives } from 'vue'
 
-  // a custom directive
+  // vlastní direktiva
   const pin = {
     mounted() {
       /* ... */
@@ -296,29 +298,29 @@ For adding custom directives to vnodes.
   ])
   ```
 
-- **Viz také:** [Guide - Render Functions - Custom Directives](/guide/extras/render-function#custom-directives)
+- **Viz také:** [Průvodce - Funkce pro vykreslení - Vlastní direktivy](/guide/extras/render-function#custom-directives)
 
 ## withModifiers() {#withmodifiers}
 
-For adding built-in [`v-on` modifiers](/guide/essentials/event-handling#event-modifiers) to an event handler function.
+Pro přidání vestavěných [`v-on` modifikátorů](/guide/essentials/event-handling#event-modifiers) do funkce event handleru.
 
-- **Type**
+- **Typ**
 
   ```ts
   function withModifiers(fn: Function, modifiers: string[]): Function
   ```
 
-- **Example**
+- **Příklad**
 
   ```js
   import { h, withModifiers } from 'vue'
 
   const vnode = h('button', {
-    // equivalent of v-on:click.stop.prevent
+    // ekvivalent v-on:click.stop.prevent
     onClick: withModifiers(() => {
       // ...
     }, ['stop', 'prevent'])
   })
   ```
 
-- **Viz také:** [Guide - Render Functions - Event Modifiers](/guide/extras/render-function#event-modifiers)
+- **Viz také:** [Průvodce - Funkce pro vykrelení - Modifikátory událostí](/guide/extras/render-function#event-modifiers)
