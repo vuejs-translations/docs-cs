@@ -6,7 +6,6 @@ TODO iteration 1
 extras\
 extras\reactivity-in-depth.md
 extras\reactivity-transform.md
-extras\render-function.md
 
 
 /api
@@ -14,7 +13,7 @@ reactivity-advanced.md
 reactivity-core.md
 reactivity-utilities.md
 
-To go: 6
+To go: 5
 
 
 TODO iteration 2
