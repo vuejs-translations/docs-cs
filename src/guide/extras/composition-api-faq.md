@@ -14,7 +14,7 @@ Tato část FAQ předpokládá předchozí zkušenosti s Vue - zejména s Vue 2 
 
 Composition API je sada API, která nám umožňuje vytvářet Vue komponenty pomocí importovaných funkcí místo deklarování možností (options) Jedná se o obecný termín, který zahrnuje následující API:
 
-- [API pro reaktivitu](/api/reactivity-core), např. `ref()` a `reactive()`, které nám umožňuje přímo vytvářet reaktivní stav, computed proměnné a watchery.
+- [Reactivity API](/api/reactivity-core), např. `ref()` a `reactive()`, které nám umožňuje přímo vytvářet reaktivní stav, computed proměnné a watchery.
 
 - [Lifecycle Hooks](/api/composition-api-lifecycle), např. `onMounted()` a `onUnmounted()`, které nám umožňují programově se připojit k životnímu cyklu komponenty.
 

@@ -259,7 +259,7 @@ Vemte na vědomí, že pokud knihovna třetí strany není pro univerzální pou
 
 ### Cross-Request State Pollution {#cross-request-state-pollution}
 
-V kapitole o správě stavu jsme představili [jednoduchý vzor správy stavu pomocí API pro reaktivitu](state-management#simple-state-management-with-reactivity-api). V kontextu SSR vyžaduje tento vzor některé dodatečné úpravy.
+V kapitole o správě stavu jsme představili [jednoduchý vzor správy stavu pomocí Reactivity API](state-management#simple-state-management-with-reactivity-api). V kontextu SSR vyžaduje tento vzor některé dodatečné úpravy.
 
 Vzor deklaruje sdílený stav ve hlavním scope JavaScriptového modulu. To z nich dělá **singletony** - tj. existuje pouze jedna instance reaktivního objektu po celou dobu životnosti naší aplikace. V čistě klientovské aplikaci Vue to funguje správně, protože moduly v naší aplikaci jsou pro každou návštěvu stránky v prohlížeči znovu inicializovány.
 

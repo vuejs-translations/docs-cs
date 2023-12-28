@@ -362,7 +362,7 @@ Composable funkce závisí na instanci hostitelské komponenty, pokud používá
 - Lifecycle hooks
 - Provide / Inject
 
-Pokud composable funkce pouze používá API pro reaktivitu, může být testována přímo voláním a ověřením jejího vráceného stavu/metod:
+Pokud composable funkce pouze používá Reactivity API, může být testována přímo voláním a ověřením jejího vráceného stavu/metod:
 
 ```js
 // counter.js

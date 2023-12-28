@@ -99,7 +99,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 kebab-case = kebab-case
 * 🟥 layout = layout
 * 🟨 legacy code = legacy kód
-* 🟨 lazy loading = "lazy" načítání
+* 🟨 lazy (loading) = "lazy" (načítání)
 * 🟥 lifecycle hook = metoda životního cyklu
 * 🟩 listen (to event) = naslouchat (události)
 * 🟩 loop = cyklus

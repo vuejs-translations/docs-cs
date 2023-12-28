@@ -305,7 +305,7 @@ Vynutí překreslení instance komponenty.
 
 - **Podrobnosti**
 
-  Mělo by být potřeba jen zřídka, díky plně automatickému reaktivnímu systému Vue. Jediné případy, kdy byste to mohli potřebovat, jsou ty, kdy jste explicitně vytvořili ne-reaktivní stav komponenty pomocí pokročilých API pro reaktivitu.
+  Mělo by být potřeba jen zřídka, díky plně automatickému reaktivnímu systému Vue. Jediné případy, kdy byste to mohli potřebovat, jsou ty, kdy jste explicitně vytvořili ne-reaktivní stav komponenty pomocí pokročilých funkcí Reactivity API.
 
 ## $nextTick() {#nexttick}
 

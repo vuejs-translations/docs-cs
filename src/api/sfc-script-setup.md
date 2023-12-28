@@ -53,7 +53,7 @@ import { capitalize } from './helpers'
 
 ## Reaktivita {#reactivity}
 
-Reaktivní stav musí být explicitně vytvořen pomocí [API pro reaktivitu](./reactivity-core). Podobně jako hodnoty vrácené z funkce `setup()`, pokud jsou refs odkazovány v šablonách, jsou automaticky "rozbaleny":
+Reaktivní stav musí být explicitně vytvořen pomocí [Reactivity API](./reactivity-core). Podobně jako hodnoty vrácené z funkce `setup()`, pokud jsou refs odkazovány v šablonách, jsou automaticky "rozbaleny":
 
 ```vue
 <script setup>

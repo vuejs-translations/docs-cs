@@ -200,7 +200,7 @@ export const store = reactive({
 Všimněte si, že click handler používá `store.increment()` s kulatými závorkami - je to nutné pro volání metody s odpovídajícím kontextem `this`, protože to není metoda komponenty.
 :::
 
-I když zde jako úložiště používáme jediný reaktivní objekt, můžete také sdílet reaktivní stav vytvořený pomocí jiných [API pro reaktivitu](/api/reactivity-core) jako `ref()` nebo `computed()`, nebo dokonce vrátit globální stav z [composable](/guide/reusability/composables):
+I když zde jako úložiště používáme jediný reaktivní objekt, můžete také sdílet reaktivní stav vytvořený pomocí jiných funkcí [Reactivity API](/api/reactivity-core) jako `ref()` nebo `computed()`, nebo dokonce vrátit globální stav z [composable](/guide/reusability/composables):
 
 ```js
 import { ref } from 'vue'

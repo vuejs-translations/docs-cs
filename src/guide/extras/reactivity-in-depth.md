@@ -340,7 +340,7 @@ watchEffect(callback, {
 `onTrack` and `onTrigger` watcher options only work in development mode.
 :::
 
-## Integration with External State Systems {#integration-with-external-state-systems}
+## Integrace s externími systémy pro správu stavu {#integration-with-external-state-systems}
 
 Vue's reactivity system works by deeply converting plain JavaScript objects into reactive proxies. The deep conversion can be unnecessary or sometimes unwanted when integrating with external state management systems (např. if an external solution also uses Proxies).
 
