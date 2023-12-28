@@ -131,6 +131,4 @@ Následující příklad ukazuje, jak tyto komponenty správně vnořit, aby se 
 </RouterView>
 ```
 
-Vue Router has built-in support for [lazily loading components](https://router.vuejs.org/guide/advanced/lazy-loading.html) using dynamic imports. These are distinct from async components and currently they will not trigger `<Suspense>`. However, they can still have async components as descendants and those can trigger `<Suspense>` in the usual way.
-
-Vue Router má vestavěnou podporu pro ['lazy' načítání komponent] (https://router.vuejs.org/guide/advanced/lazy-loading.html) pomocí dynamických importů. Ty se od asynchronních komponent liší a v současnosti na ně `<Suspense>` nereaguje. Stále však mohou mít další asynchronní komponenty jako potomky a ty mohou `<Suspense>` vyvolat obvyklým způsobem.
+Vue Router má vestavěnou podporu pro ["lazy" načítání komponent](https://router.vuejs.org/guide/advanced/lazy-loading.html) pomocí dynamických importů. Ty se od asynchronních komponent liší a v současnosti na ně `<Suspense>` nereaguje. Stále však mohou mít další asynchronní komponenty jako potomky a ty mohou `<Suspense>` vyvolat obvyklým způsobem.

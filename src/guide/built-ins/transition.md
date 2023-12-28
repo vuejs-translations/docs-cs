@@ -18,7 +18,7 @@ Vue nabízí dvě vestavěné komponenty, které pomáhají pracovat s přechody
 
 Kromě těchto dvou komponent můžeme ve Vue aplikovat animace také pomocí dalších technik, jako je přepínání CSS tříd nebo stavově řízené animace pomocí bindingu stylů. Tyto další techniky jsou popsány v kapitole [Techniky animace](/guide/extras/animation).
 
-## The `<Transition>` Component {#the-transition-component}
+## Komponenta `<Transition>` {#the-transition-component}
 
 `<Transition>` je vestavěná komponenta, což znamená, že je k dispozici v jakékoli šabloně komponenty, aniž by bylo nutné ji registrovat. Lze ji použít k aplikaci vstupních a výstupních animací na elementy nebo komponenty, které jsou jí předány prostřednictvím výchozího slotu. Vstup nebo výstup může být spuštěn jednou z následujících akcí:
 

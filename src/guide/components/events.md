@@ -4,7 +4,7 @@ import { onMounted } from 'vue'
 if (typeof window !== 'undefined') {
   const hash = window.location.hash
 
-  // The docs for v-model used to be part of this page. Attempt to redirect outdated links.
+  // Dokumentace pro v-model byla součástí této stránky. Pokusit se přesměrovat historické odkazy.
   if ([
     '#usage-with-v-model',
     '#v-model-arguments',
@@ -288,14 +288,14 @@ export default {
 
 </div>
 
-## Events as Props {#events-props}
+## Události jako vlastnosti (props) {#udalosti-props}
 
-You may also declare and pass `events` as `props`, by prefixing the capitalized event name with `on`.
+Můžete také deklarovat a předávat `events` jako `props` pomocí předpony `on` před jménem události s velkým písmenem.
 
-Using `props.onEvent` has a different behaviour than using `emit('event')`, as the former will pass only handle the property based listener (either `@event` or `:on-event`)
+Použití `props.onEvent` má odlišné chování než použití `emit('event')`, protože první zmíněné bude předávat pouze listener založený na vlastnosti (buď `@event` nebo `:on-event`).
 
 :::warning
-If both `:onEvent` and `@event` are passed `props.onEvent` might be an array of `functions` instead of `function`, this behavior is not stable and might change in the future.
+Pokud jsou předány jak `:onEvent`, tak `@event`, `props.onEvent` může být polem `funkcí` místo `funkce`. Toto chování není stabilní a může se v budoucnu změnit.
 :::
 
-Because of this, it is recommended to use `emit('event')` instead of `props.onEvent` when emitting events.
+Z tohoto důvodu se při vysílání událostí doporučuje používat `emit('event')` místo `props.onEvent`.

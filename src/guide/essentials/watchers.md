@@ -13,7 +13,7 @@ export default {
   data() {
     return {
       question: '',
-      answer: 'Questions usually contain a question mark. ;-)',
+      answer: 'Otázky obvykle obsahují otazník. ;-)',
       loading: false
     }
   },
@@ -28,12 +28,12 @@ export default {
   methods: {
     async getAnswer() {
       this.loading = true
-      this.answer = 'Thinking...'
+      this.answer = 'Přemýšlím...'
       try {
         const res = await fetch('https://yesno.wtf/api')
         this.answer = (await res.json()).answer
       } catch (error) {
-        this.answer = 'Error! Could not reach the API. ' + error
+        this.answer = 'Chyba! Nelze volat API. ' + error
       } finally {
         this.loading = false
       }
@@ -44,7 +44,7 @@ export default {
 
 ```vue-html
 <p>
-  Ask a yes/no question:
+  Zeptejte se na otázku s odpovědí ano/ne:
   <input v-model="question" :disabled="loading" />
 </p>
 <p>{{ answer }}</p>
@@ -76,19 +76,19 @@ S Composition API můžeme použít [funkci `watch`](/api/reactivity-core#watch)
 import { ref, watch } from 'vue'
 
 const question = ref('')
-const answer = ref('Questions usually contain a question mark. ;-)')
+const answer = ref('Otázky obvykle obsahují otazník. ;-)')
 const loading = ref(false)
 
 // watch pracuje přímo nad ref
 watch(question, async (newQuestion, oldQuestion) => {
   if (newQuestion.includes('?')) {
     loading.value = true
-    answer.value = 'Thinking...'
+    answer.value = 'Přemýšlím...'
     try {
       const res = await fetch('https://yesno.wtf/api')
       answer.value = (await res.json()).answer
     } catch (error) {
-      answer.value = 'Error! Could not reach the API. ' + error
+      answer.value = 'Chyba! Nelze volat API. ' + error
     } finally {
       loading.value = false
     }
@@ -98,7 +98,7 @@ watch(question, async (newQuestion, oldQuestion) => {
 
 <template>
   <p>
-    Ask a yes/no question:
+    Zeptejte se na otázku s odpovědí ano/ne:
     <input v-model="question" :disabled="loading" />
   </p>
   <p>{{ answer }}</p>

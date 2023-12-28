@@ -19,11 +19,11 @@ export default {
   data() {
     return {
       author: {
-        name: 'John Doe',
+        name: 'sk',
         books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
+          'Vue 2 - Pokročilý průvodce',
+          'Vue 3 - Základní průvodce',
+          'Vue 4 - Tajemství'
         ]
       }
     }
@@ -36,11 +36,11 @@ export default {
 
 ```js
 const author = reactive({
-  name: 'John Doe',
+  name: 'Jan Novák',
   books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
+    'Vue 2 - Pokročilý průvodce',
+    'Vue 3 - Základní průvodce',
+    'Vue 4 - Tajemství'
   ]
 })
 ```
@@ -65,11 +65,11 @@ export default {
   data() {
     return {
       author: {
-        name: 'John Doe',
+        name: 'Jan Novák',
         books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
+          'Vue 2 - Pokročilý průvodce',
+          'Vue 3 - Základní průvodce',
+          'Vue 4 - Tajemství'
         ]
       }
     }
@@ -108,11 +108,11 @@ Viz také: [Typování Computed proměnných](/guide/typescript/options-api#typi
 import { reactive, computed } from 'vue'
 
 const author = reactive({
-  name: 'John Doe',
+  name: 'Jan Novák',
   books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
+    'Vue 2 - Pokročilý průvodce',
+    'Vue 3 - Základní průvodce',
+    'Vue 4 - Tajemství'
   ]
 })
 
@@ -228,7 +228,7 @@ export default {
 }
 ```
 
-Když teď zadáte `this.fullName = 'John Doe'`, zavolá se setter a `this.firstName` a `this.lastName` budou odpovídajícím způsobem aktualizovány.
+Když teď zadáte `this.fullName = 'Jan Novák'`, zavolá se setter a `this.firstName` a `this.lastName` budou odpovídajícím způsobem aktualizovány.
 
 </div>
 
@@ -255,7 +255,7 @@ const fullName = computed({
 </script>
 ```
 
-Když teď zadáte `this.fullName = 'John Doe'`, zavolá se setter a `this.firstName` a `this.lastName` budou odpovídajícím způsobem aktualizovány.
+Když teď zadáte `this.fullName = 'Jan Novák'`, zavolá se setter a `this.firstName` a `this.lastName` budou odpovídajícím způsobem aktualizovány.
 
 </div>
 

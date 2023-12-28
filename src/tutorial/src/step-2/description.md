@@ -57,8 +57,7 @@ setup() {
 }
 ```
 
-Vlastnosti ve vráceném objektu budou zpřístupněny v šabloně. Tímto způsobem můžeme 
-Properties in the returned object will be made available in the template. Tímto způsobem můžeme vykreslovat dynamický text na základě hodnoty `message` s použitím tzv. 'mustaches' syntaxe:
+Vlastnosti ve vráceném objektu budou zpřístupněny v šabloně. Tímto způsobem můžeme vykreslovat vykreslovat dynamický text na základě hodnoty `message` s použitím tzv. 'mustaches' syntaxe:
 
 </div>
 

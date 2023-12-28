@@ -21,7 +21,7 @@ Kromě předávání dat prostřednictvím vlastností (props) může komponenta
 
 </div>
 
-In the child component, it can render the slot content from the parent using the `<slot>` element as outlet:
+V komponentně potomka může vykrelit obsah slotu z rodiče pomocí elementu `<slot>`:
 
 <div class="sfc">
 

@@ -370,7 +370,7 @@ Kromě atributu `scoped` může použití jedinečných názvů tříd pomoci za
   <button class="button button-close">×</button>
 </template>
 
-<!-- Using the `scoped` attribute -->
+<!-- Použití atributu `scoped` -->
 <style scoped>
 .button {
   border: none;
@@ -388,7 +388,7 @@ Kromě atributu `scoped` může použití jedinečných názvů tříd pomoci za
   <button :class="[$style.button, $style.buttonClose]">×</button>
 </template>
 
-<!-- Using CSS modules -->
+<!-- Použití CSS modulů -->
 <style module>
 .button {
   border: none;
@@ -406,7 +406,7 @@ Kromě atributu `scoped` může použití jedinečných názvů tříd pomoci za
   <button class="c-Button c-Button--close">×</button>
 </template>
 
-<!-- Using the BEM convention -->
+<!-- Použití BEM konvence -->
 <style>
 .c-Button {
   border: none;

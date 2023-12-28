@@ -1,22 +1,22 @@
 # Frequently Asked Questions {#frequently-asked-questions}
 
-## Who maintains Vue? {#who-maintains-vue}
+## Kdo spravuje Vue? {#who-maintains-vue}
 
-Vue is an independent, community-driven project. It was created by [Evan You](https://twitter.com/youyuxi) in 2014 as a personal side project. Today, Vue is actively maintained by [a team of both full-time and volunteer members from all around the world](/about/team), where Evan serves as the project lead. You can learn more about the story of Vue in this [documentary](https://www.youtube.com/watch?v=OrxmtDw4pVI).
+Vue je nezávislý projekt řízený komunitou. Byl vytvořen [Evanem You](https://twitter.com/youyuxi) v roce 2014 jako osobní vedlejší projekt. Dnes je Vue aktivně spravován [týmem jak zaměstnanců, tak dobrovolníků z celého světa](/about/team), kde Evan působí jako vedoucí projektu. Více informací o příběhu Vue najdete v tomto [dokumentárním filmu](https://www.youtube.com/watch?v=OrxmtDw4pVI).
 
-Vue's development is primarily funded through sponsorships and we have been financially sustainable since 2016. If you or your business benefit from Vue, consider [sponsoring us](/sponsor/) to support Vue's development!
+Vývoj Vue je převážně financován ze sponzorských darů a od roku 2016 jsme finančně udržitelní. Pokud vy nebo váš podnik z Vue těžíte, zvažte [sponzorství](/sponsor/) pro podporu dalšího vývoje Vue!
 
-## What's the difference between Vue 2 and Vue 3? {#what-s-the-difference-between-vue-2-and-vue-3}
+## Jaký je rozdíl mezi Vue 2 a Vue 3? {#what-s-the-difference-between-vue-2-and-vue-3}
 
-Vue 3 is the current, latest major version of Vue. It contains new features that are not present in Vue 2, such as Teleport, Suspense, and multiple root elements per template. It also contains breaking changes that make it incompatible with Vue 2. Full details are documented in the [Vue 3 Migration Guide](https://v3-migration.vuejs.org/).
+Vue 3 je aktuální, nejnovější major verze Vue. Obsahuje nové funkce, které nejsou ve Vue 2 přítomny, jako je Teleport, Suspense a více root elementů v jedné šabloně. Obsahuje také zásadní změny, které jsou nekompatibilní s Vue 2. Podrobnosti jsou zdokumentovány v [Průvodci migrací na Vue 3](https://v3-migration.vuejs.org/).
 
-Despite the differences, the majority of Vue APIs are shared between the two major versions, so most of your Vue 2 knowledge will continue to work in Vue 3. Notably, Composition API was originally a Vue-3-only feature, but has now been backported to Vue 2 and is available in [Vue 2.7](https://github.com/vuejs/vue/blob/main/CHANGELOG.md#270-2022-07-01).
+Navzdory rozdílům je většina Vue API mezi oběma hlavními verzemi sdílena, takže většina vašich znalostí Vue 2 bude nadále fungovat i ve Vue 3. Zejména Composition API byla původně funkcí pouze pro Vue 3, ale nyní bylo zpětně přeneseno do Vue 2 a je k dispozici od [Vue 2.7](https://github.com/vuejs/vue/blob/main/CHANGELOG.md#270-2022-07-01).
 
-In general, Vue 3 provides smaller bundle sizes, better performance, better scalability, and better TypeScript / IDE support. If you are starting a new project today, Vue 3 is the recommended choice. There are only a few reasons for you to consider Vue 2 as of now:
+Obecně řečeno, Vue 3 poskytuje menší velikost balíčku, lepší výkon, lepší škálovatelnost a lepší podporu TypeScriptu / IDE. Pokud začínáte nový projekt dnes, Vue 3 je doporučená volba. Existuje jen několik důvodů, proč byste měli zvážit Vue 2:
 
-- You need to support IE11. Vue 3 leverages modern JavaScript features and does not support IE11.
+- Potřebujete podporu pro IE11. Vue 3 využívá moderní funkce JavaScriptu a nepodporuje IE11.
 
-If you intend to migrate an existing Vue 2 app to Vue 3, consult the [migration guide](https://v3-migration.vuejs.org/).
+Pokud plánujete migrovat existující Vue 2 aplikaci na Vue 3, konzultujte to s [průvodcem migrací](https://v3-migration.vuejs.org/).
 
 ## Je stále podporováno Vue 2? {#is-vue-2-still-supported}
 

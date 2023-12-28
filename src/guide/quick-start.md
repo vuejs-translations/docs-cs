@@ -223,7 +223,7 @@ výše uvedený odkaz vede na _globalní build_ Vue, kde jsou všechny API nejvy
 [Codepen demo](https://codepen.io/vuejs-examples/pen/eYQpQEG)
 
 :::tip
-Many of the examples for Composition API throughout the guide will be using the `<script setup>` syntax, which requires build tools. If you intend to use Composition API without a build step, consult the usage of the [`setup()` option](/api/composition-api-setup).
+Řada příkladů pro Composition API napříč celým průvodcem bude používat syntaxi `<script setup>`, která vyžaduje build nástroje. Pokud plánujete používat Composition API bez build fáze, podívejte se na použití [možnosti `setup()`](/api/composition-api-setup).
 :::
 
 </div>
