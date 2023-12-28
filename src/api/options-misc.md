@@ -99,27 +99,6 @@ Ovládá, zda má být povoleno výchozí chování pro předávání atributů 
   </template>
   ```
 
-  Od verze 3.3 můžete také přímo použít `defineOptions` v `<script setup>`:
-
-  ```vue
-  <script setup>
-  defineProps(['label', 'value'])
-  defineEmits(['input'])
-  defineOptions({ inheritAttrs: false })
-  </script>
-
-  <template>
-    <label>
-      {{ label }}
-      <input
-        v-bind="$attrs"
-        v-bind:value="value"
-        v-on:input="$emit('input', $event.target.value)"
-      />
-    </label>
-  </template>
-  ```
-
   </div>
 
 - **Viz také:** [Fallthrough atributy](/guide/components/attrs)
@@ -185,6 +164,4 @@ Objekt, který registruje direktivy, které budou dostupné na instanci komponen
   <input v-focus>
   ```
 
-  Hash direktiv, které budou dostupné na  instanci komponenty.
-
-- **Viz také:** [Vlastní direktivy](/guide/reusability/custom-directives)
+- **See also** [Custom Directives](/guide/reusability/custom-directives)
