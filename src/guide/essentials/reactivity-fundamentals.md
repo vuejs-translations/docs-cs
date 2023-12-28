@@ -429,7 +429,7 @@ proxy.nested = raw
 console.log(proxy.nested === raw) // false
 ```
 
-### Limity `reactive()` API \*\* {#limitations-of-reactive}
+### Limity `reactive()` \*\* {#limitations-of-reactive}
 
 API funkce `reactive()` má dvě omezení:
 

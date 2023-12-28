@@ -1,18 +1,6 @@
-TODO iteration 1
-================
-
-/guide
-
-extras\
-extras\reactivity-in-depth.md
-extras\reactivity-transform.md
-
-To go: 2
-
-
 TODO iteration 2
 ================
-Revisions
-Example code translations...
+Kontrola a vyřešení nově vložených překladů 
+Revize textu
 České úvozovky místo anglických
 Sladit nadpisy v config.ts
