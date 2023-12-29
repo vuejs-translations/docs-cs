@@ -555,9 +555,27 @@ export const sidebar: ThemeConfig['sidebar'] = {
   ]
 }
 
-// Placeholder of the i18n config for @vuejs-translations.
-// const i18n: ThemeConfig['i18n'] = {
-// }
+// i18n config for @vuejs-translations
+const i18n: ThemeConfig['i18n'] = {
+  search: 'Hledat',
+  toc: 'Obsah stránky',
+  previous: 'Předchozí',
+  next: 'Následující',
+  pageNotFound: 'Stránka nenalezena',
+  deadLink: {
+    before: 'Narazili jste na nefunkční odkaz: ',
+    after: ''
+  },
+  deadLinkReport: {
+    before: '',
+    link: 'Dejte nám prosím vědět',
+    after: ', abychom to mohli napravit.'
+  },
+  footerLicense: {
+    before: 'Vydáno pod ',
+    after: ''
+  }
+}
 
 export default defineConfigWithTheme<ThemeConfig>({
   extends: baseConfig,
@@ -625,8 +643,7 @@ export default defineConfigWithTheme<ThemeConfig>({
   themeConfig: {
     nav,
     sidebar,
-    // Placeholder of the i18n config for @vuejs-translations.
-    // i18n,
+    i18n,
 
     localeLinks: [
       {
