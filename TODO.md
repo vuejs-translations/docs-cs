@@ -1,6 +1,7 @@
 TODO iteration 2
 ================
-Kontrola a vyřešení nově vložených překladů 
 Revize textu
+Revize překladů
+Stránka pro vysvětlení vybraných překladů
 České úvozovky místo anglických
-Sladit nadpisy v config.ts
+Úklid dočasných souborů
