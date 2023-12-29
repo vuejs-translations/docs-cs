@@ -198,7 +198,7 @@ Ve srovnání s tím vyvolání funkce **vždy** spustí funkci, kdykoli dojde k
 
 Proč caching potřebujeme? Představte si, že máme složitě získávanou proměnnou `list`, která vyžaduje procházení obrovského pole a spoustu výpočtů. Pak můžeme mít další computed proměnné, které na `list` závisí. Bez ukládání do mezipaměti bychom spouštěli getter pro `list` mnohem častěji, než je nutné! V případech, kdy caching nechcete, použijte místo toho volání funkce.
 
-## Computed proměnná, kterou lze přepisovat {#writable-computed}
+## Computed proměnná, kterou lze měnit {#writable-computed}
 
 Computed proměnné jsou ve výchozím nastavení pouze pro čtení. Pokud se pokusíte přiřadit do computed proměnné novou hodnotu, dostanete runtime warning. Ve vzácných případech, kdy „zapisovatelnou“ computed proměnnou potřebujete, můžete ji vytvořit tak, aby poskytovala getter i setter:
 

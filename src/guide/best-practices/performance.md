@@ -124,9 +124,9 @@ Nyní se pro většinu komponent při změně `activeId` vlastnost `active` nem�
 
 `v-memo` je vestavěná direktiva, která se používá k podmíněnému přeskočení aktualizace velkých podstromů nebo seznamů `v-for`. Pro více informací se podívejte na [API referenci](/api/built-in-directives#v-memo).
 
-### Computed Stability <sup class="vt-badge" data-text="3.4+" /> {#computed-stability}
+### Stabilita computed proměnných <sup class="vt-badge" data-text="3.4+" /> {#computed-stability}
 
-Starting in 3.4, a computed property will only trigger effects when its computed value has changed from the previous one. For example, the following `isEven` computed only triggers effects if the returned value has changed from `true` to `false`, or vice-versa:
+Od verze 3.4 computed proměnná spustí watch efekty pouze tehdy, když se její vypočítaná hodnota oproti předchozí hodnotě změní. Například následující computed proměnná  `isEven` spustí efekty, jen pokud se vrácená hodnota změní z `true` na `false` nebo naopak:
 
 ```js
 const count = ref(0)
@@ -134,12 +134,12 @@ const isEven = computed(() => count.value % 2 === 0)
 
 watchEffect(() => console.log(isEven.value)) // true
 
-// will not trigger new logs because the computed value stays `true`
+// nezpůsobí nové záznamy v konzoli, protože vypočítaná hodnota zůstává `true`
 count.value = 2
 count.value = 4
 ```
 
-This reduces unnecessary effect triggers, but unfortunately doesn't work if the computed creates a new object on each compute:
+Tím se snižuje zbytečné spouštění efektů, ale bohužel to nefunguje, pokud computed proměnná při každém výpočtu vytváří nový objekt:
 
 ```js
 const computedObj = computed(() => {
@@ -149,9 +149,9 @@ const computedObj = computed(() => {
 })
 ```
 
-Because a new object is created each time, the new value is technically always different from the old value. Even if the `isEven` property remains the same, Vue won't be able to know unless it performs a deep comparison of the old value and the new value. Such comparison could be expensive and likely not worth it.
+Protože se vždy vytvoří nový objekt, je nová hodnota technicky vždy odlišná od staré hodnoty. I když vlastnost `isEven` zůstává stejná, Vue nebude schopno to zjistit, pokud neprovede hloubkové porovnání staré a nové hodnoty. Takové porovnání by mohlo být náročné a pravděpodobně by to nestálo za to.
 
-Instead, we can optimize this by manually comparing the new value with the old value, and conditionally returning the old value if we know nothing has changed:
+Místo toho můžeme optimalizovat tím, že manuálně porovnáme novou hodnotu se starou a podmíněně vrátíme starou hodnotu, pokud víme, že se nic nezměnilo:
 
 ```js
 const computedObj = computed((oldValue) => {
@@ -165,9 +165,9 @@ const computedObj = computed((oldValue) => {
 })
 ```
 
-[Playground Example](https://play.vuejs.org/#eNqVVMtu2zAQ/JUFgSZK4UpuczMkow/40AJ9IC3aQ9mDIlG2EokUyKVt1PC/d0lKtoEminMQQC1nZ4c7S+7Yu66L11awGUtNoesOwQi03ZzLuu2URtiBFtUECtV2FkU5gU2OxWpRVaJA2EOlVQuXxHDJJZeFkgYJayVC5hKj6dUxLnzSjZXmV40rZfFrh3Vb/82xVrLH//5DCQNNKPkweNiNVFP+zBsrIJvDjksgGrRahjVAbRZrIWdBVLz2yBfwBrIsg6mD7LncPyryfIVnywupUmz68HOEEqqCI+XFBQzrOKR79MDdx66GCn1jhpQDZx8f0oZ+nBgdRVcH/aMuBt1xZ80qGvGvh/X6nlXwnGpPl6qsLLxTtitzFFTNl0oSN/79AKOCHHQuS5pw4XorbXsr9ImHZN7nHFdx1SilI78MeOJ7Ca+nbvgd+GgomQOv6CNjSQqXaRJuHd03+kHRdg3JoT+A3a7XsfcmpbcWkQS/LZq6uM84C8o5m4fFuOg0CemeOXXX2w2E6ylsgj2gTgeYio/f1l5UEqj+Z3yC7lGuNDlpApswNNTrql7Gd0ZJeqW8TZw5t+tGaMdDXnA2G4acs7xp1OaTj6G2YjLEi5Uo7h+I35mti3H2TQsj9Jp6etjDXC8Fhu3F9y9iS+vDZqtK2xB6ZPNGGNVYpzHA3ltZkuwTnFf70b+1tVz+MIstCmmGQzmh/p56PGf00H4YOfpR7nV8PTxubP8P2GAP9Q==)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNqVVMtu2zAQ/JUFgSZK4UpuczMkow/40AJ9IC3aQ9mDIlG2EokUyKVt1PC/d0lKtoEminMQQC1nZ4c7S+7Yu66L11awGUtNoesOwQi03ZzLuu2URtiBFtUECtV2FkU5gU2OxWpRVaJA2EOlVQuXxHDJJZeFkgYJayVC5hKj6dUxLnzSjZXmV40rZfFrh3Vb/82xVrLH//5DCQNNKPkweNiNVFP+zBsrIJvDjksgGrRahjVAbRZrIWdBVLz2yBfwBrIsg6mD7LncPyryfIVnywupUmz68HOEEqqCI+XFBQzrOKR79MDdx66GCn1jhpQDZx8f0oZ+nBgdRVcH/aMuBt1xZ80qGvGvh/X6nlXwnGpPl6qsLLxTtitzFFTNl0oSN/79AKOCHHQuS5pw4XorbXsr9ImHZN7nHFdx1SilI78MeOJ7Ca+nbvgd+GgomQOv6CNjSQqXaRJuHd03+kHRdg3JoT+A3a7XsfcmpbcWkQS/LZq6uM84C8o5m4fFuOg0CemeOXXX2w2E6ylsgj2gTgeYio/f1l5UEqj+Z3yC7lGuNDlpApswNNTrql7Gd0ZJeqW8TZw5t+tGaMdDXnA2G4acs7xp1OaTj6G2YjLEi5Uo7h+I35mti3H2TQsj9Jp6etjDXC8Fhu3F9y9iS+vDZqtK2xB6ZPNGGNVYpzHA3ltZkuwTnFf70b+1tVz+MIstCmmGQzmh/p56PGf00H4YOfpR7nV8PTxubP8P2GAP9Q==)
 
-Note that you should always perform the full computation before comparing and returning the old value, so that the same dependencies can be collected on every run.
+Pamatujte, že byste měli před porovnáním a vrácením staré hodnoty vždy provést plný výpočet, aby bylo možné při každém spuštění shromáždit stejné závislosti.
 
 ## Obecné optimalizace {#general-optimizations}
 

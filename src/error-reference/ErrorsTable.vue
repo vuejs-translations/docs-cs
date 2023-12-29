@@ -10,8 +10,8 @@ defineProps<{
   <table>
     <thead>
       <tr>
-        <th>Code</th>
-        <th>Message</th>
+        <th>Kód</th>
+        <th>Text</th>
       </tr>
     </thead>
     <tbody>

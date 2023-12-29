@@ -375,7 +375,7 @@ Přiřadí globální handler pro nezachycené chyby propagované z aplikace.
   - Transition metody
 
   :::tip
-  V produkčním prostředí bude třetí parametr (`info`) zkrácený kód místo kompletního řetězce s informací. Na mapování kódů na texty se můžete podívat do [Reference pro produkční chybové kódy](/error-reference/#runtime-errors).
+  V produkčním prostředí bude třetí parametr (`info`) zkrácený kód místo kompletního řetězce s informací. Na mapování kódů na texty se můžete podívat do [Reference chybových kódů v produkci](/error-reference/#runtime-errors).
   :::
 
 - **Příklad**

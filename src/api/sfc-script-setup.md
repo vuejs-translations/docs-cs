@@ -230,73 +230,73 @@ Výše uvedené bude pro runtime props přeloženo na ekvivalentní `default` vl
 
 ## defineModel() <sup class="vt-badge" data-text="3.4+" /> {#definemodel}
 
-This macro can be used to declare a two-way binding prop that can be consumed via `v-model` from the parent component. Example usage is also discussed in the [Component `v-model`](/guide/components/v-model) guide.
+Toto makro slouží k deklaraci obousměrného (two-way)  bindingu vlastnosti (prop), který může být konzumován pomocí `v-model` z komponenty rodiče. Příklad použití je také rozebrán v průvodci [Komponenta - Binding přes v-model](/guide/components/v-model).
 
-Under the hood, this macro declares a model prop and a corresponding value update event. If the first argument is a literal string, it will be used as the prop name; Otherwise the prop name will default to `"modelValue"`. In both cases, you can also pass an additional object which can include the prop's options and the model ref's value transform options.
+Interně toto makro deklaruje vlastnost (prop) modelu a odpovídající událost (event) aktualizace hodnoty. Pokud je první parametr řetězecový literál, bude použit jako název vlastnosti; jinak se název vlastnosti nastaví na výchozí hodnotu `"modelValue"`. V obou případech můžete také předat další objekt, který může obsahovat možnosti (options) pro vlastnost a možnosti transformace ref pro hodnotu modelu.
 
 ```js
-// declares "modelValue" prop, consumed by parent via v-model
+// deklaruje prop "modelValue", která je konzumována komponentou rodiče pomocí v-model
 const model = defineModel()
-// OR: declares "modelValue" prop with options
+// NEBO: deklaruje prop "modelValue" s možnostmi
 const model = defineModel({ type: String })
 
-// emits "update:modelValue" when mutated
+// vyvolá událost "update:modelValue" při změně
 model.value = 'hello'
 
-// declares "count" prop, consumed by parent via v-model:count
+// deklaruje prop "count", která je konzumována komponentou rodiče pomocí v-model:count
 const count = defineModel('count')
-// OR: declares "count" prop with options
+// NEBO: deklaruje prop "count" s možnostmi
 const count = defineModel('count', { type: Number, default: 0 })
 
 function inc() {
-  // emits "update:count" when mutated
+  // při změně vyvolá událost "update:count"
   count.value++
 }
 ```
 
-### Modifiers and Transformers
+### Modifikátory a transformátory
 
-To access modifiers used with the `v-model` directive, we can destructure the return value of `defineModel()` like this:
+Pro přístup k modifikátorům použitým s direktivou `v-model` můžeme dekonstruovat návratovou hodnotu z `defineModel()` následovně:
 
 ```js
 const [modelValue, modelModifiers] = defineModel()
 
-// corresponds to v-model.trim
+// odpovídá v-model.trim
 if (modelModifiers.trim) {
   // ...
 }
 ```
 
-When a modifier is present, we likely need to transform the value when reading or syncing it back to the parent. We can achieve this by using the `get` and `set` transformer options:
+Když je modifikátor přítomen, pravděpodobně potřebujeme transformovat hodnotu při jejím čtení nebo synchronizaci zpět do komponenty rodiče. Toho můžeme dosáhnout pomocí možností transformátoru `get` a `set`:
 
 ```js
 const [modelValue, modelModifiers] = defineModel({
-  // get() omitted as it is not needed here
+  // get() vynechán, protože zde není potřeba
   set(value) {
-    // if the .trim modifier is used, return trimmed value
+    // pokud je použit modifikátor .trim, vrátíme hodnotu ořezanou o bílé znaky
     if (modelModifiers.trim) {
       return value.trim()
     }
-    // otherwise, return the value as-is
+    // jinak vrátíme hodnotu tak, jak je
     return value
   }
 })
 ```
 
-### Usage with TypeScript <sup class="vt-badge ts" /> {#usage-with-typescript}
+### Použití s TypeScriptem <sup class="vt-badge ts" /> {#usage-with-typescript}
 
-Like `defineProps` and `defineEmits`, `defineModel` can also receive type arguments to specify the types of the model value and the modifiers:
+Stejně jako `defineProps` a `defineEmits`, `defineModel` může také přijímat typové argumenty k určení typů hodnoty modelu a modifikátorů:
 
 ```ts
 const modelValue = defineModel<string>()
 //    ^? Ref<string | undefined>
 
-// default model with options, required removes possible undefined values
+// výchozí model s možnostmi, required odstraňuje možné `undefined` hodnoty
 const modelValue = defineModel<string>({ required: true })
 //    ^? Ref<string>
 
 const [modelValue, modifiers] = defineModel<string, 'trim' | 'uppercase'>()
-//                 ^? Record<'trim' | 'uppercase', true | undefined>
+//    ^? Record<'trim' | 'uppercase', true | undefined>
 ```
 
 ## defineExpose() {#defineexpose}
