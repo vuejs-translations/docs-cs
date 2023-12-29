@@ -1,12 +1,9 @@
 # Transformace reaktivity {#reactivity-transform}
 
 :::danger Zastaralá funkce
-Transformace reaktivity (Reactivity transform) byla experimentální funkcí a byla označená jako deprecated. Přečtěte si [zdůvodnění](https://github.com/vuejs/rfcs/discussions/369#discussioncomment-5059028).
+Transformace reaktivity (Reactivity transform) byla experimentální funkcí a byla odstraněna v release verzi 3.4. Přečtěte si [zdůvodnění](https://github.com/vuejs/rfcs/discussions/369#discussioncomment-5059028).
 
-V některé z budoucích minor verzí Vue Core bude odstraněna.
-
-- Pokud z ní chcete přejít na jinou variantu, podívejte se na [comamnd line nástroj](https://github.com/edison1105/drop-reactivity-transform), který může  tento proces automatizovat.
-- Pokud si ji stále přejete používat, je nyní dostupná prostřednictvím pluginu [Vue Macros](https://vue-macros.sxzz.moe/features/reactivity-transform.html).
+Pokud si ji stále přejete používat, je nyní dostupná prostřednictvím pluginu [Vue Macros](https://vue-macros.sxzz.moe/features/reactivity-transform.html).
 :::
 
 :::tip Specifické pro Composition API
@@ -287,7 +284,7 @@ Při explicitním importu z `vue/macros` bude typ fungovat bez deklarování glo
 ## Explicitní povolení {#explicit-opt-in}
 
 :::warning
-Následující se vztahuje pouze na verzi Vue 3.3 a nižší. Ve verzích 3.4 a vyšších bude podpora z Core odstraněna. Pokud plánujete transformaci nadále používat, přejděte prosím na [Vue Macros](https://vue-macros.sxzz.moe/features/reactivity-transform.html).
+Následující se vztahuje pouze na verze Vue 3.3 a nižší. Její podpora byla odstraněna ve verze 3.4 Vue Core a z `@vitejs/plugin-vue` verze 5.0+. Pokud plánujete transformaci nadále používat, přejděte prosím na [Vue Macros](https://vue-macros.sxzz.moe/features/reactivity-transform.html).
 :::
 
 ### Vite {#vite}

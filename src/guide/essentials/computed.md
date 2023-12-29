@@ -263,7 +263,7 @@ Když teď zadáte `this.fullName = 'Jan Novák'`, zavolá se setter a `this.fir
 
 ### Getter funkce by neměly mít vedlejší účinky {#getters-should-be-side-effect-free}
 
-Je důležité si zapamatovat, že getter funkce pro computed proměnné by měly provádět pouze čisté výpočty a neměly by mít vedlejší účinky. Například **uvnitř computed getter funkce nevytvářejte asynchronní volání ani neměňte DOM**! Představte si computed proměnnou jako deklarativní popis, jak odvodit hodnotu na základě jiných hodnot – její jedinou odpovědností by měl být výpočet a návrat této hodnoty. Později v příručce probereme, jak můžeme vedlejší účinky v reakci na změny stavu provádět pomocí [watchers](./watchers).
+Je důležité si zapamatovat, že getter funkce pro computed proměnné by měly provádět pouze čisté výpočty a neměly by mít vedlejší účinky. Například **uvnitř computed getter funkce neměňte jiný stav, nevytvářejte asynchronní volání, ani neměňte DOM**! Představte si computed proměnnou jako deklarativní popis, jak odvodit hodnotu na základě jiných hodnot – její jedinou odpovědností by měl být výpočet a návrat této hodnoty. Později v příručce probereme, jak můžeme vedlejší účinky v reakci na změny stavu provádět pomocí [watchers](./watchers).
 
 ### Vyhněte se změnám vypočítané hodnoty {#avoid-mutating-computed-value}
 

@@ -257,7 +257,9 @@ Připojí k elementu event listener.
 
 Dynamicky váže jeden nebo více atributů nebo vlastností (props) komponenty na výraz.
 
-- **Zkratka:** `:` nebo `.` (pokud se používá modifikátor `.prop`)
+- **Zkratka:** 
+  - `:` nebo `.` (pokud se používá modifikátor `.prop`)
+  - Vynechání hodnoty (pokud mají atribut vázaná hodnota stejný název) <sup class="vt-badge">3.4+</sup>
 
 - **Očekává:** `libovolný (s parametrem) | Objekt (bez parametru)`
 
@@ -290,6 +292,9 @@ Dynamicky váže jeden nebo více atributů nebo vlastností (props) komponenty 
 
   <!-- zkratka -->
   <img :src="imageSrc" />
+
+  <!-- zkratka stejného názvu (3.4+), bude rozšířeno na :src="src" -->
+  <img :src />
 
   <!-- zkratka s dynamickým názvem atributu -->
   <button :[key]="value"></button>

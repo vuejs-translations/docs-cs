@@ -285,7 +285,7 @@ Spustí callback s aktuální aplikací jako kontextem (injection context).
 
 - **Podrobnosti**
 
-  Očekává callback a okamžitě ji spustí. Během synchronního volání callbacku jsou `inject()` volání schopny vyhledávat hodnoty poskytované v rácmi aktuální aplikace, i když neexistuje žádná aktuální aktivní instance komponenty. Návratová hodnota callback funkce bude také vrácena.
+  Očekává callback funkci a okamžitě ji spustí. Během synchronního volání callbacku mohou volání `inject()` vyhledávat hodnoty poskytované v rámci aktuální aplikace, i když momentálně neexistuje žádná aktivní instance komponenty. Návratová hodnota callback funkce bude také vrácena.
 
 - **Příklad**
 
@@ -373,6 +373,10 @@ Přiřadí globální handler pro nezachycené chyby propagované z aplikace.
   - Watchery
   - Vlastní direktivy
   - Transition metody
+
+  :::tip
+  V produkčním prostředí bude třetí parametr (`info`) zkrácený kód místo kompletního řetězce s informací. Na mapování kódů na texty se můžete podívat do [Reference pro produkční chybové kódy](/error-reference/#runtime-errors).
+  :::
 
 - **Příklad**
 

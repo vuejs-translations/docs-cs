@@ -48,6 +48,8 @@ Při ruční konfiguraci `tsconfig.json` jsou zvlášť zajímavé některé mo�
 
 - Pokud jste nakonfigurovali aliasy resolveru ve svém build nástroji, například alias `@/*` nakonfigurovaný výchozím způsobem v projektu `create-vue`, musíte jej pro TypeScript také nakonfigurovat pomocí [`compilerOptions.paths`](https://www.typescriptlang.org/tsconfig#paths).
 
+- Pokud chcete ve Vue používat TSX, nastavte [`compilerOptions.jsx`](https://www.typescriptlang.org/tsconfig#jsx) na `"preserve"` a [`compilerOptions.jsxImportSource`](https://www.typescriptlang.org/tsconfig#jsxImportSource) na `"vue"`.
+
 Viz také:
 
 - [Oficiální dokumentace k volbám TypeScript překladače](https://www.typescriptlang.org/docs/handbook/compiler-options.html)

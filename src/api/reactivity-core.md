@@ -54,7 +54,7 @@ Přijímá getter funkci a vrací reaktivní objekt [ref](#ref) pouze pro čten�
   ```ts
   // pouze pro čtení
   function computed<T>(
-    getter: () => T,
+    getter: (oldValue: T | undefined) => T,
     // viz odkaz "Ladění computed proměnných" níže
     debuggerOptions?: DebuggerOptions
   ): Readonly<Ref<Readonly<T>>>
@@ -62,7 +62,7 @@ Přijímá getter funkci a vrací reaktivní objekt [ref](#ref) pouze pro čten�
   // zapisovatelný
   function computed<T>(
     options: {
-      get: () => T
+      get: (oldValue: T | undefined) => T
       set: (value: T) => void
     },
     debuggerOptions?: DebuggerOptions
@@ -114,6 +114,7 @@ Přijímá getter funkci a vrací reaktivní objekt [ref](#ref) pouze pro čten�
   - [Průvodce - Computed proměnných](/guide/essentials/computed)
   - [Průvodce - Ladění computed proměnných](/guide/extras/reactivity-in-depth#computed-debugging)
   - [Průvodce - Typování `computed()`](/guide/typescript/composition-api#typing-computed) <sup class="vt-badge ts" />
+  - [Průvodce - Výkon - Stabilita computed proměnných](/guide/best-practices/performance#computed-stability) <sup class="vt-badge" data-text="3.4+" />
 
 ## reactive() {#reactive}
 
@@ -365,6 +366,7 @@ Sleduje jeden nebo více reaktivních datových zdrojů a vyvolá callback, kdy�
     flush?: 'pre' | 'post' | 'sync' // výchozí: 'pre'
     onTrack?: (event: DebuggerEvent) => void
     onTrigger?: (event: DebuggerEvent) => void
+    once?: boolean // default: false (3.4+)
   }
   ```
 
@@ -390,7 +392,8 @@ Sleduje jeden nebo více reaktivních datových zdrojů a vyvolá callback, kdy�
   - **`immediate`**: spustit callback okamžitě při vytvoření watcheru. Stará hodnota bude při prvním volání `undefined`.
   - **`deep`**: vynutit hluboké procházení zdroje, pokud je objektem, takže callback se spustí i při změnách hluboko uvnitř objektu. Viz [Deep Watchers](/guide/essentials/watchers#deep-watchers).
   - **`flush`**: upravit časování vyvolání callbacku. Viz [Časování provedení callback funkce](/guide/essentials/watchers#callback-flush-timing) a [`watchEffect()`](/api/reactivity-core#watcheffect).
-  - **`onTrack / onTrigger`**: ladit závislosti watcheru. Viz [Ladění watchers](/guide/extras/reactivity-in-depth#watcher-debugging).
+  - **`onTrack / onTrigger`**: ladit závislosti watcheru. Viz [Ladění watchers](/guide/extras/reactivity-in-depth#watcher-debugging)..
+  - **`once`**: spustit callback pouze jednou. Watcher se po dokončení prvního běhu callback funkce automaticky zastaví. <sup class="vt-badge" data-text="3.4+" />
 
   V porovnání s [`watchEffect()`](#watcheffect) nám `watch()` umožňuje:
 

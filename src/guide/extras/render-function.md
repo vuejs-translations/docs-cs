@@ -240,11 +240,21 @@ Definice typů ve Vue také poskytuje odvozování typů pro použití TSX. Při
 
 ### Odvozování JSX typů {#jsx-type-inference}
 
-Podobně jako transformace, JSX Vue také potřebuje odlišné definice typů. V současné době se typy pro Vue JSX automaticky registrují globálně. To znamená, že TSX bude fungovat ihned po dostupnosti typu ve Vue.
+Podobně jako transformace, JSX Vue také potřebuje odlišné definice typů.
 
-Globální JSX typy mohou způsobit konflikt při společném použití s jinými knihovnami, které  odvozování typů JSX potřebují také, zejména jde o React. Od verze 3.3 podporuje Vue specifikaci jmenného prostoru pro JSX pomocí TypeScript volby [jsxImportSource](https://www.typescriptlang.org/tsconfig#jsxImportSource). Výchozí globální registraci jmenného prostoru JSX plánujeme odstranit ve verzi 3.4.
+Od verze 3.4 už Vue implicitně neregistruje globální `JSX` namespace. Abyste řekli TypeScriptu, že má používatVue JSX definice typů, přidejte do vašeho `tsconfig.json` následující:
 
-Pro uživatele TSX se doporučuje ve vašem souboru `tsconfig.json` nastavit [jsxImportSource](https://www.typescriptlang.org/tsconfig#jsxImportSource) na `'vue'` po aktualizaci na verzi 3.3 nebo zvolit možnost pro každý soubor pomocí `/* @jsxImportSource vue */`. Tímto způsobem můžete nyní zvolit nové chování a bezproblémově aktualizovat na verzi 3.4.
+```json
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "jsxImportSource": "vue"
+    // ...
+  }
+}
+```
+
+Toto chování můžete také nastavit samostatně pouze pro vybrané soubory přidáním komentáře `/* @jsxImportSource vue */` na začátek souboru.
 
 Pokud existuje kód, který závisí na přítomnosti globálního jmenného prostoru `JSX`, můžete zachovat přesně stejné chování jako před verzí 3.4 explicitním odkazováním na `vue/jsx`, který registruje globální jmenný prostor `JSX`.
 

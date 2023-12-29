@@ -63,6 +63,20 @@ Atributy začínající na `:` mohou vypadat trochu jinak než normální HTML, 
 
 > Ve zbytku průvodce budeme v příkladech kódu používat zkrácenou syntaxi, protože je to pro Vue vývojáře nejběžnější použití.
 
+### Zkratka stejného názvu <sup class="vt-badge" data-text="3.4+" /> {#same-name-shorthand}
+
+Pokud má atribut stejný název jako JavaScript hodnota, která je na něj vázána, syntaxe může být dále zkrácena vynecháním hodnoty atributu:
+
+```vue-html
+<!-- stejné jako :id="id" -->
+<div :id></div>
+
+<!-- i toto funguje -->
+<div v-bind:id></div>
+```
+
+Je to podobné jako 'property shorthand' syntaxe při deklaraci JavaScript objektů. Tato funkce je ovšem dostupná až ve Vue 3.4+.
+
 ### Boolean atributy {#boolean-attributes}
 
 [Boolean atributy](https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes) jsou atributy, jejichž přítomnost v elementu indikuje hodnoty ano / ne. Jedním z nejčastěji používaných boolean atributů je například [`disabled`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/disabled).

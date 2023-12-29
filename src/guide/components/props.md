@@ -406,8 +406,9 @@ defineProps({
     }
   },
   // vlastní validační funkce
+  // od verze 3.4+ jsou jako druhý parametr předávány kompletní props
   propF: {
-    validator(value) {
+    validator(value, props) {
       // hodnota musí odpovídat jednomu z těchto tří řetězců
       return ['success', 'warning', 'danger'].includes(value)
     }
@@ -461,8 +462,9 @@ export default {
       }
     },
     // vlastní validační funkce
+    // od verze 3.4+ jsou jako druhý parametr předávány kompletní props
     propF: {
-      validator(value) {
+      validator(value, props) {
         // hodnota musí odpovídat jednomu z těchto tří řetězců
         return ['success', 'warning', 'danger'].includes(value)
       }
