@@ -1,4 +1,4 @@
-# Template Refs {#template-refs}
+# Template refs {#template-refs}
 
 Zatímco deklarativní model vykreslování ve Vue od vás abstrahuje většinu přímých operací s DOM, stále mohou nastat případy, kdy potřebujeme k základním elementům DOM přímý přístup. Abychom toho dosáhli, můžeme použít speciální atribut `ref`:
 
@@ -8,7 +8,7 @@ Zatímco deklarativní model vykreslování ve Vue od vás abstrahuje většinu 
 
 `ref` je speciální atribut, podobný jako atribut `key` popsaný v kapitole `v-for`. Umožňuje nám získat přímý odkaz na konkrétní DOM element nebo instanci podřízené komponenty poté, co je připojena (mounted). To může být užitečné, když chcete například programově zaměřit vstup na připojenou komponentu nebo na elementu inicializovat knihovnu třetí strany na prvku.
 
-## Přístup k Refs {#accessing-the-refs}
+## Přístup k refs {#accessing-the-refs}
 
 <div class="composition-api">
 
@@ -155,7 +155,7 @@ export default {
 
 Je třeba poznamenat, že ref pole **nezaručuje** stejné pořadí jako zdrojové pole.
 
-## Function Refs {#function-refs}
+## Funkční refs {#function-refs}
 
 Namísto klíče typu string může být atribut `ref` svázán i s funkcí, která bude volána při každé aktualizaci komponenty a poskytne vám plnou flexibilitu, kam uložit odkaz na element. Funkce obdrží odkaz na element jako první parametr:
 
@@ -237,7 +237,7 @@ defineExpose({
 
 Když rodič získá instanci této komponenty prostřednictvím template refs, získaná instance bude mít tvar `{ a: number, b: number}` (refs se automaticky rozbalí stejně jako u normálních instancí).
 
-Viz také: [Typování Template Refs v komponentách](/guide/typescript/composition-api#typing-component-template-refs) <sup class="vt-badge ts" />
+Viz také: [Typování Template refs v komponentách](/guide/typescript/composition-api#typing-component-template-refs) <sup class="vt-badge ts" />
 
 </div>
 <div class="options-api">

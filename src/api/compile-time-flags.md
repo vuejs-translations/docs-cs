@@ -2,10 +2,10 @@
 outline: deep
 ---
 
-# Compile-Time Flags {#compile-time-flags}
+# Compile-Time flags {#compile-time-flags}
 
 :::tip
-Compile-Time Flags se uplatní pouze při použití Vue buildu pomocí `esm-bundler` (tj. `vue/dist/vue.esm-bundler.js`).
+Compile-Time flags se uplatní pouze při použití Vue buildu pomocí `esm-bundler` (tj. `vue/dist/vue.esm-bundler.js`).
 :::
 
 Při použití Vue s build fází je možné konfigurovat několik příznaků (compile-time flags) umožňujích povolit / zakázat určité funkce. Výhodou jejich použití je, že funkce zakázané tímto způsobem lze odstranit z finálního balíčku pomocí tree-shakingu.

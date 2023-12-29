@@ -1,4 +1,4 @@
-# Aplikační API {#application-api}
+# Globální API: Aplikace {#application-api}
 
 ## createApp() {#createapp}
 
@@ -199,9 +199,9 @@ Když je na stejný plugin voláno `app.use()` vícekrát, plugin bude nainstalo
 Použije globální mixin (omezený na aplikaci). Globální mixin aplikuje své obsažené vlastnosti na každou instanci komponenty v aplikaci.
 
 :::warning Nedoporučeno
-Mixin jsou ve Vue 3 podporovány hlavně z důvodu zpětné kompatibility kvůli jejich rozsáhlému používání v knihovnách ekosystému. Používání mixinů, zejména globálních, byste se měli ve vlastním kódu aplikace vyhnout.
+Mixins jsou ve Vue 3 podporovány hlavně z důvodu zpětné kompatibility kvůli jejich rozsáhlému používání v knihovnách ekosystému. Používání mixins, zejména globálních, byste se měli ve vlastním kódu aplikace vyhnout.
 
-Pro opakované použití logiky je lepší použít [Composables](/guide/reusability/composables).
+Pro znovupoužití logiky je lepší použít [Composables](/guide/reusability/composables).
 :::
 
 - **Typ**
@@ -240,7 +240,7 @@ Poskytne hodnotu, která může být vložena (injected) do všech komponent pot
 
   Uvnitř komponenty v aplikaci:
 
-  <div class="composition-api">
+<div class="composition-api">
 
   ```js
   import { inject } from 'vue'
@@ -432,13 +432,13 @@ Nastavte tuto vlastnost na `true`, abyste povolili sledování výkonu inicializ
 
 Runtime konfigurace vlastností překladače. Hodnoty nastavené v tomto objektu budou předány překladači šablon v prohlížeči a ovlivní každou komponentu v konfigurované aplikaci. Poznámka: Tyto možnosti lze také přepsat pro každou komponentu pomocí [volby `compilerOptions`](/api/options-rendering#compileroptions).
 
-::: warning Důležité
+:::warning Důležité
 Tato možnost konfigurace je možná pouze při použití plného buildu (tj. samostatného `vue.js`, který může v prohlížeči kompilovat šablony). Pokud používáte runtime-only build + build setup, vlastnosti překladače musí být předány do `@vue/compiler-dom` pomocí konfigurace build nástroje.
 
 - Pro `vue-loader`: [předejte pomocí volby `compilerOptions`](https://vue-loader.vuejs.org/options.html#compileroptions). Viz také [jak jej nakonfigurovat v `vue-cli`](https://cli.vuejs.org/guide/webpack.html#modifying-options-of-a-loader).
 
 - Pro `vite`: [předejte pomocí nastavení `@vitejs/plugin-vue`](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#options).
-  ::: 
+::: 
 
 ### app.config.compilerOptions.isCustomElement {#app-config-compileroptions-iscustomelement}
 
@@ -576,7 +576,7 @@ Objekt pro definici strategií pro slučování custom vlastností komponenty.
 
 - **Podrobnosti**
 
-  Některé pluginy / knihovny přidávají podporu pro custom vlastnosti komponent (implementací globálních mixinů (mixins)). Tyto vlastnosti mohou vyžadovat speciální logiku pro slučování, když je třeba "sloučit" vlastnost z více zdrojů (např. mixinů nebo dědičnosti komponenty).
+  Některé pluginy / knihovny přidávají podporu pro custom vlastnosti komponent (implementací globálních mixinů (mixins)). Tyto vlastnosti mohou vyžadovat speciální logiku pro slučování, když je třeba "sloučit" vlastnost z více zdrojů (např. mixins nebo dědičnosti komponenty).
 
   Funkce pro strategii slučování může být pro custom vlastnost zaregistrována jejím přiřazením na objekt `app.config.optionMergeStrategies` s použitím názvu vlastnosti jako klíče.
 

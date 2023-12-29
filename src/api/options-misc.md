@@ -1,4 +1,4 @@
-# Options API: Různé {#options-misc}
+# Options API: Ostatní {#options-misc}
 
 ## name {#name}
 

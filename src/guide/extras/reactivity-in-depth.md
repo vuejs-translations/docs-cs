@@ -6,7 +6,7 @@ outline: deep
 import SpreadSheet from './demos/SpreadSheet.vue'
 </script>
 
-# Reactivita podrobně {#reactivity-in-depth}
+# Reaktivita podrobně {#reactivity-in-depth}
 
 Jednou z nejvýraznějších vlastností Vue je nenápadný systém reaktivity. Stav komponenty se skládá z reaktivních JavaScript objektů. Když je upravíte, zobrazení se aktualizuje. To dělá správu stavu jednodušší a intuitivní. Je však také důležité pochopit, jak to funguje, abyste se vyhnuli některým běžným problémům. Na této stránce se budeme zabývat některými podrobnostmi reaktivního systému Vue na nižší úrovni.
 

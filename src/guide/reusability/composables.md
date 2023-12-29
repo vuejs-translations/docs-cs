@@ -382,7 +382,7 @@ Pokud máte zkušenosti s Reactem, možná jste si všimli, že to vypadá velmi
 
 ## Další čtení {#further-reading}
 
-- [Reactivita podrobně](/guide/extras/reactivity-in-depth): pro pochopení fungování systému Vue reaktivity do větší hloubky na nižší úrovni.
+- [Reaktivita podrobně](/guide/extras/reactivity-in-depth): pro pochopení fungování systému Vue reaktivity do větší hloubky na nižší úrovni.
 - [State management](/guide/scaling-up/state-management): pro vzory správy stavu sdíleného více komponentami.
 - [Testování composables](/guide/scaling-up/testing#testing-composables): tipy na jednotkové testování composables.
 - [VueUse](https://vueuse.org/): stále rostoucí kolekce Vue composables. Zdrojový kód je také skvělým zdrojem pro učení.

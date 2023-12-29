@@ -1,4 +1,4 @@
-# Frequently Asked Questions {#frequently-asked-questions}
+# FAQ - často kladené dotazy {#frequently-asked-questions}
 
 ## Kdo spravuje Vue? {#who-maintains-vue}
 

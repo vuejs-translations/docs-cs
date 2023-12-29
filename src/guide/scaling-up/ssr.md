@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Server-Side Rendering (SSR) {#server-side-rendering-ssr}
+# Vykreslování na serveru (SSR) {#server-side-rendering-ssr}
 
 ## Přehled {#overview}
 

@@ -1,4 +1,4 @@
-# Funkce CSS pro SFC {#sfc-css-features}
+# CSS funkce pro SFC {#sfc-css-features}
 
 ## Scoped CSS {#scoped-css}
 

@@ -16,8 +16,8 @@ const nav: ThemeConfig['nav'] = [
       { text: 'Příklady', link: '/examples/' },
       { text: 'Jak začít', link: '/guide/quick-start' },
       // { text: 'Style Guide', link: '/style-guide/' },
-      { text: 'Glossary', link: '/glossary/' },
-      { text: 'Error Reference', link: '/error-reference/' },
+      { text: 'Slovník', link: '/glossary/' },
+      { text: 'Chybové kódy', link: '/error-reference/' },
       {
         text: 'Dokumentace pro Vue 2',
         link: 'https://v2.vuejs.org'
@@ -52,7 +52,7 @@ const nav: ThemeConfig['nav'] = [
             link: 'https://certification.vuejs.org/?ref=vuejs-nav'
           },
           { text: 'Nabídka práce', link: 'https://vuejobs.com/?ref=vuejs' },
-          { text: 'Trička e-shop', link: 'https://vue.threadless.com/' }
+          { text: 'E-shop', link: 'https://vue.threadless.com/' }
         ]
       },
       {
@@ -60,7 +60,7 @@ const nav: ThemeConfig['nav'] = [
         items: [
           { text: 'Vue Router', link: 'https://router.vuejs.org/' },
           { text: 'Pinia', link: 'https://pinia.vuejs.org/' },
-          { text: 'Tooling Guide', link: '/guide/scaling-up/tooling.html' }
+          { text: 'Nástroje', link: '/guide/scaling-up/tooling.html' }
         ]
       },
       {
@@ -109,12 +109,12 @@ const nav: ThemeConfig['nav'] = [
       { text: 'Tým', link: '/about/team' },
       { text: 'Verzování', link: '/about/releases' },
       {
-        text: 'Komunita',
+        text: 'Průvodce komunitou',
         link: '/about/community-guide'
       },
       { text: 'Kodex chování', link: '/about/coc' },
       {
-        text: 'The Documentary (Video)',
+        text: 'Vue.js: The Documentary (Video)',
         link: 'https://www.youtube.com/watch?v=OrxmtDw4pVI'
       }
     ]
@@ -146,7 +146,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
       text: 'Základní principy',
       items: [
         {
-          text: 'Vytvoření aplikace',
+          text: 'Vytvoření Vue aplikace',
           link: '/guide/essentials/application'
         },
         {
@@ -176,11 +176,11 @@ export const sidebar: ThemeConfig['sidebar'] = {
         },
         { text: 'Binding dat z formulářů', link: '/guide/essentials/forms' },
         {
-          text: 'Lifecycle Hooks',
+          text: 'Lifecycle hooks',
           link: '/guide/essentials/lifecycle'
         },
         { text: 'Watchers', link: '/guide/essentials/watchers' },
-        { text: 'Template Refs', link: '/guide/essentials/template-refs' },
+        { text: 'Template refs', link: '/guide/essentials/template-refs' },
         {
           text: 'Základy komponent',
           link: '/guide/essentials/component-basics'
@@ -191,7 +191,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
       text: 'Komponenty podrobněji',
       items: [
         {
-          text: 'Registace',
+          text: 'Registace komponent',
           link: '/guide/components/registration'
         },
         { text: 'Vlastnosti (Props)', link: '/guide/components/props' },
@@ -242,16 +242,16 @@ export const sidebar: ThemeConfig['sidebar'] = {
     {
       text: 'Rozšiřování',
       items: [
-        { text: 'SFC komponenty', link: '/guide/scaling-up/sfc' },
-        { text: 'Tooling', link: '/guide/scaling-up/tooling' },
-        { text: 'Routing', link: '/guide/scaling-up/routing' },
+        { text: 'Single-File komponenty (SFC)', link: '/guide/scaling-up/sfc' },
+        { text: 'Nástroje', link: '/guide/scaling-up/tooling' },
+        { text: 'Směrování', link: '/guide/scaling-up/routing' },
         {
-          text: 'State management',
+          text: 'Správa stavu',
           link: '/guide/scaling-up/state-management'
         },
         { text: 'Testování', link: '/guide/scaling-up/testing' },
         {
-          text: 'Server-Side vykreslování (SSR)',
+          text: 'Vykreslování na serveru (SSR)',
           link: '/guide/scaling-up/ssr'
         }
       ]
@@ -260,7 +260,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
       text: 'Osvědčené postupy',
       items: [
         {
-          text: 'Produkční release',
+          text: 'Nasazení do produkce',
           link: '/guide/best-practices/production-deployment'
         },
         {
@@ -280,13 +280,13 @@ export const sidebar: ThemeConfig['sidebar'] = {
     {
       text: 'TypeScript',
       items: [
-        { text: 'Přehled', link: '/guide/typescript/overview' },
+        { text: 'Používání Vue s TypeScriptem', link: '/guide/typescript/overview' },
         {
-          text: 'TS s Composition API',
+          text: 'TypeScript s Composition API',
           link: '/guide/typescript/composition-api'
         },
         {
-          text: 'TS s Options API',
+          text: 'TypeScript s Options API',
           link: '/guide/typescript/options-api'
         }
       ]
@@ -299,7 +299,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/guide/extras/ways-of-using-vue'
         },
         {
-          text: 'Composition API FAQ',
+          text: 'FAQ o Composition API ',
           link: '/guide/extras/composition-api-faq'
         },
         {
@@ -311,7 +311,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/guide/extras/rendering-mechanism'
         },
         {
-          text: 'Vykreslovací funkce & JSX',
+          text: 'Funkce pro vykreslení & JSX',
           link: '/guide/extras/render-function'
         },
         {
@@ -349,23 +349,23 @@ export const sidebar: ThemeConfig['sidebar'] = {
       items: [
         { text: 'setup()', link: '/api/composition-api-setup' },
         {
-          text: 'Reactivita: Jádro',
+          text: 'Reactivity API: Core',
           link: '/api/reactivity-core'
         },
         {
-          text: 'Reactivita: Utility',
+          text: 'Reactivity API: Utilities',
           link: '/api/reactivity-utilities'
         },
         {
-          text: 'Reactivita: Pokročilé',
+          text: 'Reactivity API: Pokročilé',
           link: '/api/reactivity-advanced'
         },
         {
-          text: 'Lifecycle Hooks',
+          text: 'Lifecycle hooks',
           link: '/api/composition-api-lifecycle'
         },
         {
-          text: 'Dependency Injection',
+          text: 'Dependency injection',
           link: '/api/composition-api-dependency-injection'
         }
       ]
@@ -373,19 +373,19 @@ export const sidebar: ThemeConfig['sidebar'] = {
     {
       text: 'Options API',
       items: [
-        { text: 'Options: Stav', link: '/api/options-state' },
-        { text: 'Options: Vykreslování', link: '/api/options-rendering' },
+        { text: 'Options API: Stav', link: '/api/options-state' },
+        { text: 'Options API: Vykreslování', link: '/api/options-rendering' },
         {
-          text: 'Options: Životní cyklus',
+          text: 'Options API: Životní cyklus',
           link: '/api/options-lifecycle'
         },
         {
-          text: 'Options: Kompozice',
+          text: 'Options API: Kompozice',
           link: '/api/options-composition'
         },
-        { text: 'Options: Ostatní', link: '/api/options-misc' },
+        { text: 'Options API: Ostatní', link: '/api/options-misc' },
         {
-          text: 'Instance komponent',
+          text: 'Instance komponenty',
           link: '/api/component-instance'
         }
       ]
@@ -408,19 +408,19 @@ export const sidebar: ThemeConfig['sidebar'] = {
     {
       text: 'SFC komponenta',
       items: [
-        { text: 'Specifikace syntaxe', link: '/api/sfc-spec' },
+        { text: 'Specifikace syntaxe SFC', link: '/api/sfc-spec' },
         { text: '<script setup>', link: '/api/sfc-script-setup' },
-        { text: 'CSS vlastnosti', link: '/api/sfc-css-features' }
+        { text: 'CSS funkce pro SFC', link: '/api/sfc-css-features' }
       ]
     },
     {
-      text: 'Pokročilá APIs',
+      text: 'Pokročilá API',
       items: [
-        { text: 'Vykreslovací funkce', link: '/api/render-function' },
-        { text: 'Server-Side vykreslování (SSR)', link: '/api/ssr' },
-        { text: 'TypeScript utility typy', link: '/api/utility-types' },
-        { text: 'Custom vykreslování', link: '/api/custom-renderer' },
-        { text: 'Compile-Time Flags', link: '/api/compile-time-flags' }
+        { text: 'API funkce pro vykreslení', link: '/api/render-function' },
+        { text: 'API pro vykreslování na serveru (SSR)', link: '/api/ssr' },
+        { text: 'Utility typy', link: '/api/utility-types' },
+        { text: 'Custom API pro vykreslování', link: '/api/custom-renderer' },
+        { text: 'Compile-Time flags', link: '/api/compile-time-flags' }
       ]
     }
   ],

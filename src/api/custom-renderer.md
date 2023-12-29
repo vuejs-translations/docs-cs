@@ -1,8 +1,8 @@
-# Vlastní API pro vykreslování {#custom-renderer-api}
+# Custom API pro vykreslování {#custom-renderer-api}
 
 ## createRenderer() {#createrenderer}
 
-Vytvoří vlastní vykreslovač (renderer). Poskytnutím API pro vytváření a manipulaci s elementy specifických pro platformu můžete využít jádra běhového prostředí Vue i pro cílové prostředí mimo DOM.
+Vytvoří vlastní vykreslovač (custom renderer). Poskytnutím API pro vytváření a manipulaci s elementy specifických pro platformu můžete využít jádra běhového prostředí Vue i pro cílové prostředí mimo DOM.
 
 - **Typ**
 

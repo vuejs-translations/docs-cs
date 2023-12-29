@@ -13,7 +13,7 @@ const selected = ref('')
 const multiSelected = ref([])
 </script>
 
-# Vazby input elementů formuláře {#form-input-bindings}
+# Binding dat z formulářů {#form-input-bindings}
 
 <div class="options-api">
   <VueSchoolLink href="https://vueschool.io/lessons/user-inputs-vue-devtools-in-vue-3" title="Lekce o uživatelských vstupech ve Vue.js zdarma"/>
@@ -23,7 +23,7 @@ const multiSelected = ref([])
   <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-user-inputs-in-vue" title="Lekce o uživatelských vstupech ve Vue.js zdarma"/>
 </div>
 
-Při práci s formuláři na frontendu často potřebujeme synchronizovat stav vstupních prvků formuláře s odpovídajícím stavem v JavaScriptu. Ruční binding hodnot a změny event listenerů mohou být těžkopádné:
+Při práci s formuláři na frontendu často potřebujeme synchronizovat stav vstupních polí formuláře s odpovídajícím stavem v JavaScriptu. Ruční binding hodnot a změny event listenerů mohou být těžkopádné:
 
 ```vue-html
 <input

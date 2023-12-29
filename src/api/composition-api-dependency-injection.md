@@ -1,4 +1,4 @@
-# Composition API: <br>Dependency Injection {#composition-api-dependency-injection}
+# Composition API: Dependency injection {#composition-api-dependency-injection}
 
 ## provide() {#provide}
 

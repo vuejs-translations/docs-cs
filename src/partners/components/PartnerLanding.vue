@@ -15,7 +15,7 @@ onMounted(() => {
 })
 </script>
 
-<template>s
+<template>
   <div class="PartnerPage">
     <PartnerHero />
 

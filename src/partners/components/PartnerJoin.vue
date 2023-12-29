@@ -4,7 +4,7 @@
     <h2>Rozvíjejte svůj business s Vue</h2>
     <p>
       Vychovejte si lídry pro nové projekty, zvyšte svou důvěryhodnost
-      u klientů, a podpořte dlouhodobou udržitelnost Vue.js a jeho
+      u klientů a podpořte dlouhodobou udržitelnost Vue.js a jeho
       ekosystému.
     </p>
     <a
