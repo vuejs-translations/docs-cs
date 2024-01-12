@@ -21,6 +21,33 @@ Pokud jste zkušený vývojář přecházející z Vue 2 nebo jiných framework�
 
 - Můžete také přepínat mezi SFC-módem a HTML-módem. První z nich zobrazí příklady kódu ve formátu <a target="_blank" href="/guide/introduction.html#single-file-components">Single-File komponenty</a> (SFC), který používá většina vývojářů, pokud pracují s Vue s build fází. HTML-mód ukazuje použití bez build fáze.
 
+<div class="html">
+
+:::tip
+If you're about to use HTML-mode without a build step in your own applications, make sure you either change imports to:
+
+```js
+import { ... } from 'vue/dist/vue.esm-bundler.js'
+```
+
+inside your scripts or configure your build tool to resolve `vue` accordingly. Sample config for [Vite](https://vitejs.dev/):
+
+```js
+// vite.config.js
+export default {
+  resolve: {
+    alias: {
+      vue: 'vue/dist/vue.esm-bundler.js'
+    }
+  }
+}
+```
+
+See the respective [section in Tooling guide](/guide/scaling-up/tooling.html#note-on-in-browser-template-compilation) for more information.
+:::
+
+</div>
+
 </details>
 
 Připraveni? Klikněte na "Další" pro zahájení výuky.

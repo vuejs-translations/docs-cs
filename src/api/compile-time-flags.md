@@ -14,27 +14,27 @@ Vue bude fungovat i tehdy, pokud tyto příznaky nejsou explicitně nakonfigurov
 
 Podívejte se na [Průvodce konfigurací](#configuration-guides), jak je nakonfigurovat v závislosti na vašem build nástroji.
 
-## `__VUE_OPTIONS_API__`
+## `__VUE_OPTIONS_API__` {#VUE_OPTIONS_API}
 
 - **Výchozí hodnota:** `true`
 
   Povolit / zakázat podporu Options API. Zakázání tohoto nastavení povede ke snížení velikosti balíčku, ale může ovlivnit kompatibilitu s knihovnami třetích stran, pokud se na Options API spoléhají.
 
-## `__VUE_PROD_DEVTOOLS__`
+## `__VUE_PROD_DEVTOOLS__` {#VUE_PROD_DEVTOOLS}
 
 - **Výchozí hodnota:** `false`
 
   Povolit / zakázat podporu nástrojů pro vývoj (DevTools) v produkčních buildech. Povolení povede k zahrnutí více kódu do distribučního balíčku, proto se doporučuje tuto možnost povolit pouze pro účely ladění.
 
-## `__VUE_PROD_HYDRATION_MISMATCH_DETAILS__` <sup class="vt-badge" data-text="3.4+" />
+## `__VUE_PROD_HYDRATION_MISMATCH_DETAILS__` <sup class="vt-badge" data-text="3.4+" /> {#VUE_PROD_HYDRATATION_MISMATCH_DETAILS}
 
 - **Výchozí hodnota:** `false`
 
   Povolit / zakázat podrobná varování o nesouladech hydratace (hydration mismatch) v produkčních buildech. Povolení povede k zahrnutí více kódu do distribučního balíčku, proto se doporučuje tuto možnost povolit pouze pro účely ladění.
 
-## Průvodce konfigurací
+## Průvodce konfigurací {#configuration-guides}
 
-### Vite
+### Vite {#vite}
 
 `@vitejs/plugin-vue` pro tyto příznaky automaticky poskytuje výchozí hodnoty. Pro změnu výchozích hodnot použijte Vite konfigurační možnost `define`  ([dokumentace](https://vitejs.dev/config/shared-options.html#define)):
 
@@ -50,7 +50,7 @@ export default defineConfig({
 })
 ```
 
-### vue-cli
+### vue-cli {#vue-cli}
 
 `@vue/cli-service` automaticky poskytuje výchozí hodnoty pro některé z těchto příznaků. Pro konfiguraci / změnu hodnot:
 
@@ -70,7 +70,7 @@ module.exports = {
 }
 ```
 
-### webpack
+### webpack {#webpack}
 
 Příznaky by měly být definovány pomocí webpack [DefinePlugin](https://webpack.js.org/plugins/define-plugin/):
 
@@ -88,7 +88,7 @@ module.exports = {
 }
 ```
 
-### Rollup
+### Rollup {#rollup}
 
 Příznaky by měly být definovány pomocí [@rollup/plugin-replace](https://github.com/rollup/plugins/tree/master/packages/replace):
 

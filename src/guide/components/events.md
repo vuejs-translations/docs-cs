@@ -287,15 +287,3 @@ export default {
 ```
 
 </div>
-
-## Události jako vlastnosti (props) {#udalosti-props}
-
-Můžete také deklarovat a předávat `events` jako `props` pomocí předpony `on` před jménem události s velkým písmenem.
-
-Použití `props.onEvent` má odlišné chování než použití `emit('event')`, protože první zmíněné bude předávat pouze listener založený na vlastnosti (buď `@event` nebo `:on-event`).
-
-:::warning
-Pokud jsou předány jak `:onEvent`, tak `@event`, `props.onEvent` může být polem `funkcí` místo `funkce`. Toto chování není stabilní a může se v budoucnu změnit.
-:::
-
-Z tohoto důvodu se při vysílání událostí doporučuje používat `emit('event')` místo `props.onEvent`.

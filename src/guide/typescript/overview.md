@@ -210,7 +210,7 @@ let x: string | number = 1
 Pokud používáte Vue CLI nebo nastavení založené na nástroji webpack, TypeScript ve výrazech šablon vyžaduje `vue-loader@^16.8.0`.
 :::
 
-### Použití s TSX
+### Použití s TSX {#usage-with-tsx}
 
 Vue také podporuje tvorbu komponent s JSX / TSX. Podrobnosti jsou popsány v průvodci [Funkce pro vykreslení & JSX](/guide/extras/render-function.html#jsx-tsx).
 

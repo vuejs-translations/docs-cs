@@ -12,7 +12,7 @@ Zatímco deklarativní model vykreslování ve Vue od vás abstrahuje většinu 
 
 <div class="composition-api">
 
-Abychom získali referenci s Composition API, musíme deklarovat ref se stejným názvem:
+Abychom získali referenci s Composition API, musíme deklarovat ref s názvem, který odpovídá hodnotě atributu ref v šabloně:
 
 ```vue
 <script setup>

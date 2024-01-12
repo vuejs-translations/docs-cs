@@ -6,8 +6,7 @@ footer: false
 
 :::info Toto je dokumentace pro Vue 3!
 
-- Podpora Vue 2 skončí 31. prosince 2023. Více na stránce [LTS podpory pro Vue 2](https://v2.vuejs.org/lts/).
-- Dokumentaci pro Vue 2 nyní najdete na [v2.vuejs.org](https://v2.vuejs.org/).
+- Podpora Vue 2 skončila 31. prosince 2023. Více v příspěvku [Vue 2 EOL](https://v2.vuejs.org/eol/).
 - Chcete Vue 2 povýšit na Vue 3? Podívejte se na [Návod na migraci](https://v3-migration.vuejs.org/).
   :::
 
@@ -280,4 +279,3 @@ Různí vývojáři mají různé způsoby učení. Vyberte si způsob, který v
     <p class="next-steps-caption">Prozkoumejte příklady základních vlastností a běžných UI úkolů.</p>
   </a>
 </div>
-

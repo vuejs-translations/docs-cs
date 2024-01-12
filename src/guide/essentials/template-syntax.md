@@ -238,7 +238,7 @@ Podobně můžete použít dynamické parametry k bindingu handleru na dynamick�
 <a v-on:[eventName]="doSomething"> ... </a>
 
 <!-- zkrácený zápis -->
-<a @[eventName]="doSomething">
+<a @[eventName]="doSomething"> ... </a>
 ```
 
 V této ukázce, pokud je hodnota `eventName` rovna `"focus"`, `v-on:[eventName]` bude ekvivalentní zápisu `v-on:focus`.

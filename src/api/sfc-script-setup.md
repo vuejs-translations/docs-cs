@@ -254,7 +254,7 @@ function inc() {
 }
 ```
 
-### Modifikátory a transformátory
+### Modifikátory a transformátory {#modifiers-and-transformers}
 
 Pro přístup k modifikátorům použitým s direktivou `v-model` můžeme dekonstruovat návratovou hodnotu z `defineModel()` následovně:
 
