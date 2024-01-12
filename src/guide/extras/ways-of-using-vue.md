@@ -57,4 +57,4 @@ I když je Vue primárně navrženo pro tvorbu webových aplikací, neznamená t
 - Vytvářet mobilní aplikace s [Ionic Vue](https://ionicframework.com/docs/vue/overview)
 - Vytvářet desktopové a mobilní aplikace ze stejného kódu s [Quasar](https://quasar.dev/)
 - Vytvářet WebGL 3D animace pomocí [TresJS](https://tresjs.org/)
-- Používat Vue [Custom Renderer API](/api/custom-renderer) pro tvorbu vlastních nástrojů pro vykreslování zaměřených na [WebGL](https://troisjs.github.io/) nebo dokonce [terminál](https://github.com/vue-terminal/vue-termui)!
+- Používat Vue [Custom Renderer API](/api/custom-renderer) pro tvorbu vlastních nástrojů pro vykreslování například pro [terminál](https://github.com/vue-terminal/vue-termui)!

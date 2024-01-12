@@ -24,13 +24,13 @@ Pokud jste zkušený vývojář přecházející z Vue 2 nebo jiných framework�
 <div class="html">
 
 :::tip
-If you're about to use HTML-mode without a build step in your own applications, make sure you either change imports to:
+Pokud ve vašich aplikacích chcete používat HTML-mód bez fáze sestavení, ujistěte se, že buďto uvnitř vašich skriptů změníte importy na:
 
 ```js
 import { ... } from 'vue/dist/vue.esm-bundler.js'
 ```
 
-inside your scripts or configure your build tool to resolve `vue` accordingly. Sample config for [Vite](https://vitejs.dev/):
+ nastavíte build tool, aby odpovídajícím způsobem vyhodnocoval import z `vue`. Ukázková konfigurace pro [Vite](https://vitejs.dev/) je zde:
 
 ```js
 // vite.config.js
@@ -43,7 +43,7 @@ export default {
 }
 ```
 
-See the respective [section in Tooling guide](/guide/scaling-up/tooling.html#note-on-in-browser-template-compilation) for more information.
+Pro více informací se podívejte se na příslušnou [sekci v průvodci o Nástrojích](/guide/scaling-up/tooling.html#note-on-in-browser-template-compilation).
 :::
 
 </div>
