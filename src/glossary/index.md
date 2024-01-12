@@ -1,416 +1,415 @@
-# Glossary {#glossary}
+# Slovník {#glossary}
 
-This glossary is intended to provide some guidance about the meanings of technical terms that are in common usage when talking about Vue. It is intended to be *descriptive* of how terms are commonly used, not a *prescriptive* specification of how they must be used. Some terms may have slightly different meanings or nuances depending on the surrounding context.
+Tento glosáč má za úkol poskytnout vodítko ohledně významu technických termínů, které se běžně používají, když mluvíme o Vue. Má sloužit *popisně* ohledně toho, jak jsou termíny obvykle používány, nikoliv jako *předpisová* specifikace toho, jak musí být používány. Některé termíny mohou mít mírně odlišné významy nebo nuance v závislosti na kontextu.
 
 [[TOC]]
 
-## async component {#async-component}
+## Asynchronní komponenta {#async-component}
 
-An *async component* is a wrapper around another component that allows for the wrapped component to be lazy loaded. This is typically used as a way to reduce the size of the built `.js` files, allowing them to be split into smaller chunks that are loaded only when required.
+*Asynchronní komponenta* (*Async component*) je obal kolem jiné komponenty, který umožňuje "lazy" načítání komponenty uvnitř. Toto se obvykle používá jako způsob snížení velikosti souborů `.js`, které jsou rozděleny do menších částí načínaných pouze tehdy, když je třeba.
 
-Vue Router has a similar feature for the [lazy loading of route components](https://router.vuejs.org/guide/advanced/lazy-loading.html), though this does not use Vue's async components feature.
+Vue Router má podobnou funkci pro ["lazy" načítání routovacích komponent](https://router.vuejs.org/guide/advanced/lazy-loading.html), tak však asynchronní Vue komponenty nevyužívá.
 
-For more details see:
-- [Guide - Async Components](/guide/components/async.html)
+Další podrobnosti naleznete zde:
+- [Průvodce - Asynchronní komponenty](/guide/components/async.html)
 
-## compiler macro {#compiler-macro}
+## Makro překladače {#compiler-macro}
 
-A *compiler macro* is special code that is processed by a compiler and converted into something else. They are effectively a clever form of string replacement.
+*Makro překladače* (*Compiler macro*) je speciální kód, který je zpracován kompilátorem a převeden na něco jiného. Jsou to vlastně pokročilé formy nahrazení řetězců.
 
-Vue's [SFC](#single-file-component) compiler supports various macros, such as `defineProps()`, `defineEmits()` and `defineExpose()`. These macros are intentionally designed to look like normal JavaScript functions so that they can leverage the same parser and type inference tooling around JavaScript / TypeScript. However, they are not actual functions that are run in the browser. These are special strings that the compiler detects and replaces with the real JavaScript code that will actually be run.
+Vue kompilátor podporuje různá makra pro [SFC](#single-file-component), jako například `defineProps()`, `defineEmits()` a `defineExpose()`. Tato makra jsou záměrně navržena tak, aby vypadala jako běžné JavaScriptové funkce, takže mohou využívat stejného parseru a nástrojů typového odvozování jako běžný JavaScript / TypeScript. Nejedná se však o opravdové funkce, které se spouštějí v prohlížeči. Jsou to pouze speciální řetězce, které kompilátor detekuje a nahradí JS kódem, jenž se skutečně spustí.
 
-Macros have limitations on their use that don't apply to normal JavaScript code. For example, you might think that `const dp = defineProps` would allow you to create an alias for `defineProps`, but it'll actually result in an error. There are also limitations on what values can be passed to `defineProps()`, as the 'arguments' have to be processed by the compiler and not at runtime.
+Makra mají omezenís svého použití, která se na běžný JS kód nevztahují. Například byste si mohli myslet, že `const dp = defineProps` vám umožní vytvořit alias pro `defineProps`, ale ve skutečnosti to skončí chybou. Existují také omezení ohledně hodnot, které lze do `defineProps()` předat, protože 'argumenty' musí být zpracovány kompilátorem a ne až za běhu.
 
-For more details see:
+Pro více informací se podívejte na:
 - [`<script setup>` - `defineProps()` & `defineEmits()`](/api/sfc-script-setup.html#defineprops-defineemits)
 - [`<script setup>` - `defineExpose()`](/api/sfc-script-setup.html#defineexpose)
 
-## component {#component}
+## Komponenta {#component}
 
-The term *component* is not unique to Vue. It is common to many UI frameworks. It describes a chunk of the UI, such as a button or checkbox. Components can also be combined to form larger components.
+Termín *komponenta* (*component*) není pro Vue unikátní. Je běžný v mnoha UI frameworcích. Popisuje část uživatelského rozhraní, jako je tlačítko (button) nebo zaškrtávací políčko (checkbox). Komponenty lze také kombinovat do větších komponent.
 
-Components are the primary mechanism provided by Vue to split a UI into smaller pieces, both to improve maintainability and to allow for code reuse.
+Komponenty jsou hlavním mechanismem, který Vue poskytuje k rozdělení uživatelského rozhraní na menší části, jak pro zlepšení udržovatelnosti, tak pro umožnění znovupoužití kódu.
 
-A Vue component is an object. All properties are optional, but either a template or render function is required for the component to render. For example, the following object would be a valid component:
+Vue komponenta je objekt. Všechny vlastnosti jsou volitelné, ale pro vykreslení komponenty je vyžadována buďto šablona nebo funkce pro vykreslení. Například následující objekt by byl platnou komponentou:
 
 ```js
-const HelloWorldComponent = {
+const SimpleComponent = {
   render() {
-    return 'Hello world!'
+    return 'Ahoj, Vue!'
   }
 }
 ```
 
-In practice, most Vue applications are written using [Single-File Components](#single-file-component) (`.vue` files). While these components may not appear to be objects at first glance, the SFC compiler will convert them into an object, which is used as the default export for the file. From an external perspective, a `.vue` file is just an ES module that exports a component object.
+V praxi jsou většinou Vue aplikace psány pomocí [Single-File komponent (SFC)](#single-file-component) (soubory s příponou `.vue`). I když se tyto komponenty nemusí na první pohled jevit jako objekty, kompilátor SFC je převede na objekt, který je následně použit jako výchozí (default) export souboru. Z vnějšího pohledu je tak `.vue` soubor vlastně jen ES modul, který exportuje objekt komponenty.
 
-The properties of a component object are usually referred to as *options*. This is where the [Options API](#options-api) gets its name.
+Vlastnosti objektu komponenty jsou obvykle označovány jako *options*. Odtud pochází termín [Options API](#options-api).
 
-The options for a component define how instances of that component should be created. Components are conceptually similar to classes, though Vue doesn't use actual JavaScript classes to define them.
+Vlastnosti pro komponentu definují, jak mají být vytvářeny instance této komponenty. Komponenty jsou konceptuálně podobné třídám, i když Vue k jejich definici nepoužívá skutečné JavaScriptové třídy.
 
-The term component can also be used more loosely to refer to component instances.
+Termín komponenta se také může používat volněji k odkazování na jednotlivé instance komponent.
 
-For more details see:
-- [Guide - Component Basics](/guide/essentials/component-basics.html)
+Pro více informací se podívejte na:
+- [Průvodce - Základy komponent](/guide/essentials/component-basics.html)
 
-The word 'component' also features in several other terms:
-- [async component](#async-component)
-- [dynamic component](#dynamic-component)
-- [functional component](#functional-component)
+Slovo 'komponenta' se také objevuje v několika dalších termínech:
+- [asynchronní komponenta](#async-component)
+- [dynamická komponenta](#dynamic-component)
+- [funkční komponenta](#functional-component)
 - [Web Component](#web-component)
 
-## composable {#composable}
+## Composable {#composable}
 
-The term *composable* describes a common usage pattern in Vue. It isn't a separate feature of Vue, it's just a way of using the framework's [Composition API](#composition-api).
+Termín *composable* popisuje běžně používaný vzor ve Vue. Není to samostatná funkce Vue, je to jen způsob použití [Composition API](#composition-api) frameworku.
 
-* A composable is a function.
-* Composables are used to encapsulate and reuse stateful logic.
-* The function name usually begins with `use`, so that other developers know it's a composable.
-* The function is typically expected to be called during the synchronous execution of a component's `setup()` function (or, equivalently, during the execution of a `<script setup>` block). This ties the invocation of the composable to the current component context, e.g. via calls to `provide()`, `inject()` or `onMounted()`.
-* Composables typically return a plain object, not a reactive object. This object usually contains refs and functions and is expected to be destructured within the calling code.
+* Composable je funkce.
+* Composable funkce slouží k zapouzdření a znovupoužití stavové logiky.
+* Název funkce obvykle začíná `use`, aby ostatní vývojáři věděli, že se jedná o composable funkci.
+* Očekává se, že funkce bude volána během synchronního zpracování funkce `setup()` v komponentě (nebo ekvivalentně během vykonávání bloku `<script setup>`). Tím je volání composable svázáno s aktuálním kontextem komponenty, například běhen volání funkcí `provide()`, `inject()` nebo `onMounted()`.
+* Composable obvykle vrací běžný, nikoli reaktivní objekt. Tento objekt obvykle obsahuje refs a funkce a očekává se, že bude destrukturován v kódu, který composable spustil.
 
-As with many patterns, there can be some disagreement about whether specific code qualifies for the label. Not all JavaScript utility functions are composables. If a function doesn't use the Composition API then it probably isn't a composable. If it doesn't expect to be called during the synchronous execution of `setup()` then it probably isn't a composable. Composables are specifically used to encapsulate stateful logic, they are not just a naming convention for functions.
+Stejně jako u mnoha vzorů může být někdy rozpor ohledně toho, zda konkrétní kód daný vzor splňuje. Ne všechny JavaScript utility funkce jsou composables. Pokud funkce nepoužívá Composition API, pravděpodobně se o composable nejedná. Pokud neočekává, že bude volána během synchronního vykonávání funkce `setup()`, pravděpodobně se o composable nejedná. Composables jsou specificky používány k zapouzdření stavové logiky, nejedná se jen o konvenci pro pojmenování funkcí.
 
-See [Guide - Composables](/guide/reusability/composables.html) for more details about writing composables.
+Podívejte se na [Průvodce - Composables](/guide/reusability/composables.html) pro více informací o psaní composables.
 
 ## Composition API {#composition-api}
 
-The *Composition API* is a collection of functions used to write components and composables in Vue.
+*Composition API* je soubor funkcí používaných ve Vue k psaní komponent a composables.
 
-The term is also used to describe one of the two main styles used to write components, the other being the [Options API](#options-api). Components written using the Composition API use either `<script setup>` or an explicit `setup()` function.
+Termín se také používá k popisu jednoho ze dvou hlavních stylů používaných k psaní komponent, druhým je [Options API](#options-api). Komponenty psané pomocí Composition API používají buď `<script setup>` nebo explicitní funkci `setup()`.
 
-See the [Composition API FAQ](/guide/extras/composition-api-faq) for more details.
+Pro více informací se podívejte na [Composition API FAQ](/guide/extras/composition-api-faq).
 
-## custom element {#custom-element}
+## Custom element {#custom-element}
 
-A *custom element* is a feature of the [Web Components](#web-component) standard, which is implemented in modern web browsers. It refers to the ability to use a custom HTML element in your HTML markup to include a Web Component at that point in the page.
+*Custom element* je funkce standardu [Web Components](#web-component), která je implementována v moderních webových prohlížečích. Odkazuje na schopnost používat vlastní HTML element ve vašem HTML kódu pro zahrnutí Web Compoment na daném místě stránky.
 
-Vue has built-in support for rendering custom elements and allows them to be used directly in Vue component templates.
+Vue má vestavěnou podporu pro vykreslování custom elementů a umožňuje je používat přímo v šablonách Vue komponent.
 
-Custom elements should not be confused with the ability to include Vue components as tags within another Vue component's template. Custom elements are used to create Web Components, not Vue components.
+Custom elementy by neměly být zaměňovány s možností zahrnutí Vue komponent jako tagů v šabloně jiné Vue komponenty. Custom elementy slouží k vytváření Web Components, nikoliv Vue komponent.
 
-For more details see:
-- [Guide - Vue and Web Components](/guide/extras/web-components.html)
+Další podrobnosti naleznete zde:
+- [Průvodce - Vue a Web Components](/guide/extras/web-components.html)
 
-## directive {#directive}
+## Direktiva {#directive}
 
-The term *directive* refers to template attributes beginning with the `v-` prefix, or their equivalent shorthands.
+Termín *direktiva* (*directive*) se vztahuje na atributy šablony začínající prefixem `v-` nebo jejich zkratky.
 
-Built-in directives include `v-if`, `v-for`, `v-bind`, `v-on` and `v-slot`.
+Vestavěné direktivy zahrnují `v-if`, `v-for`, `v-bind`, `v-on` a `v-slot`.
 
-Vue also supports creating custom directives, though they are typically only used as an 'escape hatch' for manipulating DOM nodes directly. Custom directives generally can't be used to recreate the functionality of the built-in directives.
+Vue také podporuje vytváření vlastních direktiv, i když se obvykle používají pouze jako "únikový východ" pro přímou manipulaci s DOM elementy. Vlastní direktivy obecně nelze použít k reprodukci funkcionality vestavěných direktiv.
 
-For more details see:
-- [Guide - Template Syntax - Directives](/guide/essentials/template-syntax.html#directives)
-- [Guide - Custom Directives](/guide/reusability/custom-directives.html)
+Další podrobnosti naleznete zde:
+- [Průvodce - Syntaxe šablony - Direktivy](/guide/essentials/template-syntax.html#directives)
+- [Průvodce - Vlastní direktivy](/guide/reusability/custom-directives.html)
 
-## dynamic component {#dynamic-component}
+## Dynamická komponenta {#dynamic-component}
 
-The term *dynamic component* is used to describe cases where the choice of which child component to render needs to be made dynamically. Typically, this is achieved using `<component :is="type">`.
+Termín *dynamická komponenta* (*dynamic component*) se používá pro popis případů, kdy je potřeba dynamicky rozhodnout, která komponenta potomka se má vykreslit. Obvykle se toho dosahuje pomocí `<component :is="type">`.
 
-A dynamic component is not a special type of component. Any component can be used as a dynamic component. It is the choice of component that is dynamic, rather than the component itself.
+Dynamická komponenta není zvláštní typ komponenty. Jako dynamická může být použita jakákoli komponenta. Dynamická je volba komponenty, nikoli komponenta samotná.
 
-For more details see:
-- [Guide - Components Basics - Dynamic Components](/guide/essentials/component-basics.html#dynamic-components)
+Další podrobnosti naleznete zde:
+- [Průvodce - Základy komponent - Dynamické komponenty](/guide/essentials/component-basics.html#dynamic-components)
 
-## effect {#effect}
+## Efekt {#effect}
 
-See [reactive effect](#reactive-effect) and [side effect](#side-effect).
+Viz [reaktivní efekt](#reactive-effect) a [vedlejší efekt](#side-effect).
 
-## event {#event}
+## Událost {#event}
 
-The use of events for communicating between different parts of a program is common to many different areas of programming. Within Vue, the term is commonly applied to both native HTML element events and Vue component events. The `v-on` directive is used in templates to listen for both types of event.
+Používání událostí pro komunikaci mezi různými částmi programu je běžné v mnoha oblastech programování. V rámci Vue se termín obvykle používá jak pro události nativních HTML prvků, tak pro události Vue komponent. Direktiva `v-on` se používá ve šablonách k naslouchání oběma typům událostí.
 
-For more details see:
-- [Guide - Event Handling](/guide/essentials/event-handling.html)
-- [Guide - Component Events](/guide/components/events.html)
+Pro více podrobností viz:
+- [Průvodce - Obsluha událostí](/guide/essentials/event-handling.html)
+- [Průvodce - Události komponent](/guide/components/events.html)
 
-## fragment {#fragment}
+## Fragment {#fragment}
 
-The term *fragment* refers to a special type of [VNode](#vnode) that is used as a parent for other VNodes, but which doesn't render any elements itself.
+Termín *Fragment* se odkazuje na speciální typ [VNode](#vnode), který se používá jako rodič pro další VNodes, ale sám nevykresluje žádné prvky.
 
-The name comes from the similar concept of a [`DocumentFragment`](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment) in the native DOM API.
+Název pochází ze stejného konceptu jako [`DocumentFragment`](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment) v nativním DOM API.
 
-Fragments are used to support components with multiple root nodes. While such components might appear to have multiple roots, behind the scenes they use a fragment node as a single root, as a parent of the 'root' nodes.
+Fragmenty se používají k podpoře komponent s více root elementy. I když se takové komponenty mohou jevit jako s více kořeny, v pozadí používají fragmentový uzel jako jediný kořen, jako rodiče 'root' elementů.
 
-Fragments are also used by the template compiler as a way to wrap multiple dynamic nodes, e.g. those created via `v-for` or `v-if`. This allows for extra hints to be passed to the [VDOM](#virtual-dom) patching algorithm. Much of this is handled internally, but one place you may encounter this directly is using a `key` on a `<template>` tag with `v-for`. In that scenario, the `key` is added as a [prop](#prop) to the fragment VNode.
+Fragmenty jsou také použivány kompilátorem šablon jako způsob obalení více dynamických uzlů, například těch vytvořených pomocí `v-for` nebo `v-if`. To umožňuje předávat další informace algoritmu pro úpravu [VDOM](#virtual-dom). Většina toho je řešena interně, ale jedno místo, kde se s tím můžete setkat přímo, je použití atributu `key` na elementu `<template>` s `v-for`. V tomto scénáři je `key` přidán jako [vlastnost (prop)](#prop) do fragmentového VNode.
 
-Fragment nodes are currently rendered to the DOM as empty text nodes, though that is an implementation detail. You may encounter those text nodes if you use `$el` or attempt to walk the DOM with built-in browser APIs.
+Fragmentové uzly jsou v současné době vykreslovány do DOM jako prázdné textové uzly, byť jde o implementační detail. Můžete však na tyto textové uzly narazit, pokud používáte `$el` nebo se pokoušíte procházet DOM pomocí vestavěných API prohlížeče.
 
-## functional component {#functional-component}
+## Funkční komponenta {#functional-component}
 
-A component definition is usually an object containing options. It may not appear that way if you're using `<script setup>`, but the component exported from the `.vue` file will still be an object.
+Definice komponenty je obvykle objekt obsahující vlastnosti. Nemusí to tak vypadat, pokud používáte `<script setup>`, ale komponenta exportovaná z `.vue` souboru bude stále objektem.
 
-A *functional component* is an alternative form of component that is declared using a function instead. That function acts as the [render function](#render-function) for the component.
+*Funkční komponenta* (*Functional component*) je alternativní forma komponenty, která je deklarována pomocí funkce. Tato funkce slouží jako [funkce pro vykreslení](#render-function) pro komponentu.
 
-A functional component cannot have any state of its own. It also doesn't go through the usual component lifecycle, so lifecycle hooks can't be used. This makes them slightly lighter than normal, stateful components.
+Funkční komponenta nemůže mít vlastní stav. Také neprochází běžným životním cyklem komponenty, takže nemůžete používat lifecycle hooks. To je dělá o něco jednodušší než běžné stavové komponenty.
 
-For more details see:
-- [Guide - Render Functions & JSX - Functional Components](/guide/extras/render-function.html#functional-components)
+Pro více podrobností viz:
+- [Průvodce - Funkce pro vykreslení a JSX - Funkční komponenty](/guide/extras/render-function.html#functional-components)
 
-## hoisting {#hoisting}
+## Hoisting {#hoisting}
 
-The term *hoisting* is used to describe running a section of code before it is reached, ahead of other code. The execution is 'pulled up' to an earlier point.
+Termín *hoisting* se používá k označení spuštění části kódu předtím, než je dosažen, před ostatním kódem. Vykonávání je "vytaženo" na dřívější bod.
 
-JavaScript uses hoisting for some constructs, such as `var`, `import` and function declarations.
+JavaScript používá hoisting pro některé konstrukce, jako jsou `var`, `import` a deklarace funkcí.
 
-In a Vue context, the template compiler applies *static hoisting* to improve performance. When converting a template to a render function, VNodes that correspond to static content can be created once and then reused. These static VNodes are described as hoisted because they are created outside the render function, before it runs. A similar form of hoisting is applied to static objects or arrays that are generated by the template compiler.
+V kontextu Vue aplikace používá kompilátor šablon  *statický hoisting* pro zlepšení výkonu. Při převodu šablony na vykreslovací funkci mohou být VNodes, které odpovídají statickému obsahu, vytvořeny jednou a poté znovu použity. Tyto statické VNodes jsou popsány jako hoisted, protože jsou vytvořeny mimo vykreslovací funkci, před jejím spuštěním. Podobná forma hoistingu se aplikuje na statické objekty nebo pole, které jsou generovány kompilátorem šablon.
 
-For more details see:
-- [Guide - Rendering Mechanism - Static Hoisting](/guide/extras/rendering-mechanism.html#static-hoisting)
+Další podrobnosti naleznete zde:
+- [Průvodce - Mechanismus vykreslování - Statický hoisting](/guide/extras/rendering-mechanism.html#static-hoisting)
 
-## in-DOM template {#in-dom-template}
+## In-DOM šablona {#in-dom-template}
 
-There are various ways to specify a template for a component. In most cases the template is provided as a string.
+Existuje několik způsobů, jak definovat šablonu pro komponentu. Většinou je šablona poskytována jako string.
 
-The term *in-DOM template* refers to the scenario where the template is provided in the form of DOM nodes, instead of a string. Vue then converts the DOM nodes into a template string using `innerHTML`.
+Termín *in-DOM šablona* (*in-DOM template*) se vztahuje na situaci, kdy je šablona poskytována ve formě DOM elementů, namísto řetězce. Vue poté převede DOM elementy na řetězec šablony pomocí `innerHTML`.
 
-Typically, an in-DOM template starts off as HTML markup written directly in the HTML of the page. The browser then parses this into DOM nodes, which Vue then uses to read off the `innerHTML`.
+Obvykle in-DOM šablona začíná jako HTML přímo vepsané do HTML kódu stránky. Prohlížeč ji pak převede na DOM elementy, které použije Vue k přečtení `innerHTML`.
 
-For more details see:
-- [Guide - Creating an Application - In-DOM Root Component Template](/guide/essentials/application.html#in-dom-root-component-template)
-- [Guide - Component Basics - in-DOM Template Parsing Caveats](/guide/essentials/component-basics.html#in-dom-template-parsing-caveats)
-- [Options: Rendering - template](/api/options-rendering.html#template)
+Další podrobnosti naleznete zde:
+- [Průvodce - Vytvoření Vue aplikace - In-DOM šablona root komponenty](/guide/essentials/application.html#in-dom-root-component-template)
+- [Průvodce - Základy komponent - Omezení při parsování in-DOM šablon](/guide/essentials/component-basics.html#in-dom-template-parsing-caveats)
+- [Možnosti: Vykreslování - šablona](/api/options-rendering.html#template)
 
-## inject {#inject}
+## Inject {#inject}
 
-See [provide / inject](#provide-inject).
+Viz [provide / inject](#provide-inject).
 
-## lifecycle hooks {#lifecycle-hooks}
+## Lifecycle hooks {#lifecycle-hooks}
 
-A Vue component instance goes through a lifecycle. For example, it is created, mounted, updated, and unmounted.
+Instance Vue komponenty prochází životním cyklem. Například je vytvořena (created), připojena (mounted), aktualizována (updated) a odpojena (unmounted).
 
-The *lifecycle hooks* are a way to listen for these lifecycle events.
+*Lifecycle hooks* jsou způsobem, jak těmto událostem životního cyklu naslouchat.
 
-With the Options API, each hook is provided as a separate option, e.g. `mounted`. The Composition API uses functions instead, such as `onMounted()`.
+S Options AP je každý hook poskytován jako samostatná sekce, např. `mounted`. Composition API místo toho používá funkce, jako například `onMounted()`.
 
-For more details see:
-- [Guide - Lifecycle Hooks](/guide/essentials/lifecycle.html)
+Další podrobnosti naleznete zde:
+- [Průvodce - Lifecycle Hooks](/guide/essentials/lifecycle.html)
 
-## macro {#macro}
+## Macro {#macro}
 
-See [compiler macro](#compiler-macro).
+Viz [Makro překladače](#compiler-macro).
 
-## named slot {#named-slot}
+## Pojmenovaný slot {#named-slot}
 
-A component can have multiple slots, differentiated by name. Slots other than the default slot are referred to as *named slots*.
+Komponenta může mít více slotů, které se liší svým jménem. Sloty jiné než výchozí (default) slot se nazývají *pojmenované sloty* (*named slots*).
 
-For more details see:
-- [Guide - Slots - Named Slots](/guide/components/slots.html#named-slots)
+Další podrobnosti naleznete zde:
+- [Průvodce - Sloty (Slots) - Pojmenované sloty](/guide/components/slots.html#named-slots)
 
 ## Options API {#options-api}
 
-Vue components are defined using objects. The properties of these component objects are known as *options*.
+Vue komponenty jsou definovány pomocí objektů. Vlastnosti těchto objektů komponent se nazývají *options*.
 
-Components can be written in two styles. One style uses the [Composition API](#composition-api) in conjunction with `setup` (either via a `setup()` option or `<script setup>`). The other style makes very little direct use of the Composition API, instead using various component options to achieve a similar result. The component options that are used in this way are referred to as the *Options API*.
+Komponenty mohou být psány ve dvou stylech. Jeden styl používá [Composition API](#composition-api) ve spojení s `setup` (buď pomocí volby `setup()` nebo `<script setup>`). Druhý styl nepoužívá přímo Composition API, ale místo toho používá různé možnosti komponent (options) k dosažení podobného výsledku. Možnosti komponent, které jsou použity tímto způsobem, se nazývají *Options API*.
 
-The Options API includes options such as `data()`, `computed`, `methods` and `created()`.
+Options API zahrnuje sekce jako `data()`, `computed`, `methods` a `created()`.
 
-Some options, such as `props`, `emits` and `inheritAttrs`, can be used when authoring components with either API. As they are component options, they could be considered part of the Options API. However, as these options are also used in conjunction with `setup()`, it is usually more useful to think of them as shared between the two component styles.
+Některé možnosti, jako `props`, `emits` a `inheritAttrs`, lze použít při tvorbě komponent s oběma API. Jelikož jsou to možnosti komponent, mohly by být považovány za součást Options API. Nicméně, jelikož tyto volby jsou také používány ve spojení s `setup()`, je obvykle lepší je považovat za sdílené mezi oběma styly komponent.
 
-The `setup()` function itself is a component option, so it *could* be described as part of the Options API. However, this is not how the term 'Options API' is normally used. Instead, the `setup()` function is considered to be part of Composition API.
+Samotná funkce `setup()` je možnost komponenty, takže by se *mohla* popsat jako součást Options API. Nicméně, to není běžný způsob používání termínu 'Options API'. Místo toho se funkce `setup()` považuje za součást Composition API.
 
-## plugin {#plugin}
+## Plugin {#plugin}
 
-While the term *plugin* can be used in a wide variety of contexts, Vue has a specific concept of a plugin as a way to add functionality to an application.
+Zatímco termín *plugin* může být použit v široké škále kontextů, Vue má specifický koncept pluginu jako způsobu přidání funkcionality do aplikace.
 
-Plugins are added to an application by calling `app.use(plugin)`. The plugin itself is either a function or an object with an `install` function. That function will be passed the application instance and can then do whatever it needs to do.
+Pluginy jsou přidávány do aplikace voláním `app.use(plugin)`. Samotný plugin je buď funkce nebo objekt s funkcí `install`. Tato funkce obdrží instanci aplikace a může poté provést cokoli, co potřebuje.
 
-For more details see:
-- [Guide - Plugins](/guide/reusability/plugins.html)
+Pro více informací se podívejte na:
+- [Průvodce - Pluginy](/guide/reusability/plugins.html)
 
-## prop {#prop}
+## Vlastnosti (props) {#prop}
 
-There are three common uses of the term *prop* in Vue:
+Existují tři běžné použití termínu *prop* ve Vue:
 
-* Component props
-* VNode props
-* Slot props
+* Props komponenty
+* Props VNode
+* Props slotu
 
-*Component props* are what most people think of as props. These are explicitly defined by a component using either `defineProps()` or the `props` option.
+*Vlastnosti (props) komponenty* jsou to, na co většina lidí myslí při použití termínu 'props'. Ty jsou explicitně definovány komponentou pomocí `defineProps()` nebo sekcí `props`.
 
-The term *VNode props* refers to the properties of the object passed as the second argument to `h()`. These can include component props, but they can also include component events, DOM events, DOM attributes and DOM properties. You'd usually only encounter VNode props if you're working with render functions to manipulate VNodes directly.
+Termín *Props VNode* se odkazuje na vlastnosti objektu předaného jako druhý argument do `h()`. Ty mohou zahrnovat vlastnosti (props) komponenty, ale také mohou obsahovat její události, nebo události, atributy a vlastnosti DOM. S vlastnostmi VNode se obvykle setkáte pouze tehdy, pokud pracujete s funkcemi pro vykreslení pro přímou manipulaci s VNodes.
 
-*Slot props* are the properties passed to a scoped slot.
+*Props slotu* jsou vlastnosti předané do scoped slotu.
 
-In all cases, props are properties that are passed in from elsewhere.
+Ve všech případech jsou 'props' vlastnosti, které jsou předány z jiného místa.
 
-While the word props is derived from the word *properties*, the term props has a much more specific meaning in the context of Vue. You should avoid using it as an abbreviation of properties.
+I když je slovo 'props' odvozeno od slova *properties* (vlastnosti), termín 'props' má ve Vue mnohem specifičtější význam. Měli byste se vyvarovat jeho používání jako pouhé zkratky pro vlastnosti.
 
-For more details see:
-- [Guide - Props](/guide/components/props.html)
-- [Guide - Render Functions & JSX](/guide/extras/render-function.html)
-- [Guide - Slots - Scoped Slots](/guide/components/slots.html#scoped-slots)
+Pro více informací se podívejte na:
+- [Průvodce - Vlastnosti (Props)](/guide/components/props.html)
+- [Průvodce - Funkce pro vykreslení a JSX](/guide/extras/render-function.html)
+- [Průvodce - Sloty (Slots) - Scoped sloty](/guide/components/slots.html#scoped-slots)
 
-## provide / inject {#provide-inject}
+## Provide / Inject {#provide-inject}
 
-`provide` and `inject` are a form of inter-component communication.
+`provide` a `inject` jsou formou komunikace mezi komponentami.
 
-When a component *provides* a value, all descendants of that component can then choose to grab that value, using `inject`. Unlike with props, the providing component doesn't know precisely which component is receiving the value.
+Když komponenta *poskytuje* (*provides*) hodnotu, všechny komponenty potomků mohou tuto hodnotu získat pomocí `inject`. Na rozdíl od vlastností (props) neví poskytující komponenta přesně, která komponenta hodnotu přijímá.
 
-`provide` and `inject` are sometimes used to avoid *prop drilling*. They can also be used as an implicit way for a component to communicate with its slot contents.
+`provide` a `inject` se někdy používají pro zamezení *drillingu vlastností* (*prop drilling*). Mohou také sloužit jako implicitní způsob, jak komponenta komunikuje se obsahem svého slotu.
 
-`provide` can also be used at the application level, making a value available to all components within that application.
+`provide` lze také použít na úrovni celé aplikace, čímž se hodnota stane dostupnou pro všechny komponenty v rámci této aplikace.
 
-For more details see:
-- [Guide - provide / inject](/guide/components/provide-inject.html)
+Pro více informací se podívejte na:
+- [Průvodce - Provide / Inject](/guide/components/provide-inject.html)
 
-## reactive effect {#reactive-effect}
+## Reaktivní efekt {#reactive-effect}
 
-A *reactive effect* is part of Vue's reactivity system. It refers to the process of tracking the dependencies of a function and re-running that function when the values of those dependencies change.
+*Reaktivní efekt* (*Reactive effect*) je součástí systému reaktivity ve Vue. Odkazuje se na proces sledování závislostí funkce a opětovného spuštění této funkce, když se hodnoty těchto závislostí změní.
 
-`watchEffect()` is the most direct way to create an effect. Various other parts of Vue use effects internally. e.g. component rendering updates, `computed()` and `watch()`.
+Nejpřímočařejší způsob vytvoření tohoto efektu je `watchEffect()`. Různé části Vue reaktivní efekty interně používají, například aktualizace vykreslování komponent, `computed()` a `watch()`.
 
-Vue can only track reactive dependencies within a reactive effect. If a property's value is read outside a reactive effect it'll 'lose' reactivity, in the sense that Vue won't know what to do if that property subsequently changes.
+Vue může sledovat reaktivní závislosti pouze uvnitř reaktivního efektu. Pokud je hodnota vlastnosti čtena mimo reaktivní efekt, 'ztratí' svou reaktivitu, ve smyslu, že pokud se tato vlastnost následně změní, Vue nebude vědět, co dělat.
 
-The term is derived from 'side effect'. Calling the effect function is a side effect of the property value being changed.
+Termín je odvozen od "vedlejšího efektu" ("side effect"). Volání funkce reaktivního efektu je vedlejším efektem změny hodnoty vlastnosti.
 
-For more details see:
-- [Guide - Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
+Další podrobnosti naleznete zde:
+- [Průvodce - Reaktivita podrobně](/guide/extras/reactivity-in-depth.html)
 
-## reactivity {#reactivity}
+## Reaktivita {#reactivity}
 
-In general, *reactivity* refers to the ability to automatically perform actions in response to data changes. For example, updating the DOM or making a network request when a data value changes.
+Obecně se *reaktivita* (*reactivity*) odkazuje na schopnost automaticky provádět akce v reakci na změny dat. Například aktualizace DOM nebo vytváření síťového požadavku při změně hodnoty dat.
 
-In a Vue context, reactivity is used to describe a collection of features. Those features combine to form a *reactivity system*, which is exposed via the [Reactivity API](#reactivity-api).
+V kontextu Vue se reaktivita používá k popisu souboru funkcí. Tyto funkce se kombinují do *systému reaktivity* (*reactivity system*), který je zpřístupněn pomocí [Reaktivního API](#reactivity-api).
 
-There are various different ways that a reactivity system could be implemented. For example, it could be done by static analysis of code to determine its dependencies. However, Vue doesn't employ that form of reactivity system.
+Existuje několik různých způsobů, jak by mohl být  systém reaktivity implementován. Například by mohla být provedena statická analýza kódu pro určení jeho závislostí. Vue však tento způsob nepoužívá.
 
-Instead, Vue's reactivity system tracks property access at runtime. It does this using both Proxy wrappers and getter/setter functions for properties.
+Místo toho systém reaktivity Vue sleduje přístup k vlastnostem za běhu. K tomu používá jak Proxy obálky (wrappers), tak getter/setter funkce pro vlastnosti.
 
-For more details see:
-- [Guide - Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals.html)
-- [Guide - Reactivity in Depth](/guide/extras/reactivity-in-depth.html)
+Další podrobnosti naleznete zde:
+- [Průvodce - Základy reaktivity](/guide/essentials/reactivity-fundamentals.html)
+- [Průvodce - Reaktivita podrobně](/guide/extras/reactivity-in-depth.html)
 
-## Reactivity API {#reactivity-api}
+## Reaktivní API {#reactivity-api}
 
-The *Reactivity API* is a collection of core Vue functions related to [reactivity](#reactivity). These can be used independently of components. It includes functions such as `ref()`, `reactive()`, `computed()`, `watch()` and `watchEffect()`.
+*Reaktivní API* (*Reactivity API*) je soubor základních funkcí Vue souvisejících s [reaktivitou](#reactivity). Tyto funkce lze používat nezávisle na komponentách. Zahrnuje funkce jako `ref()`, `reactive()`, `computed()`, `watch()` a `watchEffect()`.
 
-The Reactivity API is a subset of the Composition API.
+Reaktivní API je podmnožinou Composition API.
 
-For more details see:
-- [Reactivity API: Core](/api/reactivity-core.html)
-- [Reactivity API: Utilities](/api/reactivity-utilities.html)
-- [Reactivity API: Advanced](/api/reactivity-advanced.html)
+Další podrobnosti naleznete zde:
+- [Reaktivní API: Jádro](/api/reactivity-core.html)
+- [Reaktivní API: Utility](/api/reactivity-utilities.html)
+- [Reaktivní API: Pokročilé](/api/reactivity-advanced.html)
 
 ## ref {#ref}
 
-> This entry is about the use of `ref` for reactivity. For the `ref` attribute used in templates, see [template ref](#template-ref) instead.
+> Tento záznam se zabývá použitím `ref` pro reaktivitu. Pro atribut `ref` používaný v šablonách se podívejte na [template ref](#template-ref).
 
-A `ref` is part of Vue's reactivity system. It is an object with a single reactive property, called `value`.
+`ref` je součástí systému reaktivty ve Vue. Jedná se o objekt s jedinou reaktivní vlastností, nazvanou `value`.
 
-There are various different types of ref. For example, refs can be created using `ref()`, `shallowRef()`, `computed()`, and `customRef()`. The function `isRef()` can be used to check whether an object is a ref, and `isReadonly()` can be used to check whether the ref allows the direct reassignment of its value.
+Existuje několik různých typů `ref`. Například `ref()`, `shallowRef()`, `computed()` a `customRef()`. Funkce `isRef()` se používá k ověření, zda se jedná o ref, a `isReadonly()` lze použít ke kontrole, zda ref umožňuje přímé přiřazení do své hodnoty.
 
-For more details see:
-- [Guide - Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals.html)
-- [Reactivity API: Core](/api/reactivity-core.html)
-- [Reactivity API: Utilities](/api/reactivity-utilities.html)
-- [Reactivity API: Advanced](/api/reactivity-advanced.html)
+Další podrobnosti naleznete zde:
+- [Reaktivní API: Jádro](/api/reactivity-core.html)
+- [Reaktivní API: Utility](/api/reactivity-utilities.html)
+- [Reaktivní API: Pokročilé](/api/reactivity-advanced.html)
 
-## render function {#render-function}
+## Funkce pro vykreslení {#render-function}
 
-A *render function* is the part of a component that generates the VNodes used during rendering. Templates are compiled down into render functions.
+*Funkce pro vykreslení* (*render function*) je část komponenty, která generuje VNodes používané během vykreslování. Šablony jsou během kompilace převedeny na funkce pro vykreslení.
 
-For more details see:
-- [Guide - Render Functions & JSX](/guide/extras/render-function.html)
+Další podrobnosti naleznete zde:
+- [Průvodce - Funkce pro vykreslení a JSX](/guide/extras/render-function.html)
 
-## scheduler {#scheduler}
+## Scheduler {#scheduler}
 
-The *scheduler* is the part of Vue's internals that controls the timing of when [reactive effects](#reactive-effect) are run.
+*Scheduler* je část interního systému Vue, která řídí časování spouštění [reaktivních efektů](#reactive-effect).
 
-When reactive state changes, Vue doesn't immediately trigger rendering updates. Instead, it batches them together using a queue. This ensures that a component only re-renders once, even if multiple changes are made to the underlying data.
+Když se změní reaktivní stav, Vue nevyvolá aktualizace vykreslování ihned. Místo toho jsou aktualizace dávkovány pomocí fronty. To zajišťuje, že se komponenta překreslí pouze jednou, i když se provede více změn v základních datech.
 
-[Watchers](/guide/essentials/watchers.html) are also batched using the scheduler queue. Watchers with `flush: 'pre'` (the default) will run before component rendering, whereas those with `flush: 'post'` will run after component rendering.
+[Watchery](/guide/essentials/watchers.html) jsou také dávkovány pomocí fronty scheduleru. Watchery s `flush: 'pre'` (výchozí hodnota) se spustí před vykreslením komponenty, zatímco ty s `flush: 'post'` se spustí až po vykreslení komponenty.
 
-Jobs in the scheduler are also used to perform various other internal tasks, such as triggering some [lifecycle hooks](#lifecycle-hooks) and updating [template refs](#template-ref).
+Scheduler také používá úlohy k provádění různých dalších interních úkolů, jako je spouštění některých [lifecycle hooks](#lifecycle-hooks) a aktualizace [template ref](#template-ref).
 
-## scoped slot {#scoped-slot}
+## Scoped slot {#scoped-slot}
 
-The term *scoped slot* is used to refer to a [slot](#slot) that receives [props](#prop).
+Termín *scoped slot* se používá k označení [slotu](#slot), který přijímá [vlastnosti (props)](#prop).
 
-Historically, Vue made a much greater distinction between scoped and non-scoped slots. To some extent they could be regarded as two separate features, unified behind a common template syntax.
+Historicky mělo Vue mnohem větší rozlišení mezi scoped a non-scoped sloty. Do jisté míry mohly být považovány za dvě samostatné funkce, sjednocené za společnnou syntaxí v šabloně.
 
-In Vue 3, the slot APIs were simplified to make all slots behave like scoped slots. However, the use cases for scoped and non-scoped slots often differ, so the term still proves useful as a way to refer to slots with props.
+Ve Vue 3 bylo API slotů zjednodušeno tak, aby se všechny sloty chovaly jako scoped sloty. Nicméně, použití scoped a non-scoped slotů se často liší, takže termín stále slouží jako způsob odkazování na sloty s vlastnostmi.
 
-The props passed to a slot can only be used within a specific region of the parent template, responsible for defining the slot's contents. This region of the template behaves as a variable scope for the props, hence the name 'scoped slot'.
+Vlastnosti předané do slotu mohou být použity pouze v určité části rodičovské šablony, která je zodpovědná za definování obsahu slotu. Tato část šablony se chová jako rozsah platnosti pro vlastnosti slotu, odtud název 'scoped'.
 
-For more details see:
-- [Guide - Slots - Scoped Slots](/guide/components/slots.html#scoped-slots)
+Pro více informací viz:
+- [Průvodce - Sloty (Slots) - Scoped sloty](/guide/components/slots.html#scoped-slots)
 
 ## SFC {#sfc}
 
-See [Single-File Component](#single-file-component).
+Viz [Single-File komponenta](#single-file-component).
 
-## side effect {#side-effect}
+## Vedlejší efekt {#side-effect}
 
-The term *side effect* is not specific to Vue. It is used to describe operations or functions that do something beyond their local scope.
+Termín *vedlejší efekt* (*side effect*) není specifický pro Vue. Používá se k popisu operací nebo funkcí, které dělají něco navíc mimo svůj lokální rozsah.
 
-For example, in the context of setting a property like `user.name = null`, it is expected that this will change the value of `user.name`. If it also does something else, like triggering Vue's reactivity system, then this would be described as a side effect. This is the origin of the term [reactive effect](#reactive-effect) within Vue.
+Například, v kontextu nastavení vlastnosti jako `user.name = null`, se očekává, že toto změní hodnotu `user.name`. Pokud to také udělá něco jiného, například spustí systém reaktivity ve Vue, pak by to bylo označeno jako vedlejší efekt. To je původ termínu [reaktivní efekt](#reactive-effect) ve Vue.
 
-When a function is described as having side effects, it means that the function performs some sort of action that is observable outside the function, aside from just returning a value. This might mean that it updates a value in state, or triggers a network request.
+Když je funkce popsána jako mající vedlejší efekty, znamená to, že funkce provádí nějakou akci kromě vrácení hodnoty, která je pozorovatelná mimo funkci. To může znamenat, že aktualizuje hodnotu stavu nebo spouští síťový požadavek.
 
-The term is often used when describing rendering or computed properties. It is considered best practice for rendering to have no side effects. Likewise, the getter function for a computed property should have no side effects.
+Termín se často používá, když mluvíme o ykreslování nebo computed proměnných. Je považováno za dobrou praxi, aby vykreslování žádné vedlejší efekty nemělo. Stejně tak by je neměla mít getter funkce pro computed proměnnou.
 
-## Single-File Component {#single-file-component}
+## Single-File komponenta (SFC){#single-file-component}
 
-The term *Single-File Component*, or SFC, refers to the `.vue` file format that is commonly used for Vue components.
+Termín *Single-File komponenta* (*Single-File Component*), nebo SFC, se vztahuje na formát souboru `.vue`, který sepro Vue komponenty běžně používá.
 
-See also:
-- [Guide - Single-File Components](/guide/scaling-up/sfc.html)
-- [SFC Syntax Specification](/api/sfc-spec.html)
+Viz také:
+- [Průvodce - Single-File komponenty (SFC)](/guide/scaling-up/sfc.html)
+- [Specifikace SFC syntaxe](/api/sfc-spec.html)
 
-## slot {#slot}
+## Slot {#slot}
 
-Slots are used to pass content to child components. Whereas props are used to pass data values, slots are used to pass richer content consisting of HTML elements and other Vue components.
+Sloty se používají k předávání obsahu do komponent potomka. Zatímco vlastnosti (props) slouží k předávání datových hodnot, sloty slouží k předávání bohatšího obsahu sestávajícího z HTML elementů a dalších Vue komponent.
 
-For more details see:
-- [Guide - Slots](/guide/components/slots.html)
+Další podrobnosti naleznete zde:
+- [Průvodce - Sloty](/guide/components/slots.html)
 
-## template ref {#template-ref}
+## Template ref {#template-ref}
 
-The term *template ref* refers to using a `ref` attribute on a tag within a template. After the component renders, this attribute is used to populate a corresponding property with either the HTML element or the component instance that corresponds to the tag in the template.
+Termín *template ref* se odkazuje na použití atributu `ref` na elementu uvnitř šablony. Po vykreslení komponenty se tento atribut použije k naplnění odpovídající vlastnosti buďto HTML elementem, nebo instancí komponenty, která odpovídá tagu ve šabloně.
 
-If you are using the Options API then the refs are exposed via properties of the `$refs` object.
+Pokud používáte Options API, pak jsou refs dostupné prostřednictvím vlastností objektu `$refs`.
 
-With the Composition API, template refs populate a reactive [ref](#ref) with the same name.
+S Composition API se template refs naplňují do reaktivního [ref](#ref) se stejným názvem.
 
-Template refs should not be confused with the reactive refs found in Vue's reactivity system.
+Template refs by neměly být zaměňovány s reaktivními refs ze systému reaktivity ve Vue.
 
-For more details see:
-- [Guide - Template Refs](/guide/essentials/template-refs.html)
+Další podrobnosti naleznete zde:
+- [Průvodce - Template Refs](/guide/essentials/template-refs.html)
 
 ## VDOM {#vdom}
 
-See [virtual DOM](#virtual-dom).
+Viz [virtuální DOM](#virtual-dom).
 
-## virtual DOM {#virtual-dom}
+## Vvirtuální DOM {#virtual-dom}
 
-The term *virtual DOM* (VDOM) is not unique to Vue. It is a common approach used by several web frameworks for managing updates to the UI.
+Termín *virtuální DOM* (VDOM) není unikátní pro Vue. Jedná se o běžný princip používaný několika webovými frameworky pro správu aktualizací uživatelského rozhraní.
 
-Browsers use a tree of nodes to represent the current state of the page. That tree, and the JavaScript APIs used to interact with it, are referred to as the *document object model*, or *DOM*.
+Prohlížeče používají strom elementů k reprezentaci aktuálního stavu stránky. Tento strom a JavaScriptová API používaná k interakci s ním se nazývají *document object model* nebo *DOM*.
 
-Manipulating the DOM is a major performance bottleneck. The virtual DOM provides one strategy for managing that.
+Manipulace s DOM je hlavním omezením pro výkon. Virtuální DOM nabízí jednu strategii pro řešení tohoto problému.
 
-Rather than creating DOM nodes directly, Vue components generate a description of what DOM nodes they would like. These descriptors are plain JavaScript objects, known as VNodes (virtual DOM nodes). Creating VNodes is relatively cheap.
+Namísto přímého vytváření DOM elementů generují Vue komponenty popis toho, jaké DOM uzly by chtěly mít. Tyto popisy jsou běžné JS objekty, známé jako VNodes (virtuální DOM uzly). Vytváření VNodes je relativně levné.
 
-Every time a component re-renders, the new tree of VNodes is compared to the previous tree of VNodes and any differences are then applied to the real DOM. If nothing has changed then the DOM doesn't need to be touched.
+Pokaždé, když se komponenta znovu vykresluje, je nový strom VNodes porovnán s předchozím stromem VNodes a jakékoli rozdíly jsou poté aplikovány na skutečný DOM. Pokud se nic nezměnilo, nemusí se DOM upravovat.
 
-Vue uses a hybrid approach that we call [Compiler-Informed Virtual DOM](/guide/extras/rendering-mechanism.html#compiler-informed-virtual-dom). Vue's template compiler is able to apply performance optimizations based on static analysis of the template. Rather than performing a full comparison of a component's old and new VNode trees at runtime, Vue can use information extracted by the compiler to reduce the comparison to just the parts of the tree that can actually change.
+Vue používá hybridní přístup, který nazýváme [Compiler-Informed Virtual DOM](/guide/extras/rendering-mechanism.html#compiler-informed-virtual-dom). Kompilátor šablon Vue je schopen aplikovat optimalizace výkonu na základě statické analýzy šablony. Namísto provádění úplného porovnání starého a nového stromu VNodes komponenty za běhu, může Vue použít informace extrahované kompilátorem k redukci porovnání pouze na ty části stromu, které se mohou skutečně změnit.
 
-For more details see:
-- [Guide - Rendering Mechanism](/guide/extras/rendering-mechanism.html)
-- [Guide - Render Functions & JSX](/guide/extras/render-function.html)
+Pro více informací se podívejte na:
+- [Průvodce - Mechanismus vykreslování](/guide/extras/rendering-mechanism.html)
+- [Průvodce - Funkce pro vykreslení a JSX](/guide/extras/render-function.html)
 
 ## VNode {#vnode}
 
-A *VNode* is a *virtual DOM node*. They can be created using the [`h()`](/api/render-function.html#h) function.
+*VNode* je *virtuální DOM element*. Může být vytvořen pomocí funkce [`h()`](/api/render-function.html#h).
 
-See [virtual DOM](#virtual-dom) for more information.
+Více informací naleznete v sekci [virtuální DOM](#virtual-dom).
 
 ## Web Component {#web-component}
 
-The *Web Components* standard is a collection of features implemented in modern web browsers.
+Standard *Web Components* je soubor funkcí implementovaných v moderních webových prohlížečích.
 
-Vue components are not Web Components, but `defineCustomElement()` can be used to create a [custom element](#custom-element) from a Vue component. Vue also supports the use of custom elements inside Vue components.
+Vue komponenty nejsou Web Components, ale funkce `defineCustomElement()` může být použita k vytvoření [custom elementu](#custom-element) z Vue komponenty. Vue také podporuje použití custom elementů uvnitř Vue komponent.
 
-For more details see:
-- [Guide - Vue and Web Components](/guide/extras/web-components.html)
+Pro více informací se podívejte na:
+- [Průvodce - Vue a Web Components](/guide/extras/web-components.html)

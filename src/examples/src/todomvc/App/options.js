@@ -7,14 +7,14 @@ const filters = {
 }
 
 export default {
-  // app initial state
+  // výchozí stav aplikace
   data: () => ({
     todos: JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'),
     editedTodo: null,
     visibility: 'all'
   }),
 
-  // watch todos change for localStorage persistence
+  // sleduje změny úkolů z perzistentího úložiště localStorage
   watch: {
     todos: {
       handler(todos) {
@@ -38,8 +38,8 @@ export default {
     }
   },
 
-  // methods that implement data logic.
-  // note there's no DOM manipulation here at all.
+  // metody, které implementují datovou logiku
+  // všimněte si, že zde nedochází k vůbec žádné manipulaci s DOM
   methods: {
     toggleAll(e) {
       this.todos.forEach((todo) => (todo.completed = e.target.checked))

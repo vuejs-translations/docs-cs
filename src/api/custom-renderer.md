@@ -1,10 +1,10 @@
-# Custom Renderer API {#custom-renderer-api}
+# Custom API pro vykreslování {#custom-renderer-api}
 
 ## createRenderer() {#createrenderer}
 
-Creates a custom renderer. By providing platform-specific node creation and manipulation APIs, you can leverage Vue's core runtime to target non-DOM environments.
+Vytvoří vlastní vykreslovač (custom renderer). Poskytnutím API pro vytváření a manipulaci s elementy specifických pro platformu můžete využít jádra běhového prostředí Vue i pro cílové prostředí mimo DOM.
 
-- **Type**
+- **Typ**
 
   ```ts
   function createRenderer<HostNode, HostElement>(
@@ -22,7 +22,7 @@ Creates a custom renderer. By providing platform-specific node creation and mani
       key: string,
       prevValue: any,
       nextValue: any,
-      // the rest is unused for most custom renderers
+      // zbytek ve většině případů není používán
       isSVG?: boolean,
       prevChildren?: VNode<HostNode, HostElement>[],
       parentComponent?: ComponentInternalInstance | null,
@@ -48,7 +48,7 @@ Creates a custom renderer. By providing platform-specific node creation and mani
     parentNode(node: HostNode): HostElement | null
     nextSibling(node: HostNode): HostNode | null
 
-    // optional, DOM-specific
+    // volitelné, specifikcé pro DOM
     querySelector?(selector: string): HostElement | null
     setScopeId?(el: HostElement, id: string): void
     cloneNode?(node: HostNode): HostNode
@@ -61,25 +61,26 @@ Creates a custom renderer. By providing platform-specific node creation and mani
   }
   ```
 
-- **Example**
+- **Příklad**
 
   ```js
   import { createRenderer } from '@vue/runtime-core'
 
-  const { render, createApp } = createRenderer({
-    patchProp,
-    insert,
-    remove,
-    createElement
-    // ...
-  })
+```javascript
+const { render, createApp } = createRenderer({
+  patchProp,
+  insert,
+  remove,
+  createElement
+  // ...
+})
 
-  // `render` is the low-level API
-  // `createApp` returns an app instance
-  export { render, createApp }
+// `render` je nízkoúrovňové API
+// `createApp` vrací instanci aplikace
+export { render, createApp }
 
-  // re-export Vue core APIs
-  export * from '@vue/runtime-core'
-  ```
+// re-exportuje základní API Vue
+export * from '@vue/runtime-core'
+```
 
-  Vue's own `@vue/runtime-dom` is [implemented using the same API](https://github.com/vuejs/core/blob/main/packages/runtime-dom/src/index.ts). For a simpler implementation, check out [`@vue/runtime-test`](https://github.com/vuejs/core/blob/main/packages/runtime-test/src/index.ts) which is a private package for Vue's own unit testing.
+Vlastní `@vue/runtime-dom` od Vue je [implementován pomocí stejného API](https://github.com/vuejs/core/blob/main/packages/runtime-dom/src/index.ts). Pro jednodušší implementaci se podívejte na [`@vue/runtime-test`](https://github.com/vuejs/core/blob/main/packages/runtime-test/src/index.ts), což je privátní balíček pro vlastní unit testování Vue.

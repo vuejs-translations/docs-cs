@@ -6,20 +6,20 @@ const { x, y } = useMouse()
 </script>
 
 :::tip
-This section assumes basic knowledge of Composition API. If you have been learning Vue with Options API only, you can set the API Preference to Composition API (using the toggle at the top of the left sidebar) and re-read the [Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals) and [Lifecycle Hooks](/guide/essentials/lifecycle) chapters.
+Tato část předpokládá základní znalost Composition API. Pokud jste se učili Vue pouze s Options API, můžete nastavit předvolbu API na Composition API (pomocí přepínače v horní části levého postranního panelu) a znovu si přečíst kapitoly [Základy reaktivity](/guide/essentials/reactivity-fundamentals) a [Lifecycle Hooks](/guide/essentials/lifecycle).
 :::
 
-## What is a "Composable"? {#what-is-a-composable}
+## Co je to "Composable"? {#what-is-a-composable}
 
-In the context of Vue applications, a "composable" is a function that leverages Vue's Composition API to encapsulate and reuse **stateful logic**.
+V kontextu Vue aplikací je "composable" funkce, která maximálně využívá Vue Composition API k obalení a znovupoužití **stavové (stateful) logiky**.
 
-When building frontend applications, we often need to reuse logic for common tasks. For example, we may need to format dates in many places, so we extract a reusable function for that. This formatter function encapsulates **stateless logic**: it takes some input and immediately returns expected output. There are many libraries out there for reusing stateless logic - for example [lodash](https://lodash.com/) and [date-fns](https://date-fns.org/), which you may have heard of.
+Při vytváření frontendových aplikací často potřebujeme znovupoužívat logiku pro běžné úkoly. Například můžeme potřebovat formátovat data na mnoha místech, takže pro to vytvoříme znovupoužitelnou funkci. Tato formátovací funkce zapouzdřuje **bezstavovou (stateless) logiku**: přijme nějaký vstup a okamžitě vrátí očekávaný výstup. Pro znovupoužití bezstavové logiky existuje mnoho knihoven - například [lodash](https://lodash.com/) a [date-fns](https://date-fns.org/), o kterých jste možná už slyšeli.
 
-By contrast, stateful logic involves managing state that changes over time. A simple example would be tracking the current position of the mouse on a page. In real-world scenarios, it could also be more complex logic such as touch gestures or connection status to a database.
+Naproti tomu stavová logika zahrnuje management stavu (state), který se v průběhu času mění. Jednoduchým příkladem může být sledování aktuální polohy myši na stránce. V reálných aplikacích by se mohlo jednat i o složitější logiku, jako jsou dotyková gesta nebo stav připojení k databázi.
 
-## Mouse Tracker Example {#mouse-tracker-example}
+## Příklad sledování polohy myši {#mouse-tracker-example}
 
-If we were to implement the mouse tracking functionality using the Composition API directly inside a component, it would look like this:
+Pokud bychom implementovali funkci sledování myši pomocí Composition API přímo v komponentě, vypadalo by to takto:
 
 ```vue
 <script setup>
@@ -37,38 +37,39 @@ onMounted(() => window.addEventListener('mousemove', update))
 onUnmounted(() => window.removeEventListener('mousemove', update))
 </script>
 
-<template>Mouse position is at: {{ x }}, {{ y }}</template>
+<template>Myš je na: {{ x }}, {{ y }}</template>
 ```
 
-But what if we want to reuse the same logic in multiple components? We can extract the logic into an external file, as a composable function:
+Co když ale chceme stejnou logiku použít opakovaně ve více komponentách? Můžeme ji extrahovat do externího souboru jako composable funkci:
 
 ```js
 // mouse.js
 import { ref, onMounted, onUnmounted } from 'vue'
 
-// by convention, composable function names start with "use"
+// dle konvence začínají composable funkce na "use"
 export function useMouse() {
-  // state encapsulated and managed by the composable
+  // stav obalený a spravovaný v composable
   const x = ref(0)
   const y = ref(0)
 
-  // a composable can update its managed state over time.
+  // composable může svůj stav v čase průběžně upravovat
   function update(event) {
     x.value = event.pageX
     y.value = event.pageY
   }
 
-  // a composable can also hook into its owner component's
-  // lifecycle to setup and teardown side effects.
+  // composable se také může napojit na životní cyklus
+  // komponenty, která ji vlastní, pro vedlejší efekty 
+  // při setup a teardown fázi
   onMounted(() => window.addEventListener('mousemove', update))
   onUnmounted(() => window.removeEventListener('mousemove', update))
 
-  // expose managed state as return value
+  // vystavit spravovaný stav jako návratovou hodnotu
   return { x, y }
 }
 ```
 
-And this is how it can be used in components:
+A takto ji lze použít v komponentách:
 
 ```vue
 <script setup>
@@ -77,34 +78,34 @@ import { useMouse } from './mouse.js'
 const { x, y } = useMouse()
 </script>
 
-<template>Mouse position is at: {{ x }}, {{ y }}</template>
+<template>Myš je na: {{ x }}, {{ y }}</template>
 ```
 
 <div class="demo">
-  Mouse position is at: {{ x }}, {{ y }}
+  Myš je na: {{ x }}, {{ y }}
 </div>
 
-[Try it in the Playground](https://play.vuejs.org/#eNqNkj1rwzAQhv/KocUOGKVzSAIdurVjoQUvJj4XlfgkJNmxMfrvPcmJkkKHLrbu69H7SlrEszFyHFDsxN6drDIeHPrBHGtSvdHWwwKDwzfNHwjQWd1DIbd9jOW3K2qq6aTJxb6pgpl7Dnmg3NS0365YBnLgsTfnxiNHACvUaKe80gTKQeN3sDAIQqjignEhIvKYqMRta1acFVrsKtDEQPLYxuU7cV8Msmg2mdTilIa6gU5p27tYWKKq1c3ENphaPrGFW25+yMXsHWFaFlfiiOSvFIBJjs15QJ5JeWmaL/xYS/Mfpc9YYrPxl52ULOpwhIuiVl9k07Yvsf9VOY+EtizSWfR6xKK6itgkvQ/+fyNs6v4XJXIsPwVL+WprCiL8AEUxw5s=)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNqNkj1rwzAQhv/KocUOGKVzSAIdurVjoQUvJj4XlfgkJNmxMfrvPcmJkkKHLrbu69H7SlrEszFyHFDsxN6drDIeHPrBHGtSvdHWwwKDwzfNHwjQWd1DIbd9jOW3K2qq6aTJxb6pgpl7Dnmg3NS0365YBnLgsTfnxiNHACvUaKe80gTKQeN3sDAIQqjignEhIvKYqMRta1acFVrsKtDEQPLYxuU7cV8Msmg2mdTilIa6gU5p27tYWKKq1c3ENphaPrGFW25+yMXsHWFaFlfiiOSvFIBJjs15QJ5JeWmaL/xYS/Mfpc9YYrPxl52ULOpwhIuiVl9k07Yvsf9VOY+EtizSWfR6xKK6itgkvQ/+fyNs6v4XJXIsPwVL+WprCiL8AEUxw5s=)
 
-As we can see, the core logic remains identical - all we had to do was move it into an external function and return the state that should be exposed. Just like inside a component, you can use the full range of [Composition API functions](/api/#composition-api) in composables. The same `useMouse()` functionality can now be used in any component.
+Jak vidíme, jádro logiky zůstává stejné - stačilo ji přesunout do externí funkce a vrátit stav, který má být vystaven. Stejně jako uvnitř komponenty můžete v composable objektech používat kompletní paletu funkcí [Composition API](/api/#composition-api). Stejnou funkci `useMouse()` lze nyní použít v jakékoli komponentě.
 
-The cooler part about composables though, is that you can also nest them: one composable function can call one or more other composable functions. This enables us to compose complex logic using small, isolated units, similar to how we compose an entire application using components. In fact, this is why we decided to call the collection of APIs that make this pattern possible Composition API.
+Ještě větší výhodou composables je, že je můžete také vnořovat: jedna composables funkce může volat jednu nebo více dalších composables. To nám umožňuje skládat složitou logiku pomocí malých, izolovaných jednotek, podobně jako skládáme celou aplikaci pomocí komponent. To je vlastně důvod, proč jsme se rozhodli nazvat kolekci rozhraní API, která tento vzor umožňuje, Composition API.
 
-For example, we can extract the logic of adding and removing a DOM event listener into its own composable:
+Například logiku přidávání a odebírání DOM event listeneru můžeme vyčlenit do vlastní composable funkce:
 
 ```js
 // event.js
 import { onMounted, onUnmounted } from 'vue'
 
 export function useEventListener(target, event, callback) {
-  // if you want, you can also make this
-  // support selector strings as target
+  // pokud chcete, můžete tuto funkci upravit
+  // aby jako `target` podporovala 'selector strings'
   onMounted(() => target.addEventListener(event, callback))
   onUnmounted(() => target.removeEventListener(event, callback))
 }
 ```
 
-And now our `useMouse()` composable can be simplified to:
+A nyní lze naši composable `useMouse()` zjednodušit na:
 
 ```js{3,9-12}
 // mouse.js
@@ -125,12 +126,12 @@ export function useMouse() {
 ```
 
 :::tip
-Each component instance calling `useMouse()` will create its own copies of `x` and `y` state so they won't interfere with one another. If you want to manage shared state between components, read the [State Management](/guide/scaling-up/state-management) chapter.
+Každá instance komponenty volající `useMouse()` vytvoří své vlastní kopie stavu `x` a `y`, takže se nebudou vzájemně rušit. Pokud chcete spravovat sdílený stav mezi komponentami, přečtěte si kapitolu [State management](/guide/scaling-up/state-management).
 :::
 
-## Async State Example {#async-state-example}
+## Příklad s asynchronním stavem {#async-state-example}
 
-The `useMouse()` composable doesn't take any arguments, so let's take a look at another example that makes use of one. When doing async data fetching, we often need to handle different states: loading, success, and error:
+Composable `useMouse()` nepřijímá žádné parametry, proto se podívejme na další příklad, který jeden využívá. Při asynchronním načítání dat často potřebujeme zpracovávat různé stavy: načítání, úspěch a chyba:
 
 ```vue
 <script setup>
@@ -146,16 +147,16 @@ fetch('...')
 </script>
 
 <template>
-  <div v-if="error">Oops! Error encountered: {{ error.message }}</div>
+  <div v-if="error">Oops! Nastala chyba: {{ error.message }}</div>
   <div v-else-if="data">
-    Data loaded:
+    Data byla načtena:
     <pre>{{ data }}</pre>
   </div>
-  <div v-else>Loading...</div>
+  <div v-else>Načítání...</div>
 </template>
 ```
 
-It would be tedious to have to repeat this pattern in every component that needs to fetch data. Let's extract it into a composable:
+Bylo by otravné opakovat tento vzor v každé komponentě, která potřebuje načíst data. Vytáhněme jej do composable:
 
 ```js
 // fetch.js
@@ -174,7 +175,7 @@ export function useFetch(url) {
 }
 ```
 
-Now in our component we can just do:
+Nyní můžeme v naší komponentě jednoduše psát:
 
 ```vue
 <script setup>
@@ -184,29 +185,29 @@ const { data, error } = useFetch('...')
 </script>
 ```
 
-### Accepting Reactive State {#accepting-reactive-state}
+### Přijímání reaktivního stavu {#accepting-reactive-state}
 
-`useFetch()` takes a static URL string as input - so it performs the fetch only once and is then done. What if we want it to re-fetch whenever the URL changes? In order to achieve this, we need to pass reactive state into the composable function, and let the composable create watchers that perform actions using the passed state.
+`useFetch()` přijímá jako vstup statický URL string - načtení tedy provede pouze jednou a poté je hotovo. Co když chceme, aby se načítání opakovalo, kdykoli se změní adresa URL? Toho můžeme dosáhnout tím, že do composable funkce předáme reaktivní stav a necháme composable vytvořit watchery, které budou provádět akce s použitím předaného stavu.
 
-For example, `useFetch()` should be able to accept a ref:
+Například `useFetch()` by mělo být schopno akceptovat ref:
 
 ```js
 const url = ref('/initial-url')
 
 const { data, error } = useFetch(url)
 
-// this should trigger a re-fetch
+// toto by mělo spustit re-fetch
 url.value = '/new-url'
 ```
 
-Or, accept a getter function:
+Nebo akceptovat getter funkci:
 
 ```js
 // re-fetch when props.id changes
 const { data, error } = useFetch(() => `/posts/${props.id}`)
 ```
 
-We can refactor our existing implementation with the [`watchEffect()`](/api/reactivity-core.html#watcheffect) and [`toValue()`](/api/reactivity-utilities.html#tovalue) APIs:
+Můžeme refaktorovat naši existující implemntaci pomocí API funkcí [`watchEffect()`](/api/reactivity-core.html#watcheffect) a [`toValue()`](/api/reactivity-utilities.html#tovalue):
 
 ```js{8,13}
 // fetch.js
@@ -217,7 +218,7 @@ export function useFetch(url) {
   const error = ref(null)
 
   const fetchData = () => {
-    // reset state before fetching..
+    // resetovat stav před načtením hodnot
     data.value = null
     error.value = null
 
@@ -235,87 +236,87 @@ export function useFetch(url) {
 }
 ```
 
-`toValue()` is an API added in 3.3. It is designed to normalize refs or getters into values. If the argument is a ref, it returns the ref's value; if the argument is a function, it will call the function and return its return value. Otherwise, it returns the argument as-is. It works similarly to [`unref()`](/api/reactivity-utilities.html#unref), but with special treatment for functions.
+`toValue()` je API přidané ve Vue 3.3. Je určeno k normalizaci refs a getter funkcí na hodnoty. Pokud je vstupním parametrem ref, vrátí jeho .value, pokud je parametrem funkce, zavolá funkci a vrátí její návratovou hodnotu. Jinak vrátí parametr tak, jak byl předán. Funguje podobně jako [`unref()`](/api/reactivity-utilities.html#unref), ale se speciálním přístupem k funkcím.
 
-Notice that `toValue(url)` is called **inside** the `watchEffect` callback. This ensures that any reactive dependencies accessed during the `toValue()` normalization are tracked by the watcher.
+Všimněte si, že `toValue(url)` je voláno **uvnitř** callbacku funkce `watchEffect`. Toto zajišťuje, že všechny reaktivní závislosti navštívené během normalizace v rámci `toValue()` jsou sledovány watcherem.
 
-This version of `useFetch()` now accepts static URL strings, refs, and getters, making it much more flexible. The watch effect will run immediately, and will track any dependencies accessed during `toValue(url)`. If no dependencies are tracked (e.g. url is already a string), the effect runs only once; otherwise, it will re-run whenever a tracked dependency changes.
+Tato verze `useFetch()` nyní přijímá statický URL string, refs i gettery, což ji dělá více fleibilní. `watchEffect()` se ihned spustí a bude sledovat jakékoliv závislosti navštívené během `toValue(url)`. Pokud nejsou sledovány žádné závislosti (např. url už je statický string), efekt proběhne pouze jednou; jinak se spustí znovu pokaždé, když se sledovaná závislost změní.
 
-Here's [the updated version of `useFetch()`](https://play.vuejs.org/#eNp9Vdtu40YM/RVWL1ZQr5RF0JfAMXpLgRZtd5Fu90kvY4mKJ5FnhLnYMQz/+5IcSZF3g30IbPNyyHPIYU7ZL31f7CNmt9nK1073ATyG2K8ro3e9dQFO4LBdQm13fQzYwBlaZ3ewoKTFLCh6/ANDvZ38RTmaiidPkZWprfEBNsrj/66DO1hsQ+j9bVk+eWv6TtW4tV2DrgjHXte2wYKKlsE21pcEkNJ1Q5nUUb54v7gajVHwxhbz/Aru1lOhHymn2KsuIsWPGSdoVFBLQOeso57vJgI5gc0CHQZ3JHfCPFUGJjimQH1dGt6T5VyZVZnUJB3pR8Ad8QtIvwD+tqqB3gqXWzasNjEEa2D/rrXurso0aAM/VRn8XHe6fmYLk9ZVtj6dQMP5vCpTiqBXYdXoPWXrlkKFEEUyMEH36w+29z/AvfBEIhVNQIfNLRCWBBc79F49ouDy4CVx6GlqQXQg3Af+nNWn0JLKp2+pD+w8pmZYY8r5nT6gI9pcdtU7ZB7sSyXp95sYa1ZKm8eiKEb/qpykzJbZbMFofy/39aDIcd+2WIclBPtZ5nO5u5XBF0lpo6mDJrYXO5CGnbZAmk17Z2LH+zF60gJ95eK/WQO58kdTz1cIoCwphZ4a+EBsYIM0e4SWqwvlFMV1p91i+GROc/vWPoe23R4hbFEeRwrlLrbOGht9dwRvQYeFh+BU/UwPW3lQE0CDPZqG9uUIm+MFFyE4sifspOzdqPHwfF674eczcBZk5YJuda1VR0U6dQTqVpmGxpJWl+ULAOqgdICgd2jjUJTNBBANa30FB911/DyjM8KTrANP3SZmim38QIbSlsLcQfukS4oVlA1nM5DI8E77gUAYb4AngqkjmRCTFLZ8KAT9YlApkrJoMa0ZFTtDzTJCjsNqfTtJHCL54yxHCEaGXx0sOTKVeUPPykzrPKmX6g1IBg/wkZ4B6ZDnw6IsyflE051vKC3npwHgYnPp3rWQ/6PCtkiDI+8aroubGS0uJsAjeabPb/oyhEvm3I+cp3zxkBZBfi2uXlMHWZZwc30tVhbnTBcgeJpQqx9FaLoBgl5l/J9Ad+g+9KyDrzK6dsNIM9V19vCX2IKLuBzt9Rbr5zfsT/6FbVX2kd+r22OVTb6g3COG5L7/7198oe+Tc2eb2FH0d5wPLFLkHlPYr9E01PYsTrr9Uy4bnYVP/v4loPEjKW5U5JD4KqO79tt3qL+2e1PcSB6reP4CbzCltA==), with an artificial delay and randomized error for demo purposes.
+Zde je [aktualizovaná verze `useFetch()`](https://play.vuejs.org/#eNp9Vdtu40YM/RVWL1ZQr5RF0JfAMXpLgRZtd5Fu90kvY4mKJ5FnhLnYMQz/+5IcSZF3g30IbPNyyHPIYU7ZL31f7CNmt9nK1073ATyG2K8ro3e9dQFO4LBdQm13fQzYwBlaZ3ewoKTFLCh6/ANDvZ38RTmaiidPkZWprfEBNsrj/66DO1hsQ+j9bVk+eWv6TtW4tV2DrgjHXte2wYKKlsE21pcEkNJ1Q5nUUb54v7gajVHwxhbz/Aru1lOhHymn2KsuIsWPGSdoVFBLQOeso57vJgI5gc0CHQZ3JHfCPFUGJjimQH1dGt6T5VyZVZnUJB3pR8Ad8QtIvwD+tqqB3gqXWzasNjEEa2D/rrXurso0aAM/VRn8XHe6fmYLk9ZVtj6dQMP5vCpTiqBXYdXoPWXrlkKFEEUyMEH36w+29z/AvfBEIhVNQIfNLRCWBBc79F49ouDy4CVx6GlqQXQg3Af+nNWn0JLKp2+pD+w8pmZYY8r5nT6gI9pcdtU7ZB7sSyXp95sYa1ZKm8eiKEb/qpykzJbZbMFofy/39aDIcd+2WIclBPtZ5nO5u5XBF0lpo6mDJrYXO5CGnbZAmk17Z2LH+zF60gJ95eK/WQO58kdTz1cIoCwphZ4a+EBsYIM0e4SWqwvlFMV1p91i+GROc/vWPoe23R4hbFEeRwrlLrbOGht9dwRvQYeFh+BU/UwPW3lQE0CDPZqG9uUIm+MFFyE4sifspOzdqPHwfF674eczcBZk5YJuda1VR0U6dQTqVpmGxpJWl+ULAOqgdICgd2jjUJTNBBANa30FB911/DyjM8KTrANP3SZmim38QIbSlsLcQfukS4oVlA1nM5DI8E77gUAYb4AngqkjmRCTFLZ8KAT9YlApkrJoMa0ZFTtDzTJCjsNqfTtJHCL54yxHCEaGXx0sOTKVeUPPykzrPKmX6g1IBg/wkZ4B6ZDnw6IsyflE051vKC3npwHgYnPp3rWQ/6PCtkiDI+8aroubGS0uJsAjeabPb/oyhEvm3I+cp3zxkBZBfi2uXlMHWZZwc30tVhbnTBcgeJpQqx9FaLoBgl5l/J9Ad+g+9KyDrzK6dsNIM9V19vCX2IKLuBzt9Rbr5zfsT/6FbVX2kd+r22OVTb6g3COG5L7/7198oe+Tc2eb2FH0d5wPLFLkHlPYr9E01PYsTrr9Uy4bnYVP/v4loPEjKW5U5JD4KqO79tt3qL+2e1PcSB6reP4CbzCltA==) s umělým zpožděním a náhodnými chybami pro demo účely.
 
-## Conventions and Best Practices {#conventions-and-best-practices}
+## Konvence a osvědčené postupy {#conventions-and-best-practices}
 
 ### Naming {#naming}
 
-It is a convention to name composable functions with camelCase names that start with "use".
+Composable funkce se podle koncence pojmenovávají camelCase jmény, která začínají na "use".
 
-### Input Arguments {#input-arguments}
+### Vstupní parametry {#input-arguments}
 
-A composable can accept ref or getter arguments even if it doesn't rely on them for reactivity. If you are writing a composable that may be used by other developers, it's a good idea to handle the case of input arguments being refs or getters instead of raw values. The [`toValue()`](/api/reactivity-utilities#tovalue) utility function will come in handy for this purpose:
+Composable může přijímat parametry typu ref nebo gettery, i když se na ně při reaktivitě nespoléhá. Pokud píšete composable, který mohou používat i jiní vývojáři, je dobré ošetřit případ, kdy jsou namísto surových hodnot vstupními parametry ref nebo gettery. K tomuto účelu se bude hodit pomocná funkce [`toValue()`](/api/reactivity-utilities#tovalue):
 
 ```js
 import { toValue } from 'vue'
 
 function useFeature(maybeRefOrGetter) {
-  // If maybeRefOrGetter is a ref or a getter,
-  // its normalized value will be returned.
-  // Otherwise, it is returned as-is.
+  // pokud je `maybeRefOrGetter` ref nebo getter
+  // bude vrácena jeho normalizovaná hodnota
+  // jinak bude `maybeRefOrGetter` vrácen ve své aktuální podobě
   const value = toValue(maybeRefOrGetter)
 }
 ```
 
-If your composable creates reactive effects when the input is a ref or a getter, make sure to either explicitly watch the ref / getter with `watch()`, or call `toValue()` inside a `watchEffect()` so that it is properly tracked.
+Pokud vaše composable vytváří reaktivní efekty, pokud je vstupem ref nebo getter, ujistěte se, že ref / getter buďto explicitně sledujete pomocí `watch()`, nebo uvnitř `watchEffect()` zavolejte `toValue()`, aby byl sledován správně.
 
-The [useFetch() implementation discussed earlier](#accepting-reactive-state) provides a concrete example of a composable that accepts refs, getters and plain values as input argument.
+Implementace [useFetch() představená dříve](#accepting-reactive-state) poskytuje konkrétní příklad composable, která přijímá refs, gettery i prosté hodnoty jako vstupní parametry.
 
-### Return Values {#return-values}
+### Návratové hodnoty {#return-values}
 
-You have probably noticed that we have been exclusively using `ref()` instead of `reactive()` in composables. The recommended convention is for composables to always return a plain, non-reactive object containing multiple refs. This allows it to be destructured in components while retaining reactivity:
+Možná jste si všimli, že v composables používáme výhradně `ref()` namísto `reactive()`. Doporučenou konvencí je, aby composables vždy vracely obyčejný nereaktivní objekt obsahující více refs. To v komponentách umožňuje jeho dekonstrukci zároveň se zachováním reaktivity:
 
 ```js
-// x and y are refs
+// x a y jsou refs
 const { x, y } = useMouse()
 ```
 
-Returning a reactive object from a composable will cause such destructures to lose the reactivity connection to the state inside the composable, while the refs will retain that connection.
+Vrácení reaktivního objektu z composable způsobí, že tyto dekonstrukce ztratí reaktivní spojení se stavem uvnitř composable, zatímco refs si toto spojení zachovají.
 
-If you prefer to use returned state from composables as object properties, you can wrap the returned object with `reactive()` so that the refs are unwrapped. For example:
+Pokud dáváte přednost použití stavu vráceného z composables jako vlastností objektu, můžete vrácený objekt obalit metodou `reactive()` tak, aby byly refs rozbaleny. Například:
 
 ```js
 const mouse = reactive(useMouse())
-// mouse.x is linked to original ref
+// mouse.x odkazuje na původní ref
 console.log(mouse.x)
 ```
 
 ```vue-html
-Mouse position is at: {{ mouse.x }}, {{ mouse.y }}
+Myš je na: {{ mouse.x }}, {{ mouse.y }}
 ```
 
-### Side Effects {#side-effects}
+### Vedlejší efekty {#side-effects}
 
-It is OK to perform side effects (e.g. adding DOM event listeners or fetching data) in composables, but pay attention to the following rules:
+Je v pořádku rovádět vedlejší efekty uvnitř composables (např. přidávat DOM event listenery nebo načítat data), dávejte však pozor na následující pravidla:
 
-- If you are working on an application that uses [Server-Side Rendering](/guide/scaling-up/ssr) (SSR), make sure to perform DOM-specific side effects in post-mount lifecycle hooks, e.g. `onMounted()`. These hooks are only called in the browser, so you can be sure that code inside them has access to the DOM.
+- Pokud pracujete na aplikaci, která používá [Server-side vykreslování](/guide/scaling-up/ssr) (SSR), ujistěte se, že vedlejší efekty specifické pro DOM jsou prováděny v lifecycle hooks po mount fázi, např. `onMounted()`. Tyto hooks jsou volány pouze v prohlížeči, takže si můžete být jisti, že kód uvnitř nich má k DOM přístup.
 
-- Remember to clean up side effects in `onUnmounted()`. For example, if a composable sets up a DOM event listener, it should remove that listener in `onUnmounted()` as we have seen in the `useMouse()` example. It can be a good idea to use a composable that automatically does this for you, like the `useEventListener()` example.
+- Nezapomeňte vedlejší účinky "uklidit" v `onUnmounted()`. Například pokud composable nastaví DOM event listener, měla by tento listener v `onUnmounted()` zase odstranit, jak jsme viděli v příkladu `useMouse()`. Může být užitečné použít composable, které to automaticky udělá za vás, jako je příklad `useEventListener()`.
 
-### Usage Restrictions {#usage-restrictions}
+### Omezení použití {#usage-restrictions}
 
-Composables should only be called in `<script setup>` or the `setup()` hook. They should also be called **synchronously** in these contexts. In some cases, you can also call them in lifecycle hooks like `onMounted()`.
+Composables by měly být volány v rámci `<script setup>` nebo uvnitř `setup()`. V těchto kontextech by také měly být volány **synchrononně**. V některých případech je můžete volat také v lifecycle hooks jako je `onMounted()`.
 
-These restrictions are important because these are the contexts where Vue is able to determine the current active component instance. Access to an active component instance is necessary so that:
+Tato omezení jsou důležitá, protože se jedná o kontexty, ve kterých je Vue schopno určit právě aktivní instanci komponenty. Přístup k aktivní instanci komponenty je nutný, aby do ní bylo možné:
 
-1. Lifecycle hooks can be registered to it.
+1. Registrovat lifecycle hooks.
 
-2. Computed properties and watchers can be linked to it, so that they can be disposed when the instance is unmounted to prevent memory leaks.
+2. Nalinkovat computed proměnné a watchers, aby je při odstraňování (unmount) instance šlo zlikvidovat pro prevenci úniků paměti (memory leaks).
 
 :::tip
-`<script setup>` is the only place where you can call composables **after** using `await`. The compiler automatically restores the active instance context for you after the async operation.
+`<script setup>` je jediné místo, kde můžete composables volat **po** použití příkazu `await`. Kompilátor za vás po asynchronní operaci automaticky obnoví kontext aktivní instance.
 :::
 
-## Extracting Composables for Code Organization {#extracting-composables-for-code-organization}
+## Extrakce composables pro organizaci kódu {#extracting-composables-for-code-organization}
 
-Composables can be extracted not only for reuse, but also for code organization. As the complexity of your components grow, you may end up with components that are too large to navigate and reason about. Composition API gives you the full flexibility to organize your component code into smaller functions based on logical concerns:
+Composables lze extrahovat nejen pro opakované použití, ale také pro organizaci kódu. Jak složitost komponent poroste, můžete skončit s takovými, které jsou příliš velké na to, abyste se v nich mohli orientovat a uvažovat o nich. Composition API vám poskytuje plnou flexibilitu při organizaci kódu komponent do menších funkcí na základě logických domén:
 
 ```vue
 <script setup>
@@ -329,11 +330,11 @@ const { qux } = useFeatureC(baz)
 </script>
 ```
 
-To some extent, you can think of these extracted composables as component-scoped services that can talk to one another.
+Do jisté míry si tyto extrahované composables můžete představit jako služby v rozsahu komponent, které spolu mohou komunikovat.
 
-## Using Composables in Options API {#using-composables-in-options-api}
+## Použití composables v Options API {#using-composables-in-options-api}
 
-If you are using Options API, composables must be called inside `setup()`, and the returned bindings must be returned from `setup()` so that they are exposed to `this` and the template:
+Pokud používáte Options API, musí být composables volány uvnitř `setup()` a návratové hodnoty musí být ze `setup()` vráceny, aby byly vystaveny pro `this` a pro šablonu:
 
 ```js
 import { useMouse } from './mouse.js'
@@ -346,42 +347,42 @@ export default {
     return { x, y, data, error }
   },
   mounted() {
-    // setup() exposed properties can be accessed on `this`
+    // proměnné, které jsou vystaveny skrz sekci `setup()`
+    // jsou dostupné přes `this`
     console.log(this.x)
   }
-  // ...other options
+  // ...další sekce
 }
 ```
 
-## Comparisons with Other Techniques {#comparisons-with-other-techniques}
+## Porovnání s ostatními technikami {#comparisons-with-other-techniques}
 
 ### vs. Mixins {#vs-mixins}
 
-Users coming from Vue 2 may be familiar with the [mixins](/api/options-composition#mixins) option, which also allows us to extract component logic into reusable units. There are three primary drawbacks to mixins:
+Uživatelé, kteří přicházejí od Vue 2, možná znají [mixins](/api/options-composition#mixins), které nám také umožňují extrahovat logiku komponent do opakovaně použitelných jednotek. Mixins mají tři hlavní nevýhody:
 
-1. **Unclear source of properties**: when using many mixins, it becomes unclear which instance property is injected by which mixin, making it difficult to trace the implementation and understand the component's behavior. This is also why we recommend using the refs + destructure pattern for composables: it makes the property source clear in consuming components.
+1. **Nejasný zdroj vlastností**: při použití mnoha mixins přestává být jasné, která vlastnost instance je implementována (injected) kterým, což ztěžuje sledování implementace a pochopení chování komponenty. To je také důvod, proč doporučujeme pro composables používat vzor refs + dekonstrukce: díky němu je zdroj vlastností v komponentách konzumentů zřejmý.
 
-2. **Namespace collisions**: multiple mixins from different authors can potentially register the same property keys, causing namespace collisions. With composables, you can rename the destructured variables if there are conflicting keys from different composables.
+2. **Kolize jmenných prostorů**: mixins od různých autorů může potenciálně registrovat stejné klíče vlastností, což způsobuje kolize jmenných prostorů. U composables můžete přejmenovat dekonstruované proměnné, pokud z různých composables přijdou konfliktní klíče.
 
-3. **Implicit cross-mixin communication**: multiple mixins that need to interact with one another have to rely on shared property keys, making them implicitly coupled. With composables, values returned from one composable can be passed into another as arguments, just like normal functions.
+3. **Implicitní cross-mixin komunikace**: mixins, které spolu potřebují komunikovat, se musí spoléhat na sdílené klíče vlastností, čímž se stávají implicitně spřaženými (coupled). V případě composables lze hodnoty vrácené z jedné composable předat do jiné jako parametry, stejně jako u běžných funkcí.
 
-For the above reasons, we no longer recommend using mixins in Vue 3. The feature is kept only for migration and familiarity reasons.
+Z výše uvedených důvodů již ve Vue 3 nedoporučujeme mixins používat. Funkce je zachována pouze pro učely migrace a kvůli obecné znalosti.
+### vs. renderless komponenty {#vs-renderless-components}
 
-### vs. Renderless Components {#vs-renderless-components}
+V kapitole o slotech (slots) jsme se bavili o vzoru [renderless komponent](/guide/components/slots#renderless-components) založeném na scoped slotech. Dokonce jsme s použitím renderless komponenty implementovaly stejný příklad sledování pohybu myši.
 
-In the component slots chapter, we discussed the [Renderless Component](/guide/components/slots#renderless-components) pattern based on scoped slots. We even implemented the same mouse tracking demo using renderless components.
+Hlavní výhodou composables oproti renderless komponentám je, že composables nemají dodatečnou režii v podobě instancí komponent. Při použití v celé aplikaci může množství dalších instancí komponent vytvořených vzorem renderless komponentám představovat znatelnou výkonnostní zátěž.
 
-The main advantage of composables over renderless components is that composables do not incur the extra component instance overhead. When used across an entire application, the amount of extra component instances created by the renderless component pattern can become a noticeable performance overhead.
+Doporučení je používat composables při opakovaném použití čisté logiky a komponenty při opakovaném použití logiky i vizuálního vzhledu.
 
-The recommendation is to use composables when reusing pure logic, and use components when reusing both logic and visual layout.
+### vs. React hooks {#vs-react-hooks}
 
-### vs. React Hooks {#vs-react-hooks}
+Pokud máte zkušenosti s Reactem, možná jste si všimli, že to vypadá velmi podobně jako custom React hooks. Composition API bylo  React hooks částečně inspirováno a Vue composables jsou React hooks skutečně podobné, pokud jde o možnosti logické kompozice. Vue composables jsou však založeny na systému jemné (fine-grained) Vue reaktivity, který se od modelu provádění React hooks zásadně liší. Podrobněji je to popsáno v dokumentu [Composition API FAQ](/guide/extras/composition-api-faq#comparison-with-react-hooks).
 
-If you have experience with React, you may notice that this looks very similar to custom React hooks. Composition API was in part inspired by React hooks, and Vue composables are indeed similar to React hooks in terms of logic composition capabilities. However, Vue composables are based on Vue's fine-grained reactivity system, which is fundamentally different from React hooks' execution model. This is discussed in more detail in the [Composition API FAQ](/guide/extras/composition-api-faq#comparison-with-react-hooks).
+## Další čtení {#further-reading}
 
-## Further Reading {#further-reading}
-
-- [Reactivity In Depth](/guide/extras/reactivity-in-depth): for a low-level understanding of how Vue's reactivity system works.
-- [State Management](/guide/scaling-up/state-management): for patterns of managing state shared by multiple components.
-- [Testing Composables](/guide/scaling-up/testing#testing-composables): tips on unit testing composables.
-- [VueUse](https://vueuse.org/): an ever-growing collection of Vue composables. The source code is also a great learning resource.
+- [Reaktivita podrobně](/guide/extras/reactivity-in-depth): pro pochopení fungování systému Vue reaktivity do větší hloubky na nižší úrovni.
+- [State management](/guide/scaling-up/state-management): pro vzory správy stavu sdíleného více komponentami.
+- [Testování composables](/guide/scaling-up/testing#testing-composables): tipy na jednotkové testování composables.
+- [VueUse](https://vueuse.org/): stále rostoucí kolekce Vue composables. Zdrojový kód je také skvělým zdrojem pro učení.

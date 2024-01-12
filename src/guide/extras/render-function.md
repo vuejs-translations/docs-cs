@@ -2,66 +2,65 @@
 outline: deep
 ---
 
-# Render Functions & JSX {#render-functions-jsx}
+# Funkce pro vykreslení & JSX {#render-functions-jsx}
 
-Vue recommends using templates to build applications in the vast majority of cases. However, there are situations where we need the full programmatic power of JavaScript. That's where we can use the **render function**.
+Vue doporučuje pro většinu případů tvorby aplikací používat šablony. Nicméně existují situace, kdy potřebujeme plnou programovou sílu JavaScriptu. A právě pro tyto případy můžeme použít **funkci pro vykreslení**.
 
-> If you are new to the concept of virtual DOM and render functions, make sure to read the [Rendering Mechanism](/guide/extras/rendering-mechanism) chapter first.
+> Pokud je koncept virtuálního DOM a funkcí pro vykreslení nový, přečtěte si nejprve kapitolu [Mechanismus vykreslování](/guide/extras/rendering-mechanism).
 
-## Basic Usage {#basic-usage}
+## Základní použití {#basic-usage}
 
-### Creating Vnodes {#creating-vnodes}
+### Vytváření VNodes {#creating-vnodes}
 
-Vue provides an `h()` function for creating vnodes:
+Vue poskytuje funkci `h()` pro vytváření VNodes:
 
 ```js
 import { h } from 'vue'
 
 const vnode = h(
-  'div', // type
-  { id: 'foo', class: 'bar' }, // props
+  'div', // typ
+  { id: 'foo', class: 'bar' }, // vlastnosti
   [
-    /* children */
+    /* potomci */
   ]
 )
 ```
 
-`h()` is short for **hyperscript** - which means "JavaScript that produces HTML (hypertext markup language)". This name is inherited from conventions shared by many virtual DOM implementations. A more descriptive name could be `createVnode()`, but a shorter name helps when you have to call this function many times in a render function.
+`h()` je zkratka pro **hyperscript** - což znamená "JavaScript, který produkuje HTML (hypertext markup language)". Tento název je dědictvím konvencí sdílených mnoha implementacemi virtuálního DOM. Popisnější název by mohl být `createVnode()`, ale kratší název pomáhá, když tuto funkci musíte v rámci funkce pro vykreslení volat mnohokrát.
 
-The `h()` function is designed to be very flexible:
+Funkce `h()` je navržena tak, aby byla velmi flexibilní:
 
 ```js
-// all arguments except the type are optional
+// všechny parametry kromě typu jsou volitelné
 h('div')
 h('div', { id: 'foo' })
 
-// both attributes and properties can be used in props
-// Vue automatically picks the right way to assign it
+// Vue automaticky vybere správný způsob přiřazení hodnot z props objektu - zda jde o html atributy nebo vlastnosti (props) komponenty
 h('div', { class: 'bar', innerHTML: 'hello' })
 
-// props modifiers such as `.prop` and `.attr` can be added
-// with `.` and `^` prefixes respectively
+// mohou být přidány modifikátory vlastností, jako `.prop` a `.attr`
+// s předponami `.` resp. `^`
 h('div', { '.name': 'some-name', '^width': '100' })
 
-// class and style have the same object / array
-// value support that they have in templates
+// třída a styl mají stejnou podporu objektu / pole
+// hodnot, kterou mají ve šablonách
 h('div', { class: [foo, { bar }], style: { color: 'red' } })
 
-// event listeners should be passed as onXxx
+// event listenery je třeba předávat jako onXxx
 h('div', { onClick: () => {} })
 
-// children can be a string
+// potomci mohou být řetězec
 h('div', { id: 'foo' }, 'hello')
 
-// props can be omitted when there are no props
+// objekt props lze vynechat, pokud není potřeba
 h('div', 'hello')
 h('div', [h('span', 'hello')])
 
-// children array can contain mixed vnodes and strings
+// pole potomků může obsahovat směs VNodes a řetězců
 h('div', ['hello', h('span', 'hello')])
 ```
 
-The resulting vnode has the following shape:
+Výsledný VNode má následující strukturu:
 
 ```js
 const vnode = h('div', { id: 'foo' }, [])
@@ -72,15 +71,15 @@ vnode.children // []
 vnode.key // null
 ```
 
-:::warning Note
-The full `VNode` interface contains many other internal properties, but it is strongly recommended to avoid relying on any properties other than the ones listed here. This avoids unintended breakage in case the internal properties are changed.
+:::warning Poznámka
+Plné rozhraní `VNode` obsahuje mnoho dalších interních vlastností, ale je silně doporučeno nespoléhat se na žádné vlastnosti kromě těchto uvedených. Tím se zabrání nechtěným problémům, pokud se interní vlastnosti změní.
 :::
 
-### Declaring Render Functions {#declaring-render-functions}
+### Deklarace funkcí pro vykreslení{#declaring-render-functions}
 
 <div class="composition-api">
 
-When using templates with Composition API, the return value of the `setup()` hook is used to expose data to the template. When using render functions, however, we can directly return the render function instead:
+Při použití šablon s Composition API se k vystavení dat šabloně návratová hodnota `setup()` hooku používá. Při použití funkcí pro vykreslení však můžeme přímo vrátit takovou funkci:
 
 ```js
 import { ref, h } from 'vue'
@@ -92,20 +91,20 @@ export default {
   setup(props) {
     const count = ref(1)
 
-    // return the render function
+    // vrátit funkci pro vykreslení
     return () => h('div', props.msg + count.value)
   }
 }
 ```
 
-The render function is declared inside `setup()` so it naturally has access to the props and any reactive state declared in the same scope.
+Funkce pro vykreslení je deklarována uvnitř `setup()` a má tak přirozený přístup k vlastnostem (props) a jakémukoli reaktivnímu stavu deklarovanému ve stejném scope.
 
-In addition to returning a single vnode, you can also return strings or arrays:
+Kromě vrácení jednoho VNode můžete také vrátit řetězce nebo pole:
 
 ```js
 export default {
   setup() {
-    return () => 'hello world!'
+    return () => 'Ahoj, Vue!'
   }
 }
 ```
@@ -115,7 +114,7 @@ import { h } from 'vue'
 
 export default {
   setup() {
-    // use an array to return multiple root nodes
+    // použít pole pro vrácení více root elementů
     return () => [
       h('div'),
       h('div'),
@@ -126,13 +125,13 @@ export default {
 ```
 
 :::tip
-Make sure to return a function instead of directly returning values! The `setup()` function is called only once per component, while the returned render function will be called multiple times.
+Ujistěte se, že vrátíte funkci místo přímého vrácení hodnot! Funkce `setup()` je pro každou komponentu volána pouze jednou, zatímco vrácená funkce pro vykreslení bude volána vícekrát.
 :::
 
 </div>
 <div class="options-api">
 
-We can declare render functions using the `render` option:
+Můžeme deklarovat funkce pro vykreslení pomocí volby `render`:
 
 ```js
 import { h } from 'vue'
@@ -140,7 +139,7 @@ import { h } from 'vue'
 export default {
   data() {
     return {
-      msg: 'hello'
+      msg: 'ahoj'
     }
   },
   render() {
@@ -149,14 +148,14 @@ export default {
 }
 ```
 
-The `render()` function has access to the component instance via `this`.
+Funkce `render()` má přístup k instanci komponenty pomocí `this`.
 
-In addition to returning a single vnode, you can also return strings or arrays:
+Kromě vrácení jednoho VNode můžete také vrátit řetězce nebo pole:
 
 ```js
 export default {
   render() {
-    return 'hello world!'
+    return 'Ahoj, Vue!'
   }
 }
 ```
@@ -166,7 +165,7 @@ import { h } from 'vue'
 
 export default {
   render() {
-    // use an array to return multiple root nodes
+    // použít pole pro vrácení více root elementů
     return [
       h('div'),
       h('div'),
@@ -178,39 +177,39 @@ export default {
 
 </div>
 
-If a render function component doesn't need any instance state, they can also be declared directly as a function for brevity:
+Pokud komponenta funkce pro vykreslení nepotřebuje žádný stav instance, může být pro stručnost deklarována také přímo jako funkce:
 
 ```js
 function Hello() {
-  return 'hello world!'
+  return 'Ahoj, Vue!'
 }
 ```
 
-That's right, this is a valid Vue component! See [Functional Components](#functional-components) for more details on this syntax.
+Ano, toto je platná Vue komponenta! Pro více podrobností o této syntaxi viz [Funkční komponenty](#functional-components).
 
-### Vnodes Must Be Unique {#vnodes-must-be-unique}
+### VNodes musí být jedinečné {#vnodes-must-be-unique}
 
-All vnodes in the component tree must be unique. That means the following render function is invalid:
+Všechny VNodes ve stromu komponent musí být jedinečné. To znamená, že následující funkce pro vykreslení je neplatná:
 
 ```js
 function render() {
-  const p = h('p', 'hi')
+  const p = h('p', 'ahoj')
   return h('div', [
-    // Yikes - duplicate vnodes!
+    // Oops - duplicitní VNodes!
     p,
     p
   ])
 }
 ```
 
-If you really want to duplicate the same element/component many times, you can do so with a factory function. For example, the following render function is a perfectly valid way of rendering 20 identical paragraphs:
+Pokud opravdu chcete mnohokrát zduplikovat stejný element/komponentu, můžete to udělat pomocí tovární funkce. Například následující funkce pro vykreslení je naprosto platným způsobem vykreslování 20 identických odstavců:
 
 ```js
 function render() {
   return h(
     'div',
     Array.from({ length: 20 }).map(() => {
-      return h('p', 'hi')
+      return h('p', 'ahoj')
     })
   )
 }
@@ -218,32 +217,32 @@ function render() {
 
 ## JSX / TSX {#jsx-tsx}
 
-[JSX](https://facebook.github.io/jsx/) is an XML-like extension to JavaScript that allows us to write code like this:
+[JSX](https://facebook.github.io/jsx/) je XML-like rozšíření pro JavaScript, které nám umožňuje psát kód takto:
 
 ```jsx
-const vnode = <div>hello</div>
+const vnode = <div>ahoj</div>
 ```
 
-Inside JSX expressions, use curly braces to embed dynamic values:
+V rámci JSX výrazů použijte pro vložení dynamických hodnot složené závorky:
 
 ```jsx
-const vnode = <div id={dynamicId}>hello, {userName}</div>
+const vnode = <div id={dynamicId}>ahoj, {userName}</div>
 ```
 
-`create-vue` and Vue CLI both have options for scaffolding projects with pre-configured JSX support. If you are configuring JSX manually, please refer to the documentation of [`@vue/babel-plugin-jsx`](https://github.com/vuejs/jsx-next) for details.
+Jak `create-vue`, tak Vue CLI umožňují vytvářet projekty s předkonfigurovanou podporou JSX. Pokud konfigurujete JSX manuálně, podívejte se prosím na podrobnosti do dokumentace [`@vue/babel-plugin-jsx`](https://github.com/vuejs/jsx-next).
 
-Although first introduced by React, JSX actually has no defined runtime semantics and can be compiled into various different outputs. If you have worked with JSX before, do note that **Vue JSX transform is different from React's JSX transform**, so you can't use React's JSX transform in Vue applications. Some notable differences from React JSX include:
+I když byl JSX původně představen v Reactu, ve skutečnosti nemá definovanou běhovou sémantiku a může být zkompilován do různých výstupů. Pokud jste již s JSX pracovali, mějte na paměti, že **Vue JSX transformace se liší od React JSX transformace**, takže React JSX transformaci nemůžete použít ve Vue aplikacích. Některé významné rozdíly oproti React JSX zahrnují:
 
-- You can use HTML attributes such as `class` and `for` as props - no need to use `className` or `htmlFor`.
-- Passing children to components (i.e. slots) [works differently](#passing-slots).
+- Můžete použít HTML atributy jako `class` a `for` jako vlastnosti (props) - není třeba používat `className` nebo `htmlFor`.
+- Předávání potomků komponentám (tj. sloty) [funguje jinak](#passing-slots).
 
-Vue's type definition also provides type inference for TSX usage. When using TSX, make sure to specify `"jsx": "preserve"` in `tsconfig.json` so that TypeScript leaves the JSX syntax intact for Vue JSX transform to process.
+Definice typů ve Vue také poskytuje odvozování typů pro použití TSX. Při použití TSX se ujistěte, že ve vašem souboru `tsconfig.json` je specifikováno `"jsx": "preserve"`, aby TypeScript nechal JSX syntaxi nedotčenou pro zpracování Vue JSX transformace.
 
-### JSX Type Inference {#jsx-type-inference}
+### Odvozování JSX typů {#jsx-type-inference}
 
-Similar to the transform, Vue's JSX also needs different type definitions.
+Podobně jako transformace, JSX Vue také potřebuje odlišné definice typů.
 
-Starting in Vue 3.4, Vue no longer implicitly registers the global `JSX` namespace. To instruct TypeScript to use Vue's JSX type definitions, make sure to include the following in your `tsconfig.json`:
+Od verze 3.4 už Vue implicitně neregistruje globální `JSX` namespace. Abyste řekli TypeScriptu, že má používatVue JSX definice typů, přidejte do vašeho `tsconfig.json` následující:
 
 ```json
 {
@@ -255,53 +254,53 @@ Starting in Vue 3.4, Vue no longer implicitly registers the global `JSX` namespa
 }
 ```
 
-You can also opt-in per file by adding a `/* @jsxImportSource vue */` comment at the top of the file.
+Toto chování můžete také nastavit samostatně pouze pro vybrané soubory přidáním komentáře `/* @jsxImportSource vue */` na začátek souboru.
 
-If there is code that depends on the presence of the global `JSX` namespace,  you can retain the exact pre-3.4 global behavior by explicitly importing or referencing `vue/jsx` in your project, which registers the global `JSX` namespace.
+Pokud existuje kód, který závisí na přítomnosti globálního jmenného prostoru `JSX`, můžete zachovat přesně stejné chování jako před verzí 3.4 explicitním odkazováním na `vue/jsx`, který registruje globální jmenný prostor `JSX`.
 
-## Render Function Recipes {#render-function-recipes}
+## Návody k funkcím pro vykreslení{#render-function-recipes}
 
-Below we will provide some common recipes for implementing template features as their equivalent render functions / JSX.
+Níže poskytneme několik návodů pro běžnou implementaci funkcí šablony pomocí jejich ekvivalentních funkcí pro vykreslení / JSX.
 
 ### `v-if` {#v-if}
 
-Template:
+Šablona:
 
 ```vue-html
 <div>
-  <div v-if="ok">yes</div>
-  <span v-else>no</span>
+  <div v-if="ok">ano</div>
+  <span v-else>ne</span>
 </div>
 ```
 
-Equivalent render function / JSX:
+Ekvivalentní funkce pro vykreslení / JSX:
 
 <div class="composition-api">
 
 ```js
-h('div', [ok.value ? h('div', 'yes') : h('span', 'no')])
+h('div', [ok.value ? h('div', 'ano') : h('span', 'ne')])
 ```
 
 ```jsx
-<div>{ok.value ? <div>yes</div> : <span>no</span>}</div>
+<div>{ok.value ? <div>ano</div> : <span>ne</span>}</div>
 ```
 
 </div>
 <div class="options-api">
 
 ```js
-h('div', [this.ok ? h('div', 'yes') : h('span', 'no')])
+h('div', [this.ok ? h('div', 'ano') : h('span', 'ne')])
 ```
 
 ```jsx
-<div>{this.ok ? <div>yes</div> : <span>no</span>}</div>
+<div>{this.ok ? <div>ano</div> : <span>ne</span>}</div>
 ```
 
 </div>
 
 ### `v-for` {#v-for}
 
-Template:
+Šablona:
 
 ```vue-html
 <ul>
@@ -311,14 +310,14 @@ Template:
 </ul>
 ```
 
-Equivalent render function / JSX:
+Ekvivalentní funkce pro vykreslení / JSX:
 
 <div class="composition-api">
 
 ```js
 h(
   'ul',
-  // assuming `items` is a ref with array value
+  // předpokládá se, že `items` je ref s hodnotou pole
   items.value.map(({ id, text }) => {
     return h('li', { key: id }, text)
   })
@@ -357,7 +356,7 @@ h(
 
 ### `v-on` {#v-on}
 
-Props with names that start with `on` followed by an uppercase letter are treated as event listeners. For example, `onClick` is the equivalent of `@click` in templates.
+Vlastnosti (props) s názvy začínajícími na `on` a následovanými velkým písmenem jsou považovány za event listenery. Například `onClick` je ekvivalentem `@click` ve šablonách.
 
 ```js
 h(
@@ -367,7 +366,7 @@ h(
       /* ... */
     }
   },
-  'click me'
+  'klikni na mě'
 )
 ```
 
@@ -377,23 +376,23 @@ h(
     /* ... */
   }}
 >
-  click me
+  klikni na mě
 </button>
 ```
 
-#### Event Modifiers {#event-modifiers}
+#### Modifikátory událostí {#event-modifiers}
 
-For the `.passive`, `.capture`, and `.once` event modifiers, they can be concatenated after the event name using camelCase.
+Modifikátory událostí `.passive`, `.capture` a `.once` lze připojit za název události pomocí camelCase.
 
-For example:
+Například:
 
 ```js
 h('input', {
   onClickCapture() {
-    /* listener in capture mode */
+    /* listener v režimu capture */
   },
   onKeyupOnce() {
-    /* triggers only once */
+    /* spustí se pouze jednou */
   },
   onMouseoverOnceCapture() {
     /* once + capture */
@@ -409,7 +408,7 @@ h('input', {
 />
 ```
 
-For other event and key modifiers, the [`withModifiers`](/api/render-function#withmodifiers) helper can be used:
+Pro ostatní modifikátory událostí a klávesové modifikátory lze použít pomocnou funkci [`withModifiers`](/api/render-function#withmodifiers):
 
 ```js
 import { withModifiers } from 'vue'
@@ -423,9 +422,9 @@ h('div', {
 <div onClick={withModifiers(() => {}, ['self'])} />
 ```
 
-### Components {#components}
+### Komponenty {#components}
 
-To create a vnode for a component, the first argument passed to `h()` should be the component definition. This means when using render functions, it is unnecessary to register components - you can just use the imported components directly:
+K vytvoření VNode pro komponentu by měl být první parametr předaný do `h()` definice komponenty. To znamená, že při použití funkcí pro vykreslení není nutné komponenty registrovat - můžete je použít přímo:
 
 ```js
 import Foo from './Foo.vue'
@@ -447,9 +446,9 @@ function render() {
 }
 ```
 
-As we can see, `h` can work with components imported from any file format as long as it's a valid Vue component.
+Jak můžeme vidět, `h` může pracovat s komponentami importovanými z jakéhokoli formátu souboru, pokud je to platná Vue komponenta.
 
-Dynamic components are straightforward with render functions:
+Dynamické komponenty jsou s funkcemi pro vykreslení jednoduché:
 
 ```js
 import Foo from './Foo.vue'
@@ -466,13 +465,13 @@ function render() {
 }
 ```
 
-If a component is registered by name and cannot be imported directly (for example, globally registered by a library), it can be programmatically resolved by using the [`resolveComponent()`](/api/render-function#resolvecomponent) helper.
+Pokud je komponenta registrována podle jména a nelze ji importovat přímo (například je globálně registrována knihovnou), lze ji programově vyřešit pomocnou funkcí [`resolveComponent()`](/api/render-function#resolvecomponent).
 
-### Rendering Slots {#rendering-slots}
+### Vykreslování slotů {#rendering-slots}
 
 <div class="composition-api">
 
-In render functions, slots can be accessed from the `setup()` context. Each slot on the `slots` object is a **function that returns an array of vnodes**:
+Ve funkcích pro vykreslení lze sloty (slots) získat z kontextu `setup()`. Každý slot na objektu `slots` je **funkce, která vrací pole VNodes**:
 
 ```js
 export default {
@@ -483,7 +482,7 @@ export default {
       // <div><slot /></div>
       h('div', slots.default()),
 
-      // named slot:
+      // pojmenovaný slot:
       // <div><slot name="footer" :text="message" /></div>
       h(
         'div',
@@ -496,20 +495,20 @@ export default {
 }
 ```
 
-JSX equivalent:
+Ekvivalent v JSX:
 
 ```jsx
 // default
 <div>{slots.default()}</div>
 
-// named
+// pojmenovaný
 <div>{slots.footer({ text: props.message })}</div>
 ```
 
 </div>
 <div class="options-api">
 
-In render functions, slots can be accessed from [`this.$slots`](/api/component-instance#slots):
+Ve funkcích pro vykreslení lze sloty (slots) získat z [`this.$slots`](/api/component-instance#slots):
 
 ```js
 export default {
@@ -531,7 +530,7 @@ export default {
 }
 ```
 
-JSX equivalent:
+JSX ekvivalent:
 
 ```jsx
 // <div><slot /></div>
@@ -543,43 +542,43 @@ JSX equivalent:
 
 </div>
 
-### Passing Slots {#passing-slots}
+### Předávání slotů {#passing-slots}
 
-Passing children to components works a bit differently from passing children to elements. Instead of an array, we need to pass either a slot function, or an object of slot functions. Slot functions can return anything a normal render function can return - which will always be normalized to arrays of vnodes when accessed in the child component.
+Předávání potomků komponentám funguje trochu jinak než předávání potomků elementům. Místo pole musíme předat buď funkci slotu, nebo objekt funkcí slotů. Funkce slotů mohou vrátit cokoli, co může vrátit běžná funkce pro vykreslení - což bude vždy normalizováno na pole VNodes, když je přístupováno v dceřiné komponentě.
 
 ```js
-// single default slot
-h(MyComponent, () => 'hello')
+// jediný výchozí slot
+h(MyComponent, () => 'ahoj')
 
-// named slots
-// notice the `null` is required to avoid
-// the slots object being treated as props
+// pojmenované sloty
+// `null` je nutné použít, aby se
+// objekt slotů nezaměňoval s props
 h(MyComponent, null, {
-  default: () => 'default slot',
+  default: () => 'výchozí slot',
   foo: () => h('div', 'foo'),
-  bar: () => [h('span', 'one'), h('span', 'two')]
+  bar: () => [h('span', 'jeden'), h('span', 'dva')]
 })
 ```
 
-JSX equivalent:
+JSX ekvivalent:
 
 ```jsx
-// default
+// výchozí
 <MyComponent>{() => 'hello'}</MyComponent>
 
-// named
+// pojmenované
 <MyComponent>{{
-  default: () => 'default slot',
+  default: () => 'výchozí slot',
   foo: () => <div>foo</div>,
-  bar: () => [<span>one</span>, <span>two</span>]
+  bar: () => [<span>jeden</span>, <span>dva</span>]
 }}</MyComponent>
 ```
 
-Passing slots as functions allows them to be invoked lazily by the child component. This leads to the slot's dependencies being tracked by the child instead of the parent, which results in more accurate and efficient updates.
+Předávání slotů jako funkcí umožňuje jejich "lazy" volání v komponentě potomka. Díky tomu jsou závislosti slotu sledovány komponentou potomka místo rodičovské, což vede k přesnějším a efektivnějším aktualizacím.
 
-### Built-in Components {#built-in-components}
+### Vestavěné komponenty {#built-in-components}
 
-[Built-in components](/api/built-in-components) such as `<KeepAlive>`, `<Transition>`, `<TransitionGroup>`, `<Teleport>` and `<Suspense>` must be imported for use in render functions:
+[Vestavěné komponenty](/api/built-in-components) jako `<KeepAlive>`, `<Transition>`, `<TransitionGroup>`, `<Teleport>` a `<Suspense>` musí být pro použití ve funkcích pro vykreslení importovány:
 
 <div class="composition-api">
 
@@ -610,7 +609,7 @@ export default {
 
 ### `v-model` {#v-model}
 
-The `v-model` directive is expanded to `modelValue` and `onUpdate:modelValue` props during template compilation—we will have to provide these props ourselves:
+Direktiva `v-model` je při kompilaci šablony rozšířena na vlastnosti `modelValue` a `onUpdate:modelValue` - tyto vlastnosti (props) musíme poskytnout sami:
 
 <div class="composition-api">
 
@@ -646,14 +645,14 @@ export default {
 
 </div>
 
-### Custom Directives {#custom-directives}
+### Vlastní direktivy {#custom-directives}
 
-Custom directives can be applied to a vnode using [`withDirectives`](/api/render-function#withdirectives):
+Vlastní direktivy lze na VNode aplikovat pomocí [`withDirectives`](/api/render-function#withdirectives):
 
 ```js
 import { h, withDirectives } from 'vue'
 
-// a custom directive
+// vlastní direktiva
 const pin = {
   mounted() { /* ... */ },
   updated() { /* ... */ }
@@ -665,13 +664,13 @@ const vnode = withDirectives(h('div'), [
 ])
 ```
 
-If the directive is registered by name and cannot be imported directly, it can be resolved using the [`resolveDirective`](/api/render-function#resolvedirective) helper.
+Pokud je direktiva registrována pod názvem a nelze ji importovat přímo, lze ji vyřešit pomocnou funkcí [`resolveDirective`](/api/render-function#resolvedirective).
 
 ### Template Refs {#template-refs}
 
 <div class="composition-api">
 
-With the Composition API, template refs are created by passing the `ref()` itself as a prop to the vnode:
+S Composition API jsou template refs vytvářeny předáním samotného `ref()` jako vlastnosti VNode:
 
 ```js
 import { h, ref } from 'vue'
@@ -689,7 +688,7 @@ export default {
 </div>
 <div class="options-api">
 
-With the Options API, template refs are created by passing the ref name as a string in the vnode props:
+S Options API jsou template refs vytvářeny předáním názvu ref jako řetězce ve vlastnostech VNode:
 
 ```js
 export default {
@@ -702,15 +701,15 @@ export default {
 
 </div>
 
-## Functional Components {#functional-components}
+## Funkční komponenty {#functional-components}
 
-Functional components are an alternative form of component that don't have any state of their own. They act like pure functions: props in, vnodes out. They are rendered without creating a component instance (i.e. no `this`), and without the usual component lifecycle hooks.
+Funkční (Functional) komponenty jsou alternativní formou komponent, které nemají vlastní stav. Chovají se jako čisté funkce: přijímají props a vrací VNodes. Jsou vykreslovány bez vytváření instance komponenty (tj. žádné `this`) a bez běžných lifecycle hooks komponenty.
 
-To create a functional component we use a plain function, rather than an options object. The function is effectively the `render` function for the component.
+Pro vytvoření funkční komponenty používáme běžnou funkci místo objektu s možnostmi (options object). Tato funkce je vlastně `render` funkcí pro komponentu.
 
 <div class="composition-api">
 
-The signature of a functional component is the same as the `setup()` hook:
+Signatura funkční komponenty je stejná jako `setup()` hook:
 
 ```js
 function MyComponent(props, { slots, emit, attrs }) {
@@ -721,7 +720,7 @@ function MyComponent(props, { slots, emit, attrs }) {
 </div>
 <div class="options-api">
 
-As there is no `this` reference for a functional component, Vue will pass in the `props` as the first argument:
+Protože funkční komponenta nemá odkaz na `this`, Vue předává `props` jako první parametr:
 
 ```js
 function MyComponent(props, context) {
@@ -729,32 +728,32 @@ function MyComponent(props, context) {
 }
 ```
 
-The second argument, `context`, contains three properties: `attrs`, `emit`, and `slots`. These are equivalent to the instance properties [`$attrs`](/api/component-instance#attrs), [`$emit`](/api/component-instance#emit), and [`$slots`](/api/component-instance#slots) respectively.
+Druhý parametr `context` obsahuje tři vlastnosti: `attrs`, `emit` a `slots`. Tyto vlastnosti jsou ekvivalentem instančních vlastností [`$attrs`](/api/component-instance#attrs), [`$emit`](/api/component-instance#emit), resp. [`$slots`](/api/component-instance#slots).
 
 </div>
 
-Most of the usual configuration options for components are not available for functional components. However, it is possible to define [`props`](/api/options-state#props) and [`emits`](/api/options-state#emits) by adding them as properties:
+Většina běžných konfiguračních možností pro komponenty není pro funkční komponenty dostupná. Nicméně je možné definovat [`props`](/api/options-state#props) a [`emits`](/api/options-state#emits) přidáním těchto vlastností:
 
 ```js
 MyComponent.props = ['value']
 MyComponent.emits = ['click']
 ```
 
-If the `props` option is not specified, then the `props` object passed to the function will contain all attributes, the same as `attrs`. The prop names will not be normalized to camelCase unless the `props` option is specified.
+Pokud není specifikována možnost `props`, objekt `props` předaný funkci bude obsahovat všechny atributy, stejně jako `attrs`. Pokud není specifikována možnost `props`, názvy props nebudou normalizovány na camelCase.
 
-For functional components with explicit `props`, [attribute fallthrough](/guide/components/attrs) works much the same as with normal components. However, for functional components that don't explicitly specify their `props`, only the `class`, `style`, and `onXxx` event listeners will be inherited from the `attrs` by default. In either case, `inheritAttrs` can be set to `false` to disable attribute inheritance:
+Pro funkční komponenty s explicitními `props` fungují [fallthrough atributy](/guide/components/attrs) stejně jako u běžných komponent. Pro funkční komponenty, které své `props` explicitně nezadávají, však budou ve výchozím stavu děděny pouze `class`, `style` a event listenery `onXxx` z `attrs`. V obou případech lze pomocí `inheritAttrs` nastavit `false`, aby se dědění atributů zakázalo:
 
 ```js
 MyComponent.inheritAttrs = false
 ```
 
-Functional components can be registered and consumed just like normal components. If you pass a function as the first argument to `h()`, it will be treated as a functional component.
+Funkční komponenty mohou být registrovány a používány stejně jako běžné komponenty. Pokud předáte funkci jako první parametr do `h()`, bude považována za funkční komponentu.
 
-### Typing Functional Components<sup class="vt-badge ts" /> {#typing-functional-components}
+### Typování funkčních komponent<sup class="vt-badge ts" /> {#typování-funkčních-komponent}
 
-Functional Components can be typed based on whether they are named or anonymous. Volar also supports type checking properly typed functional components when consuming them in SFC templates.
+Funkční komponenty mohou být typovány na základě toho, zda jsou pojmenované nebo anonymní. Volar také podporuje kontrolu typů správně typovaných funkčních komponent při jejich použití v SFC šablonách.
 
-**Named Functional Component**
+**Pojmenovaná funkční komponenta**
 
 ```tsx
 import type { SetupContext } from 'vue'
@@ -789,7 +788,7 @@ FComponent.emits = {
 }
 ```
 
-**Anonymous Functional Component**
+**Anonymní funkční komponenta**
 
 ```tsx
 import type { FunctionalComponent } from 'vue'

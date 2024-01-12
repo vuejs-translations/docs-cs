@@ -1,25 +1,25 @@
-# Template Refs {#template-refs}
+# Template refs {#template-refs}
 
-While Vue's declarative rendering model abstracts away most of the direct DOM operations for you, there may still be cases where we need direct access to the underlying DOM elements. To achieve this, we can use the special `ref` attribute:
+Zatímco deklarativní model vykreslování ve Vue od vás abstrahuje většinu přímých operací s DOM, stále mohou nastat případy, kdy potřebujeme k základním elementům DOM přímý přístup. Abychom toho dosáhli, můžeme použít speciální atribut `ref`:
 
 ```vue-html
 <input ref="input">
 ```
 
-`ref` is a special attribute, similar to the `key` attribute discussed in the `v-for` chapter. It allows us to obtain a direct reference to a specific DOM element or child component instance after it's mounted. This may be useful when you want to, for example, programmatically focus an input on component mount, or initialize a 3rd party library on an element.
+`ref` je speciální atribut, podobný jako atribut `key` popsaný v kapitole `v-for`. Umožňuje nám získat přímý odkaz na konkrétní DOM element nebo instanci podřízené komponenty poté, co je připojena (mounted). To může být užitečné, když chcete například programově zaměřit vstup na připojenou komponentu nebo na elementu inicializovat knihovnu třetí strany na prvku.
 
-## Accessing the Refs {#accessing-the-refs}
+## Přístup k refs {#accessing-the-refs}
 
 <div class="composition-api">
 
-To obtain the reference with Composition API, we need to declare a ref with a name that matches the template ref attribute's value:
+Abychom získali referenci s Composition API, musíme deklarovat ref s názvem, který odpovídá hodnotě atributu ref v šabloně:
 
 ```vue
 <script setup>
 import { ref, onMounted } from 'vue'
 
-// declare a ref to hold the element reference
-// the name must match template ref value
+// deklarujte ref, který bude obsahovat referenci na element
+// jméno musí odpovídat hodnotě template ref
 const input = ref(null)
 
 onMounted(() => {
@@ -32,7 +32,7 @@ onMounted(() => {
 </template>
 ```
 
-If not using `<script setup>`, make sure to also return the ref from `setup()`:
+Pokud nepoužíváte `<script setup>`, ujistěte se, že ref v metodě `setup()` také vracíte :
 
 ```js{6}
 export default {
@@ -49,7 +49,7 @@ export default {
 </div>
 <div class="options-api">
 
-The resulting ref is exposed on `this.$refs`:
+Výsledný ref je zpřístupněn jako `this.$refs`:
 
 ```vue
 <script>
@@ -67,33 +67,33 @@ export default {
 
 </div>
 
-Note that you can only access the ref **after the component is mounted.** If you try to access <span class="options-api">`$refs.input`</span><span class="composition-api">`input`</span> in a template expression, it will be <span class="options-api">`undefined`</span><span class="composition-api">`null`</span> on the first render. This is because the element doesn't exist until after the first render!
+Upozorňujeme, že k ref můžete přistupovat pouze **po připojení komponenty**. Pokud se pokusíte o přístup k <span class="options-api">`$refs.input`</span><span class="composition- api">`input`</span> ve výrazu šablony, bude při prvním vykreslení <span class="options-api">`undefined`</span><span class="composition-api">`null`</span>. Je to proto, že element existuje až po prvním vykreslení!
 
 <div class="composition-api">
 
-If you are trying to watch the changes of a template ref, make sure to account for the case where the ref has `null` value:
+Pokud se pokoušíte na template ref apikovat watcher, nezapomeňte vzít v úvahu případ, kdy má ref hodnotu `null`:
 
 ```js
 watchEffect(() => {
   if (input.value) {
     input.value.focus()
   } else {
-    // not mounted yet, or the element was unmounted (e.g. by v-if)
+    // ještě není připojeno, nebo je komponenta ve stavu "unmounted" (například kvůli v-if)
   }
 })
 ```
 
-See also: [Typing Template Refs](/guide/typescript/composition-api#typing-template-refs) <sup class="vt-badge ts" />
+Viz také: [Typování Template Refs](/guide/typescript/composition-api#typing-template-refs) <sup class="vt-badge ts" />
 
 </div>
 
-## Refs inside `v-for` {#refs-inside-v-for}
+## Refs uvnitř `v-for` {#refs-inside-v-for}
 
-> Requires v3.2.25 or above
+> Vyžaduje v3.2.25 nebo vyšší
 
 <div class="composition-api">
 
-When `ref` is used inside `v-for`, the corresponding ref should contain an Array value, which will be populated with the elements after mount:
+Když je `ref` použitý uvnitř `v-for`, odpovídající ref by měla obsahovat hodnotu Array (pole), která bude po připojení komponenty naplněna příslušnými elementy:
 
 ```vue
 <script setup>
@@ -117,12 +117,12 @@ onMounted(() => console.log(itemRefs.value))
 </template>
 ```
 
-[Try it in the Playground](https://play.vuejs.org/#eNpFjs1qwzAQhF9l0CU2uDZtb8UOlJ576bXqwaQyCGRJyCsTEHr3rGwnOehnd2e+nSQ+vW/XqMSH6JdL0J6wKIr+LK2evQuEhKCmBs5+u2hJ/SNjCm7GiV0naaW9OLsQjOZrKNrq97XBW4P3v/o51qTmHzUtd8k+e0CrqsZwRpIWGI0KVN0N7TqaqNp59JUuEt2SutKXY5elmimZT9/t2Tk1F+z0ZiTFFdBHs738Mxrry+TCIEWhQ9sttRQl0tEsK6U4HEBKW3LkfDA6o3dst3H77rFM5BtTfm/P)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNpFjs1qwzAQhF9l0CU2uDZtb8UOlJ576bXqwaQyCGRJyCsTEHr3rGwnOehnd2e+nSQ+vW/XqMSH6JdL0J6wKIr+LK2evQuEhKCmBs5+u2hJ/SNjCm7GiV0naaW9OLsQjOZrKNrq97XBW4P3v/o51qTmHzUtd8k+e0CrqsZwRpIWGI0KVN0N7TqaqNp59JUuEt2SutKXY5elmimZT9/t2Tk1F+z0ZiTFFdBHs738Mxrry+TCIEWhQ9sttRQl0tEsK6U4HEBKW3LkfDA6o3dst3H77rFM5BtTfm/P)
 
 </div>
 <div class="options-api">
 
-When `ref` is used inside `v-for`, the resulting ref value will be an array containing the corresponding elements:
+Když je `ref` použitý uvnitř `v-for`, výsledná ref hodnota bude pole obsahující příslušné elementy:
 
 ```vue
 <script>
@@ -149,27 +149,27 @@ export default {
 </template>
 ```
 
-[Try it in the Playground](https://play.vuejs.org/#eNpFjk0KwjAQha/yCC4Uaou6kyp4DuOi2KkGYhKSiQildzdNa4WQmTc/37xeXJwr35HEUdTh7pXjszT0cdYzWuqaqBm9NEDbcLPeTDngiaM3PwVoFfiI667AvsDhNpWHMQzF+L9sNEztH3C3JlhNpbaPNT9VKFeeulAqplfY5D1p0qurxVQSqel0w5QUUEedY8q0wnvbWX+SYgRAmWxIiuSzm4tBinkc6HvkuSE7TIBKq4lZZWhdLZfE8AWp4l3T)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNpFjk0KwjAQha/yCC4Uaou6kyp4DuOi2KkGYhKSiQildzdNa4WQmTc/37xeXJwr35HEUdTh7pXjszT0cdYzWuqaqBm9NEDbcLPeTDngiaM3PwVoFfiI667AvsDhNpWHMQzF+L9sNEztH3C3JlhNpbaPNT9VKFeeulAqplfY5D1p0qurxVQSqel0w5QUUEedY8q0wnvbWX+SYgRAmWxIiuSzm4tBinkc6HvkuSE7TIBKq4lZZWhdLZfE8AWp4l3T)
 
 </div>
 
-It should be noted that the ref array does **not** guarantee the same order as the source array.
+Je třeba poznamenat, že ref pole **nezaručuje** stejné pořadí jako zdrojové pole.
 
-## Function Refs {#function-refs}
+## Funkční refs {#function-refs}
 
-Instead of a string key, the `ref` attribute can also be bound to a function, which will be called on each component update and gives you full flexibility on where to store the element reference. The function receives the element reference as the first argument:
+Namísto klíče typu string může být atribut `ref` svázán i s funkcí, která bude volána při každé aktualizaci komponenty a poskytne vám plnou flexibilitu, kam uložit odkaz na element. Funkce obdrží odkaz na element jako první parametr:
 
 ```vue-html
-<input :ref="(el) => { /* assign el to a property or ref */ }">
+<input :ref="(el) => { /* přřadit `el` do proměnné nebo ref */ }">
 ```
 
-Note we are using a dynamic `:ref` binding so we can pass it a function instead of a ref name string. When the element is unmounted, the argument will be `null`. You can, of course, use a method instead of an inline function.
+Všimněte si, že používáme dynamický binding `:ref`, takže můžeme předat přímo funkci místo názvu ref v podobě string. Když je prvek odpojen, parametr bude `null`. Místo inline funkce můžete samozřejmě použít metodu.
 
-## Ref on Component {#ref-on-component}
+## Ref na komponentě {#ref-on-component}
 
-> This section assumes knowledge of [Components](/guide/essentials/component-basics). Feel free to skip it and come back later.
+> Tato sekce předpokládá znalost [komponent](/guide/essentials/component-basics). Klidně ji teď přeskočte a vraťte se později.
 
-`ref` can also be used on a child component. In this case the reference will be that of a component instance:
+`ref` může být také použit na komponentu potomka. V tomto případě povede reference na odpovídající instanci komponenty:
 
 <div class="composition-api">
 
@@ -181,7 +181,7 @@ import Child from './Child.vue'
 const child = ref(null)
 
 onMounted(() => {
-  // child.value will hold an instance of <Child />
+  // child.value bude obsahovat instanci <Child />
 })
 </script>
 
@@ -202,7 +202,7 @@ export default {
     Child
   },
   mounted() {
-    // this.$refs.child will hold an instance of <Child />
+    // this.$refs.child bude obsahovat instanci <Child />
   }
 }
 </script>
@@ -214,11 +214,11 @@ export default {
 
 </div>
 
-<span class="composition-api">If the child component is using Options API or not using `<script setup>`, the</span><span class="options-api">The</span> referenced instance will be identical to the child component's `this`, which means the parent component will have full access to every property and method of the child component. This makes it easy to create tightly coupled implementation details between the parent and the child, so component refs should be only used when absolutely needed - in most cases, you should try to implement parent / child interactions using the standard props and emit interfaces first.
+<span class="composition-api">Pokud komponenta potomka používá Options API nebo nepoužívá `<script setup>`, odkazovaná</span><span class="options-api">Odkazovaná</span> instance bude identická s `this` komponenty potomka, což znamená, že komponenta rodiče bude mít plný přístup ke každé vlastnosti a metodě komponenty potomka. To usnadňuje vytváření těsně propojených implementačních detailů mezi rodičem a potomkem, takže odkazy na komponenty by se měly používat pouze tehdy, když je to absolutně nutné – ve většině případů byste se měli nejprve pokusit implementovat interakce rodiče a potomka pomocí standardních rozhraní `props` a `emit`.
 
 <div class="composition-api">
 
-An exception here is that components using `<script setup>` are **private by default**: a parent component referencing a child component using `<script setup>` won't be able to access anything unless the child component chooses to expose a public interface using the `defineExpose` macro:
+Výjimkou zde je, že komponenty používající `<script setup>` jsou **ve výchozím nastavení soukromé**: komponenta rodiče odkazující na komponentu potomka pomocí `<script setup>` nebude mít přístupk ničemu, pokud se komponenta potomka nerozhodne vystavit své veřejné rozhraní pomocí makra `defineExpose`:
 
 ```vue
 <script setup>
@@ -227,7 +227,7 @@ import { ref } from 'vue'
 const a = 1
 const b = ref(2)
 
-// Compiler macros, such as defineExpose, don't need to be imported
+// makra překladače, jako je defineExpose, nemusí být importovány
 defineExpose({
   a,
   b
@@ -235,14 +235,14 @@ defineExpose({
 </script>
 ```
 
-When a parent gets an instance of this component via template refs, the retrieved instance will be of the shape `{ a: number, b: number }` (refs are automatically unwrapped just like on normal instances).
+Když rodič získá instanci této komponenty prostřednictvím template refs, získaná instance bude mít tvar `{ a: number, b: number}` (refs se automaticky rozbalí stejně jako u normálních instancí).
 
-See also: [Typing Component Template Refs](/guide/typescript/composition-api#typing-component-template-refs) <sup class="vt-badge ts" />
+Viz také: [Typování Template refs v komponentách](/guide/typescript/composition-api#typing-component-template-refs) <sup class="vt-badge ts" />
 
 </div>
 <div class="options-api">
 
-The `expose` option can be used to limit the access to a child instance:
+K omezení přístupu k instanci potomka lze použít volbu `expose`:
 
 ```js
 export default {
@@ -264,6 +264,6 @@ export default {
 }
 ```
 
-In the above example, a parent referencing this component via template ref will only be able to access `publicData` and `publicMethod`.
+Ve výše uvedeném příkladu bude mít rodič odkazující na tuto komponentu prostřednictvím template ref přístup pouze na `publicData` a `publicMethod`.
 
 </div>

@@ -1,8 +1,8 @@
-# Components {#components}
+# Komponenty {#components}
 
-So far, we've only been working with a single component. Real Vue applications are typically created with nested components.
+Zatím jsme pracovali pouze s jednou komponentou. Skutečné Vue aplikace jsou ale obvykle vytvářeny s vnořenými komponentami.
 
-A parent component can render another component in its template as a child component. To use a child component, we need to first import it:
+Komponenta rodiče může vykreslit jinou komponentu ve své šabloně jako komponentu potomka. Chcete-li komponentu potomka použít, musíme ji nejprve importovat:
 
 <div class="composition-api">
 <div class="sfc">
@@ -27,14 +27,14 @@ export default {
 }
 ```
 
-We also need to register the component using the `components` option. Here we are using the object property shorthand to register the `ChildComp` component under the `ChildComp` key.
+Dále musíme komponentu zaregistrovat s využitím sekce `components`. Zde používáme zkrácený zápis (object property shorthand) pro registraci komponenty `ChildComp` pod názvem `ChildComp`.
 
 </div>
 </div>
 
 <div class="sfc">
 
-Then, we can use the component in the template as:
+Poté můžeme komponentu použít v šabloně jako:
 
 ```vue-html
 <ChildComp />
@@ -54,9 +54,9 @@ createApp({
 })
 ```
 
-We also need to register the component using the `components` option. Here we are using the object property shorthand to register the `ChildComp` component under the `ChildComp` key.
+Dále musíme komponentu zaregistrovat s využitím sekce `components`. Zde používáme zkrácený zápis (object property shorthand) pro registraci komponenty `ChildComp` pod názvem `ChildComp`.
 
-Because we are writing the template in the DOM, it will be subject to browser's parsing rules, which is case-insensitive for tag names. Therefore, we need to use the kebab-cased name to reference the child component:
+Protože šablonu píšeme v DOM, bude podléhat pravidlům analýzy prohlížeče, které u názvů značek nerozlišují malá a velká písmena. Proto musíme k odkazování na komponentu potomka použít kebab-case název:
 
 ```vue-html
 <child-comp></child-comp>
@@ -65,4 +65,4 @@ Because we are writing the template in the DOM, it will be subject to browser's 
 </div>
 
 
-Now try it yourself - import the child component and render it in the template.
+Nyní to zkuste sami – importujte komponentu potomka a vykreslete ji v šabloně.

@@ -13,17 +13,17 @@ const selected = ref('')
 const multiSelected = ref([])
 </script>
 
-# Form Input Bindings {#form-input-bindings}
+# Binding dat z formulářů {#form-input-bindings}
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/user-inputs-vue-devtools-in-vue-3" title="Free Lesson on User Inputs with Vue.js"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/user-inputs-vue-devtools-in-vue-3" title="Lekce o uživatelských vstupech ve Vue.js zdarma"/>
 </div>
 
 <div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-user-inputs-in-vue" title="Free Lesson on User Inputs with Vue.js"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-user-inputs-in-vue" title="Lekce o uživatelských vstupech ve Vue.js zdarma"/>
 </div>
 
-When dealing with forms on the frontend, we often need to sync the state of form input elements with corresponding state in JavaScript. It can be cumbersome to manually wire up value bindings and change event listeners:
+Při práci s formuláři na frontendu často potřebujeme synchronizovat stav vstupních polí formuláře s odpovídajícím stavem v JavaScriptu. Ruční binding hodnot a změny event listenerů mohou být těžkopádné:
 
 ```vue-html
 <input
@@ -31,23 +31,23 @@ When dealing with forms on the frontend, we often need to sync the state of form
   @input="event => text = event.target.value">
 ```
 
-The `v-model` directive helps us simplify the above to:
+Direktiva `v-model` nám pomáhá výše uvedené zjednodušit na:
 
 ```vue-html
 <input v-model="text">
 ```
 
-In addition, `v-model` can be used on inputs of different types, `<textarea>`, and `<select>` elements. It automatically expands to different DOM property and event pairs based on the element it is used on:
+Navíc může být `v-model` použita i na další druhy vstupů, elementy `<textarea>` a `<select>`. Automaticky se navazuje na různé DOM atributy a páry událostí podle toho, na jakém elementu je použita:
 
-- `<input>` with text types and `<textarea>` elements use `value` property and `input` event;
-- `<input type="checkbox">` and `<input type="radio">` use `checked` property and `change` event;
-- `<select>` uses `value` as a prop and `change` as an event.
+- Element `<input>` s textovými typy a `<textarea>` používá atribut `value` a událost `input`;
+- `<input type="checkbox">` a `<input type="radio">` používá atribut `checked` a událost `change`;
+- `<select>` používá atribut `value` a událost `change`.
 
-::: tip Note
-`v-model` will ignore the initial `value`, `checked` or `selected` attributes found on any form elements. It will always treat the current bound JavaScript state as the source of truth. You should declare the initial value on the JavaScript side, using <span class="options-api">the [`data`](/api/options-state.html#data) option</span><span class="composition-api">[reactivity APIs](/api/reactivity-core.html#reactivity-api-core)</span>.
+::: tip Poznámka
+`v-model` bude ignorovat výchozí atributy `value`, `checked` či `selected` nalezené na jakýchkoli prvcích formuláře. Vždy bude za zdroj pravdy považovat aktuální binding JavaScript stavu. Počáteční hodnotu byste měli deklarovat na straně JavaScriptu pomocí <span class="options-api">proměnné [`data`](/api/options-state.html#data)</span><span class="composition-api">[Reactivity API](/api/reactivity-core.html#reactivity-api-core)</span>.
 :::
 
-## Basic Usage {#basic-usage}
+## Základní použití {#basic-usage}
 
 ### Text {#text}
 
@@ -63,21 +63,21 @@ In addition, `v-model` can be used on inputs of different types, `<textarea>`, a
 
 <div class="composition-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNo9jUEOgyAQRa8yYUO7aNkbNOkBegM2RseWRGACoxvC3TumxuX/+f+9ql5Ez31D1SlbpuyJoSBvNLjoA6XMUCHjAg2WnAJomWoXXZxSLAwBSxk/CP2xuWl9d9GaP0YAEhgDrSOjJABLw/s8+NJBrde/NWsOpWPrI20M+yOkGdfeqXPiFAhowm9aZ8zS4+wPv/RGjtZcJtV+YpNK1g==)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNo9jUEOgyAQRa8yYUO7aNkbNOkBegM2RseWRGACoxvC3TumxuX/+f+9ql5Ez31D1SlbpuyJoSBvNLjoA6XMUCHjAg2WnAJomWoXXZxSLAwBSxk/CP2xuWl9d9GaP0YAEhgDrSOjJABLw/s8+NJBrde/NWsOpWPrI20M+yOkGdfeqXPiFAhowm9aZ8zS4+wPv/RGjtZcJtV+YpNK1g==)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNo9jdEKwjAMRX8l9EV90L2POvAD/IO+lDVqoetCmw6h9N/NmBuEJPeSc1PVg+i2FFS90nlMnngwEb80JwaHL1sCQzURwFm258u2AyTkkuKuACbM2b6xh9Nps9o6pEnp7ggWwThRsIyiADQNz40En3uodQ+C1nRHK8HaRyoMy3WaHYa7Uf8To0CCRvzMwWESH51n4cXvBNTd8Um1H0FuTq0=)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNo9jdEKwjAMRX8l9EV90L2POvAD/IO+lDVqoetCmw6h9N/NmBuEJPeSc1PVg+i2FFS90nlMnngwEb80JwaHL1sCQzURwFm258u2AyTkkuKuACbM2b6xh9Nps9o6pEnp7ggWwThRsIyiADQNz40En3uodQ+C1nRHK8HaRyoMy3WaHYa7Uf8To0CCRvzMwWESH51n4cXvBNTd8Um1H0FuTq0=)
 
 </div>
 
 <span id="vmodel-ime-tip"></span>
-::: tip Note
-For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) (Chinese, Japanese, Korean etc.), you'll notice that `v-model` doesn't get updated during IME composition. If you want to respond to these updates as well, use your own `input` event listener and `value` binding instead of using `v-model`.
+::: tip Poznámka
+U jazyků, které vyžadují [IME](https://en.wikipedia.org/wiki/Input_method) (čínština, japonština, korejština atd.), si všimnete, že `v-model` se během IME kompozice neaktualizuje. Chcete-li na tyto aktualizace také reagovat, použijte svůj vlastní `input` event listener a binding na `value` namísto použití `v-model`.
 :::
 
-### Multiline text {#multiline-text}
+### Víceřádkový text {#multiline-text}
 
 ```vue-html
 <span>Multiline message is:</span>
@@ -93,16 +93,16 @@ For languages that require an [IME](https://en.wikipedia.org/wiki/Input_method) 
 
 <div class="composition-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNo9jktuwzAMRK9CaON24XrvKgZ6gN5AG8FmGgH6ECKdJjB891D5LYec9zCb+SH6Oq9oRmN5roEEGGWlyeWQqFSBDSoeYYdjLQk6rXYuuzyXzAIJmf0fwqF1Prru02U7PDQq0CCYKHrBlsQy+Tz9rlFCDBnfdOBRqfa7twhYrhEPzvyfgmCvnxlHoIp9w76dmbbtDe+7HdpaBQUv4it6OPepLBjV8Gw5AzpjxlOJC1a9+2WB1IZQRGhWVqsdXgb1tfDcbvYbJDRqLQ==)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNo9jktuwzAMRK9CaON24XrvKgZ6gN5AG8FmGgH6ECKdJjB891D5LYec9zCb+SH6Oq9oRmN5roEEGGWlyeWQqFSBDSoeYYdjLQk6rXYuuzyXzAIJmf0fwqF1Prru02U7PDQq0CCYKHrBlsQy+Tz9rlFCDBnfdOBRqfa7twhYrhEPzvyfgmCvnxlHoIp9w76dmbbtDe+7HdpaBQUv4it6OPepLBjV8Gw5AzpjxlOJC1a9+2WB1IZQRGhWVqsdXgb1tfDcbvYbJDRqLQ==)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNo9jk2OwyAMha9isenMIpN9hok0B+gN2FjBbZEIscDpj6LcvaZpKiHg2X6f32L+mX+uM5nO2DLkwNK7RHeesoCnE85RYHEJwKPg1/f2B8gkc067AhipFDxTB4fDVlrro5ce237AKoRGjihUldjCmPqjLgkxJNoxEEqnrtp7TTEUeUT6c+Z2CUKNdgbdxZmaavt1pl+Wj3ldbcubUegumAnh2oyTp6iE95QzoDEGukzRU9Y6eg9jDcKRoFKLUm27E5RXxTu7WZ89/G4E)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNo9jk2OwyAMha9isenMIpN9hok0B+gN2FjBbZEIscDpj6LcvaZpKiHg2X6f32L+mX+uM5nO2DLkwNK7RHeesoCnE85RYHEJwKPg1/f2B8gkc067AhipFDxTB4fDVlrro5ce237AKoRGjihUldjCmPqjLgkxJNoxEEqnrtp7TTEUeUT6c+Z2CUKNdgbdxZmaavt1pl+Wj3ldbcubUegumAnh2oyTp6iE95QzoDEGukzRU9Y6eg9jDcKRoFKLUm27E5RXxTu7WZ89/G4E)
 
 </div>
 
-Note that interpolation inside `<textarea>` won't work. Use `v-model` instead.
+Pozor na to, že uvnitř `<textarea>` nefunguje interpolace. Použitje místo toho `v-model`.
 
 ```vue-html
 <!-- bad -->
@@ -114,7 +114,7 @@ Note that interpolation inside `<textarea>` won't work. Use `v-model` instead.
 
 ### Checkbox {#checkbox}
 
-Single checkbox, boolean value:
+Jednoduchý checkbox s proměnnou typu boolean:
 
 ```vue-html
 <input type="checkbox" id="checkbox" v-model="checked" />
@@ -128,16 +128,16 @@ Single checkbox, boolean value:
 
 <div class="composition-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNpVjssKgzAURH/lko3tonVfotD/yEaTKw3Ni3gjLSH/3qhUcDnDnMNk9gzhviRkD8ZnGXUgmJFS6IXTNvhIkCHiBAWm6C00ddoIJ5z0biaQL5RvVNCtmwvFhFfheLuLqqIGQhvMQLgm4tqFREDfgJ1gGz36j2Cg1TkvN+sVmn+JqnbtrjDDiAYmH09En/PxphTebqsK8PY4wMoPslBUxQ==)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNpVjssKgzAURH/lko3tonVfotD/yEaTKw3Ni3gjLSH/3qhUcDnDnMNk9gzhviRkD8ZnGXUgmJFS6IXTNvhIkCHiBAWm6C00ddoIJ5z0biaQL5RvVNCtmwvFhFfheLuLqqIGQhvMQLgm4tqFREDfgJ1gGz36j2Cg1TkvN+sVmn+JqnbtrjDDiAYmH09En/PxphTebqsK8PY4wMoPslBUxQ==)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNpVjtEKgzAMRX8l9Gl72Po+OmH/0ZdqI5PVNnSpOEr/fVVREEKSc0kuN4sX0X1KKB5Cfbs4EDfa40whMljsTXIMWXsAa9hcrtsOEJFT9DsBdG/sPmgfwDHhJpZl1FZLycO6AuNIzjAuxGrwlBj4R/jUYrVpw6wFDPbM020MFt0uoq2a3CycadFBH+Lpo8l5jwWlKLle1QcljwCi/AH7gFic)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNpVjtEKgzAMRX8l9Gl72Po+OmH/0ZdqI5PVNnSpOEr/fVVREEKSc0kuN4sX0X1KKB5Cfbs4EDfa40whMljsTXIMWXsAa9hcrtsOEJFT9DsBdG/sPmgfwDHhJpZl1FZLycO6AuNIzjAuxGrwlBj4R/jUYrVpw6wFDPbM020MFt0uoq2a3CycadFBH+Lpo8l5jwWlKLle1QcljwCi/AH7gFic)
 
 </div>
 
-We can also bind multiple checkboxes to the same array or [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) value:
+Můžeme také provést binding více checkboxů na stejné pole resp. [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set):
 
 <div class="composition-api">
 
@@ -186,16 +186,16 @@ export default {
   <label for="demo-mike">Mike</label>
 </div>
 
-In this case, the `checkedNames` array will always contain the values from the currently checked boxes.
+V tomto případě bude pole `checkedNames` vždy obsahovat hodnoty z aktuálně zaškrtnutých políček.
 
 <div class="composition-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNqVkUtqwzAURbfy0CTtoNU8KILSWaHdQNWBIj8T1fohyybBeO+RbOc3i2e+vHvuMWggHyG89x2SLWGtijokaDF1gQunbfAxwQARaxihjt7CJlc3wgmnvGsTqAOqBqsfabGFXSm+/P69CsfovJVXckhog5EJcwJgle7558yBK+AWhuFxaRwZLbVCZ0K70CVIp4A7Qabi3h8FAV3l/C9Vk797abpy/lrim/UVmkt/Gc4HOv+EkXs0UPt4XeCFZHQ6lM4TZn9w9+YlrjFPCC/kKrPVDd6Zv5e4wjwv8ELezIxeX4qMZwHduAs=)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNqVkUtqwzAURbfy0CTtoNU8KILSWaHdQNWBIj8T1fohyybBeO+RbOc3i2e+vHvuMWggHyG89x2SLWGtijokaDF1gQunbfAxwQARaxihjt7CJlc3wgmnvGsTqAOqBqsfabGFXSm+/P69CsfovJVXckhog5EJcwJgle7558yBK+AWhuFxaRwZLbVCZ0K70CVIp4A7Qabi3h8FAV3l/C9Vk797abpy/lrim/UVmkt/Gc4HOv+EkXs0UPt4XeCFZHQ6lM4TZn9w9+YlrjFPCC/kKrPVDd6Zv5e4wjwv8ELezIxeX4qMZwHduAs=)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNqVUc1qxCAQfpXBU3tovS9WKL0V2hdoenDjLGtjVNwxbAl592rMpru3DYjO5/cnOLLXEJ6HhGzHxKmNJpBsHJ6DjwQaDypZgrFxAFqRenisM0BEStFdEEB7xLZD/al6PO3g67veT+XIW16Cr+kZEPbBKsKMAIQ2g3yrAeBqwjjeRMI0CV5kxZ0dxoVEQL8BXxo2C/f+3DAwOuMf1XZ5HpRNhX5f4FPvNdqLfgnOBK+PsGqPFg4+rgmyOAWfiaK5o9kf3XXzArc0zxZZnJuae9PhVfPHAjc01wRZnP/Ngq8/xaY/yMW74g==)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNqVUc1qxCAQfpXBU3tovS9WKL0V2hdoenDjLGtjVNwxbAl592rMpru3DYjO5/cnOLLXEJ6HhGzHxKmNJpBsHJ6DjwQaDypZgrFxAFqRenisM0BEStFdEEB7xLZD/al6PO3g67veT+XIW16Cr+kZEPbBKsKMAIQ2g3yrAeBqwjjeRMI0CV5kxZ0dxoVEQL8BXxo2C/f+3DAwOuMf1XZ5HpRNhX5f4FPvNdqLfgnOBK+PsGqPFg4+rgmyOAWfiaK5o9kf3XXzArc0zxZZnJuae9PhVfPHAjc01wRZnP/Ngq8/xaY/yMW74g==)
 
 </div>
 
@@ -223,18 +223,18 @@ In this case, the `checkedNames` array will always contain the values from the c
 
 <div class="composition-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNqFkDFuwzAMRa9CaHE7tNoDxUBP0A4dtTgWDQiRJUKmHQSG7x7KhpMMAbLxk3z/g5zVD9H3NKI6KDO02RPDgDxSbaPvKWWGGTJ2sECXUw+VrFY22timODCQb8/o4FhWPqrfiNWnjUZvRmIhgrGn0DCKAjDOT/XfCh1gnnd+WYwukwJYNj7SyMBXwqNVuXE+WQXeiUgRpZyaMJaR5BX11SeHQfTmJi1dnNiE5oQBupR3shbC6LX9Posvpdyz/jf1OksOe85ayVqIR5bR9z+o5Qbc6oCk)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNqFkDFuwzAMRa9CaHE7tNoDxUBP0A4dtTgWDQiRJUKmHQSG7x7KhpMMAbLxk3z/g5zVD9H3NKI6KDO02RPDgDxSbaPvKWWGGTJ2sECXUw+VrFY22timODCQb8/o4FhWPqrfiNWnjUZvRmIhgrGn0DCKAjDOT/XfCh1gnnd+WYwukwJYNj7SyMBXwqNVuXE+WQXeiUgRpZyaMJaR5BX11SeHQfTmJi1dnNiE5oQBupR3shbC6LX9Posvpdyz/jf1OksOe85ayVqIR5bR9z+o5Qbc6oCk)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNqNkEEOAiEMRa/SsFEXyt7gJJ5AFy5ng1ITIgLBMmomc3eLOONSEwJ9Lf//pL3YxrjqMoq1ULdTspGa1uMjhkRg8KyzI+hbD2A06fmi1gAJKSc/EkC0pwuaNcx2Hme1OZSHLz5KTtYMhNfoNGEhUsZ2zf6j7vuPEQyDkmVSBPzJ+pgJ6Blx04qkjQ2tAGsYgkcuO+1yGXF6oeU1GHTM1Y1bsoY5fUQH55BGZcMKJd/t31l0L+WYdaj0V9Zb2bDim6XktAcxvADR+YWb)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNqNkEEOAiEMRa/SsFEXyt7gJJ5AFy5ng1ITIgLBMmomc3eLOONSEwJ9Lf//pL3YxrjqMoq1ULdTspGa1uMjhkRg8KyzI+hbD2A06fmi1gAJKSc/EkC0pwuaNcx2Hme1OZSHLz5KTtYMhNfoNGEhUsZ2zf6j7vuPEQyDkmVSBPzJ+pgJ6Blx04qkjQ2tAGsYgkcuO+1yGXF6oeU1GHTM1Y1bsoY5fUQH55BGZcMKJd/t31l0L+WYdaj0V9Zb2bDim6XktAcxvADR+YWb)
 
 </div>
 
 ### Select {#select}
 
-Single select:
+Jednoduchý výběr:
 
 ```vue-html
 <div>Selected: {{ selected }}</div>
@@ -259,20 +259,20 @@ Single select:
 
 <div class="composition-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNp1j7EOgyAQhl/lwmI7tO4Nmti+QJOuLFTPxASBALoQ3r2H2jYOjvff939wkTXWXucJ2Y1x37rBBvAYJlsLPYzWuAARHPaQoHdmhILQQmihW6N9RhW2ATuoMnQqirPQvFw9ZKAh4GiVDEgTAPdW6hpeW+sGMf4VKVEz73Mvs8sC5stoOlSVYF9SsEVGiLFhMBq6wcu3IsUs1YREEvFUKD1udjAaebnS+27dHOT3g/yxy+nHywM08PJ3KksfXwJ2dA==)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNp1j7EOgyAQhl/lwmI7tO4Nmti+QJOuLFTPxASBALoQ3r2H2jYOjvff939wkTXWXucJ2Y1x37rBBvAYJlsLPYzWuAARHPaQoHdmhILQQmihW6N9RhW2ATuoMnQqirPQvFw9ZKAh4GiVDEgTAPdW6hpeW+sGMf4VKVEz73Mvs8sC5stoOlSVYF9SsEVGiLFhMBq6wcu3IsUs1YREEvFUKD1udjAaebnS+27dHOT3g/yxy+nHywM08PJ3KksfXwJ2dA==)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNp1j1ELgyAUhf/KxZe2h633cEHbHxjstReXdxCYSt5iEP333XIJPQSinuN3jjqJyvvrOKAohAxN33oqa4tf73oCjR81GIKptgBakTqd4x6gRxp6uymAgAYbQl1AlkVvXhaeeMg8NbMg7LxRhKwAZPDKlvBK8WlKXTDPnFzOI7naMF46p9HcarFxtVgBRpyn1lnQbVBvwwWjMgMyycTToAr47wZnUeaR3mfL6sC/H/iPnc/vXS9gIfP0UTH/ACgWeYE=)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNp1j1ELgyAUhf/KxZe2h633cEHbHxjstReXdxCYSt5iEP333XIJPQSinuN3jjqJyvvrOKAohAxN33oqa4tf73oCjR81GIKptgBakTqd4x6gRxp6uymAgAYbQl1AlkVvXhaeeMg8NbMg7LxRhKwAZPDKlvBK8WlKXTDPnFzOI7naMF46p9HcarFxtVgBRpyn1lnQbVBvwwWjMgMyycTToAr47wZnUeaR3mfL6sC/H/iPnc/vXS9gIfP0UTH/ACgWeYE=)
 
 </div>
 
-:::tip Note
-If the initial value of your `v-model` expression does not match any of the options, the `<select>` element will render in an "unselected" state. On iOS this will cause the user not being able to select the first item because iOS does not fire a change event in this case. It is therefore recommended to provide a disabled option with an empty value, as demonstrated in the example above.
+:::tip Poznámka
+Pokud počáteční hodnota `v-model` výrazu neodpovídá žádné z možností, element `<select>` se vykreslí ve stavu "unselected". Na iOS to způsobí, že uživatel nebude moci vybrat první položku, protože iOS v tomto případě nevyvolá událost změny. Doporučuje se proto poskytnout "disabled" volbu s prázdnou hodnotou, jak je ukázáno v příkladu výše.
 :::
 
-Multiple select (bound to array):
+Vícenásobný výběr (binding na pole):
 
 ```vue-html
 <div>Selected: {{ selected }}</div>
@@ -296,16 +296,16 @@ Multiple select (bound to array):
 
 <div class="composition-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNp1kL2OwjAQhF9l5Ya74i7QBhMJeARKTIESIyz5Z5VsAsjyu7NOQEBB5xl/M7vaKNaI/0OvRSlkV7cGCTpNPVbKG4ehJYjQ6hMkOLXBwYzRmfLK18F3GbW6Jt3AKkM/+8Ov8rKYeriBBWmH9kiaFYBszFDtHpkSYnwVpCSL/JtDDE4+DH8uNNqulHiCSoDrLRm0UyWzAckEX61l8Xh9+psv/vbD563HCSxk8bY0y45u47AJ2D/HHyDm4MU0dC5hMZ/jdal8Gg8wJkS6A3nRew4=)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNp1kL2OwjAQhF9l5Ya74i7QBhMJeARKTIESIyz5Z5VsAsjyu7NOQEBB5xl/M7vaKNaI/0OvRSlkV7cGCTpNPVbKG4ehJYjQ6hMkOLXBwYzRmfLK18F3GbW6Jt3AKkM/+8Ov8rKYeriBBWmH9kiaFYBszFDtHpkSYnwVpCSL/JtDDE4+DH8uNNqulHiCSoDrLRm0UyWzAckEX61l8Xh9+psv/vbD563HCSxk8bY0y45u47AJ2D/HHyDm4MU0dC5hMZ/jdal8Gg8wJkS6A3nRew4=)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNp1UEEOgjAQ/MqmJz0oeMVKgj7BI3AgdI1NCjSwIIbwdxcqRA4mTbsznd2Z7CAia49diyIQsslrbSlMSuxtVRMofGStIRiSEkBllO32rgaokdq6XBBAgwZzQhVAnDpunB6++EhvncyAsLAmI2QEIJXuwvvaPAzrJBhH6U2/UxMLHQ/doagUmksiFmEioOCU2ho3krWVJV2VYSS9b7Xlr3/424bn1LMDA+n9hGbY0Hs2c4J4sU/dPl5a0TOAk+/b/rwsYO4Q4wdtRX7l)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNp1UEEOgjAQ/MqmJz0oeMVKgj7BI3AgdI1NCjSwIIbwdxcqRA4mTbsznd2Z7CAia49diyIQsslrbSlMSuxtVRMofGStIRiSEkBllO32rgaokdq6XBBAgwZzQhVAnDpunB6++EhvncyAsLAmI2QEIJXuwvvaPAzrJBhH6U2/UxMLHQ/doagUmksiFmEioOCU2ho3krWVJV2VYSS9b7Xlr3/424bn1LMDA+n9hGbY0Hs2c4J4sU/dPl5a0TOAk+/b/rwsYO4Q4wdtRX7l)
 
 </div>
 
-Select options can be dynamically rendered with `v-for`:
+Volby pro `<select>` mohou být vykresleny dynamicky pomocí `v-for`:
 
 <div class="composition-api">
 
@@ -351,33 +351,33 @@ export default {
 
 <div class="composition-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNplkMFugzAQRH9l5YtbKYU7IpFoP6CH9lb3EMGiWgLbMguthPzvXduEJMqNYUazb7yKxrlimVFUop5arx3BhDS7kzJ6dNYTrOCxhwC9tyNIjkpllGmtmWJ0wJawg2MMPclGPl9N60jzx+Z9KQPcRfhHFch3g/IAy3mYkVUjIRzu/M9fe+O/Pvo/Hm8b3jihzDdfr8s8gwewIBzdcCZkBVBnXFheRtvhcFTiwq9ECnAkQ3Okt54Dm9TmskYJqNLR3SyS3BsYct3CRYSFwGCpusx/M0qZTydKRXWnl9PHBlPFhv1lQ6jL6MZl+xoR/gFjPZTD)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNplkMFugzAQRH9l5YtbKYU7IpFoP6CH9lb3EMGiWgLbMguthPzvXduEJMqNYUazb7yKxrlimVFUop5arx3BhDS7kzJ6dNYTrOCxhwC9tyNIjkpllGmtmWJ0wJawg2MMPclGPl9N60jzx+Z9KQPcRfhHFch3g/IAy3mYkVUjIRzu/M9fe+O/Pvo/Hm8b3jihzDdfr8s8gwewIBzdcCZkBVBnXFheRtvhcFTiwq9ECnAkQ3Okt54Dm9TmskYJqNLR3SyS3BsYct3CRYSFwGCpusx/M0qZTydKRXWnl9PHBlPFhv1lQ6jL6MZl+xoR/gFjPZTD)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNp1kMFqxCAQhl9l8JIWtsk92IVtH6CH9lZ7COssDbgqZpJdCHn3nWiUXBZE/Mdvxv93Fifv62lE0Qo5nEPv6ags3r0LBBov3WgIZmUBdEfdy2s6AwSkMdisAAY0eCbULVSn6pCrzlPv7NDCb64AzEB4J+a+LFYHmDozYuyCpfTtqJ+b21Efz6j/gPtpn8xl7C8douaNl2xKUhaEV286QlYAMgWB6e3qNJp3JXIyJSLASErFyMUFBjbZ2xxXCWijkXJZR1kmsPF5g+s1ACybWdmkarLSpKejS0VS99Pxu3wzT8jOuF026+2arKQRywOBGJfE)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNp1kMFqxCAQhl9l8JIWtsk92IVtH6CH9lZ7COssDbgqZpJdCHn3nWiUXBZE/Mdvxv93Fifv62lE0Qo5nEPv6ags3r0LBBov3WgIZmUBdEfdy2s6AwSkMdisAAY0eCbULVSn6pCrzlPv7NDCb64AzEB4J+a+LFYHmDozYuyCpfTtqJ+b21Efz6j/gPtpn8xl7C8douaNl2xKUhaEV286QlYAMgWB6e3qNJp3JXIyJSLASErFyMUFBjbZ2xxXCWijkXJZR1kmsPF5g+s1ACybWdmkarLSpKejS0VS99Pxu3wzT8jOuF026+2arKQRywOBGJfE)
 
 </div>
 
-## Value Bindings {#value-bindings}
+## Binding hodnot {#value-bindings}
 
-For radio, checkbox and select options, the `v-model` binding values are usually static strings (or booleans for checkbox):
+Pro volby elementů `<radio>`, `<checkbox>` a `<select>` jsou hodnoty vázané přes `v-model` binding většinou statický string (nebo v případě checkboxu boolean):
 
 ```vue-html
-<!-- `picked` is a string "a" when checked -->
+<!-- `picked` je po výběru string "a" -->
 <input type="radio" v-model="picked" value="a" />
 
-<!-- `toggle` is either true or false -->
+<!-- `toggle` je buďto true nebo false -->
 <input type="checkbox" v-model="toggle" />
 
-<!-- `selected` is a string "abc" when the first option is selected -->
+<!-- `selected` je string "abc", pokud je vybrána první volba -->
 <select v-model="selected">
   <option value="abc">ABC</option>
 </select>
 ```
 
-But sometimes we may want to bind the value to a dynamic property on the current active instance. We can use `v-bind` to achieve that. In addition, using `v-bind` allows us to bind the input value to non-string values.
+Někdy však můžeme chtít provést binding hodnoty s dynamickou vlastností na právě aktivní instanci. K tomu můžeme použít `v-bind`. Použití direktivy `v-bind` nám navíc umožňuje binding vstupní hodnoty na non-string hodnoty.
 
 ### Checkbox {#checkbox-1}
 
@@ -389,7 +389,7 @@ But sometimes we may want to bind the value to a dynamic property on the current
   false-value="no" />
 ```
 
-`true-value` and `false-value` are Vue-specific attributes that only work with `v-model`. Here the `toggle` property's value will be set to `'yes'` when the box is checked, and set to `'no'` when unchecked. You can also bind them to dynamic values using `v-bind`:
+`true-value` a `false-value` jsou atributy specifické pro Vue, které fungují pouze dohromady s `v-model`. Zde bude hodnota proměnné `toggle` nastavena na `'yes'`, když je checkbox zaškrtnutý, a na `'no'`, pokud je odškrtnutý. Můžete také provést jejich binding na dynamickou hodnotu s použitím `v-bind`:
 
 ```vue-html
 <input
@@ -400,7 +400,7 @@ But sometimes we may want to bind the value to a dynamic property on the current
 ```
 
 :::tip Tip
-The `true-value` and `false-value` attributes don't affect the input's `value` attribute, because browsers don't include unchecked boxes in form submissions. To guarantee that one of two values is submitted in a form (e.g. "yes" or "no"), use radio inputs instead.
+Atributy `true-value` a `false-value` nemají vliv na vstupní atribut `value`, protože prohlížeče nezaškrtnutá políčka při odesílání formulářů nezahrnují. Chcete-li zaručit, že ve formuláři bude odeslána jedna ze dvou hodnot (např. „ano“ nebo „ne“), použijte `<radio>`.
 :::
 
 ### Radio {#radio-1}
@@ -410,9 +410,9 @@ The `true-value` and `false-value` attributes don't affect the input's `value` a
 <input type="radio" v-model="pick" :value="second" />
 ```
 
-`pick` will be set to the value of `first` when the first radio input is checked, and set to the value of `second` when the second one is checked.
+Proměnná `pick` bude nastavena na hodnotu `first`, když je vybrána první volba, a na `second` po výběru druhé.
 
-### Select Options {#select-options}
+### Select {#select-options}
 
 ```vue-html
 <select v-model="selected">
@@ -421,13 +421,13 @@ The `true-value` and `false-value` attributes don't affect the input's `value` a
 </select>
 ```
 
-`v-model` supports value bindings of non-string values as well! In the above example, when the option is selected, `selected` will be set to the object literal value of `{ number: 123 }`.
+`v-model` podporuje binding i na non-string hodnoty! Ve výše uvedeném příkladu bude po výběru možnosti proměnná `selected` nastavena na objekt s hodnotou `{ number: 123 }`.
 
-## Modifiers {#modifiers}
+## Modifikátory {#modifiers}
 
 ### `.lazy` {#lazy}
 
-By default, `v-model` syncs the input with the data after each `input` event (with the exception of IME composition as [stated above](#vmodel-ime-tip)). You can add the `lazy` modifier to instead sync after `change` events:
+Ve výchozím nastavení `v-model` synchronizuje vstup s daty po každé události `input` (s výjimkou IME kompozice, jak je [uvedeno výše](#vmodel-ime-tip)). Místo toho můžete přidat modifikátor`lazy` k synchronizaci po události `change`:
 
 ```vue-html
 <!-- synced after "change" instead of "input" -->
@@ -436,26 +436,26 @@ By default, `v-model` syncs the input with the data after each `input` event (wi
 
 ### `.number` {#number}
 
-If you want user input to be automatically typecast as a number, you can add the `number` modifier to your `v-model` managed inputs:
+Pokud chcete, aby byl uživatelský vstup automaticky přetypován jako číslo, můžete do vašich vstupů spravovaných přes `v-model` přidat modifikátor `number`:
 
 ```vue-html
 <input v-model.number="age" />
 ```
 
-If the value cannot be parsed with `parseFloat()`, then the original value is used instead.
+Pokud hodnotu nelze přetypovat pomocí `parseFloat()`, bude použita původní hodnota.
 
-The `number` modifier is applied automatically if the input has `type="number"`.
+Modifikátor `number` se aplikuje automaticky, pokud má vstupní pole atribut `type="number"`.
 
 ### `.trim` {#trim}
 
-If you want whitespace from user input to be trimmed automatically, you can add the `trim` modifier to your `v-model`-managed inputs:
+Pokud chcete z uživatelského vstupu automaticky odstranit bílé znaky (whitespace), můžete do vašich vstupů spravovaných přes `v-model` přidat modifikátor `trim`:
 
 ```vue-html
 <input v-model.trim="msg" />
 ```
 
-## `v-model` with Components {#v-model-with-components}
+## `v-model` a komponenty {#v-model-with-components}
 
-> If you're not yet familiar with Vue's components, you can skip this for now.
+> Pokud ještě nejste seznámeni s Vue komponentami, můžete toto prozatím přeskočit.
 
-HTML's built-in input types won't always meet your needs. Fortunately, Vue components allow you to build reusable inputs with completely customized behavior. These inputs even work with `v-model`! To learn more, read about [Usage with `v-model`](/guide/components/v-model) in the Components guide.
+Vestavěné typy HTML vstupů nebudou vždy vyhovovat vašim potřebám. Naštěstí vám Vue komponenty umožňují vytvářet znovupoužitelné vstupy se zcela přizpůsobitelným chováním. Tyto vstupy dokonce také fungují s `v-model`! Chcete-li se dozvědět více, přečtěte si o [použití s `v-model`](/guide/components/v-model) v průvodci Komponentami.

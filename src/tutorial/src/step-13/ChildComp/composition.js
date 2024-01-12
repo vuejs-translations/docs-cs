@@ -1,7 +1,7 @@
 export default {
-  emits: ['response'],
+  emits: ['odpoved'],
   setup(props, { emit }) {
-    emit('response', 'hello from child')
+    emit('odpoved', 'Ahoj z potomka')
     return {}
   }
 }

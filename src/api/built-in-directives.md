@@ -1,117 +1,117 @@
-# Built-in Directives {#built-in-directives}
+# Vestavěné direktivy {#built-in-directives}
 
 ## v-text {#v-text}
 
-Update the element's text content.
+Aktualizuje textový obsah elementu.
 
-- **Expects:** `string`
+- **Očekává:** `string`
 
-- **Details**
+- **Podrobnosti**
 
-  `v-text` works by setting the element's [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) property, so it will overwrite any existing content inside the element. If you need to update the part of `textContent`, you should use [mustache interpolations](/guide/essentials/template-syntax#text-interpolation) instead.
+  `v-text` funguje tak, že elementu nastavuje vlastnost [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent), takže přepíše jakýkoli existující obsah uvnitř elementu. Pokud potřebujete aktualizovat část `textContent`, měli byste místo toho použít ["mustache" interpolaci](/guide/essentials/template-syntax#text-interpolation).
 
-- **Example**
+- **Příklad**
 
   ```vue-html
   <span v-text="msg"></span>
-  <!-- same as -->
+  <!-- stejné jako -->
   <span>{{msg}}</span>
   ```
 
-- **See also** [Template Syntax - Text Interpolation](/guide/essentials/template-syntax#text-interpolation)
+- **Viz také:** [Syntaxe šablo - Interpolace textu](/guide/essentials/template-syntax#text-interpolation)
 
 ## v-html {#v-html}
 
-Update the element's [innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML).
+Aktualizuje [innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) elementu.
 
-- **Expects:** `string`
+- **Očekává:** `string`
 
-- **Details**
+- **Podrobnosti**
 
-  Contents of `v-html` are inserted as plain HTML - Vue template syntax will not be processed. If you find yourself trying to compose templates using `v-html`, try to rethink the solution by using components instead.
+  Obsah `v-html` je vložen jako prosté HTML - syntaxe Vue šablony nebude zpracována. Pokud se snažíte sestavit šablony pomocí `v-html`, zkuste raději řešení přehodnotit a použít komponenty.
 
-  ::: warning Security Note
-  Dynamically rendering arbitrary HTML on your website can be very dangerous because it can easily lead to [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting). Only use `v-html` on trusted content and **never** on user-provided content.
+  ::: warning Bezpečnostní poznámka
+  Dynamické vykreslování libovolného HTML na vašem webu může být velmi nebezpečné, protože může snadno vést k [XSS útokům](https://en.wikipedia.org/wiki/Cross-site_scripting). Používejte `v-html` pouze na důvěryhodný obsah a **nikdy** na obsah poskytovaný uživatelem.
   :::
 
-  In [Single-File Components](/guide/scaling-up/sfc), `scoped` styles will not apply to content inside `v-html`, because that HTML is not processed by Vue's template compiler. If you want to target `v-html` content with scoped CSS, you can instead use [CSS modules](./sfc-css-features#css-modules) or an additional, global `<style>` element with a manual scoping strategy such as BEM.
+  V [Single-file komponentách (SFC)](/guide/scaling-up/sfc) se `scoped` styly nebudou aplikovat na obsah uvnitř `v-html`, protože toto HTML není zpracováváno kompilátorem Vue šablony. Pokud chcete cílit na obsah `v-html` pomocí CSS scénářů, můžete místo toho použít [CSS moduly](./sfc-css-features#css-modules) nebo další, globální `<style>` element s manuální strategií omezování rozsahu, jako je BEM.
 
-- **Example**
+- **Příklad**
 
   ```vue-html
   <div v-html="html"></div>
   ```
 
-- **See also** [Template Syntax - Raw HTML](/guide/essentials/template-syntax#raw-html)
+- **Viz také:** [Syntaxe šablon - HTML kód](/guide/essentials/template-syntax#raw-html)
 
 ## v-show {#v-show}
 
-Toggle the element's visibility based on the truthy-ness of the expression value.
+Přepíná viditelnost elementu na základě pravdivostní hodnoty výrazu.
 
-- **Expects:** `any`
+- **Očekává:** `any`
 
-- **Details**
+- **Podrobnosti**
 
-  `v-show` works by setting the `display` CSS property via inline styles, and will try to respect the initial `display` value when the element is visible. It also triggers transitions when its condition changes.
+  `v-show` funguje tak, že nastavuje vlastnost `display` v CSS pomocí inline stylů a snaží se respektovat původní hodnotu `display`, když je prvek viditelný. Také spouští přechody, když se změní jeho podmínka.
 
-- **See also** [Conditional Rendering - v-show](/guide/essentials/conditional#v-show)
+- **Viz také:** [Podmíněné vykreslování - v-show](/guide/essentials/conditional#v-show)
 
 ## v-if {#v-if}
 
-Conditionally render an element or a template fragment based on the truthy-ness of the expression value.
+Podmíněné vykreslování elementu nebo fragmentu šablony na základě pravdivostní hodnoty výrazu.
 
-- **Expects:** `any`
+- **Očekává:** `any`
 
-- **Details**
+- **Podrobnosti**
 
-  When a `v-if` element is toggled, the element and its contained directives / components are destroyed and re-constructed. If the initial condition is falsy, then the inner content won't be rendered at all.
+  Když je element s `v-if` přepnut, element a jeho obsažené direktivy / komponenty jsou zničeny a znovu vytvořeny. Pokud je počáteční podmínka nepravdivá, vnitřní obsah nebude vůbec vykreslen.
 
-  Can be used on `<template>` to denote a conditional block containing only text or multiple elements.
+  Lze použít na `<template>` pro označení podmíněného bloku obsahujícího pouze text nebo více elementů.
 
-  This directive triggers transitions when its condition changes.
+  Tato direktiva spouští přechody, když se změní její podmínka.
 
-  When used together, `v-if` has a higher priority than `v-for`. We don't recommend using these two directives together on one element — see the [list rendering guide](/guide/essentials/list#v-for-with-v-if) for details.
+  Pokud jsou použity společně, `v-if` má vyšší prioritu než `v-for`. Nedoporučujeme používat tyto dvě direktivy společně na jednom elementu - pro podrobnosti se podívejte na [průvodce vykreslováním seznamu](/guide/essentials/list#v-for-with-v-if).
 
-- **See also** [Conditional Rendering - v-if](/guide/essentials/conditional#v-if)
+- **Viz také:** [Podmíněné vykreslování - v-if](/guide/essentials/conditional#v-if)
 
 ## v-else {#v-else}
 
-Denote the "else block" for `v-if` or a `v-if` / `v-else-if` chain.
+Označuje "else blok" pro `v-if` nebo řetězec `v-if` / `v-else-if`.
 
-- **Does not expect expression**
+- **Nepředpokládá výraz**
 
-- **Details**
+- **Podrobnosti**
 
-  - Restriction: previous sibling element must have `v-if` or `v-else-if`.
+  - Omezení: předchozí element (sibling) musí mít `v-if` nebo `v-else-if`.
 
-  - Can be used on `<template>` to denote a conditional block containing only text or multiple elements.
+  - Lze použít na `<template>` pro označení podmíněného bloku obsahujícího pouze text nebo více prvků.
 
-- **Example**
+- **Příklad**
 
   ```vue-html
   <div v-if="Math.random() > 0.5">
-    Now you see me
+    Teď mě vidíš
   </div>
   <div v-else>
-    Now you don't
+    Teď mě nevidíš
   </div>
   ```
 
-- **See also** [Conditional Rendering - v-else](/guide/essentials/conditional#v-else)
+- **Viz také:** [Podmíněné vykreslování - v-else](/guide/essentials/conditional#v-else)
 
 ## v-else-if {#v-else-if}
 
-Denote the "else if block" for `v-if`. Can be chained.
+Označuje "else if blok" pro `v-if`. Může být řetězený (více "else if" větví).
 
-- **Expects:** `any`
+- **Očekává:** `any`
 
-- **Details**
+- **Podrobnosti**
 
-  - Restriction: previous sibling element must have `v-if` or `v-else-if`.
+  - Omezení: předchozí element (sibling) musí mít `v-if` nebo `v-else-if`.
 
-  - Can be used on `<template>` to denote a conditional block containing only text or multiple elements.
+  - Lze použít na `<template>` pro označení podmíněného bloku obsahujícího pouze text nebo více prvků.
 
-- **Example**
+- **Příklad**
 
   ```vue-html
   <div v-if="type === 'A'">
@@ -124,21 +124,21 @@ Denote the "else if block" for `v-if`. Can be chained.
     C
   </div>
   <div v-else>
-    Not A/B/C
+    Není A/B/C
   </div>
   ```
 
-- **See also** [Conditional Rendering - v-else-if](/guide/essentials/conditional#v-else-if)
+- **Viz také:** [Podmíněné vykreslování - v-else-if](/guide/essentials/conditional#v-else-if)
 
 ## v-for {#v-for}
 
-Render the element or template block multiple times based on the source data.
+Vykreslí element nebo blok šablony vícekrát na základě zdrojových dat.
 
-- **Expects:** `Array | Object | number | string | Iterable`
+- **Očekává:** `Array | Object | number | string | Iterable`
 
-- **Details**
+- **Podrobnosti**
 
-  The directive's value must use the special syntax `alias in expression` to provide an alias for the current element being iterated on:
+  Hodnota direktivy musí používat speciální syntaxi `alias in expression` pro poskytnutí aliasu na aktuální element, který je iterován:
 
   ```vue-html
   <div v-for="item in items">
@@ -146,7 +146,7 @@ Render the element or template block multiple times based on the source data.
   </div>
   ```
 
-  Alternatively, you can also specify an alias for the index (or the key if used on an Object):
+  Alternativně můžete také specifikovat alias pro index (nebo klíč, pokud se používá na objektu):
 
   ```vue-html
   <div v-for="(item, index) in items"></div>
@@ -154,7 +154,7 @@ Render the element or template block multiple times based on the source data.
   <div v-for="(value, name, index) in object"></div>
   ```
 
-  The default behavior of `v-for` will try to patch the elements in-place without moving them. To force it to reorder elements, you should provide an ordering hint with the `key` special attribute:
+  Výchozí chování `v-for` je pokusit se opravit elementy na místě, aniž by byly přesouvány. Pokud chcete, aby byly přeuspořádány, měli byste poskytnout nápovědu pro řazení pomocí speciálního atributu `key`:
 
   ```vue-html
   <div v-for="item in items" :key="item.id">
@@ -162,247 +162,247 @@ Render the element or template block multiple times based on the source data.
   </div>
   ```
 
-  `v-for` can also work on values that implement the [Iterable Protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol), including native `Map` and `Set`.
+  `v-for` může také pracovat s hodnotami, které implementují [Iterable Protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol), včetně nativních `Map` a `Set`.
 
-- **See also**
-  - [List Rendering](/guide/essentials/list)
+- **Viz také:**
+  - [Vykreslování seznamu](/guide/essentials/list)
 
 ## v-on {#v-on}
 
-Attach an event listener to the element.
+Připojí k elementu event listener.
 
-- **Shorthand:** `@`
+- **Zkratka:** `@`
 
-- **Expects:** `Function | Inline Statement | Object (without argument)`
+- **Očekává:** `Function | Inline Statement | Object (bez parametru)`
 
-- **Argument:** `event` (optional if using Object syntax)
+- **Parametr:** `event` (volitelné při použití objektové syntaxe)
 
-- **Modifiers**
+- **Modifikátory**
 
-  - `.stop` - call `event.stopPropagation()`.
-  - `.prevent` - call `event.preventDefault()`.
-  - `.capture` - add event listener in capture mode.
-  - `.self` - only trigger handler if event was dispatched from this element.
-  - `.{keyAlias}` - only trigger handler on certain keys.
-  - `.once` - trigger handler at most once.
-  - `.left` - only trigger handler for left button mouse events.
-  - `.right` - only trigger handler for right button mouse events.
-  - `.middle` - only trigger handler for middle button mouse events.
-  - `.passive` - attaches a DOM event with `{ passive: true }`.
+  - `.stop` - zavolá `event.stopPropagation()`.
+  - `.prevent` - zavolá `event.preventDefault()`.
+  - `.capture` - přidá event listener v režimu zachycení (capture mode).
+  - `.self` - spustí handler pouze tehdy, pokud byla událost vyvolána z tohoto elementu.
+  - `.{keyAlias}` - spustí handler pouze pro určité klávesy.
+  - `.once` - spustí handler maximálně jednou.
+  - `.left` - spustí handler pouze pro události levého tlačítka myši.
+  - `.right` - spustí handler pouze pro události pravého tlačítka myši.
+  - `.middle` - spustí handler pouze pro události středního tlačítka myši.
+  - `.passive` - připojí DOM událost s `{ passive: true }`.
 
-- **Details**
+- **Podrobnosti**
 
-  The event type is denoted by the argument. The expression can be a method name, an inline statement, or omitted if there are modifiers present.
+  Typ události je určen parametrem. Výraz může být název metody, vložený příkaz nebo může být vynechán, pokud jsou přítomny modifikátory.
 
-  When used on a normal element, it listens to [**native DOM events**](https://developer.mozilla.org/en-US/docs/Web/Events) only. When used on a custom element component, it listens to **custom events** emitted on that child component.
+  Pokud je použito na běžném elementu, naslouchá pouze [**nativním DOM událostem**](https://developer.mozilla.org/en-US/docs/Web/Events). Pokud je použito na elementu vlastní komponenty, naslouchá **vlastním událostem** emitovaným na tomto potomkovi.
 
-  When listening to native DOM events, the method receives the native event as the only argument. If using inline statement, the statement has access to the special `$event` property: `v-on:click="handle('ok', $event)"`.
+  Při naslouchání nativním DOM událostem metoda přijímá jako jediný argument nativní událost. Pokud je použit vložený příkaz, příkaz má přístup k speciální vlastnosti `$event`: `v-on:click="handle('ok', $event)"`.
 
-  `v-on` also supports binding to an object of event / listener pairs without an argument. Note when using the object syntax, it does not support any modifiers.
+  `v-on` také podporuje binding na objekt párů událost / listener bez argumentu. Pozor, při použití objektové syntaxe nepodporuje žádné modifikátory.
 
-- **Example**
+- **Příklad**
 
   ```vue-html
-  <!-- method handler -->
+  <!-- handler metody -->
   <button v-on:click="doThis"></button>
 
-  <!-- dynamic event -->
+  <!-- dynamická událost -->
   <button v-on:[event]="doThis"></button>
 
-  <!-- inline statement -->
+  <!-- inline příkaz -->
   <button v-on:click="doThat('hello', $event)"></button>
 
-  <!-- shorthand -->
+  <!-- zkratka -->
   <button @click="doThis"></button>
 
-  <!-- shorthand dynamic event -->
+  <!-- zkratka pro dynamickou událost -->
   <button @[event]="doThis"></button>
 
-  <!-- stop propagation -->
+  <!-- zastavení propagace -->
   <button @click.stop="doThis"></button>
 
-  <!-- prevent default -->
+  <!-- zamezení výchozího chování -->
   <button @click.prevent="doThis"></button>
 
-  <!-- prevent default without expression -->
+  <!-- zamezení výchozího chování bez výrazu -->
   <form @submit.prevent></form>
 
-  <!-- chain modifiers -->
+  <!-- řetězení modifikátorů -->
   <button @click.stop.prevent="doThis"></button>
 
-  <!-- key modifier using keyAlias -->
+  <!-- modifikátor klávesy pomocí keyAlias -->
   <input @keyup.enter="onEnter" />
 
-  <!-- the click event will be triggered at most once -->
+  <!-- událost click bude spuštěna nejvýše jednou -->
   <button v-on:click.once="doThis"></button>
 
-  <!-- object syntax -->
+  <!-- objektová syntaxe -->
   <button v-on="{ mousedown: doThis, mouseup: doThat }"></button>
   ```
 
-  Listening to custom events on a child component (the handler is called when "my-event" is emitted on the child):
+  Naslouchání vlastním událostem na komponentě potomka (handler je volán při emitování "my-event" z potomka):
 
   ```vue-html
   <MyComponent @my-event="handleThis" />
 
-  <!-- inline statement -->
+  <!-- inline příkaz -->
   <MyComponent @my-event="handleThis(123, $event)" />
   ```
 
-- **See also**
-  - [Event Handling](/guide/essentials/event-handling)
-  - [Components - Custom Events](/guide/essentials/component-basics#listening-to-events)
+- **Viz také:**
+  - [Obsluha událostí](/guide/essentials/event-handling)
+  - [Základy komponent - Naslouchání událostem](/guide/essentials/component-basics#listening-to-events)
 
 ## v-bind {#v-bind}
 
-Dynamically bind one or more attributes, or a component prop to an expression.
+Dynamicky váže jeden nebo více atributů nebo vlastností (props) komponenty na výraz.
 
-- **Shorthand:**
-  - `:` or `.` (when using `.prop` modifier)
-  - Omitting value (when attribute and bound value has the same name) <sup class="vt-badge">3.4+</sup>
+- **Zkratka:** 
+  - `:` nebo `.` (pokud se používá modifikátor `.prop`)
+  - Vynechání hodnoty (pokud mají atribut vázaná hodnota stejný název) <sup class="vt-badge">3.4+</sup>
 
-- **Expects:** `any (with argument) | Object (without argument)`
+- **Očekává:** `libovolný (s parametrem) | Objekt (bez parametru)`
 
-- **Argument:** `attrOrProp (optional)`
+- **Parametr:** `attrOrProp (volitelné)`
 
-- **Modifiers**
+- **Modifikátory**
 
-  - `.camel` - transform the kebab-case attribute name into camelCase.
-  - `.prop` - force a binding to be set as a DOM property. <sup class="vt-badge">3.2+</sup>
-  - `.attr` - force a binding to be set as a DOM attribute. <sup class="vt-badge">3.2+</sup>
+  - `.camel` - převede název atributu z kebab-case na camelCase.
+  - `.prop` - vynutí binding jako vlastnost DOM. <sup class="vt-badge">3.2+</sup>
+  - `.attr` - vynutí binding jako atribut DOM. <sup class="vt-badge">3.2+</sup>
 
-- **Usage**
+- **Použití**
 
-  When used to bind the `class` or `style` attribute, `v-bind` supports additional value types such as Array or Objects. See linked guide section below for more details.
+  Pokud se používá pro binding atributu `class` nebo `style`, `v-bind` podporuje další typy hodnot, jako jsou pole nebo objekty. Podrobnosti naleznete v příslušné části průvodce níže.
 
-  When setting a binding on an element, Vue by default checks whether the element has the key defined as a property using an `in` operator check. If the property is defined, Vue will set the value as a DOM property instead of an attribute. This should work in most cases, but you can override this behavior by explicitly using `.prop` or `.attr` modifiers. This is sometimes necessary, especially when [working with custom elements](/guide/extras/web-components#passing-dom-properties).
+  Při nastavování bindingu na element Vue ve výchozím nastavení kontroluje, zda má element klíč definovaný jako vlastnost pomocí operátoru `in`. Pokud je vlastnost definována, Vue nastaví hodnotu jako vlastnost DOM místo atributu. To by mělo fungovat ve většině případů, ale toto chování můžete přepsat explicitním použitím modifikátorů `.prop` nebo `.attr`. To je někdy nutné, zejména při [práci s custom elementy](/guide/extras/web-components#passing-dom-properties).
 
-  When used for component prop binding, the prop must be properly declared in the child component.
+  Při použití pro binding vlastností (props) komponenty musí být vlastnost v komponentě potomka správně deklarována.
 
-  When used without an argument, can be used to bind an object containing attribute name-value pairs.
+  Pokud se používá bez parametru, může být použito pro binding objektu obsahujícího páry název-hodnota atributu.
 
-- **Example**
+- **Příklad**
 
   ```vue-html
-  <!-- bind an attribute -->
+  <!-- binding atributu -->
   <img v-bind:src="imageSrc" />
 
-  <!-- dynamic attribute name -->
+  <!-- dynamický název atributu -->
   <button v-bind:[key]="value"></button>
 
-  <!-- shorthand -->
+  <!-- zkratka -->
   <img :src="imageSrc" />
 
-  <!-- same-name shorthand (3.4+), expands to :src="src" -->
+  <!-- zkratka stejného názvu (3.4+), bude rozšířeno na :src="src" -->
   <img :src />
 
-  <!-- shorthand dynamic attribute name -->
+  <!-- zkratka s dynamickým názvem atributu -->
   <button :[key]="value"></button>
 
-  <!-- with inline string concatenation -->
+  <!-- se spojením řetězců -->
   <img :src="'/path/to/images/' + fileName" />
 
-  <!-- class binding -->
+  <!-- binding třídy -->
   <div :class="{ red: isRed }"></div>
   <div :class="[classA, classB]"></div>
   <div :class="[classA, { classB: isB, classC: isC }]"></div>
 
-  <!-- style binding -->
-  <div :style="{ fontSize: size + 'px' }"></div>
-  <div :style="[styleObjectA, styleObjectB]"></div>
+<!-- binding stylů -->
+<div :style="{ fontSize: size + 'px' }"></div>
+<div :style="[styleObjectA, styleObjectB]"></div>
 
-  <!-- binding an object of attributes -->
-  <div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
+<!-- binding objektu attributů -->
+<div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
 
-  <!-- prop binding. "prop" must be declared in the child component. -->
-  <MyComponent :prop="someThing" />
+<!-- binding vlastnost (prop), "prop" musí být v komponentě potmka deklarována -->
+<MyComponent :prop="someThing" />
 
-  <!-- pass down parent props in common with a child component -->
-  <MyComponent v-bind="$props" />
+<!-- předání props z rodiče, které jsou společné  s komponentnou potomka -->
+<MyComponent v-bind="$props" />
 
-  <!-- XLink -->
-  <svg><a :xlink:special="foo"></a></svg>
-  ```
+<!-- XLink -->
+<svg><a :xlink:special="foo"></a></svg>
+```
 
-  The `.prop` modifier also has a dedicated shorthand, `.`:
+Modifikátor `.prop` má také zkrácenou formu, `.`:
 
-  ```vue-html
-  <div :someProperty.prop="someObject"></div>
+```vue-html
+<div :someProperty.prop="someObject"></div>
 
-  <!-- equivalent to -->
-  <div .someProperty="someObject"></div>
-  ```
+<!-- ekvivalentní zápis -->
+<div .someProperty="someObject"></div>
+```
 
-  The `.camel` modifier allows camelizing a `v-bind` attribute name when using in-DOM templates, e.g. the SVG `viewBox` attribute:
+Modifikátor `.camel` umožňuje převést jméno atributu `v-bind` na camelCase, například atribut `viewBox` ve SVG:
 
-  ```vue-html
-  <svg :view-box.camel="viewBox"></svg>
-  ```
+```vue-html
+<svg :view-box.camel="viewBox"></svg>
+```
 
-  `.camel` is not needed if you are using string templates, or pre-compiling the template with a build step.
+`.camel` není potřeba, pokud používáte řetězcové šablony nebo předkompilujete šablonu pomocí build fáze.
 
-- **See also**
-  - [Class and Style Bindings](/guide/essentials/class-and-style)
-  - [Components - Prop Passing Details](/guide/components/props#prop-passing-details)
+- **Viz také:**
+  - [Binding tříd a stylů](/guide/essentials/class-and-style)
+  - [Vlastnosti (Props) - Detaily předávání vlastností](/guide/components/props#prop-passing-details)
 
 ## v-model {#v-model}
 
-Create a two-way binding on a form input element or a component.
+Vytvoří oboustranný binding na input element formuláře nebo komponenty.
 
-- **Expects:** varies based on value of form inputs element or output of components
+- **Očekává:** hodnota závisí na hodnotě input elementu formuláře nebo výstupu komponenty
 
-- **Limited to:**
+- **Omezeno na:**
 
   - `<input>`
   - `<select>`
   - `<textarea>`
-  - components
+  - komponenty
 
-- **Modifiers**
+- **Modifikátory**
 
-  - [`.lazy`](/guide/essentials/forms#lazy) - listen to `change` events instead of `input`
-  - [`.number`](/guide/essentials/forms#number) - cast valid input string to numbers
-  - [`.trim`](/guide/essentials/forms#trim) - trim input
+  - [`.lazy`](/guide/essentials/forms#lazy) - naslouchá událostem `change` místo `input`
+  - [`.number`](/guide/essentials/forms#number) - převede platný řetězcový vstup na čísla
+  - [`.trim`](/guide/essentials/forms#trim) - odstraní přebytečné mezery
 
-- **See also**
+- **Viz také:**
 
-  - [Form Input Bindings](/guide/essentials/forms)
-  - [Component Events - Usage with `v-model`](/guide/components/v-model)
+  - [Vazby input elementů formuláře](/guide/essentials/forms)
+  - [Binding přes v-model](/guide/components/v-model)
 
 ## v-slot {#v-slot}
 
-Denote named slots or scoped slots that expect to receive props.
+Určuje pojmenované sloty nebo scoped sloty, které očekávají předání vlastností (props).
 
-- **Shorthand:** `#`
+- **Zkrácený zápis:** `#`
 
-- **Expects:** JavaScript expression that is valid in a function argument position, including support for destructuring. Optional - only needed if expecting props to be passed to the slot.
+- **Očekává:** JavaScriptový výraz, který je platný v pozici argumentu funkce, včetně podpory dekonstrukce. Volitelné - je potřeba pouze pokud očekáváte, že budou do slotu předány vlastnosti.
 
-- **Argument:** slot name (optional, defaults to `default`)
+- **Parametr:** název slotu (volitelné, výchozí hodnota je `default`)
 
-- **Limited to:**
+- **Omezeno na:**
 
   - `<template>`
-  - [components](/guide/components/slots#scoped-slots) (for a lone default slot with props)
+  - [komponenty](/guide/components/slots#scoped-slots) (pro samostatný default slot s props)
 
-- **Example**
+- **Příklad**
 
   ```vue-html
-  <!-- Named slots -->
+  <!-- Jmenované sloty -->
   <BaseLayout>
     <template v-slot:header>
-      Header content
+      Obsah záhlaví
     </template>
 
     <template v-slot:default>
-      Default slot content
+      Obsah default slotu
     </template>
 
     <template v-slot:footer>
-      Footer content
+      Obsah zápatí
     </template>
   </BaseLayout>
 
-  <!-- Named slot that receives props -->
+  <!-- Pojmenovaný slot, který přijímá props -->
   <InfiniteScroll>
     <template v-slot:item="slotProps">
       <div class="item">
@@ -411,118 +411,118 @@ Denote named slots or scoped slots that expect to receive props.
     </template>
   </InfiniteScroll>
 
-  <!-- Default slot that receive props, with destructuring -->
+  <!-- Default slot, který přijímá props s dekonstrukcí -->
   <Mouse v-slot="{ x, y }">
-    Mouse position: {{ x }}, {{ y }}
+    Pozice myši: {{ x }}, {{ y }}
   </Mouse>
   ```
 
-- **See also**
-  - [Components - Slots](/guide/components/slots)
+- **Viz také:**
+  - [Komponenty - Sloty (Slots)](/guide/components/slots)
 
 ## v-pre {#v-pre}
 
-Skip compilation for this element and all its children.
+Přeskočit kompilaci tohoto elementu a všech jeho potomků.
 
-- **Does not expect expression**
+- **Nepředpokládá výraz** 
 
-- **Details**
+- **Podrobnosti**
 
-  Inside the element with `v-pre`, all Vue template syntax will be preserved and rendered as-is. The most common use case of this is displaying raw mustache tags.
+  Uvnitř elementu s `v-pre` budou všechny syntaxe Vue šablony zachovány a vykresleny tak, jak jsou. Nejběžnějším použitím je zobrazení nezpracovaných "mustache" tagů.
 
-- **Example**
+- **Příklad**
 
   ```vue-html
-  <span v-pre>{{ this will not be compiled }}</span>
+  <span v-pre>{{ toto nebude zkompilováno }}</span>
   ```
 
 ## v-once {#v-once}
 
-Render the element and component once only, and skip future updates.
+Vykreslit element nebo komponentu pouze jednou a přeskočit budoucí aktualizace.
 
-- **Does not expect expression**
+- **Nepředpokládá výraz** 
 
-- **Details**
+- **Podrobnosti**
 
-  On subsequent re-renders, the element/component and all its children will be treated as static content and skipped. This can be used to optimize update performance.
+  Při dalších překreslováních budou element/komponenta a všichni potomci považováni za statický obsah a přeskočeni. To lze použít k optimalizaci výkonu aktualizace.
 
   ```vue-html
-  <!-- single element -->
-  <span v-once>This will never change: {{msg}}</span>
-  <!-- the element have children -->
+  <!-- jediný prvek -->
+  <span v-once>Toto se nikdy nezmění: {{msg}}</span>
+  <!-- element s potomky -->
   <div v-once>
-    <h1>comment</h1>
+    <h1>komentář</h1>
     <p>{{msg}}</p>
   </div>
-  <!-- component -->
+  <!-- komponenta -->
   <MyComponent v-once :comment="msg"></MyComponent>
-  <!-- `v-for` directive -->
+  <!-- direktiva `v-for` -->
   <ul>
     <li v-for="i in list" v-once>{{i}}</li>
   </ul>
   ```
 
-  Since 3.2, you can also memoize part of the template with invalidation conditions using [`v-memo`](#v-memo).
+  Od verze 3.2 si můžete také část šablony "zapamatovat" (memoize) s podmínkami neplatnosti pomocí [`v-memo`](#v-memo).
 
-- **See also**
-  - [Data Binding Syntax - interpolations](/guide/essentials/template-syntax#text-interpolation)
+- **Viz také:**
+  - [Syntaxe šablon - Interpolace textu](/guide/essentials/template-syntax#text-interpolation)
   - [v-memo](#v-memo)
 
 ## v-memo <sup class="vt-badge" data-text="3.2+" /> {#v-memo}
 
-- **Expects:** `any[]`
+- **Očekává:** `any[]`
 
-- **Details**
+- **Podrobnosti**
 
-  Memoize a sub-tree of the template. Can be used on both elements and components. The directive expects a fixed-length array of dependency values to compare for the memoization. If every value in the array was the same as last render, then updates for the entire sub-tree will be skipped. For example:
+  Uloží si (memoize) podstrom šablony. Může být použito jak na elementech, tak na komponentách. Direktiva očekává pole hodnot závislostí pevné délky, které se porovnávají pro memoizaci. Pokud každá hodnota v poli byla stejná jako při posledním vykreslení, aktualizace pro celý podstrom bude přeskočena. Například:
 
   ```vue-html
-  <div v-memo="[valueA, valueB]">
+  <div v-memo="[hodnotaA, hodnotaB]">
     ...
   </div>
   ```
 
-  When the component re-renders, if both `valueA` and `valueB` remain the same, all updates for this `<div>` and its children will be skipped. In fact, even the Virtual DOM VNode creation will also be skipped since the memoized copy of the sub-tree can be reused.
+  Při opětovném vykreslení komponenty, pokud zůstanou jak `hodnotaA`, tak `hodnotaB` stejné, všechny aktualizace pro tento `<div>` a jeho potomky budou přeskočeny. Ve skutečnosti bude přeskočeno i vytváření Virtual DOM VNode, protože memoizovaná kopie podstromu může být znovu použita.
 
-  It is important to specify the memoization array correctly, otherwise we may skip updates that should indeed be applied. `v-memo` with an empty dependency array (`v-memo="[]"`) would be functionally equivalent to `v-once`.
+  Je důležité správně specifikovat pole pro memoizaci, jinak můžeme přeskočit aktualizace, které by aplikovány být měly. `v-memo` s prázdným polem závislostí (`v-memo="[]"`) by bylo funkčně ekvivalentní `v-once`.
 
-  **Usage with `v-for`**
+  **Použití s `v-for`**
 
-  `v-memo` is provided solely for micro optimizations in performance-critical scenarios and should be rarely needed. The most common case where this may prove helpful is when rendering large `v-for` lists (where `length > 1000`):
+  `v-memo` je poskytováno výhradně pro mikrooptimalizace výkonu a je potřeba jen zřídka. Nejběžnější případ, kdy se to může hodit, je při vykreslování velkých seznamů `v-for` (kde `length > 1000`):
 
   ```vue-html
-  <div v-for="item in list" :key="item.id" v-memo="[item.id === selected]">
-    <p>ID: {{ item.id }} - selected: {{ item.id === selected }}</p>
-    <p>...more child nodes</p>
+  <div v-for="polozka in seznam" :key="polozka.id" v-memo="[polozka.id === vybrano]">
+    <p>ID: {{ polozka.id }} - vybráno: {{ polozka.id === vybrano }}</p>
+    <p>...další potomci</p>
   </div>
   ```
 
-  When the component's `selected` state changes, a large amount of VNodes will be created even though most of the items remained exactly the same. The `v-memo` usage here is essentially saying "only update this item if it went from non-selected to selected, or the other way around". This allows every unaffected item to reuse its previous VNode and skip diffing entirely. Note we don't need to include `item.id` in the memo dependency array here since Vue automatically infers it from the item's `:key`.
+  Při změně stavu `vybrano` komponenty bude vytvořeno velké množství VNodes, i když většina položek zůstala přesně stejná. Použití `v-memo` zde znamená "aktualizujte tuto položku pouze tehdy, pokud se změnila z nevybrané na vybranou nebo naopak". To umožňuje každé neovlivněné položce znovu použít její předchozí VNode a úplně přeskočit porovnávání rozdílů. Poznamenejme, že zde do pole závislostí memoizace nemusíme zahrnout `polozka.id`, protože Vue ji automaticky odvodí z `:key` položky.
 
   :::warning
-  When using `v-memo` with `v-for`, make sure they are used on the same element. **`v-memo` does not work inside `v-for`.**
+  Při použití `v-memo` s `v-for` se ujistěte, že jsou použity na stejném elementu. **`v-memo` nefunguje uvnitř `v-for`.**
   :::
 
-  `v-memo` can also be used on components to manually prevent unwanted updates in certain edge cases where the child component update check has been de-optimized. But again, it is the developer's responsibility to specify correct dependency arrays to avoid skipping necessary updates.
+  `v-memo` lze také použít na komponentách k manuálnímu zabránění nechtěným aktualizacím v určitých okrajových případech, kdy byla kontrola aktualizace potomka de-optimalizována. Ale opět je zodpovědností vývojáře specifikovat správné pole závislostí, aby se zabránilo vynechání nutných aktualizací.
 
-- **See also**
+- **Viz také:**
   - [v-once](#v-once)
 
 ## v-cloak {#v-cloak}
 
-Used to hide un-compiled template until it is ready.
+Používá se k skrytí nezkompilované šablony, dokud není připravena.
 
-- **Does not expect expression**
+- **Nepředpokládá výraz**
 
-- **Details**
+- **Podrobnosti**
 
-  **This directive is only needed in no-build-step setups.**
+  **Tato direktiva je potřeba pouze při použití bez build fáze.**
 
-  When using in-DOM templates, there can be a "flash of un-compiled templates": the user may see raw mustache tags until the mounted component replaces them with rendered content.
+  Při použití in-DOM šablon může dojít k "blikání (flashing) nezkompilovaných šablon": uživatel může vidět nezpracované "mustache" značky, dokud je připojená (mounted) komponenta nenahradí vykresleným obsahem.
 
-  `v-cloak` will remain on the element until the associated component instance is mounted. Combined with CSS rules such as `[v-cloak] { display: none }`, it can be used to hide the raw templates until the component is ready.
+  `v-cloak` zůstane na elementu, dokud není připojena příslušná instance komponenty. Spolu s CSS pravidly jako `[v-cloak] { display: none }` lze použít k skrytí nezpracovaných šablon, dokud není komponenta připravena.
 
-- **Example**
+- **Příklad**
 
   ```css
   [v-cloak] {
@@ -536,4 +536,4 @@ Used to hide un-compiled template until it is ready.
   </div>
   ```
 
-  The `<div>` will not be visible until the compilation is done.
+  `<div>` nebude viditelný, dokud nebude dokončena kompilace.

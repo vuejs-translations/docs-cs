@@ -1,6 +1,6 @@
 export default {
-  emits: ['response'],
+  emits: ['odpoved'],
   created() {
-    this.$emit('response', 'hello from child')
+    this.$emit('odpoved', 'Ahoj z potomka')
   }
 }

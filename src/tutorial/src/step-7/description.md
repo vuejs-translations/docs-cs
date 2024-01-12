@@ -1,6 +1,6 @@
-# List Rendering {#list-rendering}
+# Vykreslování seznamu {#list-rendering}
 
-We can use the `v-for` directive to render a list of elements based on a source array:
+Direktivu `v-for` můžeme použít k vykreslení seznamu prvků založeném na zdrojovém poli:
 
 ```vue-html
 <ul>
@@ -10,13 +10,13 @@ We can use the `v-for` directive to render a list of elements based on a source 
 </ul>
 ```
 
-Here `todo` is a local variable representing the array element currently being iterated on. It's only accessible on or inside the `v-for` element, similar to a function scope.
+`todo` je lokální proměnná, která reprezentuje prvek pole, nad kterým se právě iteruje. Je přístupná pouze uvnitř elementu `v-for`, podobně jako funguje scope uvnitř funkce.
 
-Notice how we are also giving each todo object a unique `id`, and binding it as the <a target="_blank" href="/api/built-in-special-attributes.html#key">special `key` attribute</a> for each `<li>`. The `key` allows Vue to accurately move each `<li>` to match the position of its corresponding object in the array.
+Všimněte si, jak také každému `todo` objektu dáváme jedinečné `id` a provádíme jeho binding na <a target="_blank" href="/api/built-in-special-attributes.html#key">speciální atribut `key`</a> pro každý element `<li>`. Atribut `key` umožňuje Vue přesně pohybovat každým `<li>` tak, aby odpovídalo pozici jemu odpovídajícímu objektu v poli.
 
-There are two ways to update the list:
+Existují dva způsoby, jak list aktualizovat:
 
-1. Call [mutating methods](https://stackoverflow.com/questions/9009879/which-javascript-array-functions-are-mutating) on the source array:
+1. Zavolat na zdrojové pole [změnové funkce](https://stackoverflow.com/questions/9009879/which-javascript-array-functions-are-mutating):
 
    <div class="composition-api">
 
@@ -33,7 +33,7 @@ There are two ways to update the list:
 
    </div>
 
-2. Replace the array with a new one:
+2. Nahradit pole novou instancí:
 
    <div class="composition-api">
 
@@ -50,6 +50,6 @@ There are two ways to update the list:
 
    </div>
 
-Here we have a simple todo list - try to implement the logic for `addTodo()` and `removeTodo()` methods to make it work!
+Zde máme jednoduchý seznam úkolů – zkuste implementovat logiku funkcí `addTodo()` a `removeTodo()` tak, aby to fungovalo!
 
-More details on `v-for`: <a target="_blank" href="/guide/essentials/list.html">Guide - List Rendering</a>
+Více detailů o `v-for`: <a target="_blank" href="/guide/essentials/list.html">Průvodce - Vykreslování seznamu</a>

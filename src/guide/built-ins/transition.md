@@ -10,34 +10,34 @@ import BetweenComponents from './transition-demos/BetweenComponents.vue'
 
 # Transition {#transition}
 
-Vue offers two built-in components that can help work with transitions and animations in response to changing state:
+Vue nabízí dvě vestavěné komponenty, které pomáhají pracovat s přechody a animacemi v reakci na změny stavu:
 
-- `<Transition>` for applying animations when an element or component is entering and leaving the DOM. This is covered on this page.
+- `<Transition>` pro aplikaci animací, když element nebo komponenta vstupuje či vystupuje z DOM. Tomu se věnuje tato stránka.
 
-- `<TransitionGroup>` for applying animations when an element or component is inserted into, removed from, or moved within a `v-for` list. This is covered in [the next chapter](/guide/built-ins/transition-group).
+- `<TransitionGroup>` pro aplikaci animací při vložení elementu nebo komponenty do seznamu `v-for`, při odebrání elementu nebo komponenty z tohoto seznamu nebo při jejich přesunu v rámci seznamu. Tím se zabývá [další kapitola](/guide/built-ins/transition-group).
 
-Aside from these two components, we can also apply animations in Vue using other techniques such as toggling CSS classes or state-driven animations via style bindings. These additional techniques are covered in the [Animation Techniques](/guide/extras/animation) chapter.
+Kromě těchto dvou komponent můžeme ve Vue aplikovat animace také pomocí dalších technik, jako je přepínání CSS tříd nebo stavově řízené animace pomocí bindingu stylů. Tyto další techniky jsou popsány v kapitole [Techniky animace](/guide/extras/animation).
 
-## The `<Transition>` Component {#the-transition-component}
+## Komponenta `<Transition>` {#the-transition-component}
 
-`<Transition>` is a built-in component: this means it is available in any component's template without having to register it. It can be used to apply enter and leave animations on elements or components passed to it via its default slot. The enter or leave can be triggered by one of the following:
+`<Transition>` je vestavěná komponenta, což znamená, že je k dispozici v jakékoli šabloně komponenty, aniž by bylo nutné ji registrovat. Lze ji použít k aplikaci vstupních a výstupních animací na elementy nebo komponenty, které jsou jí předány prostřednictvím výchozího slotu. Vstup nebo výstup může být spuštěn jednou z následujících akcí:
 
-- Conditional rendering via `v-if`
-- Conditional display via `v-show`
-- Dynamic components toggling via the `<component>` special element
-- Changing the special `key` attribute
+- Podmíněné vykreslování přes `v-if`
+- Podmíněné zobrazení přes `v-show`
+- Dynamické přepínání komponent přes speciální element `<component>`
+- Změna speciálního atributu `key`
 
-This is an example of the most basic usage:
+Zde je příklad nejzákladnějšího použití:
 
 ```vue-html
-<button @click="show = !show">Toggle</button>
+<button @click="show = !show">Změnit zobrazení</button>
 <Transition>
-  <p v-if="show">hello</p>
+  <p v-if="show">Ahoj</p>
 </Transition>
 ```
 
 ```css
-/* we will explain what these classes do next! */
+/* Co tyto třídy znamenají, vysvětlíme vzápětí! */
 .v-enter-active,
 .v-leave-active {
   transition: opacity 0.5s ease;
@@ -53,54 +53,54 @@ This is an example of the most basic usage:
 
 <div class="composition-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNpVkEFuwyAQRa8yZZNWqu1sunFJ1N4hSzYUjRNUDAjGVJHluxcCipIV/OG/pxEr+/a+TwuykfGogvYEEWnxR2H17F0gWCHgBBtMwc2wy9WdsMIqZ2OuXtwfHErhlcKCb8LyoVoynwPh7I0kzAmA/yxEzsKXMlr9HgRr9Es5BTue3PlskA+1VpFTkDZq0i3niYfU6anRmbqgMY4PZeH8OjwBfHhYIMdIV1OuferQEoZOKtIJ328TgzJhm8BabHR3jeC8VJqusO8/IqCM+CnsVqR3V/mfRxO5amnkCPuK5B+6rcG2fydshks=)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNpVkEFuwyAQRa8yZZNWqu1sunFJ1N4hSzYUjRNUDAjGVJHluxcCipIV/OG/pxEr+/a+TwuykfGogvYEEWnxR2H17F0gWCHgBBtMwc2wy9WdsMIqZ2OuXtwfHErhlcKCb8LyoVoynwPh7I0kzAmA/yxEzsKXMlr9HgRr9Es5BTue3PlskA+1VpFTkDZq0i3niYfU6anRmbqgMY4PZeH8OjwBfHhYIMdIV1OuferQEoZOKtIJ328TgzJhm8BabHR3jeC8VJqusO8/IqCM+CnsVqR3V/mfRxO5amnkCPuK5B+6rcG2fydshks=)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNpVkMFuAiEQhl9lyqlNuouXXrZo2nfwuBeKs0qKQGBAjfHdZZfVrAmB+f/M/2WGK/v1vs0JWcdEVEF72vQWz94Fgh0OMhmCa28BdpLk+0etAQJSCvahAOLBnTqgkLA6t/EpVzmCP7lFEB69kYRFAYi/ROQs/Cij1f+6ZyMG1vA2vj3bbN1+b1Dw2lYj2yBt1KRnXRwPudHDnC6pAxrjBPe1n78EBF8MUGSkixnLNjdoCUMjFemMn5NjUGacnboqPVkdOC+Vpgus2q8IKCN+T+suWENwxyWJXKXMyQ5WNVJ+aBqD3e6VSYoi)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNpVkMFuAiEQhl9lyqlNuouXXrZo2nfwuBeKs0qKQGBAjfHdZZfVrAmB+f/M/2WGK/v1vs0JWcdEVEF72vQWz94Fgh0OMhmCa28BdpLk+0etAQJSCvahAOLBnTqgkLA6t/EpVzmCP7lFEB69kYRFAYi/ROQs/Cij1f+6ZyMG1vA2vj3bbN1+b1Dw2lYj2yBt1KRnXRwPudHDnC6pAxrjBPe1n78EBF8MUGSkixnLNjdoCUMjFemMn5NjUGacnboqPVkdOC+Vpgus2q8IKCN+T+suWENwxyWJXKXMyQ5WNVJ+aBqD3e6VSYoi)
 
 </div>
 
 :::tip
-`<Transition>` only supports a single element or component as its slot content. If the content is a component, the component must also have only one single root element.
+`<Transition>` podporuje jako obsah svého slotu pouze jediný prvek nebo komponentu. Pokud je obsahem komponenta, musí mít také pouze jeden jediný root element.
 :::
 
-When an element in a `<Transition>` component is inserted or removed, this is what happens:
+Když je element v komponentě `<Transition>` vložen nebo odebrán, stane se toto:
 
-1. Vue will automatically sniff whether the target element has CSS transitions or animations applied. If it does, a number of [CSS transition classes](#transition-classes) will be added / removed at appropriate timings.
+1. Vue automaticky zjistí, zda cílový má prvek aplikovány CSS přechody nebo animace. Pokud ano, budou v odpovídajících časech přidány / odebrány některé [CSS třídy přechodu](#transition-classes).
 
-2. If there are listeners for [JavaScript hooks](#javascript-hooks), these hooks will be called at appropriate timings.
+2. Pokud existují listenery pro [JS události](#javascript-hooks), budou jejich metody v odpovídajících časech provolány.
 
-3. If no CSS transitions / animations are detected and no JavaScript hooks are provided, the DOM operations for insertion and/or removal will be executed on the browser's next animation frame.
+3. Pokud nejsou detekovány žádné CSS přechody / animace a nejsou nastaveny žádné JavaScriptové události, operace DOM pro vložení a/nebo odebrání elementů budou provedeny v následujícím animačním snímku prohlížeče.
 
-## CSS-Based Transitions {#css-based-transitions}
+## Přechody založené na CSS {#css-based-transitions}
 
-### Transition Classes {#transition-classes}
+### Třídy přechodu {#transition-classes}
 
-There are six classes applied for enter / leave transitions.
+Existuje šest tříd aplikovaných pro přechody vstupu / výstupu.
 
-![Transition Diagram](./images/transition-classes.png)
+![Diagram přechodu](./images/transition-classes.png)
 
 <!-- https://www.figma.com/file/rlOv0ZKJFFNA9hYmzdZv3S/Transition-Classes -->
 
-1. `v-enter-from`: Starting state for enter. Added before the element is inserted, removed one frame after the element is inserted.
+1. `v-enter-from`: Počáteční stav pro vstup. Je přidána před vložením prvku, odebráno jeden snímek po vložení prvku.
 
-2. `v-enter-active`: Active state for enter. Applied during the entire entering phase. Added before the element is inserted, removed when the transition/animation finishes. This class can be used to define the duration, delay and easing curve for the entering transition.
+2. `v-enter-active`: Aktivní stav pro vstup. Používá se během celé fáze vstupu. Je přidána před vložením prvku a odstraněna po dokončení přechodu/animace. Třída může být použita k definici trvání (duration), zpoždění (delay) a křivky pro zjemnění (easing) pro vstupní přechod.
 
-3. `v-enter-to`: Ending state for enter. Added one frame after the element is inserted (at the same time `v-enter-from` is removed), removed when the transition/animation finishes.
+3. `v-enter-to`: Koncový stav pro vstup. Je přidána jeden snímek po vložení prvku (ve stejný okamžik, kdy je odstraněno `v-enter-from`) a odstraněna po dokončení přechodu/animace.
 
-4. `v-leave-from`: Starting state for leave. Added immediately when a leaving transition is triggered, removed after one frame.
+4. `v-leave-from`: Počáteční stav pro odchod. Je přidána okamžitě po spuštění odchodového přechodu a odstraněna po jednom snímání.
 
-5. `v-leave-active`: Active state for leave. Applied during the entire leaving phase. Added immediately when a leaving transition is triggered, removed when the transition/animation finishes. This class can be used to define the duration, delay and easing curve for the leaving transition.
+5. `v-leave-active`: Aktivní stav pro odchod. Používá se během celé fáze odchodu. Je přidána okamžitě po spuštění odchodového přechodu a odstraněna po dokončení přechodu/animace. Tato třída může být použita k definování trvání, zpoždění a křivky pro odchodový přechod.
 
-6. `v-leave-to`: Ending state for leave. Added one frame after a leaving transition is triggered (at the same time `v-leave-from` is removed), removed when the transition/animation finishes.
+6. `v-leave-to`: Koncový stav pro odchod. Je přidána jeden snímek po spuštění odchodového přechodu (ve stejný okamžik, kdy je odstraněno `v-leave-from`) a odstraněna po dokončení přechodu/animace.
 
-`v-enter-active` and `v-leave-active` give us the ability to specify different easing curves for enter / leave transitions, which we'll see an example of in the following sections.
+`v-enter-active` a `v-leave-active` nám pro vstupní / odchodové přechody umožňují specifikovat různé křivky uvolnění, jak uvidíme na příkladu v následujících sekcích.
 
-### Named Transitions {#named-transitions}
+### Pojmenované přechody {#named-transitions}
 
-A transition can be named via the `name` prop:
+Přechod může být pojmenován pomocí vlastnosti `name`:
 
 ```vue-html
 <Transition name="fade">
@@ -108,7 +108,7 @@ A transition can be named via the `name` prop:
 </Transition>
 ```
 
-For a named transition, its transition classes will be prefixed with its name instead of `v`. For example, the applied class for the above transition will be `fade-enter-active` instead of `v-enter-active`. The CSS for the fade transition should look like this:
+Pro pojmenovaný přechod budou jeho přechodové třídy uvozeny místo předpony `v` jménem přechodu. Například třída aplikovaná pro výše uvedený přechod bude `fade-enter-active` místo `v-enter-active`. CSS pro přechod `fade` by měl vypadat takto:
 
 ```css
 .fade-enter-active,
@@ -122,22 +122,22 @@ For a named transition, its transition classes will be prefixed with its name in
 }
 ```
 
-### CSS Transitions {#css-transitions}
+### CSS přechody {#css-transitions}
 
-`<Transition>` is most commonly used in combination with [native CSS transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions), as seen in the basic example above. The `transition` CSS property is a shorthand that allows us to specify multiple aspects of a transition, including properties that should be animated, duration of the transition, and [easing curves](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function).
+`<Transition>` se nejčastěji používá v kombinaci s [nativními CSS přechody](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions), jako v jednoduchém příkladu výše. CSS vlastnost `transition` je zkratka, která nám umožňuje specifikovat více různých aspektů přechodu, včetně vlastností, které by měly být animovány, trvání přechodu a [křivky pro zjemnění](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function).
 
-Here is a more advanced example that transitions multiple properties, with different durations and easing curves for enter and leave:
+Zde je více pokročilý příklad, který přechází mezi více vlastnostmi s různou dobou trvání a křivkami pro vstup a výstup:
 
 ```vue-html
 <Transition name="slide-fade">
-  <p v-if="show">hello</p>
+  <p v-if="show">Ahoj</p>
 </Transition>
 ```
 
 ```css
 /*
-  Enter and leave animations can use different
-  durations and timing functions.
+  Animace pro vstup a výstup mohou mít různou
+  dobu trvání a časování.
 */
 .slide-fade-enter-active {
   transition: all 0.3s ease-out;
@@ -158,25 +158,25 @@ Here is a more advanced example that transitions multiple properties, with diffe
 
 <div class="composition-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNqFkc9uwjAMxl/F6wXQKIVNk1AX0HbZC4zDDr2E4EK0NIkStxtDvPviFQ0OSFzyx/m+n+34kL16P+lazMpMRBW0J4hIrV9WVjfeBYIDBKzhCHVwDQySdFDZyipnY5Lu3BcsWDCk0OKosqLoKcmfLoSNN5KQbyTWLZGz8KKMVp+LKju573ivsuXKbbcG4d3oDcI9vMkNiqL3JD+AWAVpoyadGFY2yATW5nVSJj9rkspDl+v6hE/hHRrjRMEdpdfiDEkBUVxWaEWkveHj5AzO0RKGXCrSHcKBIfSPKEEaA9PJYwSUEXPX0nNlj8y6RBiUHd5AzCOodq1VvsYfjWE4G6fgEy/zMcxG17B9ZTyX8bV85C5y1S40ZX/kdj+GD1P/zVQA56XStC9h2idJI/z7huz4CxoVvE4=)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNqFkc9uwjAMxl/F6wXQKIVNk1AX0HbZC4zDDr2E4EK0NIkStxtDvPviFQ0OSFzyx/m+n+34kL16P+lazMpMRBW0J4hIrV9WVjfeBYIDBKzhCHVwDQySdFDZyipnY5Lu3BcsWDCk0OKosqLoKcmfLoSNN5KQbyTWLZGz8KKMVp+LKju573ivsuXKbbcG4d3oDcI9vMkNiqL3JD+AWAVpoyadGFY2yATW5nVSJj9rkspDl+v6hE/hHRrjRMEdpdfiDEkBUVxWaEWkveHj5AzO0RKGXCrSHcKBIfSPKEEaA9PJYwSUEXPX0nNlj8y6RBiUHd5AzCOodq1VvsYfjWE4G6fgEy/zMcxG17B9ZTyX8bV85C5y1S40ZX/kdj+GD1P/zVQA56XStC9h2idJI/z7huz4CxoVvE4=)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNqFkc1uwjAMgF/F6wk0SmHTJNQFtF32AuOwQy+hdSFamkSJ08EQ776EbMAkJKTIf7I/O/Y+ezVm3HvMyoy52gpDi0rh1mhL0GDLvSTYVwqg4cQHw2QDWCRv1Z8H4Db6qwSyHlPkEFUQ4bHixA0OYWckJ4wesZUn0gpeainqz3mVRQzM4S7qKlss9XotEd6laBDu4Y03yIpUE+oB2NJy5QSJwFC8w0iIuXkbMkN9moUZ6HPR/uJDeINSalaYxCjOkBBgxeWEijnayWiOz+AcFaHNeU2ix7QCOiFK4FLCZPzoALnDXHt6Pq7hP0Ii7/EGYuag9itR5yv8FmgH01EIPkUxG8F0eA2bJmut7kbX+pG+6NVq28WTBTN+92PwMDHbSAXQhteCdiVMUpNwwuMassMP8kfAJQ==)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNqFkc1uwjAMgF/F6wk0SmHTJNQFtF32AuOwQy+hdSFamkSJ08EQ776EbMAkJKTIf7I/O/Y+ezVm3HvMyoy52gpDi0rh1mhL0GDLvSTYVwqg4cQHw2QDWCRv1Z8H4Db6qwSyHlPkEFUQ4bHixA0OYWckJ4wesZUn0gpeainqz3mVRQzM4S7qKlss9XotEd6laBDu4Y03yIpUE+oB2NJy5QSJwFC8w0iIuXkbMkN9moUZ6HPR/uJDeINSalaYxCjOkBBgxeWEijnayWiOz+AcFaHNeU2ix7QCOiFK4FLCZPzoALnDXHt6Pq7hP0Ii7/EGYuag9itR5yv8FmgH01EIPkUxG8F0eA2bJmut7kbX+pG+6NVq28WTBTN+92PwMDHbSAXQhteCdiVMUpNwwuMassMP8kfAJQ==)
 
 </div>
 
-### CSS Animations {#css-animations}
+### CSS Animace {#css-animations}
 
-[Native CSS animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) are applied in the same way as CSS transitions, with the difference being that `*-enter-from` is not removed immediately after the element is inserted, but on an `animationend` event.
+[Nativní CSS animace](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) se používají stejným způsobem jako CSS přechody, s tím rozdílem, že třída `*-enter-from` není odstraněna okamžitě po vložení elementu, ale až po události `animationend`.
 
-For most CSS animations, we can simply declare them under the `*-enter-active` and `*-leave-active` classes. Here's an example:
+Většinu CSS animací stačí deklarovat pod třídami `*-enter-active` a `*-leave-active`. Zde je příklad:
 
 ```vue-html
 <Transition name="bounce">
   <p v-if="show" style="text-align: center;">
-    Hello here is some bouncy text!
+    Ahoj, já jsem skákací text!
   </p>
 </Transition>
 ```
@@ -205,18 +205,18 @@ For most CSS animations, we can simply declare them under the `*-enter-active` a
 
 <div class="composition-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNqNksGOgjAQhl9lJNmoBwRNvCAa97YP4JFLbQZsLG3TDqzG+O47BaOezCYkpfB9/0wHbsm3c4u+w6RIyiC9cgQBqXO7yqjWWU9wA4813KH2toUpo9PKVEZaExg92V/YRmBGvsN5ZcpsTGGfN4St04Iw7qg8dkTWwF5qJc/bKnnYk7hWye5gm0ZjmY0YKwDlwQsTFCnWjGiRpaPtjETG43smHPSpqh9pVQKBrjpyrfCNMilZV8Aqd5cNEF4oFVo1pgCJhtBvnjEAP6i1hRN6BBUg2BZhKHUdvMmjWhYHE9dXY/ygzN4PasqhB75djM2mQ7FUSFI9wi0GCJ6uiHYxVsFUGcgX67CpzP0lahQ9/k/kj9CjDzgG7M94rT1PLLxhQ0D+Na4AFI9QW98WEKTQOMvnLAOwDrD+wC0Xq/Ubusw/sU+QL/45hskk9z8Bddbn)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNqNksGOgjAQhl9lJNmoBwRNvCAa97YP4JFLbQZsLG3TDqzG+O47BaOezCYkpfB9/0wHbsm3c4u+w6RIyiC9cgQBqXO7yqjWWU9wA4813KH2toUpo9PKVEZaExg92V/YRmBGvsN5ZcpsTGGfN4St04Iw7qg8dkTWwF5qJc/bKnnYk7hWye5gm0ZjmY0YKwDlwQsTFCnWjGiRpaPtjETG43smHPSpqh9pVQKBrjpyrfCNMilZV8Aqd5cNEF4oFVo1pgCJhtBvnjEAP6i1hRN6BBUg2BZhKHUdvMmjWhYHE9dXY/ygzN4PasqhB75djM2mQ7FUSFI9wi0GCJ6uiHYxVsFUGcgX67CpzP0lahQ9/k/kj9CjDzgG7M94rT1PLLxhQ0D+Na4AFI9QW98WEKTQOMvnLAOwDrD+wC0Xq/Ubusw/sU+QL/45hskk9z8Bddbn)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNqNUs2OwiAQfpWxySZ66I8mXioa97YP4LEXrNNKpEBg2tUY330pqOvJmBBgyPczP1yTb2OyocekTJirrTC0qRSejbYEB2x4LwmulQI4cOLTWbwDWKTeqkcE4I76twSyPcaX23j4zS+WP3V9QNgZyQnHiNi+J9IKtrUU9WldJaMMrGEynlWy2em2lcjyCPMUALazXDlBwtMU79CT9rpXNXp4tGYGhlQ0d7UqAUcXOeI6bluhUtKmhEVhzisgPFPKpWhVCTUqQrt6ygD8oJQajmgRhAOnO4RgdQm8yd0tNzGv/D8x/8Dy10IVCzn4axaTTYNZymsSA8YuciU6PrLL6IKpUFBkS7cKXXwQJfIBPyP6IQ1oHUaB7QkvjfUdcy+wIFB8PeZIYwmNtl0JruYSp8XMk+/TXL7BzbPF8gU6L95hn8D4OUJnktsfM1vavg==)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNqNUs2OwiAQfpWxySZ66I8mXioa97YP4LEXrNNKpEBg2tUY330pqOvJmBBgyPczP1yTb2OyocekTJirrTC0qRSejbYEB2x4LwmulQI4cOLTWbwDWKTeqkcE4I76twSyPcaX23j4zS+WP3V9QNgZyQnHiNi+J9IKtrUU9WldJaMMrGEynlWy2em2lcjyCPMUALazXDlBwtMU79CT9rpXNXp4tGYGhlQ0d7UqAUcXOeI6bluhUtKmhEVhzisgPFPKpWhVCTUqQrt6ygD8oJQajmgRhAOnO4RgdQm8yd0tNzGv/D8x/8Dy10IVCzn4axaTTYNZymsSA8YuciU6PrLL6IKpUFBkS7cKXXwQJfIBPyP6IQ1oHUaB7QkvjfUdcy+wIFB8PeZIYwmNtl0JruYSp8XMk+/TXL7BzbPF8gU6L95hn8D4OUJnktsfM1vavg==)
 
 </div>
 
-### Custom Transition Classes {#custom-transition-classes}
+### Vlastní třídy přechodu {#custom-transition-classes}
 
-You can also specify custom transition classes by passing the following props to `<Transition>`:
+Můžete specifikovat i své vlastní třídy přechodu pomocí předání následujících vlastností (props) do komponenty `<Transition>`:
 
 - `enter-from-class`
 - `enter-active-class`
@@ -225,56 +225,56 @@ You can also specify custom transition classes by passing the following props to
 - `leave-active-class`
 - `leave-to-class`
 
-These will override the conventional class names. This is especially useful when you want to combine Vue's transition system with an existing CSS animation library, such as [Animate.css](https://daneden.github.io/animate.css/):
+Tyto třídy budou použity místo tříd s výchozími názvy. Obzvlášť užitečné to je, pokud chcete kombinovat přechodový systém Vue s existující knihovnou CSS animací, jako je [Animate.css](https://daneden.github.io/animate.css/):
 
 ```vue-html
-<!-- assuming Animate.css is included on the page -->
+<!-- předpokládá, že je Animate.css zahrnuto na stránce -->
 <Transition
   name="custom-classes"
   enter-active-class="animate__animated animate__tada"
   leave-active-class="animate__animated animate__bounceOutRight"
 >
-  <p v-if="show">hello</p>
+  <p v-if="show">Ahoj</p>
 </Transition>
 ```
 
 <div class="composition-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNqNUctuwjAQ/BXXF9oDsZB6ogbRL6hUcbSEjLMhpn7JXtNWiH/vhqS0R3zxPmbWM+szf02pOVXgSy6LyTYhK4A1rVWwPsWM7MwydOzCuhw9mxF0poIKJoZC0D5+stUAeMRc4UkFKcYpxKcEwSenEYYM5b4ixsA2xlnzsVJ8Yj8Mt+LrbTwcHEgxwojCmNxmHYpFG2kaoxO0B2KaWjD6uXG6FCiKj00ICHmuDdoTjD2CavJBCna7KWjZrYK61b9cB5pI93P3sQYDbxXf7aHHccpVMolO7DS33WSQjPXgXJRi2Cl1xZ8nKkjxf0dBFvx2Q7iZtq94j5jKUgjThmNpjIu17ZzO0JjohT7qL+HsvohJWWNKEc/NolncKt6Goar4y/V7rg/wyw9zrLOy)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNqNUctuwjAQ/BXXF9oDsZB6ogbRL6hUcbSEjLMhpn7JXtNWiH/vhqS0R3zxPmbWM+szf02pOVXgSy6LyTYhK4A1rVWwPsWM7MwydOzCuhw9mxF0poIKJoZC0D5+stUAeMRc4UkFKcYpxKcEwSenEYYM5b4ixsA2xlnzsVJ8Yj8Mt+LrbTwcHEgxwojCmNxmHYpFG2kaoxO0B2KaWjD6uXG6FCiKj00ICHmuDdoTjD2CavJBCna7KWjZrYK61b9cB5pI93P3sQYDbxXf7aHHccpVMolO7DS33WSQjPXgXJRi2Cl1xZ8nKkjxf0dBFvx2Q7iZtq94j5jKUgjThmNpjIu17ZzO0JjohT7qL+HsvohJWWNKEc/NolncKt6Goar4y/V7rg/wyw9zrLOy)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNqNUcFuwjAM/RUvp+1Ao0k7sYDYF0yaOFZCJjU0LE2ixGFMiH9f2gDbcVKU2M9+tl98Fm8hNMdMYi5U0tEEXraOTsFHho52mC3DuXUAHTI+PlUbIBLn6G4eQOr91xw4ZqrIZXzKVY6S97rFYRqCRabRY7XNzN7BSlujPxetGMvAAh7GtxXLtd/vLSlZ0woFQK0jumTY+FJt7ORwoMLUObEfZtpiSpRaUYPkmOIMNZsj1VhJRWeGMsFmczU6uCOMHd64lrCQ/s/d+uw0vWf+MPuea5Vp5DJ0gOPM7K4Ci7CerPVKhipJ/moqgJJ//8ipxN92NFdmmLbSip45pLmUunOH1Gjrc7ezGKnRfpB4wJO0ZpvkdbJGpyRfmufm+Y4Mxo1oK16n9UwNxOUHwaK3iQ==)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNqNUcFuwjAM/RUvp+1Ao0k7sYDYF0yaOFZCJjU0LE2ixGFMiH9f2gDbcVKU2M9+tl98Fm8hNMdMYi5U0tEEXraOTsFHho52mC3DuXUAHTI+PlUbIBLn6G4eQOr91xw4ZqrIZXzKVY6S97rFYRqCRabRY7XNzN7BSlujPxetGMvAAh7GtxXLtd/vLSlZ0woFQK0jumTY+FJt7ORwoMLUObEfZtpiSpRaUYPkmOIMNZsj1VhJRWeGMsFmczU6uCOMHd64lrCQ/s/d+uw0vWf+MPuea5Vp5DJ0gOPM7K4Ci7CerPVKhipJ/moqgJJ//8ipxN92NFdmmLbSip45pLmUunOH1Gjrc7ezGKnRfpB4wJO0ZpvkdbJGpyRfmufm+Y4Mxo1oK16n9UwNxOUHwaK3iQ==)
 
 </div>
 
-### Using Transitions and Animations Together {#using-transitions-and-animations-together}
+### Použití přechodů a animací společně {#using-transitions-and-animations-together}
 
-Vue needs to attach event listeners in order to know when a transition has ended. It can either be `transitionend` or `animationend`, depending on the type of CSS rules applied. If you are only using one or the other, Vue can automatically detect the correct type.
+Vue potřebuje připojit event listenery, aby vědělo, kdy přechod skončil. V závislosti na typu použitých CSS pravidel to může být buď `transitionend` nebo `animationend`. Pokud používáte pouze jeden z nich, Vue automaticky detekuje správný typ.
 
-However, in some cases you may want to have both on the same element, for example having a CSS animation triggered by Vue, along with a CSS transition effect on hover. In these cases, you will have to explicitly declare the type you want Vue to care about by passing the `type` prop, with a value of either `animation` or `transition`:
+Nicméně někdy můžete chtít mít na stejném elementu oba, například mít CSS animaci spouštěnou Vue spolu s efektem CSS přechodu při najetí myší. V těchto případech musíte explicitně deklarovat typ, o který se Vue stará, předáním vlastnosti `type` s hodnotou buď `animation` nebo `transition`:
 
 ```vue-html
 <Transition type="animation">...</Transition>
 ```
 
-### Nested Transitions and Explicit Transition Durations {#nested-transitions-and-explicit-transition-durations}
+### Vnořené přechody a explicitní délky přechodů {#nested-transitions-and-explicit-transition-durations}
 
-Although the transition classes are only applied to the direct child element in `<Transition>`, we can transition nested elements using nested CSS selectors:
+I přestože jsou přechodové třídy použity pouze na přímém potomkovi uvnitř `<Transition>`, můžeme přecházet na vnořené elementy pomocí vnořených CSS selektorů:
 
 ```vue-html
 <Transition name="nested">
   <div v-if="show" class="outer">
     <div class="inner">
-      Hello
+      Ahoj
     </div>
   </div>
 </Transition>
 ```
 
 ```css
-/* rules that target nested elements */
+/* pravidla aplikovaná na vnořené prvky */
 .nested-enter-active .inner,
 .nested-leave-active .inner {
   transition: all 0.3s ease-in-out;
@@ -286,21 +286,21 @@ Although the transition classes are only applied to the direct child element in 
   opacity: 0;
 }
 
-/* ... other necessary CSS omitted */
+/* ... další potřebné CSS vynecháno */
 ```
 
-We can even add a transition delay to the nested element on enter, which creates a staggered enter animation sequence:
+Můžeme dokonce přidat zpoždění přechodu na vnořený prvek při vstupu, což vytvoří posunutou animaci vstupu:
 
 ```css{3}
-/* delay enter of nested element for staggered effect */
+/* zpoždění vstupu vnořeného prvku pro "staggered" efekt */
 .nested-enter-active .inner {
   transition-delay: 0.25s;
 }
 ```
 
-However, this creates a small issue. By default, the `<Transition>` component attempts to automatically figure out when the transition has finished by listening to the **first** `transitionend` or `animationend` event on the root transition element. With a nested transition, the desired behavior should be waiting until the transitions of all inner elements have finished.
+Toto však vytváří malý problém. Výchozím chováním komponenty `<Transition>` je automaticky zjistit, kdy přechod skončil, posloucháním **prvního** události `transitionend` nebo `animationend` na root elementu přechodu. S vnořeným přechodem by však požadovaným chováním mělo být čekání, dokud neskončí i přechody všech vnitřních prvků.
 
-In such cases you can specify an explicit transition duration (in milliseconds) using the `duration` prop on the `<transition>` component. The total duration should match the delay plus transition duration of the inner element:
+V takových případech můžete specifikovat explicitní dobu přechodu (v milisekundách) pomocí vlastnosti `duration` na komponentě `<transition>`. Celková doba by měla odpovídat zpoždění plus době přechodu vnitřního prvku:
 
 ```vue-html
 <Transition :duration="550">...</Transition>
@@ -308,27 +308,28 @@ In such cases you can specify an explicit transition duration (in milliseconds) 
 
 <NestedTransitions />
 
-[Try it in the Playground](https://play.vuejs.org/#eNqVVd9v0zAQ/leO8LAfrE3HNKSFbgKmSYMHQNAHkPLiOtfEm2NHttN2mvq/c7bTNi1jgFop9t13d9995ziPyfumGc5bTLJkbLkRjQOLrm2uciXqRhsHj2BwBiuYGV3DAUEPcpUrrpUlaKUXcOkBh860eJSrcRqzUDxtHNaNZA5pBzCets5pBe+4FPz+Mk+66Bf+mSdXE12WEsdphMWQiWHKCicoLCtaw/yKIs/PR3kCitVIG4XWYUEJfATFFGIO84GYdRUIyCWzlra6dWg2wA66dgqlts7c+d8tSqk34JTQ6xqb9TjdUiTDOO21TFvrHqRfDkPpExiGKvBITjdl/L40ulVFBi8R8a3P17CiEKrM4GzULIOlFmpQoSgrl8HpKFpX3kFZu2y0BNhJxznvwaJCA1TEYcC4E3MkKp1VIptjZ43E3KajDJiUMBqeWUBmcUBUqJGYOT2GAiV7gJAA9Iy4GyoBKLH2z+N0W3q/CMC2yCCkyajM63Mbc+9z9mfvZD+b071MM23qLC69+j8PvX5HQUDdMC6cL7BOTtQXCJwpas/qHhWIBdYtWGgtDWNttWTmThu701pf1W6+v1Hd8Xbz+k+VQxmv8i7Fv1HZn+g/iv2nRkjzbd6npf/Rkz49DifQ3dLZBBYOJzC4rqgCwsUbmLYlCAUVU4XsCd1NrCeRHcYXb1IJC/RX2hEYCwJTvHYVMZoavbBI09FmU+LiFSzIh0AIXy1mqZiFKaKCmVhiEVJ7GftHZTganUZ56EYLL3FykjhL195MlMM7qxXdmEGDPOG6boRE86UJVPMki+p4H01WLz4Fm78hSdBo5xXy+yfsd3bpbXny1SA1M8c82fgcMyW66L75/hmXtN44a120ktDPOL+h1bL1HCPsA42DaPdwge3HcO/TOCb2ZumQJtA15Yl65Crg84S+BdfPtL6lezY8C3GkZ7L6Bc1zNR0=)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNqVVd9v0zAQ/leO8LAfrE3HNKSFbgKmSYMHQNAHkPLiOtfEm2NHttN2mvq/c7bTNi1jgFop9t13d9995ziPyfumGc5bTLJkbLkRjQOLrm2uciXqRhsHj2BwBiuYGV3DAUEPcpUrrpUlaKUXcOkBh860eJSrcRqzUDxtHNaNZA5pBzCets5pBe+4FPz+Mk+66Bf+mSdXE12WEsdphMWQiWHKCicoLCtaw/yKIs/PR3kCitVIG4XWYUEJfATFFGIO84GYdRUIyCWzlra6dWg2wA66dgqlts7c+d8tSqk34JTQ6xqb9TjdUiTDOO21TFvrHqRfDkPpExiGKvBITjdl/L40ulVFBi8R8a3P17CiEKrM4GzULIOlFmpQoSgrl8HpKFpX3kFZu2y0BNhJxznvwaJCA1TEYcC4E3MkKp1VIptjZ43E3KajDJiUMBqeWUBmcUBUqJGYOT2GAiV7gJAA9Iy4GyoBKLH2z+N0W3q/CMC2yCCkyajM63Mbc+9z9mfvZD+b071MM23qLC69+j8PvX5HQUDdMC6cL7BOTtQXCJwpas/qHhWIBdYtWGgtDWNttWTmThu701pf1W6+v1Hd8Xbz+k+VQxmv8i7Fv1HZn+g/iv2nRkjzbd6npf/Rkz49DifQ3dLZBBYOJzC4rqgCwsUbmLYlCAUVU4XsCd1NrCeRHcYXb1IJC/RX2hEYCwJTvHYVMZoavbBI09FmU+LiFSzIh0AIXy1mqZiFKaKCmVhiEVJ7GftHZTganUZ56EYLL3FykjhL195MlMM7qxXdmEGDPOG6boRE86UJVPMki+p4H01WLz4Fm78hSdBo5xXy+yfsd3bpbXny1SA1M8c82fgcMyW66L75/hmXtN44a120ktDPOL+h1bL1HCPsA42DaPdwge3HcO/TOCb2ZumQJtA15Yl65Crg84S+BdfPtL6lezY8C3GkZ7L6Bc1zNR0=)
+```
 
-If necessary, you can also specify separate values for enter and leave durations using an object:
+Pokud je to nutné, můžete specifikovat i samostatné hodnoty pro dobu trvání při vstupu a odchodu pomocí objektu:
 
 ```vue-html
 <Transition :duration="{ enter: 500, leave: 800 }">...</Transition>
 ```
 
-### Performance Considerations {#performance-considerations}
+### Úvaha o výkonu {#performance-considerations}
 
-You may notice that the animations shown above are mostly using properties like `transform` and `opacity`. These properties are efficient to animate because:
+Můžete si všimnout, že animace zobrazené výše využívají převážně vlastnosti jako `transform` a `opacity`. Tyto vlastnosti jsou efektivní pro animaci, protože:
 
-1. They do not affect the document layout during the animation, so they do not trigger expensive CSS layout calculation on every animation frame.
+1. Neovlivňují layout dokumentu během animace, takže nevyvolávají nákladné výpočty CSS layoutu při každém snímku animace.
 
-2. Most modern browsers can leverage GPU hardware acceleration when animating `transform`.
+2. Většina moderních prohlížečů může využít hardwarovou akceleraci GPU během `transform` animace.
 
-In comparison, properties like `height` or `margin` will trigger CSS layout, so they are much more expensive to animate, and should be used with caution. We can check resources like [CSS-Triggers](https://csstriggers.com/) to see which properties will trigger layout if we animate them.
+Naopak vlastnosti jako `height` nebo `margin` vyvolají změnu CSS layoutu, takže jsou na animaci mnohem dražší a měly by být používány opatrně. Abychom zjistili, které všechny CSS vlastnosti vyvolají při animaci změnu layoutu, můžeme zkontrolovat zdroje jako [CSS-Triggers](https://csstriggers.com/).
 
-## JavaScript Hooks {#javascript-hooks}
+## JavaScript události {#javascript-hooks}
 
-You can hook into the transition process with JavaScript by listening to events on the `<Transition>` component:
+Pomocí JavaScriptu se můžete k procesu přechodu připojit pomocí naslouchání událostem na komponentě `<Transition>`:
 
 ```html
 <Transition
@@ -348,41 +349,41 @@ You can hook into the transition process with JavaScript by listening to events 
 <div class="composition-api">
 
 ```js
-// called before the element is inserted into the DOM.
-// use this to set the "enter-from" state of the element
+// voláno před vložením elementu do DOM
+// použijte k nastavení počátečního ("enter-from") stavu
 function onBeforeEnter(el) {}
 
-// called one frame after the element is inserted.
-// use this to start the entering animation.
+// voláno jeden snímek po vložení elementu
+// použijte k zahájení animace přechodu
 function onEnter(el, done) {
-  // call the done callback to indicate transition end
-  // optional if used in combination with CSS
+  // volání funkce `done` signalizuje konec přechodu
+  // volitelné, pokud se používá ve spojení s CSS
   done()
 }
 
-// called when the enter transition has finished.
+// voláno po dokončení vstupního přechodu
 function onAfterEnter(el) {}
 
-// called when the enter transition is cancelled before completion.
+// voláno, když je vstupní přechod zrušen před dokončením
 function onEnterCancelled(el) {}
 
-// called before the leave hook.
-// Most of the time, you should just use the leave hook
+// voláno před odchodem
+// většinou byste měli použít pouze metodu leave
 function onBeforeLeave(el) {}
 
-// called when the leave transition starts.
-// use this to start the leaving animation.
+// voláno při začátku odchodového přechodu
+// použijte k zahájení animace odchodu
 function onLeave(el, done) {
-  // call the done callback to indicate transition end
-  // optional if used in combination with CSS
+  // volání funkce `done` signalizuje konec přechodu
+  // volitelné, pokud se používá ve spojení s CSS
   done()
 }
 
-// called when the leave transition has finished and the
-// element has been removed from the DOM.
+// voláno po dokončení odchodového přechodu 
+// a odebrání elementu z DOM
 function onAfterLeave(el) {}
 
-// only available with v-show transitions
+// dostupné pouze pro přechody v rámci v-show
 function onLeaveCancelled(el) {}
 ```
 
@@ -393,39 +394,39 @@ function onLeaveCancelled(el) {}
 export default {
   // ...
   methods: {
-    // called before the element is inserted into the DOM.
-    // use this to set the "enter-from" state of the element
+    // voláno před vložením elementu do DOM
+    // použijte k nastavení počátečního ("enter-from") stavu
     onBeforeEnter(el) {},
 
-    // called one frame after the element is inserted.
-    // use this to start the animation.
+    // voláno jeden snímek po vložení elementu
+    // použijte k zahájení animace přechodu
     onEnter(el, done) {
-      // call the done callback to indicate transition end
-      // optional if used in combination with CSS
+      // volání funkce `done` signalizuje konec přechodu
+      // volitelné, pokud se používá ve spojení s CSS
       done()
     },
 
-    // called when the enter transition has finished.
+    // voláno po dokončení vstupního přechodu
     onAfterEnter(el) {},
     onEnterCancelled(el) {},
 
-    // called before the leave hook.
-    // Most of the time, you should just use the leave hook.
+    // voláno před odchodem
+    // většinou byste měli použít pouze metodu leave
     onBeforeLeave(el) {},
 
-    // called when the leave transition starts.
-    // use this to start the leaving animation.
+    // voláno při začátku odchodového přechodu
+    // použijte k zahájení animace odchodu
     onLeave(el, done) {
-      // call the done callback to indicate transition end
-      // optional if used in combination with CSS
+      // volání funkce `done` signalizuje konec přechodu
+      // volitelné, pokud se používá ve spojení s CSS
       done()
     },
 
-    // called when the leave transition has finished and the
-    // element has been removed from the DOM.
+    // voláno po dokončení odchodového přechodu 
+    // a odebrání elementu z DOM
     onAfterLeave(el) {},
 
-    // only available with v-show transitions
+    // dostupné pouze pro přechody v rámci v-show
     onLeaveCancelled(el) {}
   }
 }
@@ -433,9 +434,9 @@ export default {
 
 </div>
 
-These hooks can be used in combination with CSS transitions / animations or on their own.
+Tyto metody (hooks) lze použít ve spojení s CSS přechody / animacemi nebo samostatně.
 
-When using JavaScript-only transitions, it is usually a good idea to add the `:css="false"` prop. This explicitly tells Vue to skip auto CSS transition detection. Aside from being slightly more performant, this also prevents CSS rules from accidentally interfering with the transition:
+Při použití čistě JavaScriptových přechodů je obvykle vhodné přidat vlastnost (prop) `:css="false"`. Tímto Vue explicitně říkáme, aby se přeskočilo automatické detekování CSS přechodů. Kromě toho, že je to trochu výkonnější, to dále zabrání tomu, aby se CSS pravidla do přechodu  náhodou vmísila:
 
 ```vue-html{3}
 <Transition
@@ -446,63 +447,63 @@ When using JavaScript-only transitions, it is usually a good idea to add the `:c
 </Transition>
 ```
 
-With `:css="false"`, we are also fully responsible for controlling when the transition ends. In this case, the `done` callbacks are required for the `@enter` and `@leave` hooks. Otherwise, the hooks will be called synchronously and the transition will finish immediately.
+S `:css="false"` jsme také plně zodpovědní za řízení konce přechodu. V tomto případě jsou pro metody (hooks) `@enter` a `@leave` vyžadovány callbacky `done`. Jinak budou metody volány synchronně a přechod okamžitě skončí.
 
-Here's a demo using the [GreenSock library](https://greensock.com/) to perform the animations. You can, of course, use any other animation library you want, for example [Anime.js](https://animejs.com/) or [Motion One](https://motion.dev/).
+Zde je ukázka použití knihovny [GreenSock](https://greensock.com/) k provedení animací. Samozřejmě můžete použít libovolnou jinou animační knihovnu, například [Anime.js](https://animejs.com/) nebo [Motion One](https://motion.dev/).
 
 <JsHooks />
 
 <div class="composition-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNqNVMtu2zAQ/JUti8I2YD3i1GigKmnaorcCveTQArpQFCWzlkiCpBwHhv+9Sz1qKYckJ3FnlzvD2YVO5KvW4aHlJCGpZUZoB5a7Vt9lUjRaGQcnMLyEM5RGNbDA0sX/VGWpHnB/xEQmmZIWe+zUI9z6m0tnWr7ymbKVzAklQclvvFSG/5COmyWvV3DKJHTdQiRHZN0jAJbRmv9OIA432/UE+jODlKZMuKcErnx8RrazP8woR7I1FEryKaVTU8aiNdRfwWZTQtQwi1HAGF/YB4BTyxNY8JpaJ1go5K/WLTfhdg1Xq8V4SX5Xja65w0ovaCJ8Jvsnpwc+l525F2XH4ac3Cj8mcB3HbxE9qnvFMRzJ0K3APuhIjPefmTTyvWBAGvWbiDuIgeNYRh3HCCDNW+fQmHtWC7a/zciwaO/8NyN3D6qqap5GfVnXAC89GCqt8Bp77vu827+A+53AJrOFzMhQdMnO8dqPpMO74Yx4wqxFtKS1HbBOMdIX4gAMffVp71+Qq2NG4BCIcngBKk8jLOvfGF30IpBGEwcwtO6p9sdwbNXPIadsXxnVyiKB9x83+c3N9WePN9RUQgZO6QQ2sT524KMo3M5Pf4h3XFQ7NwFyZQpuAkML0doEtvEHhPvRDPRkTfq/QNDgRvy1SuIvpFOSDQmbkWTckf7hHsjIzjltkyhqpd5XIVNN5HNfGlW09eAcMp3J+R+pEn7L)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNqNVMtu2zAQ/JUti8I2YD3i1GigKmnaorcCveTQArpQFCWzlkiCpBwHhv+9Sz1qKYckJ3FnlzvD2YVO5KvW4aHlJCGpZUZoB5a7Vt9lUjRaGQcnMLyEM5RGNbDA0sX/VGWpHnB/xEQmmZIWe+zUI9z6m0tnWr7ymbKVzAklQclvvFSG/5COmyWvV3DKJHTdQiRHZN0jAJbRmv9OIA432/UE+jODlKZMuKcErnx8RrazP8woR7I1FEryKaVTU8aiNdRfwWZTQtQwi1HAGF/YB4BTyxNY8JpaJ1go5K/WLTfhdg1Xq8V4SX5Xja65w0ovaCJ8Jvsnpwc+l525F2XH4ac3Cj8mcB3HbxE9qnvFMRzJ0K3APuhIjPefmTTyvWBAGvWbiDuIgeNYRh3HCCDNW+fQmHtWC7a/zciwaO/8NyN3D6qqap5GfVnXAC89GCqt8Bp77vu827+A+53AJrOFzMhQdMnO8dqPpMO74Yx4wqxFtKS1HbBOMdIX4gAMffVp71+Qq2NG4BCIcngBKk8jLOvfGF30IpBGEwcwtO6p9sdwbNXPIadsXxnVyiKB9x83+c3N9WePN9RUQgZO6QQ2sT524KMo3M5Pf4h3XFQ7NwFyZQpuAkML0doEtvEHhPvRDPRkTfq/QNDgRvy1SuIvpFOSDQmbkWTckf7hHsjIzjltkyhqpd5XIVNN5HNfGlW09eAcMp3J+R+pEn7L)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNqNVFFvmzAQ/is3pimNlABNF61iaddt2tukvfRhk/xiwIAXsJF9pKmq/PedDTSwh7ZSFLjvzvd9/nz4KfjatuGhE0ES7GxmZIu3TMmm1QahtLyFwugGFu51wRQAU+Lok7koeFcjPDk058gvlv07gBHYGTVGALbSDwmg6USPnNzjtHL/jcBK5zZxxQwZavVNFNqIHwqF8RUAWs2jn4IffCfqQz+mik5lKLWi3GT1hagHRU58aAUSshpV2YzX4ncCcbjZDp099GcG6ZZnEh8TuPR8S0/oTJhQjmQryLUSU0rUU8a8M9wtoWZTQtIwi0nAGJ/ZB0BwKxJYiJpblFko1a8OLzbhdgWXy8WzP99109YCqdIJmgifyfYuzmUzfFF2HH56o/BjAldx/BbRo7pXHKMjGbrl1IcciWn9fyaNfC8YsIueR5wCFFTGUVAEsEs7pOmDu6yW2f6GBW5o4QbeuScLbu91WdZiF/VlvgEtujdcWek09tx3qZ+/tXAzQU1mA8mCoeicneO1OxKP9yM+4ElmLaEFr+2AecVEn8sDZOSrSzv/1qk+sgAOa1kMOyDlu4jK+j1GZ70E7KKJAxRafKzdazi26s8h5dm+NLpTeQLvP27S6+urz/7T5aaUao26TWATt0cPPsgcK3f6Q1wJWVY4AVJtcmHWhueyo89+G38guD+agT5YBf39s25oIv5arehu8krYkLAs8BeG86DfuANYUCG2NomiTrX7Msx0E7ncl0bnXT04566M4PQPykWaWw==)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNqNVFFvmzAQ/is3pimNlABNF61iaddt2tukvfRhk/xiwIAXsJF9pKmq/PedDTSwh7ZSFLjvzvd9/nz4KfjatuGhE0ES7GxmZIu3TMmm1QahtLyFwugGFu51wRQAU+Lok7koeFcjPDk058gvlv07gBHYGTVGALbSDwmg6USPnNzjtHL/jcBK5zZxxQwZavVNFNqIHwqF8RUAWs2jn4IffCfqQz+mik5lKLWi3GT1hagHRU58aAUSshpV2YzX4ncCcbjZDp099GcG6ZZnEh8TuPR8S0/oTJhQjmQryLUSU0rUU8a8M9wtoWZTQtIwi0nAGJ/ZB0BwKxJYiJpblFko1a8OLzbhdgWXy8WzP99109YCqdIJmgifyfYuzmUzfFF2HH56o/BjAldx/BbRo7pXHKMjGbrl1IcciWn9fyaNfC8YsIueR5wCFFTGUVAEsEs7pOmDu6yW2f6GBW5o4QbeuScLbu91WdZiF/VlvgEtujdcWek09tx3qZ+/tXAzQU1mA8mCoeicneO1OxKP9yM+4ElmLaEFr+2AecVEn8sDZOSrSzv/1qk+sgAOa1kMOyDlu4jK+j1GZ70E7KKJAxRafKzdazi26s8h5dm+NLpTeQLvP27S6+urz/7T5aaUao26TWATt0cPPsgcK3f6Q1wJWVY4AVJtcmHWhueyo89+G38guD+agT5YBf39s25oIv5arehu8krYkLAs8BeG86DfuANYUCG2NomiTrX7Msx0E7ncl0bnXT04566M4PQPykWaWw==)
 
 </div>
 
-## Reusable Transitions {#reusable-transitions}
+## Znovupoužitelné přechody {#reusable-transitions}
 
-Transitions can be reused through Vue's component system. To create a reusable transition, we can create a component that wraps the `<Transition>` component and passes down the slot content:
+Přechody mohou být znovupoužity pomocí systému Vue komponent. Pro vytvoření znovupoužiteného přechodu můžeme vytvořit komponentu, která obaluje komponentu `<Transition>` a předává obsah slotu:
 
 ```vue{5}
 <!-- MyTransition.vue -->
 <script>
-// JavaScript hooks logic...
+// Logika JavaScriptových metod...
 </script>
 
 <template>
-  <!-- wrap the built-in Transition component -->
+  <!-- obalit vestavěnou komponentu `Transition` -->
   <Transition
     name="my-transition"
     @enter="onEnter"
     @leave="onLeave">
-    <slot></slot> <!-- pass down slot content -->
+    <slot></slot> <!-- předat obsah slotu -->
   </Transition>
 </template>
 
 <style>
 /*
-  Necessary CSS...
-  Note: avoid using <style scoped> here since it
-  does not apply to slot content.
+  Nutné CSS...
+  Poznámka: zde se vyhněte se použití `<style scoped>`,
+  protože se nevztahuje na obsah slotu.
 */
 </style>
 ```
 
-Now `MyTransition` can be imported and used just like the built-in version:
+Nyní může být `MyTransition` importována a používána stejně jako vestavěná verze:
 
 ```vue-html
 <MyTransition>
-  <div v-if="show">Hello</div>
+  <div v-if="show">Ahoj</div>
 </MyTransition>
 ```
 
-## Transition on Appear {#transition-on-appear}
+## Přechod ihned při zobrazení {#transition-on-appear}
 
-If you also want to apply a transition on the initial render of a node, you can add the `appear` prop:
+Pokud chcete přechod aplikovat také ihned při počátečním vykreslení prvku, můžete přidat vlastnost `appear`:
 
 ```vue-html
 <Transition appear>
@@ -510,27 +511,27 @@ If you also want to apply a transition on the initial render of a node, you can 
 </Transition>
 ```
 
-## Transition Between Elements {#transition-between-elements}
+## Přechod mezi elementy {#transition-between-elements}
 
-In addition to toggling an element with `v-if` / `v-show`, we can also transition between two elements using `v-if` / `v-else` / `v-else-if`, as long as we make sure that there is only one element being shown at any given moment:
+Kromě přepínání pomocí `v-if` / `v-show` můžeme mezi dvěma elementy také přecházet s využitím `v-if` / `v-else` / `v-else-if`, pokud se ujistíme, že je v každém okamžiku zobrazen pouze jeden prvek:
 
 ```vue-html
 <Transition>
-  <button v-if="docState === 'saved'">Edit</button>
-  <button v-else-if="docState === 'edited'">Save</button>
-  <button v-else-if="docState === 'editing'">Cancel</button>
+  <button v-if="docState === 'saved'">Editovat</button>
+  <button v-else-if="docState === 'edited'">Uložit</button>
+  <button v-else-if="docState === 'editing'">Zrušit</button>
 </Transition>
 ```
 
 <BetweenElements />
 
-[Try it in the Playground](https://play.vuejs.org/#eNqdk8tu2zAQRX9loI0SoLLcFN2ostEi6BekmwLa0NTYJkKRBDkSYhj+9wxJO3ZegBGu+Lhz7syQ3Bd/nJtNIxZN0QbplSMISKNbdkYNznqCPXhcwwHW3g5QsrTsTGekNYGgt/KBBCEsouimDGLCvrztTFtnGGN4QTg4zbK4ojY4YSDQTuOiKwbhN8pUXm221MDd3D11xfJeK/kIZEHupEagrbfjZssxzAgNs5nALIC2VxNILUJg1IpMxWmRUAY9U6IZ2/3zwgRFyhowYoieQaseq9ElDaTRrkYiVkyVWrPiXNdiAcequuIkPo3fMub5Sg4l9oqSevmXZ22dwR8YoQ74kdsL4Go7ZTbR74HT/KJfJlxleGrG8l4YifqNYVuf251vqOYr4llbXz4C06b75+ns1a3BPsb0KrBy14Aymnerlbby8Vc8cTajG35uzFITpu0t5ufzHQdeH6LBsezEO0eJVbB6pBiVVLPTU6jQEPpKyMj8dnmgkQs+HmQcvVTIQK1hPrv7GQAFt9eO9Bk6fZ8Ub52Qiri8eUo+4dbWD02exh79v/nBP+H2PStnwz/jelJ1geKvk/peHJ4BoRZYow==)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNqdk8tu2zAQRX9loI0SoLLcFN2ostEi6BekmwLa0NTYJkKRBDkSYhj+9wxJO3ZegBGu+Lhz7syQ3Bd/nJtNIxZN0QbplSMISKNbdkYNznqCPXhcwwHW3g5QsrTsTGekNYGgt/KBBCEsouimDGLCvrztTFtnGGN4QTg4zbK4ojY4YSDQTuOiKwbhN8pUXm221MDd3D11xfJeK/kIZEHupEagrbfjZssxzAgNs5nALIC2VxNILUJg1IpMxWmRUAY9U6IZ2/3zwgRFyhowYoieQaseq9ElDaTRrkYiVkyVWrPiXNdiAcequuIkPo3fMub5Sg4l9oqSevmXZ22dwR8YoQ74kdsL4Go7ZTbR74HT/KJfJlxleGrG8l4YifqNYVuf251vqOYr4llbXz4C06b75+ns1a3BPsb0KrBy14Aymnerlbby8Vc8cTajG35uzFITpu0t5ufzHQdeH6LBsezEO0eJVbB6pBiVVLPTU6jQEPpKyMj8dnmgkQs+HmQcvVTIQK1hPrv7GQAFt9eO9Bk6fZ8Ub52Qiri8eUo+4dbWD02exh79v/nBP+H2PStnwz/jelJ1geKvk/peHJ4BoRZYow==)
 
-## Transition Modes {#transition-modes}
+## Režimy přechodu {#transition-modes}
 
-In the previous example, the entering and leaving elements are animated at the same time, and we had to make them `position: absolute` to avoid the layout issue when both elements are present in the DOM.
+V předchozím příkladu byly vstupující a odcházející prvky animovány současně a museli jsme je nastavit na `position: absolute`, abychom se vyhnuli problému s layoutem, když jsou v DOM přítomny oba prvky.
 
-However, in some cases this isn't an option, or simply isn't the desired behavior. We may want the leaving element to be animated out first, and for the entering element to only be inserted **after** the leaving animation has finished. Orchestrating such animations manually would be very complicated - luckily, we can enable this behavior by passing `<Transition>` a `mode` prop:
+To však v některých případech není možné nebo to jednoduše není požadované chování. Můžeme chtít, aby odcházející prvek byl nejprve animován pryč a vstupující prvek byl vložen až **po** dokončení animace odcházejícího prvku. Manuální orchestrace takových animací by byla velmi složitá - naštěstí můžeme toto chování povolit předáním vlastnosti (prop) `mode` do `<Transition>`:
 
 ```vue-html
 <Transition mode="out-in">
@@ -538,15 +539,15 @@ However, in some cases this isn't an option, or simply isn't the desired behavio
 </Transition>
 ```
 
-Here's the previous demo with `mode="out-in"`:
+Zde je předchozí demo s `mode="out-in"`:
 
 <BetweenElements mode="out-in" />
 
-`<Transition>` also supports `mode="in-out"`, although it's much less frequently used.
+`<Transition>` také podporuje `mode="in-out"`, i když se používá mnohem méně často.
 
-## Transition Between Components {#transition-between-components}
+## Přechod mezi komponentami {#transition-between-components}
 
-`<Transition>` can also be used around [dynamic components](/guide/essentials/component-basics#dynamic-components):
+`<Transition>` může být také použita nad [dynamickou komponentou](/guide/essentials/component-basics#dynamic-components):
 
 ```vue-html
 <Transition name="fade" mode="out-in">
@@ -558,18 +559,18 @@ Here's the previous demo with `mode="out-in"`:
 
 <div class="composition-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNqtksFugzAMhl/F4tJNKtDLLoxWKnuDacdcUnC3SCGJiMmEqr77EkgLbXfYYZyI8/v77dinZG9M5npMiqS0dScMgUXqzY4p0RrdEZzAfnEp9fc7HuEMx063sPIZq6viTbdmHy+yfDwF5K2guhFUUcBUnkNvcelBGrjTooHaC7VCRXBAoT6hQTRyAH2w2DlsmKq1sgS8JuEwUCfxdgF7Gqt5ZqrMp+58X/5A2BrJCcOJSskPKP0v+K8UyvQENBjcsqTjjdAsAZe2ukHpI3dm/q5wXPZBPFqxZAf7gCrzGfufDlVwqB4cPjqurCChFSjeBvGRN+iTA9afdE+pUD43FjG/bSHsb667Mr9qJot89vCBMl8+oiotDTL8ZsE39UnYpRN0fQlK5A5jEE6BSVdiAdrwWtAAm+zFAnKLr0ydA3pJDDt0x/PrMrJifgGbKdFPfCwpWU+TuWz5omzfVCNcfJJ5geL8pqtFn5E07u7fSHFOj6TzDyUDNEM=)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNqtksFugzAMhl/F4tJNKtDLLoxWKnuDacdcUnC3SCGJiMmEqr77EkgLbXfYYZyI8/v77dinZG9M5npMiqS0dScMgUXqzY4p0RrdEZzAfnEp9fc7HuEMx063sPIZq6viTbdmHy+yfDwF5K2guhFUUcBUnkNvcelBGrjTooHaC7VCRXBAoT6hQTRyAH2w2DlsmKq1sgS8JuEwUCfxdgF7Gqt5ZqrMp+58X/5A2BrJCcOJSskPKP0v+K8UyvQENBjcsqTjjdAsAZe2ukHpI3dm/q5wXPZBPFqxZAf7gCrzGfufDlVwqB4cPjqurCChFSjeBvGRN+iTA9afdE+pUD43FjG/bSHsb667Mr9qJot89vCBMl8+oiotDTL8ZsE39UnYpRN0fQlK5A5jEE6BSVdiAdrwWtAAm+zFAnKLr0ydA3pJDDt0x/PrMrJifgGbKdFPfCwpWU+TuWz5omzfVCNcfJJ5geL8pqtFn5E07u7fSHFOj6TzDyUDNEM=)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNqtks9ugzAMxl/F4tJNamGXXVhWqewVduSSgStFCkkUDFpV9d0XJyn9t8MOkxBg5/Pvi+Mci51z5TxhURdi7LxytG2NGpz1BB92cDvYezvAqqxixNLVjaC5ETRZ0Br8jpIe93LSBMfWAHRBYQ0aGms4Jvw6Q05rFvSS5NNzEgN4pMmbcwQgO1Izsj5CalhFRLDj1RN/wis8olpaCQHh4LQk5IiEll+owy+XCGXcREAHh+9t4WWvbFvAvBlsjzpk7gx5TeqJtdG4LbawY5KoLtR/NGjYoHkw+PTSjIqUNWDkwOK97DHUMjVEdqKNMqE272E5dajV+JvpVlSLJllUF4+QENX1ERox0kHzb8m+m1CEfpOgYYgpqVHOmJNpgLQQa7BOdooO8FK+joByxLc4tlsiX6s7HtnEyvU1vKTCMO+4pWKdBnO+0FfbDk31as5HsvR+Hl9auuozk+J1/hspz+mRdPoBYtonzg==)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNqtks9ugzAMxl/F4tJNamGXXVhWqewVduSSgStFCkkUDFpV9d0XJyn9t8MOkxBg5/Pvi+Mci51z5TxhURdi7LxytG2NGpz1BB92cDvYezvAqqxixNLVjaC5ETRZ0Br8jpIe93LSBMfWAHRBYQ0aGms4Jvw6Q05rFvSS5NNzEgN4pMmbcwQgO1Izsj5CalhFRLDj1RN/wis8olpaCQHh4LQk5IiEll+owy+XCGXcREAHh+9t4WWvbFvAvBlsjzpk7gx5TeqJtdG4LbawY5KoLtR/NGjYoHkw+PTSjIqUNWDkwOK97DHUMjVEdqKNMqE272E5dajV+JvpVlSLJllUF4+QENX1ERox0kHzb8m+m1CEfpOgYYgpqVHOmJNpgLQQa7BOdooO8FK+joByxLc4tlsiX6s7HtnEyvU1vKTCMO+4pWKdBnO+0FfbDk31as5HsvR+Hl9auuozk+J1/hspz+mRdPoBYtonzg==)
 
 </div>
 
-## Dynamic Transitions {#dynamic-transitions}
+## Dynamické přechody {#dynamic-transitions}
 
-`<Transition>` props like `name` can also be dynamic! It allows us to dynamically apply different transitions based on state change:
+Vlastnosti (props) `<Transition>` jako `name` mohou být také dynamické! To nám umožňuje používat různé přechody operativně na základě změny stavu:
 
 ```vue-html
 <Transition :name="transitionName">
@@ -577,12 +578,12 @@ Here's the previous demo with `mode="out-in"`:
 </Transition>
 ```
 
-This can be useful when you've defined CSS transitions / animations using Vue's transition class conventions and want to switch between them.
+To může být užitečné, pokud jste definovali přechody / animace pomocí konvenčních tříd Vue přechodů a chcete mezi nimi přepínat.
 
-You can also apply different behavior in JavaScript transition hooks based on the current state of your component. Finally, the ultimate way of creating dynamic transitions is through [reusable transition components](#reusable-transitions) that accept props to change the nature of the transition(s) to be used. It may sound cheesy, but the only limit really is your imagination.
+Můžete také aplikovat různé chování v JavaScriptových metodách pro přechod na základě aktuálního stavu vaší komponenty. V neposlední řadě, nejlepší způsob vytváření dynamických přechodů je pomocí [znovupoužitelných přechodů](#reusable-transitions), komponent, které přijímají vlastnosti (props) pro změnu povahy použitých přechodů. Možná to zní trochu kýčovitě, ale opravdu jediným omezením je vaše představivost.
 
 ---
 
-**Related**
+**Související**
 
-- [`<Transition>` API reference](/api/built-in-components#transition)
+- [API reference pro `<Transition>`](/api/built-in-components#transition)

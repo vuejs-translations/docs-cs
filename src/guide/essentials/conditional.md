@@ -1,11 +1,11 @@
-# Conditional Rendering {#conditional-rendering}
+# Podmíněné vykreslování {#conditional-rendering}
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/conditional-rendering-in-vue-3" title="Free Vue.js Conditional Rendering Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/conditional-rendering-in-vue-3" title="Lekce o podmíněném vykreslování ve Vue.js zdarma"/>
 </div>
 
 <div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-conditionals-in-vue" title="Free Vue.js Conditional Rendering Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-conditionals-in-vue" title="Lekce o podmíněném vykreslování ve Vue.js zdarma"/>
 </div>
 
 <script setup>
@@ -15,7 +15,7 @@ const awesome = ref(true)
 
 ## `v-if` {#v-if}
 
-The directive `v-if` is used to conditionally render a block. The block will only be rendered if the directive's expression returns a truthy value.
+Direktiva `v-if` se používá k podmíněnému vykreslení bloku. Blok bude vykreslen pouze v případě, že výraz direktivy vrátí pravdivou hodnotu.
 
 ```vue-html
 <h1 v-if="awesome">Vue is awesome!</h1>
@@ -23,7 +23,7 @@ The directive `v-if` is used to conditionally render a block. The block will onl
 
 ## `v-else` {#v-else}
 
-You can use the `v-else` directive to indicate an "else block" for `v-if`:
+Můžete použít direktivu `v-else` pro indikaci "else" bloku k `v-if`:
 
 ```vue-html
 <button @click="awesome = !awesome">Toggle</button>
@@ -40,20 +40,20 @@ You can use the `v-else` directive to indicate an "else block" for `v-if`:
 
 <div class="composition-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNpFjkEOgjAQRa8ydIMulLA1hegJ3LnqBskAjdA27RQXhHu4M/GEHsEiKLv5mfdf/sBOxux7j+zAuCutNAQOyZtcKNkZbQkGsFjBCJXVHcQBjYUSqtTKERR3dLpDyCZmQ9bjViiezKKgCIGwM21BGBIAv3oireBYtrK8ZYKtgmg5BctJ13WLPJnhr0YQb1Lod7JaS4G8eATpfjMinjTphC8wtg7zcwNKw/v5eC1fnvwnsfEDwaha7w==)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNpFjkEOgjAQRa8ydIMulLA1hegJ3LnqBskAjdA27RQXhHu4M/GEHsEiKLv5mfdf/sBOxux7j+zAuCutNAQOyZtcKNkZbQkGsFjBCJXVHcQBjYUSqtTKERR3dLpDyCZmQ9bjViiezKKgCIGwM21BGBIAv3oireBYtrK8ZYKtgmg5BctJ13WLPJnhr0YQb1Lod7JaS4G8eATpfjMinjTphC8wtg7zcwNKw/v5eC1fnvwnsfEDwaha7w==)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNpFjj0OwjAMha9iMsEAFWuVVnACNqYsoXV/RJpEqVOQqt6DDYkTcgRSWoplWX7y56fXs6O1u84jixlvM1dbSoXGuzWOIMdCekXQCw2QS5LrzbQLckje6VEJglDyhq1pMAZyHidkGG9hhObRYh0EYWOVJAwKgF88kdFwyFSdXRPBZidIYDWvgqVkylIhjyb4ayOIV3votnXxfwrk2SPU7S/PikfVfsRnGFWL6akCbeD9fLzmK4+WSGz4AA5dYQY=)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNpFjj0OwjAMha9iMsEAFWuVVnACNqYsoXV/RJpEqVOQqt6DDYkTcgRSWoplWX7y56fXs6O1u84jixlvM1dbSoXGuzWOIMdCekXQCw2QS5LrzbQLckje6VEJglDyhq1pMAZyHidkGG9hhObRYh0EYWOVJAwKgF88kdFwyFSdXRPBZidIYDWvgqVkylIhjyb4ayOIV3votnXxfwrk2SPU7S/PikfVfsRnGFWL6akCbeD9fLzmK4+WSGz4AA5dYQY=)
 
 </div>
 
-A `v-else` element must immediately follow a `v-if` or a `v-else-if` element - otherwise it will not be recognized.
+Element `v-else` musí vždy následovat bezprostředně za `v-if` nebo za `v-else-if` - jinak nebude rozpoznán.
 
 ## `v-else-if` {#v-else-if}
 
-The `v-else-if`, as the name suggests, serves as an "else if block" for `v-if`. It can also be chained multiple times:
+Jak název `v-else-if` napovídá, slouží tato direktiva jako "else if" blok k `v-if`. Může být zřetězena i několikrát za sebou:
 
 ```vue-html
 <div v-if="type === 'A'">
@@ -70,11 +70,11 @@ The `v-else-if`, as the name suggests, serves as an "else if block" for `v-if`. 
 </div>
 ```
 
-Similar to `v-else`, a `v-else-if` element must immediately follow a `v-if` or a `v-else-if` element.
+Stejně jako `v-else`, musí element `v-else-if` následovat bezprostředně po `v-if` nebo `v-else-if`.
 
-## `v-if` on `<template>` {#v-if-on-template}
+## `v-if` na `<template>` {#v-if-on-template}
 
-Because `v-if` is a directive, it has to be attached to a single element. But what if we want to toggle more than one element? In this case we can use `v-if` on a `<template>` element, which serves as an invisible wrapper. The final rendered result will not include the `<template>` element.
+Protože je `v-if` direktiva, musí být připojena k jedinému prvku. Ale co když chceme přepnout více než jeden prvek? V tom případě můžeme použít `v-if` na element `<template>`, který slouží jako neviditelný obal. Konečný vykreslený výsledek nebude prvek `<template>` obsahovat.
 
 ```vue-html
 <template v-if="ok">
@@ -84,34 +84,34 @@ Because `v-if` is a directive, it has to be attached to a single element. But wh
 </template>
 ```
 
-`v-else` and `v-else-if` can also be used on `<template>`.
+Na `<template>` lze použít i `v-else` a `v-else-if`.
 
 ## `v-show` {#v-show}
 
-Another option for conditionally displaying an element is the `v-show` directive. The usage is largely the same:
+Jiná možnost pro podmíněné zobrazení elementu je direktiva `v-show`. Použití je v zásadě to samé:
 
 ```vue-html
 <h1 v-show="ok">Hello!</h1>
 ```
 
-The difference is that an element with `v-show` will always be rendered and remain in the DOM; `v-show` only toggles the `display` CSS property of the element.
+Rozdíl je v tom, že prvek s `v-show` bude vždy vykreslen a zůstane v DOM; `v-show` pouze přepíná vlastnost CSS elementu `display`.
 
-`v-show` doesn't support the `<template>` element, nor does it work with `v-else`.
+`v-show` nelze použití na element `<template>` a také nefunguje dohromady s `v-else`.
 
 ## `v-if` vs. `v-show` {#v-if-vs-v-show}
 
-`v-if` is "real" conditional rendering because it ensures that event listeners and child components inside the conditional block are properly destroyed and re-created during toggles.
+`v-if` je "skutečné" podmíněné vykreslování, protože zajišťuje, že event listenery a vnořené komponenty uvnitř podmíněného bloku budou správně zničeny a znovu vytvořeny během přepínání.
 
-`v-if` is also **lazy**: if the condition is false on initial render, it will not do anything - the conditional block won't be rendered until the condition becomes true for the first time.
+`v-if` je také **lazy**: pokud je podmínka při počátečním vykreslení nepravdivá, neudělá nic - podmíněný blok se nevykreslí, dokud se podmínka poprvé nestane pravdivou.
 
-In comparison, `v-show` is much simpler - the element is always rendered regardless of initial condition, with CSS-based toggling.
+Ve srovnání `v-show` je mnohem jednodušší - prvek je vždy vykreslen bez ohledu na počáteční podmínku, s přepínáním založeným na CSS.
 
-Generally speaking, `v-if` has higher toggle costs while `v-show` has higher initial render costs. So prefer `v-show` if you need to toggle something very often, and prefer `v-if` if the condition is unlikely to change at runtime.
+Obecně řečeno, `v-if` má vyšší náklady na přepínání, zatímco `v-show` má vyšší počáteční náklady na vykreslování. Takže upřednostněte `v-show`, pokud potřebujete něco přepínat velmi často, a použijte `v-if`, pokud je nepravděpodobné, že se podmínka za běhu změní.
 
-## `v-if` with `v-for` {#v-if-with-v-for}
+## `v-if` s `v-for` {#v-if-with-v-for}
 
 ::: warning Note
-It's **not** recommended to use `v-if` and `v-for` on the same element due to implicit precedence. Refer to [style guide](/style-guide/rules-essential#avoid-v-if-with-v-for) for details.
+**Nedoporučuje se** používat `v-if` a `v-for` na stejném prvku kvůli jejich implicitní prioritě. Podrobnosti naleznete v [Průvodci stylováním](/style-guide/rules-essential#avoid-v-if-with-v-for).
 :::
 
-When `v-if` and `v-for` are both used on the same element, `v-if` will be evaluated first. See the [list rendering guide](list#v-for-with-v-if) for details.
+Když jsou `v-if` a `v-for` použity na stejném prvku, bude nejprve vyhodnoceno `v-if`. Podrobnosti naleznete v [průvodci vykreslováním seznamu](list#v-for-with-v-if).

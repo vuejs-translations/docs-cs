@@ -1,20 +1,20 @@
-# Event Listeners {#event-listeners}
+# Event listenery {#event-listeners}
 
-We can listen to DOM events using the `v-on` directive:
+S využitím direktivy `v-on` můžeme naslouchat DOM událostem (events):
 
 ```vue-html
-<button v-on:click="increment">{{ count }}</button>
+<button v-on:click="increment">{{ pocet }}</button>
 ```
 
-Due to its frequent use, `v-on` also has a shorthand syntax:
+Kvůli častému použití má `v-on` svou zkrácenou syntaxi:
 
 ```vue-html
-<button @click="increment">{{ count }}</button>
+<button @click="increment">{{ pocet }}</button>
 ```
 
 <div class="options-api">
 
-Here, `increment` references a function declared using the `methods` option:
+V tomto případě `increment` odkazuje na funkci deklarovanou pomocí sekce `methods`:
 
 <div class="sfc">
 
@@ -22,13 +22,13 @@ Here, `increment` references a function declared using the `methods` option:
 export default {
   data() {
     return {
-      count: 0
+      pocet: 0
     }
   },
   methods: {
     increment() {
-      // update component state
-      this.count++
+      // aktualizovat stav komponenty
+      this.pocet++
     }
   }
 }
@@ -41,13 +41,13 @@ export default {
 createApp({
   data() {
     return {
-      count: 0
+      pocet: 0
     }
   },
   methods: {
     increment() {
-      // update component state
-      this.count++
+      // aktualizovat stav komponenty
+      this.pocet++
     }
   }
 })
@@ -55,7 +55,7 @@ createApp({
 
 </div>
 
-Inside a method, we can access the component instance using `this`. The component instance exposes the data properties declared by `data`. We can update the component state by mutating these properties.
+Uvnitř metody můžeme přistupovat k instanci komponenty pomocí `this`. Instance komponenty vystavuje datové proměnné deklarované v sekci `data`. Změnou těchto proměnných můžeme aktualizovat stav komponenty.
 
 </div>
 
@@ -63,17 +63,17 @@ Inside a method, we can access the component instance using `this`. The componen
 
 <div class="sfc">
 
-Here, `increment` is referencing a function declared in `<script setup>`:
+V tomto případě `increment` odkazuje na funkci definovanou v rámci `<script setup>`:
 
 ```vue{6-9}
 <script setup>
 import { ref } from 'vue'
 
-const count = ref(0)
+const pocet = ref(0)
 
 function increment() {
-  // update component state
-  count.value++
+  // aktualizovat stav komponenty
+  pocet.value++
 }
 </script>
 ```
@@ -82,19 +82,19 @@ function increment() {
 
 <div class="html">
 
-Here, `increment` is referencing a method in the object returned from `setup()`:
+V tomto případě `increment` odkazuje na funkci v objektu vráceném ze `setup()`:
 
 ```js{$}
 setup() {
-  const count = ref(0)
+  const pocet = ref(0)
 
   function increment(e) {
-    // update component state
-    count.value++
+    // aktualizovat stav komponenty
+    pocet.value++
   }
 
   return {
-    count,
+    pocet,
     increment
   }
 }
@@ -102,10 +102,10 @@ setup() {
 
 </div>
 
-Inside the function, we can update the component state by mutating refs.
+Uvnitř funkce můžeme aktualizovat stav komponenty pomocí změn příslušných refs.
 
 </div>
 
-Event handlers can also use inline expressions, and can simplify common tasks with modifiers. These details are covered in <a target="_blank" href="/guide/essentials/event-handling.html">Guide - Event Handling</a>.
+Event handlery mohou také používat inline výrazy a mohou zjednodušit běžné úkoly pomocí modifikátorů. Tyto detaily pokrývá <a target="_blank" href="/guide/essentials/event-handling.html">Průvodce - Obsluha událostí</a>.
 
-Now, try to implement the `increment` <span class="options-api">method</span><span class="composition-api">function</span> yourself and bind it to the button using `v-on`.
+Teď zkuste <span class="options-api">metodu</span><span class="composition-api">funkci</span> `increment` sami implementovat a provést binding na tlačítko s využítím `v-on`.

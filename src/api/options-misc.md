@@ -1,10 +1,10 @@
-# Options: Misc {#options-misc}
+# Options API: Ostatní {#options-misc}
 
 ## name {#name}
 
-Explicitly declare a display name for the component.
+Explicitně deklaruje zobrazované jméno komponenty.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -12,43 +12,43 @@ Explicitly declare a display name for the component.
   }
   ```
 
-- **Details**
+- **Detaily**
 
-  The name of a component is used for the following:
+  Jméno komponenty se používá v následujících situacích:
 
-  - Recursive self-reference in the component's own template
-  - Display in Vue DevTools' component inspection tree
-  - Display in warning component traces
+  - Rekurzivní odkaz na sebe sama v šabloně komponenty
+  - Zobrazení v inspekčním stromu komponent v nástroji Vue DevTools
+  - Zobrazení v traces ve varováních komponent
 
-  When you use Single-File Components, the component already infers its own name from the filename. For example, a file named `MyComponent.vue` will have the inferred display name "MyComponent".
+  Pokud používáte Single-File komponenty (SFC), komponenta již automaticky odvozuje své jméno z názvu souboru. Například soubor pojmenovaný `MyComponent.vue` bude mít odvozené zobrazované jméno "MyComponent".
 
-  Another case is that when a component is registered globally with [`app.component`](/api/application#app-component), the global ID is automatically set as its name.
+  Další případ je, když je komponenta globálně registrována pomocí [`app.component`](/api/application#app-component), globální ID je automaticky nastaveno jako její jméno.
 
-  The `name` option allows you to override the inferred name, or to explicitly provide a name when no name can be inferred (e.g. when not using build tools, or an inlined non-SFC component).
+  Možnost `name` vám umožňuje přepsat odvozené jméno nebo jméno explicitně poskytnout, pokud nelze žádné odvodit (například když nejsou použity build nástroje nebo ve vložené komponentě, která není ve formátu SFC).
 
-  There is one case where `name` is explicitly necessary: when matching against cacheable components in [`<KeepAlive>`](/guide/built-ins/keep-alive) via its `include / exclude` props.
+  Existuje jedna situace, kdy je `name` explicitně nutné: při porovnávání s cachovatelnými komponentami v [`<KeepAlive>`](/guide/built-ins/keep-alive) prostřednictvím jeho vlastností `include / exclude`.
 
   :::tip
-  Since version 3.2.34, a single-file component using `<script setup>` will automatically infer its `name` option based on the filename, removing the need to manually declare the name even when used with `<KeepAlive>`.
+  Od verze 3.2.34 si komponenta ve formátu SFC s použitím `<script setup>` automaticky odvodí vlastnost `name` na základě názvu souboru, což odstraňuje potřebu ručně deklarovat jméno i při použití s `<KeepAlive>`.
   :::
 
 ## inheritAttrs {#inheritattrs}
 
-Controls whether the default component attribute fallthrough behavior should be enabled.
+Ovládá, zda má být povoleno výchozí chování pro předávání atributů komponenty.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
-    inheritAttrs?: boolean // default: true
+    inheritAttrs?: boolean // výchozí: true
   }
   ```
 
-- **Details**
+- **Detaily**
 
-  By default, parent scope attribute bindings that are not recognized as props will "fallthrough". This means that when we have a single-root component, these bindings will be applied to the root element of the child component as normal HTML attributes. When authoring a component that wraps a target element or another component, this may not always be the desired behavior. By setting `inheritAttrs` to `false`, this default behavior can be disabled. The attributes are available via the `$attrs` instance property and can be explicitly bound to a non-root element using `v-bind`.
+  Ve výchozím nastavení se vazby na atributy z rodičovského scope, které nejsou rozpoznány jako vlastnosti (props), "propadnou" ("fallthrough"). To znamená, že pokud máme komponentu s jediným root elementem, tyto vazby budou aplikovány na root elemente potomka jako běžné HTML atributy. Při tvorbě komponenty, která obaluje cílový prvek nebo jinou komponentu, to nemusí být vždy žádoucí chování. Nastavením `inheritAttrs` na `false` lze toto výchozí chování zakázat. Atributy jsou dostupné pomocí vlastnosti instance `$attrs` a lze je explicitně vázat na non-root element pomocí `v-bind`.
 
-- **Example**
+- **Příklad**
 
   <div class="options-api">
 
@@ -76,7 +76,7 @@ Controls whether the default component attribute fallthrough behavior should be 
   </div>
   <div class="composition-api">
 
-  When declaring this option in a component that uses `<script setup>`, you can use the [`defineOptions`](/api/sfc-script-setup#defineoptions) macro:
+  Při deklarování této možnosti v komponentě, která používá `<script setup>`, můžete použít makro [`defineOptions`](/api/sfc-script-setup#defineoptions):
 
   ```vue
   <script setup>
@@ -101,13 +101,13 @@ Controls whether the default component attribute fallthrough behavior should be 
 
   </div>
 
-- **See also** [Fallthrough Attributes](/guide/components/attrs)
+- **Viz také:** [Fallthrough atributy](/guide/components/attrs)
 
 ## components {#components}
 
-An object that registers components to be made available to the component instance.
+Objekt, který registruje komponenty, které budou dostupné na instanci komponenty.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -115,7 +115,7 @@ An object that registers components to be made available to the component instan
   }
   ```
 
-- **Example**
+- **Příklad**
 
   ```js
   import Foo from './Foo.vue'
@@ -123,21 +123,21 @@ An object that registers components to be made available to the component instan
 
   export default {
     components: {
-      // shorthand
+      // zkrácený zápis
       Foo,
-      // register under a different name
+      // registrovat pod jiným jménem
       RenamedBar: Bar
     }
   }
   ```
 
-- **See also** [Component Registration](/guide/components/registration)
+- **Viz také:** [Registrace komponent](/guide/components/registration)
 
 ## directives {#directives}
 
-An object that registers directives to be made available to the component instance.
+Objekt, který registruje direktivy, které budou dostupné na instanci komponenty.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -145,12 +145,12 @@ An object that registers directives to be made available to the component instan
   }
   ```
 
-- **Example**
+- **Příklad**
 
   ```js
   export default {
     directives: {
-      // enables v-focus in template
+      // umožňuje použití v-focus v šabloně
       focus: {
         mounted(el) {
           el.focus()

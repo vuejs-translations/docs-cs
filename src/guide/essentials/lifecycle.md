@@ -1,10 +1,10 @@
-# Lifecycle Hooks {#lifecycle-hooks}
+# Lifecycle hooks {#lifecycle-hooks}
 
-Each Vue component instance goes through a series of initialization steps when it's created - for example, it needs to set up data observation, compile the template, mount the instance to the DOM, and update the DOM when data changes. Along the way, it also runs functions called lifecycle hooks, giving users the opportunity to add their own code at specific stages.
+Každá instance Vue komponenty prochází při svém vytvoření řadou inicializačních kroků – například potřebuje nastavit pozorování dat, zkompilovat šablonu, připojit instanci k DOM a aktualizovat DOM, když se změní data. Zároveň také spouští funkce zvané **lifecycle hooks**, které uživatelům umožňují přidávat v určených fázích vlastní kód.
 
-## Registering Lifecycle Hooks {#registering-lifecycle-hooks}
+## Registrace lifecycle hooks {#registering-lifecycle-hooks}
 
-For example, the <span class="composition-api">`onMounted`</span><span class="options-api">`mounted`</span> hook can be used to run code after the component has finished the initial rendering and created the DOM nodes:
+Například <span class="composition-api">`onMounted`</span><span class="options-api">`mounted`</span> hook lze použít ke spuštění kódu poté, co komponenta dokončí počáteční vykreslení a vytvoření DOM elementů:
 
 <div class="composition-api">
 
@@ -31,36 +31,36 @@ export default {
 
 </div>
 
-There are also other hooks which will be called at different stages of the instance's lifecycle, with the most commonly used being <span class="composition-api">[`onMounted`](/api/composition-api-lifecycle#onmounted), [`onUpdated`](/api/composition-api-lifecycle#onupdated), and [`onUnmounted`](/api/composition-api-lifecycle#onunmounted).</span><span class="options-api">[`mounted`](/api/options-lifecycle#mounted), [`updated`](/api/options-lifecycle#updated), and [`unmounted`](/api/options-lifecycle#unmounted).</span>
+Existují další hooks, které budu volány v různých fázích životního cyklu instance komponenty. Nejčastěji používané jsou <span class="composition-api">[`onMounted`](/api/composition-api-lifecycle#onmounted), [`onUpdated`](/api/composition-api-lifecycle#onupdated) a [`onUnmounted`](/api/composition-api-lifecycle#onunmounted).</span><span class="options-api">[`mounted`](/api/options-lifecycle#mounted), [`updated`](/api/options-lifecycle#updated) a [`unmounted`](/api/options-lifecycle#unmounted).</span>
 
 <div class="options-api">
 
-All lifecycle hooks are called with their `this` context pointing to the current active instance invoking it. Note this means you should avoid using arrow functions when declaring lifecycle hooks, as you won't be able to access the component instance via `this` if you do so.
+Všechny lifecycle hooks jsou volány s jejich kontextem `this` odkazujícím na momentálně aktivní instanci, která je vyvolala. Vemte na vědomí, že to znamená, že byste se při deklaraci lifecycle hooks měli vyvarovat arrow funkcí, protože pokud to uděláte, nebude moci pomocí `this` přístoupit k instanci komponenty.
 
 </div>
 
 <div class="composition-api">
 
-When calling `onMounted`, Vue automatically associates the registered callback function with the current active component instance. This requires these hooks to be registered **synchronously** during component setup. For example, do not do this:
+Když se volá `onMounted`, Vue automaticky asociuje registrované callback funkce s právě aktivní instancí komponenty. Kvůli tomu je během setupu třeba registrovat lifecycle hooks **synchronně**. Napříkld nedělejte toto:
 
 ```js
 setTimeout(() => {
   onMounted(() => {
-    // this won't work.
+    // toto nebude fungovat.
   })
 }, 100)
 ```
 
-Do note this doesn't mean that the call must be placed lexically inside `setup()` or `<script setup>`. `onMounted()` can be called in an external function as long as the call stack is synchronous and originates from within `setup()`.
+Všimněte si, že to neznamená, že volání musí být umístěno lexikálně uvnitř `setup()` nebo `<script setup>`. `onMounted()` lze volat i v externí funkci za předpokladu, že je zásobník volání synchronní a pochází z `setup()`.
 
 </div>
 
-## Lifecycle Diagram {#lifecycle-diagram}
+## Diagram životního cyklu {#lifecycle-diagram}
 
-Below is a diagram for the instance lifecycle. You don't need to fully understand everything going on right now, but as you learn and build more, it will be a useful reference.
+Níže je schéma životního cyklu instance. Nemusíte ještě plně rozumět všemu, co se v něm děje, ale jak se budete učit a tvořit více, bude to užitečná reference.
 
-![Component lifecycle diagram](./images/lifecycle.png)
+![Diagram životního cyklu komponenty](./images/lifecycle.png)
 
 <!-- https://www.figma.com/file/Xw3UeNMOralY6NV7gSjWdS/Vue-Lifecycle -->
 
-Consult the <span class="composition-api">[Lifecycle Hooks API reference](/api/composition-api-lifecycle)</span><span class="options-api">[Lifecycle Hooks API reference](/api/options-lifecycle)</span> for details on all lifecycle hooks and their respective use cases.
+Podívejte se na <span class="composition-api">[API referenci pro Lifecycle Hooks](/api/composition-api-lifecycle)</span><span class="options-api">[API referenci pro Lifecycle Hooks](/api/options-lifecycle)</span> ohledně detailů všech lifecycle hooks a jejich případů užití.

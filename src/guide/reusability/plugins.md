@@ -1,8 +1,8 @@
-﻿# Plugins {#plugins}
+﻿# Pluginy {#plugins}
 
-## Introduction {#introduction}
+## Představení {#introduction}
 
-Plugins are self-contained code that usually add app-level functionality to Vue. This is how we install a plugin:
+Pluginy jsou samostatné kusy kódu, které obvykle přidávají do Vue funkcionalitu na úrovni aplikace. Plugin instalujeme takto:
 
 ```js
 import { createApp } from 'vue'
@@ -10,61 +10,61 @@ import { createApp } from 'vue'
 const app = createApp({})
 
 app.use(myPlugin, {
-  /* optional options */
+  /* nepovinné parametry */
 })
 ```
 
-A plugin is defined as either an object that exposes an `install()` method, or simply a function that acts as the install function itself. The install function receives the [app instance](/api/application) along with additional options passed to `app.use()`, if any:
+Plugin je definován buď jako objekt, který vystavuje metodu `install()`, nebo jednoduše jako funkce, která se jako instalátor chová sama. Instalační funkce obdrží [instanci aplikace](/api/application) spolu s dalšími parametry předanými do `app.use()`, pokud existují:
 
 ```js
 const myPlugin = {
   install(app, options) {
-    // configure the app
+    // konfigurace aplikace
   }
 }
 ```
 
-There is no strictly defined scope for a plugin, but common scenarios where plugins are useful include:
+Pro pluginy neexistuje žádný přesně definovaný rozsah, ale běžné scénáře, ve kterých jsou pluginy užitečné, zahrnují:
 
-1. Register one or more global components or custom directives with [`app.component()`](/api/application#app-component) and [`app.directive()`](/api/application#app-directive).
+1. Registrace jedné nebo více globálních komponent nebo vlastních direktiv pomocí [`app.component()`](/api/application#app-component) a [`app.directive()`](/api/application#app-directive).
 
-2. Make a resource [injectable](/guide/components/provide-inject) throughout the app by calling [`app.provide()`](/api/application#app-provide).
+2. Označení zdroje jako [injectable](/guide/components/provide-inject) napříč aplikací prostředinctvím volání [`app.provide()`](/api/application#app-provide).
 
-3. Add some global instance properties or methods by attaching them to [`app.config.globalProperties`](/api/application#app-config-globalproperties).
+3. Přidání globálních promměných instance či metod jejich připohjením k [`app.config.globalProperties`](/api/application#app-config-globalproperties).
 
-4. A library that needs to perform some combination of the above (e.g. [vue-router](https://github.com/vuejs/vue-router-next)).
+4. Knihovna, která potřebuje provést kombinaci výše uvedného (např. [vue-router](https://github.com/vuejs/vue-router-next)).
 
-## Writing a Plugin {#writing-a-plugin}
+## Tvorba pluginu {#writing-a-plugin}
 
-In order to better understand how to create your own Vue.js plugins, we will create a very simplified version of a plugin that displays `i18n` (short for [Internationalization](https://en.wikipedia.org/wiki/Internationalization_and_localization)) strings.
+Abychom lépe pochopili, jak vlastní Vue.js pluginy vytvářet, vytvoříme velmi zjednodušenou verzi pluginu, který zobrazuje řetězce `i18n` (zkratka pro [Internationalization](https://en.wikipedia.org/wiki/Internationalization_and_localization)).
 
-Let's begin by setting up the plugin object. It is recommended to create it in a separate file and export it, as shown below to keep the logic contained and separate.
+Začněme nastavením objektu pluginu. Doporučujeme jej vytvořit v samostatném souboru a exportovat ho, jak je uvedeno níže, aby byla logika uzavřená a oddělená.
 
 ```js
 // plugins/i18n.js
 export default {
   install: (app, options) => {
-    // Plugin code goes here
+    // kód pluginu bude zde
   }
 }
 ```
 
-We want to create a translation function. This function will receive a dot-delimited `key` string, which we will use to look up the translated string in the user-provided options. This is the intended usage in templates:
+Chceme vytvořit překladovou funkci. Tato funkce obdrží string `key` s tečkovým oddělovačem, který použijeme k vyhledání přeloženého řetězce v možnostech zadaných uživatelem. Toto je zamýšlené použití v šablonách:
 
 ```vue-html
 <h1>{{ $translate('greetings.hello') }}</h1>
 ```
 
-Since this function should be globally available in all templates, we will make it so by attaching it to `app.config.globalProperties` in our plugin:
+Protože by tato funkce měla být dostupná globálně ve všech šablonách, vytvoříme ji tak, že ji v našem pluginu připojíme k `app.config.globalProperties`:
 
 ```js{4-11}
 // plugins/i18n.js
 export default {
   install: (app, options) => {
-    // inject a globally available $translate() method
+    // vložit globálně dostupnou funkci `$translate()`
     app.config.globalProperties.$translate = (key) => {
-      // retrieve a nested property in `options`
-      // using `key` as the path
+      // získat proměnnou vnořenou v `options`
+      // při použití `key` jako cesty
       return key.split('.').reduce((o, i) => {
         if (o) return o[i]
       }, options)
@@ -73,9 +73,9 @@ export default {
 }
 ```
 
-Our `$translate` function will take a string such as `greetings.hello`, look inside the user provided configuration and return the translated value.
+Naše funkce `$translate` přijme string jako např. `greetings.hello`, podívá se do konfigurace poskytnuté uživatelem a vrátí přeloženou hodnotu.
 
-The object containing the translated keys should be passed to the plugin during installation via additional parameters to `app.use()`:
+Objekt obsahující přeložené klíče by měl být předán pluginu během instalace prostřednictvím dodatečných parametrů v `app.use()`:
 
 ```js
 import i18nPlugin from './plugins/i18n'
@@ -87,17 +87,17 @@ app.use(i18nPlugin, {
 })
 ```
 
-Now, our initial expression `$translate('greetings.hello')` will be replaced by `Bonjour!` at runtime.
+Nyní bude naše volání `$translate('greetings.hello')` za běhu nahrazeno textem `Bonjour!`.
 
-See also: [Augmenting Global Properties](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
+Viz také: [Rozšiřování globálních proměnných](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
 
 :::tip
-Use global properties scarcely, since it can quickly become confusing if too many global properties injected by different plugins are used throughout an app.
+Globální proměnné používejte jen zřídka, protože pokud se v aplikaci používá příliš mnoho globálních promnených vložených různými pluginy, může se to rychle stát nepřehledné.
 :::
 
-### Provide / Inject with Plugins {#provide-inject-with-plugins}
+### Provide / Inject spolu s pluginy {#provide-inject-with-plugins}
 
-Plugins also allow us to use `inject` to provide a function or attribute to the plugin's users. For example, we can allow the application to have access to the `options` parameter to be able to use the translations object.
+Pluginy nám také umožňují použít `inject` k poskytování funkce nebo parametru uživatelům pluginu. Například můžeme aplikaci umožnit přístup k parametru `options`, aby mohla používat objekt s překlady.
 
 ```js{10}
 // plugins/i18n.js
@@ -108,7 +108,7 @@ export default {
 }
 ```
 
-Plugin users will now be able to inject the plugin options into their components using the `i18n` key:
+Uživatelé pluginu nyní budou schopni vložit `options` pluginu do svých komponent pomocí klíče `i18n`:
 
 <div class="composition-api">
 

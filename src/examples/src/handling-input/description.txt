@@ -1,1 +1,1 @@
-This example demonstrates handling user input with the v-on directive.
+Tento příklad ukazuje obsluhu uživatelského vstupu s pomocí direktivy v-on.

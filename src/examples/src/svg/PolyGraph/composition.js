@@ -14,7 +14,7 @@ export default {
       const total = props.stats.length
       return props.stats
         .map((stat, i) => {
-          const { x, y } = valueToPoint(stat.value, i, total)
+          const { x, y } = valueToPoint(stat.hodnota, i, total)
           return `${x},${y}`
         })
         .join(' ')

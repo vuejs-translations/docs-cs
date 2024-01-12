@@ -14,18 +14,16 @@ onMounted(async () => {
 <template>
   <section id="hero">
     <h1 class="tagline">
-      The
-      <span class="accent">Progressive</span>
+      <span class="accent">Progresivní</span>
       <br />JavaScript Framework
     </h1>
     <p class="description">
-      An approachable, performant and versatile framework for building web
-      user interfaces.
+      Přístupný, výkoný a univerzální framework pro tvorbu webových UI.
     </p>
     <p class="actions">
       <VueMasteryModal />
       <a class="get-started" href="/guide/introduction.html">
-        Get Started
+        Začít s Vue
         <svg
           class="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -38,61 +36,62 @@ onMounted(async () => {
           />
         </svg>
       </a>
-      <a class="setup" href="/guide/quick-start.html">Install</a>
+      <a class="setup" href="/guide/quick-start.html">Instalace</a>
     </p>
   </section>
 
   <section v-if="data && data.special" id="special-sponsor">
-    <span class="lead">Special Sponsor</span>
-    <template v-for="{ url, img, name, description } of data.special">
-      <a :href="url" target="_blank" rel="sponsored noopener">
-        <picture v-if="img.endsWith('png')">
-          <source
-            type="image/avif"
-            :srcset="`${base}/images/${img.replace(/\.png$/, '.avif')}`"
+    <span class="lead">Speciální sponzor</span>
+      <template v-for="{ url, img, name, description } of data.special">
+        <a :href="url" target="_blank" rel="sponsored noopener">
+          <picture v-if="img.endsWith('png')">
+            <source
+              type="image/avif"
+              :srcset="`${base}/images/${img.replace(/\.png$/, '.avif')}`"
+            />
+            <img :src="`${base}/images/${img}`" :alt="name" />
+          </picture>
+          <img
+            width="168"
+            height="42"
+            v-else
+            :src="`${base}/images/${img}`"
+            :alt="name"
           />
           <img :src="`${base}/images/${img}`" :alt="name" />
-        </picture>
-        <img
-          width="168"
-          height="42"
-          v-else
-          :src="`${base}/images/${img}`"
-          :alt="name"
-        />
-      </a>
+        </a>
       <span>{{ description }}</span>
     </template>
   </section>
 
   <section id="highlights" class="vt-box-container">
     <div class="vt-box">
-      <h2>Approachable</h2>
+      <h2>Přístupný</h2>
       <p>
-        Builds on top of standard HTML, CSS and JavaScript with intuitive
-        API and world-class documentation.
+        Staví na standardech HTML, CSS a JavaScriptu s intuitivním API
+        a dokumentací světové třídy.
       </p>
     </div>
     <div class="vt-box">
-      <h2>Performant</h2>
+      <h2>Výkonný</h2>
       <p>
-        Truly reactive, compiler-optimized rendering system that rarely
-        requires manual optimization.
+        Skutečně reaktivní, kompilačně-optimalizovaný vykreslovací systém, 
+        který jen vzácně potřebuje manuální optimalizaci.
       </p>
     </div>
     <div class="vt-box">
-      <h2>Versatile</h2>
+      <h2>Univerzální</h2>
       <p>
-        A rich, incrementally adoptable ecosystem that scales between a
-        library and a full-featured framework.
+        Bohatý, přírůstkově přizpůsobitelný ekosystém,
+        který lze volně škálovat mezi knihovnou a plně-vybaveným frameworkem.
       </p>
     </div>
   </section>
 
   <section id="sponsors">
-    <h2>Platinum Sponsors</h2>
+    <h2>Platinum sponzoři</h2>
     <SponsorsGroup tier="platinum" placement="landing" />
-    <h2>Gold Sponsors</h2>
+    <h2>Gold sponzoři</h2>
     <SponsorsGroup tier="gold" placement="landing" />
   </section>
 

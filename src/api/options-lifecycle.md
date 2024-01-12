@@ -1,14 +1,14 @@
-# Options: Lifecycle {#options-lifecycle}
+# Options API: Životní cyklus {#options-lifecycle}
 
-:::info See also
-For shared usage of lifecycle hooks, see [Guide - Lifecycle Hooks](/guide/essentials/lifecycle)
+:::info Viz také
+Pro sdílené použití Lifecycle hooks se podívejte na [Průvodce - Lifecycle hooks](/guide/essentials/lifecycle)
 :::
 
 ## beforeCreate {#beforecreate}
 
-Called when the instance is initialized.
+Voláno při inicializaci instance.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -16,17 +16,17 @@ Called when the instance is initialized.
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  Called immediately when the instance is initialized, after props resolution, before processing other options such as `data()` or `computed`.
+  Voláno okamžitě po inicializaci instance, po vyřešení vlastností (props), před zpracováním dalších možností (options), jako je `data()` nebo `computed`.
 
-  Note that the `setup()` hook of Composition API is called before any Options API hooks, even `beforeCreate()`.
+  Pamatujte, že `setup()` hook z Composition API je volán před jakýmkoli hookem Options API, včetně `beforeCreate()`.
 
 ## created {#created}
 
-Called after the instance has finished processing all state-related options.
+Voláno poté, co instance dokončila zpracování všech možností (options) souvisejících se stavem.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -34,15 +34,15 @@ Called after the instance has finished processing all state-related options.
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  When this hook is called, the following have been set up: reactive data, computed properties, methods, and watchers. However, the mounting phase has not been started, and the `$el` property will not be available yet.
+  Když je volán tento hook, bylo nastaveno následující: reaktivní data, computed proměnné, funkce a watchery. Fáze připojování (mount) však ještě nezačala a vlastnost `$el` ještě nebude k dispozici.
 
 ## beforeMount {#beforemount}
 
-Called right before the component is to be mounted.
+Voláno těsně před připojením (mount) komponenty.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -50,17 +50,17 @@ Called right before the component is to be mounted.
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  When this hook is called, the component has finished setting up its reactive state, but no DOM nodes have been created yet. It is about to execute its DOM render effect for the first time.
+  Když je tento hook volán, komponenta dokončila nastavení svého reaktivního stavu, ale ještě nebyly vytvořeny žádné DOM elementy. Je připravena poprvé provést svůj DOM vykreslovací efekt.
 
-  **This hook is not called during server-side rendering.**
+  **Tento hook není volán během vykreslování na serveru (SSR).**
 
 ## mounted {#mounted}
 
-Called after the component has been mounted.
+Voláno poté, co byla komponenta připojena.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -68,23 +68,23 @@ Called after the component has been mounted.
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  A component is considered mounted after:
+  Komponenta je považována za připojenou poté, co:
 
-  - All of its synchronous child components have been mounted (does not include async components or components inside `<Suspense>` trees).
+  - Byly připojeny všechny její synchronní komponenty potomků (neplatí pro asynchronní komponenty nebo komponenty uvnitř `<Suspense>` hierarchie).
 
-  - Its own DOM tree has been created and inserted into the parent container. Note it only guarantees that the component's DOM tree is in-document if the application's root container is also in-document.
+  - Byl vytvořen její vlastní DOM a vložen do rodičovského kontejneru. Všimněte si, že to zaručuje, že DOM komponenty je v dokumentu pouze tehdy, pokud je v dokumentu také root kontejner aplikace.
 
-  This hook is typically used for performing side effects that need access to the component's rendered DOM, or for limiting DOM-related code to the client in a [server-rendered application](/guide/scaling-up/ssr).
+Tento hook se typicky používá pro provádění vedlejších efektů, které potřebují přístup k vykreslenému DOM komponenty, nebo pro omezení kódu souvisejícího s DOM na klientovi v [aplikaci vykreslené na serveru](/guide/scaling-up/ssr).
 
-  **This hook is not called during server-side rendering.**
+**Tento hook není volán během vykreslování na serveru (SSR).**
 
 ## beforeUpdate {#beforeupdate}
 
-Called right before the component is about to update its DOM tree due to a reactive state change.
+Voláno před tím, než se komponenta chystá aktualizovat svůj DOM strom kvůli změně reaktivního stavu.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -92,17 +92,17 @@ Called right before the component is about to update its DOM tree due to a react
   }
   ```
 
-- **Details**
+- **Detaily**
 
-  This hook can be used to access the DOM state before Vue updates the DOM. It is also safe to modify component state inside this hook.
+  Tento hook lze použít k přístupu ke stavu DOM předtím, než ho Vue aktualizuje. V tomto hooku je také bezpečné upravovat stav komponenty.
 
-  **This hook is not called during server-side rendering.**
+  **Tento hook není volán během vykreslování na serveru (SSR).**
 
 ## updated {#updated}
 
-Called after the component has updated its DOM tree due to a reactive state change.
+Voláno poté, co komponenta aktualizovala svůj DOM strom kvůli změně reaktivního stavu.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -110,23 +110,23 @@ Called after the component has updated its DOM tree due to a reactive state chan
   }
   ```
 
-- **Details**
+- **Detaily**
 
-  A parent component's updated hook is called after that of its child components.
+  Hook `updated` nadřazené komponenty se volá až po `updated` komponent potomků.
 
-  This hook is called after any DOM update of the component, which can be caused by different state changes. If you need to access the updated DOM after a specific state change, use [nextTick()](/api/general#nexttick) instead.
+  Tento hook se volá po každé aktualizaci DOM komponenty, která může být způsobena různými změnami stavu, protože z důvodu optimalizace výkonu může být více změn stavu seskupeno do jednoho vykreslovací cyklu. Pokud potřebujete přistupovat k aktualizovanému DOM po konkrétní změně stavu, použijte místo toho [nextTick()](/api/general#nexttick).
 
-  **This hook is not called during server-side rendering.**
+  **Tento hook není volán během vykreslování na serveru (SSR).**
 
   :::warning
-  Do not mutate component state in the updated hook - this will likely lead to an infinite update loop!
+  V hooku `updated` neměňte stav komponenty - to pravděpodobně povede k nekonečné smyčce aktualizací!
   :::
 
 ## beforeUnmount {#beforeunmount}
 
-Called right before a component instance is to be unmounted.
+Voláno před odstraněním instance komponenty.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -134,17 +134,17 @@ Called right before a component instance is to be unmounted.
   }
   ```
 
-- **Details**
+- **Detaily**
 
-  When this hook is called, the component instance is still fully functional.
+  Když je tento hook volán, instance komponenty je stále plně funkční.
 
-  **This hook is not called during server-side rendering.**
+  **Tento hook není volán během vykreslování na serveru (SSR).**
 
 ## unmounted {#unmounted}
 
-Called after the component has been unmounted.
+Voláno poté, co byla komponenta odstraněna.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -152,23 +152,23 @@ Called after the component has been unmounted.
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  A component is considered unmounted after:
+  Komponenta je považována za odstraněnou poté, co:
 
-  - All of its child components have been unmounted.
+  - Byly odstraněny všechny její podřízené komponenty.
 
-  - All of its associated reactive effects (render effect and computed / watchers created during `setup()`) have been stopped.
+  - Byly zastaveny všechny asociované reaktivní efekty (efekt vykreslování a computed proměnné / watchery vytvořené během `setup()`) 
 
-  Use this hook to clean up manually created side effects such as timers, DOM event listeners or server connections.
+  Použijte tento hook k ručnímu čištění vytvořených vedlejších efektů, jako jsou časovače, DOM event listenery nebo serverová připojení.
 
-  **This hook is not called during server-side rendering.**
+  **Tento hook není volán během vykreslování na serveru (SSR).**
 
 ## errorCaptured {#errorcaptured}
 
-Called when an error propagating from a descendant component has been captured.
+Voláno, když byla zachycena chyba propagující se z komponenty potomka.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -181,45 +181,45 @@ Called when an error propagating from a descendant component has been captured.
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  Errors can be captured from the following sources:
+  Chyby lze zachytit z následujících zdrojů:
 
-  - Component renders
-  - Event handlers
+  - Vykreslování komponenty
+  - Obsluha událostí
   - Lifecycle hooks
-  - `setup()` function
-  - Watchers
+  - Funkce `setup()`
+  - Watchery
   - Custom directive hooks
   - Transition hooks
 
-  The hook receives three arguments: the error, the component instance that triggered the error, and an information string specifying the error source type.
+  Hook dostává tři argumenty: chybu, instanci komponenty, která chybu vyvolala, a řetězec s informací, která specifikuje typ zdroje chyby.
 
   :::tip
-  In production, the 3rd argument (`info`) will be a shortened code instead of the full information string. You can find the code to string mapping in the [Production Error Code Reference](/error-reference/#runtime-errors).
+  V produkčním prostředí bude třetí parametr (`info`) zkrácený kód místo kompletního řetězce s informací. Na mapování kódů na texty se můžete podívat do [Reference chybových kódů v produkci](/error-reference/#runtime-errors).
   :::
 
-  You can modify component state in `errorCaptured()` to display an error state to the user. However, it is important that the error state should not render the original content that caused the error; otherwise the component will be thrown into an infinite render loop.
+  Pro zobrazení stavu chyby uživateli můžete upravit stav komponenty v `errorCaptured()`. Je však důležité, aby stav chyby nevykresloval původní obsah, který způsobil chybu; jinak bude komponenta vržena do nekonečné smyčky vykreslování.
 
-  The hook can return `false` to stop the error from propagating further. See error propagation details below.
+  Hook může vrátit `false`, aby zastavil další propagaci chyby. Podrobnosti o propagaci chyb naleznete níže.
 
-  **Error Propagation Rules**
+  **Pravidla propagace chyb**
 
-  - By default, all errors are still sent to the application-level [`app.config.errorHandler`](/api/application#app-config-errorhandler) if it is defined, so that these errors can still be reported to an analytics service in a single place.
+  - Ve výchozím nastavení jsou všechny chyby stále odesílány až na úroveň aplikace do [`app.config.errorHandler`](/api/application#app-config-errorhandler), pokud je definován, aby mohly být tyto chyby stále hlášeny do analytické služby na jednom místě.
 
-  - If multiple `errorCaptured` hooks exist on a component's inheritance chain or parent chain, all of them will be invoked on the same error, in the order of bottom to top. This is similar to the bubbling mechanism of native DOM events.
+  - Pokud existuje více `errorCaptured` hooks v hierarchii dědičnosti komponenty nebo hierarchii rodičů, všechny budou volány se stejnou chybou, v pořadí odspodu nahoru. To je podobné mechanismu probublávání nativních DOM událostí.
 
-  - If the `errorCaptured` hook itself throws an error, both this error and the original captured error are sent to `app.config.errorHandler`.
+  - Pokud `errorCaptured` hook sám vyvolá chybu, tato chyba a původní zachycená chyba jsou odeslány do `app.config.errorHandler`.
 
-  - An `errorCaptured` hook can return `false` to prevent the error from propagating further. This is essentially saying "this error has been handled and should be ignored." It will prevent any additional `errorCaptured` hooks or `app.config.errorHandler` from being invoked for this error.
+  - Hook `errorCaptured` může vrátit `false`, aby zabránil propagaci chyby dále. To v podstatě znamená "tato chyba byla zpracována a měla by být ignorována." Pro tuto chybu to zabrání volání dalších `errorCaptured` hooks nebo `app.config.errorHandler`.
 
 ## renderTracked <sup class="vt-badge dev-only" /> {#rendertracked}
 
-Called when a reactive dependency has been tracked by the component's render effect.
+Voláno, když je reaktivní závislost sledována vykreslovacím efektem komponenty.
 
-**This hook is development-mode-only and not called during server-side rendering.**
+**Tento hook se volá pouze v režimu vývoje (dev) a není volán během vykreslování na serveru (SSR).**
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -234,15 +234,15 @@ Called when a reactive dependency has been tracked by the component's render eff
   }
   ```
 
-- **See also** [Reactivity in Depth](/guide/extras/reactivity-in-depth)
+- **Viz také:** [Reaktivita podrobně](/guide/extras/reactivity-in-depth)
 
 ## renderTriggered <sup class="vt-badge dev-only" /> {#rendertriggered}
 
-Called when a reactive dependency triggers the component's render effect to be re-run.
+Voláno, když reaktivní závislost vyvolá nové spuštění vykreslovacího efektu komponenty.
 
-**This hook is development-mode-only and not called during server-side rendering.**
+**Tento hook se volá pouze v režimu vývoje (dev) a není volán během vykreslování na serveru (SSR).**
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -260,15 +260,15 @@ Called when a reactive dependency triggers the component's render effect to be r
   }
   ```
 
-- **See also** [Reactivity in Depth](/guide/extras/reactivity-in-depth)
+- **Viz také:** [Reaktivita podrobně](/guide/extras/reactivity-in-depth)
 
 ## activated {#activated}
 
-Called after the component instance is inserted into the DOM as part of a tree cached by [`<KeepAlive>`](/api/built-in-components#keepalive).
+Voláno poté, co je instance komponenty vložena do DOM coby součást stromu uloženého pomocí [`<KeepAlive>`](/api/built-in-components#keepalive).
 
-**This hook is not called during server-side rendering.**
+**Tento hook není volán během vykreslování na serveru (SSR).**
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -276,15 +276,15 @@ Called after the component instance is inserted into the DOM as part of a tree c
   }
   ```
 
-- **See also** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
+- **Viz také:** [Průvodce - Životní cyklus cached instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
 
 ## deactivated {#deactivated}
 
-Called after the component instance is removed from the DOM as part of a tree cached by [`<KeepAlive>`](/api/built-in-components#keepalive).
+Voláno poté, co je instance komponenty odebrána z DOM coby součást stromu uloženého pomocí [`<KeepAlive>`](/api/built-in-components#keepalive).
 
-**This hook is not called during server-side rendering.**
+**Tento hook není volán během vykreslování na serveru (SSR).**
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -292,13 +292,13 @@ Called after the component instance is removed from the DOM as part of a tree ca
   }
   ```
 
-- **See also** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
+- **Viz také:** [Průvodce - Životní cyklus cached instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
 
-## serverPrefetch <sup class="vt-badge" data-text="SSR only" /> {#serverprefetch}
+## serverPrefetch <sup class="vt-badge" data-text="Pouze SSR" /> {#serverprefetch}
 
-Async function to be resolved before the component instance is to be rendered on the server.
+Asynchronní funkce, která se vyhodnotí před vykreslením instance komponenty na serveru.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -306,13 +306,13 @@ Async function to be resolved before the component instance is to be rendered on
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  If the hook returns a Promise, the server renderer will wait until the Promise is resolved before rendering the component.
+  Pokud callback vrátí Promise, server počká, dokud se Promise nevyřeší, než vykreslí komponentu.
 
-  This hook is only called during server-side rendering can be used to perform server-only data fetching.
+  Tento hook se volá pouze během vykreslování na serveru (SSR) a může být použit pro načítání dat pouze na serveru.
 
-- **Example**
+- **Příklad**
 
   ```js
   export default {
@@ -322,19 +322,19 @@ Async function to be resolved before the component instance is to be rendered on
       }
     },
     async serverPrefetch() {
-      // component is rendered as part of the initial request
-      // pre-fetch data on server as it is faster than on the client
+      // komponenta je vykreslena jako součást výcozího požadavku
+      // data se načítají na serveru, protože to je rychlejší než na klientovi
       this.data = await fetchOnServer(/* ... */)
     },
     async mounted() {
       if (!this.data) {
-        // if data is null on mount, it means the component
-        // is dynamically rendered on the client. Perform a
-        // client-side fetch instead.
+        // pokud jsou při připojení data null, znamená to, že komponenta
+        // je dynamicky vykreslena na klientovi
+        // proto načíst data na klientovi
         this.data = await fetchOnClient(/* ... */)
       }
     }
   }
   ```
 
-- **See also** [Server-Side Rendering](/guide/scaling-up/ssr)
+- **Viz také:** [Server-Side Rendering](/guide/scaling-up/ssr)

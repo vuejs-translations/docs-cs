@@ -9,7 +9,7 @@ export default {
   },
   setup(props) {
     const point = computed(() =>
-      valueToPoint(+props.stat.value + 10, props.index, props.total)
+      valueToPoint(+props.stat.hodnota + 10, props.index, props.total)
     )
 
     return {

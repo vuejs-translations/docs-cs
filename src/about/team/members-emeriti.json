@@ -27,7 +27,7 @@
       }
     ],
     "location": "Denver, CO, USA",
-    "languages": ["English"],
+    "languages": ["Angličtina"],
     "website": {
       "label": "sarah.dev",
       "url": "https://sarah.dev/"
@@ -42,7 +42,7 @@
     "name": "Chris Fritz",
     "title": "Educator & Consultant",
     "location": "Durham, NC, USA",
-    "languages": ["English", "German"],
+    "languages": ["Angličtina", "Němčina"],
     "socials": {
       "github": "chrisvfritz",
       "twitter": "chrisvfritz"
@@ -53,7 +53,7 @@
     "name": "Blake Newman",
     "title": "Performance Specializer & Code Deleter",
     "location": "London, UK",
-    "languages": ["English"],
+    "languages": ["Angličtina"],
     "socials": {
       "github": "blake-newman",
       "twitter": "blakenewman"
@@ -70,8 +70,8 @@
         "url": "https://github.com/vuejs/vue"
       }
     ],
-    "location": "Beijing, China",
-    "languages": ["Chinese"],
+    "location": "Beijing, Čína",
+    "languages": ["Čínština"],
     "socials": {
       "github": "kingwl"
     }
@@ -87,8 +87,8 @@
         "url": "https://github.com/vuejs/vue-router"
       }
     ],
-    "location": "Hangzhou, China",
-    "languages": ["Chinese", "English"],
+    "location": "Hangzhou, Čína",
+    "languages": ["Čínština", "Angličtina"],
     "socials": {
       "github": "fnlctrl"
     }
@@ -98,8 +98,8 @@
     "title": "Details Deity & Bug Surgeon",
     "company": "zbj.com",
     "companyLink": "http://www.zbj.com/",
-    "location": "Chongqing, China",
-    "languages": ["Chinese", "English"],
+    "location": "Chongqing, Čína",
+    "languages": ["Čínština", "Angličtina"],
     "socials": {
       "github": "defcc"
     }
@@ -109,8 +109,8 @@
     "title": "Issue Annihilator",
     "company": "zbj.com",
     "companyLink": "http://www.zbj.com/",
-    "location": "Chongqing, China",
-    "languages": ["Chinese", "English"],
+    "location": "Chongqing, Čína",
+    "languages": ["Čínština", "Angličtina"],
     "socials": {
       "github": "gebilaoxiong"
     }
@@ -120,8 +120,8 @@
     "title": "Software Engineer",
     "company": "Neolant",
     "companyLink": "http://neolant.ru/",
-    "location": "Dubna, Russia",
-    "languages": ["Russian", "English"],
+    "location": "Dubna, Rusko",
+    "languages": ["Ruština", "Angličtina"],
     "socials": {
       "github": "simplesmiler",
       "twitter": "simplesmiler"
@@ -141,7 +141,7 @@
       }
     ],
     "location": "London, UK",
-    "languages": ["English"],
+    "languages": ["Angličtina"],
     "socials": {
       "github": "eddyerburgh",
       "twitter": "EddYerburgh"
@@ -160,8 +160,8 @@
         "url": "https://github.com/vuejs/vetur"
       }
     ],
-    "location": "Shanghai, China",
-    "languages": ["Chinese", "English", "Japanese"],
+    "location": "Shanghai, Čína",
+    "languages": ["Čínština", "Angličtina", "Japonština"],
     "socials": {
       "github": "octref",
       "twitter": "octref"
@@ -178,8 +178,8 @@
         "url": "https://www.github.com/vuejs/vuepress"
       }
     ],
-    "location": "Hangzhou, China",
-    "languages": ["Chinese", "English"],
+    "location": "Hangzhou, Čína",
+    "languages": ["Čínština", "Angličtina"],
     "socials": { "github": "ulivz", "twitter": "_ulivz" }
   },
   {
@@ -201,8 +201,8 @@
         "url": "https://github.com/ktsn/vue-designer"
       }
     ],
-    "location": "Singapore",
-    "languages": ["Japanese", "English"],
+    "location": "Singapur",
+    "languages": ["Japonština", "Angličtina"],
     "socials": {
       "github": "ktsn",
       "twitter": "ktsn"
@@ -213,8 +213,8 @@
     "title": "Senior Frontend Developer / Team Leader",
     "company": "Netguru",
     "companyLink": "https://netguru.co/",
-    "location": "Poznań, Poland",
-    "languages": ["Polish", "English"],
+    "location": "Poznań, Polsko",
+    "languages": ["Polština", "Angličtina"],
     "projects": [
       {
         "label": "eslint-plugin-vue",
@@ -251,8 +251,8 @@
         "url": "https://vue-multiselect.js.org/"
       }
     ],
-    "location": "Wrocław, Poland",
-    "languages": ["Polish", "English"],
+    "location": "Wrocław, Polsko",
+    "languages": ["Polština", "Angličtina"],
     "socials": {
       "github": "shentao",
       "twitter": "DamianDulisz"

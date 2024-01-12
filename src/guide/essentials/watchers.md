@@ -1,24 +1,24 @@
 # Watchers {#watchers}
 
-## Basic Example {#basic-example}
+## Jednoduchý příklad {#basic-example}
 
-Computed properties allow us to declaratively compute derived values. However, there are cases where we need to perform "side effects" in reaction to state changes - for example, mutating the DOM, or changing another piece of state based on the result of an async operation.
+Computed proměnné nám umožňují deklarativně vypočítat odvozené hodnoty. Existují však případy, kdy v reakci na změny stavu potřebujeme provést „vedlejší efekty“ – například změnu DOM nebo změnu jiné části stavu na základě výsledku asynchronní operace.
 
 <div class="options-api">
 
-With the Options API, we can use the [`watch` option](/api/options-state#watch) to trigger a function whenever a reactive property changes:
+S Options API můžeme použít [sekci `watch`](/api/options-state#watch) k vyvolání funkce kdykoliv se změní reaktivní hodnota:
 
 ```js
 export default {
   data() {
     return {
       question: '',
-      answer: 'Questions usually contain a question mark. ;-)',
+      answer: 'Otázky obvykle obsahují otazník. ;-)',
       loading: false
     }
   },
   watch: {
-    // whenever question changes, this function will run
+    // kdykoliv se změní `question`, spustí se tato funkce
     question(newQuestion, oldQuestion) {
       if (newQuestion.includes('?')) {
         this.getAnswer()
@@ -28,12 +28,12 @@ export default {
   methods: {
     async getAnswer() {
       this.loading = true
-      this.answer = 'Thinking...'
+      this.answer = 'Přemýšlím...'
       try {
         const res = await fetch('https://yesno.wtf/api')
         this.answer = (await res.json()).answer
       } catch (error) {
-        this.answer = 'Error! Could not reach the API. ' + error
+        this.answer = 'Chyba! Nelze volat API. ' + error
       } finally {
         this.loading = false
       }
@@ -44,20 +44,20 @@ export default {
 
 ```vue-html
 <p>
-  Ask a yes/no question:
+  Zeptejte se na otázku s odpovědí ano/ne:
   <input v-model="question" :disabled="loading" />
 </p>
 <p>{{ answer }}</p>
 ```
 
-[Try it in the Playground](https://play.vuejs.org/#eNp9VE1v2zAM/SucLnaw1D70lqUbsiKH7rB1W4++aDYdq5ElTx9xgiD/fbT8lXZFAQO2+Mgn8pH0mW2aJjl4ZCu2trkRjfucKTw22jgosOReOjhnCqDgjseL/hvAoPNGjSeAvx6tE1qtIIqWo5Er26Ih088BteCt51KeINfKcaGAT5FQc7NP4NPNYiaQmhdC7VZQcmlxMF+61yUcWu7yajVmkabQVqjwgGZmzSuudmiX4CphofQqD+ZWSAnGqz5y9I4VtmOuS9CyGA9T3QCihGu3RKhc+gJtHH2JFld+EG5Mdug2QYZ4MSKhgBd11OgqXdipEm5PKoer0Jk2kA66wB044/EF1GtOSPRUCbUnryRJosnFnK4zpC5YR7205M9bLhyUSIrGUeVcY1dpekKrdNK6MuWNiKYKXt8V98FElDxbknGxGLCpZMi7VkGMxmjzv0pz1tvO4QPcay8LULoj5RToKoTN40MCEXyEQDJTl0KFmXpNOqsUxudN+TNFzzqdJp8ODutGcod0Alg34QWwsXsaVtIjVXqe9h5bC9V4B4ebWhco7zI24hmDVSEs/yOxIPOQEFnTnjzt2emS83nYFrhcevM6nRJhS+Ys9aoUu6Av7WqoNWO5rhsh0fxownplbBqhjJEmuv0WbN2UDNtDMRXm+zfsz/bY2TL2SH1Ec8CMTZjjhqaxh7e/v+ORvieQqvaSvN8Bf6HV0veSdG5fvSoo7Su/kO1D3f13SKInuz06VHYsahzzfl0yRj+s+3dKn9O9TW7HPrPLP624lFU=)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNp9VE1v2zAM/SucLnaw1D70lqUbsiKH7rB1W4++aDYdq5ElTx9xgiD/fbT8lXZFAQO2+Mgn8pH0mW2aJjl4ZCu2trkRjfucKTw22jgosOReOjhnCqDgjseL/hvAoPNGjSeAvx6tE1qtIIqWo5Er26Ih088BteCt51KeINfKcaGAT5FQc7NP4NPNYiaQmhdC7VZQcmlxMF+61yUcWu7yajVmkabQVqjwgGZmzSuudmiX4CphofQqD+ZWSAnGqz5y9I4VtmOuS9CyGA9T3QCihGu3RKhc+gJtHH2JFld+EG5Mdug2QYZ4MSKhgBd11OgqXdipEm5PKoer0Jk2kA66wB044/EF1GtOSPRUCbUnryRJosnFnK4zpC5YR7205M9bLhyUSIrGUeVcY1dpekKrdNK6MuWNiKYKXt8V98FElDxbknGxGLCpZMi7VkGMxmjzv0pz1tvO4QPcay8LULoj5RToKoTN40MCEXyEQDJTl0KFmXpNOqsUxudN+TNFzzqdJp8ODutGcod0Alg34QWwsXsaVtIjVXqe9h5bC9V4B4ebWhco7zI24hmDVSEs/yOxIPOQEFnTnjzt2emS83nYFrhcevM6nRJhS+Ys9aoUu6Av7WqoNWO5rhsh0fxownplbBqhjJEmuv0WbN2UDNtDMRXm+zfsz/bY2TL2SH1Ec8CMTZjjhqaxh7e/v+ORvieQqvaSvN8Bf6HV0veSdG5fvSoo7Su/kO1D3f13SKInuz06VHYsahzzfl0yRj+s+3dKn9O9TW7HPrPLP624lFU=)
 
-The `watch` option also supports a dot-delimited path as the key:
+Konstrukce `watch` podporuje i cestu ke klíči vnořené proměnné pomocí tečkové notace:
 
 ```js
 export default {
   watch: {
-    // Note: only simple paths. Expressions are not supported.
+    // Pozn.: pouze jednoduché cesty. Výrazy zde podporovány nejsou.
     'some.nested.key'(newValue) {
       // ...
     }
@@ -69,26 +69,26 @@ export default {
 
 <div class="composition-api">
 
-With Composition API, we can use the [`watch` function](/api/reactivity-core#watch) to trigger a callback whenever a piece of reactive state changes:
+S Composition API můžeme použít [funkci `watch`](/api/reactivity-core#watch) k vyvolání callback funkce kdykoliv se změní část reaktivního stavu:
 
 ```vue
 <script setup>
 import { ref, watch } from 'vue'
 
 const question = ref('')
-const answer = ref('Questions usually contain a question mark. ;-)')
+const answer = ref('Otázky obvykle obsahují otazník. ;-)')
 const loading = ref(false)
 
-// watch works directly on a ref
+// watch pracuje přímo nad ref
 watch(question, async (newQuestion, oldQuestion) => {
   if (newQuestion.includes('?')) {
     loading.value = true
-    answer.value = 'Thinking...'
+    answer.value = 'Přemýšlím...'
     try {
       const res = await fetch('https://yesno.wtf/api')
       answer.value = (await res.json()).answer
     } catch (error) {
-      answer.value = 'Error! Could not reach the API. ' + error
+      answer.value = 'Chyba! Nelze volat API. ' + error
     } finally {
       loading.value = false
     }
@@ -98,24 +98,24 @@ watch(question, async (newQuestion, oldQuestion) => {
 
 <template>
   <p>
-    Ask a yes/no question:
+    Zeptejte se na otázku s odpovědí ano/ne:
     <input v-model="question" :disabled="loading" />
   </p>
   <p>{{ answer }}</p>
 </template>
 ```
 
-[Try it in the Playground](https://play.vuejs.org/#eNp9U8Fy0zAQ/ZVFF9tDah96C2mZ0umhHKBAj7oIe52oUSQjyXEyGf87KytyoDC9JPa+p+e3b1cndtd15b5HtmQrV1vZeXDo++6Wa7nrjPVwAovtAgbh6w2M0Fqzg4xOZFxzXRvtPPzq0XlpNNwEbp5lRUKEdgPaVP925jnoXS+UOgKxvJAaxEVjJ+y2hA9XxUVFGdFIvT7LtEI5JIzrqjrbGozdOmikxdqTKqmIQOV6gvOkvQDhjrqGXOOQvCzAqCa9FHBzCyeuAWT7F6uUulZ9gy7PPmZFETmQjJV7oXoke972GJHY+Axkzxupt4FalhRcYHh7TDIQcqA+LTriikFIDy0G59nG+84tq+qITpty8G0lOhmSiedefSaPZ0mnfHFG50VRRkbkj1BPceVorbFzF/+6fQj4O7g3vWpAm6Ao6JzfINw9PZaQwXuYNJJuK/U0z1nxdTLT0M7s8Ec/I3WxquLS0brRi8ddp4RHegNYhR0M/Du3pXFSAJU285osI7aSuus97K92pkF1w1nCOYNlI534qbCh8tkOVasoXkV1+sjplLZ0HGN5Vc1G2IJ5R8Np5XpKlK7J1CJntdl1UqH92k0bzdkyNc8ZRWGGz1MtbMQi1esN1tv/1F/cIdQ4e6LJod0jZzPmhV2jj/DDjy94oOcZpK57Rew3wO/ojOpjJIH2qdcN2f6DN7l9nC47RfTsHg4etUtNpZUeJz5ndPPv32j9Yve6vE6DZuNvu1R2Tg==)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNp9U8Fy0zAQ/ZVFF9tDah96C2mZ0umhHKBAj7oIe52oUSQjyXEyGf87KytyoDC9JPa+p+e3b1cndtd15b5HtmQrV1vZeXDo++6Wa7nrjPVwAovtAgbh6w2M0Fqzg4xOZFxzXRvtPPzq0XlpNNwEbp5lRUKEdgPaVP925jnoXS+UOgKxvJAaxEVjJ+y2hA9XxUVFGdFIvT7LtEI5JIzrqjrbGozdOmikxdqTKqmIQOV6gvOkvQDhjrqGXOOQvCzAqCa9FHBzCyeuAWT7F6uUulZ9gy7PPmZFETmQjJV7oXoke972GJHY+Axkzxupt4FalhRcYHh7TDIQcqA+LTriikFIDy0G59nG+84tq+qITpty8G0lOhmSiedefSaPZ0mnfHFG50VRRkbkj1BPceVorbFzF/+6fQj4O7g3vWpAm6Ao6JzfINw9PZaQwXuYNJJuK/U0z1nxdTLT0M7s8Ec/I3WxquLS0brRi8ddp4RHegNYhR0M/Du3pXFSAJU285osI7aSuus97K92pkF1w1nCOYNlI534qbCh8tkOVasoXkV1+sjplLZ0HGN5Vc1G2IJ5R8Np5XpKlK7J1CJntdl1UqH92k0bzdkyNc8ZRWGGz1MtbMQi1esN1tv/1F/cIdQ4e6LJod0jZzPmhV2jj/DDjy94oOcZpK57Rew3wO/ojOpjJIH2qdcN2f6DN7l9nC47RfTsHg4etUtNpZUeJz5ndPPv32j9Yve6vE6DZuNvu1R2Tg==)
 
-### Watch Source Types {#watch-source-types}
+### Zdrojové typy pro Watch {#watch-source-types}
 
-`watch`'s first argument can be different types of reactive "sources": it can be a ref (including computed refs), a reactive object, a getter function, or an array of multiple sources:
+První parametr `watch` může být některý z různých typů reaktivních "zdrojů": může to být ref (vč. computed refs), reaktivní objekt, getter funkce nebo pole více různých zdrojů:
 
 ```js
 const x = ref(0)
 const y = ref(0)
 
-// single ref
+// jednoduchý ref
 watch(x, (newX) => {
   console.log(`x is ${newX}`)
 })
@@ -128,27 +128,27 @@ watch(
   }
 )
 
-// array of multiple sources
+// pole více růzých zdrojů
 watch([x, () => y.value], ([newX, newY]) => {
   console.log(`x is ${newX} and y is ${newY}`)
 })
 ```
 
-Do note that you can't watch a property of a reactive object like this:
+Pamatujte, že nemůžete sledovat vlastnost reaktivního objektu tímto způsobem:
 
 ```js
 const obj = reactive({ count: 0 })
 
-// this won't work because we are passing a number to watch()
+// toto nebude fungovat, protože do watch() předáváme pouze number
 watch(obj.count, (count) => {
   console.log(`count is: ${count}`)
 })
 ```
 
-Instead, use a getter:
+Místo toho použijte getter
 
 ```js
-// instead, use a getter:
+// místo toho použijte getter:
 watch(
   () => obj.count,
   (count) => {
@@ -163,16 +163,15 @@ watch(
 
 <div class="options-api">
 
-`watch` is shallow by default: the callback will only trigger when the watched property has been assigned a new value - it won't trigger on nested property changes. If you want the callback to fire on all nested mutations, you need to use a deep watcher:
+`watch` je ve výchozím nastavení mělký (shallow): callback funkce je vyvolána pouze tehdy, když je nová hodnota přiřazena sledované vlastnosti – nespustí se při změnách vnořených vlastností. Pokud chcete, aby se callback funkce spustila i u všech vnořených změn, musíte použít tzv. deep watcher:
 
 ```js
 export default {
   watch: {
     someObject: {
       handler(newValue, oldValue) {
-        // Note: `newValue` will be equal to `oldValue` here
-        // on nested mutations as long as the object itself
-        // hasn't been replaced.
+        // Pozn.: `newValue` zde při vnořených změnách bude rovna `oldValue`,
+        // dokud nebude nahrazen samotný objekt
       },
       deep: true
     }
@@ -184,39 +183,39 @@ export default {
 
 <div class="composition-api">
 
-When you call `watch()` directly on a reactive object, it will implicitly create a deep watcher - the callback will be triggered on all nested mutations:
+Když zavoláte `watch()` přímo na reaktivní objekt, implicitně vytvoří tzv. deep watcher - callback funkce bude vyvolána i při všech změnách vnořených vlastností:
 
 ```js
 const obj = reactive({ count: 0 })
 
 watch(obj, (newValue, oldValue) => {
-  // fires on nested property mutations
-  // Note: `newValue` will be equal to `oldValue` here
-  // because they both point to the same object!
+  // bude spuštěno při změnách vnořených vlastností
+  // Pozn.: `newValue` zde bude rovna `oldValue`
+  // protože obě ukazují na ten samý objekt!
 })
 
 obj.count++
 ```
 
-This should be differentiated with a getter that returns a reactive object - in the latter case, the callback will only fire if the getter returns a different object:
+To by se mělo odlišovat getter funkcí, která vrací reaktivní objekt – v druhém případě se callback funkce spustí pouze v případě, že getter vrátí jiný objekt:
 
 ```js
 watch(
   () => state.someObject,
   () => {
-    // fires only when state.someObject is replaced
+    // bude spuštěno pouze pokud je nahrazen state.someObject
   }
 )
 ```
 
-You can, however, force the second case into a deep watcher by explicitly using the `deep` option:
+Můžete nicméně donutit i druhý případ, aby se z něj stal deep watcher, explicitním použitím nastavení `deep`:
 
 ```js
 watch(
   () => state.someObject,
   (newValue, oldValue) => {
-    // Note: `newValue` will be equal to `oldValue` here
-    // *unless* state.someObject has been replaced
+    // Pozn.: `newValue` zde bude rovna `oldValue`,
+    // dokud nebude nahrazen state.someObject
   },
   { deep: true }
 )
@@ -224,17 +223,17 @@ watch(
 
 </div>
 
-:::warning Use with Caution
-Deep watch requires traversing all nested properties in the watched object, and can be expensive when used on large data structures. Use it only when necessary and beware of the performance implications.
+:::warning Používejte s rozvahou
+Deep watcher vyžaduje procházení všech vnořených vlastností ve sledovaném objektu, což může být výpočetně náročné, pokud je použito na velkých datových strukturách. Používejte jej pouze v případě potřeby a dávejte pozor na důsledky pro výkon aplikace.
 :::
 
 ## Eager Watchers {#eager-watchers}
 
-`watch` is lazy by default: the callback won't be called until the watched source has changed. But in some cases we may want the same callback logic to be run eagerly - for example, we may want to fetch some initial data, and then re-fetch the data whenever relevant state changes.
+`watch` je ve výchozím nastavení "lazy": callback funkce není spuštěna, dokud se sledovaný zdroj nezmění. V některých případech však můžeme chtít, aby byla stejná logika callback funkce spouštěna v "eager" módu - například můžeme chtít načíst některá počáteční data a poté načíst data znovu, kdykoli se změní relevantní stav.
 
 <div class="options-api">
 
-We can force a watcher's callback to be executed immediately by declaring it using an object with a `handler` function and the `immediate: true` option:
+Můžeme vynutit okamžité provedení callback funkce tím, že watcher deklarujeme pomocí objektu s funkcí `handler` a s volbou `immediate: true`:
 
 ```js
 export default {
@@ -242,9 +241,9 @@ export default {
   watch: {
     question: {
       handler(newQuestion) {
-        // this will be run immediately on component creation.
+        // toto bude spuštěno ihned po vytvoření instance komponenty
       },
-      // force eager callback execution
+      // vynutí "eager" spuštění callback funkce
       immediate: true
     }
   }
@@ -252,20 +251,20 @@ export default {
 }
 ```
 
-The initial execution of the handler function will happen just before the `created` hook. Vue will have already processed the `data`, `computed`, and `methods` options, so those properties will be available on the first invocation.
-
+Úvodní spuštění handler funkce proběhne těsně před lifecycle hookem `created`. Vue již bude mít zpracovaný obsah sekcí `data`, `computed` a `methods`, takže tyto vlastnosti budou při tomto prvním volání dostupné.
+  
 </div>
 
 <div class="composition-api">
 
-We can force a watcher's callback to be executed immediately by passing the `immediate: true` option:
+Můžeme vynutit okamžité provedení callback funkce předáním parametru `immediate: true`:
 
 ```js
 watch(
-  source,
+  source, 
   (newValue, oldValue) => {
-    // executed immediately, then again when `source` changes
-  },
+    // bude spuštěno okamžitě a poté kdykoliv se změní `source`
+  }, 
   { immediate: true }
 )
 ```
@@ -276,7 +275,7 @@ watch(
 
 ## `watchEffect()` \*\* {#watcheffect}
 
-It is common for the watcher callback to use exactly the same reactive state as the source. For example, consider the following code, which uses a watcher to load a remote resource whenever the `todoId` ref changes:
+Pro watcher callback funkci je běžné, že používá přesně stejný reaktivní stav jako zdroj. Zvažte například následující kód, který používá watcher k načtení vzdáleného zdroje, kdykoli se změní ref `todoId`:
 
 ```js
 const todoId = ref(1)
@@ -294,9 +293,9 @@ watch(
 )
 ```
 
-In particular, notice how the watcher uses `todoId` twice, once as the source and then again inside the callback.
+Zejména si všimněte, jak watcher používá `todoId` dvakrát, jednou jako zdroj a pak znovu uvnitř callback funkce.
 
-This can be simplified with [`watchEffect()`](/api/reactivity-core#watcheffect). `watchEffect()` allows us to track the callback's reactive dependencies automatically. The watcher above can be rewritten as:
+Toto je možné zjednodušit pomocí [`watchEffect()`](/api/reactivity-core#watcheffect). `watchEffect()` nám umožňuje automaticky sledovat reaktivní závislosti callback funkce. Výše uvedený watcher lze přepsat jako:
 
 ```js
 watchEffect(async () => {
@@ -306,34 +305,33 @@ watchEffect(async () => {
   data.value = await response.json()
 })
 ```
+Zde se callback funkce spustí okamžitě, není třeba zadávat `immediate: true`. Během svého vykonávání bude automaticky sledovat `todoId.value` jako závislost (podobně jako computed proměnné). Kdykoli se `todoId.value` změní, callback funkce se spustí znovu. S `watchEffect()` již nemusíme `todoId` předávat explicitně jako zdrojovou hodnotu.
 
-Here, the callback will run immediately, there's no need to specify `immediate: true`. During its execution, it will automatically track `todoId.value` as a dependency (similar to computed properties). Whenever `todoId.value` changes, the callback will be run again. With `watchEffect()`, we no longer need to pass `todoId` explicitly as the source value.
+Můžete se podívat na [tento příklad](/examples/#fetching-data) použití `watchEffect()` a reaktivního načítání dat v akci.
 
-You can check out [this example](/examples/#fetching-data) of `watchEffect()` and reactive data-fetching in action.
-
-For examples like these, with only one dependency, the benefit of `watchEffect()` is relatively small. But for watchers that have multiple dependencies, using `watchEffect()` removes the burden of having to maintain the list of dependencies manually. In addition, if you need to watch several properties in a nested data structure, `watchEffect()` may prove more efficient than a deep watcher, as it will only track the properties that are used in the callback, rather than recursively tracking all of them.
+Pro příklady jako jsou tyto, pouze s jednou závislostí, je přínos `watchEffect()` relativně malý. Ale pro watchers, kteří mají závislostí více, odstraňuje použití `watchEffect()` břemeno nutnosti seznam závislostí ručně udržovat. Kromě toho, pokud potřebujete sledovat několik vlastností ve vnořené datové struktuře, `watchEffect()` může být efektivnější než deep watcher, protože bude sledovat pouze vlastnosti, které jsou použity v callback funkci, a nikoliv rekurzivně sledovat všechny, které v objektu existují.
 
 :::tip
-`watchEffect` only tracks dependencies during its **synchronous** execution. When using it with an async callback, only properties accessed before the first `await` tick will be tracked.
+`watchEffect` sleduje závislosti pouze při svém **synchronním** spuštění. Při použití s asynchronní callback funkcí budou sledovány pouze vlastnosti, ke kterým se přistoupilo před prvním výskytem `await`.
 :::
 
 ### `watch` vs. `watchEffect` {#watch-vs-watcheffect}
 
-`watch` and `watchEffect` both allow us to reactively perform side effects. Their main difference is the way they track their reactive dependencies:
+Jak `watch`, tak `watchEffect` nám umožňují reaktivně provádět operace s vedlejšími účinky na data. Jejich hlavním rozdílem je způsob, jakým sledují své reaktivní závislosti:
 
-- `watch` only tracks the explicitly watched source. It won't track anything accessed inside the callback. In addition, the callback only triggers when the source has actually changed. `watch` separates dependency tracking from the side effect, giving us more precise control over when the callback should fire.
+- `watch` sleduje pouze explicitně zadaný zdroj. Nebude sledovat nic, k čemu se přistupuje uvnitř callback funkce. Kromě toho se callback funkce spustí pouze tehdy, když se zdroj skutečně změnil. `watch` odděluje sledování závislostí od vedlejšího efektu, což nám dává přesnější kontrolu nad tím, kdy se má callback funkce spustit.
 
-- `watchEffect`, on the other hand, combines dependency tracking and side effect into one phase. It automatically tracks every reactive property accessed during its synchronous execution. This is more convenient and typically results in terser code, but makes its reactive dependencies less explicit.
+- `watchEffect` na druhou stranu kombinuje sledování závislostí a vedlejší efekt do jedné fáze. Automaticky sleduje každou reaktivní vlastnost, ke které přistupuje během svého synchronního vykonávání. Je to pohodlnější a obvykle to vede ke stručnějšímu kódu, ale jeho reaktivní závislosti jsou méně explicitní.
 
 </div>
 
-## Callback Flush Timing {#callback-flush-timing}
+## Časování provedení callback funkce {#callback-flush-timing}
 
-When you mutate reactive state, it may trigger both Vue component updates and watcher callbacks created by you.
+Když měníte reaktivní stav, může to vyvolat aktualizace Vue komponent a callback funkce u watcherů, které jste vytvořili.
 
-By default, user-created watcher callbacks are called **before** Vue component updates. This means if you attempt to access the DOM inside a watcher callback, the DOM will be in the state before Vue has applied any updates.
+Ve výchozím nastavení jsou uživatelsky vytvořené watcher callback funkce volány **před** aktualizacemi Vue komponent. To znamená, že pokud se pokusíte o přístup k DOM v rámci watcher callback funkce, DOM bude ve stavu před tím, než Vue aplikovalo jakékoliv změny.
 
-If you want to access the DOM in a watcher callback **after** Vue has updated it, you need to specify the `flush: 'post'` option:
+Pokud chcete prostřednictvím watcher callback funkce získat přístup k DOM až **poté**, co jej Vue aktualizuje, musíte zadat volbu `flush: 'post'`:
 
 <div class="options-api">
 
@@ -363,13 +361,13 @@ watchEffect(callback, {
 })
 ```
 
-Post-flush `watchEffect()` also has a convenience alias, `watchPostEffect()`:
+Post-flush `watchEffect()` má také zjednodušující alias `watchPostEffect()`:
 
 ```js
 import { watchPostEffect } from 'vue'
 
 watchPostEffect(() => {
-  /* executed after Vue updates */
+  /* bude vykonáno až po Vue aktualizacích */
 })
 ```
 
@@ -379,7 +377,7 @@ watchPostEffect(() => {
 
 ## `this.$watch()` \* {#this-watch}
 
-It's also possible to imperatively create watchers using the [`$watch()` instance method](/api/component-instance#watch):
+Je také možné bezpodmínečně vytvořit watcher imperativně pomocí [instanční metody `$watch()`](/api/component-instance#watch):
 
 ```js
 export default {
@@ -391,22 +389,22 @@ export default {
 }
 ```
 
-This is useful when you need to conditionally set up a watcher, or only watch something in response to user interaction. It also allows you to stop the watcher early.
+To je užitečné, když potřebujete watcher nastavit podmíněně, nebo sledovat jen něco v reakci na interakci uživatele. Umožňuje také watcher předčasně zastavit.
 
 </div>
 
-## Stopping a Watcher {#stopping-a-watcher}
+## Zastavení watchers {#stopping-a-watcher}
 
 <div class="options-api">
 
-Watchers declared using the `watch` option or the `$watch()` instance method are automatically stopped when the owner component is unmounted, so in most cases you don't need to worry about stopping the watcher yourself.
+Watchers deklarované pomocí volby `watch` nebo instanční metody `$watch()` jsou automaticky zastaveny, když je odpojena komponenta, do které patří, takže se ve většině případů nemusíte o jejich zastavení sami starat.
 
-In the rare case where you need to stop a watcher before the owner component unmounts, the `$watch()` API returns a function for that:
+Pro vzácné případy, kdy potřebujete watcher zastavit předtím, než se komponenta odpojí, pro to API `$watch()` vrací funkci:
 
 ```js
 const unwatch = this.$watch('foo', callback)
 
-// ...when the watcher is no longer needed:
+// ...když už není watcher potřeba:
 unwatch()
 ```
 
@@ -414,42 +412,42 @@ unwatch()
 
 <div class="composition-api">
 
-Watchers declared synchronously inside `setup()` or `<script setup>` are bound to the owner component instance, and will be automatically stopped when the owner component is unmounted. In most cases, you don't need to worry about stopping the watcher yourself.
+Sledovače deklarované synchronně v rámci `setup()` nebo `<script setup>` jsou vázány na instanci komponenty, do které patří, a budou automaticky zastaveny, když je komponenta odpojena. Ve většině případů se nemusíte o jejich zastavení sami starat.
 
-The key here is that the watcher must be created **synchronously**: if the watcher is created in an async callback, it won't be bound to the owner component and must be stopped manually to avoid memory leaks. Here's an example:
+Klíčem je zde to, že watcher musí být vytvořen **synchronně**: pokud je watcher vytvořen v asynchronní callback funkci, nebude vázán na komponentu a musí být zastaven ručně, aby se zabránilo únikům paměti (memory leaks). Zde je příklad:
 
 ```vue
 <script setup>
 import { watchEffect } from 'vue'
 
-// this one will be automatically stopped
+// tento bude automaticky zastaven
 watchEffect(() => {})
 
-// ...this one will not!
+// ...tento nebude!
 setTimeout(() => {
   watchEffect(() => {})
 }, 100)
 </script>
 ```
-
-To manually stop a watcher, use the returned handle function. This works for both `watch` and `watchEffect`:
+¨
+K ručnímu zastavení watcheru použijte vrácenou obslužnou funkci. Funguje to pro `watch` i `watchEffect`:
 
 ```js
 const unwatch = watchEffect(() => {})
 
-// ...later, when no longer needed
+// ...později, když už není watcher potřeba
 unwatch()
 ```
 
-Note that there should be very few cases where you need to create watchers asynchronously, and synchronous creation should be preferred whenever possible. If you need to wait for some async data, you can make your watch logic conditional instead:
+Mějte na paměti, že by mělo být jen velmi málo případů, kdy potřebujete vytvářet watcher asynchronně, a pokud je to možné, měla by se upřednostňovat synchronní tvorba. Pokud potřebujete počkat na některá asynchronní data, můžete místo toho logiku pro watch podmínit:
 
 ```js
-// data to be loaded asynchronously
+// data, která budou načtena asynchronně
 const data = ref(null)
 
 watchEffect(() => {
   if (data.value) {
-    // do something when data is loaded
+    // kód se vykoná až po načtení dat
   }
 })
 ```

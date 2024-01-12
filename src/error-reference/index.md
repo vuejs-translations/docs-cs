@@ -9,22 +9,22 @@ onMounted(() => {
 })
 </script>
 
-# Production Error Code Reference {#error-reference}
+# Reference chybových kódů v produkci {#error-reference}
 
-## Runtime Errors {#runtime-errors}
+## Runtime chyby {#runtime-errors}
 
-In production builds, the 3rd argument passed to the following error handler APIs will be a short code instead of the full information string:
+V produkčním prostředí bude třetí parametr (`info`) zkrácený kód místo kompletního řetězce s informací: 
 
 - [`app.config.errorHandler`](/api/application#app-config-errorhandler)
 - [`onErrorCaptured`](/api/composition-api-lifecycle#onerrorcaptured) (Composition API)
 - [`errorCaptured`](/api/options-lifecycle#errorcaptured) (Options API)
 
-The following table maps the codes to their original full information strings.
+Následující tabulka mapuje kódy na jejich původní plné informační texty.
 
 <ErrorsTable kind="runtime" :errors="data.runtime" :highlight="highlight" />
 
-## Compiler Errors {#compiler-errors}
+## Chyby kompilátoru {#compiler-errors}
 
-The following table provides a mapping of the production compiler error codes to their original messages.
+Následující tabulka poskytuje mapování kódů chyb kompilátoru v produkci na jejich původní texty.
 
 <ErrorsTable kind="compiler" :errors="data.compiler" :highlight="highlight" />

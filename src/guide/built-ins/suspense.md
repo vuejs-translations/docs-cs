@@ -4,39 +4,39 @@ outline: deep
 
 # Suspense {#suspense}
 
-:::warning Experimental Feature
-`<Suspense>` is an experimental feature. It is not guaranteed to reach stable status and the API may change before it does.
+:::warning Experimentální funkce
+`<Suspense>` je experimentální funkce. Není zaručeno, že bude zachována, a API se může změnit dříve, než se stane jeho stabilní součástí.
 :::
 
-`<Suspense>` is a built-in component for orchestrating async dependencies in a component tree. It can render a loading state while waiting for multiple nested async dependencies down the component tree to be resolved.
+`<Suspense>` je vestavěná komponenta pro orchestraci asynchronních závislostí ve stromu komponent. Může vykreslit stav načítání, zatímco čeká na vyřešení několika vnořených asynchronních závislostí.
 
-## Async Dependencies {#async-dependencies}
+## Asynchronní závislosti {#async-dependencies}
 
-To explain the problem `<Suspense>` is trying to solve and how it interacts with these async dependencies, let's imagine a component hierarchy like the following:
+Pro vysvěltení problému, který se `<Suspense>` snaží řešit, a jak interaguje s těmito asynchronními závislostmi, představte si následující hierarchii komponent:
 
 ```
 <Suspense>
 └─ <Dashboard>
    ├─ <Profile>
-   │  └─ <FriendStatus> (component with async setup())
+   │  └─ <FriendStatus> (komponenta s `async setup()`)
    └─ <Content>
-      ├─ <ActivityFeed> (async component)
-      └─ <Stats> (async component)
+      ├─ <ActivityFeed> (`async` komponenta)
+      └─ <Stats> (`async` komponenta)
 ```
 
-In the component tree there are multiple nested components whose rendering depends on some async resource to be resolved first. Without `<Suspense>`, each of them will need to handle its own loading / error and loaded states. In the worst case scenario, we may see three loading spinners on the page, with content displayed at different times.
+Ve stromu komponent je více vnořených komponent, jejichž vykreslování závisí na nějakém asynchronním zdroji, který je třeba vyřešit jako první. Bez `<Suspense>` by každý z nich musel zvládnout zobrazení svého vlastního průběhu načítání a chybových stavů. V krajním případě bycho mohli na stránce vidět tři samostatné indikátory načítání a obsah zobrazený postupně v různých časech.
 
-The `<Suspense>` component gives us the ability to display top-level loading / error states while we wait on these nested async dependencies to be resolved.
+`<Suspense>` nám dává schopnost zobrazit průběh načítání a chybové stavy pouze na nejvyšší úrovni, zatímco čekáme na vyřešení vnořených asynchronních závislostí.
 
-There are two types of async dependencies that `<Suspense>` can wait on:
+Jsou dva typy asynchronních závislostí, na které může `<Suspense>` čekat:
 
-1. Components with an async `setup()` hook. This includes components using `<script setup>` with top-level `await` expressions.
+1. Komponenty s 'async' `setup()` sekcí. K nim patří `<script setup>` komponenty s 'top-level' `await` výrazy.
 
-2. [Async Components](/guide/components/async).
+2. [Asynchronní komponenty](/guide/components/async).
 
 ### `async setup()` {#async-setup}
 
-A Composition API component's `setup()` hook can be async:
+Sekce `setup()` v Composition API může být asynchronní:
 
 ```js
 export default {
@@ -50,7 +50,7 @@ export default {
 }
 ```
 
-If using `<script setup>`, the presence of top-level `await` expressions automatically makes the component an async dependency:
+Při použití `<script setup>` vyrobí přítomnost 'top-level' `await` výrazu z komponenty automaticky asynchronní závislost:
 
 ```vue
 <script setup>
@@ -63,53 +63,53 @@ const posts = await res.json()
 </template>
 ```
 
-### Async Components {#async-components}
+### Asynchronní komponenty {#async-components}
 
-Async components are **"suspensible"** by default. This means that if it has a `<Suspense>` in the parent chain, it will be treated as an async dependency of that `<Suspense>`. In this case, the loading state will be controlled by the `<Suspense>`, and the component's own loading, error, delay and timeout options will be ignored.
+Asynchronní komponenty jsou přirozně **"suspenzovatelné"**. To znamená, že pokud má komponenta `<Suspense>` v rodičovském řetězci, bude s ní zacházeno jako s asynchronní závislostí této `<Suspense>`. V tomto případě bude stav načítání ovládán `<Suspense>` a vlastní nastavení načítání, chyb, zpoždění a časového limitu v komponentě budou ignorovány.
 
-The async component can opt-out of `Suspense` control and let the component always control its own loading state by specifying `suspensible: false` in its options.
+Asynchronní komponenta se může z kontroly nadřazeé `Suspense` vyvázat a kontrolovat svůj vlastní stav načítání pomocí nastavení `suspensible: false` ve vlastnostech komponenty.
 
-## Loading State {#loading-state}
+## Stav načítání {#loading-state}
 
-The `<Suspense>` component has two slots: `#default` and `#fallback`. Both slots only allow for **one** immediate child node. The node in the default slot is shown if possible. If not, the node in the fallback slot will be shown instead.
+Komponenta `<Suspense>` má dva sloty: `#default` a `#fallback`. Oba sloty povolují **pouze jeden** bezprostřední element potomka. Element ve výchozím (default) slotu je zobrazen, pokud je to možné. Poku není, je místo toho zobrazen element v záložním (fallback) slotu.
 
 ```vue-html
 <Suspense>
-  <!-- component with nested async dependencies -->
+  <!-- komponenta s vnořenými async závislostmi -->
   <Dashboard />
 
-  <!-- loading state via #fallback slot -->
+  <!-- stav načítání pomocí #fallback slotu -->
   <template #fallback>
     Loading...
   </template>
 </Suspense>
 ```
 
-On initial render, `<Suspense>` will render its default slot content in memory. If any async dependencies are encountered during the process, it will enter a **pending** state. During the pending state, the fallback content will be displayed. When all encountered async dependencies have been resolved, `<Suspense>` enters a **resolved** state and the resolved default slot content is displayed.
+Při úvodním vykreslení `<Suspense>` zobrazí obsah svého výchozího (default) slotu v paměti. Pokud se během procesu objeví nějaké asynchronní závislosti, přejde se do stavu **pending** (čekající). Během čekaání se zobrazí záložní (fallback) obsah. Poté, co jsou vyřešeny všechny zjištěné asynchronní závislosti, `<Suspense>` přejde do stavu **resolved** (vyřešeno) a zobrazí se konečný obsah výchozího slotu.
 
-If no async dependencies were encountered during the initial render, `<Suspense>` will directly go into a resolved state.
+Pokud se během úvodního vykreslení na žádné asynchronní závislosti nenarazí, `<Suspense>` přejde rovnou do stavu vyřešeno.
 
-Once in a resolved state, `<Suspense>` will only revert to a pending state if the root node of the `#default` slot is replaced. New async dependencies nested deeper in the tree will **not** cause the `<Suspense>` to revert to a pending state.
+Jakmile je ve stavu vyřešeno, `<Suspense>` se vrátí do čekajícího (pending) stavu pouze tehdy, pokud je nahrazen kořenový element `#default` slotu. Nové asynchronní závislosti vnořené hlouběji do stromu **nezpůsobí**, že se `<Suspense>` vrátí do čekajícího stavu.
 
-When a revert happens, fallback content will not be immediately displayed. Instead, `<Suspense>` will display the previous `#default` content while waiting for the new content and its async dependencies to be resolved. This behavior can be configured with the `timeout` prop: `<Suspense>` will switch to fallback content if it takes longer than `timeout` to render the new default content. A `timeout` value of `0` will cause the fallback content to be displayed immediately when default content is replaced.
+Když dojde k aktualizaci, záložní (fallback) obsah se nezobrazí okamžitě. Místo toho `<Suspense>` zobrazí předchozí obsah `#default` slotu, zatímco čeká na vyřešení nového obsahu a jeho asynchronních závislostí. Toto chování lze konfigurovat pomocí vlastnosti `timeout`: `<Suspense>` se na záložní obsah přepne, pokud vykreslení nového výchozího obsahu trvá déle než `timeout`. Hodnota `timeout: 0` způsobí, že se nouzový obsah zobrazí okamžitě po nahrazení výchozího obsahu.
 
-## Events {#events}
+## Události (Events) {#events}
 
-The `<Suspense>` component emits 3 events: `pending`, `resolve` and `fallback`. The `pending` event occurs when entering a pending state. The `resolve` event is emitted when new content has finished resolving in the `default` slot. The `fallback` event is fired when the contents of the `fallback` slot are shown.
+Komponenta `<Suspense>` emituje 3 události: `pending`, `resolve` a `fallback`. Událost `pending` nastává při přechodu do čekajícího (pending) stavu. Událost `resolve` se volá když je dokončeno vyhodnocování nového obsahu v `#default` slotu. Událost `fallback` je emitována v okamžiku zobrazení `#fallback` obsahu.
 
-The events could be used, for example, to show a loading indicator in front of the old DOM while new components are loading.
+Tyto události lze použít například k zobrazení indikátoru načítání před starým obsahem DOM během vykreslování nových komponent.
 
-## Error Handling {#error-handling}
+## Obsluha chyb {#error-handling}
 
-`<Suspense>` currently does not provide error handling via the component itself - however, you can use the [`errorCaptured`](/api/options-lifecycle#errorcaptured) option or the [`onErrorCaptured()`](/api/composition-api-lifecycle#onerrorcaptured) hook to capture and handle async errors in the parent component of `<Suspense>`.
+`<Suspense>` momentálně obsluhu chyb sama o sobě nenabízí - nicméně můžete použít volbu [`errorCaptured`](/api/options-lifecycle#errorcaptured) nebo [`onErrorCaptured()`](/api/composition-api-lifecycle#onerrorcaptured) hook k zachycení a zpracování asynchronních chyb v komponentě nadřazené `<Suspense>`.
 
-## Combining with Other Components {#combining-with-other-components}
+## Kombinace s ostatními komponentami {#combining-with-other-components}
 
-It is common to want to use `<Suspense>` in combination with the [`<Transition>`](./transition) and [`<KeepAlive>`](./keep-alive) components. The nesting order of these components is important to get them all working correctly.
+Je běžné používat `<Suspense>` v kombinaci s [`<Transition>`](./transition) a [`<KeepAlive>`](./keep-alive) komponentami. Pořadí vnoření je důležté, aby všechny fungovaly správně.
 
-In addition, these components are often used in conjunction with the `<RouterView>` component from [Vue Router](https://router.vuejs.org/).
+Dále jsou tyto komponenty často používány ve spojení s `<RouterView>` komponentou z [Vue Router](https://router.vuejs.org/).
 
-The following example shows how to nest these components so that they all behave as expected. For simpler combinations you can remove the components that you don't need:
+Následující příklad ukazuje, jak tyto komponenty správně vnořit, aby se všechny chovaly podle očekávání. Pro jednodušší kombinace můžete odebrat části, které nepotřebujete:
 
 ```vue-html
 <RouterView v-slot="{ Component }">
@@ -117,10 +117,10 @@ The following example shows how to nest these components so that they all behave
     <Transition mode="out-in">
       <KeepAlive>
         <Suspense>
-          <!-- main content -->
+          <!-- hlavní obsah -->
           <component :is="Component"></component>
 
-          <!-- loading state -->
+          <!-- stav načítání -->
           <template #fallback>
             Loading...
           </template>
@@ -131,4 +131,4 @@ The following example shows how to nest these components so that they all behave
 </RouterView>
 ```
 
-Vue Router has built-in support for [lazily loading components](https://router.vuejs.org/guide/advanced/lazy-loading.html) using dynamic imports. These are distinct from async components and currently they will not trigger `<Suspense>`. However, they can still have async components as descendants and those can trigger `<Suspense>` in the usual way.
+Vue Router má vestavěnou podporu pro ["lazy" načítání komponent](https://router.vuejs.org/guide/advanced/lazy-loading.html) pomocí dynamických importů. Ty se od asynchronních komponent liší a v současnosti na ně `<Suspense>` nereaguje. Stále však mohou mít další asynchronní komponenty jako potomky a ty mohou `<Suspense>` vyvolat obvyklým způsobem.

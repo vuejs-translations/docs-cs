@@ -32,9 +32,9 @@ function shuffle(array) {
 
 <template>
   <div class="demo">
-    <button @click="add">Add</button>
-    <button @click="remove">Remove</button>
-    <button @click="shuffle(items)">Shuffle</button>
+    <button @click="add">Přidat</button>
+    <button @click="remove">Odebrat</button>
+    <button @click="shuffle(items)">Zamíchat</button>
     <TransitionGroup name="list2" tag="ul" style="margin-top: 20px">
       <li class="list-item" v-for="item in items" :key="item">
         {{ item }}

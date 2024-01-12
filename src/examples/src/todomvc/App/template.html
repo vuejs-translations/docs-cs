@@ -1,10 +1,10 @@
 <section class="todoapp">
   <header class="header">
-    <h1>todos</h1>
+    <h1>TODO</h1>
     <input
       class="new-todo"
       autofocus
-      placeholder="What needs to be done?"
+      placeholder="Co je třeba udělat?"
       @keyup.enter="addTodo"
     >
   </header>
@@ -16,7 +16,7 @@
       :checked="remaining === 0"
       @change="toggleAll"
     >
-    <label for="toggle-all">Mark all as complete</label>
+    <label for="toggle-all">Označit vše jako vyřešené</label>
     <ul class="todo-list">
       <li
         v-for="todo in filteredTodos"
@@ -45,21 +45,23 @@
   <footer class="footer" v-show="todos.length">
     <span class="todo-count">
       <strong>{{ remaining }}</strong>
-      <span>{{ remaining === 1 ? ' item' : ' items' }} left</span>
+      <span>
+        {{ remaining === 1 ? ' úkol zbývá' : remaining < 5 ? ' úkoly zbývají' : ' úkolů zbývá' }}
+      </span>
     </span>
     <ul class="filters">
       <li>
-        <a href="#/all" :class="{ selected: visibility === 'all' }">All</a>
+        <a href="#/all" :class="{ selected: visibility === 'all' }">Všechny</a>
       </li>
       <li>
-        <a href="#/active" :class="{ selected: visibility === 'active' }">Active</a>
+        <a href="#/active" :class="{ selected: visibility === 'active' }">Aktivní</a>
       </li>
       <li>
-        <a href="#/completed" :class="{ selected: visibility === 'completed' }">Completed</a>
+        <a href="#/completed" :class="{ selected: visibility === 'completed' }">Vyřešené</a>
       </li>
     </ul>
     <button class="clear-completed" @click="removeCompleted" v-show="todos.length > remaining">
-      Clear completed
+      Odstranit vyřešené
     </button>
   </footer>
 </section>

@@ -1,16 +1,16 @@
-# Computed Properties {#computed-properties}
+# Computed proměnné {#computed-properties}
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/computed-properties-in-vue-3" title="Free Vue.js Computed Properties Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/computed-properties-in-vue-3" title="Lekce o Vue.js computed proměnných zdarma"/>
 </div>
 
 <div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-computed-properties-in-vue-with-the-composition-api" title="Free Vue.js Computed Properties Lesson"/>
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-computed-properties-in-vue-with-the-composition-api" title="Lekce o Vue.js computed proměnných zdarma"/>
 </div>
 
-## Basic Example {#basic-example}
+## Jednoduchý příklad {#basic-example}
 
-In-template expressions are very convenient, but they are meant for simple operations. Putting too much logic in your templates can make them bloated and hard to maintain. For example, if we have an object with a nested array:
+Výrazy přímo v šabloně jsou velmi pohodlné, ale jsou určeny pouze pro jednoduché operace. Příliš mnoho logiky vložené do vašich šablon může způsobit, že budou přeplácané a obtížně udržovatelné. Například, pokud máme objekt s vnořeným polem:
 
 <div class="options-api">
 
@@ -19,11 +19,11 @@ export default {
   data() {
     return {
       author: {
-        name: 'John Doe',
+        name: 'sk',
         books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
+          'Vue 2 - Pokročilý průvodce',
+          'Vue 3 - Základní průvodce',
+          'Vue 4 - Tajemství'
         ]
       }
     }
@@ -36,27 +36,27 @@ export default {
 
 ```js
 const author = reactive({
-  name: 'John Doe',
+  name: 'Jan Novák',
   books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
+    'Vue 2 - Pokročilý průvodce',
+    'Vue 3 - Základní průvodce',
+    'Vue 4 - Tajemství'
   ]
 })
 ```
 
 </div>
 
-And we want to display different messages depending on if `author` already has some books or not:
+A chceme zobrazovat různé texty v závislosti na tom, zda `author` napsal nebo nenapsal nějaké knihy:
 
 ```vue-html
-<p>Has published books:</p>
-<span>{{ author.books.length > 0 ? 'Yes' : 'No' }}</span>
+<p>Již publikoval knihu:</p>
+<span>{{ author.books.length > 0 ? 'Ano' : 'Ne' }}</span>
 ```
 
-At this point, the template is getting a bit cluttered. We have to look at it for a second before realizing that it performs a calculation depending on `author.books`. More importantly, we probably don't want to repeat ourselves if we need to include this calculation in the template more than once.
+V tuto chvíli začíná být šablona trochu nepřehledná. Musíme se na ni chvíli podívat, než si uvědomíme, že provádí výpočet v závislosti na `author.books`. Ještě důležitější je, že se asi nechceme opakovat, pokud potřebujeme tento výpočet zahrnout do šablony vícekrát.
 
-That's why for complex logic that includes reactive data, it is recommended to use a **computed property**. Here's the same example, refactored:
+Proto se pro komplexní logiku, která zahrnuje reaktivní data, doporučuje použít **computed proměnnou**. Zde je stejný příklad po úpravě:
 
 <div class="options-api">
 
@@ -65,39 +65,39 @@ export default {
   data() {
     return {
       author: {
-        name: 'John Doe',
+        name: 'Jan Novák',
         books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
+          'Vue 2 - Pokročilý průvodce',
+          'Vue 3 - Základní průvodce',
+          'Vue 4 - Tajemství'
         ]
       }
     }
   },
   computed: {
-    // a computed getter
+    // getter computed proměnné
     publishedBooksMessage() {
-      // `this` points to the component instance
-      return this.author.books.length > 0 ? 'Yes' : 'No'
+      // `this` odkazuje na instanci komponenty
+      return this.author.books.length > 0 ? 'Ano' : 'Ne'
     }
   }
 }
 ```
 
 ```vue-html
-<p>Has published books:</p>
+<p>Již publikoval knihu:</p>
 <span>{{ publishedBooksMessage }}</span>
 ```
 
-[Try it in the Playground](https://play.vuejs.org/#eNqFkN1KxDAQhV/l0JsqaFfUq1IquwiKsF6JINaLbDNui20S8rO4lL676c82eCFCIDOZMzkzXxetlUoOjqI0ykypa2XzQtC3ktqC0ydzjUVXCIAzy87OpxjQZJ0WpwxgzlZSp+EBEKylFPGTrATuJcUXobST8sukeA8vQPzqCNe4xJofmCiJ48HV/FfbLLrxog0zdfmn4tYrXirC9mgs6WMcBB+nsJ+C8erHH0rZKmeJL0sot2tqUxHfDONuyRi2p4BggWCr2iQTgGTcLGlI7G2FHFe4Q/xGJoYn8SznQSbTQviTrRboPrHUqoZZ8hmQqfyRmTDFTC1bqalsFBN5183o/3NG33uvoWUwXYyi/gdTEpwK)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNqFkN1KxDAQhV/l0JsqaFfUq1IquwiKsF6JINaLbDNui20S8rO4lL676c82eCFCIDOZMzkzXxetlUoOjqI0ykypa2XzQtC3ktqC0ydzjUVXCIAzy87OpxjQZJ0WpwxgzlZSp+EBEKylFPGTrATuJcUXobST8sukeA8vQPzqCNe4xJofmCiJ48HV/FfbLLrxog0zdfmn4tYrXirC9mgs6WMcBB+nsJ+C8erHH0rZKmeJL0sot2tqUxHfDONuyRi2p4BggWCr2iQTgGTcLGlI7G2FHFe4Q/xGJoYn8SznQSbTQviTrRboPrHUqoZZ8hmQqfyRmTDFTC1bqalsFBN5183o/3NG33uvoWUwXYyi/gdTEpwK)
 
-Here we have declared a computed property `publishedBooksMessage`.
+Deklarovali jsme computed proměnnou `publishedBooksMessage`.
 
-Try to change the value of the `books` array in the application `data` and you will see how `publishedBooksMessage` is changing accordingly.
+Zkuste změnit hodnotu pole `books` v aplikačním objektu `data` a uvidíte, jak se `publishedBooksMessage` odpovídajícím způsobem změní.
 
-You can data-bind to computed properties in templates just like a normal property. Vue is aware that `this.publishedBooksMessage` depends on `this.author.books`, so it will update any bindings that depend on `this.publishedBooksMessage` when `this.author.books` changes.
+Binding computed proměnných v šablonách můžete provést stejně stejně jako u normálních proměnných. Vue si je vědomo, že `this.publishedBooksMessage` závisí na `this.author.books`, takže když se změní `this.author.books`, aktualizuje všude všechny reference na `this.publishedBooksMessage`.
 
-See also: [Typing Computed Properties](/guide/typescript/options-api#typing-computed-properties) <sup class="vt-badge ts" />
+Viz také: [Typování Computed proměnných](/guide/typescript/options-api#typing-computed-properties) <sup class="vt-badge ts" />
 
 </div>
 
@@ -108,39 +108,39 @@ See also: [Typing Computed Properties](/guide/typescript/options-api#typing-comp
 import { reactive, computed } from 'vue'
 
 const author = reactive({
-  name: 'John Doe',
+  name: 'Jan Novák',
   books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
+    'Vue 2 - Pokročilý průvodce',
+    'Vue 3 - Základní průvodce',
+    'Vue 4 - Tajemství'
   ]
 })
 
-// a computed ref
+// computed ref objekt
 const publishedBooksMessage = computed(() => {
-  return author.books.length > 0 ? 'Yes' : 'No'
+  return author.books.length > 0 ? 'Ano' : 'Ne'
 })
 </script>
 
 <template>
-  <p>Has published books:</p>
+  <p>Již publikoval knihu:</p>
   <span>{{ publishedBooksMessage }}</span>
 </template>
 ```
 
-[Try it in the Playground](https://play.vuejs.org/#eNp1kE9Lw0AQxb/KI5dtoTainkoaaREUoZ5EEONhm0ybYLO77J9CCfnuzta0vdjbzr6Zeb95XbIwZroPlMySzJW2MR6OfDB5oZrWaOvRwZIsfbOnCUrdmuCpQo+N1S0ET4pCFarUynnI4GttMT9PjLpCAUq2NIN41bXCkyYxiZ9rrX/cDF/xDYiPQLjDDRbVXqqSHZ5DUw2tg3zP8lK6pvxHe2DtvSasDs6TPTAT8F2ofhzh0hTygm5pc+I1Yb1rXE3VMsKsyDm5JcY/9Y5GY8xzHI+wnIpVw4nTI/10R2rra+S4xSPEJzkBvvNNs310ztK/RDlLLjy1Zic9cQVkJn+R7gIwxJGlMXiWnZEq77orhH3Pq2NH9DjvTfpfSBSbmA==)
+[Vyzkoušejte si to](https://play.vuejs.org/#eNp1kE9Lw0AQxb/KI5dtoTainkoaaREUoZ5EEONhm0ybYLO77J9CCfnuzta0vdjbzr6Zeb95XbIwZroPlMySzJW2MR6OfDB5oZrWaOvRwZIsfbOnCUrdmuCpQo+N1S0ET4pCFarUynnI4GttMT9PjLpCAUq2NIN41bXCkyYxiZ9rrX/cDF/xDYiPQLjDDRbVXqqSHZ5DUw2tg3zP8lK6pvxHe2DtvSasDs6TPTAT8F2ofhzh0hTygm5pc+I1Yb1rXE3VMsKsyDm5JcY/9Y5GY8xzHI+wnIpVw4nTI/10R2rra+S4xSPEJzkBvvNNs310ztK/RDlLLjy1Zic9cQVkJn+R7gIwxJGlMXiWnZEq77orhH3Pq2NH9DjvTfpfSBSbmA==)
 
-Here we have declared a computed property `publishedBooksMessage`. The `computed()` function expects to be passed a getter function, and the returned value is a **computed ref**. Similar to normal refs, you can access the computed result as `publishedBooksMessage.value`. Computed refs are also auto-unwrapped in templates so you can reference them without `.value` in template expressions.
+Zde jsme deklarovali computed proměnnou `publishedBooksMessage`. Funkce `computed()` očekává, že jí bude předán getter, a vrácená hodnota je **computed ref**. Podobně jako u normálních refs můžete k vypočítanému výsledku přistupovat jako `publishedBooksMessage.value`. Computed refs jsou také v šablonách automaticky rozbaleny, takže na ně můžete ve výrazech v šablonách odkazovat bez `.value`.
 
-A computed property automatically tracks its reactive dependencies. Vue is aware that the computation of `publishedBooksMessage` depends on `author.books`, so it will update any bindings that depend on `publishedBooksMessage` when `author.books` changes.
+Computed proměnná automaticky sleduje své reaktivní závislosti. Vue si je vědomo, že `publishedBooksMessage` závisí na `author.books`, takže když se změní `author.books`, aktualizuje všude všechny reference na `publishedBooksMessage`.
 
-See also: [Typing Computed](/guide/typescript/composition-api#typing-computed) <sup class="vt-badge ts" />
+Viz také: [Typování Computed](/guide/typescript/composition-api#typing-computed) <sup class="vt-badge ts" />
 
 </div>
 
-## Computed Caching vs. Methods {#computed-caching-vs-methods}
+## Computed caching vs. funkce {#computed-caching-vs-methods}
 
-You may have noticed we can achieve the same result by invoking a method in the expression:
+Možná jste si všimli, že stejného výsledku můžeme dosáhnout zavoláním funkce ve výrazu šablony:
 
 ```vue-html
 <p>{{ calculateBooksMessage() }}</p>
@@ -149,10 +149,10 @@ You may have noticed we can achieve the same result by invoking a method in the 
 <div class="options-api">
 
 ```js
-// in component
+// v komponentě
 methods: {
   calculateBooksMessage() {
-    return this.author.books.length > 0 ? 'Yes' : 'No'
+    return this.author.books.length > 0 ? 'Ano' : 'Ne'
   }
 }
 ```
@@ -162,17 +162,17 @@ methods: {
 <div class="composition-api">
 
 ```js
-// in component
+// v komponentě
 function calculateBooksMessage() {
-  return author.books.length > 0 ? 'Yes' : 'No'
+  return author.books.length > 0 ? 'Ano' : 'Ne'
 }
 ```
 
 </div>
 
-Instead of a computed property, we can define the same function as a method. For the end result, the two approaches are indeed exactly the same. However, the difference is that **computed properties are cached based on their reactive dependencies.** A computed property will only re-evaluate when some of its reactive dependencies have changed. This means as long as `author.books` has not changed, multiple access to `publishedBooksMessage` will immediately return the previously computed result without having to run the getter function again.
+Místo computed proměnné můžeme stejnou logiku definovat jako funkci. Pro konečný výsledek jsou oba přístupy skutečně naprosto stejné. Rozdíl je však v tom, že **computed proměnné se na základě jejich reaktivních závislostí ukládají do mezipaměti**. Computed proměnná se přehodnotí pouze tehdy, když se změní některé její reaktivní závislosti. To znamená, že pokud se `author.books` nezmění, vícenásobný přístup k `publishedBooksMessage` okamžitě vrátí dříve vypočítaný výsledek, aniž by bylo nutné znovu spouštět getter funkci.
 
-This also means the following computed property will never update, because `Date.now()` is not a reactive dependency:
+To také znamená, že následující computed proměnná se neaktualizuje nikdy, protože `Date.now()` není reaktivní závislost:
 
 <div class="options-api">
 
@@ -194,13 +194,13 @@ const now = computed(() => Date.now())
 
 </div>
 
-In comparison, a method invocation will **always** run the function whenever a re-render happens.
+Ve srovnání s tím vyvolání funkce **vždy** spustí funkci, kdykoli dojde k opětovnému vykreslení.
 
-Why do we need caching? Imagine we have an expensive computed property `list`, which requires looping through a huge array and doing a lot of computations. Then we may have other computed properties that in turn depend on `list`. Without caching, we would be executing `list`’s getter many more times than necessary! In cases where you do not want caching, use a method call instead.
+Proč caching potřebujeme? Představte si, že máme složitě získávanou proměnnou `list`, která vyžaduje procházení obrovského pole a spoustu výpočtů. Pak můžeme mít další computed proměnné, které na `list` závisí. Bez ukládání do mezipaměti bychom spouštěli getter pro `list` mnohem častěji, než je nutné! V případech, kdy caching nechcete, použijte místo toho volání funkce.
 
-## Writable Computed {#writable-computed}
+## Computed proměnná, kterou lze měnit {#writable-computed}
 
-Computed properties are by default getter-only. If you attempt to assign a new value to a computed property, you will receive a runtime warning. In the rare cases where you need a "writable" computed property, you can create one by providing both a getter and a setter:
+Computed proměnné jsou ve výchozím nastavení pouze pro čtení. Pokud se pokusíte přiřadit do computed proměnné novou hodnotu, dostanete runtime warning. Ve vzácných případech, kdy „zapisovatelnou“ computed proměnnou potřebujete, můžete ji vytvořit tak, aby poskytovala getter i setter:
 
 <div class="options-api">
 
@@ -220,7 +220,7 @@ export default {
       },
       // setter
       set(newValue) {
-        // Note: we are using destructuring assignment syntax here.
+        // poznámka: zde používáme "destructuring assignment" syntaxi
         [this.firstName, this.lastName] = newValue.split(' ')
       }
     }
@@ -228,7 +228,7 @@ export default {
 }
 ```
 
-Now when you run `this.fullName = 'John Doe'`, the setter will be invoked and `this.firstName` and `this.lastName` will be updated accordingly.
+Když teď zadáte `this.fullName = 'Jan Novák'`, zavolá se setter a `this.firstName` a `this.lastName` budou odpovídajícím způsobem aktualizovány.
 
 </div>
 
@@ -248,23 +248,23 @@ const fullName = computed({
   },
   // setter
   set(newValue) {
-    // Note: we are using destructuring assignment syntax here.
+    // poznámka: zde používáme "destructuring assignment" syntaxi
     [firstName.value, lastName.value] = newValue.split(' ')
   }
 })
 </script>
 ```
 
-Now when you run `fullName.value = 'John Doe'`, the setter will be invoked and `firstName` and `lastName` will be updated accordingly.
+Když teď zadáte `this.fullName = 'Jan Novák'`, zavolá se setter a `this.firstName` a `this.lastName` budou odpovídajícím způsobem aktualizovány.
 
 </div>
 
-## Best Practices {#best-practices}
+## Osvěčené postupy {#best-practices}
 
-### Getters should be side-effect free {#getters-should-be-side-effect-free}
+### Getter funkce by neměly mít vedlejší účinky {#getters-should-be-side-effect-free}
 
-It is important to remember that computed getter functions should only perform pure computation and be free of side effects. For example, **don't mutate other state, make async requests, or mutate the DOM inside a computed getter!** Think of a computed property as declaratively describing how to derive a value based on other values - its only responsibility should be computing and returning that value. Later in the guide we will discuss how we can perform side effects in reaction to state changes with [watchers](./watchers).
+Je důležité si zapamatovat, že getter funkce pro computed proměnné by měly provádět pouze čisté výpočty a neměly by mít vedlejší účinky. Například **uvnitř computed getter funkce neměňte jiný stav, nevytvářejte asynchronní volání, ani neměňte DOM**! Představte si computed proměnnou jako deklarativní popis, jak odvodit hodnotu na základě jiných hodnot – její jedinou odpovědností by měl být výpočet a návrat této hodnoty. Později v příručce probereme, jak můžeme vedlejší účinky v reakci na změny stavu provádět pomocí [watchers](./watchers).
 
-### Avoid mutating computed value {#avoid-mutating-computed-value}
+### Vyhněte se změnám vypočítané hodnoty {#avoid-mutating-computed-value}
 
-The returned value from a computed property is derived state. Think of it as a temporary snapshot - every time the source state changes, a new snapshot is created. It does not make sense to mutate a snapshot, so a computed return value should be treated as read-only and never be mutated - instead, update the source state it depends on to trigger new computations.
+Vrácená hodnota computed proměnné je odvozený stav. Berte to jako dočasný otisk (snapshot) – pokaždé, když se změní stav zdroje, vytvoří se nový snímek. Měnit obraz nedává smysl, takže vypočítaná návratová hodnota by měla být obsluhována jako read-only a nikdy by neměla být měněna – místo toho aktualizujte stav zdroje, na kterém závisí, což vyvolá nový výpočet.

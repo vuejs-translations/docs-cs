@@ -1,18 +1,18 @@
 # Provide / Inject {#provide-inject}
 
-> This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
+> Tato stránka předpokládá, že už jste četli [Základy komponent](/guide/essentials/component-basics). Pokud jsou pro vás komponenty nové, přečtěte si je jako první.
 
-## Prop Drilling {#prop-drilling}
+## Drilling vlastností {#prop-drilling}
 
-Usually, when we need to pass data from the parent to a child component, we use [props](/guide/components/props). However, imagine the case where we have a large component tree, and a deeply nested component needs something from a distant ancestor component. With only props, we would have to pass the same prop across the entire parent chain:
+Pokud potřebujeme předat data z nadřazené komponenty podřazené komponentě, použijeme obvykle [vlastnosti (props)](/guide/components/props). Představte si však případ, kdy máme rozsáhlý strom komponent a hluboko vnořená komponenta potřebuje něco ze komponenty vzdáleného předka. Pokud bychom používali pouze vlastnosti, museli bychom předávat stejnou vlastnost napříč celým řetězcem rodičů:
 
 ![prop drilling diagram](./images/prop-drilling.png)
 
 <!-- https://www.figma.com/file/yNDTtReM2xVgjcGVRzChss/prop-drilling -->
 
-Notice although the `<Footer>` component may not care about these props at all, it still needs to declare and pass them along just so `<DeepChild>` can access them. If there is a longer parent chain, more components would be affected along the way. This is called "props drilling" and definitely isn't fun to deal with.
+Všimněte si, že ačkoli komponentu `<Footer>` tyto vlastnosti možná vůbec nezajímají, musí je deklarovat a předat dál, aby k nim komponenta `<DeepChild>` měla přístup. Pokud by existoval delší rodičovský řetězec, ovlivnilo by to po cestě ještě více komponent. Tomu se říká "props drilling" a rozhodně není zábavné se s tím potýkat.
 
-We can solve props drilling with `provide` and `inject`. A parent component can serve as a **dependency provider** for all its descendants. Any component in the descendant tree, regardless of how deep it is, can **inject** dependencies provided by components up in its parent chain.
+Drilling vlastností můžeme řešit pomocí `provide` a `inject`. Komponenta rodiče může sloužit jako **poskytovatel závislostí (dependency provider)** pro všechny své potomky. Jakákoliv komponenta ve stromu potomků, bezohledu na hloubku jejího zanoření, může **implementovat (inject)** závislosti poskytované komponentami v rodčovském řetězci.
 
 ![Provide/inject scheme](./images/provide-inject.png)
 
@@ -22,31 +22,31 @@ We can solve props drilling with `provide` and `inject`. A parent component can 
 
 <div class="composition-api">
 
-To provide data to a component's descendants, use the [`provide()`](/api/composition-api-dependency-injection#provide) function:
+Pro poskytnutí dat komponentám potomků použijte funkci [`provide()`](/api/composition-api-dependency-injection#provide) function:
 
 ```vue
 <script setup>
 import { provide } from 'vue'
 
-provide(/* key */ 'message', /* value */ 'hello!')
+provide(/* klíč */ 'message', /* hodnota */ 'Ahoj!')
 </script>
 ```
 
-If not using `<script setup>`, make sure `provide()` is called synchronously inside `setup()`:
+Pokud nepoužíváte `<script setup>`, ujistetě se, že je `provide()` voláno synchronně uvnitř `setup()` funkce:
 
 ```js
 import { provide } from 'vue'
 
 export default {
   setup() {
-    provide(/* key */ 'message', /* value */ 'hello!')
+    provide(/* klíč */ 'message', /* hodnota */ 'Ahoj!')
   }
 }
 ```
 
-The `provide()` function accepts two arguments. The first argument is called the **injection key**, which can be a string or a `Symbol`. The injection key is used by descendant components to lookup the desired value to inject. A single component can call `provide()` multiple times with different injection keys to provide different values.
+Funkce `provide()` přijímá dva parametry. První parametr se nazává **injection key**, což může být string nebo `Symbol`. Injection key je použit v komponentně potomka k vyhledání hodnoty, která má být implementována. Jedna komponenta může volat `provide()` vícekrát s různými injection keys pro poskytnutí různých hodnot.
 
-The second argument is the provided value. The value can be of any type, including reactive state such as refs:
+Druhý parametr je poskytovaná hodnota. Hodnota může být jakéhokoliv typu vč. reaktivního stavu jako jsou refs:
 
 ```js
 import { ref, provide } from 'vue'
@@ -55,35 +55,35 @@ const count = ref(0)
 provide('key', count)
 ```
 
-Providing reactive values allows the descendant components using the provided value to establish a reactive connection to the provider component.
+Poskytnutí reaktivních hodnot umožňuje komponentám potomků, které poskytnutou hodnotu používají, navázat reaktivní spojení s komponentou zprostředkovatele.
 
 </div>
 
 <div class="options-api">
 
-To provide data to a component's descendants, use the [`provide`](/api/options-composition#provide) option:
+Pro poskytnutí dat komponentám potomků použijte sekci [`provide`](/api/options-composition#provide):
 
 ```js
 export default {
   provide: {
-    message: 'hello!'
+    message: 'Ahoj!'
   }
 }
 ```
 
-For each property in the `provide` object, the key is used by child components to locate the correct value to inject, while the value is what ends up being injected.
+Pro každou proměnnou objektu `provide`, je klíč použit v komponentě potomka k lokalizaci správné hodnoty pro inject, zatímco hodnota je to, co bude implementováno.
 
-If we need to provide per-instance state, for example data declared via the `data()`, then `provide` must use a function value:
+Pokud potřebujeme poskytovat stav konkrétní instance, například data deklarovaná pomocí `data()`, pak je třeba použít `provide` ve tvaru funkce:
 
 ```js{7-12}
 export default {
   data() {
     return {
-      message: 'hello!'
+      message: 'Ahoj!'
     }
   },
   provide() {
-    // use function syntax so that we can access `this`
+    // použijeme syntaxi funkce, abychom mohli přistoupit k `this`
     return {
       message: this.message
     }
@@ -91,29 +91,29 @@ export default {
 }
 ```
 
-However, do note this does **not** make the injection reactive. We will discuss [making injections reactive](#working-with-reactivity) below.
+Vemte ovšem na vědomí, že toto **nezajistí** reaktivitu implementace. Jak [udělat injection reaktivní](#working-with-reactivity) se budeme bavit později.
 
 </div>
 
-## App-level Provide {#app-level-provide}
+## Provide na úrovni aplikace {#app-level-provide}
 
-In addition to providing data in a component, we can also provide at the app level:
+Kromě poskytování dat v komponentě můžeme data poskytovat také na úrovni celé aplikace:
 
 ```js
 import { createApp } from 'vue'
 
 const app = createApp({})
 
-app.provide(/* key */ 'message', /* value */ 'hello!')
+app.provide(/* klíč */ 'message', /* hodnota */ 'Ahoj!')
 ```
 
-App-level provides are available to all components rendered in the app. This is especially useful when writing [plugins](/guide/reusability/plugins), as plugins typically wouldn't be able to provide values using components.
+Provide na úrovni aplikace je k dispozici všem komponentám vykresleným v aplikaci. To je obzvláště užitečné při psaní [pluginů](/guide/reusability/plugins), protože pluginy obvykle nejsou schopny poskytovat hodnoty pomocí komponent.
 
 ## Inject {#inject}
 
 <div class="composition-api">
 
-To inject data provided by an ancestor component, use the [`inject()`](/api/composition-api-dependency-injection#inject) function:
+Pro implementaci dat poskytnutých komponentou předka použijte funkci [`inject()`](/api/composition-api-dependency-injection#inject) function:
 
 ```vue
 <script setup>
@@ -123,11 +123,11 @@ const message = inject('message')
 </script>
 ```
 
-If the provided value is a ref, it will be injected as-is and will **not** be automatically unwrapped. This allows the injector component to retain the reactivity connection to the provider component.
+Pokud je poskytovaná hodnota ref, bude jako ref implementována a **nebude** automaticky rozbalena. To umožňuje komponentě, která implementuje, zachovat reaktivitu spojení s komponentou, která data poskytuje.
 
-[Full provide + inject Example with Reactivity](https://play.vuejs.org/#eNqFUUFugzAQ/MrKF1IpxfeIVKp66Kk/8MWFDXYFtmUbpArx967BhURRU9/WOzO7MzuxV+fKcUB2YlWovXYRAsbBvQije2d9hAk8Xo7gvB11gzDDxdseCuIUG+ZN6a7JjZIvVRIlgDCcw+d3pmvTglz1okJ499I0C3qB1dJQT9YRooVaSdNiACWdQ5OICj2WwtTWhAg9hiBbhHNSOxQKu84WT8LkNQ9FBhTHXyg1K75aJHNUROxdJyNSBVBp44YI43NvG+zOgmWWYGt7dcipqPhGZEe2ef07wN3lltD+lWN6tNkV/37+rdKjK2rzhRTt7f3u41xhe37/xJZGAL2PLECXa9NKdD/a6QTTtGnP88LgiXJtYv4BaLHhvg==)
+[Kompletní provide/inject příklad vč. reaktivity](https://play.vuejs.org/#eNqFUUFugzAQ/MrKF1IpxfeIVKp66Kk/8MWFDXYFtmUbpArx967BhURRU9/WOzO7MzuxV+fKcUB2YlWovXYRAsbBvQije2d9hAk8Xo7gvB11gzDDxdseCuIUG+ZN6a7JjZIvVRIlgDCcw+d3pmvTglz1okJ499I0C3qB1dJQT9YRooVaSdNiACWdQ5OICj2WwtTWhAg9hiBbhHNSOxQKu84WT8LkNQ9FBhTHXyg1K75aJHNUROxdJyNSBVBp44YI43NvG+zOgmWWYGt7dcipqPhGZEe2ef07wN3lltD+lWN6tNkV/37+rdKjK2rzhRTt7f3u41xhe37/xJZGAL2PLECXa9NKdD/a6QTTtGnP88LgiXJtYv4BaLHhvg==)
 
-Again, if not using `<script setup>`, `inject()` should only be called synchronously inside `setup()`:
+Opět, pokud nepoužíváte `<script setup>`, `inject()` lze volat pouze synchronně uvnitř `setup()`:
 
 ```js
 import { inject } from 'vue'
@@ -144,74 +144,74 @@ export default {
 
 <div class="options-api">
 
-To inject data provided by an ancestor component, use the [`inject`](/api/options-composition#inject) option:
+Pro implementaci dat poskytnutých komponentou předka použijte sekci [`inject`](/api/options-composition#inject):
 
 ```js
 export default {
   inject: ['message'],
   created() {
-    console.log(this.message) // injected value
+    console.log(this.message) // implementovaná hodnota
   }
 }
 ```
 
-Injections are resolved **before** the component's own state, so you can access injected properties in `data()`:
+Implementace jsou vyhodnoceny **dříve** než vlastní stav komponenty, takže lze na implementované hodnoty přistupovat v sekci `data()`:
 
 ```js
 export default {
   inject: ['message'],
   data() {
     return {
-      // initial data based on injected value
+      // výchozí data založená na implementované hodnotě
       fullMessage: this.message
     }
   }
 }
 ```
 
-[Full provide + inject example](https://play.vuejs.org/#eNqNkcFqwzAQRH9l0EUthOhuRKH00FO/oO7B2JtERZaEvA4F43+vZCdOTAIJCImRdpi32kG8h7A99iQKobs6msBvpTNt8JHxcTC2wS76FnKrJpVLZelKR39TSUO7qreMoXRA7ZPPkeOuwHByj5v8EqI/moZeXudCIBL30Z0V0FLXVXsqIA9krU8R+XbMR9rS0mqhS4KpDbZiSgrQc5JKQqvlRWzEQnyvuc9YuWbd4eXq+TZn0IvzOeKr8FvsNcaK/R6Ocb9Uc4FvefpE+fMwP0wH8DU7wB77nIo6x6a2hvNEME5D0CpbrjnHf+8excI=)
+[Kompletní provide/inject příklad](https://play.vuejs.org/#eNqNkcFqwzAQRH9l0EUthOhuRKH00FO/oO7B2JtERZaEvA4F43+vZCdOTAIJCImRdpi32kG8h7A99iQKobs6msBvpTNt8JHxcTC2wS76FnKrJpVLZelKR39TSUO7qreMoXRA7ZPPkeOuwHByj5v8EqI/moZeXudCIBL30Z0V0FLXVXsqIA9krU8R+XbMR9rS0mqhS4KpDbZiSgrQc5JKQqvlRWzEQnyvuc9YuWbd4eXq+TZn0IvzOeKr8FvsNcaK/R6Ocb9Uc4FvefpE+fMwP0wH8DU7wB77nIo6x6a2hvNEME5D0CpbrjnHf+8excI=)
 
-### Injection Aliasing \* {#injection-aliasing}
+### Injection aliasing \* {#injection-aliasing}
 
-When using the array syntax for `inject`, the injected properties are exposed on the component instance using the same key. In the example above, the property was provided under the key `"message"`, and injected as `this.message`. The local key is the same as the injection key.
+Pokud je pro `inject` použita syntaxe pole, jsou implementované vlastnosti vystaveny na instanci komponenty pomocí stejného klíče. Ve výše uvedeném příkladu byla vlastnost poskytnuta pod klíčem `"message"` a implementováína jako `this.message`. Lokální klíč je stejný jako injection key.
 
-If we want to inject the property using a different local key, we need to use the object syntax for the `inject` option:
+Pokud chceme implementovat vlastnost pomocí jiného lokálního klíče, musíme pro volbu `inject` použít objektovou syntaxi:
 
 ```js
 export default {
   inject: {
-    /* local key */ localMessage: {
+    /* lokální klíč */ localMessage: {
       from: /* injection key */ 'message'
     }
   }
 }
 ```
 
-Here, the component will locate a property provided with the key `"message"`, and then expose it as `this.localMessage`.
+V tomto případě nalezne komponenta vlastnost poskytovanou pod klíčem `"message"` a vystaví ji jako `this.localMessage`.
 
 </div>
 
-### Injection Default Values {#injection-default-values}
+### Výchozí hodnoty pro injection {#injection-default-values}
 
-By default, `inject` assumes that the injected key is provided somewhere in the parent chain. In the case where the key is not provided, there will be a runtime warning.
+Ve výchozím nastavení `inject` předpokládá, že implementovaná hodnota je někde v rodičovském řetězci poskytována. V případě, že klíč poskytnut není, zobrazí se runtime varování.
 
-If we want to make an injected property work with optional providers, we need to declare a default value, similar to props:
+Pokud chceme, aby implementovaná vlastnost fungovala s volitelnými poskytovateli, musíme deklarovat výchozí hodnotu, podobně jako u vlastností:
 
 <div class="composition-api">
 
 ```js
-// `value` will be "default value"
-// if no data matching "message" was provided
+// pokud není poskytnuta žáná odpovídající "message"
+// `value` bude "default value"
 const value = inject('message', 'default value')
 ```
 
-In some cases, the default value may need to be created by calling a function or instantiating a new class. To avoid unnecessary computation or side effects in case the optional value is not used, we can use a factory function for creating the default value:
+V některých případech může být nutné výchozí hodnotu vytvořit voláním funkce nebo instancí nové třídy. Abychom se vyhnuli zbytečným výpočtům nebo vedlejším efektům v případě, že volitelnou hodnotu nepoužijeme, můžeme pro vytvoření výchozí hodnoty použít tovární (factory) metodu:
 
 ```js
 const value = inject('key', () => new ExpensiveClass(), true)
 ```
 
-The third parameter indicates the default value should be treated as a factory function.
+Třetí argument indikuje, že výchozí hodnota by měla být považována za tovární funkci.
 
 </div>
 
@@ -219,16 +219,17 @@ The third parameter indicates the default value should be treated as a factory f
 
 ```js
 export default {
-  // object syntax is required
-  // when declaring default values for injections
+  // pro deklaraci výchozích hodnot pro injection
+  // je nutná objektová syntaxe
   inject: {
     message: {
-      from: 'message', // this is optional if using the same key for injection
+      from: 'message', // pokud chceme použít stejný klíč, je toto nepovinné
       default: 'default value'
     },
     user: {
-      // use a factory function for non-primitive values that are expensive
-      // to create, or ones that should be unique per component instance.
+      // pro složitější hodnoty, které jsou drahé na tvorbu
+      // nebo mají být unikátní pro každou instanci komponenty,
+      // použijeme tovární metodu
       default: () => ({ name: 'John' })
     }
   }
@@ -237,23 +238,23 @@ export default {
 
 </div>
 
-## Working with Reactivity {#working-with-reactivity}
+## Práce s reaktivitou {#working-with-reactivity}
 
 <div class="composition-api">
 
-When using reactive provide / inject values, **it is recommended to keep any mutations to reactive state inside of the _provider_ whenever possible**. This ensures that the provided state and its possible mutations are co-located in the same component, making it easier to maintain in the future.
+Když používáme reaktivní provide/inject hodnoty, **je doporučeno provádět všechny změny reaktivního stavu uvnitř _provider_ komponenty, kdykoliv je to možné**. Tím je zajištěno, že jsou poskytnutý stav a jeho případné změny umístěny ve stejné komponentě, což usnadňuje budoucí údržbu.
 
-There may be times when we need to update the data from an injector component. In such cases, we recommend providing a function that is responsible for mutating the state:
+V některých případech můžeme potřebovat aktualizovat data z komponenty, která poskytnutá data implementuje. V takových případech doporučujeme poskytovat funkci, která je za změny stavu zodpovědná:
 
 ```vue{7-9,13}
-<!-- inside provider component -->
+<!-- uvnitř komponenty, která poskytuje -->
 <script setup>
 import { provide, ref } from 'vue'
 
-const location = ref('North Pole')
+const location = ref('Severní pól')
 
 function updateLocation() {
-  location.value = 'South Pole'
+  location.value = 'Jižní pól'
 }
 
 provide('location', {
@@ -264,7 +265,7 @@ provide('location', {
 ```
 
 ```vue{5}
-<!-- in injector component -->
+<!-- uvnitř komponenty, která implementuje -->
 <script setup>
 import { inject } from 'vue'
 
@@ -276,7 +277,7 @@ const { location, updateLocation } = inject('location')
 </template>
 ```
 
-Finally, you can wrap the provided value with [`readonly()`](/api/reactivity-core#readonly) if you want to ensure that the data passed through `provide` cannot be mutated by the injector component.
+Pokud se chcete ujistit, že data předaná skrz `provide` nemohou být změněna komponentou, která je implementuje, můžte poskytovanou hdonotu obalit pomocí [`readonly()`](/api/reactivity-core#readonly).
 
 ```vue
 <script setup>
@@ -291,7 +292,7 @@ provide('read-only-count', readonly(count))
 
 <div class="options-api">
 
-In order to make injections reactively linked to the provider, we need to provide a computed property using the [computed()](/api/reactivity-core#computed) function:
+Aby byla injection reaktivně propojena se komponentou poskytovatele, musíme poskytovat computed proměnnou pomocí funkce [computed()](/api/reactivity-core#computed):
 
 ```js{10}
 import { computed } from 'vue'
@@ -299,29 +300,29 @@ import { computed } from 'vue'
 export default {
   data() {
     return {
-      message: 'hello!'
+      message: 'Ahoj!'
     }
   },
   provide() {
     return {
-      // explicitly provide a computed property
+      // explicitně poskytujeme computed proměnnou
       message: computed(() => this.message)
     }
   }
 }
 ```
 
-[Full provide + inject Example with Reactivity](https://play.vuejs.org/#eNqNUctqwzAQ/JVFFyeQxnfjBEoPPfULqh6EtYlV9EKWTcH43ytZtmPTQA0CsdqZ2dlRT16tPXctkoKUTeWE9VeqhbLGeXirheRwc0ZBds7HKkKzBdBDZZRtPXIYJlzqU40/I4LjjbUyIKmGEWw0at8UgZrUh1PscObZ4ZhQAA596/RcAShsGnbHArIapTRBP74O8Up060wnOO5QmP0eAvZyBV+L5jw1j2tZqsMp8yWRUHhUVjKPoQIohQ460L0ow1FeKJlEKEnttFweijJfiORElhCf5f3umObb0B9PU/I7kk17PJj7FloN/2t7a2Pj/Zkdob+x8gV8ZlMs2de/8+14AXwkBngD9zgVqjg2rNXPvwjD+EdlHilrn8MvtvD1+Q==)
+[Kompletní provide/inject příklad vč. reaktivity](https://play.vuejs.org/#eNqNUctqwzAQ/JVFFyeQxnfjBEoPPfULqh6EtYlV9EKWTcH43ytZtmPTQA0CsdqZ2dlRT16tPXctkoKUTeWE9VeqhbLGeXirheRwc0ZBds7HKkKzBdBDZZRtPXIYJlzqU40/I4LjjbUyIKmGEWw0at8UgZrUh1PscObZ4ZhQAA596/RcAShsGnbHArIapTRBP74O8Up060wnOO5QmP0eAvZyBV+L5jw1j2tZqsMp8yWRUHhUVjKPoQIohQ460L0ow1FeKJlEKEnttFweijJfiORElhCf5f3umObb0B9PU/I7kk17PJj7FloN/2t7a2Pj/Zkdob+x8gV8ZlMs2de/8+14AXwkBngD9zgVqjg2rNXPvwjD+EdlHilrn8MvtvD1+Q==)
 
-The `computed()` function is typically used in Composition API components, but can also be used to complement certain use cases in Options API. You can learn more about its usage by reading the [Reactivity Fundamentals](/guide/essentials/reactivity-fundamentals) and [Computed Properties](/guide/essentials/computed) with the API Preference set to Composition API.
+Funkce `computed()` se typicky používá v komponentách psaných v Composition API, ale lze ji také použít pro doplnění některých případů užití v Options API. O jejím použití se můžete dočíst víc v průvodcích [Základy rektivity](/guide/essentials/reactivity-fundamentals) and [Computed proměnné](/guide/essentials/computed) s preferencí API nastavenou na Composition API.
 
 </div>
 
-## Working with Symbol Keys {#working-with-symbol-keys}
+## Práce s klíči typu Symbol {#working-with-symbol-keys}
 
-So far, we have been using string injection keys in the examples. If you are working in a large application with many dependency providers, or you are authoring components that are going to be used by other developers, it is best to use Symbol injection keys to avoid potential collisions.
+Dosud jsme v příkladech používali injection kyes typu string. Pokud pracujete v rozsáhlé aplikaci s mnoha poskytovateli závislostí nebo vytváříte komponenty, které budou používat i další vývojáři, je nejlepší používat injection kyes typu Symbol, abyste se vyhnuli případným kolizím.
 
-It's recommended to export the Symbols in a dedicated file:
+Je doporučeno exportovat použité symboly do vyhrazeného souboru:
 
 ```js
 // keys.js
@@ -331,38 +332,38 @@ export const myInjectionKey = Symbol()
 <div class="composition-api">
 
 ```js
-// in provider component
+// uvnitř komponenty, která poskytuje
 import { provide } from 'vue'
 import { myInjectionKey } from './keys.js'
 
 provide(myInjectionKey, {
-  /* data to provide */
+  /* poskytovaná data */
 })
 ```
 
 ```js
-// in injector component
+// uvnitř komponenty, která implementuje
 import { inject } from 'vue'
 import { myInjectionKey } from './keys.js'
 
 const injected = inject(myInjectionKey)
 ```
 
-See also: [Typing Provide / Inject](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
+Viz také: [Typování Provide / Inject](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
 
 </div>
 
 <div class="options-api">
 
 ```js
-// in provider component
+// uvnitř komponenty, která poskytuje
 import { myInjectionKey } from './keys.js'
 
 export default {
   provide() {
     return {
       [myInjectionKey]: {
-        /* data to provide */
+        /* poskytovaná data */
       }
     }
   }
@@ -370,7 +371,7 @@ export default {
 ```
 
 ```js
-// in injector component
+// uvnitř komponenty, která implementuje
 import { myInjectionKey } from './keys.js'
 
 export default {

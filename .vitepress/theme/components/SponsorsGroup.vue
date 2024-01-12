@@ -93,8 +93,7 @@ function resolveList(data: SponsorData) {
       href="/sponsor/"
       class="sponsor-item action"
       @click="track(true)"
-      >Become a Sponsor</a
-    >
+    >Staňte se sponzorem</a>
   </div>
 </template>
 

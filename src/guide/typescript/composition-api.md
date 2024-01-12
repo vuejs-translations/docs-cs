@@ -1,12 +1,12 @@
-# TypeScript with Composition API {#typescript-with-composition-api}
+# TypeScript s Composition API {#typescript-with-composition-api}
 
-> This page assumes you've already read the overview on [Using Vue with TypeScript](./overview).
+> Tato stránka předpokládá, že jste již přečetli přehled o [Používání Vue s TypeScriptem](./overview).
 
-## Typing Component Props {#typing-component-props}
+## Typování vlastností komponenty {#typing-component-props}
 
-### Using `<script setup>` {#using-script-setup}
+### Při použití `<script setup>` {#using-script-setup}
 
-When using `<script setup>`, the `defineProps()` macro supports inferring the props types based on its argument:
+Při použití `<script setup>` podporuje odvozování typů vlastností (props) macro `defineProps()` na základě svého parametru:
 
 ```vue
 <script setup lang="ts">
@@ -20,9 +20,9 @@ props.bar // number | undefined
 </script>
 ```
 
-This is called "runtime declaration", because the argument passed to `defineProps()` will be used as the runtime `props` option.
+Toto se nazývá "runtime deklarace", protože parametr předaný do `defineProps()` bude za běhu použit jako sekce `props` .
 
-However, it is usually more straightforward to define props with pure types via a generic type argument:
+Je ovšem obvykle přímočařejší definovat vlastnosti pomocí čistých typů (pure types) pomocí generického typového parametru:
 
 ```vue
 <script setup lang="ts">
@@ -33,11 +33,11 @@ const props = defineProps<{
 </script>
 ```
 
-This is called "type-based declaration". The compiler will try to do its best to infer the equivalent runtime options based on the type argument. In this case, our second example compiles into the exact same runtime options as the first example.
+Toto se nazývá "deklarace na základě typu". Kompilátor se pokusí na základě typového parametru odvodit ekvivalentní runtime vlastnosti. V tomto případě se náš druhý příklad kompiluje do přesně stejných runtime vlastností jako první příklad.
 
-You can use either type-based declaration OR runtime declaration, but you cannot use both at the same time.
+Můžete použít buď deklaraci na základě typu NEBO runtime deklaraci, ale nemůžete je použít současně.
 
-We can also move the props types into a separate interface:
+Můžeme také přesunout typy vlastností do samostatného rozhraní:
 
 ```vue
 <script setup lang="ts">
@@ -50,7 +50,7 @@ const props = defineProps<Props>()
 </script>
 ```
 
-This also works if `Props` is imported from an external source. This feature requires TypeScript to be a peer dependency of Vue.
+To funguje i tehdy, pokud je `Props` importováno z externího zdroje. Tato funkce vyžaduje, aby TypeScript byl závislostí na úrovni vrstvy (peer dependency) Vue.
 
 ```vue
 <script setup lang="ts">
@@ -60,15 +60,15 @@ const props = defineProps<Props>()
 </script>
 ```
 
-#### Syntax Limitations {#syntax-limitations}
+#### Omezení syntaxe {#syntax-limitations}
 
-In version 3.2 and below, the generic type parameter for `defineProps()` were limited to a type literal or a reference to a local interface.
+Ve verzi 3.2 a nižší byl generický typový parametr pro `defineProps()` omezen na typový literál nebo odkaz na lokální rozhraní.
 
-This limitation has been resolved in 3.3. The latest version of Vue supports referencing imported and a limited set of complex types in the type parameter position. However, because the type to runtime conversion is still AST-based, some complex types that require actual type analysis, e.g. conditional types, are not supported. You can use conditional types for the type of a single prop, but not the entire props object.
+Toto omezení bylo vyřešeno ve verzi 3.3. Nejnovější verze Vue podporuje odkazování na importované a omezenou sadu složitějších typů na pozici typového parametru. Nicméně, protože runtime konverze typu stále závisí na AST, některé složité typy, které vyžadují skutečnou typovu analýzu, např. podmíněné typy, podporovány nejsou. Můžete použít podmíněné typy pro typ jedné vlastnosti, ale ne pro celý objekt vlastností.
 
-### Props Default Values {#props-default-values}
+### Výchozí hodnoty props {#props-default-values}
 
-When using type-based declaration, we lose the ability to declare default values for the props. This can be resolved by the `withDefaults` compiler macro:
+Při použití deklarace založené na typu ztrácíme schopnost deklarovat výchozí hodnoty pro vlastnosti. To lze vyřešit pomocí makra `withDefaults`:
 
 ```ts
 export interface Props {
@@ -82,11 +82,11 @@ const props = withDefaults(defineProps<Props>(), {
 })
 ```
 
-This will be compiled to equivalent runtime props `default` options. In addition, the `withDefaults` helper provides type checks for the default values, and ensures the returned `props` type has the optional flags removed for properties that do have default values declared.
+Výše uvedené bude pro runtime props přeloženo na ekvivalentní `default` vlastnosti. Navíc pomocná funkce `withDefaults` poskytuje typovou kontrolu pro výchozí hodnoty a zajistí, že vrácený typ `props` má odstraněny příznaky volitelosti pro ty vlastnosti, které mají výchozí hodnoty deklarované.
 
-### Without `<script setup>` {#without-script-setup}
+### Bez `<script setup>` {#without-script-setup}
 
-If not using `<script setup>`, it is necessary to use `defineComponent()` to enable props type inference. The type of the props object passed to `setup()` is inferred from the `props` option.
+Pokud nepoužíváte `<script setup>`, je nutné  k povolení odvozování typu vlastností použít `defineComponent()`. Typ objektu vlastností předaný do `setup()` je odvozen z možnosti `props`.
 
 ```ts
 import { defineComponent } from 'vue'
@@ -96,14 +96,14 @@ export default defineComponent({
     message: String
   },
   setup(props) {
-    props.message // <-- type: string
+    props.message // <-- typ: string
   }
 })
 ```
 
-### Complex prop types {#complex-prop-types}
+### Složité typy props {#complex-prop-types}
 
-With type-based declaration, a prop can use a complex type much like any other type:
+Při deklaraci založené na typu může prop používat složitý typ stejně jako jakýkoli jiný typ:
 
 ```vue
 <script setup lang="ts">
@@ -119,7 +119,7 @@ const props = defineProps<{
 </script>
 ```
 
-For runtime declaration, we can use the `PropType` utility type:
+Pro runtime deklaraci můžeme použít utility třídu `PropType`:
 
 ```ts
 import type { PropType } from 'vue'
@@ -129,7 +129,7 @@ const props = defineProps({
 })
 ```
 
-This works in much the same way if we're specifying the `props` option directly:
+Funguje to stejným způsobem, i pokud specifikujeme sekci `props` přímo:
 
 ```ts
 import { defineComponent } from 'vue'
@@ -142,36 +142,36 @@ export default defineComponent({
 })
 ```
 
-The `props` option is more commonly used with the Options API, so you'll find more detailed examples in the guide to [TypeScript with Options API](/guide/typescript/options-api#typing-component-props). The techniques shown in those examples also apply to runtime declarations using `defineProps()`.
+Sekce `props` se nejčastěji používá s Options API, takže v průvodci [TypeScript s Options API](/guide/typescript/options-api#typing-component-props) najdete podrobnější příklady. Techniky ukázané v těchto příkladech se také vztahují na runtime deklarace pomocí `defineProps()`.
 
-## Typing Component Emits {#typing-component-emits}
+## Typování emitovaných událostí komponenty {#typing-component-emits}
 
-In `<script setup>`, the `emit` function can also be typed using either runtime declaration OR type declaration:
+Ve `<script setup>` může být funkce `emit` také typována pomocí buď runtíme deklarace NEBO deklarace na základě typu:
 
 ```vue
 <script setup lang="ts">
-// runtime
+// runtime deklarace
 const emit = defineEmits(['change', 'update'])
 
-// options based
+// deklarace na základě typu
 const emit = defineEmits({
   change: (id: number) => {
-    // return `true` or `false` to indicate
-    // validation pass / fail
+    // vrátit `true` nebo `false` pro indikaci
+    // úspěchu / selhání ověření
   },
   update: (value: string) => {
-    // return `true` or `false` to indicate
-    // validation pass / fail
+    // vrátit `true` nebo `false` pro indikaci
+    // úspěchu / selhání ověření
   }
 })
 
-// type-based
+// deklarace na základě typu
 const emit = defineEmits<{
   (e: 'change', id: number): void
   (e: 'update', value: string): void
 }>()
 
-// 3.3+: alternative, more succinct syntax
+// 3.3+: alternativní, stručnější syntaxe
 const emit = defineEmits<{
   change: [id: number]
   update: [value: string]
@@ -179,14 +179,14 @@ const emit = defineEmits<{
 </script>
 ```
 
-The type argument can be one of the following:
+Typový parametr může být jeden z následujících:
 
-1. A callable function type, but written as a type literal with [Call Signatures](https://www.typescriptlang.org/docs/handbook/2/functions.html#call-signatures). It will be used as the type of the returned `emit` function.
-2. A type literal where the keys are the event names, and values are array / tuple types representing the additional accepted parameters for the event. The example above is using named tuples so each argument can have an explicit name.
+1. Typ callable funkce, ale zapsaný jako typový literál s [call signaturami](https://www.typescriptlang.org/docs/handbook/2/functions.html#call-signatures). Bude použit jako typ vrácené funkce `emit`.
+2. Typový literál, kde klíče jsou názvy událostí a hodnoty jsou pole / n-tice typů představujících další událostí přijímané parametry. Výše uvedený příklad používá pojmenované n-tice, takže každý parametr může mít explicitní název.
 
-As we can see, the type declaration gives us much finer-grained control over the type constraints of emitted events.
+Jak můžeme vidět, deklarace na základě typu nám poskytuje mnohem jemnější kontrolu nad typovými omezeními emitovaných událostí.
 
-When not using `<script setup>`, `defineComponent()` is able to infer the allowed events for the `emit` function exposed on the setup context:
+Pokud nepoužíváme `<script setup>`, `defineComponent()` je schopna odvodit povolené události pro funkci `emit` vystavenou v kontextu nastavení:
 
 ```ts
 import { defineComponent } from 'vue'
@@ -194,26 +194,26 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   emits: ['change'],
   setup(props, { emit }) {
-    emit('change') // <-- type check / auto-completion
+    emit('change') // <-- kontrola typu / automatické dokončování
   }
 })
 ```
 
-## Typing `ref()` {#typing-ref}
+## Typování `ref()` {#typing-ref}
 
-Refs infer the type from the initial value:
+Refs odvozují typ z počáteční hodnoty:
 
 ```ts
 import { ref } from 'vue'
 
-// inferred type: Ref<number>
+// odvozený typ: Ref<number>
 const year = ref(2020)
 
-// => TS Error: Type 'string' is not assignable to type 'number'.
+// => TS chyba: Typ 'string' být přiřazen do typu 'number'.
 year.value = '2020'
 ```
 
-Sometimes we may need to specify complex types for a ref's inner value. We can do that by using the `Ref` type:
+Někdy může být potřeba pro vnitřní ref hodnotu specifikovat složité typy. To můžeme udělat pomocí typu `Ref`:
 
 ```ts
 import { ref } from 'vue'
@@ -224,34 +224,34 @@ const year: Ref<string | number> = ref('2020')
 year.value = 2020 // ok!
 ```
 
-Or, by passing a generic argument when calling `ref()` to override the default inference:
+Nebo také předáním generického parametru při volání `ref()` pro přepsání výchozího odvození:
 
 ```ts
-// resulting type: Ref<string | number>
+// výsledný typ: Ref<string | number>
 const year = ref<string | number>('2020')
 
 year.value = 2020 // ok!
 ```
 
-If you specify a generic type argument but omit the initial value, the resulting type will be a union type that includes `undefined`:
+Pokud specifikujete generický typový parametr, ale vynecháte počáteční hodnotu, výsledný typ bude union, který zahrnuje `undefined`:
 
 ```ts
-// inferred type: Ref<number | undefined>
+// odvozený typ: Ref<number | undefined>
 const n = ref<number>()
 ```
 
-## Typing `reactive()` {#typing-reactive}
+## Typování `reactive()` {#typing-reactive}
 
-`reactive()` also implicitly infers the type from its argument:
+`reactive()` také implicitně odvozuje typ z argumentu:
 
 ```ts
 import { reactive } from 'vue'
 
-// inferred type: { title: string }
+// odvozený typ: { title: string }
 const book = reactive({ title: 'Vue 3 Guide' })
 ```
 
-To explicitly type a `reactive` property, we can use interfaces:
+Pro explicitní typování `reactive` vlastnosti můžeme použít interface:
 
 ```ts
 import { reactive } from 'vue'
@@ -265,41 +265,41 @@ const book: Book = reactive({ title: 'Vue 3 Guide' })
 ```
 
 :::tip
-It's not recommended to use the generic argument of `reactive()` because the returned type, which handles nested ref unwrapping, is different from the generic argument type.
+Není doporučeno používat generický parametr `reactive()`, protože vrácený typ, který zpracovává rozbalování vnořených refs, se od typu generického argumentu liší.
 :::
 
-## Typing `computed()` {#typing-computed}
+## Typování `computed()` {#typing-computed}
 
-`computed()` infers its type based on the getter's return value:
+`computed()` odvozuje svůj typ na základě návratové hodnoty getteru:
 
 ```ts
 import { ref, computed } from 'vue'
 
 const count = ref(0)
 
-// inferred type: ComputedRef<number>
+// odvozený typ: ComputedRef<number>
 const double = computed(() => count.value * 2)
 
-// => TS Error: Property 'split' does not exist on type 'number'
+// => TS chyba: Vlastnost 'split' na typu 'number' neexistuje.
 const result = double.value.split('')
 ```
 
-You can also specify an explicit type via a generic argument:
+Můžete také specifikovat explicitní typ pomocí generického argumentu:
 
 ```ts
 const double = computed<number>(() => {
-  // type error if this doesn't return a number
+  // typová chyba, pokud nebude vráceno `number`
 })
 ```
 
-## Typing Event Handlers {#typing-event-handlers}
+## Typování event handlerů {#typing-event-handlers}
 
-When dealing with native DOM events, it might be useful to type the argument we pass to the handler correctly. Let's take a look at this example:
+Při práci s nativními DOM událostmi může být užitečné správně označit argument, který předáváme obslužnému handleru. Podívejme se na tento příklad:
 
 ```vue
 <script setup lang="ts">
 function handleChange(event) {
-  // `event` implicitly has `any` type
+  // `event` má implicitně typ `any`
   console.log(event.target.value)
 }
 </script>
@@ -309,7 +309,7 @@ function handleChange(event) {
 </template>
 ```
 
-Without type annotation, the `event` argument will implicitly have a type of `any`. This will also result in a TS error if `"strict": true` or `"noImplicitAny": true` are used in `tsconfig.json`. It is therefore recommended to explicitly annotate the argument of event handlers. In addition, you may need to use type assertions when accessing the properties of `event`:
+Bez typového označení bude mít argument `event` implicitně typ `any`. To povede k chybu v TS, pokud je v `tsconfig.json` použita volba `"strict": true` nebo `"noImplicitAny": true`. Proto se doporučuje argumenty event handlerů explicitně označit. Kromě toho můžete potřebovat odvození typů při přístupu k vlastnostem `event`:
 
 ```ts
 function handleChange(event: Event) {
@@ -317,9 +317,9 @@ function handleChange(event: Event) {
 }
 ```
 
-## Typing Provide / Inject {#typing-provide-inject}
+## Typování Provide / Inject {#typing-provide-inject}
 
-Provide and inject are usually performed in separate components. To properly type injected values, Vue provides an `InjectionKey` interface, which is a generic type that extends `Symbol`. It can be used to sync the type of the injected value between the provider and the consumer:
+Poskytování (provide) a implementace (inject) se obvykle provádí v oddělených komponentách. Pro správné typování vkládaných hodnot poskytuje Vue rozhraní `InjectionKey`, což je generický typ rozšiřující `Symbol`. Může být použito k synchronizaci typu vkládané hodnoty mezi poskytovatelem a konzumentem:
 
 ```ts
 import { provide, inject } from 'vue'
@@ -327,36 +327,36 @@ import type { InjectionKey } from 'vue'
 
 const key = Symbol() as InjectionKey<string>
 
-provide(key, 'foo') // providing non-string value will result in error
+provide(key, 'foo') // poskytnutí hodnoty, která není řetězcem, způsobí chybu
 
-const foo = inject(key) // type of foo: string | undefined
+const foo = inject(key) // typ foo: string | undefined
 ```
 
-It's recommended to place the injection key in a separate file so that it can be imported in multiple components.
+Je doporučeno umístit injection key do samostatného souboru, aby mohl být importován do více komponent.
 
-When using string injection keys, the type of the injected value will be `unknown`, and needs to be explicitly declared via a generic type argument:
+Při použití řetězcových injection keys bude typ vkládané hodnoty `unknown` a musí být explicitně deklarován pomocí generického typového parametru:
 
 ```ts
-const foo = inject<string>('foo') // type: string | undefined
+const foo = inject<string>('foo') // typ: string | undefined
 ```
 
-Notice the injected value can still be `undefined`, because there is no guarantee that a provider will provide this value at runtime.
+Mějte na paměti, že vkládaná hodnota může být stále `undefined`, protože není zaručeno, že poskytovatel tuto hodnotu poskytne za běhu.
 
-The `undefined` type can be removed by providing a default value:
+Typ `undefined` lze odstranit poskytnutím výchozí hodnoty:
 
 ```ts
-const foo = inject<string>('foo', 'bar') // type: string
+const foo = inject<string>('foo', 'bar') // typ: string
 ```
 
-If you are sure that the value is always provided, you can also force cast the value:
+Pokud jste si jisti, že hodnota je vždy poskytnuta, můžete také hodnotu přímo přetypovat:
 
 ```ts
 const foo = inject('foo') as string
 ```
 
-## Typing Template Refs {#typing-template-refs}
+## Typování Template Refs {#typing-template-refs}
 
-Template refs should be created with an explicit generic type argument and an initial value of `null`:
+Template refs by měly být vytvářeny s explicitním generickým typovým parametrem a počáteční hodnotou `null`:
 
 ```vue
 <script setup lang="ts">
@@ -374,13 +374,13 @@ onMounted(() => {
 </template>
 ```
 
-To get the right DOM interface you can check pages like [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#technical_summary).
+Pro získání správného DOM interface můžete zkontrolovat stránky jako [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#technical_summary).
 
-Note that for strict type safety, it is necessary to use optional chaining or type guards when accessing `el.value`. This is because the initial ref value is `null` until the component is mounted, and it can also be set to `null` if the referenced element is unmounted by `v-if`.
+Pamatujte, že pro přísnou typovou bezpečnost je při přístupu k `el.value` nutné použít optional chaining nebo type guards. Je to způsobeno tím, že počáteční hodnota ref je `null`, dokud není komponenta připojena (mounted), a může být také nastavena na `null`, pokud je odkazovaný prvek odstraněn pomocí `v-if`.
 
-## Typing Component Template Refs {#typing-component-template-refs}
+## Typování Template Refs komponenty {#typing-component-template-refs}
 
-Sometimes you might need to annotate a template ref for a child component in order to call its public method. For example, we have a `MyModal` child component with a method that opens the modal:
+Někdy může být potřeba anotovat template ref pro komponentu potomka, aby bylo možné zavolat jeho veřejnou metodu. Například máme komponentu potomka `MyModal` s metodou, která otevírá modální okno:
 
 ```vue
 <!-- MyModal.vue -->
@@ -396,7 +396,7 @@ defineExpose({
 </script>
 ```
 
-In order to get the instance type of `MyModal`, we need to first get its type via `typeof`, then use TypeScript's built-in `InstanceType` utility to extract its instance type:
+Pro získání typu instance `MyModal` musíme nejprve získat jeho typ pomocí `typeof` a poté použít vestavěnou utilitu `InstanceType` v TypeScriptu k extrakci jeho instančního typu:
 
 ```vue{5}
 <!-- App.vue -->
@@ -411,9 +411,9 @@ const openModal = () => {
 </script>
 ```
 
-Note if you want to use this technique in TypeScript files instead of Vue SFCs, you need to enable Volar's [Takeover Mode](./overview#volar-takeover-mode).
+Pamatujte, že pokud chcete použít tuto techniku v TypeScriptových souborech místo Vue SFC, musíte povolit  [Volar Takeover Mode](./overview#volar-takeover-mode).
 
-In cases where the exact type of the component isn't available or isn't important, `ComponentPublicInstance` can be used instead. This will only include properties that are shared by all components, such as `$el`:
+V případech, kdy přesný typ komponenty není dostupný nebo není důležitý, lze místo toho použít `ComponentPublicInstance`. Pak bude obsahovat pouze vlastnosti, které jsou sdílené všemi komponentami, jako například `$el`:
 
 ```ts
 import { ref } from 'vue'

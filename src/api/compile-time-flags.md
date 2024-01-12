@@ -2,41 +2,41 @@
 outline: deep
 ---
 
-# Compile-Time Flags {#compile-time-flags}
+# Compile-Time flags {#compile-time-flags}
 
 :::tip
-Compile-time flags only apply when using the `esm-bundler` build of Vue (i.e. `vue/dist/vue.esm-bundler.js`).
+Compile-Time flags se uplatní pouze při použití Vue buildu pomocí `esm-bundler` (tj. `vue/dist/vue.esm-bundler.js`).
 :::
 
-When using Vue with a build step, it is possible to configure a number of compile-time flags to enable / disable certain features. The benefit of using compile-time flags is that features disabled this way can be removed from the final bundle via tree-shaking.
+Při použití Vue s build fází je možné konfigurovat několik příznaků (compile-time flags) umožňujích povolit / zakázat určité funkce. Výhodou jejich použití je, že funkce zakázané tímto způsobem lze odstranit z finálního balíčku pomocí tree-shakingu.
 
-Vue will work even if these flags are not explicitly configured. However, it is recommended to always configure them so that the relevant features can be properly removed when possible.
+Vue bude fungovat i tehdy, pokud tyto příznaky nejsou explicitně nakonfigurovány. Nicméně se doporučuje je nakonfigurovat vždy, aby bylo možné příslušné funkce správně odstranit, pokud jto jde.
 
-See [Configuration Guides](#configuration-guides) on how to configure them depending on your build tool.
+Podívejte se na [Průvodce konfigurací](#configuration-guides), jak je nakonfigurovat v závislosti na vašem build nástroji.
 
 ## `__VUE_OPTIONS_API__` {#VUE_OPTIONS_API}
 
-- **Default:** `true`
+- **Výchozí hodnota:** `true`
 
-  Enable / disable Options API support. Disabling this will result in smaller bundles, but may affect compatibility with 3rd party libraries if they rely on Options API.
+  Povolit / zakázat podporu Options API. Zakázání tohoto nastavení povede ke snížení velikosti balíčku, ale může ovlivnit kompatibilitu s knihovnami třetích stran, pokud se na Options API spoléhají.
 
 ## `__VUE_PROD_DEVTOOLS__` {#VUE_PROD_DEVTOOLS}
 
-- **Default:** `false`
+- **Výchozí hodnota:** `false`
 
-  Enable / disable devtools support in production builds. This will result in more code included in the bundle, so it is recommended to only enable this for debugging purposes.
+  Povolit / zakázat podporu nástrojů pro vývoj (DevTools) v produkčních buildech. Povolení povede k zahrnutí více kódu do distribučního balíčku, proto se doporučuje tuto možnost povolit pouze pro účely ladění.
 
 ## `__VUE_PROD_HYDRATION_MISMATCH_DETAILS__` <sup class="vt-badge" data-text="3.4+" /> {#VUE_PROD_HYDRATATION_MISMATCH_DETAILS}
 
-- **Default:** `false`
+- **Výchozí hodnota:** `false`
 
-  Enable/disable detailed warnings for hydration mismatches in production builds. This will result in more code included in the bundle, so it is recommended to only enable this for debugging purposes.
+  Povolit / zakázat podrobná varování o nesouladech hydratace (hydration mismatch) v produkčních buildech. Povolení povede k zahrnutí více kódu do distribučního balíčku, proto se doporučuje tuto možnost povolit pouze pro účely ladění.
 
-## Configuration Guides {#configuration-guides}
+## Průvodce konfigurací {#configuration-guides}
 
 ### Vite {#vite}
 
-`@vitejs/plugin-vue` automatically provides default values for these flags. To change the default values, use Vite's [`define` config option](https://vitejs.dev/config/shared-options.html#define):
+`@vitejs/plugin-vue` pro tyto příznaky automaticky poskytuje výchozí hodnoty. Pro změnu výchozích hodnot použijte Vite konfigurační možnost `define`  ([dokumentace](https://vitejs.dev/config/shared-options.html#define)):
 
 ```js
 // vite.config.js
@@ -44,7 +44,7 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   define: {
-    // enable hydration mismatch details in production build
+    // povolit podrobnosti o nesouladu hydratace v produkčním buildu
     __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'true'
   }
 })
@@ -52,7 +52,7 @@ export default defineConfig({
 
 ### vue-cli {#vue-cli}
 
-`@vue/cli-service` automatically provides default values for some of these flags. To configure /change the values:
+`@vue/cli-service` automaticky poskytuje výchozí hodnoty pro některé z těchto příznaků. Pro konfiguraci / změnu hodnot:
 
 ```js
 // vue.config.js
@@ -72,7 +72,7 @@ module.exports = {
 
 ### webpack {#webpack}
 
-Flags should be defined using webpack's [DefinePlugin](https://webpack.js.org/plugins/define-plugin/):
+Příznaky by měly být definovány pomocí webpack [DefinePlugin](https://webpack.js.org/plugins/define-plugin/):
 
 ```js
 // webpack.config.js
@@ -90,7 +90,7 @@ module.exports = {
 
 ### Rollup {#rollup}
 
-Flags should be defined using [@rollup/plugin-replace](https://github.com/rollup/plugins/tree/master/packages/replace):
+Příznaky by měly být definovány pomocí [@rollup/plugin-replace](https://github.com/rollup/plugins/tree/master/packages/replace):
 
 ```js
 // rollup.config.js

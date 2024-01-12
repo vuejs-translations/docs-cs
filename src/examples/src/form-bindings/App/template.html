@@ -1,13 +1,13 @@
-<h2>Text Input</h2>
+<h2>Textové pole</h2>
 <input v-model="text"> {{ text }}
 
-<h2>Checkbox</h2>
+<h2>Checkbox (zaškrnutí)</h2>
 <input type="checkbox" id="checkbox" v-model="checked">
-<label for="checkbox">Checked: {{ checked }}</label>
+<label for="checkbox">Vybráno: {{ checked }}</label>
 
 <!--
-  multiple checkboxes can bind to the same
-  array v-model value
+  přes hodnotu v-model se může na stejné pole
+  odkazovat více checkboxů
 -->
 <h2>Multi Checkbox</h2>
 <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
@@ -16,25 +16,25 @@
 <label for="john">John</label>
 <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
 <label for="mike">Mike</label>
-<p>Checked names: <pre>{{ checkedNames }}</pre></p>
+<p>Vybraná jména: <pre>{{ checkedNames }}</pre></p>
 
-<h2>Radio</h2>
+<h2>Radio (přepínač)</h2>
 <input type="radio" id="one" value="One" v-model="picked">
-<label for="one">One</label>
+<label for="one">Jedna</label>
 <br>
 <input type="radio" id="two" value="Two" v-model="picked">
-<label for="two">Two</label>
+<label for="two">Dva</label>
 <br>
-<span>Picked: {{ picked }}</span>
+<span>Vybráno: {{ picked }}</span>
 
-<h2>Select</h2>
+<h2>Select (výběr)</h2>
 <select v-model="selected">
-  <option disabled value="">Please select one</option>
+  <option disabled value="">Vyberte jednu možnost</option>
   <option>A</option>
   <option>B</option>
   <option>C</option>
 </select>
-<span>Selected: {{ selected }}</span>
+<span>Vybráno: {{ selected }}</span>
 
 <h2>Multi Select</h2>
 <select v-model="multiSelected" multiple style="width:100px">
@@ -42,4 +42,4 @@
   <option>B</option>
   <option>C</option>
 </select>
-<span>Selected: {{ multiSelected }}</span>
+<span>Vybráno: {{ multiSelected }}</span>

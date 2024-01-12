@@ -1,12 +1,12 @@
 # Slots {#slots}
 
-In addition to passing data via props, the parent component can also pass down template fragments to the child via **slots**:
+Kromě předávání dat prostřednictvím vlastností (props) může komponenta rodiče také předávat fragmenty šablony komponentě potomka prostřednictvím slotů (**slots**):
 
 <div class="sfc">
 
 ```vue-html
 <ChildComp>
-  This is some slot content!
+  Toto je obsah ve slotu!
 </ChildComp>
 ```
 
@@ -15,18 +15,18 @@ In addition to passing data via props, the parent component can also pass down t
 
 ```vue-html
 <child-comp>
-  This is some slot content!
+  Toto je obsah ve slotu!
 </child-comp>
 ```
 
 </div>
 
-In the child component, it can render the slot content from the parent using the `<slot>` element as outlet:
+V komponentně potomka může vykrelit obsah slotu z rodiče pomocí elementu `<slot>`:
 
 <div class="sfc">
 
 ```vue-html
-<!-- in child template -->
+<!-- v šabloně potomka -->
 <slot/>
 ```
 
@@ -34,16 +34,16 @@ In the child component, it can render the slot content from the parent using the
 <div class="html">
 
 ```vue-html
-<!-- in child template -->
+<!-- v šabloně potomka -->
 <slot></slot>
 ```
 
 </div>
 
-Content inside the `<slot>` outlet will be treated as "fallback" content: it will be displayed if the parent did not pass down any slot content:
+Obsah uvnitř tagu `<slot>` bude zpracován jako "záložní" (fallback): zobrazí se, pokud komponenta rodiče nepředala slotu žádný obsah:
 
 ```vue-html
-<slot>Fallback content</slot>
+<slot>Záložní obsah</slot>
 ```
 
-Currently we are not passing any slot content to `<ChildComp>`, so you should see the fallback content. Let's provide some slot content to the child while making use of the parent's `msg` state.
+Momentálně žádný obsah slotu do `<ChildComp>` nepředáváme, takže byste měli vidět záložní obsah. Pojďme nějaký obsah slotu potomka poskytnout a zároveň využít proměnnou `msg` v rodiči.

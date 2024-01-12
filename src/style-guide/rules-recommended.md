@@ -1,55 +1,55 @@
-# Priority C Rules: Recommended {#priority-c-rules-recommended}
+# Pravidla priority C: Doporučené {#priority-c-rules-recommended}
 
-Where multiple, equally good options exist, an arbitrary choice can be made to ensure consistency. In these rules, we describe each acceptable option and suggest a default choice. That means you can feel free to make a different choice in your own codebase, as long as you're consistent and have a good reason. Please do have a good reason though! By adapting to the community standard, you will:
+Tam, kde existuje více stejně dobrých možností, lze pro zajištění konzistence vybrat libovolnou z nich. V těchto pravidlech popisujeme každou přijatelnou možnost a navrhujeme výchozí variantu. To znamená, že se můžete ve své vlastní kódové bázi volně rozhodnout, pokud budete konzistentní a máte pro to dobrý důvod. Ale mějte prosím dobrý důvod! Přizpůsobením se standardu komunity budete:
 
-1. Train your brain to more easily parse most of the community code you encounter
-2. Be able to copy and paste most community code examples without modification
-3. Often find new hires are already accustomed to your preferred coding style, at least in regards to Vue
+1. trénovat svůj mozek, aby snadněji analyzoval většinu kódu v rámci Vue komunity, se kterým se setkáte
+2. umět zkopírovat a vložit většinu příkladů kódu v rámci Vue komunity bez dalších úprav
+3. častěji nacházet nové zaměstnance, kteří jsou již zvyklí na váš styl kódování, alespoň pokud jde o Vue
 
-## Component/instance options order {#component-instance-options-order}
+## Pořadí možností nastavení komponent/instancí {#component-instance-options-order}
 
-**Component/instance options should be ordered consistently.**
+**Možnosti nastavení komponent/instancí by měly být řazeny konzistentně.**
 
-This is the default order we recommend for component options. They're split into categories, so you'll know where to add new properties from plugins.
+Toto je výchozí pořadí, které doporučujeme pro možnosti nastavení komponent. Jsou rozděleny do kategorií, takže budete vědět, kam přidat nová nastavení z pluginů.
 
-1. **Global Awareness** (requires knowledge beyond the component)
+1. **Globální povědomí** (vyžaduje znalost mimo komponentu)
 
    - `name`
 
-2. **Template Compiler Options** (changes the way templates are compiled)
+2. **Nastavení kompilátoru šablony** (mění způsob kompilace šablon)
 
    - `compilerOptions`
 
-3. **Template Dependencies** (assets used in the template)
+3. **Závislosti šablon** (prvky (assets) použité v šabloně)
 
    - `components`
    - `directives`
 
-4. **Composition** (merges properties into the options)
+4. **Kompozice** (slučují do možností nastavení další vlastnosti)
 
    - `extends`
    - `mixins`
    - `provide`/`inject`
 
-5. **Interface** (the interface to the component)
+5. **Interface** (rozhranní komponenty)
 
    - `inheritAttrs`
    - `props`
    - `emits`
 
-6. **Composition API** (the entry point for using the Composition API)
+6. **Composition API** (vstupní bod pro použití Composition API)
 
    - `setup`
 
-7. **Local State** (local reactive properties)
+7. **Lokální stav (state)** (lokální reaktivní proměnné)
 
    - `data`
    - `computed`
 
-8. **Events** (callbacks triggered by reactive events)
+8. **Události (events)** (callbacky vyvolávané reaktivními prvky)
 
    - `watch`
-   - Lifecycle Events (in the order they are called)
+   - Události životního cyklu (v pořadí, v jakém jsou volány)
      - `beforeCreate`
      - `created`
      - `beforeMount`
@@ -64,28 +64,28 @@ This is the default order we recommend for component options. They're split into
      - `renderTracked`
      - `renderTriggered`
 
-9. **Non-Reactive Properties** (instance properties independent of the reactivity system)
+9. **Nereaktivní vlastnosti** (vlastnosti instance nezávislé na systému reaktivity)
 
    - `methods`
 
-10. **Rendering** (the declarative description of the component output)
+10. **Vykreslování (rendering)** (deklarativní popis výstupu komponenty)
     - `template`/`render`
 
-## Element attribute order {#element-attribute-order}
+## Pořadí atributů elementů {#element-attribute-order}
 
-**The attributes of elements (including components) should be ordered consistently.**
+**Atributy elementů (včetně komponent) by měly být řazeny konzistentně.**
 
-This is the default order we recommend for component options. They're split into categories, so you'll know where to add custom attributes and directives.
+Toto je výchozí pořadí, které doporučujeme pro atributy komponent. Jsou rozděleny do kategorií, takže budete vědět, kam přidat vlastní atributy a příkazy.
 
-1. **Definition** (provides the component options)
+1. **Definice** (poskytuje možnosti komponent)
 
    - `is`
 
-2. **List Rendering** (creates multiple variations of the same element)
+2. **Vykreslování seznamu** (vytváří více variant stejného prvku)
 
    - `v-for`
 
-3. **Conditionals** (whether the element is rendered/shown)
+3. **Podmínky** (zda má být element vykreslen/ukázán)
 
    - `v-if`
    - `v-else-if`
@@ -93,44 +93,44 @@ This is the default order we recommend for component options. They're split into
    - `v-show`
    - `v-cloak`
 
-4. **Render Modifiers** (changes the way the element renders)
+4. **Modifikátory vykreslení** (mění způsob vykreslování elementu)
 
    - `v-pre`
    - `v-once`
 
-5. **Global Awareness** (requires knowledge beyond the component)
+5. **Globální povědomí** (vyžaduje znalost mimo komponentu)
 
    - `id`
 
-6. **Unique Attributes** (attributes that require unique values)
+6. **Unikátní atributy** (attributy, které vyžadují unikátní hodnoty)
 
    - `ref`
    - `key`
 
-7. **Two-Way Binding** (combining binding and events)
+7. **Two-Way Binding** (kombinace přiřazení hodnoty (binding) a událostí (events))
 
    - `v-model`
 
-8. **Other Attributes** (all unspecified bound & unbound attributes)
+8. **Jiné atributy** (všechny nespecifikované vázané i nevázané atributy)
 
-9. **Events** (component event listeners)
+9. **Události** (event-listenery komponenty)
 
    - `v-on`
 
-10. **Content** (overrides the content of the element)
+10. **Obsah** (přepisují obsah elementu)
     - `v-html`
     - `v-text`
 
-## Empty lines in component/instance options {#empty-lines-in-component-instance-options}
+## Prázdné řádky v možnostech nastavení komponenty/instance {#empty-lines-in-component-instance-options}
 
-**You may want to add one empty line between multi-line properties, particularly if the options can no longer fit on your screen without scrolling.**
+**Možná budete chtít přidat jeden prázdný řádek mezi víceřádkové vlastnosti, zejména pokud se možnosti již nevejdou na vaši obrazovku bez posouvání.**
 
-When components begin to feel cramped or difficult to read, adding spaces between multi-line properties can make them easier to skim again. In some editors, such as Vim, formatting options like this can also make them easier to navigate with the keyboard.
+Když komponenty začnou vypadat stísněně nebo obtížně čitelné, přidání mezer mezi víceřádkové vlastnosti může usnadnit jejich opětovné procházení. V některých editorech jako Vim, mohou tyto varianty formátování také usnadnit navigaci pomocí klávesnice.
 
 <div class="options-api">
 
 <div class="style-example style-example-bad">
-<h3>Bad</h3>
+<h3>Špatně</h3>
 
 ```js
 props: {
@@ -162,11 +162,11 @@ computed: {
 </div>
 
 <div class="style-example style-example-good">
-<h3>Good</h3>
+<h3>Dobře</h3>
 
 ```js
-// No spaces are also fine, as long as the component
-// is still easy to read and navigate.
+// je v pořádku nemít žádné mezery, dokud je komponenta
+// stále dobře čitelná a lze v ní snadno navigovat
 props: {
   value: {
     type: String,
@@ -196,7 +196,7 @@ computed: {
 <div class="composition-api">
 
 <div class="style-example style-example-bad">
-<h3>Bad</h3>
+<h3>Špatně</h3>
 
 ```js
 defineProps({
@@ -222,7 +222,7 @@ const inputClasses = computed(() => {
 </div>
 
 <div class="style-example style-example-good">
-<h3>Good</h3>
+<h3>Dobře</h3>
 
 ```js
 defineProps({
@@ -253,12 +253,12 @@ const inputClasses = computed(() => {
 
 </div>
 
-## Single-file component top-level element order {#single-file-component-top-level-element-order}
+## Pořadí hlavních sekcí Single-file komponenty (SFC) {#single-file-component-top-level-element-order}
 
-**[Single-File Components](/guide/scaling-up/sfc) should always order `<script>`, `<template>`, and `<style>` tags consistently, with `<style>` last, because at least one of the other two is always necessary.**
+**[Single-File komponenty (SFC)](/guide/scaling-up/sfc) by měly vždy řadit tagy sekcí `<script>`, `<template>` a `<style>` konzistentně, přičemž `<style>` by měl být poslední, protože je vždy nezbytný jeden ze dvou zbylých.**
 
 <div class="style-example style-example-bad">
-<h3>Bad</h3>
+<h3>Špatně</h3>
 
 ```vue-html
 <style>/* ... */</style>
@@ -281,7 +281,7 @@ const inputClasses = computed(() => {
 </div>
 
 <div class="style-example style-example-good">
-<h3>Good</h3>
+<h3>Dobře</h3>
 
 ```vue-html
 <!-- ComponentA.vue -->

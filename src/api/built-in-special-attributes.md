@@ -1,18 +1,18 @@
-# Built-in Special Attributes {#built-in-special-attributes}
+# Vestavěné speciální atributy {#built-in-special-attributes}
 
 ## key {#key}
 
-The `key` special attribute is primarily used as a hint for Vue's virtual DOM algorithm to identify vnodes when diffing the new list of nodes against the old list.
+Speciální atribut `key` se používá především jako nápověda pro virtuální DOM algoritmus Vue pro identifikaci elementů (VNodes) při porovnávání nového seznamu s původním seznamem.
 
-- **Expects:** `number | string | symbol`
+- **Očekává:** `number | string | symbol`
 
-- **Details**
+- **Podrobnosti**
 
-  Without keys, Vue uses an algorithm that minimizes element movement and tries to patch/reuse elements of the same type in-place as much as possible. With keys, it will reorder elements based on the order change of keys, and elements with keys that are no longer present will always be removed / destroyed.
+  Bez `key` atributů Vue používá algoritmus, který minimalizuje pohyb elementů a snaží se co nejvíce upravit/znovupoužít elementy stejného typu na stejném místě. S použitím `key` se elementy přeuspořádávají na základě změny pořadí klíčů a elementy s klíči, které již nejsou přítomny, budou vždy odstraněny / zničeny.
 
-  Children of the same common parent must have **unique keys**. Duplicate keys will cause render errors.
+  Potomci stejného společného rodiče musí mít **unikátní klíče**. Duplicitní atributy `key` způsobí chyby při vykreslování.
 
-  The most common use case is combined with `v-for`:
+  Nejběžnější použití je v kombinaci s `v-for`:
 
   ```vue-html
   <ul>
@@ -20,12 +20,12 @@ The `key` special attribute is primarily used as a hint for Vue's virtual DOM al
   </ul>
   ```
 
-  It can also be used to force replacement of an element/component instead of reusing it. This can be useful when you want to:
+  Mohou být také použity k vynucenému nahrazení elementu/komponenty místo jejího znovupoužití. To může být užitečné, když chcete:
 
-  - Properly trigger lifecycle hooks of a component
-  - Trigger transitions
+  - Správně spustit lifecycle hooky komponenty
+  - Spustit přechody (transitions)
 
-  For example:
+  Například:
 
   ```vue-html
   <transition>
@@ -33,28 +33,28 @@ The `key` special attribute is primarily used as a hint for Vue's virtual DOM al
   </transition>
   ```
 
-  When `text` changes, the `<span>` will always be replaced instead of patched, so a transition will be triggered.
+  Když se změní `text`, `<span>` bude vždy nahrazen místo pouhé úpravy, takže se přechod spustí.
 
-- **See also** [Guide - List Rendering - Maintaining State with `key`](/guide/essentials/list#maintaining-state-with-key)
+- **Viz také:** [Průvodce - Vykreslování seznamu - Udržování stavu pomocí `key`](/guide/essentials/list#udrzovani-stavu-s-key)
 
 ## ref {#ref}
 
-Denotes a [template ref](/guide/essentials/template-refs).
+Určuje [Template ref](/guide/essentials/template-refs).
 
-- **Expects:** `string | Function`
+- **Očekává:** `string | Function`
 
-- **Details**
+- **Podrobnosti**
 
-  `ref` is used to register a reference to an element or a child component.
+  `ref` se používá k zaregistrování reference na element nebo komponentu potomka.
 
-  In Options API, the reference will be registered under the component's `this.$refs` object:
+  V Options API bude reference zaregistrována v objektu `this.$refs` komponenty:
 
   ```vue-html
-  <!-- stored as this.$refs.p -->
-  <p ref="p">hello</p>
+  <!-- uloženo jako this.$refs.p -->
+  <p ref="p">ahoj</p>
   ```
 
-  In Composition API, the reference will be stored in a ref with matching name:
+  V Composition API bude reference uložena jako `ref` se shodným názvem:
 
   ```vue
   <script setup>
@@ -64,38 +64,38 @@ Denotes a [template ref](/guide/essentials/template-refs).
   </script>
 
   <template>
-    <p ref="p">hello</p>
+    <p ref="p">ahoj</p>
   </template>
   ```
 
-  If used on a plain DOM element, the reference will be that element; if used on a child component, the reference will be the child component instance.
+Pokud je použito na obyčejném DOM elementu, reference bude odkazovat na tento element; pokud je použito na komponentě potomka, reference bude odkazovat na příslušnou instanci komponenty.
 
-  Alternatively `ref` can accept a function value which provides full control over where to store the reference:
+Alternativně může `ref` přijmout hodnotu funkce, která poskytuje plnou kontrolu, kam referenci uložit:
 
-  ```vue-html
-  <ChildComponent :ref="(el) => child = el" />
-  ```
+```vue-html
+<ChildComponent :ref="(el) => child = el" />
+```
 
-  An important note about the ref registration timing: because the refs themselves are created as a result of the render function, you must wait until the component is mounted before accessing them.
+Důležitá poznámka ohledně času registrace ref: protože samotné refs jsou vytvořeny jako výsledek vykreslovací funkce, musíte počkat, až je komponenta připojena (mounted), než k nim lze přistoupit.
 
-  `this.$refs` is also non-reactive, therefore you should not attempt to use it in templates for data-binding.
+`this.$refs` také není reaktivní, proto byste se neměli pokoušet tento objekt použít v šablonách pro data-binding.
 
-- **See also**
-  - [Guide - Template Refs](/guide/essentials/template-refs)
-  - [Guide - Typing Template Refs](/guide/typescript/composition-api#typing-template-refs) <sup class="vt-badge ts" />
-  - [Guide - Typing Component Template Refs](/guide/typescript/composition-api#typing-component-template-refs) <sup class="vt-badge ts" />
+- **Viz také:**
+  - [Průvodce - Template Refs](/guide/essentials/template-refs)
+  - [Průvodce - Typování Template Refs](/guide/typescript/composition-api#typing-template-refs) <sup class="vt-badge ts" />
+  - [Průvodce - Typování Template Refs Komponenty](/guide/typescript/composition-api#typing-component-template-refs) <sup class="vt-badge ts" />
 
 ## is {#is}
 
-Used for binding [dynamic components](/guide/essentials/component-basics#dynamic-components).
+Používá se pro binding [dynamických komponent](/guide/essentials/component-basics#dynamic-components).
 
-- **Expects:** `string | Component`
+- **Očekává:** `string | Komponenta`
 
-- **Usage on native elements** <sup class="vt-badge">3.1+</sup>
+- **Použití na nativních elementech** <sup class="vt-badge">3.1+</sup>
 
-  When the `is` attribute is used on a native HTML element, it will be interpreted as a [Customized built-in element](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example), which is a native web platform feature.
+  Když je atribut `is` použit na nativním HTML elementu, bude interpretován jako [custom vestavěný element](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example), což je nativní funkce webové platformy.
 
-  There is, however, a use case where you may need Vue to replace a native element with a Vue component, as explained in [in-DOM Template Parsing Caveats](/guide/essentials/component-basics#in-dom-template-parsing-caveats). You can prefix the value of the `is` attribute with `vue:` so that Vue will render the element as a Vue component instead:
+  Existuje však případ použití, kdy můžete potřebovat, aby Vue nahradilo nativní element  Vue komponentou, jak je vysvětleno v [upozornění na omezení při anlýze in-DOM šablon](/guide/essentials/component-basics#in-dom-template-parsing-caveats). Můžete atributu `is` přidat předponu `vue:`, aby Vue vykreslilo element jako Vue komponentu:
 
   ```vue-html
   <table>
@@ -103,7 +103,7 @@ Used for binding [dynamic components](/guide/essentials/component-basics#dynamic
   </table>
   ```
 
-- **See also**
+- **Viz také:**
 
-  - [Built-in Special Element - `<component>`](/api/built-in-special-elements#component)
-  - [Dynamic Components](/guide/essentials/component-basics#dynamic-components)
+  - [Vestavěný Speciální Element - `<component>`](/api/built-in-special-elements#component)
+  - [Dynamické Komponenty](/guide/essentials/component-basics#dynamic-components)

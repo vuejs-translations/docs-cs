@@ -1,10 +1,10 @@
-# Options: Composition {#options-composition}
+# Options API: Kompozice {#options-composition}
 
 ## provide {#provide}
 
-Provide values that can be injected by descendant components.
+Poskytujte hodnoty, které mohou být implementovány potomky komponent.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -12,15 +12,15 @@ Provide values that can be injected by descendant components.
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  `provide` and [`inject`](#inject) are used together to allow an ancestor component to serve as a dependency injector for all its descendants, regardless of how deep the component hierarchy is, as long as they are in the same parent chain.
+  `provide` a [`inject`](#inject) se používají společně, aby umožnili komponentě předka fungovat jako injektor závislostí pro všechny své potomky, bez ohledu na to, jak hluboká je hierarchie komponent, dokud jsou ve stejném rodičovském řetězci.
 
-  The `provide` option should be either an object or a function that returns an object. This object contains the properties that are available for injection into its descendants. You can use Symbols as keys in this object.
+  Volba `provide` by měla být buď objekt nebo funkce, která vrací objekt. Tento objekt obsahuje vlastnosti, které jsou dostupné pro vkládání do komponent potomků. V tomto objektu můžete použít klíče typu Symbol.
 
-- **Example**
+- **Příklad**
 
-  Basic usage:
+  Základní použití:
 
   ```js
   const s = Symbol()
@@ -33,7 +33,7 @@ Provide values that can be injected by descendant components.
   }
   ```
 
-  Using a function to provide per-component state:
+  Použití funkce pro poskytování stavu pro každou komponentu:
 
   ```js
   export default {
@@ -50,15 +50,15 @@ Provide values that can be injected by descendant components.
   }
   ```
 
-  Note in the above example, the provided `msg` will NOT be reactive. See [Working with Reactivity](/guide/components/provide-inject#working-with-reactivity) for more details.
+  Mějte na paměti, že výše uvedená poskytnutá hodnota `msg` nebude reaktivní. Pro více informací se podívejte na [Práci s reaktivitou](/guide/components/provide-inject#working-with-reactivity).
 
-- **See also** [Provide / Inject](/guide/components/provide-inject)
+- **Viz také:** [Provide / Inject](/guide/components/provide-inject)
 
 ## inject {#inject}
 
-Declare properties to inject into the current component by locating them from ancestor providers.
+Deklaruje vlastnosti, které se mají implementovat do aktuální komponenty vyhledáváním z poskytovatelů v hierarchii předků.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -75,24 +75,24 @@ Declare properties to inject into the current component by locating them from an
   }
   ```
 
-- **Details**
+- **Podrobnosti**
 
-  The `inject` option should be either:
+  Volba `inject` by měla být buď:
 
-  - An array of strings, or
-  - An object where the keys are the local binding name and the value is either:
-    - The key (string or Symbol) to search for in available injections, or
-    - An object where:
-      - The `from` property is the key (string or Symbol) to search for in available injections, and
-      - The `default` property is used as fallback value. Similar to props default values, a factory function is needed for object types to avoid value sharing between multiple component instances.
+  - Pole řetězců, nebo
+  - Objekt, kde klíče jsou názvy místních vazeb a hodnota je buď:
+    - Klíč (string nebo Symbol), který se má vyhledat v dostupných injections, nebo
+    - Objekt, kde:
+      - Vlastnost `from` je klíč (string nebo Symbol), který se má vyhledat v dostupných injections, a
+      - Vlastnost `default` se používá jako fallback hodnota. Podobně jako u výchozích hodnot props, pro objektové typy je třeba použít tovární funkci, aby se zabránilo sdílení hodnot mezi více instancemi komponent.
 
-  An injected property will be `undefined` if neither a matching property nor a default value was provided.
+Implementovaná vlastnost bude `undefined`, pokud nebyla poskytnuta odpovídající vlastnost ani výchozí hodnota.
 
-  Note that injected bindings are NOT reactive. This is intentional. However, if the injected value is a reactive object, properties on that object do remain reactive. See [Working with Reactivity](/guide/components/provide-inject#working-with-reactivity) for more details.
+Všimněte si, že vazby implemetovaných hodnot **nejsou reaktivní**. To je záměrné. Nicméně, pokud je vložená hodnota reaktivní objekt, vlastnosti tohoto objektu zůstávají reaktivní. Pro více informací se podívejte na [Práci s reaktivitou](/guide/components/provide-inject#working-with-reactivity).
 
-- **Example**
+- **Příklad**
 
-  Basic usage:
+  Základní použití:
 
   ```js
   export default {
@@ -103,7 +103,7 @@ Declare properties to inject into the current component by locating them from an
   }
   ```
 
-  Using an injected value as the default for a prop:
+  Použití implementované hodnoty jako výchozí hodnoty pro vlastnost (prop):
 
   ```js
   const Child = {
@@ -118,7 +118,7 @@ Declare properties to inject into the current component by locating them from an
   }
   ```
 
-  Using an injected value as data entry:
+  Použití implementované hodnoty jako vstupu do dat:
 
   ```js
   const Child = {
@@ -131,7 +131,7 @@ Declare properties to inject into the current component by locating them from an
   }
   ```
 
-  Injections can be optional with default value:
+  Implementace může být volitelná s výchozí hodnotou:
 
   ```js
   const Child = {
@@ -141,7 +141,7 @@ Declare properties to inject into the current component by locating them from an
   }
   ```
 
-  If it needs to be injected from a property with a different name, use `from` to denote the source property:
+  Pokud je třeba implementovat hodnotu z vlastnosti s jiným názvem, použijte pro označení zdrojové vlastnosti `from`:
 
   ```js
   const Child = {
@@ -154,7 +154,7 @@ Declare properties to inject into the current component by locating them from an
   }
   ```
 
-  Similar to prop defaults, you need to use a factory function for non-primitive values:
+  Podobně jako u výchozích hodnot vlastností (props), pro neprimitivní hodnoty je třeba použít tovární funkci:
 
   ```js
   const Child = {
@@ -167,13 +167,13 @@ Declare properties to inject into the current component by locating them from an
   }
   ```
 
-- **See also** [Provide / Inject](/guide/components/provide-inject)
+- **Viz také:** [Provide / Inject](/guide/components/provide-inject)
 
 ## mixins {#mixins}
 
-An array of option objects to be mixed into the current component.
+Pole objektů s možnostmi (options), které se mají smíchat do aktuální komponenty.
 
-- **Type**
+- **Typ**
 
   ```ts
   interface ComponentOptions {
@@ -181,86 +181,87 @@ An array of option objects to be mixed into the current component.
   }
   ```
 
-- **Details**
+- **Detaily**
 
-  The `mixins` option accepts an array of mixin objects. These mixin objects can contain instance options like normal instance objects, and they will be merged against the eventual options using the certain option merging logic. For example, if your mixin contains a `created` hook and the component itself also has one, both functions will be called.
+  Volba `mixins` přijímá pole objektů mixinu. Tyto mixin objekty mohou obsahovat volby instance (instance options) jako normální objekty instance (instance objects) a budou sloučeny s konečnými volbami pomocí určité logiky sloučení volby. Například, pokud váš mixin obsahuje `created` hook a sama komponenta také, budou volány obě funkce.
 
-  Mixin hooks are called in the order they are provided, and called before the component's own hooks.
+Mixinové hooks jsou volány v pořadí, v jakém jsou poskytnuty, a před hooks samotného komponentu.
 
-  :::warning No Longer Recommended
-  In Vue 2, mixins were the primary mechanism for creating reusable chunks of component logic. While mixins continue to be supported in Vue 3, [Composable functions using Composition API](/guide/reusability/composables) is now the preferred approach for code reuse between components.
-  :::
+:::warning Už není doporučeno
+V Vue 2 byly mixinové funkce hlavním mechanismem pro vytváření znovupoužitelných částí logiky komponenty. Ačkoli jsou mixinové funkce ve Vue 3 nadále podporovány, nyní jsou preferovaným přístupem pro znovupoužití kódu mezi komponenty [composable funkce pomocí Composition API](/guide/reusability/composables).
+:::
 
-- **Example**
+- **Příklad**
 
-  ```js
-  const mixin = {
-    created() {
-      console.log(1)
-    }
+```js
+const mixin = {
+  created() {
+    console.log(1)
   }
+}
 
-  createApp({
-    created() {
-      console.log(2)
-    },
-    mixins: [mixin]
-  })
+createApp({
+  created() {
+    console.log(2)
+  },
+  mixins: [mixin]
+})
 
-  // => 1
-  // => 2
-  ```
+// => 1
+// => 2
+```
 
 ## extends {#extends}
 
-A "base class" component to extend from.
+"Základní třída" komponenty, ze které se dědí.
 
-- **Type**
+- **Typ**
 
-  ```ts
-  interface ComponentOptions {
-    extends?: ComponentOptions
-  }
-  ```
+```ts
+interface ComponentOptions {
+  extends?: ComponentOptions
+}
+```
 
-- **Details**
+- **Detaily**
 
-  Allows one component to extend another, inheriting its component options.
+Umožňuje jedné komponentě rozšířit jinou a zdědit její možnosti.
 
-  From an implementation perspective, `extends` is almost identical to `mixins`. The component specified by `extends` will be treated as though it were the first mixin.
+Z implementačního hlediska je `extends` téměř identické jako `mixins`. S komponentou specifikovanou pomocí `extends` bude zacházeno tak, jako by byla prvním mixinem.
 
-  However, `extends` and `mixins` express different intents. The `mixins` option is primarily used to compose chunks of functionality, whereas `extends` is primarily concerned with inheritance.
+Nicméně, `extends` a `mixins` vyjadřují různé záměry. Volba `mixins` se především používá k sestavování částí funkcionality, zatímco `extends` se především zabývá dědičností.
 
-  As with `mixins`, any options (except for `setup()`) will be merged using the relevant merge strategy.
+Stejně jako u `mixins` budou jakékoliv možnosti (kromě `setup()`) sloučeny pomocí příslušné strategie pro sloučení.
 
-- **Example**
+- **Příklad**
 
-  ```js
-  const CompA = { ... }
+```js
+const CompA = { ... }
 
-  const CompB = {
-    extends: CompA,
-    ...
-  }
-  ```
+const CompB = {
+  extends: CompA,
+  ...
+}
+```
 
-  :::warning Not Recommended for Composition API
-  `extends` is designed for Options API and does not handle the merging of the `setup()` hook.
+:::warning Nedoporučeno pro Composition API
+`extends` je navrženo pro Options API a neřeší sloučení hooku `setup()`.
 
-  In Composition API, the preferred mental model for logic reuse is "compose" over "inheritance". If you have logic from a component that needs to be reused in another one, consider extracting the relevant logic into a [Composable](/guide/reusability/composables#composables).
+V Composition API je preferovaný mentální model pro znovupoužití logiky "kompozice" před "dědičností". Pokud máte logiku z komponenty, kterou chcete znovu použít v jiné komponentě, zvažte extrakci příslušné logiky do [composable objektu](/guide/reusability/composables#composables).
 
-  If you still intend to "extend" a component using Composition API, you can call the base component's `setup()` in the extending component's `setup()`:
+Pokud stále chcete "rozšířit" komponentu pomocí Composition API, můžete zavolat `setup()` základní komponenty v `setup()` rozšiřující komponenty:
+```
 
-  ```js
-  import Base from './Base.js'
-  export default {
-    extends: Base,
-    setup(props, ctx) {
-      return {
-        ...Base.setup(props, ctx),
-        // local bindings
-      }
+```js
+import Base from './Base.js'
+export default {
+  extends: Base,
+  setup(props, ctx) {
+    return {
+      ...Base.setup(props, ctx),
+      // místní vazby
     }
   }
-  ```
-  :::
+}
+```
+:::

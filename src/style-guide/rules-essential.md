@@ -1,62 +1,62 @@
-# Priority A Rules: Essential {#priority-a-rules-essential}
+# Pravidla priority A: Zásadní (prevence chyb) {#priority-a-rules-essential}
 
-These rules help prevent errors, so learn and abide by them at all costs. Exceptions may exist, but should be very rare and only be made by those with expert knowledge of both JavaScript and Vue.
+Tato pravidla pomáhají předcházet chybám, proto se je za každou cenu naučte a dodržujte je. Výjimky mohou existovat, ale měly by být velmi vzácné a měly by být dělány pouze osobami s odbornými znalostmi jak JavaScriptu, tak Vue.
 
-## Use multi-word component names {#use-multi-word-component-names}
+## Používejte víceslovné názvy komponent {#use-multi-word-component-names}
 
-User component names should always be multi-word, except for root `App` components. This [prevents conflicts](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) with existing and future HTML elements, since all HTML elements are a single word.
+Názvy vašich vlastních komponent by měly být vždy víceslovné, s výjimkou kořenových komponent `App`. To [předchází konfliktům](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) se stávajícími a potenciálními budoucími HTML elementy, protože všechny HTML elementy jsou jednoslovné.
 
 <div class="style-example style-example-bad">
-<h3>Bad</h3>
+<h3>Špatně</h3>
 
 ```vue-html
-<!-- in pre-compiled templates -->
+<!-- pre-kompilovaná šablona -->
 <Item />
 
-<!-- in in-DOM templates -->
+<!-- DOM šablona -->
 <item></item>
 ```
 
 </div>
 
 <div class="style-example style-example-good">
-<h3>Good</h3>
+<h3>Dobře</h3>
 
 ```vue-html
-<!-- in pre-compiled templates -->
+<!-- pre-kompilovaná šablona -->
 <TodoItem />
 
-<!-- in in-DOM templates -->
+<!-- DOM šablona -->
 <todo-item></todo-item>
 ```
 
 </div>
 
-## Use detailed prop definitions {#use-detailed-prop-definitions}
+## Používejte detailní definice vlastností {#use-detailed-prop-definitions}
 
-In committed code, prop definitions should always be as detailed as possible, specifying at least type(s).
+V hotovém kódu by definice vlastností (props) měly být vždy co nejpodrobnější, přinejmenším by měly specifikovat typ(y).
 
-::: details Detailed Explanation
-Detailed [prop definitions](/guide/components/props#prop-validation) have two advantages:
+::: details Podrobné vysvětlení
+Podrobná [definice vlastností](/guide/components/props#prop-validation) má dvě výhody:
 
-- They document the API of the component, so that it's easy to see how the component is meant to be used.
-- In development, Vue will warn you if a component is ever provided incorrectly formatted props, helping you catch potential sources of error.
+- Dokumentují API komponenty, takže je snadněji vidět, jak má být komponenta používána.
+- Během vývoje vás Vue upozorní, pokud budou komponentě předávané vlastnosti v chybném formátu, což vám pomůže zachytit potenciální zdroje chyb.
   :::
 
 <div class="options-api">
 
 <div class="style-example style-example-bad">
-<h3>Bad</h3>
+<h3>Špatně</h3>
 
 ```js
-// This is only OK when prototyping
+// toto je OK pouze během prototypování
 props: ['status']
 ```
 
 </div>
 
 <div class="style-example style-example-good">
-<h3>Good</h3>
+<h3>Dobře</h3>
 
 ```js
 props: {
@@ -65,7 +65,7 @@ props: {
 ```
 
 ```js
-// Even better!
+// ještě lepší
 props: {
   status: {
     type: String,
@@ -90,17 +90,17 @@ props: {
 <div class="composition-api">
 
 <div class="style-example style-example-bad">
-<h3>Bad</h3>
+<h3>Špatně</h3>
 
 ```js
-// This is only OK when prototyping
+// toto je OK pouze během prototypování
 const props = defineProps(['status'])
 ```
 
 </div>
 
 <div class="style-example style-example-good">
-<h3>Good</h3>
+<h3>Dobře</h3>
 
 ```js
 const props = defineProps({
@@ -109,7 +109,7 @@ const props = defineProps({
 ```
 
 ```js
-// Even better!
+// ještě lepší
 
 const props = defineProps({
   status: {
@@ -129,12 +129,12 @@ const props = defineProps({
 
 </div>
 
-## Use keyed `v-for` {#use-keyed-v-for}
+## Používejte `v-for` spolu s klíčem {#use-keyed-v-for}
 
-`key` with `v-for` is _always_ required on components, in order to maintain internal component state down the subtree. Even for elements though, it's a good practice to maintain predictable behavior, such as [object constancy](https://bost.ocks.org/mike/constancy/) in animations.
+`key` společně s `v-for` je _vždy_ vyžadován v komponentách, za účelem udržení interního stavu komponent v podstromu. Ovšem i u elementů je dobrým zvykem udržovat předvídatelné chování, jako je [stálost objektu](https://bost.ocks.org/mike/constancy/) při animacích.
 
-::: details Detailed Explanation
-Let's say you have a list of todos:
+::: details Podrobné vysvětlení
+Řekněme že máte seznam TODO prvků:
 
 <div class="options-api">
 
@@ -144,11 +144,11 @@ data() {
     todos: [
       {
         id: 1,
-        text: 'Learn to use v-for'
+        text: 'Naucit se pouzivat v-for'
       },
       {
         id: 2,
-        text: 'Learn to use key'
+        text: 'Naucit se pouzivat key'
       }
     ]
   }
@@ -163,26 +163,26 @@ data() {
 const todos = ref([
   {
     id: 1,
-    text: 'Learn to use v-for'
+    text: 'Naucit se pouzivat v-for'
   },
   {
     id: 2,
-    text: 'Learn to use key'
+    text: 'Naucit se pouzivat key'
   }
 ])
 ```
 
 </div>
 
-Then you sort them alphabetically. When updating the DOM, Vue will optimize rendering to perform the cheapest DOM mutations possible. That might mean deleting the first todo element, then adding it again at the end of the list.
+Pak je seřadíte podle abecedy. Při aktualizaci DOM Vue optimalizuje vykreslování tak, aby se provedly co nejmenší změny DOM. To může znamenat odstranění prvního TODO prvku a jeho opětovné přidání na konec seznamu.
 
-The problem is, there are cases where it's important not to delete elements that will remain in the DOM. For example, you may want to use `<transition-group>` to animate list sorting, or maintain focus if the rendered element is an `<input>`. In these cases, adding a unique key for each item (e.g. `:key="todo.id"`) will tell Vue how to behave more predictably.
+Problém je, že existují případy, kdy je důležité nesmazat prvky, které zůstanou v DOM. Například můžete chtít použít `<transition-group>` k animaci řazení seznamu nebo zachovat focus, pokud je vykreslený prvek `<input>`. V těchto případech přidání jedinečného klíče pro každou položku (např. `:key="todo.id"`) řekne Vue, jak se chovat předvídatelněji.
 
-In our experience, it's better to _always_ add a unique key, so that you and your team simply never have to worry about these edge cases. Then in the rare, performance-critical scenarios where object constancy isn't necessary, you can make a conscious exception.
+Podle našich zkušeností je lepší _vždy_ přidat jedinečný klíč, abyste se vy a váš tým jednoduše nikdy nemuseli starat o tyto okrajové případy. Pak ve vzácných, výkonově kritických scénářích, kde není stálost objektu nutná, můžete udělat vědomou výjimku.
 :::
 
 <div class="style-example style-example-bad">
-<h3>Bad</h3>
+<h3>Špatně</h3>
 
 ```vue-html
 <ul>
@@ -195,7 +195,7 @@ In our experience, it's better to _always_ add a unique key, so that you and you
 </div>
 
 <div class="style-example style-example-good">
-<h3>Good</h3>
+<h3>Dobře</h3>
 
 ```vue-html
 <ul>
@@ -210,18 +210,18 @@ In our experience, it's better to _always_ add a unique key, so that you and you
 
 </div>
 
-## Avoid `v-if` with `v-for` {#avoid-v-if-with-v-for}
+## Vyvarujte se `v-if` dohromady s `v-for` {#avoid-v-if-with-v-for}
 
-**Never use `v-if` on the same element as `v-for`.**
+**Nikdy nepoužívejte `v-if` ma stejný element jako `v-for`.**
 
-There are two common cases where this can be tempting:
+Existují dva běžné případy, kdy to může být lákavé:
 
-- To filter items in a list (e.g. `v-for="user in users" v-if="user.isActive"`). In these cases, replace `users` with a new computed property that returns your filtered list (e.g. `activeUsers`).
+- Při filtrování položek v seznamu (např. `v-for="user in users" v-if="user.isActive"`). V těchto případech nahraďte `users` novou computed proměnnou, která vrátí filtrovaný seznam (např. `activeUsers`).
 
-- To avoid rendering a list if it should be hidden (e.g. `v-for="user in users" v-if="shouldShowUsers"`). In these cases, move the `v-if` to a container element (e.g. `ul`, `ol`).
+- Aby se zabránilo vykreslování seznamu, který by měl být skrytý (např. `v-for="user in users" v-if="shouldShowUsers"`). V těchto případech přesuňte `v-if` na mateřeský element (např. `ul`, `ol`).
 
-::: details Detailed Explanation
-When Vue processes directives, `v-if` has a higher priority than `v-for`, so that this template:
+::: details Podrobné vysvětlení
+Když Vue zpracovává direktivy, `v-if` má vyšší priorotu než `v-for`. V této šabloně tedy:
 
 ```vue-html
 <ul>
@@ -235,9 +235,9 @@ When Vue processes directives, `v-if` has a higher priority than `v-for`, so tha
 </ul>
 ```
 
-Will throw an error, because the `v-if` directive will be evaluated first and the iteration variable `user` does not exist at this moment.
+vyvolá výjimku, protože `v-if` direktiva bude vyhodnocena první a proměnná `user`, přes kterou se iteruje nebude v tom okamžiku existovat.
 
-This could be fixed by iterating over a computed property instead, like this:
+To se dá napravit iterací přes computed proměnnou, například takto:
 
 <div class="options-api">
 
@@ -272,7 +272,7 @@ const activeUsers = computed(() => {
 </ul>
 ```
 
-Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` element:
+Nebo můžete použít tag `<template>` s `v-for`, kterým obalíte `<li>` element:
 
 ```vue-html
 <ul>
@@ -287,7 +287,7 @@ Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` ele
 :::
 
 <div class="style-example style-example-bad">
-<h3>Bad</h3>
+<h3>Špatně</h3>
 
 ```vue-html
 <ul>
@@ -304,7 +304,7 @@ Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` ele
 </div>
 
 <div class="style-example style-example-good">
-<h3>Good</h3>
+<h3>Dobře</h3>
 
 ```vue-html
 <ul>
@@ -329,24 +329,24 @@ Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` ele
 
 </div>
 
-## Use component-scoped styling {#use-component-scoped-styling}
+## Používejte omezené stylování komponent {#use-component-scoped-styling}
 
-For applications, styles in a top-level `App` component and in layout components may be global, but all other components should always be scoped.
+V aplikacích mohou být styly na nejvyšší úrovni komponenty `App` a v layout komponentách globální, ale všechy ostatní komponenty by měly mít styly vždy omezené (scoped).
 
-This is only relevant for [Single-File Components](/guide/scaling-up/sfc). It does _not_ require that the [`scoped` attribute](https://vue-loader.vuejs.org/en/features/scoped-css.html) be used. Scoping could be through [CSS modules](https://vue-loader.vuejs.org/en/features/css-modules), a class-based strategy such as [BEM](http://getbem.com/), or another library/convention.
+To platí pouze pro [Single-File komponenty (SFC)](/guide/scaling-up/sfc). _Není_ nezbytné používat [atribut `scoped`](https://vue-loader.vuejs.org/en/features/scoped-css.html). Omezení lze zajistit pomocí [CSS modulů](https://vue-loader.vuejs.org/en/features/css-modules.html), a class-based strategie jako je [BEM](http://getbem.com/), či jiné knihovny/konvence.
 
-**Component libraries, however, should prefer a class-based strategy instead of using the `scoped` attribute.**
+**Komponenty knihoven by nicméně měly class-based strategii místo používání atributu `scoped` upřednostňovat.**
 
-This makes overriding internal styles easier, with human-readable class names that don't have too high specificity, but are still very unlikely to result in a conflict.
+Díky tomu je přepisování interních stylů snazší, s lidsky-čitelnými názvy tříd, které nejsou příliš specifické, ale přesto je velmi nepravděpodobné, že by vedly ke konfliktu.
 
-::: details Detailed Explanation
-If you are developing a large project, working with other developers, or sometimes include 3rd-party HTML/CSS (e.g. from Auth0), consistent scoping will ensure that your styles only apply to the components they are meant for.
+::: details Podrobné vysvětlení
+Pokud vyvíjíte velký projekt, spolupracujete s dalšími vývojáři nebo někdy využijete HTML/CSS třetí strany (např. od Auth0), konzistentní omezení zajistí, že se vaše styly budou vztahovat pouze na komponenty, pro které jsou určeny.
 
-Beyond the `scoped` attribute, using unique class names can help ensure that 3rd-party CSS does not apply to your own HTML. For example, many projects use the `button`, `btn`, or `icon` class names, so even if not using a strategy such as BEM, adding an app-specific and/or component-specific prefix (e.g. `ButtonClose-icon`) can provide some protection.
+Kromě atributu `scoped` může použití jedinečných názvů tříd pomoci zajistit, že se CSS třetí strany nebude aplikovat na vaše vlastní HTML. Mnoho projektů například používá názvy tříd `button`, `btn` nebo `icon`, takže i když nepoužíváte strategii jako je BEM, přidání předpony specifické pro aplikaci a/nebo komponentu (např. `ButtonClose-icon`) může poskytnout určitou ochranu před nežádoucími efekty.
 :::
 
 <div class="style-example style-example-bad">
-<h3>Bad</h3>
+<h3>Špatně</h3>
 
 ```vue-html
 <template>
@@ -363,14 +363,14 @@ Beyond the `scoped` attribute, using unique class names can help ensure that 3rd
 </div>
 
 <div class="style-example style-example-good">
-<h3>Good</h3>
+<h3>Dobře</h3>
 
 ```vue-html
 <template>
   <button class="button button-close">×</button>
 </template>
 
-<!-- Using the `scoped` attribute -->
+<!-- Použití atributu `scoped` -->
 <style scoped>
 .button {
   border: none;
@@ -388,7 +388,7 @@ Beyond the `scoped` attribute, using unique class names can help ensure that 3rd
   <button :class="[$style.button, $style.buttonClose]">×</button>
 </template>
 
-<!-- Using CSS modules -->
+<!-- Použití CSS modulů -->
 <style module>
 .button {
   border: none;
@@ -406,7 +406,7 @@ Beyond the `scoped` attribute, using unique class names can help ensure that 3rd
   <button class="c-Button c-Button--close">×</button>
 </template>
 
-<!-- Using the BEM convention -->
+<!-- Použití BEM konvence -->
 <style>
 .c-Button {
   border: none;

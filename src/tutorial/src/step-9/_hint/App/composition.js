@@ -5,7 +5,7 @@ export default {
     const pElementRef = ref(null)
 
     onMounted(() => {
-      pElementRef.value.textContent = 'mounted!'
+      pElementRef.value.textContent = 'připojeno!'
     })
 
     return {

@@ -1,44 +1,44 @@
-# Production Deployment {#production-deployment}
+# Nasazení do produkce {#production-deployment}
 
-## Development vs. Production {#development-vs-production}
+## Vývoj versus produkce {#development-vs-production}
 
-During development, Vue provides a number of features to improve the development experience:
+Během vývoje (dev) Vue poskytuje několik funkcí, které zlepšují developer experience:
 
-- Warning for common errors and pitfalls
-- Props / events validation
-- [Reactivity debugging hooks](/guide/extras/reactivity-in-depth#reactivity-debugging)
-- Devtools integration
+- Varování před běžnými chybami a úskalími
+- Validace props / událostí
+- [Ladicí nástroje pro reaktivitu](/guide/extras/reactivity-in-depth#reactivity-debugging)
+- Integrace s DevTools
 
-However, these features become useless in production. Some of the warning checks can also incur a small amount of performance overhead. When deploying to production, we should drop all the unused, development-only code branches for smaller payload size and better performance.
+Tyto funkce jsou však v produkci zbytečné. Některé kontrolní mechanismy pro varování mohou i způsobit o něco větší zátěž na výkon. Při nasazení do produkce bychom měli odstranit veškerý nepoužitý kód určený pouze pro vývoj, což sníží velikost přenášených dat a zlepší výkon.
 
-## Without Build Tools {#without-build-tools}
+## Bez nástrojů pro sestavení {#without-build-tools}
 
-If you are using Vue without a build tool by loading it from a CDN or self-hosted script, make sure to use the production build (dist files that end in `.prod.js`) when deploying to production. Production builds are pre-minified with all development-only code branches removed.
+Pokud používáte Vue bez nástroje pro sestavení tím, že jej načítáte z CDN nebo vlastního skriptu, ujistěte se, že při nasazení do produkce používáte produkční build (soubory v adresáři `dist`, které končí na `.prod.js`). Produkční sestavení jsou předem zmenšena a obsahují pouze kód určený pro produkci.
 
-- If using global build (accessing via the `Vue` global): use `vue.global.prod.js`.
-- If using ESM build (accessing via native ESM imports): use `vue.esm-browser.prod.js`.
+- Pokud používáte globální build (přístup pomocí globální proměnné `Vue`): použijte `vue.global.prod.js`.
+- Pokud používáte ESM build (přístup pomocí nativních ESM importů): použijte `vue.esm-browser.prod.js`.
 
-Consult the [dist file guide](https://github.com/vuejs/core/tree/main/packages/vue#which-dist-file-to-use) for more details.
+Pro více informací se podívejte do [průvodce soubory distribuce](https://github.com/vuejs/core/tree/main/packages/vue#which-dist-file-to-use).
 
-## With Build Tools {#with-build-tools}
+## S nástroji pro sestavení {#with-build-tools}
 
-Projects scaffolded via `create-vue` (based on Vite) or Vue CLI (based on webpack) are pre-configured for production builds.
+Projekty vytvořené pomocí `create-vue` (založené na Vite) nebo Vue CLI (založené na webpack) jsou přednastaveny pro produkční sestavení.
 
-If using a custom setup, make sure that:
+Pokud používáte vlastní nastavení, ujistěte se, že:
 
-1. `vue` resolves to `vue.runtime.esm-bundler.js`.
-2. The [compile time feature flags](https://github.com/vuejs/core/tree/main/packages/vue#bundler-build-feature-flags) are properly configured.
-3. <code>process.env<wbr>.NODE_ENV</code> is replaced with `"production"` during build.
+1. `vue` se překládá na `vue.runtime.esm-bundler.js`.
+2. [Přepínače pro kompilaci](https://github.com/vuejs/core/tree/main/packages/vue#bundler-build-feature-flags) jsou správně nakonfigurovány.
+3. <code>process.env<wbr>.NODE_ENV</code> je během sestavení nahrazeno hodnotou `"production"`.
 
-Additional references:
+Další odkazy:
 
-- [Vite production build guide](https://vitejs.dev/guide/build.html)
-- [Vite deployment guide](https://vitejs.dev/guide/static-deploy.html)
-- [Vue CLI deployment guide](https://cli.vuejs.org/guide/deployment.html)
+- [Průvodce produkčním sestavením s Vite](https://vitejs.dev/guide/build.html)
+- [Průvodce nasazením s Vite](https://vitejs.dev/guide/static-deploy.html)
+- [Průvodce nasazením s Vue CLI](https://cli.vuejs.org/guide/deployment.html)
 
-## Tracking Runtime Errors {#tracking-runtime-errors}
+## Sledování běhových chyb {#tracking-runtime-errors}
 
-The [app-level error handler](/api/application#app-config-errorhandler) can be used to report errors to tracking services:
+[Error handler na úrovni aplikace](/api/application#app-config-errorhandler) lze použít k hlášení chyb do sledovacích služeb:
 
 ```js
 import { createApp } from 'vue'
@@ -46,8 +46,8 @@ import { createApp } from 'vue'
 const app = createApp(...)
 
 app.config.errorHandler = (err, instance, info) => {
-  // report error to tracking services
+  // hlášení chyby do sledovacích služeb
 }
 ```
 
-Services such as [Sentry](https://docs.sentry.io/platforms/javascript/guides/vue/) and [Bugsnag](https://docs.bugsnag.com/platforms/javascript/vue/) also provide official integrations for Vue.
+Služby jako [Sentry](https://docs.sentry.io/platforms/javascript/guides/vue/) a [Bugsnag](https://docs.bugsnag.com/platforms/javascript/vue/) také poskytují oficiální integrace pro Vue.

@@ -1,7 +1,7 @@
 export default {
   data() {
     return {
-      titleClass: 'title'
+      h1Class: 'title'
     }
   }
 }
