@@ -2,7 +2,7 @@ name: ryu-cho
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '0 6 * * MON'
   workflow_dispatch:
 
 jobs:
