@@ -256,7 +256,7 @@ function inc() {
 
 ### Modifikátory a transformátory {#modifiers-and-transformers}
 
-Pro přístup k modifikátorům použitým s direktivou `v-model` můžeme dekonstruovat návratovou hodnotu z `defineModel()` následovně:
+Pro přístup k modifikátorům použitým s direktivou `v-model` můžeme destrukturovat návratovou hodnotu z `defineModel()` následovně:
 
 ```js
 const [modelValue, modelModifiers] = defineModel()

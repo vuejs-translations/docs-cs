@@ -50,7 +50,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 declare = deklarovat
 * 🟩 deep = vnořený (za předpokladu, že odpovídá kontext, např. "deep reactivity")
 * 🟥 default export = default export
-* 🟩 destructure = dekonstruovat
+* 🟩 destructure = destrukturovat
 * 🟥 developer experience = developer experiences (lze užít zkratku "DX")
 * 🟥 development experience = development experiences (lze užít zkratku "DX")
 * 🟩 details = podrobnosti

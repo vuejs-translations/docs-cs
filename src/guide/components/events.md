@@ -154,7 +154,7 @@ export default {
 }
 ```
 
-Stejně jako ostatní vlastnosti kontextu `setup()`, `emit` může být bezpečně dekonstruována:
+Stejně jako ostatní vlastnosti kontextu `setup()`, `emit` může být bezpečně destrukturována:
 
 ```js
 export default {

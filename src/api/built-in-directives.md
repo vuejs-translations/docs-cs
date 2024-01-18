@@ -375,7 +375,7 @@ Určuje pojmenované sloty nebo scoped sloty, které očekávají předání vla
 
 - **Zkrácený zápis:** `#`
 
-- **Očekává:** JavaScriptový výraz, který je platný v pozici argumentu funkce, včetně podpory dekonstrukce. Volitelné - je potřeba pouze pokud očekáváte, že budou do slotu předány vlastnosti.
+- **Očekává:** JavaScriptový výraz, který je platný v pozici argumentu funkce, včetně podpory destrukturování. Volitelné - je potřeba pouze pokud očekáváte, že budou do slotu předány vlastnosti.
 
 - **Parametr:** název slotu (volitelné, výchozí hodnota je `default`)
 
@@ -411,7 +411,7 @@ Určuje pojmenované sloty nebo scoped sloty, které očekávají předání vla
     </template>
   </InfiniteScroll>
 
-  <!-- Default slot, který přijímá props s dekonstrukcí -->
+  <!-- Default slot, který přijímá props s destrukturováním -->
   <Mouse v-slot="{ x, y }">
     Pozice myši: {{ x }}, {{ y }}
   </Mouse>

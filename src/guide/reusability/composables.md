@@ -271,14 +271,14 @@ Implementace [useFetch() představená dříve](#accepting-reactive-state) posky
 
 ### Návratové hodnoty {#return-values}
 
-Možná jste si všimli, že v composables používáme výhradně `ref()` namísto `reactive()`. Doporučenou konvencí je, aby composables vždy vracely obyčejný nereaktivní objekt obsahující více refs. To v komponentách umožňuje jeho dekonstrukci zároveň se zachováním reaktivity:
+Možná jste si všimli, že v composables používáme výhradně `ref()` namísto `reactive()`. Doporučenou konvencí je, aby composables vždy vracely obyčejný nereaktivní objekt obsahující více refs. To v komponentách umožňuje jeho destrukturování zároveň se zachováním reaktivity:
 
 ```js
 // x a y jsou refs
 const { x, y } = useMouse()
 ```
 
-Vrácení reaktivního objektu z composable způsobí, že tyto dekonstrukce ztratí reaktivní spojení se stavem uvnitř composable, zatímco refs si toto spojení zachovají.
+Vrácení reaktivního objektu z composable způsobí, že tato destrukturování ztratí reaktivní spojení se stavem uvnitř composable, zatímco refs si toto spojení zachovají.
 
 Pokud dáváte přednost použití stavu vráceného z composables jako vlastností objektu, můžete vrácený objekt obalit metodou `reactive()` tak, aby byly refs rozbaleny. Například:
 
@@ -361,9 +361,9 @@ export default {
 
 Uživatelé, kteří přicházejí od Vue 2, možná znají [mixins](/api/options-composition#mixins), které nám také umožňují extrahovat logiku komponent do opakovaně použitelných jednotek. Mixins mají tři hlavní nevýhody:
 
-1. **Nejasný zdroj vlastností**: při použití mnoha mixins přestává být jasné, která vlastnost instance je implementována (injected) kterým, což ztěžuje sledování implementace a pochopení chování komponenty. To je také důvod, proč doporučujeme pro composables používat vzor refs + dekonstrukce: díky němu je zdroj vlastností v komponentách konzumentů zřejmý.
+1. **Nejasný zdroj vlastností**: při použití mnoha mixins přestává být jasné, která vlastnost instance je implementována (injected) kterým, což ztěžuje sledování implementace a pochopení chování komponenty. To je také důvod, proč doporučujeme pro composables používat vzor refs + destrukturování: díky němu je zdroj vlastností v komponentách konzumentů zřejmý.
 
-2. **Kolize jmenných prostorů**: mixins od různých autorů může potenciálně registrovat stejné klíče vlastností, což způsobuje kolize jmenných prostorů. U composables můžete přejmenovat dekonstruované proměnné, pokud z různých composables přijdou konfliktní klíče.
+2. **Kolize jmenných prostorů**: mixins od různých autorů může potenciálně registrovat stejné klíče vlastností, což způsobuje kolize jmenných prostorů. U composables můžete přejmenovat destrukturované proměnné, pokud z různých composables přijdou konfliktní klíče.
 
 3. **Implicitní cross-mixin komunikace**: mixins, které spolu potřebují komunikovat, se musí spoléhat na sdílené klíče vlastností, čímž se stávají implicitně spřaženými (coupled). V případě composables lze hodnoty vrácené z jedné composable předat do jiné jako parametry, stejně jako u běžných funkcí.
 

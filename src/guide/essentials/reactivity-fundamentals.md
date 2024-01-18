@@ -444,12 +444,12 @@ API funkce `reactive()` má dvě omezení:
    state = reactive({ count: 1 })
    ```
 
-3. **Není destructure-friendly:** ldyž dekonstruujme (destructure) vlastnosti reaktivního objektu do lokálních proměnných nebo když tuto vlastnost předáme jako parametr funkci, ztratíme spojení reaktivity:
+3. **Není destructure-friendly:** když destrukturujeme vlastnosti reaktivního objektu do lokálních proměnných nebo když tuto vlastnost předáme jako parametr funkci, ztratíme spojení reaktivity:
 
    ```js
    const state = reactive({ count: 0 })
 
-   // count je při dekonstrukci odpojena od state.count
+   // count je při destrukturování odpojena od state.count
    let { count } = state
    // neovlivní původní stav
    count++
@@ -496,7 +496,7 @@ const objectRef = ref({ count: 0 })
 objectRef.value = { count: 1 }
 ```
 
-Instance ref mohou být také předávány do funkcí nebo dekonstruovány z prostých (plain) objektů bez ztráty reaktivity:
+Instance ref mohou být také předávány do funkcí nebo destrukturovány z prostých (plain) objektů bez ztráty reaktivity:
 
 ```js
 const obj = {
@@ -640,7 +640,7 @@ Proto tento výraz funguje správně:
 {{ object.id + 1 }}
 ```
 
-Výsledkem bude `[object Object]1`, protože `object.id` není při vyhodnocování výrazu rozbalen a zůstává ref objektem. Pro opravu tohoto problému můžeme `id` dekonstruovat do vlastnosti na nejvyšší úrovni:
+Výsledkem bude `[object Object]1`, protože `object.id` není při vyhodnocování výrazu rozbalen a zůstává ref objektem. Pro opravu tohoto problému můžeme `id` destrukturovat do vlastnosti na nejvyšší úrovni:
 
 ```js
 const { id } = object

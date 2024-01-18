@@ -64,9 +64,9 @@ import { $ref } from 'vue/macros'
 let count = $ref(0)
 ```
 
-## Dekonstrukce s `$()` {#destructuring-with}
+## Destrukturování s `$()` {#destructuring-with}
 
-Je běžné, že composable funkce vrací objekt refs a používá se dekonstrukce k jejich získání. K tomuto účelu poskytuje transformace reaktivity makro **`$()`**:
+Je běžné, že composable funkce vrací ref objekt a k jejich získání se používá destrukturování. K tomuto účelu poskytuje transformace reaktivity makro **`$()`**:
 
 ```js
 import { useMouse } from '@vueuse/core'
@@ -89,9 +89,9 @@ const __temp = useMouse(),
 console.log(x.value, y.value)
 ```
 
-Všimněte si, že pokud `x` již je ref, `toRef(__temp, 'x')` ho jednoduše vrátí tak, jak je, a žádný další ref nebude vytvořen. Pokud je dekonstruovaná hodnota není ref (např. funkce), stále to funguje - hodnota bude obalena v ref, aby zbytek kódu fungoval, jak se očekává.
+Všimněte si, že pokud `x` již je ref, `toRef(__temp, 'x')` ho jednoduše vrátí tak, jak je, a žádný další ref nebude vytvořen. Pokud destrukturovaná hodnota není ref (např. funkce), stále to funguje - hodnota bude obalena v ref, aby zbytek kódu fungoval, jak se očekává.
 
-Dekonstrukce s `$()` funguje jak na reaktivních objektech, tak na obyčejných objektech obsahujících refs.
+Destrukturovaní s `$()` funguje jak na reaktivních objektech, tak na obyčejných objektech obsahujících refs.
 
 ## Převod existujících refs na reaktivní proměnné s `$()` {#convert-existing-refs-to-reactive-variables-with}
 
@@ -105,15 +105,15 @@ function myCreateRef() {
 let count = $(myCreateRef())
 ```
 
-## Dekonstrukce reaktivních props {#reactive-props-destructure}
+## Destrukturování reaktivních props {#reactive-props-destructure}
 
 S aktuálním použitím `defineProps()` v `<script setup>` existují dva problémy:
 
-1. Podobně jako `.value`, musíte vždy přistupovat k props jako `props.x`, abyste zachovali reaktivitu. To znamená, že nemůžete dekonstruovat `defineProps`, protože výsledné dekonstruované proměnné nejsou reaktivní a nebudou se aktualizovat.
+1. Podobně jako `.value`, musíte vždy přistupovat k props jako `props.x`, abyste zachovali reaktivitu. To znamená, že nemůžete destrukturovat `defineProps`, protože výsledné destrukturované proměnné nejsou reaktivní a nebudou se aktualizovat.
 
 2. Při použití [pouze typové deklarace props](/api/sfc-script-setup#type-only-props-emit-declarations) neexistuje snadný způsob, jak deklarovat výchozí hodnoty. Pro tento účel jsme zavedli API `withDefaults()`, ale stále je obtížné ho používat.
 
-Tyto problémy můžeme řešit pomocí compile-time transformace, když se `defineProps` použije s dekonstrukcí, podobně jako jsme viděli dříve s `$()`:
+Tyto problémy můžeme řešit pomocí compile-time transformace, když se `defineProps` použije s destrukturováním, podobně jako jsme viděli dříve s `$()`:
 
 ```html
 <script setup lang="ts">
@@ -248,7 +248,7 @@ function useMouse() {
 }
 ```
 
-### Použití `$$()` na dekonstruovaných vlastnostech {#using-on-destructured-props}
+### Použití `$$()` na destrukturovaných vlastnostech {#using-on-destructured-props}
 
 `$$()` funguje i na destrukturovaných vlastnostech (props), protože jsou to také reaktivní proměnné. Kompilátor je pro větší efektivitu převede pomocí `toRef`:
 

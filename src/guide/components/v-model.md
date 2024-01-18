@@ -355,7 +355,7 @@ Pojďme vytvořit příklad vlastního modifikátoru `capitalize`, který bude p
 
 <div class="composition-api">
 
-Modifikátory přidané na `v-model` komponenty mohou být získány v komponentně potomka pomocí dekonstrukce návratové hodnoty `defineModel()` takto:
+Modifikátory přidané na `v-model` komponenty mohou být získány v komponentně potomka pomocí destrukturování návratové hodnoty `defineModel()` takto:
 
 ```vue{4}
 <script setup>

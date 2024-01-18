@@ -59,16 +59,16 @@ export default {
 }
 ```
 
-Všimněte si, že pokud dekonstruujete objekt `props`, dekonstruované proměnné ztratí reaktivitu. Proto se doporučuje k props vždy přistupovat ve formě `props.xxx`.
+Všimněte si, že pokud destrukturujete objekt `props`, destrukturované proměnné ztratí reaktivitu. Proto se doporučuje k props vždy přistupovat ve formě `props.xxx`.
 
-Pokud skutečně potřebujete dekonstruovat props nebo je předat do externí funkce a zachovat reaktivitu, můžete to udělat pomocí utilitních API [toRefs()](./reactivity-utilities#torefs) a [toRef()](/api/reactivity-utilities#toref):
+Pokud skutečně potřebujete props destrukturovat nebo je předat do externí funkce a zachovat reaktivitu, můžete to udělat pomocí utilitních API [toRefs()](./reactivity-utilities#torefs) a [toRef()](/api/reactivity-utilities#toref):
 
 ```js
 import { toRefs, toRef } from 'vue'
 
 export default {
   setup(props) {
-    // převede `props` na objekt složený z refs a poté dekonstruuje
+    // převede `props` na objekt složený z refs a poté destrukturuje
     const { title } = toRefs(props)
     // `title` je ref, který sleduje `props.title`
     console.log(title.value)
@@ -101,7 +101,7 @@ export default {
 }
 ```
 
-Kontextový objekt není reaktivní a může být bezpečně dekonstruován:
+Kontextový objekt není reaktivní a může být bezpečně destrukturován:
 
 ```js
 export default {
@@ -111,7 +111,7 @@ export default {
 }
 ```
 
-`attrs` a `slots` jsou objekty se stavem, které jsou vždy aktualizovány, když je aktualizována samotná komponenta. To znamená, že byste se měli vyhnout dekonstruování a vždy odkazovat na vlastnosti jako `attrs.x` nebo `slots.x`. Také si uvědomte, že na rozdíl od `props` jsou vlastnosti `attrs` a `slots` **ne**reaktivní. Pokud plánujete provádět vedlejší efekty na základě změn v `attrs` nebo `slots`, měli byste tak činit uvnitř lifecycle hooku `onBeforeUpdate`.
+`attrs` a `slots` jsou objekty se stavem, které jsou vždy aktualizovány, když je aktualizována samotná komponenta. To znamená, že byste se měli vyhnout destrukturování a vždy odkazovat na vlastnosti jako `attrs.x` nebo `slots.x`. Také si uvědomte, že na rozdíl od `props` jsou vlastnosti `attrs` a `slots` **ne**reaktivní. Pokud plánujete provádět vedlejší efekty na základě změn v `attrs` nebo `slots`, měli byste tak činit uvnitř lifecycle hooku `onBeforeUpdate`.
 
 ### Vystavení veřejných vlastností {#exposing-public-properties}
 

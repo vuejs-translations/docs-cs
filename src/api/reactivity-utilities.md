@@ -211,7 +211,7 @@ Převede reaktivní objekt na obyčejný, kde každá vlastnost výsledného obj
   console.log(state.foo) // 3
   ```
 
-  `toRefs` je užitečné při vrácení reaktivního objektu z composable funkce, aby cílová komponenta mohla dekonstruovat/rozložit vrácený objekt bez ztráty reaktivity:
+  `toRefs` je užitečné při vrácení reaktivního objektu z composable funkce, aby cílová komponenta mohla destrukturovat / rozložit vrácený objekt bez ztráty reaktivity:
 
   ```js
   function useFeatureX() {
@@ -226,7 +226,7 @@ Převede reaktivní objekt na obyčejný, kde každá vlastnost výsledného obj
     return toRefs(state)
   }
 
-  // lze dekonstruovat bez ztráty reaktivity
+  // lze destrukturovat bez ztráty reaktivity
   const { foo, bar } = useFeatureX()
   ```
 

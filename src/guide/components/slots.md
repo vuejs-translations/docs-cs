@@ -376,7 +376,7 @@ function MyComponent(slots) {
 
 V podstatě je to velmi podobné tomu, jak jsou scoped sloty kompilovány a jak se scoped sloty používají v manuálních [funkcích vykreslování](/guide/extras/render-function).
 
-Všimněte si, jak `v-slot="slotProps"` odpovídá signatuře slot funkce. Stejně jako parametry funkce je v rámci `v-slot` můžeme dekonstruovat:
+Všimněte si, jak `v-slot="slotProps"` odpovídá signatuře slot funkce. Stejně jako parametry funkce je v rámci `v-slot` můžeme destrukturovat:
 
 ```vue-html
 <MyComponent v-slot="{ text, count }">
