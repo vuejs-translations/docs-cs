@@ -422,7 +422,7 @@ Mohli jste si povšimnout, že šablona importované komponenty je zapsaná jako
 
 ## Next Steps {#next-steps}
 
-Pokud jste překročili [Představení](/guide/introduction), silně doporučujme přečíst si ho předtím, než se pustíte do zbytku dokumentace.
+Pokud jste přeskočili [Úvod](/guide/introduction), silně doporučujme přečíst si ho předtím, než se pustíte do zbytku dokumentace.
 
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/guide/essentials/application">

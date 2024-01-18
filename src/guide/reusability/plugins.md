@@ -1,6 +1,6 @@
 ﻿# Pluginy {#plugins}
 
-## Představení {#introduction}
+## Úvod {#introduction}
 
 Pluginy jsou samostatné kusy kódu, které obvykle přidávají do Vue funkcionalitu na úrovni aplikace. Plugin instalujeme takto:
 

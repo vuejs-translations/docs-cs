@@ -135,7 +135,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
     {
       text: 'Začínáme s Vue',
       items: [
-        { text: 'Představení', link: '/guide/introduction' },
+        { text: 'Úvod', link: '/guide/introduction' },
         {
           text: 'Jak začít',
           link: '/guide/quick-start'
@@ -715,7 +715,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 
     editLink: {
       repo: 'vuejs/docs',
-      text: 'Upravte tuto stránku na GitHubu'
+      text: 'Navrhněte úpravu této stránky na GitHubu'
     },
 
     footer: {

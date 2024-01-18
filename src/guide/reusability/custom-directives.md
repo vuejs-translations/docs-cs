@@ -8,7 +8,7 @@ const vFocus = {
 }
 </script>
 
-## Představení {#introduction}
+## Úvod {#introduction}
 
 Kromě výchozí sady vestavěných direktiv (jako je `v-model` nebo `v-show`) umožňuje Vue také registraci vašich vlastních (custom) direktiv.
 
