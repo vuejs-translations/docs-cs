@@ -25,7 +25,7 @@ footer: false
 
 ## Co je to Vue? {#what-is-vue}
 
-Vue (výslovnost /vjú/) je  JavaScriptový framework pro tvorbu uživatelského rozhraní. Je postaven na standardech HTML, CSS a JavaScriptu a poskytuje deklaratorní programovací model orientovaný na komponenty, který pomáhá efektivně vyvíjet jednoduchá i složitá UI.
+Vue (výslovnost /vjú/) je  JavaScriptový framework pro tvorbu uživatelského rozhraní. Je&nbsp;postaven na standardech HTML, CSS a JavaScriptu a poskytuje deklaratorní programovací model orientovaný na komponenty, který pomáhá efektivně vyvíjet jednoduchá i složitá UI.
 
 Zde je minimální příklad:
 
@@ -159,7 +159,7 @@ button {
 
 </div>
 
-SFC je určující vlastnost Vue a je to doporučený postup jak tvořit Vue komponenty, **pokud** vaše použití zahrnuje build fázi. Více o tématu [jak a proč na SFC](/guide/scaling-up/sfc) najdete v příslušné kapitole - prozatím je potřeba vědět, že Vue za vás zvládne veškeré nastavení build nástrojů.
+SFC je určující vlastnost Vue a je to doporučený postup jak tvořit Vue komponenty, **pokud** vaše použití zahrnuje build fázi. Více o tématu [jak a proč na SFC](/guide/scaling-up/sfc) najdete v&nbsp;příslušné kapitole - prozatím je potřeba vědět, že Vue za vás zvládne veškeré nastavení build nástrojů.
 
 ## API styly {#api-styles}
 
@@ -206,9 +206,9 @@ export default {
 
 ### Composition API {#composition-api}
 
-S Composition API definujeme komponentu importem API funkcí. V SFC souborech se Compostion API typicky používá spolu se [`<script setup>`](/api/sfc-script-setup). Atritbut `setup` je příznak pro Vue k použití transformací během kompilace, které umožňují použití Composition API s menším množstvím boilerplate kódu. Například importy a proměnné/funkce nejvyšší úrovně deklarované uvnitř `<script setup>` mohou být přímo použity v šabloně.
+S Composition API definujeme komponentu importem API funkcí. V SFC souborech se Compostion API typicky používá spolu se [`<script setup>`](/api/sfc-script-setup). Atritbut `setup` je příznak pro Vue k použití transformací během kompilace, které umožňují použití Composition API s&nbsp;menším množstvím boilerplate kódu. Například importy a proměnné/funkce nejvyšší úrovně deklarované uvnitř `<script setup>` mohou být přímo použity v šabloně.
 
-Zde je ta samá komponenta, s úplně stejnou šablonou, ale s použitím Composition API a `<script setup>`:
+Zde je ta samá komponenta, s úplně stejnou šablonou, ale s použitím Composition API a&nbsp;`<script setup>`:
 
 ```vue
 <script setup>
@@ -239,7 +239,7 @@ onMounted(() => {
 
 Oba API styly jsou schopné běžné případy užití plně pokrýt. Jsou to různá rozhraní nad stejným systémem v pozadí. Options API je vlastně implementováno nad Composition API! Základní koncepty a znalosti o Vue jsou sdíleny nad oběma styly.
 
-Options API se zaměřuje na koncept "instance komponenty" (`this` jak je vidět v příkladu), což je typicky bližší uživatelům zvyklým na mentální model založený na třídách z objektovně orientovaných programovacích jazyků (OOP). Je také lépe přístupnější začátečníkům tím, že abstrahuje detaily o reaktivitě a vynucuje organizaci kódu přes skupiny možností.
+Options API se zaměřuje na koncept "instance komponenty" (`this` jak je vidět v&nbsp;příkladu), což je typicky bližší uživatelům zvyklým na mentální model založený na třídách z objektovně orientovaných programovacích jazyků (OOP). Je také lépe přístupnější začátečníkům tím, že abstrahuje detaily o reaktivitě a vynucuje organizaci kódu přes skupiny možností.
 
 Composition API je zaměřeno na deklarování reaktivních proměnných přímo ve funkčním rámci a skládáním stavu dohromady z různých funkcí tak, aby bylo možné zvládnout jejich komplexitu. Je to volnější forma a vyžaduje porozumění, jak funguje reaktivita ve Vue, aby bylo možné ji používat efektivně. Výměnou za to její flexibilita umožňuje silnější vzory pro organizaci a znovupoužití logiky.
 
