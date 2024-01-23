@@ -12,7 +12,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 accessibility feature = funkce usnadnění
 * 🟥 API = API
 * 🟥 app-level = globální
-* 🟩 application instance = aplikační instance
+* 🟩 application instance = instance aplikace
 * 🟩 argument = parametr
 * 🟨 arrow function = arrow funkce
 * 🟩 asset = zdroj

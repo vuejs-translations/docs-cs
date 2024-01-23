@@ -72,6 +72,10 @@ Chtěli jsme se zejména vyhnout použití spíše nelogického českého slova 
 
 <!-- WIP -->
 
+- root
+- scope
+- mount
+
 ## Reklamace
 
 Nikdo není dokonalý a jelikož alespoň jedna chyba je v každém programu, nepochybně jsou nějaké chyby i v tomto překladu. Cokoliv se vám nebude zdát nebo pokud vám přijde, že něco není z námi použitých formulací pochopitelné, neváhejte se ozvat.
