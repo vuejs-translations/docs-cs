@@ -329,13 +329,19 @@ Jak `watch`, tak `watchEffect` nám umožňují reaktivně provádět operace s 
 
 Když měníte reaktivní stav, může to vyvolat aktualizace Vue komponent a callback funkce u watcherů, které jste vytvořili.
 
+Stejně jako v případě aktualizací komponent, jsou uživatelsky vytvořené watcher callback funkce organizovány do dávek, aby se předešlo duplicitním spuštěním. Například nejspíš nechceme, aby se watcher spustil tisíckrát, když synchronně přidáme tisíc prvků do sledovaného pole.
+
 Ve výchozím nastavení jsou uživatelsky vytvořené watcher callback funkce volány **před** aktualizacemi Vue komponent. To znamená, že pokud se pokusíte o přístup k DOM v rámci watcher callback funkce, DOM bude ve stavu před tím, než Vue aplikovalo jakékoliv změny.
+
+Ve výchozím nastavení jsou watcher callback funkce volány **po** aktualizacích komponenty rodiče (pokud nějaké jsou) a **před** DOM aktualizacemi komponenty, které watcher patří. To znamená, že pokud se pokusíte přistoupit k DOM této komponenty uvnitř watcher callback funkce, její DOM bude v pre-update stavu.
+
+### Post Watchers
 
 Pokud chcete prostřednictvím watcher callback funkce získat přístup k DOM až **poté**, co jej Vue aktualizuje, musíte zadat volbu `flush: 'post'`:
 
 <div class="options-api">
 
-```js
+```js{6}
 export default {
   // ...
   watch: {
@@ -351,7 +357,7 @@ export default {
 
 <div class="composition-api">
 
-```js
+```js{2,6}
 watch(source, callback, {
   flush: 'post'
 })
@@ -372,6 +378,54 @@ watchPostEffect(() => {
 ```
 
 </div>
+
+### Sync Watchers
+
+Je také možné vytvořit watcher, který bude spuštěn synchronně před provedením jakýchkoliv Vue aktualizací.
+
+<div class="options-api">
+
+```js{6}
+export default {
+  // ...
+  watch: {
+    key: {
+      handler() {},
+      flush: 'sync'
+    }
+  }
+}
+```
+
+</div>
+
+<div class="composition-api">
+
+```js{2,6}
+watch(source, callback, {
+  flush: 'sync'
+})
+
+watchEffect(callback, {
+  flush: 'sync'
+})
+```
+
+Synchronní `watchEffect()` má také zjednodušující alias `watchSyncEffect()`:
+
+```js
+import { watchSyncEffect } from 'vue'
+
+watchSyncEffect(() => {
+  /* bude vykonáno synchronně při reaktivní změně dat */
+})
+```
+
+</div>
+
+:::warning Používejte s rozmyslem
+Synchronní watchery nejsou organizovány do dávek a spouští se pokaždé, když je zjištěna reaktivní změna. Není problém je používat pro jednoduché boolean hodnoty, ale vyhněte se jejich použití na datových zdrojích, které mohou být synchronně  měněny mnohokrát, například na polích.
+:::
 
 <div class="options-api">
 
