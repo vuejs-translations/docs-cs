@@ -258,8 +258,8 @@ Modifikátory `.capture`, `.once` a `.passive` představují [možnosti natívn�
 
 ```vue-html
 <!-- při přidávání event listeneru použít capture mód -->
-<!-- tj. událost zacílená na vnitřní element je zde zpracována dříve, než je zpracována tam
- -->
+<!-- tj. událost zacílená na vnitřní element je dříve -->
+<!-- zpracována zde, než je zpracována uvnitř         -->
 <div @click.capture="doThis">...</div>
 
 <!-- událost kliknutí bude vyvolána nejvýš jednou -->
