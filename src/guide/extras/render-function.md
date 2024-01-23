@@ -576,7 +576,7 @@ JSX ekvivalent:
 
 Předávání slotů jako funkcí umožňuje jejich "lazy" volání v komponentě potomka. Díky tomu jsou závislosti slotu sledovány komponentou potomka místo rodičovské, což vede k přesnějším a efektivnějším aktualizacím.
 
-### Scoped sloty
+### Scoped sloty {#scoped-slots}
 
 Pro vykreslení scoped slotu v komponentě rodiče je slot předán potomkovi. Všimněte si, že slot má nyní parametr `text`. Slot bude zavolán v komponentně potomka a její data budou předány nahoru do rodiče.
 

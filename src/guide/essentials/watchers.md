@@ -335,7 +335,7 @@ Ve výchozím nastavení jsou uživatelsky vytvořené watcher callback funkce v
 
 Ve výchozím nastavení jsou watcher callback funkce volány **po** aktualizacích komponenty rodiče (pokud nějaké jsou) a **před** DOM aktualizacemi komponenty, které watcher patří. To znamená, že pokud se pokusíte přistoupit k DOM této komponenty uvnitř watcher callback funkce, její DOM bude v pre-update stavu.
 
-### Post Watchers
+### Post Watchers {#post-watchers}
 
 Pokud chcete prostřednictvím watcher callback funkce získat přístup k DOM až **poté**, co jej Vue aktualizuje, musíte zadat volbu `flush: 'post'`:
 
@@ -379,7 +379,7 @@ watchPostEffect(() => {
 
 </div>
 
-### Sync Watchers
+### Sync Watchers {#sync-watchers}
 
 Je také možné vytvořit watcher, který bude spuštěn synchronně před provedením jakýchkoliv Vue aktualizací.
 
