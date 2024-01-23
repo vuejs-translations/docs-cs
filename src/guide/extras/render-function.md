@@ -576,6 +576,41 @@ JSX ekvivalent:
 
 Předávání slotů jako funkcí umožňuje jejich "lazy" volání v komponentě potomka. Díky tomu jsou závislosti slotu sledovány komponentou potomka místo rodičovské, což vede k přesnějším a efektivnějším aktualizacím.
 
+### Scoped sloty
+
+Pro vykreslení scoped slotu v komponentě rodiče je slot předán potomkovi. Všimněte si, že slot má nyní parametr `text`. Slot bude zavolán v komponentně potomka a její data budou předány nahoru do rodiče.
+
+```js
+// komponenta rodiče
+export default {
+  setup() {
+    return () => h(MyComp, null, {
+      default: ({ text }) => h('p', text)
+    })
+  }
+}
+```
+
+Nezapomeňte předat `null`, aby sloty nebyly vyhodnoceny jako props.
+
+```js
+// komponenta potomka
+export default {
+  setup(props, { slots }) {
+    const text = ref('ahoj')
+    return () => h('div', null, slots.default({ text: text.value }))
+  }
+}
+```
+
+JSX ekvivalent:
+
+```jsx
+<MyComponent>{{
+  default: ({ text }) => <p>{ text }</p>  
+}}</MyComponent>
+```
+
 ### Vestavěné komponenty {#built-in-components}
 
 [Vestavěné komponenty](/api/built-in-components) jako `<KeepAlive>`, `<Transition>`, `<TransitionGroup>`, `<Teleport>` a `<Suspense>` musí být pro použití ve funkcích pro vykreslení importovány:
