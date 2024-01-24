@@ -699,6 +699,44 @@ export default defineConfigWithTheme<ThemeConfig>({
       apiKey: 'f49cbd92a74532cc55cfbffa5e5a7d01',
       searchParameters: {
         facetFilters: ['version:v3']
+      },
+      placeholder: "Najít ve Vue.js dokumentaci",
+      translations: {
+        button: {
+          buttonText: 'Hledat'
+        },
+        modal: {
+          searchBox: {
+            resetButtonTitle: 'Vymazat',
+            resetButtonAriaLabel: 'Vymazat hledaný výraz',
+            cancelButtonText: 'Zrušit',
+            cancelButtonAriaLabel: 'Zrušit hledání'
+          },
+          startScreen: {
+            recentSearchesTitle: 'Předchozí výsledky vyhledávání',
+            noRecentSearchesText: 'Žádné předchozí výsledky vyhledávání',
+            saveRecentSearchButtonTitle: 'Uložit výsledek vyhledávání',
+            removeRecentSearchButtonTitle: 'Odstranit záznam z uložených',
+            favoriteSearchesTitle: 'Oblíbené výsledky vyhledávání',
+            removeFavoriteSearchButtonTitle: 'Odstranit záznam z oblíbených'
+          },
+          errorScreen: {
+            titleText: 'Chyba',
+            helpText: 'Vyhledávání selhalo'
+          },
+          footer: {
+            selectText: 'Vybrat',
+            navigateText: 'Přejít na',
+            closeText: 'Zavřít',
+            searchByText: 'Vyhledávání pomocí'
+          },
+          noResultsScreen: {
+            noResultsText: 'Žádné výsledky na dotaz',
+            suggestedQueryText: 'Možná hledáte',
+            reportMissingResultsText: 'Chybí text?\xa0\xa0',
+            reportMissingResultsLinkText: 'Dejte nám vědět'
+          }
+        }
       }
     },
 
