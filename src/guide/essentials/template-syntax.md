@@ -1,23 +1,23 @@
 # Syntaxe šablon {#template-syntax}
 
-Vue používá pro šablony (template) syntaxi založenou na HTML. Ta vám umožňuje deklarativně propojit vykreslený DOM s daty instance komponenty v pozadí. Všechny Vue šablony jsou syntakticky platný HTML kód, který může být analyzován prohlížeči a HTML parsery odpovídajícími specifikaci.
+Vue používá pro šablony (templates) syntaxi založenou na HTML. Ta vám umožňuje deklarativně propojit vykreslený DOM s daty instance komponenty v pozadí. Všechny Vue šablony jsou syntakticky platný HTML kód, který může být analyzován prohlížeči a&nbsp;HTML parsery odpovídajícími specifikaci.
 
-Vue interně kompiluje šablony do vysoce optimalizovaného JavaScript kódu. V kombinaci se systémem reaktivity dokáže Vue inteligentně zjistit minimální počet komponent k opětovnému vykreslení a použít minimální množství DOM manipulací ve chvíli, kdy se změní stav aplikace.
+Vue šablony interně kompiluje do vysoce optimalizovaného JavaScript kódu. Ve chvíli, kdy se změní stav aplikace, dokáže Vue v kombinaci se systémem reaktivity inteligentně zjistit minimální počet komponent k opětovnému vykreslení a použít minimální množství DOM manipulací.
 
-Pokud jste obeznámeni s koncepty Virtual DOM a dáváte přednost hrubé síle JavaScriptu, můžete také místo šablon [přímo psát funkce pro vykreslení](/guide/extras/render-function) s volitelnou podporou JSX. Pamatujte ale, že nemohou využít stejnou úroveň optimalizací v době kompilace jako šablony.
+Pokud jste obeznámeni s koncepty Virtual DOM a dáváte přednost hrubé síle JavaScriptu, můžete také místo šablon [psát přímo funkce pro vykreslení](/guide/extras/render-function) s volitelnou podporou JSX. Pamatujte ale, že nemohou využít stejnou úroveň optimalizací v době kompilace jako šablony.
 
 ## Interpolace textu {#text-interpolation}
 
-Nejzákladnější formou datové vazby je textová interpolace pomocí "mustache" syntaxe (dvojité složené závorky):
+Nejzákladnější formou datové vazby je textová interpolace pomocí „mustache“ syntaxe (dvojité složené závorky):
 
 ```vue-html
 <span>Zpráva: {{ msg }}</span>
 ```
-Značka pro "mustache" bude nahrazena hodnotou `msg` z [odpovídající instance komponenty](/guide/essentials/reactivity-fundamentals#declaring-reactive-state). Bude také aktualizována při každé změně hodnoty `msg` proměnné.
+Značka pro „mustache“ bude nahrazena hodnotou `msg` z [odpovídající instance komponenty](/guide/essentials/reactivity-fundamentals#declaring-reactive-state). Bude také aktualizována při každé změně hodnoty proměnné `msg`.
 
 ## HTML kód {#raw-html}
 
-"mustache" syntaxe interpretuje data jako prostý text, nikoli HTML. K vykreslení stylovaného HTML budete muset použít direktivu [`v-html`](/api/built-in-directives#v-html):
+Syntaxe „mustache“ interpretuje data jako prostý text, nikoli HTML. K vykreslení stylovaného HTML budete muset použít direktivu [`v-html`](/api/built-in-directives#v-html):
 
 ```vue-html
 <p>S použitím textové interpolace: {{ rawHtml }}</p>
@@ -33,17 +33,17 @@ Značka pro "mustache" bude nahrazena hodnotou `msg` z [odpovídající instance
   <p>S použitím direktivy v-html: <span v-html="rawHtml"></span></p>
 </div>
 
-Zde se setkáváme s něčím novým. Atribut `v-html`, který vidíte, se nazývá **direktiva**. Direktivy mají předponu `v-`, která označuje, že se jedná o speciální atributy poskytované Vue. Jak jste možná uhodli, aplikují na vykreslený DOM speciální reaktivní chování. Zde v podstatě říkáme „udržuj vnitřní HTML tohoto elementu aktuální pomocí proměnné `rawHtml` z aktuální aktivní instance.“
+Zde se setkáváme s něčím novým. Atribut `v-html`, který vidíte, se nazývá **direktiva**. Direktivy mají předponu `v-`, která označuje, že se jedná o speciální atributy poskytované Vue. Jak jste možná uhodli, aplikují na vykreslený DOM speciální reaktivní chování. Zde v podstatě říkáme _„udržuj vnitřní HTML tohoto elementu aktuální pomocí proměnné `rawHtml` z aktuální aktivní instance“_.
 
-Obsah tagu `span` bude nahrazen hodnotou proměnné `rawHtml`, interpretovanou jako prosté HTML – data-binding je ignorován. Dejte pozor, že nemůžete použít `v-html` ke skládání částí šablony, protože Vue není šablonovací engine založený na řetězcích. Místo toho jsou jako základní jednotka pro znovupoužití a skládání UI preferovány komponenty.
+Obsah tagu `span` bude nahrazen hodnotou proměnné `rawHtml`, interpretovanou jako prosté HTML – data-binding je ignorován. Dejte pozor, že nemůžete použít `v-html` pro skládání částí šablony, protože Vue není šablonovací engine založený na řetězcích. Místo toho jsou jako základní jednotka pro znovupoužití a skládání UI preferovány komponenty.
 
 :::warning Bezpečnostní varování
-Dynamické vykreslování libovolného HTML kódu na vaší webové stránce může být velmi nebezpečné, protože může snadno vést k [XSS zranitelnostem](https://en.wikipedia.org/wiki/Cross-site_scripting). `v-html` používejte pouze u důvěryhodného obsahu a **nikdy** pro obsah zadaný uživateli.
+Dynamické vykreslování libovolného HTML kódu na vaší webové stránce může být velmi nebezpečné, protože může snadno vést k [XSS zranitelnostem](https://en.wikipedia.org/wiki/Cross-site_scripting). Direktivu `v-html` používejte pouze u důvěryhodného obsahu a **nikdy** pro obsah zadaný uživateli.
 :::
 
 ## Binding atributů {#attribute-bindings}
 
-"mustache" syntaxi nelze použít uvnitř HTML atributů. Místo toho, použijte [direktivu `v-bind`](/api/built-in-directives#v-bind):
+Syntaxi „mustache“ nelze použít uvnitř HTML atributů. Místo toho, použijte [direktivu `v-bind`](/api/built-in-directives#v-bind):
 
 ```vue-html
 <div v-bind:id="dynamicId"></div>
@@ -59,7 +59,7 @@ Protože se `v-bind` používá velmi často, je pro něj definována speciáln�
 <div :id="dynamicId"></div>
 ```
 
-Atributy začínající na `:` mohou vypadat trochu jinak než normální HTML, ale ve skutečnosti je to platný znak pro názvy atributů a všechny prohlížeče podporované Vue jej umí správně analyzovat. Navíc se v konečně vykresleném HTML kódu nezobrazují. Syntaxe zkratky je volitelná, ale pravděpodobně ji oceníte, až se o jejím použití později dozvíte víc.
+Atributy začínající na `:` mohou vypadat trochu jinak než normální HTML, ale technicky je to platný znak pro názvy atributů a všechny prohlížeče podporované Vue jej umí správně analyzovat. Navíc se v konečně vykresleném HTML kódu nezobrazují. Syntaxe zkratky je volitelná, ale pravděpodobně ji oceníte, až se o jejím použití později dozvíte víc.
 
 > Ve zbytku průvodce budeme v příkladech kódu používat zkrácenou syntaxi, protože je to pro Vue vývojáře nejběžnější použití.
 
@@ -75,7 +75,7 @@ Pokud má atribut stejný název jako JavaScript hodnota, která je na něj váz
 <div v-bind:id></div>
 ```
 
-Je to podobné jako 'property shorthand' syntaxe při deklaraci JavaScript objektů. Tato funkce je ovšem dostupná až ve Vue 3.4+.
+Je to podobné jako „property shorthand“ syntaxe při deklaraci JavaScript objektů. Tato funkce je ovšem dostupná až ve Vue 3.4+.
 
 ### Boolean atributy {#boolean-attributes}
 
@@ -124,7 +124,7 @@ Můžete provést binding na element pomocí `v-bind` bez atributu:
 <div v-bind="objectOfAttrs"></div>
 ```
 
-## Použití JavaScriptových výrazů {#using-javascript-expressions}
+## Použití JavaScript výrazů {#using-javascript-expressions}
 
 Zatím jsme se v našich šablonách vázali pouze jednoduše na hodnoty proměnných. Vue ovšem uvnitř všech datových vazeb podporuje plnou škálu JavaScriptových výrazů (expressions):
 
@@ -142,7 +142,7 @@ Tyto výrazy budou vyhodnoceny jako JavaScript s použitím datového scope aktu
 
 V Vue šablonách lze JavaScriptové výrazy použít na následujících místech:
 
-- Uvnitř textových interpolací ("mustache" syntaxe)
+- Uvnitř textových interpolací („mustache“ syntaxe)
 - V hodnotě atributu kterékoliv Vue direktivy (speciální atributy začínající na `v-`)
 
 ### Pouze výrazy {#expressions-only}
@@ -152,10 +152,10 @@ Každý binding může obsahovat pouze **jeden jediný výraz**. Výraz je čás
 Kvůli tomu **NEBUDE** fungovat následující:
 
 ```html
-<!-- toto je konstatování (statement), nikoliv výraz (expression): -->
+<!-- toto je konstatování (statement), nikoliv výraz (expression) -->
 {{ var a = 1 }}
 
-<!-- nebude fungovat ani řízení kódu (flow control), použijte ternární operátory -->
+<!-- nefunguje ani řízení kódu (flow control), použijte ternární operátor -->
 {{ if (ok) { return message } }}
 ```
 
@@ -183,7 +183,7 @@ Globální objekty, které nejsou explicitně uvedeny v seznamu, například vla
 
 Direktivy jsou speciální atributy s předponou `v-`. Vue poskytuje řadu [vestavěných direktiv](/api/built-in-directives), včetně `v-html` a `v-bind`, které jsme již představili výše.
 
-Jako hodnoty direktivních atributů jsou očekávány samostatné JavaScriptové výrazy (s výjimkou výrazů `v-for`, `v-on` a `v-slot`, které budou popsány v příslušných částech později). Úkolem direktivy je reaktivně aplikovat aktualizace na DOM, když se změní hodnota jejího výrazu. Jako příklad si vezměme [`v-if`](/api/built-in-directives#v-if):
+Jako hodnoty direktivních atributů jsou očekávány samostatné JavaScriptové výrazy (s&nbsp;výjimkou výrazů `v-for`, `v-on` a `v-slot`, které budou popsány v příslušných částech později). Úkolem direktivy je reaktivně aplikovat aktualizace na DOM, když se změní hodnota jejího výrazu. Jako příklad si vezměme [`v-if`](/api/built-in-directives#v-if):
 
 ```vue-html
 <p v-if="seen">Teď mě vidíte</p>
@@ -193,7 +193,7 @@ Zde direktiva `v-if` odstraní nebo přidá element `<p>` na základě pravdivos
 
 ### Parametry {#arguments}
 
-Některé direktivy mohou přijímat "parametr", označený dvojtečkou za názvem direktivy. Například direktiva `v-bind` se používá k reaktivní aktualizaci HTML atributu:
+Některé direktivy mohou přijímat „parametr“, označený dvojtečkou za názvem direktivy. Například direktiva `v-bind` se používá k reaktivní aktualizaci HTML atributu:
 
 ```vue-html
 <a v-bind:href="url"> ... </a>
@@ -213,7 +213,7 @@ Jiný příklad je direktiva `v-on`, která naslouchá DOM událostem (events):
 <a @click="akcePoKliknuti"> ... </a>
 ```
 
-Zde je parametrem událost (event), jíž se naslouchá: `click`. `v-on` má rovněž odpovídající zkrácený zápis, a sice znak `@`. O obsluze událostí (event handling) budeme později hovořit podrobněji.
+Zde je parametrem událost, jíž se naslouchá: `click`. `v-on` má rovněž odpovídající zkrácený zápis, a sice znak `@`. O obsluze událostí (event handling) budeme později hovořit podrobněji.
 
 ### Dynamické parametry {#dynamic-arguments}
 
@@ -222,7 +222,8 @@ Pro parametr direktivy je možné použít i JavaScript výraz tak, že jej zaba
 ```vue-html
 <!--
 Vemte na vědomí, že zde pro hodnoty výrazu platí určitá omezení,
-jež jsou vysvětlena v oddílech "Omezení hodnot dynamických parametrů" a "Omezení syntaxe dynamických parametrů" níže.
+jež jsou vysvětlena v oddílech „Omezení hodnot dynamických parametrů“
+a „Omezení syntaxe dynamických parametrů“ níže.
 -->
 <a v-bind:[attributeName]="url"> ... </a>
 
@@ -230,9 +231,9 @@ jež jsou vysvětlena v oddílech "Omezení hodnot dynamických parametrů" a "O
 <a :[attributeName]="url"> ... </a>
 ```
 
-Hodnota `attributeName` bude dynamicky vyhodnocena jako JavaScriptový výraz a výsledná hodnota bude použita jako konečná hodnota parametru. Pokud má například instance vaší komponenty datovou vlastnost `attributeName`, jejíž hodnota je `"href"`, bude tento binding ekvivalentní zápisu `v-bind:href`.
+Hodnota `attributeName` bude dynamicky vyhodnocena jako JavaScriptový výraz a&nbsp;výsledná hodnota bude použita jako konečná hodnota parametru. Pokud má například instance vaší komponenty datovou vlastnost `attributeName`, jejíž hodnota je `"href"`, bude tento binding ekvivalentní zápisu `v-bind:href`.
 
-Podobně můžete použít dynamické parametry k bindingu handleru na dynamický název události (eventu):
+Podobně můžete použít dynamické parametry k bindingu handleru na dynamický název události:
 
 ```vue-html
 <a v-on:[eventName]="doSomething"> ... </a>
@@ -241,7 +242,7 @@ Podobně můžete použít dynamické parametry k bindingu handleru na dynamick�
 <a @[eventName]="doSomething"> ... </a>
 ```
 
-V této ukázce, pokud je hodnota `eventName` rovna `"focus"`, `v-on:[eventName]` bude ekvivalentní zápisu `v-on:focus`.
+Pokud je hodnota `eventName` rovna `"focus"`, `v-on:[eventName]`, bude kód v této ukázce ekvivalentní zápisu `v-on:focus`.
 
 #### Omezení hodnot dynamických parametrů {#dynamic-argument-value-constraints}
 
@@ -252,13 +253,13 @@ Očekává se, že dynamické argumenty budou vyhodnoceny jako řetězec, s výj
 Výrazy pro dynamické parametry mají určitá omezení syntaxe, protože některé znaky, jako jsou mezery a uvozovky, jsou v názvech  HTML atributů neplatné. Například je neplatné následující:
 
 ```vue-html
-<!-- toto vyvolá varování (warning) překladače -->
+<!-- toto vyvolá varování překladače -->
 <a :['foo' + bar]="value"> ... </a>
 ```
 
 Pokud potřebujete předat složitý dynamický parametr, je pravděpodobně lepší použít [computed proměnnou](./computed), kterou si již brzy probereme.
 
-Při používání DOM-šablon (šablony zapsané přímo v HTML souboru) byste se také měli vyvarovat pojmenovávání klíčů velkými písmeny, protože prohlížeče budou názvy atributů vynuceně převádět na malá písmena:
+Při používání In-DOM šablon (šablony zapsané přímo v HTML souboru) byste se také měli vyvarovat pojmenovávání klíčů velkými písmeny, protože prohlížeče budou názvy atributů vynuceně převádět na malá písmena:
 
 ```vue-html
 <a :[someAttr]="value"> ... </a>
@@ -274,7 +275,7 @@ Modifikátory jsou speciální přípony označené tečkou, které označují, 
 <form @submit.prevent="onSubmit">...</form>
 ```
 
-Další příklady modifikátorů uvidíte později, [pro `v-on`](./event-handling#event-modifiers) a [pro `v-model`](./forms#modifiers), až budeme objevovat jejich možnosti.
+Další příklady modifikátorů uvidíte později [pro `v-on`](./event-handling#event-modifiers) a [pro `v-model`](./forms#modifiers), až budeme objevovat jejich možnosti.
 
 Na závěr je zde zobrazena úplná syntaxe direktivy:
 
