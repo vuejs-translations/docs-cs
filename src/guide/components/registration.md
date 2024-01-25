@@ -45,7 +45,7 @@ app
 Globálně registrované komponenty lze použít v šabloně libovolné komponenty v rámci této aplikace:
 
 ```vue-html
-<!-- toto bude fungovat v jakékoliv komponentě v aplikaci -->
+<!-- toto bude fungovat v jakékoli komponentě v aplikaci -->
 <ComponentA/>
 <ComponentB/>
 <ComponentC/>
@@ -126,7 +126,7 @@ export default {
 }
 ```
 
-Zapamatujte si, že **lokálně registrované komponenty  _nejsou_ přístupné v komponentách potomků**. V tomto případě bude `ComponentA` dostupá pouze v aktuální komponentě, v komponentách potomků nikoliv.
+Zapamatujte si, že **lokálně registrované komponenty  _nejsou_ přístupné v komponentách potomků**. V tomto případě bude `ComponentA` dostupá pouze v aktuální komponentě, v komponentách potomků nikoli.
 
 ## Velká a malá písmena v názvech komponent {#component-name-casing}
 

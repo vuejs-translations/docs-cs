@@ -432,7 +432,7 @@ watch([fooRef, barRef], ([foo, bar], [prevFoo, prevBar]) => {
 })
 ```
 
-Při použití getter zdroje se watcher spustí pouze tehdy, pokud se změní návratová hodnota getteru. Pokud chcete, aby se callback spustil i při změnách hluboko uvnitř objektu, musíte explicitně nastavit watcher do deep režimu pomocí `{ deep: true }`. V hlubokém režimu budou nová a stará hodnota stejný objekt, pokud byl callback spuštěn změnou uvnitř objektu a nikoliv změnou hodnoty getteru:
+Při použití getter zdroje se watcher spustí pouze tehdy, pokud se změní návratová hodnota getteru. Pokud chcete, aby se callback spustil i při změnách hluboko uvnitř objektu, musíte explicitně nastavit watcher do deep režimu pomocí `{ deep: true }`. V hlubokém režimu budou nová a stará hodnota stejný objekt, pokud byl callback spuštěn změnou uvnitř objektu a nikoli změnou hodnoty getteru:
 
 ```js
 const state = reactive({ count: 0 })

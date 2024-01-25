@@ -14,7 +14,7 @@ Nejprve se podívejme na dva hlavní aspekty webového výkonu:
 
 - **Výkon aktualizace** (Update): jak rychle se aplikace aktualizuje v reakci na uživatelský vstup. Například jak rychle se aktualizuje seznam, když uživatel píše do vyhledávacího pole, nebo jak rychle se stránka přepíná, když uživatel klikne na odkaz v navigaci v Single-Page aplikaci (SPA).
 
-Ačkoliv by bylo ideální maximalizovat obojí, různé frontendové architektury mají tendenci ovlivňovat, jak snadno je možné dosáhnout požadovaného výkonu v těchto aspektech. Navíc i typ aplikace, kterou stavíte, výrazně ovlivňuje to, na co byste se měli z hlediska výkonu zaměřit. Proto je prvním krokem k zajištění optimálního výkonu vybrat správnou architekturu pro typ aplikace, kterou tvoříte:
+Ačkoli by bylo ideální maximalizovat obojí, různé frontendové architektury mají tendenci ovlivňovat, jak snadno je možné dosáhnout požadovaného výkonu v těchto aspektech. Navíc i typ aplikace, kterou stavíte, výrazně ovlivňuje to, na co byste se měli z hlediska výkonu zaměřit. Proto je prvním krokem k zajištění optimálního výkonu vybrat správnou architekturu pro typ aplikace, kterou tvoříte:
 
 - Prozkoumejte [Způsoby použití Vue](/guide/extras/ways-of-using-vue), abyste viděli, jak můžete Vue využít různými způsoby.
 
@@ -103,7 +103,7 @@ V Vue se komponentna potomka aktualizuje pouze tehdy, když se změní alespoň 
   :active-id="activeId" />
 ```
 
-Uvnitř komponenty `<ListItem>` se používají props `id` a `activeId` k určení, zda je položka právě aktivní. Toto funguje, ale problém je v tom, že kdykoliv se změní `activeId`, **každý** `<ListItem>` v seznamu se musí aktualizovat!
+Uvnitř komponenty `<ListItem>` se používají props `id` a `activeId` k určení, zda je položka právě aktivní. Toto funguje, ale problém je v tom, že kdykoli se změní `activeId`, **každý** `<ListItem>` v seznamu se musí aktualizovat!
 
 Ideálně by se měly aktualizovat pouze položky, jejichž stav aktivace se změnil. Toho můžeme dosáhnout tím, že výpočet stavu aktivity přesuneme do rodiče a `<ListItem>` obdrží přímo vlastnosti `active`:
 

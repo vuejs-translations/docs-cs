@@ -187,7 +187,7 @@ Ukládá stav dynamicky přepínatelných komponent obalených uvnitř do cache.
      */
     include?: MatchPattern
     /**
-     * Jakákoliv komponenta s názvem odpovídajícím `exclude` nebude ukládána do cache.
+     * Jakákoli komponenta s názvem odpovídajícím `exclude` nebude ukládána do cache.
      */
     exclude?: MatchPattern
     /**

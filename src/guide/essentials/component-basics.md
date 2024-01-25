@@ -581,7 +581,7 @@ V předchozích ukázkách kódu jsme pro komponenty používali samouzavírací
 <MyComponent />
 ```
 
-Je to proto, že parser Vue šablon respektuje `/>` jako indikaci ukončení jakéhokoliv tagu, bez ohledu na jeho typ.
+Je to proto, že parser Vue šablon respektuje `/>` jako indikaci ukončení jakéhokoli tagu, bez ohledu na jeho typ.
 
 V in-DOM šablonách však musíme vždy zahrnout explicitní uzavírací tagy:
 

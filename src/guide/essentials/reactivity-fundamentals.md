@@ -464,7 +464,7 @@ Kvůli těmto omezením doporučujeme používat `ref()` jako primární API pro
 
 ## Reaktivní proměnné s `ref()` \*\* {#reactive-variables-with-ref}
 
-Pro řešení omezení `reactive()` poskytuje Vue také funkci [`ref()`](/api/reactivity-core#ref), která nám umožňuje vytvářet reaktivní **"refs"**, které mohou obsahovat hodnotu jakéhokoliv typu:
+Pro řešení omezení `reactive()` poskytuje Vue také funkci [`ref()`](/api/reactivity-core#ref), která nám umožňuje vytvářet reaktivní **"refs"**, které mohou obsahovat hodnotu jakéhokoli typu:
 
 ### As Reactive Object Property \*\* {#ref-unwrapping-as-reactive-object-property}
 

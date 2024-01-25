@@ -283,7 +283,7 @@ data() {
 <div :style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
 ```
 
-Ačkoliv se doporučuje camelCase, `:style` podporuje i CSS klíče zapsané kebab-case (v souladů s tím, jak jsou používány ve skutečném CSS) - například:
+Ačkoli se doporučuje camelCase, `:style` podporuje i CSS klíče zapsané kebab-case (v souladů s tím, jak jsou používány ve skutečném CSS) - například:
 
 ```vue-html
 <div :style="{ 'font-size': fontSize + 'px' }"></div>

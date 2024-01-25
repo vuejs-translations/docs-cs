@@ -221,7 +221,7 @@ methods: {
 
 ## Modifikátory události {#event-modifiers}
 
-Uvnitř event handlerů je vcelku běžné volat `event.preventDefault()` nebo `event.stopPropagation()`. Ačkoliv to můžeme snadno udělat uvnitř funkcí, bylo by lepší, kdyby funkce mohly být čistě o datové logice, než aby se musely zabývat detaily událostí DOM.
+Uvnitř event handlerů je vcelku běžné volat `event.preventDefault()` nebo `event.stopPropagation()`. Ačkoli to můžeme snadno udělat uvnitř funkcí, bylo by lepší, kdyby funkce mohly být čistě o datové logice, než aby se musely zabývat detaily událostí DOM.
 
 K vyřešení tohoto požadavku poskytuje Vue pro `v-on` **modifikátory události**. Jde o direktivní postfixy označené tečkou.
 

@@ -231,7 +231,7 @@ Z implementačního hlediska je `extends` téměř identické jako `mixins`. S k
 
 Nicméně, `extends` a `mixins` vyjadřují různé záměry. Volba `mixins` se především používá k sestavování částí funkcionality, zatímco `extends` se především zabývá dědičností.
 
-Stejně jako u `mixins` budou jakékoliv možnosti (kromě `setup()`) sloučeny pomocí příslušné strategie pro sloučení.
+Stejně jako u `mixins` budou jakékoli možnosti (kromě `setup()`) sloučeny pomocí příslušné strategie pro sloučení.
 
 - **Příklad**
 

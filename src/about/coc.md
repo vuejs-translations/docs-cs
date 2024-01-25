@@ -26,7 +26,7 @@ Příklady nepřijatelného chování účastníků jsou například:
 
 Správci projektu jsou odpovědní za vyjasnění standardů přijatelného chování a očekává se od nich, že přijmou vhodná a spravedlivá nápravná opatření v reakci na jakékoli případy nepřijatelného chování.
 
-Správci projektu mají právo a odpovědnost odstranit, upravit nebo odmítnout komentáře, úpravy kódu, úpravy wiki, issues a další příspěvky, které nejsou v souladu s tímto Kodexem chování, nebo dočasně či trvale zakázat kteréhokoliv přispěvatele za jiné chování, které považují za nevhodné, výhružné, urážlivé nebo škodlivé.
+Správci projektu mají právo a odpovědnost odstranit, upravit nebo odmítnout komentáře, úpravy kódu, úpravy wiki, issues a další příspěvky, které nejsou v souladu s tímto Kodexem chování, nebo dočasně či trvale zakázat kteréhokoli přispěvatele za jiné chování, které považují za nevhodné, výhružné, urážlivé nebo škodlivé.
 
 ## Rozsah {#scope}
 

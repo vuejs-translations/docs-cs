@@ -57,7 +57,7 @@ Přispění k opravám chyb nebo do nových funkcí je nejpřímější formou p
 
 Vue core úložiště nabízí [průvodce přispíváním](https://github.com/vuejs/core/blob/main/.github/contributing.md), který obsahuje pokyny k pull requestům a informace týkající se build setupu a high-level architektury. Další repozitáře sub-projektů mohou také obsahovat vlastní průvodce pro příspěvky – před odesláním pull requestů si je prosím přečtěte.
 
-Opravy chyb jsou vítány kdykoliv. Pro nové funkce je nejlepší nejprve probrat případy užití a implementační detaily v [RFC repozitáři](https://github.com/vuejs/rfcs/discussions).
+Opravy chyb jsou vítány kdykoli. Pro nové funkce je nejlepší nejprve probrat případy užití a implementační detaily v [RFC repozitáři](https://github.com/vuejs/rfcs/discussions).
 
 ### Sdílejte (a budujte) své zkušenosti {#share-and-build-your-experience}
 

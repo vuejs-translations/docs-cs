@@ -14,7 +14,7 @@ V kapitole Základy komponent jsme představili syntaxi pro [Dynamické komponen
 <component :is="activeComponent" />
 ```
 
-Ve výchozím nastavení bude instance aktivní komponenty odpojena (unmounted), když se z ní přesunete jinam. To způsobí ztrátu jakýchkoliv změn stavu, které si drží. Když se tato komponenta znovu zobrazí, vytvoří se nová instance pouze ve výchozím stavu.
+Ve výchozím nastavení bude instance aktivní komponenty odpojena (unmounted), když se z ní přesunete jinam. To způsobí ztrátu jakýchkoli změn stavu, které si drží. Když se tato komponenta znovu zobrazí, vytvoří se nová instance pouze ve výchozím stavu.
 
 V příkladu níže máme dvě stavové komponenty – A obsahuje počítadlo, zatímco B obsahuje zprávu synchronizovanou s uživatelským vstupem přes `v-model`. Zkuste aktualizovat stav jedné z nich, přepněte na druhou a poté se do ni přepněte zpátky:
 

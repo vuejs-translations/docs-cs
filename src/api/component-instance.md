@@ -263,7 +263,7 @@ Imperativní API pro vytváření watcherů.
 
 ## $emit() {#emit}
 
-Spustí vlastní událost na aktuální instanci. Jakékoliv další parametry budou předány do callbacku listeneru.
+Spustí vlastní událost na aktuální instanci. Jakékoli další parametry budou předány do callbacku listeneru.
 
 - **Typ**
 

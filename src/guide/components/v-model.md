@@ -30,7 +30,7 @@ Komponenta rodiče pak může provést binding hodnoty pomocí `v-model`:
 <Child v-model="count" />
 ```
 
-Hodnota vrácená z  `defineModel()` je ref. Může být přistupována a měněna jako jakýkoliv jiný ref, kromě toho, že slouží jako obousměrný binding mezi hodnotou z rodiče a tou lokální:
+Hodnota vrácená z  `defineModel()` je ref. Může být přistupována a měněna jako jakýkoli jiný ref, kromě toho, že slouží jako obousměrný binding mezi hodnotou z rodiče a tou lokální:
 
 - Jeho `.value` je synchronizována s hodnotou navázanou pomocí `v-model` v komponentě rodiče;
 - Když je změněna komponentou potomka, způsobí automaticky aktualizaci hodnoty i v komponentě rodiče.
@@ -452,7 +452,7 @@ export default {
 
 Všimněte si, že vlastnost `modelModifiers` komponenty obsahuje `capitalize` a jeho hodnota je `true` - protože tak byla nastavena pomocí `v-model` bindingu `v-model.capitalize="myText"`.
 
-Teď když máme naši vlastnost nastavenou, můžeme kontrolovat klíče `modelModifiers` a napsat handler, který změní emitovanou hodnotu. V kódu níže převedeme řetězec na velká písmena kdykoliv, když `<input />` element vyvolá událost `input`.
+Teď když máme naši vlastnost nastavenou, můžeme kontrolovat klíče `modelModifiers` a napsat handler, který změní emitovanou hodnotu. V kódu níže převedeme řetězec na velká písmena kdykoli, když `<input />` element vyvolá událost `input`.
 
 ```vue{13-15}
 <script>

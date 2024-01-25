@@ -22,7 +22,7 @@ Pokud máte ke dotazy ke stupňům, k logistice plateb nebo či k otázkám osob
 
 ## Sponsoring Vue pro firmy {#sponsoring-vue-as-a-business}
 
-Sponzorování Vue vám dává možnost ukázat se více než  **1.7 milionu** Vue vývojářů z celého světa skrz naši webovou stránku a README soubory GitHub projektů. Navíc příspěvky na open-source software zlepšují reputaci vaší značky, což je důležité aktivum pro jakoukoliv společnost, která interaguje s vývojáři.
+Sponzorování Vue vám dává možnost ukázat se více než  **1.7 milionu** Vue vývojářů z celého světa skrz naši webovou stránku a README soubory GitHub projektů. Navíc příspěvky na open-source software zlepšují reputaci vaší značky, což je důležité aktivum pro jakoukoli společnost, která interaguje s vývojáři.
 
 Pokud používáte Vue pro vývoj ziskových produktů, dává sponzoring vývoje Vue smysl i obchodně: **zajišťuje, že projekt, na který váš produkt spoléhá, zůstane zdravý a aktivně udržovaný**. Expozice a pozitivní image značky v komunitě Vue také usnadňuje přilákání a nábor vývojářů Vue.
 

@@ -68,7 +68,7 @@ tím se zabrání uzavření atributu `title` a vložení nového, libovolného 
 
 ## Potenciální nebezpečí {#potential-dangers}
 
-V jakékoliv webové aplikaci je povolení nesanitizovaného obsahu poskytovaného uživatelem k provedení jako HTML, CSS nebo JavaScript potenciálně nebezpečné, a proto byste se mu měli pokud možno vyvarovat. Existují však situace, kdy je určitá míra rizika přijatelná.
+V jakékoli webové aplikaci je povolení nesanitizovaného obsahu poskytovaného uživatelem k provedení jako HTML, CSS nebo JavaScript potenciálně nebezpečné, a proto byste se mu měli pokud možno vyvarovat. Existují však situace, kdy je určitá míra rizika přijatelná.
 
 Například služby jako CodePen a JSFiddle umožňují provádění obsahu poskytovaného uživatelem, ale je to v kontextu, kde se to očekává a je částečně izolováno uvnitř iframe. V případech, kdy důležitá funkce nevyhnutelně vyžaduje určitou úroveň zranitelnosti, je na vašem týmu, aby zvážil důležitost funkce v porovnání s nejhoršími scénáři, které zranitelnost umožňuje.
 
@@ -149,7 +149,7 @@ Chcete-li uživatele před clickjackingem plně ochránit, doporučujeme povolit
 
 ### Vkládání JavaScriptu {#javascript-injection}
 
-Důrazně nedoporučujeme ve Vue kdykoliv vykreslovat prvek `<script>`, protože šablony a funkce pro vykreslení by nikdy neměly mít vedlejší účinky. To však není jediný způsob, jak zahrnout řetězce, které by byly vyhodnoceny jako JavaScript za běhu programu.
+Důrazně nedoporučujeme ve Vue kdykoli vykreslovat prvek `<script>`, protože šablony a funkce pro vykreslení by nikdy neměly mít vedlejší účinky. To však není jediný způsob, jak zahrnout řetězce, které by byly vyhodnoceny jako JavaScript za běhu programu.
 
 Každý HTML prvek má atributy s hodnotami přijímajícími JavaScript řetězce, jako například `onclick`, `onfocus` a `onmouseenter`. Binding uživatelem poskytovaného JavaScriptu na kterýkoli z těchto událostních atributů představuje potenciální bezpečnostní riziko, a proto byste se mu měli vyhnout.
 

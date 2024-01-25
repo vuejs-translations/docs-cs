@@ -320,7 +320,7 @@ Jedním z problémů s placeholdery je, že výchozí stav nesplňuje kritéria 
 }
 ```
 
-Nejlepší je poskytnout všechny informace, které uživatel k vyplnění formuláře potřebuje, mimo jakékoliv vstupy.
+Nejlepší je poskytnout všechny informace, které uživatel k vyplnění formuláře potřebuje, mimo jakékoli vstupy.
 
 ### Instrukce {#instructions}
 

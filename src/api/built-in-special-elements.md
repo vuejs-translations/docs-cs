@@ -119,7 +119,7 @@ Určuje prostor pro vložený obsah uvnitř šablon.
   ```ts
   interface SlotProps {
     /**
-     * Jakékoliv vlastnosti předané do <slot> budou předány jako argumenty
+     * Jakékoli vlastnosti předané do <slot> budou předány jako argumenty
      * pro scoped sloty
      */
     [key: string]: any

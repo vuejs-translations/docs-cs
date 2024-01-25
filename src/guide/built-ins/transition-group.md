@@ -18,7 +18,7 @@ import ListStagger from './transition-demos/ListStagger.vue'
 
 - Prvky uvnitř **vždy musí** mít unikátní atribut `key`.
 
-- CSS transition třídy jsou aplikovány na jednotlivé prvky v seznamu, **nikoliv** na skupinu / kontejner samotný.
+- CSS transition třídy jsou aplikovány na jednotlivé prvky v seznamu, **nikoli** na skupinu / kontejner samotný.
 
 :::tip
 Při použití v [in-DOM šabloných](/guide/essentials/component-basics#in-dom-template-parsing-caveats), měla by být zapsána jako `<transition-group>`.

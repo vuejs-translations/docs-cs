@@ -76,4 +76,4 @@ Všechny RFC jsou spravovány v [vuejs/rfcs](https://github.com/vuejs/rfcs) repo
 
 Některé funkce jsou dodávány a dokumentovány ve stabilní verzi Vue, ale jsou označeny jako experimentální. Experimentální funkce jsou obvykle ty, které mají přidruženou RFC diskusi s většinou návrhových problémů vyřešených na papíře, ale stále postrádající zpětnou vazbu z reálného použití.
 
-Cílem experimentálních funkcí je umožnit uživatelům poskytnou zpětnou vazbu jejich testováním v produkčním prostředí, aniž by museli používat nestabilní verzi Vue. Samotné experimentální funkce jsou považovány za nestabilní a měly by být používány pouze kontrolovaným způsobem s vědomím, že se způsob použití funkce může s jakoukoliv novou verzí vydání změnit.
+Cílem experimentálních funkcí je umožnit uživatelům poskytnou zpětnou vazbu jejich testováním v produkčním prostředí, aniž by museli používat nestabilní verzi Vue. Samotné experimentální funkce jsou považovány za nestabilní a měly by být používány pouze kontrolovaným způsobem s vědomím, že se způsob použití funkce může s jakoukoli novou verzí vydání změnit.

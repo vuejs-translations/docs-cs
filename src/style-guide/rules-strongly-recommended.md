@@ -770,7 +770,7 @@ const finalPrice = computed(() => basePrice.value - discount.value)
 
 **Neprázdné hodnoty HTML atributů by měly být vždy v uvozovkách (jednoduchých nebo dvojitých, podle toho, co se nepoužívá v JS).**
 
-Ačkoliv hodnoty atributů bez mezer nemusí mít v HTML uvozovky, tato praxe často vede k _vyhýbání se_ mezerám, takže hodnoty atributů jsou méně čitelné.
+Ačkoli hodnoty atributů bez mezer nemusí mít v HTML uvozovky, tato praxe často vede k _vyhýbání se_ mezerám, takže hodnoty atributů jsou méně čitelné.
 
 <div class="style-example style-example-bad">
 <h3>Špatně</h3>

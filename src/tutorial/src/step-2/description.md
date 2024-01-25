@@ -23,7 +23,7 @@ console.log(counter.pocet) // 0
 counter.pocet++
 ```
 
-`reactive()` funguje pouze na objekty (vč. polí a built-in typů jako `Map` a `Set`). Naproti tomu `ref()` umí vzít jakýkoliv datový typ a vytvořit objekt, který vystaví vnitřní hodnotu pod vlastností `.value`:
+`reactive()` funguje pouze na objekty (vč. polí a built-in typů jako `Map` a `Set`). Naproti tomu `ref()` umí vzít jakýkoli datový typ a vytvořit objekt, který vystaví vnitřní hodnotu pod vlastností `.value`:
 
 ```js
 import { ref } from 'vue'
@@ -111,7 +111,7 @@ Vlastnost `message` bude zpřístupněna v šabloně. Tímto způsobem můžeme 
 
 </div>
 
-Obsah uvnitř 'mustaches' není omezen jen na identifikátory nebo cesty - lze použít jakýkoliv platný JavaScript výraz:
+Obsah uvnitř 'mustaches' není omezen jen na identifikátory nebo cesty - lze použít jakýkoli platný JavaScript výraz:
 
 ```vue-html
 <h1>{{ message.split('').reverse().join('') }}</h1>

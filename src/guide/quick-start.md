@@ -115,7 +115,7 @@ Pokud si nejste nastavením jisti, zvolte prozatím jednoduše stisknutím Enter
   </VTCodeGroupTab>
 </VTCodeGroup>
 
-Nyní by už váš první Vue projekt měl běžet! Všimněte si, že ukázkové komponenty ve vygenerovaném projektu jsou napsány s využitím [Composition API](/guide/introduction#composition-api) a `<script setup>`, a&nbsp;nikoliv v [Options API](/guide/introduction#options-api). Zde jsou nějaké další tipy:
+Nyní by už váš první Vue projekt měl běžet! Všimněte si, že ukázkové komponenty ve vygenerovaném projektu jsou napsány s využitím [Composition API](/guide/introduction#composition-api) a `<script setup>`, a&nbsp;nikoli v [Options API](/guide/introduction#options-api). Zde jsou nějaké další tipy:
 
 - Doporučené vývojové prostředí (IDE) je [Visual Studio Code](https://code.visualstudio.com/) + [plugin Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar). Pokud používáte jiný editor, zkontrolujte [sekci podpory v IDE](/guide/scaling-up/tooling#ide-support).
 - Více o vývojových nástrojích vč. integrace s frameworky pro backend, je řešeno v&nbsp;sekci [Nástroje](/guide/scaling-up/tooling).
@@ -167,7 +167,7 @@ Můžete použít distribuci Vue přímo z CDN úložiště pomocí script tagu:
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 ```
 
-Zde jsme použili [unpkg](https://unpkg.com/), ale je možné využití jakékoliv CDN které umí distribuovat npm balíčky, například [jsdelivr](https://www.jsdelivr.com/package/npm/vue) nebo [cdnjs](https://cdnjs.com/libraries/vue). Samozřejmě si můžete soubor také stáhnout a&nbsp;distribuovat sami.
+Zde jsme použili [unpkg](https://unpkg.com/), ale je možné využití jakékoli CDN které umí distribuovat npm balíčky, například [jsdelivr](https://www.jsdelivr.com/package/npm/vue) nebo [cdnjs](https://cdnjs.com/libraries/vue). Samozřejmě si můžete soubor také stáhnout a&nbsp;distribuovat sami.
 
 Při použití Vue z CDN není v procesu žádná build fáze. Díky tomu je příprava mnohem jednodušší. Je to vhodné např. pro obohacení statického HTML nebo integraci s&nbsp;backend frameworkem. Nicméně nebudete moci použít SFC syntaxi.
 
@@ -416,7 +416,7 @@ Pokud otevřete výše uvedené `index.html` v prohlížeči, uvidíte, že str�
 
 Z bezpečnostních důvodů mohou ES moduly fungovat jen přes protokol `http://` používaný prohlížeči při otevírání webových stránek. Aby ES moduly fungovaly i na vašem lokálním stroji, musíme `index.html` servírovat přes `http://` pomocí lokálního HTTP serveru.
 
-Pro spuštění lokálního HTTP serveru si napřed nainstalujte [Node.js](https://nodejs.org/en/) a potom zadejte `npx serve` z příkazové řádky ve stejném adresáři, v jakém je váš HTML soubor. Můžete použít i jakýkoliv jiný HTTP server, který umí poskytovat statické soubory se správnými MIME typy.
+Pro spuštění lokálního HTTP serveru si napřed nainstalujte [Node.js](https://nodejs.org/en/) a potom zadejte `npx serve` z příkazové řádky ve stejném adresáři, v jakém je váš HTML soubor. Můžete použít i jakýkoli jiný HTTP server, který umí poskytovat statické soubory se správnými MIME typy.
 
 Mohli jste si povšimnout, že šablona importované komponenty je zapsaná jako inline JavaScript řetězec. Pokud používáte VSCode, můžete nainstalovat rozšíření [es6&#8209;string&#8209;html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) a pro zapnutí zvýraznění syntaxe řetězce uvést předponou `/*html*/`.
 

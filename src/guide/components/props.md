@@ -154,7 +154,7 @@ Technicky lze camelCase použít i při předávání vlastností do komponenty 
 <MyComponent greeting-message="hello" />
 ```
 
-Kdykoliv je to možné, používáme [pro tagy komponent PascalCase](/guide/components/registration#component-name-casing), protože to zlepšuje čitelnost šablony tím, že odlišuje Vue komponenty od nativních elementů. Použití camelCase při předávání vlastností však takový praktický přínos nemá, proto jsme se rozhodli dodržovat konvence jednotlivých jazyků.
+Kdykoli je to možné, používáme [pro tagy komponent PascalCase](/guide/components/registration#component-name-casing), protože to zlepšuje čitelnost šablony tím, že odlišuje Vue komponenty od nativních elementů. Použití camelCase při předávání vlastností však takový praktický přínos nemá, proto jsme se rozhodli dodržovat konvence jednotlivých jazyků.
 
 ### Statické vs. dynamické vlastnosti {#static-vs-dynamic-props}
 
@@ -182,7 +182,7 @@ Ve dvou výše uvedených příkladech jsme předávali hodnoty typu string, ale
 
 ```vue-html
 <!-- I když je `42` statická hodnota, potřebujeme v-bind, abychom řekli Vue, -->
-<!-- že toto je JavaScript výraz a nikoliv prostý string. -->
+<!-- že toto je JavaScript výraz a nikoli prostý string. -->
 <BlogPost :likes="42" />
 
 <!-- Dynamicky přiřazená hodnota z jiné proměnné -->
@@ -196,7 +196,7 @@ Ve dvou výše uvedených příkladech jsme předávali hodnoty typu string, ale
 <BlogPost is-published />
 
 <!-- I když je `false` statická hodnota, potřebujeme v-bind, abychom řekli Vue, -->
-<!-- že toto je JavaScript výraz a nikoliv prostý string. -->
+<!-- že toto je JavaScript výraz a nikoli prostý string. -->
 <BlogPost :is-published="false" />
 
 <!-- Dynamicky přiřazená hodnota z jiné proměnné -->
@@ -207,7 +207,7 @@ Ve dvou výše uvedených příkladech jsme předávali hodnoty typu string, ale
 
 ```vue-html
 <!-- I když je hodnota pole statická, potřebujeme v-bind, abychom řekli Vue, -->
-<!-- že toto je JavaScript výraz a nikoliv prostý string. -->
+<!-- že toto je JavaScript výraz a nikoli prostý string. -->
 <BlogPost :comment-ids="[234, 266, 273]" />
 
 <!-- Dynamicky přiřazená hodnota z jiné proměnné -->
@@ -218,7 +218,7 @@ Ve dvou výše uvedených příkladech jsme předávali hodnoty typu string, ale
 
 ```vue-html
 <!-- I když je hodnota objektu statická, potřebujeme v-bind, abychom řekli Vue, -->
-<!-- že toto je JavaScript výraz a nikoliv prostý string. -->
+<!-- že toto je JavaScript výraz a nikoli prostý string. -->
 <BlogPost
   :author="{
     name: 'Veronica',
@@ -275,7 +275,7 @@ Bude stejná jako:
 
 ## Jednosměrný datový tok {#one-way-data-flow}
 
-Všechny vlastnosti tvoří **jednosměrný binding směrem dolů** mezí podřízenou a nadřízenou vlastností: když se aktualizuje vlastnost v rodiči, přenese se to dolů na vlastnost potomka, ale nikoliv naopak. To zabraňuje tomu, aby komponenty potomků omylem měnily stav vlastností rodiče, což by mohlo způsobit, že bude těžší pochopit tok dat ve vaší aplikaci.
+Všechny vlastnosti tvoří **jednosměrný binding směrem dolů** mezí podřízenou a nadřízenou vlastností: když se aktualizuje vlastnost v rodiči, přenese se to dolů na vlastnost potomka, ale nikoli naopak. To zabraňuje tomu, aby komponenty potomků omylem měnily stav vlastností rodiče, což by mohlo způsobit, že bude těžší pochopit tok dat ve vaší aplikaci.
 
 Kromě toho se při každé aktualizaci komponenty rodiče obnoví všechny vlastnosti v komponentě potomka o nejnovější hodnotu. To znamená, že byste se **neměli** pokoušet měnit vlastnost uvnitř komponenty potomka. Pokud to uděláte, Vue vás na to upozorní v konzoli:
 
@@ -380,7 +380,7 @@ Chcete-li zadat ověřování vlastností, můžete <span class="composition-api
 ```js
 defineProps({
   // základní kontrola typu
-  //  (hodnoty `null` a `undefined` umožní jakýkoliv typ)
+  //  (hodnoty `null` a `undefined` umožní jakýkoli typ)
   propA: Number,
   // více možných typů
   propB: [String, Number],
@@ -436,7 +436,7 @@ Kód uvnitř makra `defineProps()` **nemůže přistupovat k jiným proměnným 
 export default {
   props: {
     // základní kontrola typu
-    //  (hodnoty `null` a `undefined` umožní jakýkoliv typ)
+    //  (hodnoty `null` a `undefined` umožní jakýkoli typ)
     propA: Number,
     // více možných typů
     propB: [String, Number],

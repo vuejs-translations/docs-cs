@@ -97,7 +97,7 @@ Zbytek dokumentace předpokládá základní znalost HTML, CSS a JavaScriptu. Po
 Vue je framework a ekosystém, který pokrývá většinu z běžných potřeb frontendového vývoje. Ale internet je extrémě různorodý - věci, které na webových stránkách tvoříme se mohou dramaticky lišit ve formě i objemu. Vue bylo s přihlédnutím k tomu navrženo tak, aby bylo flexibilní a přírůstkově adaptibilní. V závislosti na vašich potřebách, může být Vue používáno různými způsoby:
 
 - Obohacení statických HTML bez build fáze
-- Webová komponenta (Web Component) vložená do jakékoliv stránky
+- Webová komponenta (Web Component) vložená do jakékoli stránky
 - Single-Page Application (SPA)
 - Fullstack / Server-Side Rendering (SSR)
 - Jamstack / Static Site Generation (SSG)
@@ -255,7 +255,7 @@ Pokud jste ve Vue nováčky, zde je naše základní doporučení:
 
   - Zvolte Composition API + Single-File komponenty (SFC), pokud plánujete ve Vue vytvořit celou aplikaci.
 
-V průběhu vašeho učení se nemusíte upsat jednomu stylu. Zbytek dokumentace poskytuje tam, kde to je možné, příklady kódu pro oba styly, a můžete mezi nimi kdykoliv přemínat pomocí **přepínače API preference** nahoře ve sloupci levého menu.
+V průběhu vašeho učení se nemusíte upsat jednomu stylu. Zbytek dokumentace poskytuje tam, kde to je možné, příklady kódu pro oba styly, a můžete mezi nimi kdykoli přemínat pomocí **přepínače API preference** nahoře ve sloupci levého menu.
 
 ## Máte další otázky? {#still-got-questions}
 
@@ -263,7 +263,7 @@ Podívejte se na [FAQ - často kladené dotazy](/about/faq).
 
 ## Vyberte si další cestu {#pick-your-learning-path}
 
-Různí vývojáři mají různé způsoby učení. Vyberte si způsob, který vyhovuje vašim preferencím - ačkoliv, pokud je to možné, doporučujeme postupně projít všechen obsah!
+Různí vývojáři mají různé způsoby učení. Vyberte si způsob, který vyhovuje vašim preferencím - ačkoli, pokud je to možné, doporučujeme postupně projít všechen obsah!
 
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/tutorial/">

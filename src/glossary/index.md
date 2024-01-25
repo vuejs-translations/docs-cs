@@ -1,6 +1,6 @@
 # Slovník {#glossary}
 
-Tento glosáč má za úkol poskytnout vodítko ohledně významu technických termínů, které se běžně používají, když mluvíme o Vue. Má sloužit *popisně* ohledně toho, jak jsou termíny obvykle používány, nikoliv jako *předpisová* specifikace toho, jak musí být používány. Některé termíny mohou mít mírně odlišné významy nebo nuance v závislosti na kontextu.
+Tento glosáč má za úkol poskytnout vodítko ohledně významu technických termínů, které se běžně používají, když mluvíme o Vue. Má sloužit *popisně* ohledně toho, jak jsou termíny obvykle používány, nikoli jako *předpisová* specifikace toho, jak musí být používány. Některé termíny mohou mít mírně odlišné významy nebo nuance v závislosti na kontextu.
 
 [[TOC]]
 
@@ -86,7 +86,7 @@ Pro více informací se podívejte na [Composition API FAQ](/guide/extras/compos
 
 Vue má vestavěnou podporu pro vykreslování custom elementů a umožňuje je používat přímo v šablonách Vue komponent.
 
-Custom elementy by neměly být zaměňovány s možností zahrnutí Vue komponent jako tagů v šabloně jiné Vue komponenty. Custom elementy slouží k vytváření Web Components, nikoliv Vue komponent.
+Custom elementy by neměly být zaměňovány s možností zahrnutí Vue komponent jako tagů v šabloně jiné Vue komponenty. Custom elementy slouží k vytváření Web Components, nikoli Vue komponent.
 
 Další podrobnosti naleznete zde:
 - [Průvodce - Vue a Web Components](/guide/extras/web-components.html)

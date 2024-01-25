@@ -12,7 +12,7 @@ Pokud potřebujeme předat data z nadřazené komponenty podřazené komponentě
 
 Všimněte si, že ačkoli komponentu `<Footer>` tyto vlastnosti možná vůbec nezajímají, musí je deklarovat a předat dál, aby k nim komponenta `<DeepChild>` měla přístup. Pokud by existoval delší rodičovský řetězec, ovlivnilo by to po cestě ještě více komponent. Tomu se říká "props drilling" a rozhodně není zábavné se s tím potýkat.
 
-Drilling vlastností můžeme řešit pomocí `provide` a `inject`. Komponenta rodiče může sloužit jako **poskytovatel závislostí (dependency provider)** pro všechny své potomky. Jakákoliv komponenta ve stromu potomků, bezohledu na hloubku jejího zanoření, může **implementovat (inject)** závislosti poskytované komponentami v rodčovském řetězci.
+Drilling vlastností můžeme řešit pomocí `provide` a `inject`. Komponenta rodiče může sloužit jako **poskytovatel závislostí (dependency provider)** pro všechny své potomky. Jakákoli komponenta ve stromu potomků, bezohledu na hloubku jejího zanoření, může **implementovat (inject)** závislosti poskytované komponentami v rodčovském řetězci.
 
 ![Provide/inject scheme](./images/provide-inject.png)
 
@@ -46,7 +46,7 @@ export default {
 
 Funkce `provide()` přijímá dva parametry. První parametr se nazává **injection key**, což může být string nebo `Symbol`. Injection key je použit v komponentně potomka k vyhledání hodnoty, která má být implementována. Jedna komponenta může volat `provide()` vícekrát s různými injection keys pro poskytnutí různých hodnot.
 
-Druhý parametr je poskytovaná hodnota. Hodnota může být jakéhokoliv typu vč. reaktivního stavu jako jsou refs:
+Druhý parametr je poskytovaná hodnota. Hodnota může být jakéhokoli typu vč. reaktivního stavu jako jsou refs:
 
 ```js
 import { ref, provide } from 'vue'
@@ -242,7 +242,7 @@ export default {
 
 <div class="composition-api">
 
-Když používáme reaktivní provide/inject hodnoty, **je doporučeno provádět všechny změny reaktivního stavu uvnitř _provider_ komponenty, kdykoliv je to možné**. Tím je zajištěno, že jsou poskytnutý stav a jeho případné změny umístěny ve stejné komponentě, což usnadňuje budoucí údržbu.
+Když používáme reaktivní provide/inject hodnoty, **je doporučeno provádět všechny změny reaktivního stavu uvnitř _provider_ komponenty, kdykoli je to možné**. Tím je zajištěno, že jsou poskytnutý stav a jeho případné změny umístěny ve stejné komponentě, což usnadňuje budoucí údržbu.
 
 V některých případech můžeme potřebovat aktualizovat data z komponenty, která poskytnutá data implementuje. V takových případech doporučujeme poskytovat funkci, která je za změny stavu zodpovědná:
 

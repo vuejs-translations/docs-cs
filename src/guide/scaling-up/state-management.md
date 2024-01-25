@@ -71,7 +71,7 @@ Pro případ jedna je možným řešením "vyzdvihnutí" sdíleného stavu na sp
 
 Pro případ dva se často uchylujeme k řešením, jako je přístup k přímým instancím komponent rodiče / potomka pomocí template refs nebo pokusy o změnu a synchronizaci více kopií stavu pomocí emitovaných událostí (emits). Obě tyto vzorce jsou křehké a rychle vedou k neudržovatelnému kódu.
 
-Jednodušším a přímočařejším řešením je vyjmout sdílený stav z komponent a spravovat ho v globálním singleton objektu. Díky tomu se náš strom komponent stává velkým "pohledem" (view) a jakákoliv komponenta může přistupovat ke stavu nebo spouštět akce, bez ohledu na to, kde ve stromu se nacházejí!
+Jednodušším a přímočařejším řešením je vyjmout sdílený stav z komponent a spravovat ho v globálním singleton objektu. Díky tomu se náš strom komponent stává velkým "pohledem" (view) a jakákoli komponenta může přistupovat ke stavu nebo spouštět akce, bez ohledu na to, kde ve stromu se nacházejí!
 
 ## Jednoduchá správa stavu s Reactivity API {#simple-state-management-with-reactivity-api}
 
@@ -151,9 +151,9 @@ export default {
 
 </div>
 
-Kdykoliv je nyní objekt `store` změněn, obě komponenty `<ComponentA>` a `<ComponentB>` automaticky aktualizují svá zobrazení - máme jediný zdroj pravdy.
+Kdykoli je nyní objekt `store` změněn, obě komponenty `<ComponentA>` a `<ComponentB>` automaticky aktualizují svá zobrazení - máme jediný zdroj pravdy.
 
-Ovšem to také znamená, že jakákoliv komponenta, která `store` importuje, ho může libovolně měnit:
+Ovšem to také znamená, že jakákoli komponenta, která `store` importuje, ho může libovolně měnit:
 
 ```vue-html{2}
 <template>
@@ -163,7 +163,7 @@ Ovšem to také znamená, že jakákoliv komponenta, která `store` importuje, h
 </template>
 ```
 
-Přestože to funguje v jednoduchých případech, globální stav, který může být libovolně měněn kteroukoliv komponentou, nebude dlouhodobě udržitelný. Aby byla logika změny stavu centralizována stejně jako samotný stav, doporučuje se definovat v úložišti stavu metody s názvy, které vyjadřují úmysl akcí:
+Přestože to funguje v jednoduchých případech, globální stav, který může být libovolně měněn kteroukoli komponentou, nebude dlouhodobě udržitelný. Aby byla logika změny stavu centralizována stejně jako samotný stav, doporučuje se definovat v úložišti stavu metody s názvy, které vyjadřují úmysl akcí:
 
 ```js{6-8}
 // store.js

@@ -6,7 +6,7 @@ Computed proměnné nám umožňují deklarativně vypočítat odvozené hodnoty
 
 <div class="options-api">
 
-S Options API můžeme použít [sekci `watch`](/api/options-state#watch) k vyvolání funkce kdykoliv se změní reaktivní hodnota:
+S Options API můžeme použít [sekci `watch`](/api/options-state#watch) k vyvolání funkce kdykoli se změní reaktivní hodnota:
 
 ```js
 export default {
@@ -18,7 +18,7 @@ export default {
     }
   },
   watch: {
-    // kdykoliv se změní `question`, spustí se tato funkce
+    // kdykoli se změní `question`, spustí se tato funkce
     question(newQuestion, oldQuestion) {
       if (newQuestion.includes('?')) {
         this.getAnswer()
@@ -69,7 +69,7 @@ export default {
 
 <div class="composition-api">
 
-S Composition API můžeme použít [funkci `watch`](/api/reactivity-core#watch) k vyvolání callback funkce kdykoliv se změní část reaktivního stavu:
+S Composition API můžeme použít [funkci `watch`](/api/reactivity-core#watch) k vyvolání callback funkce kdykoli se změní část reaktivního stavu:
 
 ```vue
 <script setup>
@@ -263,7 +263,7 @@ Můžeme vynutit okamžité provedení callback funkce předáním parametru `im
 watch(
   source, 
   (newValue, oldValue) => {
-    // bude spuštěno okamžitě a poté kdykoliv se změní `source`
+    // bude spuštěno okamžitě a poté kdykoli se změní `source`
   }, 
   { immediate: true }
 )
@@ -309,7 +309,7 @@ Zde se callback funkce spustí okamžitě, není třeba zadávat `immediate: tru
 
 Můžete se podívat na [tento příklad](/examples/#fetching-data) použití `watchEffect()` a reaktivního načítání dat v akci.
 
-Pro příklady jako jsou tyto, pouze s jednou závislostí, je přínos `watchEffect()` relativně malý. Ale pro watchers, kteří mají závislostí více, odstraňuje použití `watchEffect()` břemeno nutnosti seznam závislostí ručně udržovat. Kromě toho, pokud potřebujete sledovat několik vlastností ve vnořené datové struktuře, `watchEffect()` může být efektivnější než deep watcher, protože bude sledovat pouze vlastnosti, které jsou použity v callback funkci, a nikoliv rekurzivně sledovat všechny, které v objektu existují.
+Pro příklady jako jsou tyto, pouze s jednou závislostí, je přínos `watchEffect()` relativně malý. Ale pro watchers, kteří mají závislostí více, odstraňuje použití `watchEffect()` břemeno nutnosti seznam závislostí ručně udržovat. Kromě toho, pokud potřebujete sledovat několik vlastností ve vnořené datové struktuře, `watchEffect()` může být efektivnější než deep watcher, protože bude sledovat pouze vlastnosti, které jsou použity v callback funkci, a nikoli rekurzivně sledovat všechny, které v objektu existují.
 
 :::tip
 `watchEffect` sleduje závislosti pouze při svém **synchronním** spuštění. Při použití s asynchronní callback funkcí budou sledovány pouze vlastnosti, ke kterým se přistoupilo před prvním výskytem `await`.
@@ -331,7 +331,7 @@ Když měníte reaktivní stav, může to vyvolat aktualizace Vue komponent a ca
 
 Stejně jako v případě aktualizací komponent, jsou uživatelsky vytvořené watcher callback funkce organizovány do dávek, aby se předešlo duplicitním spuštěním. Například nejspíš nechceme, aby se watcher spustil tisíckrát, když synchronně přidáme tisíc prvků do sledovaného pole.
 
-Ve výchozím nastavení jsou uživatelsky vytvořené watcher callback funkce volány **před** aktualizacemi Vue komponent. To znamená, že pokud se pokusíte o přístup k DOM v rámci watcher callback funkce, DOM bude ve stavu před tím, než Vue aplikovalo jakékoliv změny.
+Ve výchozím nastavení jsou uživatelsky vytvořené watcher callback funkce volány **před** aktualizacemi Vue komponent. To znamená, že pokud se pokusíte o přístup k DOM v rámci watcher callback funkce, DOM bude ve stavu před tím, než Vue aplikovalo jakékoli změny.
 
 Ve výchozím nastavení jsou watcher callback funkce volány **po** aktualizacích komponenty rodiče (pokud nějaké jsou) a **před** DOM aktualizacemi komponenty, které watcher patří. To znamená, že pokud se pokusíte přistoupit k DOM této komponenty uvnitř watcher callback funkce, její DOM bude v pre-update stavu.
 
@@ -381,7 +381,7 @@ watchPostEffect(() => {
 
 ### Sync Watchers {#sync-watchers}
 
-Je také možné vytvořit watcher, který bude spuštěn synchronně před provedením jakýchkoliv Vue aktualizací.
+Je také možné vytvořit watcher, který bude spuštěn synchronně před provedením jakýchkoli Vue aktualizací.
 
 <div class="options-api">
 

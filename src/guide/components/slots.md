@@ -505,6 +505,6 @@ Příklad renderless komponenty může být taková, která zapouzdřuje logiku 
 
 </div>
 
-Ačkoliv je to zajímavý vzor, většinu toho, čeho lze dosáhnout s renderless komponentami, lze zajistit efektivněji s Composition API, aniž by to znamenalo dodatečnou režii dalšího vnořování komponent. Později uvidíme, jak můžeme implementovat stejnou funkci sledování myši ve formě [composable](/guide/reusability/composables).
+Ačkoli je to zajímavý vzor, většinu toho, čeho lze dosáhnout s renderless komponentami, lze zajistit efektivněji s Composition API, aniž by to znamenalo dodatečnou režii dalšího vnořování komponent. Později uvidíme, jak můžeme implementovat stejnou funkci sledování myši ve formě [composable](/guide/reusability/composables).
 
 Scoped sloty jsou ovšem stále užitečné v případech, kdy potřebujeme zapouzdřit logiku **a zároveň** tvořit vizuální výstup, jako v příkladu `<FancyList>`.

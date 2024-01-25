@@ -9,7 +9,7 @@ export default {
       groceryList: [
         { id: 0, text: 'Zelenina' },
         { id: 1, text: 'Sýr' },
-        { id: 2, text: 'Cokoliv dalšího, co lidé jedí' }
+        { id: 2, text: 'Cokoli dalšího, co lidé jedí' }
       ]
     }
   }

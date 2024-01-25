@@ -143,7 +143,7 @@ Tyto výrazy budou vyhodnoceny jako JavaScript s použitím datového scope aktu
 V Vue šablonách lze JavaScriptové výrazy použít na následujících místech:
 
 - Uvnitř textových interpolací („mustache“ syntaxe)
-- V hodnotě atributu kterékoliv Vue direktivy (speciální atributy začínající na `v-`)
+- V hodnotě atributu kterékoli Vue direktivy (speciální atributy začínající na `v-`)
 
 ### Pouze výrazy {#expressions-only}
 
@@ -152,7 +152,7 @@ Každý binding může obsahovat pouze **jeden jediný výraz**. Výraz je čás
 Kvůli tomu **NEBUDE** fungovat následující:
 
 ```html
-<!-- toto je konstatování (statement), nikoliv výraz (expression) -->
+<!-- toto je konstatování (statement), nikoli výraz (expression) -->
 {{ var a = 1 }}
 
 <!-- nefunguje ani řízení kódu (flow control), použijte ternární operátor -->
@@ -202,7 +202,7 @@ Některé direktivy mohou přijímat „parametr“, označený dvojtečkou za n
 <a :href="url"> ... </a>
 ```
 
-Zde je parametrem `href`, což říká direktivě `v-bind`, aby provedla binding atributu `href` v elementu s hodnotou výrazu `url`. Ve zkráceném zápisu je cokoliv před parametrem (např. `v-bind:`) sbaleno do jediného znaku `:`.
+Zde je parametrem `href`, což říká direktivě `v-bind`, aby provedla binding atributu `href` v elementu s hodnotou výrazu `url`. Ve zkráceném zápisu je cokoli před parametrem (např. `v-bind:`) sbaleno do jediného znaku `:`.
 
 Jiný příklad je direktiva `v-on`, která naslouchá DOM událostem (events):
 

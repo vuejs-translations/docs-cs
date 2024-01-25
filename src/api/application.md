@@ -538,7 +538,7 @@ Objekt, který může být použit k registraci globálních vlastností, ke kte
 
 - **Podrobnosti**
 
-  Toto je náhrada za `Vue.prototype` z Vue 2, který již není ve Vue 3 přítomen. Stejně jako cokoliv globálního, by měly být používány střídmě a s rozmyslem.
+  Toto je náhrada za `Vue.prototype` z Vue 2, který již není ve Vue 3 přítomen. Stejně jako cokoli globálního, by měly být používány střídmě a s rozmyslem.
 
   Pokud dojde ke konfliktu názvů globální vlastnosti s vlastností komponenty, vlastnost uvnitř komponenty bude mít vyšší prioritu.
 
@@ -548,7 +548,7 @@ Objekt, který může být použit k registraci globálních vlastností, ke kte
   app.config.globalProperties.msg = 'ahoj'
   ```
 
-Umožňí použití `msg` uvnitř kterékoliv šablony a také na `this` libovolné instance komoonenty:
+Umožňí použití `msg` uvnitř kterékoli šablony a také na `this` libovolné instance komoonenty:
 
   ```js
   export default {

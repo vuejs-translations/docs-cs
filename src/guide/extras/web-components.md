@@ -257,7 +257,7 @@ Skutečně existuje určitá míra překryvu funkcí mezi custom elementy a Vue 
 
 - Reaktivní systém správy stavu, který usnadňuje extrakci a znovupoužití logiky mezi komponentami;
 
-- Výkonný způsob vykreslování komponent na serveru a hydratace na klientovi (SSR), což je důležité pro SEO a [metriky Web Vitals, jako je LCP](https://web.dev/vitals/). SSR nativních custom elementů obvykle zahrnuje simulaci DOM v Node.js a následné serializování modifikovaného DOM, zatímco Vue SSR kompiluje do složených řetězců, kdykoliv je to možné, což je mnohem efektivnější.
+- Výkonný způsob vykreslování komponent na serveru a hydratace na klientovi (SSR), což je důležité pro SEO a [metriky Web Vitals, jako je LCP](https://web.dev/vitals/). SSR nativních custom elementů obvykle zahrnuje simulaci DOM v Node.js a následné serializování modifikovaného DOM, zatímco Vue SSR kompiluje do složených řetězců, kdykoli je to možné, což je mnohem efektivnější.
 
 Model Vue komponent je navržen s ohledem na tyto potřeby jako koherentní systém.
 

@@ -104,7 +104,7 @@ Objekt `$attrs` obsahuje všechny atributy, které nejsou deklarovány jako `pro
 
 Pár poznámek:
 
-- Na rozdíl od vlastností zachovávají falltrough atributy i v JavaScriptu původní podobu klíče, takže k atributu `foo-bar` je třeba přistupovat jako `$attrs['foo-bar']` a nikoliv `$attrs['fooBar']`.
+- Na rozdíl od vlastností zachovávají falltrough atributy i v JavaScriptu původní podobu klíče, takže k atributu `foo-bar` je třeba přistupovat jako `$attrs['foo-bar']` a nikoli `$attrs['fooBar']`.
 
 - Event listener `v-on` jako `@click` bude v objektu zpřístupněn jako funkce `$attrs.onClick`.
 
@@ -116,7 +116,7 @@ Při použití naši ukázkové `<MyButton>` komponenty z [předchozí sekce](#a
 </div>
 ```
 
-Chceme, aby všechny falltrough atributy jako `class` nebo `v-on` listener byly aplikovány na vnitřní `<button>` a nikoliv vnější `<div>`. Toho můžeme dosáhnout s `inheritAttrs: false` a `v-bind="$attrs"`:
+Chceme, aby všechny falltrough atributy jako `class` nebo `v-on` listener byly aplikovány na vnitřní `<button>` a nikoli vnější `<div>`. Toho můžeme dosáhnout s `inheritAttrs: false` a `v-bind="$attrs"`:
 
 ```vue-html{2}
 <div class="btn-wrapper">

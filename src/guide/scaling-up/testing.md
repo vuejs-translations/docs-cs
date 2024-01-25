@@ -226,7 +226,7 @@ Doporučujeme používat `@vue/test-utils` pro testování komponent v aplikací
 
 ## E2E testování {#e2e-testing}
 
-Ačkoliv jednotkové testy poskytují vývojářům určitou míru jistoty, jednotkové a komponentové testy mají svá omezení v zajištění celkového pokrytí aplikace při nasazení do produkce. Výsledkem jsou testy end-to-end (E2E), které pokrývají to, co je pravděpodobně nejdůležitější aspekt aplikace: co se děje, když uživatelé skutečně používají vaše aplikace.
+Ačkoli jednotkové testy poskytují vývojářům určitou míru jistoty, jednotkové a komponentové testy mají svá omezení v zajištění celkového pokrytí aplikace při nasazení do produkce. Výsledkem jsou testy end-to-end (E2E), které pokrývají to, co je pravděpodobně nejdůležitější aspekt aplikace: co se děje, když uživatelé skutečně používají vaše aplikace.
 
 End-to-end testy se zaměřují na chování vícestránkových aplikací, které provádějí síťové požadavky na vaši produkční Vue aplikaci. Často zahrnují spuštění databáze nebo jiného backendu a mohou být dokonce spuštěny proti živému prostředí pro nasazení.
 
