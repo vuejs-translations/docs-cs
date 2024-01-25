@@ -75,6 +75,8 @@ Chtěli jsme se zejména vyhnout použití spíše nelogického českého slova 
 - root
 - scope
 - mount
+- arrow fce
+- binding?
 
 ## Reklamace
 
