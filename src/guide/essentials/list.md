@@ -10,7 +10,7 @@
 
 ## `v-for` {#v-for}
 
-Pro vykreslení senzamu založeného na hodnotách pole můžeme použít direktivu `v-for`. Zápis `v-for` vyžaduje speciální syntaxi ve formě `item in items`, kde `items` je zdrojové datové pole a `item` je **alias** pro prvek pole, přes který se iteruje:
+Pro vykreslení senzamu založeného na hodnotách pole můžeme použít direktivu `v-for`. Zápis `v-for` vyžaduje speciální syntaxi ve formě `item in items`, kde `items` je zdrojové datové pole a `item` je **alias** pro prvek pole, přes které se iteruje:
 
 <div class="composition-api">
 
@@ -103,7 +103,7 @@ items.forEach((item, index) => {
 })
 ```
 
-Všimněte si, jak se hodnota `v-for` shoduje s definicí callback funkce `forEach`. Dokonce můžete destrukturování na alias položky `v-for` použít podobně jako na argumenty funkce:
+Všimněte si, že se hodnota `v-for` shoduje s definicí callback funkce `forEach`. Dokonce můžete použít destrukturování na alias položky `v-for` podobně jako na argumenty funkce:
 
 ```vue-html
 <li v-for="{ message } in items">
@@ -223,7 +223,7 @@ Podobně jako u `v-if`, je možné tag `<template>` použití i s `v-for` pro v�
 
 ## `v-for` s `v-if` {#v-for-with-v-if}
 
-::: warning Note
+::: warning Poznámka
 **Nedoporučuje se** používat `v-if` a `v-for` na stejném prvku kvůli jejich implicitní prioritě. Podrobnosti naleznete v [Průvodci stylováním](/style-guide/rules-essential#avoid-v-if-with-v-for).
 :::
 
@@ -272,7 +272,7 @@ Při použití `<template v-for>`, by měl být `key` umístěn do `<template>` 
 ```
 
 :::tip Poznámka
-Zde uvedený `key` je speciální atribut propojený s `v-bind`. Nemělo by se zaměňovat s klíčem pro vlastnosti při [použití `v-for` nad objektem](#v-for-with-an-object).
+Zde uvedený `key` je speciální atribut propojený s `v-bind`. Nemělo by se zaměňovat s&nbsp;klíčem pro vlastnosti při [použití `v-for` nad objektem](#v-for-with-an-object).
 :::
 
 [Je doporučeno](/style-guide/rules-essential#use-keyed-v-for) použití atributu `key` s `v-for`, kdykoli je to možné. Výjimkou mohou být situace, kdy je iterovaný obsah DOM velmi jednoduchý (tj. neobsahuje žádné komponenty nebo stavové elementy DOM), nebo se záměrně spoléháte na výchozí chování pro zvýšení výkonu.
@@ -281,7 +281,7 @@ Direktiva `key` očekává vazbu na primitivní hodnoty – tedy string a number
 
 ## `v-for` nad komponentou {#v-for-with-a-component}
 
-> Tato sekce předpokládá znalost [komponent](/guide/essentials/component-basics). Klidně ji teď přeskočte a vraťte se později.
+> Tato sekce předpokládá znalost [základů komponent](/guide/essentials/component-basics). Klidně ji teď přeskočte a vraťte se později.
 
 Je možné použít `v-for` přímo na komponentu, jako by to byl jiný standardní element (nezapomeňte definovat `key`):
 
@@ -304,12 +304,12 @@ Důvodem, proč se `item` do komponenty automaticky nevkládá, je, že díky to
 
 <div class="composition-api">
 
-Check out [tento příklad jednoduchého TODO listu](https://play.vuejs.org/#eNp1U8Fu2zAM/RXCGGAHTWx02ylwgxZYB+ywYRhyq3dwLGYRYkuCJTsZjPz7KMmK3ay9JBQfH/meKA/Rk1Jp32G0jnJdtVwZ0Gg6tSkEb5RsDQzQ4h4usG9lAzGVxldoK5n8ZrAZsTQLCduRygAKUUmhDQg8WWyLZwMPtmESx4sAGkL0mH6xrMH+AHC2hvuljw03Na4h/iLBHBAY1wfUbsTFVcwoH28o2/KIIDuaQ0TTlvrwNu/TDe+7PDlKXZ6EZxTiN4kuRI3W0dk4u4yUf7bZfScqw6WAkrEf3m+y8AOcw7Qv6w5T1elDMhs7Nbq7e61gdmme60SQAvgfIhExiSSJeeb3SBukAy1D1aVBezL5XrYN9Csp1rrbNdykqsUehXkookl0EVGxlZHX5Q5rIBLhNHFlbRD6xBiUzlOeuZJQz4XqjI+BxjSSYe2pQWwRBZizV01DmsRWeJA1Qzv0Of2TwldE5hZRlVd+FkbuOmOksJLybIwtkmfWqg+7qz47asXpSiaN3lxikSVwwfC8oD+/sEnV+oh/qcxmU85mebepgLjDBD622Mg+oDrVquYVJm7IEu4XoXKTZ1dho3gnmdJhedEymn9ab3ysDPdc4M9WKp28xE5JbB+rzz/Trm3eK3LAu8/E7p2PNzYM/i3ChR7W7L7hsSIvR7L2Aal1EhqTp80vF95sw3WcG7r8A0XaeME=) to see how to render a list of components using `v-for`, passing different data to each instance.
+Podívejte se na [tento příklad jednoduchého TODO listu](https://play.vuejs.org/#eNp1U8Fu2zAM/RXCGGAHTWx02ylwgxZYB+ywYRhyq3dwLGYRYkuCJTsZjPz7KMmK3ay9JBQfH/meKA/Rk1Jp32G0jnJdtVwZ0Gg6tSkEb5RsDQzQ4h4usG9lAzGVxldoK5n8ZrAZsTQLCduRygAKUUmhDQg8WWyLZwMPtmESx4sAGkL0mH6xrMH+AHC2hvuljw03Na4h/iLBHBAY1wfUbsTFVcwoH28o2/KIIDuaQ0TTlvrwNu/TDe+7PDlKXZ6EZxTiN4kuRI3W0dk4u4yUf7bZfScqw6WAkrEf3m+y8AOcw7Qv6w5T1elDMhs7Nbq7e61gdmme60SQAvgfIhExiSSJeeb3SBukAy1D1aVBezL5XrYN9Csp1rrbNdykqsUehXkookl0EVGxlZHX5Q5rIBLhNHFlbRD6xBiUzlOeuZJQz4XqjI+BxjSSYe2pQWwRBZizV01DmsRWeJA1Qzv0Of2TwldE5hZRlVd+FkbuOmOksJLybIwtkmfWqg+7qz47asXpSiaN3lxikSVwwfC8oD+/sEnV+oh/qcxmU85mebepgLjDBD622Mg+oDrVquYVJm7IEu4XoXKTZ1dho3gnmdJhedEymn9ab3ysDPdc4M9WKp28xE5JbB+rzz/Trm3eK3LAu8/E7p2PNzYM/i3ChR7W7L7hsSIvR7L2Aal1EhqTp80vF95sw3WcG7r8A0XaeME=), abyste viděli, jak vykreslit list komponent pomocí `v-for` s předáním různých dat do každé instance.
 
 </div>
 <div class="options-api">
 
-Check out [tento příklad jednoduchého TODO listu](https://play.vuejs.org/#eNqNVE2PmzAQ/SsjVIlEm4C27Qmx0a7UVuqhPVS5lT04eFKsgG2BSVJF+e8d2xhIu10tihR75s2bNx9wiZ60To49RlmUd2UrtNkUUjRatQa2iquvBhvYt6qBOEmDwQbEhQQoJJ4dlOOe9bWBi7WWiuIlStNlcJlYrivr5MywxdIDAVo0fSvDDUDiyeK3eDYZxLGLsI8hI7H9DHeYQuwjeAb3I9gFCFMjUXxSYCoELroKO6fZP17Mf6jev0i1ZQcE1RtHaFrWVW/l+/Ai3zd1clQ1O8k5Uzg+j1HUZePaSFwfvdGhfNIGTaW47bV3Mc6/+zZOfaaslegS18ZE9121mIm0Ep17ynN3N5M8CB4g44AC4Lq8yTFDwAPNcK63kPTL03HR6EKboWtm0N5MvldtA8e1klnX7xphEt3ikTbpoYimsoqIwJY0r9kOa6Ag8lPeta2PvE+cA3M7k6cOEvBC6n7UfVw3imPtQ8eiouAW/IY0mElsiZWqOdqkn5NfCXxB5G6SJRvj05By1xujpJWUp8PZevLUluqP/ajPploLasmk0Re3sJ4VCMnxvKQ//0JMqrID/iaYtSaCz+xudsHjLpPzscVGHYO3SzpdixIXLskK7pcBucnTUdgg3kkmcxhetIrmH4ebr8m/n4jC6FZp+z7HTlLsVx1p4M7odcXPr6+Lnb8YOne5+C2F6/D6DH2Hx5JqOlCJ7yz7IlBTbZsf7vjXVBzjvLDrH5T0lgo=) to see how to render a list of components using `v-for`, passing different data to each instance.
+Podívejte se na [tento příklad jednoduchého TODO listu](https://play.vuejs.org/#eNqNVE2PmzAQ/SsjVIlEm4C27Qmx0a7UVuqhPVS5lT04eFKsgG2BSVJF+e8d2xhIu10tihR75s2bNx9wiZ60To49RlmUd2UrtNkUUjRatQa2iquvBhvYt6qBOEmDwQbEhQQoJJ4dlOOe9bWBi7WWiuIlStNlcJlYrivr5MywxdIDAVo0fSvDDUDiyeK3eDYZxLGLsI8hI7H9DHeYQuwjeAb3I9gFCFMjUXxSYCoELroKO6fZP17Mf6jev0i1ZQcE1RtHaFrWVW/l+/Ai3zd1clQ1O8k5Uzg+j1HUZePaSFwfvdGhfNIGTaW47bV3Mc6/+zZOfaaslegS18ZE9121mIm0Ep17ynN3N5M8CB4g44AC4Lq8yTFDwAPNcK63kPTL03HR6EKboWtm0N5MvldtA8e1klnX7xphEt3ikTbpoYimsoqIwJY0r9kOa6Ag8lPeta2PvE+cA3M7k6cOEvBC6n7UfVw3imPtQ8eiouAW/IY0mElsiZWqOdqkn5NfCXxB5G6SJRvj05By1xujpJWUp8PZevLUluqP/ajPploLasmk0Re3sJ4VCMnxvKQ//0JMqrID/iaYtSaCz+xudsHjLpPzscVGHYO3SzpdixIXLskK7pcBucnTUdgg3kkmcxhetIrmH4ebr8m/n4jC6FZp+z7HTlLsVx1p4M7odcXPr6+Lnb8YOne5+C2F6/D6DH2Hx5JqOlCJ7yz7IlBTbZsf7vjXVBzjvLDrH5T0lgo=), abyste viděli, jak vykreslit list komponent pomocí `v-for` s předáním různých dat do každé instance.
 
 </div>
 
@@ -426,7 +426,7 @@ methods: {
 </ul>
 ```
 
-U computed proměnných buďte opatrní s `reverse()` a `sort()`! Tyto dvě funkce mění původní pole, čemuž je třeba se u computed getterů vyhnout. Před voláním těchto funkcí vytvořte kopii původního pole:
+U computed proměnných buďte opatrní s `reverse()` a `sort()`! Tyto dvě funkce mění původní pole, čemuž je u computed getterů třeba se vyhnout. Před voláním těchto funkcí vytvořte kopii původního pole:
 
 ```diff
 - return numbers.reverse()

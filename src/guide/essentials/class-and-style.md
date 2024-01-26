@@ -1,6 +1,6 @@
 # Binding tříd a stylů {#class-and-style-bindings}
 
-Běžným požadavkem na data binding je manipulace se seznamem tříd elementu a inline styly. Protože `class` a `style` jsou oba atributy, můžeme podobně jako k jiným atributům použít `v-bind` k dynamickému přiřazení string hodnoty. Pokus o generování těchto hodnot pomocí spojování textových řetězců však může být otravný a náchylný k chybám. Z tohoto důvodu Vue poskytuje speciální vylepšení, když se `v-bind` používá s `class` a `style`. Kromě řetězců lze výrazy také vyhodnocovat jako objekty nebo pole.
+Běžným požadavkem na data binding je manipulace se seznamem tříd elementu a inline styly. Protože `class` i `style` jsou obojí atributy, můžeme podobně jako u jiných atributů použít `v-bind` k dynamickému přiřazení string hodnoty. Pokusy o generování těchto hodnot pomocí spojování textových řetězců však mohou být otravné a náchylné k&nbsp;chybám. Z tohoto důvodu Vue poskytuje speciální vylepšení, když se `v-bind` používá s `class` a `style`. Kromě řetězců lze výrazy vyhodnocovat také jako objekty nebo pole.
 
 ## Binding HTML tříd {#binding-html-classes}
 
@@ -95,7 +95,7 @@ data() {
 <div :class="classObject"></div>
 ```
 
-Toto vykreslí:
+Výše uvedené vykreslí:
 
 ```vue-html
 <div class="active"></div>
@@ -178,15 +178,15 @@ Což vykreslí:
 <div class="active text-danger"></div>
 ```
 
-Pokud byste chtěli třídu v seznamu také přepnout podmíněně, můžete to udělat pomocí ternárního výrazu:
+Pokud byste chtěli třídu v seznamu také přepínat podmíněně, můžete to udělat pomocí ternárního výrazu:
 
 ```vue-html
 <div :class="[isActive ? activeClass : '', errorClass]"></div>
 ```
 
-S tímto bude vždy aplikována `errorClass`, ale `activeClass` bude přidána pouze, pokud je `isActive` pravdivé.
+S tímto zápisem bude vždy aplikována `errorClass`, ale `activeClass` bude přidána pouze, pokud je `isActive` pravdivé.
 
-To však může být trochu nepřehledné, pokud máte podmíněných tříd více. Proto je také možné uvnitř pole použít i objektovou syntaxi:
+To však může být trochu nepřehledné, pokud máte podmíněných tříd více. Proto je kromě toho možné použít uvnitř pole i objektovou syntaxi:
 
 ```vue-html
 <div :class="[{ active: isActive }, errorClass]"></div>
@@ -194,11 +194,11 @@ To však může být trochu nepřehledné, pokud máte podmíněných tříd ví
 
 ### S komponentami {#with-components}
 
-> Tato sekce předpokládá znalost [komponent](/guide/essentials/component-basics). Klidně ji teď přeskočte a vraťte se později.
+> Tato sekce předpokládá znalost [základů komponent](/guide/essentials/component-basics). Klidně ji teď přeskočte a vraťte se později.
 
 Když použijete atribut `class` na komponentu s jedním root elementem, budou tyto třídy přidány do root elementu v komponentě a sloučeny s jakoukoli existující třídou, která se na něm již nachází.
 
-Například pokud máme komponentnu pojmenovanou `MyComponent` s následující šablonou:
+Například pokud máme komponentnu jménem `MyComponent` s následující šablonou:
 
 ```vue-html
 <!-- šablona komponenty potomka -->
@@ -283,7 +283,7 @@ data() {
 <div :style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
 ```
 
-Ačkoli se doporučuje camelCase, `:style` podporuje i CSS klíče zapsané kebab-case (v souladů s tím, jak jsou používány ve skutečném CSS) - například:
+Ačkoli se doporučuje camelCase, `:style` podporuje i CSS klíče zapsané kebab-case (v&nbsp;souladu s tím, jak jsou používány ve skutečném CSS) - například:
 
 ```vue-html
 <div :style="{ 'font-size': fontSize + 'px' }"></div>
@@ -333,7 +333,7 @@ Můžeme provést binding `:style` na pole více stylových objektů. Tyto objek
 
 ### Auto-prefixing {#auto-prefixing}
 
-Když použijete CSS vlastnost, která vyžaduje [vendor prefix](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) v `:style`, Vue příslušnou předponu automaticky přidá. Dělá to tak, že za běhu zkontroluje, které vlastnosti stylu jsou podporovány v aktuálním prohlížeči. Pokud prohlížeč určitou vlastnost nepodporuje, budou testovány různé varianty s předponou, abychom se pokusili najít tu, která podporována je.
+Když použijete CSS vlastnost, která vyžaduje [vendor prefix](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix), v rácmci `:style`, Vue příslušnou předponu automaticky přidá. Dělá to tak, že za běhu zkontroluje, které vlastnosti stylu jsou podporovány v aktuálním prohlížeči. Pokud prohlížeč určitou vlastnost nepodporuje, budou testovány různé varianty s předponou, abychom se pokusili najít tu, která podporována je.
 
 ### Více hodnot {#multiple-values}
 
