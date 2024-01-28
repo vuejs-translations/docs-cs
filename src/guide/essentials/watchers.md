@@ -2,11 +2,11 @@
 
 ## Jednoduchý příklad {#basic-example}
 
-Computed proměnné nám umožňují deklarativně vypočítat odvozené hodnoty. Existují však případy, kdy v reakci na změny stavu potřebujeme provést „vedlejší efekty“ – například změnu DOM nebo změnu jiné části stavu na základě výsledku asynchronní operace.
+Computed proměnné nám umožňují deklarativně vypočítat odvozené hodnoty. Existují však případy, kdy v reakci na změny stavu potřebujeme provést „vedlejší efekty“ &#8209;&nbsp;například změnu DOM nebo změnu jiné části stavu na základě výsledku asynchronní operace.
 
 <div class="options-api">
 
-S Options API můžeme použít [sekci `watch`](/api/options-state#watch) k vyvolání funkce kdykoli se změní reaktivní hodnota:
+S Options API můžeme použít [možnost `watch`](/api/options-state#watch) k vyvolání funkce kdykoli se změní reaktivní hodnota:
 
 ```js
 export default {
@@ -163,7 +163,7 @@ watch(
 
 <div class="options-api">
 
-`watch` je ve výchozím nastavení mělký (shallow): callback funkce je vyvolána pouze tehdy, když je nová hodnota přiřazena sledované vlastnosti – nespustí se při změnách vnořených vlastností. Pokud chcete, aby se callback funkce spustila i u všech vnořených změn, musíte použít tzv. deep watcher:
+Výsledek `watch` je ve výchozím nastavení mělký (shallow): callback funkce je vyvolána pouze tehdy, když je nová hodnota přiřazena sledované vlastnosti – nespustí se při změnách vnořených vlastností. Pokud chcete, aby se callback funkce spustila i u všech vnořených změn, musíte použít tzv. deep watcher:
 
 ```js
 export default {
@@ -183,7 +183,7 @@ export default {
 
 <div class="composition-api">
 
-Když zavoláte `watch()` přímo na reaktivní objekt, implicitně vytvoří tzv. deep watcher - callback funkce bude vyvolána i při všech změnách vnořených vlastností:
+Když zavoláte `watch()` přímo na reaktivní objekt, implicitně vytvoří tzv. deep watcher &#8209;&nbsp;callback funkce bude vyvolána i při všech změnách vnořených vlastností:
 
 ```js
 const obj = reactive({ count: 0 })
@@ -229,7 +229,7 @@ Deep watcher vyžaduje procházení všech vnořených vlastností ve sledované
 
 ## Eager Watchers {#eager-watchers}
 
-`watch` je ve výchozím nastavení "lazy": callback funkce není spuštěna, dokud se sledovaný zdroj nezmění. V některých případech však můžeme chtít, aby byla stejná logika callback funkce spouštěna v "eager" módu - například můžeme chtít načíst některá počáteční data a poté načíst data znovu, kdykoli se změní relevantní stav.
+Výsledek `watch` je ve výchozím nastavení „lazy“: callback funkce není spuštěna, dokud se sledovaný zdroj nezmění. V některých případech však můžeme chtít, aby byla stejná logika callback funkce spouštěna v „eager“ módu - například můžeme chtít načíst některá počáteční data a poté načíst data znovu, kdykoli se změní relevantní stav.
 
 <div class="options-api">
 
@@ -251,7 +251,7 @@ export default {
 }
 ```
 
-Úvodní spuštění handler funkce proběhne těsně před lifecycle hookem `created`. Vue již bude mít zpracovaný obsah sekcí `data`, `computed` a `methods`, takže tyto vlastnosti budou při tomto prvním volání dostupné.
+Úvodní spuštění handler funkce proběhne těsně před lifecycle hookem `created`. Vue již bude mít zpracovaný obsah možností `data`, `computed` a `methods`, takže jejich výsledky budou při tomto prvním volání dostupné.
   
 </div>
 
@@ -307,12 +307,12 @@ watchEffect(async () => {
 ```
 Zde se callback funkce spustí okamžitě, není třeba zadávat `immediate: true`. Během svého vykonávání bude automaticky sledovat `todoId.value` jako závislost (podobně jako computed proměnné). Kdykoli se `todoId.value` změní, callback funkce se spustí znovu. S `watchEffect()` již nemusíme `todoId` předávat explicitně jako zdrojovou hodnotu.
 
-Můžete se podívat na [tento příklad](/examples/#fetching-data) použití `watchEffect()` a reaktivního načítání dat v akci.
+Můžete se podívat na [tento příklad](/examples/#fetching-data) použití `watchEffect()` a reaktivního načítání dat v&nbsp;akci.
 
 Pro příklady jako jsou tyto, pouze s jednou závislostí, je přínos `watchEffect()` relativně malý. Ale pro watchers, kteří mají závislostí více, odstraňuje použití `watchEffect()` břemeno nutnosti seznam závislostí ručně udržovat. Kromě toho, pokud potřebujete sledovat několik vlastností ve vnořené datové struktuře, `watchEffect()` může být efektivnější než deep watcher, protože bude sledovat pouze vlastnosti, které jsou použity v callback funkci, a nikoli rekurzivně sledovat všechny, které v objektu existují.
 
 :::tip
-`watchEffect` sleduje závislosti pouze při svém **synchronním** spuštění. Při použití s asynchronní callback funkcí budou sledovány pouze vlastnosti, ke kterým se přistoupilo před prvním výskytem `await`.
+`watchEffect` sleduje závislosti pouze při svém **synchronním** spuštění. Při použití s&nbsp;asynchronní callback funkcí budou sledovány pouze vlastnosti, ke kterým se přistoupilo před prvním výskytem `await`.
 :::
 
 ### `watch` vs. `watchEffect` {#watch-vs-watcheffect}
@@ -330,8 +330,6 @@ Jak `watch`, tak `watchEffect` nám umožňují reaktivně provádět operace s 
 Když měníte reaktivní stav, může to vyvolat aktualizace Vue komponent a callback funkce u watcherů, které jste vytvořili.
 
 Stejně jako v případě aktualizací komponent, jsou uživatelsky vytvořené watcher callback funkce organizovány do dávek, aby se předešlo duplicitním spuštěním. Například nejspíš nechceme, aby se watcher spustil tisíckrát, když synchronně přidáme tisíc prvků do sledovaného pole.
-
-Ve výchozím nastavení jsou uživatelsky vytvořené watcher callback funkce volány **před** aktualizacemi Vue komponent. To znamená, že pokud se pokusíte o přístup k DOM v rámci watcher callback funkce, DOM bude ve stavu před tím, než Vue aplikovalo jakékoli změny.
 
 Ve výchozím nastavení jsou watcher callback funkce volány **po** aktualizacích komponenty rodiče (pokud nějaké jsou) a **před** DOM aktualizacemi komponenty, které watcher patří. To znamená, že pokud se pokusíte přistoupit k DOM této komponenty uvnitř watcher callback funkce, její DOM bude v pre-update stavu.
 
@@ -423,7 +421,7 @@ watchSyncEffect(() => {
 
 </div>
 
-:::warning Používejte s rozmyslem
+:::warning Používejte s rozvahou
 Synchronní watchery nejsou organizovány do dávek a spouští se pokaždé, když je zjištěna reaktivní změna. Není problém je používat pro jednoduché boolean hodnoty, ale vyhněte se jejich použití na datových zdrojích, které mohou být synchronně  měněny mnohokrát, například na polích.
 :::
 
@@ -443,7 +441,7 @@ export default {
 }
 ```
 
-To je užitečné, když potřebujete watcher nastavit podmíněně, nebo sledovat jen něco v reakci na interakci uživatele. Umožňuje také watcher předčasně zastavit.
+To je užitečné, když potřebujete watcher nastavit podmíněně, nebo sledovat jen něco v&nbsp;reakci na interakci uživatele. Umožňuje také watcher předčasně zastavit.
 
 </div>
 
@@ -483,7 +481,7 @@ setTimeout(() => {
 }, 100)
 </script>
 ```
-¨
+
 K ručnímu zastavení watcheru použijte vrácenou obslužnou funkci. Funguje to pro `watch` i `watchEffect`:
 
 ```js

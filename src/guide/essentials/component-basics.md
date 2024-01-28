@@ -6,7 +6,7 @@ Komponenty nám umožňují rozdělit UI na nezávislé a znovupoužitelné čá
 
 <!-- https://www.figma.com/file/qa7WHDQRWuEZNRs7iZRZSI/components -->
 
-Je to velmi podobné tomu, jak vnořujeme nativní HTML elementy, ale Vue implementuje svůj vlastní model komponent, který nám umožňuje zapouzdřit do každé komponenty její vlastní obsah a logiku. Vue také dobře funguje s nativními Web Components. Pokud vás zajímá vztah mezi Vue komponentami a nativními Web Components, [přečtěte si více zde](/guide/extras/web-components).
+Je to velmi podobné tomu, jak vnořujeme nativní HTML elementy, ale Vue implementuje svůj vlastní model komponent, který nám umožňuje zapouzdřit do každé komponenty její vlastní obsah a logiku. Vue také dobře funguje s nativními Web Components. Pokud vás zajímá vztah mezi Vue komponentami a Web Components, [přečtěte si více zde](/guide/extras/web-components).
 
 ## Definice komponenty {#defining-a-component}
 
@@ -26,7 +26,7 @@ export default {
 </script>
 
 <template>
-  <button @click="count++">You clicked me {{ count }} times.</button>
+  <button @click="count++">Klikli jste na mě {{ count }} krát.</button>
 </template>
 ```
 
@@ -41,7 +41,7 @@ const count = ref(0)
 </script>
 
 <template>
-  <button @click="count++">You clicked me {{ count }} times.</button>
+  <button @click="count++">Klikli jste na mě {{ count }} krát.</button>
 </template>
 ```
 
@@ -60,7 +60,7 @@ export default {
   },
   template: `
     <button @click="count++">
-      You clicked me {{ count }} times.
+      Klikli jste na mě {{ count }} krát.
     </button>`
 }
 ```
@@ -78,7 +78,7 @@ export default {
   },
   template: `
     <button @click="count++">
-      You clicked me {{ count }} times.
+      Klikli jste na mě {{ count }} krát.
     </button>`
   // může také adresovat in-DOM šablonu
   // template: '#my-template-element'
@@ -94,10 +94,10 @@ Výše uvedený příklad definuje jednu komponentu a exportuje ji jako default 
 ## Použití komponenty {#using-a-component}
 
 :::tip
-Ve zbytku tohoto průvodce budeme používat SFC syntaxi – koncepty týkající se komponent jsou stejné bez ohledu na to, zda build fázi používáte nebo ne. Sekce [Příklady](/examples/) ukazuje použití komponent v obou scénářích.
+Ve zbytku tohoto průvodce budeme používat SFC syntaxi – koncepty týkající se komponent jsou stejné bez ohledu na to, zda build fázi používáte nebo ne.<br>Sekce [Příklady](/examples/) ukazuje použití komponent v obou scénářích.
 :::
 
-Abychom mohli použít komponentu potomka, musíme ji do komponenty rodiče importovat. Za předpokladu, že jsme naši komponentu "counter" tlačítka umístili do souboru s názvem `ButtonCounter.vue`, bude tato komponenta vystavena jako default export souboru:
+Abychom mohli použít komponentu potomka, musíme ji do komponenty rodiče importovat. Za předpokladu, že jsme naši komponentu „counter“ tlačítka umístili do souboru s názvem `ButtonCounter.vue`, bude tato komponenta vystavena jako default export souboru:
 
 <div class="options-api">
 
@@ -113,12 +113,12 @@ export default {
 </script>
 
 <template>
-  <h1>Here is a child component!</h1>
+  <h1>Zde je komponenta potomka!</h1>
   <ButtonCounter />
 </template>
 ```
 
-Abychom mohli importovanou komponentu vystavit pro naší šablonu, musíme ji [zaregistrovat](/guide/components/registration) prostřednictvím sekce `components`. Komponenta pak bude dostupná jako tag s názvem klíče, pod kterým je registrována.
+Abychom mohli importovanou komponentu vystavit pro naší šablonu, musíme ji [zaregistrovat](/guide/components/registration) prostřednictvím možnosti `components`. Komponenta pak bude dostupná jako tag s názvem klíče, pod kterým je registrována.
 
 </div>
 
@@ -130,7 +130,7 @@ import ButtonCounter from './ButtonCounter.vue'
 </script>
 
 <template>
-  <h1>Here is a child component!</h1>
+  <h1>Zde je komponenta potomka!</h1>
   <ButtonCounter />
 </template>
 ```
@@ -139,12 +139,12 @@ S využitím `<script setup>` budou importované komponenty v šabloně dostupn�
 
 </div>
 
-Je také možné zaregistrovat komponentu globálně a zpřístupnit ji všem komponentám v dané aplikaci, aniž byste ji museli importovat. Klady a zápory globální vs. lokální registrace jsou rozebírány ve vyhrazené části [Registrace komponent](/guide/components/registration).
+Je také možné zaregistrovat komponentu globálně a zpřístupnit ji všem komponentám v&nbsp;dané aplikaci, aniž byste ji museli importovat. Klady a zápory globální vs. lokální registrace jsou rozebírány ve vyhrazené části [Registrace komponent](/guide/components/registration).
 
-Komponenty lze použít opakovaně kolikrát budete chtít:
+Komponenty lze použít opakovaně, kolikrát budete chtít:
 
 ```vue-html
-<h1>Here are many child components!</h1>
+<h1>Zde jsou komponenty potomků!</h1>
 <ButtonCounter />
 <ButtonCounter />
 <ButtonCounter />
@@ -161,11 +161,11 @@ Komponenty lze použít opakovaně kolikrát budete chtít:
 
 </div>
 
-Všimněte si, že při kliknutí na tlačítka si každé z nich zachovává svůj vlastní, samostatný `count`. Je to proto, že pokaždé, když komponentu použijete, vytvoří se její nová **instance**.
+Všimněte si, že při kliknutí na tlačítka si každé z nich zachovává svůj vlastní, samostatný `count`. Je to proto, že pokaždé, když komponentu použijete, vytvoří se nová **instance**.
 
-V SFC se doporučuje používat `PascalCase` pro názvy tagů podřízených komponent, aby se odlišily od nativních HTML elementů. Přestože nativní názvy HTML elementů nerozlišují malá a velká písmena, Vue SFC je kompilovaný formát, takže v něm názvy rozlišující malá a velká písmena používat můžete. K uzavření tagu můžeme také použít `/>`.
+V SFC se pro názvy tagů podřízených komponent doporučuje používat `PascalCase`, aby se odlišily od nativních HTML elementů. Přestože nativní názvy HTML elementů malá a&nbsp;velká písmena nerozlišují, Vue SFC je kompilovaný formát, takže v něm názvy rozlišující malá a velká písmena používat můžete. K uzavření tagu můžeme také použít `/>`.
 
-Pokud vaše šablony vytváříte přímo v DOM (např. jako obsah nativního elementu `<template>`), bude šablona při analýze HTML podléhat nativnímu chování prohlížeče. V takových případech budete muset pro názvy komponent použít `kebab-case` a explicitní uzavírací tagy:
+Pokud vaše šablony vytváříte přímo v DOM (např. jako obsah nativního elementu `<template>`), bude šablona při analýze HTML podléhat nativnímu chování prohlížeče. V&nbsp;takových případech budete muset pro názvy komponent použít `kebab-case` a&nbsp;explicitní uzavírací tagy:
 
 ```vue-html
 <!-- pokud je šablona napsaná v DOM -->
@@ -180,7 +180,7 @@ Pro více detailů se podívejte na [upozornění na omezení při anlýze in-DO
 
 Pokud vytváříme blog, budeme pravděpodobně potřebovat komponentu představující příspěvek na blogu. Chceme, aby všechny příspěvky sdílely stejné vizuální rozvržení, ale s jiným obsahem. Taková komponenta nebude užitečná, pokud jí nebudete moci předat data, jako je název a obsah konkrétního příspěvku, který chceme zobrazit. Zde přicházejí na řadu vlastnosti (props).
 
-Props jsou vlastní atributy, které můžete na komponentě zaregistrovat. Abychom naší komponentě předali název blogového příspěvku, musíme jej deklarovat v seznamu vlastností, které tato komponenta přijímá, pomocí <span class="options-api">[`props`](/api/options-state# možnost props)</span><span class="composition-api">makra [`defineProps`](/api/sfc-script-setup#defineprops-defineemits)</span>:
+Props jsou vlastní atributy, které můžete na komponentě zaregistrovat. Abychom naší komponentě předali název blogového příspěvku, musíme jej deklarovat v seznamu vlastností, které tato komponenta přijímá, pomocí <span class="options-api">možnosti [`props`](/api/options-state#props)</span><span class="composition-api">makra [`defineProps`](/api/sfc-script-setup#defineprops-defineemits)</span>:
 
 <div class="options-api">
 
@@ -188,16 +188,16 @@ Props jsou vlastní atributy, které můžete na komponentě zaregistrovat. Abyc
 <!-- BlogPost.vue -->
 <script>
 export default {
-  props: ['title']
+  props: ['titulek']
 }
 </script>
 
 <template>
-  <h4>{{ title }}</h4>
+  <h4>{{ titulek }}</h4>
 </template>
 ```
 
-Když je hodnota předána prop atributu, stane se vlastností této instance komponenty. Hodnota této vlastnosti je přístupná v rámci šablony a v kontextu `this` komponenty, stejně jako jakákoli jiná její vlastnost.
+Když je hodnota předána pomocí prop atributu, stane se vlastností této instance komponenty. Hodnota této vlastnosti je přístupná v rámci šablony a v kontextu `this` komponenty, stejně jako jakákoli jiná její vlastnost.
 
 </div>
 <div class="composition-api">
@@ -205,44 +205,44 @@ Když je hodnota předána prop atributu, stane se vlastností této instance ko
 ```vue
 <!-- BlogPost.vue -->
 <script setup>
-defineProps(['title'])
+defineProps(['titulek'])
 </script>
 
 <template>
-  <h4>{{ title }}</h4>
+  <h4>{{ titulek }}</h4>
 </template>
 ```
 
 `defineProps` je makro překladače, které je dostupné pouze ve `<script setup>` a nemusí být explicitně importováno. Deklarované vlastnosti jsou automaticky zpřístupněny šabloně. `defineProps` také vrátí objekt, který obsahuje všechny vlastnosti předané komponentě, takže k nim můžeme v případě potřeby přistupovat v JavaScriptu:
 
 ```js
-const props = defineProps(['title'])
-console.log(props.title)
+const props = defineProps(['titulek'])
+console.log(props.titulek)
 ```
 
-Viz také: [Typování Component Props](/guide/typescript/composition-api#typing-component-props) <sup class="vt-badge ts" />
+Viz také: [Typování vlastností komponenty](/guide/typescript/composition-api#typing-component-props) <sup class="vt-badge ts" />
 
-Pokud nepoužíváte `<script setup>`, props by měly být deklarovány pomocí sekce `props` a props objekt předán funkci `setup()` jako první parametr:
+Pokud nepoužíváte `<script setup>`, props by měly být deklarovány pomocí možnosti `props` a props objekt předán funkci `setup()` jako první parametr:
 
 ```js
 export default {
-  props: ['title'],
+  props: ['titulek'],
   setup(props) {
-    console.log(props.title)
+    console.log(props.titulek)
   }
 }
 ```
 
 </div>
 
-Komponenta může mít tolik props, kolik chcete, a ve výchozím nastavení lze libovolné z nich předat libovolnou hodnotu.
+Komponenta může mít tolik props, kolik chcete, a ve výchozím nastavení lze libovolné z&nbsp;nich předat libovolnou hodnotu.
 
-Jakmile je prop zaregistrována, můžete jí předávat data skrz vlastní atribut, například takto:
+Jakmile je vlastnost zaregistrována, můžete jí předávat data skrz vlastní atribut, například takto:
 
 ```vue-html
-<BlogPost title="My journey with Vue" />
-<BlogPost title="Blogging with Vue" />
-<BlogPost title="Why Vue is so fun" />
+<BlogPost titulek="Moje cesta k Vue" />
+<BlogPost titulek="Blogování s Vue" />
+<BlogPost titulek="Proč je Vue tak zábavné" />
 ```
 
 V typické aplikaci však pravděpodobně budete mít v komponentě rodiče pole příspěvků:
@@ -255,9 +255,9 @@ export default {
   data() {
     return {
       posts: [
-        { id: 1, title: 'My journey with Vue' },
-        { id: 2, title: 'Blogging with Vue' },
-        { id: 3, title: 'Why Vue is so fun' }
+        { id: 1, titulek: 'Moje cesta k Vue' },
+        { id: 2, titulek: 'Blogování s Vue' },
+        { id: 3, titulek: 'Proč je Vue tak zábavné' }
       ]
     }
   }
@@ -269,9 +269,9 @@ export default {
 
 ```js
 const posts = ref([
-  { id: 1, title: 'My journey with Vue' },
-  { id: 2, title: 'Blogging with Vue' },
-  { id: 3, title: 'Why Vue is so fun' }
+  { id: 1, titulek: 'Moje cesta k Vue' },
+  { id: 2, titulek: 'Blogování s Vue' },
+  { id: 3, titulek: 'Proč je Vue tak zábavné' }
 ])
 ```
 
@@ -283,7 +283,7 @@ A potom pro každý z nich vykreslit jeho vlastní kompomentu pomocí `v-for`:
 <BlogPost
   v-for="post in posts"
   :key="post.id"
-  :title="post.title"
+  :titulek="post.titulek"
  />
 ```
 
@@ -300,13 +300,13 @@ A potom pro každý z nich vykreslit jeho vlastní kompomentu pomocí `v-for`:
 
 Všimněte si, jak je k předávání dynamických prop hodnot použitá direktiva `v-bind`. To je užitečné zejména tehdy, když předem přesně nevíte, jaký obsah se chystáte vykreslit.
 
-To je zatím vše, co o props potřebujete vědět. Poté, co si přečtete tuto stránku a budete se s jejím obsahem cítit seznámeni, však doporučujeme později se vrátit a přečíst si úplného [Props průvodce](/guide/components/props).
+To je zatím vše, co o vlastnostech (props) potřebujete vědět. Poté, co si přečtete tuto stránku a budete se s jejím obsahem cítit seznámeni, však doporučujeme později se vrátit a přečíst si úplného [průvodce pro Vlastnosti (Props)](/guide/components/props).
 
 ## Naslouchání událostem (events) {#listening-to-events}
 
 Jak vyvíjíme naši komponentu `<BlogPost>`, některé funkce mohou vyžadovat zpětnou komunikaci do komponenty rodiče. Můžeme se například rozhodnout zahrnout funkci usnadnění pro zvětšení textu blogových příspěvků, zatímco zbytek stránky ponecháme ve výchozí velikosti.
 
-V komponentně rodiče můžeme tuto funkci podporovat přidáním <span class="options-api">proměnné v secki data</span><span class="composition-api">ref hodnoty</span> `postFontSize`:
+V komponentně rodiče můžeme tuto funkci podporovat přidáním <span class="options-api">proměnné `postFontSize` v možnosti `data`</span><span class="composition-api">ref hodnoty `postFontSize`</span>:
 
 <div class="options-api">
 
@@ -341,7 +341,7 @@ Která může být použita v šabloně k ovládání velikosti písma všech bl
   <BlogPost
     v-for="post in posts"
     :key="post.id"
-    :title="post.title"
+    :titulek="post.titulek"
    />
 </div>
 ```
@@ -352,8 +352,8 @@ Nyní pojďme přidat tlačítko do šablony `<BlogPost>` komponenty:
 <!-- BlogPost.vue, s vynecháním <script> -->
 <template>
   <div class="blog-post">
-    <h4>{{ title }}</h4>
-    <button>Enlarge text</button>
+    <h4>{{ titulek }}</h4>
+    <button>Zvětšit text</button>
   </div>
 </template>
 ```
@@ -363,7 +363,7 @@ Tlačítko zatím nic nedělá – chceme kliknutím na tlačítko sdělit kompo
 ```vue-html{3}
 <BlogPost
   ...
-  @enlarge-text="postFontSize += 0.1"
+  @zvetsit-text="postFontSize += 0.1"
  />
 ```
 
@@ -373,13 +373,13 @@ Potom může komponenta potomka vyvolat událost sama na sobě voláním vestav�
 <!-- BlogPost.vue, s vynecháním <script> -->
 <template>
   <div class="blog-post">
-    <h4>{{ title }}</h4>
-    <button @click="$emit('enlarge-text')">Enlarge text</button>
+    <h4>{{ titulek }}</h4>
+    <button @click="$emit('zvetsit-text')">Zvětšit text</button>
   </div>
 </template>
 ```
 
-Díky event listeneru `@enlarge-text="postFontSize += 0.1"` obdrží rodičovská komponenta volání a provede aktualizaci hodnoty `postFontSize`.
+Díky event listeneru `@zvetsit-text="postFontSize += 0.1"` obdrží komponenta rodiče volání a provede aktualizaci hodnoty `postFontSize`.
 
 <div class="options-api">
 
@@ -392,7 +392,7 @@ Díky event listeneru `@enlarge-text="postFontSize += 0.1"` obdrží rodičovsk�
 
 </div>
 
-Vysílané (emit) události můžeme nepovinně deklarovat s pomocí <span class="options-api">sekce [`emits`](/api/options-state#emits)</span><span class="composition-api">makra [`defineEmits`](/api/sfc-script-setup#defineprops-defineemits)</span>:
+Vysílané (emit) události můžeme nepovinně deklarovat s pomocí <span class="options-api">možnosti [`emits`](/api/options-state#emits)</span><span class="composition-api">makra [`defineEmits`](/api/sfc-script-setup#defineprops-defineemits)</span>:
 
 <div class="options-api">
 
@@ -400,8 +400,8 @@ Vysílané (emit) události můžeme nepovinně deklarovat s pomocí <span class
 <!-- BlogPost.vue -->
 <script>
 export default {
-  props: ['title'],
-  emits: ['enlarge-text']
+  props: ['titulek'],
+  emits: ['zvetsit-text']
 }
 </script>
 ```
@@ -412,43 +412,43 @@ export default {
 ```vue{4}
 <!-- BlogPost.vue -->
 <script setup>
-defineProps(['title'])
-defineEmits(['enlarge-text'])
+defineProps(['titulek'])
+defineEmits(['zvetsit-text'])
 </script>
 ```
 
 </div>
 
-To dokumentuje všechny události, které komponenta vysílá, a volitelně [je ověřuje](/guide/components/events#events-validation). Také to Vue umožňuje vyhnout se jejich implicitnímu použití jako nativních event listenerů na kořenovém prvku komponenty potomka.
+To dokumentuje všechny události, které komponenta vysílá, a volitelně [je validuje](/guide/components/events#events-validation). Také to Vue umožňuje vyhnout se jejich implicitnímu použití jako nativních event listenerů na kořenovém prvku komponenty potomka.
 
 <div class="composition-api">
 
-Stejně jako `defineProps`, je i `defineEmits` použitelné pouze ve `<script setup>` a není třeba ho importovat. Vrací funkci `emit`, která je ekvivalentní metodě `$emit`. Může být použita k vyvolání událostí uvnitř sekce `<script setup>` v komponentě, kde není `$emit` přímo dostupné:
+Stejně jako `defineProps`, je i `defineEmits` použitelné pouze ve `<script setup>` a není třeba ho importovat. Vrací funkci `emit`, která je ekvivalentní metodě `$emit`. Může být použita k vyvolání událostí uvnitř `<script setup>` v komponentě, kde není `$emit` přímo dostupné:
 
 ```vue
 <script setup>
-const emit = defineEmits(['enlarge-text'])
+const emit = defineEmits(['zvetsit-text'])
 
-emit('enlarge-text')
+emit('zvetsit-text')
 </script>
 ```
 
-Viz také: [Typování Component Emits](/guide/typescript/composition-api#typing-component-emits) <sup class="vt-badge ts" />
+Viz také: [Typování emitovaných událostí komponenty](/guide/typescript/composition-api#typing-component-emits) <sup class="vt-badge ts" />
 
-Pokud nepoužíváte `<script setup>`, můžete deklarovat emitované události prostřectvím sekce `emits`. K funkci `emit` můžete přistuput jako k vlastnosti setup kontextu (předávaný do `setup()` jako druhý parametr):
+Pokud nepoužíváte `<script setup>`, můžete deklarovat emitované události prostřectvím možnosti `emits`. K funkci `emit` můžete přistuput jako k vlastnosti setup kontextu (předávaný do `setup()` jako druhý parametr):
 
 ```js
 export default {
-  emits: ['enlarge-text'],
+  emits: ['zvetsit-text'],
   setup(props, ctx) {
-    ctx.emit('enlarge-text')
+    ctx.emit('zvetsit-text')
   }
 }
 ```
 
 </div>
 
-To je zatím vše, co potřebujete vědět o vlastních událostech komponenty. Poté, co si přečtete tuto stránku a budete se s jejím obsahem cítit seznámeni, však doporučujeme později se vrátit a přečíst si úplného [Custom Events průvodce](/guide/components/events).
+To je zatím vše, co potřebujete vědět o vlastních událostech komponenty. Poté, co si přečtete tuto stránku a budete se s jejím obsahem cítit seznámeni, však doporučujeme později se vrátit a přečíst si úplného [průvodce pro Události komponent (Events)](/guide/components/events).
 
 ## Distribuce obsahu pomocí slotů (slots) {#content-distribution-with-slots}
 
@@ -496,7 +496,7 @@ Jak vidíte výše, používáme `<slot>` jako zástupný symbol v místě, kde 
 
 </div>
 
-To je zatím vše, co potřebujete vědět o slotech. Poté, co si přečtete tuto stránku a budete se s jejím obsahem cítit seznámeni, však doporučujeme později se vrátit a přečíst si úplného [Slots průvodce](/guide/components/slots).
+To je zatím vše, co potřebujete vědět o slotech. Poté, co si přečtete tuto stránku a&nbsp;budete se s jejím obsahem cítit seznámeni, však doporučujeme později se vrátit a&nbsp;přečíst si úplného [průvodce pro Sloty (Slots)](/guide/components/slots).
 
 ## Dynamické komponenty {#dynamic-components}
 
@@ -539,7 +539,7 @@ V předchozím příkladu může hodnota předávaná do `:is` obsahovat:
 
 Atribut `is` můžete také použít pro vytváření běžných HTML elementů.
 
-Při přepínání mezi více komponentami pomocí `<component :is="...">` bude komponenta odpojena (unmounted), když je z ní přepnuto jinam. Neaktivní komponenty můžete donutit, aby zůstaly "naživu" pomocí vestavěné [komponenty `<KeepAlive>`](/guide/built-ins/keep-alive).
+Při přepínání mezi více komponentami pomocí `<component :is="...">` bude komponenta odpojena (unmounted), když je z ní přepnuto jinam. Neaktivní komponenty můžete donutit, aby zůstaly „naživu“ pomocí vestavěné [komponenty `<KeepAlive>`](/guide/built-ins/keep-alive).
 
 ## Omezení při parsování in-DOM šablon {#in-dom-template-parsing-caveats}
 
@@ -555,7 +555,7 @@ Je třeba poznamenat, že níže popsaná omezení platí pouze v případě, ž
 
 ### Necitlivost na malá a velká písmena {#case-insensitivity}
 
-HTML tagy a názvy atributů nerozlišují velká a malá písmena, takže prohlížeče budou všechna velká písmena interpretovat jako malá. To znamená, že když používáte DOM-šablony, PascalCase názvy komponent a camelCased názvy vlastností (pros) nebo názvy `v-on` událostí (events), musí všechny používat jejich ekvivalenty ve formátu kebab-case (oddělené pomlčkou):
+HTML tagy a názvy atributů nerozlišují velká a malá písmena, takže prohlížeče budou všechna velká písmena interpretovat jako malá. To znamená, že když používáte in-DOM šablony, PascalCase názvy komponent a camelCased názvy vlastností (props) nebo názvy `v-on` událostí (events), musí všechny používat jejich ekvivalenty ve formátu kebab-case (oddělené pomlčkou):
 
 ```js
 // camelCase in JavaScript
@@ -570,7 +570,7 @@ const BlogPost = {
 
 ```vue-html
 <!-- kebab-case in HTML -->
-<blog-post post-title="hello!" @update-post="onUpdatePost"></blog-post>
+<blog-post post-title="Ahoj!" @update-post="onUpdatePost"></blog-post>
 ```
 
 ### Samouzavírací tagy {#self-closing-tags}
@@ -593,14 +593,14 @@ Je to proto, že specifikace HTML umožňuje pouze [několika konkrétním prvk�
 
 ```vue-html
 <my-component /> <!-- zde chceme tag ukončit... -->
-<span>hello</span>
+<span>ahoj</span>
 ```
 
 Bude vyhodnocen jako:
 
 ```vue-html
 <my-component>
-  <span>hello</span>
+  <span>ahoj</span>
 </my-component> <!-- prohlížeč ho však ukončí až tady -->
 ```
 
@@ -616,7 +616,7 @@ To povede k problémům při používání komponent s elementy, které mají ta
 </table>
 ```
 
-Naše komponenta `<blog-post-row>` bude vytažena (hoisted) jako neplatný obsah, což v případném vykresleném výstupu způsobí chyby. Toto můžeme obejít s použitím speciálního [atributu `is`](/api/built-in-special-attributes#is):
+Naše komponenta `<blog-post-row>` bude vytažena (hoisted) jako neplatný obsah, což v&nbsp;případném vykresleném výstupu způsobí chyby. Toto můžeme obejít s použitím speciálního [atributu `is`](/api/built-in-special-attributes#is):
 
 ```vue-html
 <table>
@@ -625,9 +625,9 @@ Naše komponenta `<blog-post-row>` bude vytažena (hoisted) jako neplatný obsah
 ```
 
 :::tip
-Při použití na nativní HTML elementy musí být hodnota `is` uvedena předponou `vue:`, aby mohla být interpretována jako Vue komponenta. Je to nutné, aby nedošlo k záměně s nativními [přizpůsobenými vestavěnými elementy](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example).
+Při použití na nativní HTML elementy musí být hodnota `is` uvedena předponou `vue:`, aby mohla být interpretována jako Vue komponenta. Je to nutné, aby nedošlo k záměně s&nbsp;nativními [custom built-in elementy](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example).
 :::
 
-To je vše, co zatím potřebujete vědět o omezeních při parsování in-DOM šablon – a vlastně konec _Základů_ Vue. Gratulujeme! Je stále co se učit, ale nejprve doporučujeme, abyste si udělali přestávku a sami si s Vue hráli – vytvořit něco zábavného, nebo se podívat na některé [Příklady](/examples/), pokud jste tak ještě neučinili.
+To je vše, co zatím potřebujete vědět o omezeních při parsování in-DOM šablon &#8209;&nbsp;a&nbsp;vlastně konec _Základů_ Vue. Gratulujeme! Je stále co se učit, ale nejprve doporučujeme, abyste si udělali přestávku a sami si s Vue hráli – vytvořit něco zábavného, nebo se podívat na některé [Příklady](/examples/), pokud jste tak ještě neučinili.
 
 Jakmile si budete jisti znalostmi, které jste právě nabrali, pokračujte v průvodci, abyste se o komponentách dozvěděli více do hloubky.

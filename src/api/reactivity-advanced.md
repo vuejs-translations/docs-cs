@@ -221,7 +221,7 @@ Vrátí původní objekt vytvořený z proxy vytvořené Vue.
 
   `toRaw()` může vrátit původní objekt z proxy vytvořeného pomocí [`reactive()`](./reactivity-core#reactive), [`readonly()`](./reactivity-core#readonly), [`shallowReactive()`](#shallowreactive) nebo [`shallowReadonly()`](#shallowreadonly).
 
-  Toto je únikový mechanismus, který lze použít k dočasnému čtení bez nákladů na přístup / sledování proxy nebo k zápisu bez vyvolání změn. **Není** doporučeno uchovávat trvalý odkaz na původní objekt. Používejte s opatrností.
+  Toto je únikový mechanismus, který lze použít k dočasnému čtení bez nákladů na přístup / sledování proxy nebo k zápisu bez vyvolání změn. **Není** doporučeno uchovávat trvalý odkaz na původní objekt. Používejte s rozvahou.
 
 - **Příklad**
 

@@ -1,12 +1,12 @@
 # Template refs {#template-refs}
 
-Zatímco deklarativní model vykreslování ve Vue od vás abstrahuje většinu přímých operací s DOM, stále mohou nastat případy, kdy potřebujeme k základním elementům DOM přímý přístup. Abychom toho dosáhli, můžeme použít speciální atribut `ref`:
+I když od vás deklarativní model vykreslování ve Vue většinu přímých operací s DOM abstrahuje, stále mohou nastat případy, kdy potřebujeme k základním elementům DOM přímý přístup. Abychom toho dosáhli, můžeme použít speciální atribut `ref`:
 
 ```vue-html
 <input ref="input">
 ```
 
-`ref` je speciální atribut, podobný jako atribut `key` popsaný v kapitole `v-for`. Umožňuje nám získat přímý odkaz na konkrétní DOM element nebo instanci podřízené komponenty poté, co je připojena (mounted). To může být užitečné, když chcete například programově zaměřit vstup na připojenou komponentu nebo na elementu inicializovat knihovnu třetí strany na prvku.
+`ref` je speciální atribut, podobný jako atribut `key` popsaný v kapitole `v-for`. Umožňuje nám získat přímý odkaz na konkrétní DOM element nebo instanci podřízené komponenty poté, co je připojena (mounted). To může být užitečné, když chcete například programově zaměřit vstup na připojenou komponentu nebo na elementu inicializovat knihovnu třetí strany.
 
 ## Přístup k refs {#accessing-the-refs}
 
@@ -67,7 +67,7 @@ export default {
 
 </div>
 
-Upozorňujeme, že k ref můžete přistupovat pouze **po připojení komponenty**. Pokud se pokusíte o přístup k <span class="options-api">`$refs.input`</span><span class="composition- api">`input`</span> ve výrazu šablony, bude při prvním vykreslení <span class="options-api">`undefined`</span><span class="composition-api">`null`</span>. Je to proto, že element existuje až po prvním vykreslení!
+Upozorňujeme, že k ref můžete přistupovat pouze **po připojení komponenty**. Pokud se pokusíte o přístup k <span class="options-api">`$refs.input`</span><span class="composition-api">`input`</span> ve výrazu šablony, bude při prvním vykreslení <span class="options-api">`undefined`</span><span class="composition-api">`null`</span>. Je to proto, že element existuje až po prvním vykreslení!
 
 <div class="composition-api">
 
@@ -78,7 +78,8 @@ watchEffect(() => {
   if (input.value) {
     input.value.focus()
   } else {
-    // ještě není připojeno, nebo je komponenta ve stavu "unmounted" (například kvůli v-if)
+    // ještě není připojeno, nebo je komponenta ve stavu "unmounted"
+    // (například kvůli v-if)
   }
 })
 ```
@@ -93,7 +94,7 @@ Viz také: [Typování Template Refs](/guide/typescript/composition-api#typing-t
 
 <div class="composition-api">
 
-Když je `ref` použitý uvnitř `v-for`, odpovídající ref by měla obsahovat hodnotu Array (pole), která bude po připojení komponenty naplněna příslušnými elementy:
+Když je `ref` použitý uvnitř `v-for`, odpovídající ref by měl obsahovat prázdné pole, které bude po připojení komponenty naplněno příslušnými elementy:
 
 ```vue
 <script setup>
@@ -160,14 +161,14 @@ Je třeba poznamenat, že ref pole **nezaručuje** stejné pořadí jako zdrojov
 Namísto klíče typu string může být atribut `ref` svázán i s funkcí, která bude volána při každé aktualizaci komponenty a poskytne vám plnou flexibilitu, kam uložit odkaz na element. Funkce obdrží odkaz na element jako první parametr:
 
 ```vue-html
-<input :ref="(el) => { /* přřadit `el` do proměnné nebo ref */ }">
+<input :ref="(el) => { /* přiřadit `el` do proměnné nebo ref */ }">
 ```
 
 Všimněte si, že používáme dynamický binding `:ref`, takže můžeme předat přímo funkci místo názvu ref v podobě string. Když je prvek odpojen, parametr bude `null`. Místo inline funkce můžete samozřejmě použít metodu.
 
 ## Ref na komponentě {#ref-on-component}
 
-> Tato sekce předpokládá znalost [komponent](/guide/essentials/component-basics). Klidně ji teď přeskočte a vraťte se později.
+> Tato sekce předpokládá znalost [základů komponent](/guide/essentials/component-basics). Klidně ji teď přeskočte a vraťte se později.
 
 `ref` může být také použit na komponentu potomka. V tomto případě povede reference na odpovídající instanci komponenty:
 
@@ -214,7 +215,7 @@ export default {
 
 </div>
 
-<span class="composition-api">Pokud komponenta potomka používá Options API nebo nepoužívá `<script setup>`, odkazovaná</span><span class="options-api">Odkazovaná</span> instance bude identická s `this` komponenty potomka, což znamená, že komponenta rodiče bude mít plný přístup ke každé vlastnosti a metodě komponenty potomka. To usnadňuje vytváření těsně propojených implementačních detailů mezi rodičem a potomkem, takže odkazy na komponenty by se měly používat pouze tehdy, když je to absolutně nutné – ve většině případů byste se měli nejprve pokusit implementovat interakce rodiče a potomka pomocí standardních rozhraní `props` a `emit`.
+<span class="composition-api">Pokud komponenta potomka používá Options API nebo nepoužívá `<script setup>`, odkazovaná</span><span class="options-api">Odkazovaná</span> instance bude identická s `this` komponenty potomka, což znamená, že komponenta rodiče bude mít plný přístup ke každé vlastnosti a metodě komponenty potomka. To usnadňuje vytváření těsně propojených implementačních detailů mezi rodičem a potomkem, takže odkazy na komponenty by se měly používat pouze tehdy, když je to absolutně nutné – ve většině případů byste se měli nejprve pokusit implementovat interakce rodiče a potomka pomocí standardních rozhraní `props` a&nbsp;`emit`.
 
 <div class="composition-api">
 
@@ -237,7 +238,7 @@ defineExpose({
 
 Když rodič získá instanci této komponenty prostřednictvím template refs, získaná instance bude mít tvar `{ a: number, b: number}` (refs se automaticky rozbalí stejně jako u normálních instancí).
 
-Viz také: [Typování Template refs v komponentách](/guide/typescript/composition-api#typing-component-template-refs) <sup class="vt-badge ts" />
+Viz také: [Typování Template refs komponenty](/guide/typescript/composition-api#typing-component-template-refs) <sup class="vt-badge ts" />
 
 </div>
 <div class="options-api">
