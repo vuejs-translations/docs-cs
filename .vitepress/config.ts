@@ -376,7 +376,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
         { text: 'Options API: Stav', link: '/api/options-state' },
         { text: 'Options API: Vykreslování', link: '/api/options-rendering' },
         {
-          text: 'Options API: Životní cyklus',
+          text: 'Options API: Lifecycle hooks',
           link: '/api/options-lifecycle'
         },
         {

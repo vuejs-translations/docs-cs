@@ -1,4 +1,4 @@
-# Options API: Životní cyklus {#options-lifecycle}
+# Options API: Lifecycle hooks {#options-lifecycle}
 
 :::info Viz také
 Pro sdílené použití Lifecycle hooks se podívejte na [Průvodce - Lifecycle hooks](/guide/essentials/lifecycle)

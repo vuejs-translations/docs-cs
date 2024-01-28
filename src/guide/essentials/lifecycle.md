@@ -1,6 +1,6 @@
 # Lifecycle hooks {#lifecycle-hooks}
 
-Každá instance Vue komponenty prochází při svém vytvoření řadou inicializačních kroků – například potřebuje nastavit pozorování dat, zkompilovat šablonu, připojit instanci k DOM a aktualizovat DOM, když se změní data. Zároveň také spouští funkce zvané **lifecycle hooks**, které uživatelům umožňují přidávat v určených fázích vlastní kód.
+Každá instance Vue komponenty prochází při svém vytvoření řadou inicializačních kroků – například potřebuje nastavit pozorování dat, zkompilovat šablonu, připojit instanci k&nbsp;DOM a aktualizovat DOM, když se změní data. Zároveň také spouští funkce zvané **lifecycle hooks**, které uživatelům umožňují přidávat v určených fázích vlastní kód.
 
 ## Registrace lifecycle hooks {#registering-lifecycle-hooks}
 
@@ -13,7 +13,7 @@ Například <span class="composition-api">`onMounted`</span><span class="options
 import { onMounted } from 'vue'
 
 onMounted(() => {
-  console.log(`the component is now mounted.`)
+  console.log(`komponenta je nyní připojena`)
 })
 </script>
 ```
@@ -24,7 +24,7 @@ onMounted(() => {
 ```js
 export default {
   mounted() {
-    console.log(`the component is now mounted.`)
+    console.log(`komponenta je nyní připojena`)
   }
 }
 ```
@@ -41,7 +41,7 @@ Všechny lifecycle hooks jsou volány s jejich kontextem `this` odkazujícím na
 
 <div class="composition-api">
 
-Když se volá `onMounted`, Vue automaticky asociuje registrované callback funkce s právě aktivní instancí komponenty. Kvůli tomu je během setupu třeba registrovat lifecycle hooks **synchronně**. Napříkld nedělejte toto:
+Když se volá `onMounted`, Vue automaticky asociuje registrované callback funkce s právě aktivní instancí komponenty. Kvůli tomu je během setup fáze třeba registrovat lifecycle hooks **synchronně**. Například nedělejte toto:
 
 ```js
 setTimeout(() => {
@@ -51,13 +51,13 @@ setTimeout(() => {
 }, 100)
 ```
 
-Všimněte si, že to neznamená, že volání musí být umístěno lexikálně uvnitř `setup()` nebo `<script setup>`. `onMounted()` lze volat i v externí funkci za předpokladu, že je zásobník volání synchronní a pochází z `setup()`.
+Pamatujte, že to neznamená, že volání musí být umístěno lexikálně uvnitř `setup()` nebo `<script setup>`. Hook `onMounted()` lze volat i v externí funkci za předpokladu, že je zásobník volání synchronní a pochází z `setup()`.
 
 </div>
 
 ## Diagram životního cyklu {#lifecycle-diagram}
 
-Níže je schéma životního cyklu instance. Nemusíte ještě plně rozumět všemu, co se v něm děje, ale jak se budete učit a tvořit více, bude to užitečná reference.
+Níže je schéma životního cyklu instance komponenty. Nemusíte ještě plně rozumět všemu, co se v něm děje, ale jak se budete více učit a tvořit, bude to užitečná reference.
 
 ![Diagram životního cyklu komponenty](./images/lifecycle.png)
 
