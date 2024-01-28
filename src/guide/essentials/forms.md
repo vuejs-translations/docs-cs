@@ -37,7 +37,7 @@ Direktiva `v-model` nám pomáhá výše uvedené zjednodušit na:
 <input v-model="text">
 ```
 
-Navíc může být `v-model` použita i na další druhy vstupů, elementy `<textarea>` a `<select>`. Automaticky se navazuje na různé DOM atributy a páry událostí podle toho, na jakém elementu je použita:
+Navíc může být `v-model` použita i na další druhy vstupů, elementy `<textarea>` a&nbsp;`<select>`. Automaticky se navazuje na různé DOM atributy a páry událostí podle toho, na jakém elementu je použita:
 
 - Element `<input>` s textovými typy a `<textarea>` používá atribut `value` a událost `input`;
 - `<input type="checkbox">` a `<input type="radio">` používá atribut `checked` a událost `change`;
@@ -52,13 +52,13 @@ Navíc může být `v-model` použita i na další druhy vstupů, elementy `<tex
 ### Text {#text}
 
 ```vue-html
-<p>Message is: {{ message }}</p>
-<input v-model="message" placeholder="edit me" />
+<p>Zpráva je: {{ message }}</p>
+<input v-model="message" placeholder="editovat" />
 ```
 
 <div class="demo">
-  <p>Message is: {{ message }}</p>
-  <input v-model="message" placeholder="edit me" />
+  <p>Zpráva je: {{ message }}</p>
+  <input v-model="message" placeholder="editovat" />
 </div>
 
 <div class="composition-api">
@@ -80,15 +80,15 @@ U jazyků, které vyžadují [IME](https://en.wikipedia.org/wiki/Input_method) (
 ### Víceřádkový text {#multiline-text}
 
 ```vue-html
-<span>Multiline message is:</span>
+<span>Víceřádkový text je:</span>
 <p style="white-space: pre-line;">{{ message }}</p>
-<textarea v-model="message" placeholder="add multiple lines"></textarea>
+<textarea v-model="message" placeholder="napište více řádek"></textarea>
 ```
 
 <div class="demo">
-  <span>Multiline message is:</span>
+  <span>Víceřádkový text je:</span>
   <p style="white-space: pre-line;">{{ multilineText }}</p>
-  <textarea v-model="multilineText" placeholder="add multiple lines"></textarea>
+  <textarea v-model="multilineText" placeholder="napište více řádek"></textarea>
 </div>
 
 <div class="composition-api">
@@ -105,10 +105,10 @@ U jazyků, které vyžadují [IME](https://en.wikipedia.org/wiki/Input_method) (
 Pozor na to, že uvnitř `<textarea>` nefunguje interpolace. Použitje místo toho `v-model`.
 
 ```vue-html
-<!-- bad -->
+<!-- špatně -->
 <textarea>{{ text }}</textarea>
 
-<!-- good -->
+<!-- dobře -->
 <textarea v-model="text"></textarea>
 ```
 
@@ -161,7 +161,7 @@ export default {
 </div>
 
 ```vue-html
-<div>Checked names: {{ checkedNames }}</div>
+<div>Zaškrtnutá jména: {{ checkedNames }}</div>
 
 <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
 <label for="jack">Jack</label>
@@ -174,7 +174,7 @@ export default {
 ```
 
 <div class="demo">
-  <div>Checked names: {{ checkedNames }}</div>
+  <div>Zaškrtnutá jména: {{ checkedNames }}</div>
 
   <input type="checkbox" id="demo-jack" value="Jack" v-model="checkedNames">
   <label for="demo-jack">Jack</label>
@@ -202,23 +202,23 @@ V tomto případě bude pole `checkedNames` vždy obsahovat hodnoty z aktuálně
 ### Radio {#radio}
 
 ```vue-html
-<div>Picked: {{ picked }}</div>
+<div>Vybráno: {{ picked }}</div>
 
 <input type="radio" id="one" value="One" v-model="picked" />
-<label for="one">One</label>
+<label for="one">Jedna</label>
 
 <input type="radio" id="two" value="Two" v-model="picked" />
-<label for="two">Two</label>
+<label for="two">Dva</label>
 ```
 
 <div class="demo">
-  <div>Picked: {{ picked }}</div>
+  <div>Vybráno: {{ picked }}</div>
 
   <input type="radio" id="one" value="One" v-model="picked" />
-  <label for="one">One</label>
+  <label for="one">Jedna</label>
 
   <input type="radio" id="two" value="Two" v-model="picked" />
-  <label for="two">Two</label>
+  <label for="two">Dva</label>
 </div>
 
 <div class="composition-api">
@@ -237,10 +237,10 @@ V tomto případě bude pole `checkedNames` vždy obsahovat hodnoty z aktuálně
 Jednoduchý výběr:
 
 ```vue-html
-<div>Selected: {{ selected }}</div>
+<div>Vybráno: {{ selected }}</div>
 
 <select v-model="selected">
-  <option disabled value="">Please select one</option>
+  <option disabled value="">Prosím, vyberte jednu možnost</option>
   <option>A</option>
   <option>B</option>
   <option>C</option>
@@ -248,9 +248,9 @@ Jednoduchý výběr:
 ```
 
 <div class="demo">
-  <div>Selected: {{ selected }}</div>
+  <div>Vybráno: {{ selected }}</div>
   <select v-model="selected">
-    <option disabled value="">Please select one</option>
+    <option disabled value="">Prosím, vyberte jednu možnost</option>
     <option>A</option>
     <option>B</option>
     <option>C</option>
@@ -269,13 +269,13 @@ Jednoduchý výběr:
 </div>
 
 :::tip Poznámka
-Pokud počáteční hodnota `v-model` výrazu neodpovídá žádné z možností, element `<select>` se vykreslí ve stavu "unselected". Na iOS to způsobí, že uživatel nebude moci vybrat první položku, protože iOS v tomto případě nevyvolá událost změny. Doporučuje se proto poskytnout "disabled" volbu s prázdnou hodnotou, jak je ukázáno v příkladu výše.
+Pokud počáteční hodnota `v-model` výrazu neodpovídá žádné z možností, element `<select>` se vykreslí ve stavu „unselected“. Na iOS to způsobí, že uživatel nebude moci vybrat první položku, protože iOS v tomto případě nevyvolá událost změny. Doporučuje se proto poskytnout „disabled“ volbu s prázdnou hodnotou, jak je ukázáno v příkladu výše.
 :::
 
 Vícenásobný výběr (binding na pole):
 
 ```vue-html
-<div>Selected: {{ selected }}</div>
+<div>Vybráno: {{ selected }}</div>
 
 <select v-model="selected" multiple>
   <option>A</option>
@@ -285,7 +285,7 @@ Vícenásobný výběr (binding na pole):
 ```
 
 <div class="demo">
-  <div>Selected: {{ multiSelected }}</div>
+  <div>Vybráno: {{ multiSelected }}</div>
 
   <select v-model="multiSelected" multiple>
     <option>A</option>
@@ -313,9 +313,9 @@ Volby pro `<select>` mohou být vykresleny dynamicky pomocí `v-for`:
 const selected = ref('A')
 
 const options = ref([
-  { text: 'One', value: 'A' },
-  { text: 'Two', value: 'B' },
-  { text: 'Three', value: 'C' }
+  { text: 'Jedna', value: 'A' },
+  { text: 'Dva', value: 'B' },
+  { text: 'Tři', value: 'C' }
 ])
 ```
 
@@ -328,9 +328,9 @@ export default {
     return {
       selected: 'A',
       options: [
-        { text: 'One', value: 'A' },
-        { text: 'Two', value: 'B' },
-        { text: 'Three', value: 'C' }
+        { text: 'Jedna', value: 'A' },
+        { text: 'Dva', value: 'B' },
+        { text: 'Tři', value: 'C' }
       ]
     }
   }
@@ -385,11 +385,11 @@ Někdy však můžeme chtít provést binding hodnoty s dynamickou vlastností n
 <input
   type="checkbox"
   v-model="toggle"
-  true-value="yes"
-  false-value="no" />
+  true-value="ano"
+  false-value="ne" />
 ```
 
-`true-value` a `false-value` jsou atributy specifické pro Vue, které fungují pouze dohromady s `v-model`. Zde bude hodnota proměnné `toggle` nastavena na `'yes'`, když je checkbox zaškrtnutý, a na `'no'`, pokud je odškrtnutý. Můžete také provést jejich binding na dynamickou hodnotu s použitím `v-bind`:
+`true-value` a `false-value` jsou atributy specifické pro Vue, které fungují pouze dohromady s `v-model`. Zde bude hodnota proměnné `toggle` nastavena na `'ano'`, když je checkbox zaškrtnutý, a na `'ne'`, pokud je odškrtnutý. Můžete také provést jejich binding na dynamickou hodnotu s použitím `v-bind`:
 
 ```vue-html
 <input
@@ -406,11 +406,11 @@ Atributy `true-value` a `false-value` nemají vliv na vstupní atribut `value`, 
 ### Radio {#radio-1}
 
 ```vue-html
-<input type="radio" v-model="pick" :value="first" />
-<input type="radio" v-model="pick" :value="second" />
+<input type="radio" v-model="pick" :value="prvni" />
+<input type="radio" v-model="pick" :value="druha" />
 ```
 
-Proměnná `pick` bude nastavena na hodnotu `first`, když je vybrána první volba, a na `second` po výběru druhé.
+Proměnná `pick` bude nastavena na hodnotu `prvni`, když je vybrána první volba, a na `druha` po výběru druhé.
 
 ### Select {#select-options}
 
@@ -421,16 +421,16 @@ Proměnná `pick` bude nastavena na hodnotu `first`, když je vybrána první vo
 </select>
 ```
 
-`v-model` podporuje binding i na non-string hodnoty! Ve výše uvedeném příkladu bude po výběru možnosti proměnná `selected` nastavena na objekt s hodnotou `{ number: 123 }`.
+`v-model` podporuje binding i na jiné, než řetězcové (string) hodnoty! Ve výše uvedeném příkladu bude po výběru možnosti proměnná `selected` nastavena na objekt s hodnotou `{ number: 123 }`.
 
 ## Modifikátory {#modifiers}
 
 ### `.lazy` {#lazy}
 
-Ve výchozím nastavení `v-model` synchronizuje vstup s daty po každé události `input` (s výjimkou IME kompozice, jak je [uvedeno výše](#vmodel-ime-tip)). Místo toho můžete přidat modifikátor`lazy` k synchronizaci po události `change`:
+Ve výchozím nastavení `v-model` synchronizuje vstup s daty po každé události `input` (s&nbsp;výjimkou IME kompozice, jak je [uvedeno výše](#vmodel-ime-tip)). Místo toho můžete přidat modifikátor`lazy` k synchronizaci po události `change`:
 
 ```vue-html
-<!-- synced after "change" instead of "input" -->
+<!-- synchronizuje se po „change“ místo „input“ -->
 <input v-model.lazy="msg" />
 ```
 
@@ -458,4 +458,4 @@ Pokud chcete z uživatelského vstupu automaticky odstranit bílé znaky (whites
 
 > Pokud ještě nejste seznámeni s Vue komponentami, můžete toto prozatím přeskočit.
 
-Vestavěné typy HTML vstupů nebudou vždy vyhovovat vašim potřebám. Naštěstí vám Vue komponenty umožňují vytvářet znovupoužitelné vstupy se zcela přizpůsobitelným chováním. Tyto vstupy dokonce také fungují s `v-model`! Chcete-li se dozvědět více, přečtěte si o [použití s `v-model`](/guide/components/v-model) v průvodci Komponentami.
+Vestavěné typy HTML vstupů nebudou vždy vyhovovat vašim potřebám. Naštěstí vám Vue komponenty umožňují vytvářet znovupoužitelné vstupy se zcela přizpůsobitelným chováním. Tyto vstupy dokonce také fungují s `v-model`! Chcete-li se dozvědět více, přečtěte si o [bindingu přes `v-model`](/guide/components/v-model) v průvodci Komponentami.

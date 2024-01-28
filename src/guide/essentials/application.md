@@ -14,7 +14,7 @@ const app = createApp({
 
 ## Root komponenta {#the-root-component}
 
-Objekt, který posílíme do funkce `createApp` je ve skutečnosti komponenta. Každá aplikace potřebuje "root komponentu", která může obsahovat další komponenty a jejich potomky.
+Objekt, který posílíme do funkce `createApp` je ve skutečnosti komponenta. Každá aplikace potřebuje „root komponentu“, která může obsahovat další komponenty a jejich potomky.
 
 Pokud používáte Single-File komponenty (SFC), typicky importujeme kořenovou komponentu z jiného souboru:
 

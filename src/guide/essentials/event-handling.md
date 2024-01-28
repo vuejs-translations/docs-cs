@@ -10,7 +10,7 @@
 
 ## Naslouchání událostem {#listening-to-events}
 
-Pro naslouchání DOM událostem (events) můžeme použít direktivu `v-on`, která se typicky zapisuje zkráceně symbolem `@`. Poté, co jsou vyvolány, můžeme skrz ni spustit nějaký JavaScript kód. Použití bude `v-on:click="handler"` nebo zkráceným zápisem `@click="handler"`.
+Pro naslouchání DOM událostem (events) můžeme použít direktivu `v-on`, která se typicky zapisuje zkráceně symbolem `@`. Poté, co jsou události vyvolány, můžeme skrz ni spustit nějaký JavaScript kód. Použití bude `v-on:click="handler"` nebo zkráceným zápisem `@click="handler"`.
 
 Handler může mít jednu z následujících hodnot:
 
@@ -25,7 +25,7 @@ Inline handlery se typicky používají v jednoduchých případech, například
 <div class="composition-api">
 
 ```js
-const count = ref(0)
+const pocet = ref(0)
 ```
 
 </div>
@@ -34,7 +34,7 @@ const count = ref(0)
 ```js
 data() {
   return {
-    count: 0
+    pocet: 0
   }
 }
 ```
@@ -42,8 +42,8 @@ data() {
 </div>
 
 ```vue-html
-<button @click="count++">Add 1</button>
-<p>Count is: {{ count }}</p>
+<button @click="pocet++">Přidat 1</button>
+<p>Počet je: {{ pocet }}</p>
 ```
 
 <div class="composition-api">
@@ -59,17 +59,17 @@ data() {
 
 ## Method handlery {#method-handlers}
 
-Logika mnoha event handlerů však bude složitější a pravděpodobně nebude proveditelná pouze s inline handlery. To je důvod, proč může `v-on` přijmout i název nebo cestu funkce, kterou chcete v rámci komponenty volat.
+Logika mnoha event handlerů však bude složitější a pravděpodobně nebude jen s inline handlery proveditelná. To je důvod, proč může `v-on` přijmout i název funkce, kterou chcete v rámci komponenty volat, nebo cestu k ní.
 
 Například:
 
 <div class="composition-api">
 
 ```js
-const name = ref('Vue.js')
+const jmeno = ref('Vue.js')
 
 function greet(event) {
-  alert(`Hello ${name.value}!`)
+  alert(`Ahoj, ${jmeno.value}!`)
   // `event` je nativní událost DOM
   if (event) {
     alert(event.target.tagName)
@@ -83,13 +83,13 @@ function greet(event) {
 ```js
 data() {
   return {
-    name: 'Vue.js'
+    jmeno: 'Vue.js'
   }
 },
 methods: {
   greet(event) {
     // `this` uvnitř funkce odkazuje na právě aktivní instanci
-    alert(`Hello ${this.name}!`)
+    alert(`Ahoj, ${this.jmeno}!`)
     // `event` je nativní událost DOM
     if (event) {
       alert(event.target.tagName)
@@ -102,7 +102,7 @@ methods: {
 
 ```vue-html
 <!-- `greet` je název funkce definované výše -->
-<button @click="greet">Greet</button>
+<button @click="greet">Pozdravit</button>
 ```
 
 <div class="composition-api">
@@ -131,7 +131,7 @@ Viz také: [Typování Event handlerů](/guide/typescript/options-api#typing-eve
 
 ### Detekce Method vs. Inline {#method-vs-inline-detection}
 
-Kompilátor šablon detekuje method handlery kontrolou, zda je hodnota `v-on` platným JavaScript identifikátorem nebo přístupovou cestou k vlastnosti. Například `foo`, `foo.bar` a `foo['bar']` jsou považovány za method handlery, zatímco `foo()` a `count++` jsou považovány za inline handlery.
+Kompilátor šablon detekuje method handlery kontrolou, zda je hodnota `v-on` platným JavaScript identifikátorem nebo přístupovou cestou k vlastnosti. Například `foo`, `foo.bar` a `foo['bar']` jsou považovány za method handlery, zatímco `foo()` a&nbsp;`count++` jsou vyhodnoceny jako inline handlery.
 
 ## Volání funkcí v Inline handleru {#calling-methods-in-inline-handlers}
 
@@ -159,8 +159,8 @@ methods: {
 </div>
 
 ```vue-html
-<button @click="say('hello')">Say hello</button>
-<button @click="say('bye')">Say bye</button>
+<button @click="say('ahoj')">Pozdrav</button>
+<button @click="say('nashledanou')">Rozluč se</button>
 ```
 
 <div class="composition-api">
@@ -180,13 +180,13 @@ Někdy potřebujeme přistupovat k původní události DOM i přímo v inline ha
 
 ```vue-html
 <!-- použití speciální proměnné $event -->
-<button @click="warn('Form cannot be submitted yet.', $event)">
-  Submit
+<button @click="warn('Formulář ještě nelze odeslat', $event)">
+  Odeslat
 </button>
 
 <!-- použití inline arrow funkce -->
-<button @click="(event) => warn('Form cannot be submitted yet.', event)">
-  Submit
+<button @click="(event) => warn('Formulář ještě nelze odeslat', event)">
+  Odeslat
 </button>
 ```
 
@@ -223,7 +223,7 @@ methods: {
 
 Uvnitř event handlerů je vcelku běžné volat `event.preventDefault()` nebo `event.stopPropagation()`. Ačkoli to můžeme snadno udělat uvnitř funkcí, bylo by lepší, kdyby funkce mohly být čistě o datové logice, než aby se musely zabývat detaily událostí DOM.
 
-K vyřešení tohoto požadavku poskytuje Vue pro `v-on` **modifikátory události**. Jde o direktivní postfixy označené tečkou.
+K vyřešení tohoto požadavku poskytuje Vue pro `v-on` **modifikátory události**.<br>Jde o direktivní postfixy označené tečkou.
 
 - `.stop`
 - `.prevent`
@@ -257,17 +257,17 @@ Při použití modifikátorů záleží na pořadí, protože příslušný kód
 Modifikátory `.capture`, `.once` a `.passive` představují [možnosti natívní funkce `addEventListener`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#options):
 
 ```vue-html
-<!-- při přidávání event listeneru použít capture mód -->
-<!-- tj. událost zacílená na vnitřní element je dříve -->
-<!-- zpracována zde, než je zpracována uvnitř         -->
+<!-- při přidávání event listeneru použít capture mód    -->
+<!-- tj. událost zacílená na vnitřní element je dříve    -->
+<!-- zpracována zde, než je zpracována uvnitř            -->
 <div @click.capture="doThis">...</div>
 
-<!-- událost kliknutí bude vyvolána nejvýš jednou -->
+<!-- událost kliknutí bude vyvolána nejvýš jednou        -->
 <a @click.once="doThis"></a>
 
 <!-- výchozí chování události scroll (scrolling) nastane -->
-<!-- okamžitě místo čekání na dokončení `onScroll` -->
-<!-- v případě, že obsahuje `event.preventDefault()` -->
+<!-- okamžitě místo čekání na dokončení `onScroll`       -->
+<!-- v případě, že obsahuje `event.preventDefault()`     -->
 <div @scroll.passive="onScroll">...</div>
 ```
 
@@ -300,7 +300,7 @@ Vue poskytuje aliasy pro nejčastěji používané klávesy:
 
 - `.enter`
 - `.tab`
-- `.delete` (zachytí jak "Delete", tak "Backspace")
+- `.delete` (zachytí jak „Delete“, tak „Backspace“)
 - `.esc`
 - `.space`
 - `.up`
@@ -318,7 +318,7 @@ Následující modifikátory můžete použít k vyvolání event listenerů nas
 - `.meta`
 
 ::: tip Poznámka
-Na klávesnicích Macintosh je meta klávesa příkazu (⌘). Na klávesnicích Windows je meta klávesa Windows (⊞). Na klávesnicích Sun Microsystems je meta označena jako plný kosočtverec (◆). Na určitých klávesnicích, konkrétně na strojových klávesnicích MIT a Lisp a jejich nástupcích jako je Knight keyboard a space-cadet keyboard, je meta označena jako „META“. Na klávesnicích Symbolics je meta označena „META“ nebo „Meta“.
+Na klávesnicích Macintosh je meta klávesa příkazu (⌘). Na klávesnicích Windows je meta klávesa Windows (⊞). Na klávesnicích Sun Microsystems je meta označena jako plný kosočtverec (◆). Na určitých klávesnicích, konkrétně na strojových klávesnicích MIT a&nbsp;Lisp a jejich nástupcích jako je Knight keyboard a space-cadet keyboard, je meta označena jako „META“. Na klávesnicích Symbolics je meta označena „META“ nebo „Meta“.
 :::
 
 Například:
@@ -328,7 +328,7 @@ Například:
 <input @keyup.alt.enter="clear" />
 
 <!-- Ctrl + Click -->
-<div @click.ctrl="doSomething">Do something</div>
+<div @click.ctrl="foo">Udělej něco</div>
 ```
 
 ::: tip
