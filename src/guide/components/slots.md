@@ -313,7 +313,7 @@ function BaseLayout(slots) {
 </base-layout>
 ```
 
-Mějte na paměti, že výraz podléhá [pravidlům syntaxe](/guide/essentials/template-syntax#directives) dynamických argumentů pro direktivy.
+Mějte na paměti, že výraz podléhá [pravidlům syntaxe](/guide/essentials/template-syntax#dynamic-argument-syntax-constraints) dynamických argumentů pro direktivy.
 
 ## Scoped sloty {#scoped-slots}
 
