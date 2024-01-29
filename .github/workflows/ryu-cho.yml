@@ -2,7 +2,7 @@ name: ryu-cho
 
 on:
   schedule:
-    - cron: '0 6 * * MON'
+    - cron: '0 6 * * *'
   workflow_dispatch:
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
           username: ${{ secrets.RYU_CHO_USER_NAME }}
           email: ${{ secrets.RYU_CHO_USER_EMAIL }}
           upstream-repo: https://github.com/vuejs-translations/docs-cs.git
-          upstream-repo-branch: upstream
+          upstream-repo-branch: main
           head-repo: https://github.com/vuejs/docs
           head-repo-branch: main
           track-from: d3e6c66b208ce9c806caddc83df5758d4cf55e9a
