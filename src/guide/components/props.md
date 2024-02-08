@@ -8,7 +8,7 @@
 
 ## Deklarace vlastností {#props-declaration}
 
-Vue komponenty vyžadují explicitní deklaraci vlastností, aby Vue vědělo, které externí hodnoty předávané komponentě mají být považovány za "fallthrough" atributy (což bude probráno v [příslušné sekci](/guide/components/attrs)).
+Vue komponenty vyžadují explicitní deklaraci vlastností, aby Vue vědělo, které externí hodnoty předávané komponentě mají být považovány za „fallthrough“ atributy (což bude probráno v [příslušné sekci](/guide/components/attrs)).
 
 <div class="composition-api">
 
@@ -22,7 +22,7 @@ console.log(props.foo)
 </script>
 ```
 
-Ve komponentách bez `<script setup>`, se vlastnosti deklarují v sekci [`props`](/api/options-state#props):
+Ve komponentách bez `<script setup>`, se vlastnosti deklarují v možnosti [`props`](/api/options-state#props):
 
 ```js
 export default {
@@ -34,13 +34,13 @@ export default {
 }
 ```
 
-Všimněte si, že parametr předávaný do `defineProps()` je stejný jako hodnota předávaná ze sekce `props`: pro deklaraci vlastností je mezi oběma styly deklarace sdíleno stejné API.
+Všimněte si, že parametr předávaný do `defineProps()` je stejný jako hodnota předávaná ze možnosti `props`: pro deklaraci vlastností je mezi oběma styly deklarace sdíleno stejné API.
 
 </div>
 
 <div class="options-api">
 
-Vlastnosti se deklarují v sekci [`props`](/api/options-state#props):
+Vlastnosti se deklarují v možnosti [`props`](/api/options-state#props):
 
 ```js
 export default {
@@ -96,13 +96,13 @@ Nejen, že to vaší komponentu popisuje, ale také budou prostřednictvím výp
 
 <div class="options-api">
 
-Viz také: [Typování vlastností komponent](/guide/typescript/options-api#typing-component-props) <sup class="vt-badge ts" />
+Viz také: [Typování vlastností komponenty](/guide/typescript/options-api#typing-component-props) <sup class="vt-badge ts" />
 
 </div>
 
 <div class="composition-api">
 
-Pokud používáte TypeScript a `<script setup>`, je také možné deklarovat vlastnosti s použitím "pure" typových anotací:
+Pokud používáte TypeScript a `<script setup>`, je také možné deklarovat vlastnosti s&nbsp;použitím „pure“ typových anotací:
 
 ```vue
 <script setup lang="ts">
@@ -121,7 +121,7 @@ Více informací: [Typování vlastností komponent](/guide/typescript/compositi
 
 ### Velká a malá písmena v názvech vlastností {#prop-name-casing}
 
-Dlouhé názvy vlastností deklarujeme pomocí camelCase, protože se tak vyhneme nutnosti doplňovat uvozovky při jejich použití jako klíčů vlastností a umožní nám to odkazovat přímo na ně ve výrazech šablon, protože se jedná o platné JavaScript identifikátory:
+Dlouhé názvy vlastností deklarujeme pomocí camelCase, protože se tak vyhneme nutnosti doplňovat uvozovky při jejich použití jako klíčů vlastností a umožní nám to odkazovat přímo na ně ve výrazech šablon, jelikož se jedná o platné JavaScript identifikátory:
 
 <div class="composition-api">
 
@@ -181,7 +181,7 @@ Ve dvou výše uvedených příkladech jsme předávali hodnoty typu string, ale
 #### Číslo {#number}
 
 ```vue-html
-<!-- I když je `42` statická hodnota, potřebujeme v-bind, abychom řekli Vue, -->
+<!-- I když je `42` statická hodnota, je třeba v-bind, abychom řekli Vue, -->
 <!-- že toto je JavaScript výraz a nikoli prostý string. -->
 <BlogPost :likes="42" />
 
@@ -195,7 +195,7 @@ Ve dvou výše uvedených příkladech jsme předávali hodnoty typu string, ale
 <!-- Vlastnost bez hodnoty bude mít implicitně hodnotu `true`. -->
 <BlogPost is-published />
 
-<!-- I když je `false` statická hodnota, potřebujeme v-bind, abychom řekli Vue, -->
+<!-- I když je `false` statická hodnota, je třeba v-bind, abychom řekli Vue, -->
 <!-- že toto je JavaScript výraz a nikoli prostý string. -->
 <BlogPost :is-published="false" />
 
@@ -206,7 +206,7 @@ Ve dvou výše uvedených příkladech jsme předávali hodnoty typu string, ale
 #### Pole {#array}
 
 ```vue-html
-<!-- I když je hodnota pole statická, potřebujeme v-bind, abychom řekli Vue, -->
+<!-- I když je hodnota pole statická, je třeba v-bind, abychom řekli Vue, -->
 <!-- že toto je JavaScript výraz a nikoli prostý string. -->
 <BlogPost :comment-ids="[234, 266, 273]" />
 
@@ -217,7 +217,7 @@ Ve dvou výše uvedených příkladech jsme předávali hodnoty typu string, ale
 #### Objekt {#object}
 
 ```vue-html
-<!-- I když je hodnota objektu statická, potřebujeme v-bind, abychom řekli Vue, -->
+<!-- I když je hodnota objektu statická, je třeba v-bind, abychom řekli Vue, -->
 <!-- že toto je JavaScript výraz a nikoli prostý string. -->
 <BlogPost
   :author="{
@@ -275,16 +275,16 @@ Bude stejná jako:
 
 ## Jednosměrný datový tok {#one-way-data-flow}
 
-Všechny vlastnosti tvoří **jednosměrný binding směrem dolů** mezí podřízenou a nadřízenou vlastností: když se aktualizuje vlastnost v rodiči, přenese se to dolů na vlastnost potomka, ale nikoli naopak. To zabraňuje tomu, aby komponenty potomků omylem měnily stav vlastností rodiče, což by mohlo způsobit, že bude těžší pochopit tok dat ve vaší aplikaci.
+Všechny vlastnosti tvoří **jednosměrný binding směrem dolů** mezí nadřízenou a&nbsp;podřízenou vlastností: když se aktualizuje vlastnost v komponentě rodiče, přenese se to dolů na vlastnost potomka, ale nikoli naopak. To zabraňuje tomu, aby komponenty potomků omylem měnily stav vlastností rodiče, což by mohlo ztížit pochopení toku dat ve vaší aplikaci.
 
-Kromě toho se při každé aktualizaci komponenty rodiče obnoví všechny vlastnosti v komponentě potomka o nejnovější hodnotu. To znamená, že byste se **neměli** pokoušet měnit vlastnost uvnitř komponenty potomka. Pokud to uděláte, Vue vás na to upozorní v konzoli:
+Kromě toho se při každé aktualizaci komponenty rodiče všechny vlastnosti v&nbsp;komponentě potomka obnoví na nejnovější hodnotu. To znamená, že byste se **neměli** pokoušet měnit vlastnost uvnitř komponenty potomka. Pokud to uděláte, Vue vás na to upozorní v konzoli:
 
 <div class="composition-api">
 
 ```js
 const props = defineProps(['foo'])
 
-// ❌ warning, props are readonly!
+// ❌ varování, props jsou read-only!
 props.foo = 'bar'
 ```
 
@@ -295,7 +295,7 @@ props.foo = 'bar'
 export default {
   props: ['foo'],
   created() {
-    // ❌ warning, props are readonly!
+    // ❌ varování, props jsou read-only!
     this.foo = 'bar'
   }
 }
@@ -335,14 +335,15 @@ Obvykle jsou dva případy, kdy vypadá lákavě vlastnost měnit:
 
    </div>
 
-2. **Vlastnost je předána jako surová (raw) hodnota, kterou je třeba transformovat.** V tomto případě je nejlepší pomocí hodnoty vlastnosti definovat computed proměnnou:
+2. **Vlastnost je předána jako surová (raw) hodnota, kterou je třeba transformovat.** V&nbsp;tom případě je nejlepší pomocí hodnoty vlastnosti definovat computed proměnnou:
 
    <div class="composition-api">
 
    ```js
    const props = defineProps(['size'])
 
-   // computed proměnná, která se automaticky aktualizuje, pokud se vlastnost změní
+   // computed proměnná, která se automaticky aktualizuje, 
+   // pokud se vlastnost změní
    const normalizedSize = computed(() => props.size.trim().toLowerCase())
    ```
 
@@ -353,7 +354,8 @@ Obvykle jsou dva případy, kdy vypadá lákavě vlastnost měnit:
    export default {
      props: ['size'],
      computed: {
-       // computed proměnná, která se automaticky aktualizuje, pokud se vlastnost změní
+       // computed proměnná, která se automaticky aktualizuje, 
+       // pokud se vlastnost změní
        normalizedSize() {
          return this.size.trim().toLowerCase()
        }
@@ -365,15 +367,15 @@ Obvykle jsou dva případy, kdy vypadá lákavě vlastnost měnit:
 
 ### Změny vlastností typu objekt / pole {#mutating-object-array-props}
 
-Pokud jsou objekty a pole předávány jako vlastnosti, komponenta potomka sice nemůže mutovat binding na vlastnosti, ale **bude moci** měnit vnořené prvky objektu nebo pole. Je to proto, že v jazyce JavaScript se objekty a pole předávají pomocí odkazů (pass by reference) a pro Vue je nepřiměřeně nákladné takovým změnám zabránit.
+Pokud jsou objekty a pole předávány jako vlastnosti, komponenta potomka sice nemůže měnit binding na vlastnosti, ale **bude moci** měnit vnořené prvky objektu nebo pole. Je to proto, že v jazyce JavaScript se objekty a pole předávají pomocí odkazů (pass by reference) a pro Vue je nepřiměřeně nákladné takovým změnám zabránit.
 
-Hlavní nevýhodou takových změn je, že umožňují komponentám potomka ovlivňovat stav rodičů způsobem, který není pro komponentu rodiče zřejmý, což může v budoucnu ztížit uvažování o toku dat. V rámci osvědčených postupů byste se měli takovým změnám vyhnout, pokud nejsou komponenty rodiče a potomka už z definice úzce propojeny. Ve většině případů by měl potomek [vyvolat událost](/guide/components/events), aby nechal změnu provést rodiče.
+Hlavní nevýhodou takových změn je, že umožňují komponentám potomka ovlivňovat stav rodičů způsobem, který není pro komponentu rodiče zřejmý, což může v budoucnu ztížit uvažování o toku dat. V rámci osvědčených postupů byste se měli takovým změnám vyhnout, pokud nejsou komponenty rodiče a potomka už z definice úzce propojeny (tightly coupled). Ve většině případů by měl potomek [vyvolat událost](/guide/components/events), aby nechal změnu provést svého rodiče.
 
 ## Validace vlastností {#prop-validation}
 
-Komponenty mohou specifikovat požadavky na své vlastnosti, například datové typy, které jste již viděli. Pokud některý požadavek není splněn, Vue vás na to upozorní v JavaScript konzoli prohlížeče. To je užitečné zejména při vývoji komponenty, která má být používána jinými uživateli.
+Komponenty mohou specifikovat požadavky na své vlastnosti, například datové typy, které jste již viděli. Pokud některý požadavek není splněn, Vue vás na to upozorní v&nbsp;JavaScript konzoli prohlížeče. To je užitečné zejména při vývoji komponenty, která má být používána jinými uživateli.
 
-Chcete-li zadat ověřování vlastností, můžete <span class="composition-api">makru `defineProps()`</span><span class="options-api">v sekci `props`</span> místo pole řetězců zadat objekt s požadavky na ověření. Například:
+Chcete-li zadat ověřování vlastností, můžete <span class="composition-api">makru `defineProps()`</span><span class="options-api">v možnosti `props`</span> místo pole řetězců zadat objekt s požadavky na ověření. Například:
 
 <div class="composition-api">
 
@@ -416,7 +418,8 @@ defineProps({
   // funkce s výchozí hodnotou
   propG: {
     type: Function,
-    // na rozdíl od výchozí hodnoty objektu či pole, toto není tovární (factory) metoda
+    // na rozdíl od výchozí hodnoty objektu či pole, 
+    // toto není tovární (factory) metoda
     // toto je funkce, která bude nabídnuta jako výchozí hodnota
     default() {
       return 'Default function'
@@ -472,7 +475,8 @@ export default {
     // funkce s výchozí hodnotou
     propG: {
       type: Function,
-      // na rozdíl od výchozí hodnoty objektu či pole, toto není tovární (factory) metoda
+      // na rozdíl od výchozí hodnoty objektu či pole,
+      // toto není tovární (factory) metoda
       // toto je funkce, která bude nabídnuta jako výchozí hodnota
       default() {
         return 'Default function'
@@ -504,7 +508,7 @@ Pokud používáte [Type-based deklarace vlastností](/api/sfc-script-setup#type
 <div class="options-api">
 
 ::: tip Poznámka
-Zapamatujte si, že vlastnosti jsou validovány **dříve** než je vytvořena instance komponenty, takže proměnné instance (např. `data`, `computed`, atd.) nebudou uvnitř `default` či `validator` funkcí dostupné.
+Zapamatujte si, že vlastnosti jsou validovány **dříve** než je vytvořena instance komponenty, takže proměnné instance (např. `data`, `computed`, atd.) nebudou uvnitř funkcí `default` či `validator` dostupné.
 :::
 
 </div>
@@ -556,7 +560,7 @@ export default {
 
 </div>
 
-Vue použije `instanceof Person` k ověření, zda hodnota vlastnosti `author` skutečně je instancí třídy `Person`.
+Vue použije `instanceof Person` k ověření, zda je hodnota vlastnosti `author` skutečně instancí třídy `Person`.
 
 ## Přetypování Boolean {#boolean-casting}
 
@@ -586,14 +590,13 @@ export default {
 Lze komponentu použít i tímto způsobem:
 
 ```vue-html
-<!-- stejé jako předání :disabled="true" -->
+<!-- stejné jako předání :disabled="true" -->
 <MyComponent disabled />
 
-<!-- stejé jako předání :disabled="false" -->
+<!-- stejné jako předání :disabled="false" -->
 <MyComponent />
 ```
 
-Když je vlastnost deklarována, aby umožnila více typů, např.:
 Když je vlastnost deklarována, aby umožnila více typů, budou uplatněna rovněž pravidla přetypování pro `Boolean`. Ovšem je tu krajní případ, kdy jsou povoleny jak `String`, tak `Boolean` - pravidlo přetypování na Boolean bude uplatněno pouze pokud se Boolean objeví před String:
 
 <div class="composition-api">
