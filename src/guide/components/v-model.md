@@ -32,8 +32,8 @@ Komponenta rodiče pak může provést binding hodnoty pomocí `v-model`:
 
 Hodnota vrácená z  `defineModel()` je ref. Může být přistupována a měněna jako jakýkoli jiný ref, kromě toho, že slouží jako obousměrný binding mezi hodnotou z rodiče a tou lokální:
 
-- Jeho `.value` je synchronizována s hodnotou navázanou pomocí `v-model` v komponentě rodiče;
-- Když je změněna komponentou potomka, způsobí automaticky aktualizaci hodnoty i v komponentě rodiče.
+- Jeho `.value` je synchronizována s hodnotou navázanou pomocí `v-model` v&nbsp;komponentě rodiče;
+- Když je změněna komponentou potomka, způsobí automaticky aktualizaci hodnoty i&nbsp;v&nbsp;komponentě rodiče.
 
 To znamená, že můžete také provést binding tohoto refu na nativní input element pomocí `v-model`, čímž se dá vstupní pole jednoduše a přímočaře obalit:
 
@@ -221,7 +221,7 @@ const title = defineModel('title', { required: true })
 ```
 
 <details>
-<summary>Použití před Vue 3.4</summary>
+<summary>Použití před verzí 3.4</summary>
 
 ```vue
 <!-- MyComponent.vue -->
@@ -275,7 +275,7 @@ export default {
 
 ## Vícenásobný binding přes `v-model` {#multiple-v-model-bindings}
 
-yužitím možnosti zaměřit se na konkrétní vlastnost a událost, jak jsme se to naučili dříve pomocí [`v-model` parametrů](#v-model-arguments), můžeme nyní na jedné instanci komponenty vytvořit více `v-model` vazeb.
+Využitím možnosti zaměřit se na konkrétní vlastnost a událost, jak jsme se to naučili dříve pomocí [`v-model` parametrů](#v-model-arguments), můžeme nyní na jedné instanci komponenty vytvořit více `v-model` vazeb.
 
 Každý `v-model` se bude synchronizovat s jinou vlastností bez nutnosti speciální konfigurace uvnitř komponenty:
 
@@ -303,7 +303,7 @@ const lastName = defineModel('lastName')
 [Vyzkoušejte si to](https://play.vuejs.org/#eNqFkstuwjAQRX/F8iZUAqKKHQpIfbAoUmnVx86bKEzANLEt26FUkf+9Y4MDSAg2UWbu9fjckVv6oNRw2wAd08wUmitLDNhGTZngtZLakpZoKIkjpZY1SdCadNK3Ab3IazhowzQ2/ES0MVFIYSwpucbvxA/qJXO5FsldlKr8qDxL8EKW7kEQAQsLtapyC1gRkq3vp217mOccwf8wwLksRSlYIoMvCNkOarmEahyODAT2J4yGgtFzhx8UDf5/r6c4NEs7CNqnpxkvbO0kcVjNhCyh5AJe/SW9pBPOV3DJGvu3dsKFaiyxf8qTW9gheQwVs4Z90BDm5oF47cF/Ht4aZC75argxUmD61g9ktJC14hXoN2U5ZmJ0TILitbyq5O889KxuoB/7xRqKnwv9jdn5HqPvGnDVWwTpNJvrFSCul2efi4DeiRigqdB9RfwAI6vGM+5tj41YIvaJL9C+hOfNxerLzHYWhImhPKh3uuBnFJ/A05XoR9zRcBTOMeGo+wcs+yse)
 
 <details>
-<summary>Pre 3.4 Usage</summary>
+<summary>Použití před verzí 3.4</summary>
 
 ```vue
 <script setup>
@@ -366,7 +366,7 @@ export default {
 
 ## Obsluha `v-model` modifikátorů {#handling-v-model-modifiers}
 
-Když jsme se učili o bindingu dat z formuláře, viděli jsme, že `v-model` má [vestavěné modifikátory](/guide/essentials/forms#modifiers) - `.trim`, `.number` a `.lazy`. V některých případech můžete chtít, aby `v-model` na vaší vlastní input komponentě podporoval vlastní modifikátory také.
+Když jsme se učili o bindingu dat z formuláře, viděli jsme, že `v-model` má [vestavěné modifikátory](/guide/essentials/forms#modifiers) - `.trim`, `.number` a `.lazy`. V některých případech můžete chtít, aby `v-model` na vaší input komponentě podporoval i vlastní (custom) modifikátory.
 
 Pojďme vytvořit příklad vlastního modifikátoru `capitalize`, který bude psát první znak řetězce zadaného přes `v-model` binding velkými písmeny:
 
@@ -473,7 +473,7 @@ export default {
 
 Všimněte si, že vlastnost `modelModifiers` komponenty obsahuje `capitalize` a jeho hodnota je `true` - protože tak byla nastavena pomocí `v-model` bindingu `v-model.capitalize="myText"`.
 
-Teď když máme naši vlastnost nastavenou, můžeme kontrolovat klíče `modelModifiers` a napsat handler, který změní emitovanou hodnotu. V kódu níže převedeme řetězec na velká písmena kdykoli, když `<input />` element vyvolá událost `input`.
+Teď když máme naši vlastnost nastavenou, můžeme kontrolovat klíče `modelModifiers` a&nbsp;napsat handler, který změní emitovanou hodnotu. V kódu níže převedeme řetězec na velká písmena kdykoli, když `<input />` element vyvolá událost `input`.
 
 ```vue{13-15}
 <script>
@@ -530,7 +530,7 @@ export default {
 
 </div>
 
-Here's another example of using modifiers with multiple `v-model` with different arguments:
+Zde je další příklad použití modifikátorů na více `v-model` s různými parametry:
 
 ```vue-html
 <UserName
@@ -552,15 +552,15 @@ console.log(lastNameModifiers) // { uppercase: true}
 ```
 
 <details>
-<summary>Pre 3.4 Usage</summary>
+<summary>Použití před verzí 3.4</summary>
 
 ```vue{5,6,10,11}
 <script setup>
 const props = defineProps({
-firstName: String,
-lastName: String,
-firstNameModifiers: { default: () => ({}) },
-lastNameModifiers: { default: () => ({}) }
+  firstName: String,
+  lastName: String,
+  firstNameModifiers: { default: () => ({}) },
+  lastNameModifiers: { default: () => ({}) }
 })
 defineEmits(['update:firstName', 'update:lastName'])
 
