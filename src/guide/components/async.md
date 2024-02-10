@@ -16,7 +16,7 @@ const AsyncComp = defineAsyncComponent(() => {
 // ... použití `AsyncComp` jako běžné komponenty
 ```
 
-Jak můžete vidět, funkce `defineAsyncComponent` přijímá funkci "loader", která vrací Promise. Callback funkce `resolve` tohoto Promise by se měla zavolat po načtení definice komponenty ze serveru. Můžete také zavolat `reject(reason)`, abyste dali najevo, že se načtení nezdařilo.
+Jak můžete vidět, funkce `defineAsyncComponent` přijímá „loader“ funkci, která vrací Promise. Callback funkce `resolve` tohoto Promise by se měla zavolat po načtení definice komponenty ze serveru. Můžete také zavolat `reject(reason)`, abyste dali najevo, že se načtení nezdařilo.
 
 [Dynamický import ES modulů](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import) také vrací Promise,
 takže jej většinou budeme v kombinaci s `defineAsyncComponent` používat. Bundler nástroje jako Vite nebo webpack tuto syntaxi také podporují (a budou ji používat jako body pro rozdělení balíčků), takže ji můžeme použít k importu Vue Single-File komponent (SFC):
@@ -29,7 +29,7 @@ const AsyncComp = defineAsyncComponent(() =>
 )
 ```
 
-Výsledná `AsyncComp` je obalová (wrapper) komponenta, která zavolá "loader" funkci až při skutečném vykreslení na stránce. Kromě toho předá vnitřní komponentě všechny vlastnosti (props) a sloty (slots), takže můžete tento asynchronní wrapper použít k plynulému nahrazení původní komponenty a zároveň dosáhnout "lazy" načítání.
+Výsledná `AsyncComp` je obalová (wrapper) komponenta, která zavolá „loader“ funkci až při skutečném vykreslení na stránce. Kromě toho předá vnitřní komponentě všechny vlastnosti (props) a sloty (slots), takže můžete tento asynchronní wrapper použít k&nbsp;plynulému nahrazení původní komponenty a zároveň dosáhnout „lazy“ načítání.
 
 Stejně jako normální komponenty, mohou být i asynchronní komponenty [registrovány globálně](/guide/components/registration#global-registration) pomocí `app.component()`:
 
@@ -85,11 +85,11 @@ const AdminPage = defineAsyncComponent(() =>
 
 ## Načítání a chybové stavy {#loading-and-error-states}
 
-Asynchronní operace nevyhnutelně zahrnují stav načítání a chybový stav - `defineAsyncComponent()` podporuje zpracování těchto stavů pomocí pokročilých možností nastavení:
+Asynchronní operace nevyhnutelně zahrnují stav načítání a chybový stav. Funkce `defineAsyncComponent()` podporuje zpracování těchto stavů pomocí pokročilých možností nastavení:
 
 ```js
 const AsyncComp = defineAsyncComponent({
-  // "loader" funkce
+  // „loader“ funkce
   loader: () => import('./Foo.vue'),
 
   // Komponenta, která bude použita během asynchronního načítání
@@ -105,10 +105,10 @@ const AsyncComp = defineAsyncComponent({
 })
 ```
 
-Pokud je předána komponenta pro načítání, zobrazí se jako první, zatímco se vnitřní komponenta načítá. Než se načítací komponenta zobrazí, je výchozí prodleva 200 ms - to proto, že v rychlých sítích může být stav načítání nahrazen příliš rychle a vypadalo by to jako blikání.
+Pokud je předána komponenta pro načítání, zobrazí se jako první, zatímco se vnitřní komponenta načítá. Než se načítací komponenta zobrazí, je výchozí prodleva 200 ms. To&nbsp;proto, že v rychlých sítích může být stav načítání nahrazen příliš rychle a vypadalo by to jako blikání.
 
-Pokud je předána komponenta pro chybový stav, zobrazí se, když je Promise vrácený "loader" funkcí odmítnut (rejected). Můžete také zadat časový limit pro zobrazení chybové komponenty, pokud požadavek trvá příliš dlouho.
+Pokud je předána komponenta pro chybový stav, zobrazí se, když je Promise vrácený „loader“ funkcí odmítnut (rejected). Můžete také zadat časový limit pro zobrazení chybové komponenty, pokud požadavek trvá příliš dlouho.
 
 ## Použití s Suspense {#using-with-suspense}
 
-Asynchronní komponenty lze použít dohromady s vestavěnou komponentou `<Suspense>`. Interakce `<Suspense>` a ansynchronními komponentami je popsána v [kapitole určené pro `<Suspense>`](/guide/built-ins/suspense).
+Asynchronní komponenty lze použít dohromady s vestavěnou komponentou `<Suspense>`. Interakce `<Suspense>` a ansynchronními komponentami je popsána v&nbsp;[kapitole určené pro `<Suspense>`](/guide/built-ins/suspense).

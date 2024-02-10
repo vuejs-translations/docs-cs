@@ -8,12 +8,12 @@ outline: deep
 
 ## Dědičnost attributů {#attribute-inheritance}
 
-"Fallthrough" atribut je atribut nebo `v-on` event listener, který je předáván do komponenty, ale není explicitně deklarován ve [vlastnostech (props)](./props) nebo [emitovaných událostech (emits)](./events#declaring-emitted-events) cílové komponenty. Typickými příklady jsou atributy `class`, `style`, a `id`.
+Fallthrough atribut je atribut nebo `v-on` event listener, který je předáván do komponenty, ale není explicitně deklarován ve [vlastnostech (props)](./props) nebo [emitovaných událostech (emits)](./events#declaring-emitted-events) cílové komponenty. Typickými příklady jsou atributy `class`, `style`, a `id`.
 
-Když komponenta vykresluje jediný root element, budou k atributům root elementu automaticky přidány fallthrough atributy. Například pro komponentu `<MyButton>` s následující šablonou:
+Když komponenta vykresluje jediný root element, budou k atributům root elementu automaticky přidány fallthrough atributy. Například pro komponentu `<MyButton>` s&nbsp;následující šablonou:
 
 ```vue-html
-<!-- template of <MyButton> -->
+<!-- šablona pro <MyButton> -->
 <button>klikni na mě</button>
 ```
 
@@ -36,7 +36,7 @@ V tomto případě `<MyButton>` nedeklarovala `class` jako svou vlastnost. Proto
 Pokud root element komponenty potomka již obsahuje existující atributy `class` nebo `style`, budou sloučeny s hodnotami `class` a `style`, které jsou předávány z rodiče. Předpokládejme, že změníme šablonu `<MyButton>` z předchozího příkladu na:
 
 ```vue-html
-<!-- template of <MyButton> -->
+<!-- šablona pro <MyButton> -->
 <button class="btn">klikni na mě</button>
 ```
 
@@ -69,7 +69,7 @@ Tak budou fallthrough atributy obdržené v `<MyButton>` automaticky přesměrov
 
 Zapamatujte si, že:
 
-1. Přesměrované atributy nezahrnují žádné atributy, které jsou v `<MyButton>` deklarovány jako vlastnosti nebo `v-on` listenery deklarovaných událostí - jinými slovy, deklarované vlastnosti a listenery byly "spotřebovány" uvnitř `<MyButton>`.
+1. Přesměrované atributy nezahrnují žádné atributy, které jsou v `<MyButton>` deklarovány jako vlastnosti nebo `v-on` listenery deklarovaných událostí - jinými slovy, deklarované vlastnosti a listenery byly „spotřebovány“ uvnitř `<MyButton>`.
 
 2. Přesměrované atributy mohou být akceptovány jako vlastnosti `<BaseButton>`, pokud tam jsou deklarovány.
 
@@ -79,7 +79,7 @@ Pokud **nechcete**, aby komponenta automaticky dědila atributy, můžete v jej�
 
 <div class="composition-api">
 
- Od Vue 3.3 můžete pouužít [`defineOptions`](/api/sfc-script-setup#defineoptions) i přímo uvnitř `<script setup>`:
+ Od Vue 3.3 můžete použít [`defineOptions`](/api/sfc-script-setup#defineoptions) i přímo uvnitř `<script setup>`:
 
 ```vue
 <script setup>
@@ -116,7 +116,7 @@ Při použití naši ukázkové `<MyButton>` komponenty z [předchozí sekce](#a
 </div>
 ```
 
-Chceme, aby všechny falltrough atributy jako `class` nebo `v-on` listener byly aplikovány na vnitřní `<button>` a nikoli vnější `<div>`. Toho můžeme dosáhnout s `inheritAttrs: false` a `v-bind="$attrs"`:
+Chceme, aby všechny falltrough atributy jako `class` nebo `v-on` listener byly aplikovány na vnitřní `<button>` a nikoli vnější `<div>`. Toho můžeme docílit s `inheritAttrs: false` a&nbsp;`v-bind="$attrs"`:
 
 ```vue-html{2}
 <div class="btn-wrapper">
@@ -175,7 +175,7 @@ export default {
 }
 ```
 
-Všimněte si, že ačkoli zde objekt `attrs` vždy odráží nejnovější fallthrough atributy, není reaktivní (z výkonnostních důvodů). Ke sledování jeho změn nelze použít watchers. Pokud potřebujete reaktivitu, použijte vlastnost (prop). Alternativně můžete použít `onUpdated()`, abyste při každé aktualizaci komponenty provedli vedlejší efekty s nejnovějšími `attrs`.
+Všimněte si, že ačkoli zde objekt `attrs` vždy odráží nejnovější fallthrough atributy, není reaktivní (z výkonnostních důvodů). Ke sledování jeho změn nelze použít watchers. Pokud potřebujete reaktivitu, použijte vlastnost (prop). Alternativně můžete použít `onUpdated()`, abyste při každé aktualizaci komponenty provedli vedlejší efekty s&nbsp;nejnovějšími `attrs`.
 
 </div>
 
