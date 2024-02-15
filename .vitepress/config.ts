@@ -746,13 +746,13 @@ export default defineConfigWithTheme<ThemeConfig>({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/' },
+      { icon: 'github', link: 'https://github.com/vuejs-translations/docs-cs' },
       { icon: 'twitter', link: 'https://twitter.com/vuejs' },
       { icon: 'discord', link: 'https://discord.com/invite/HBherRA' }
     ],
 
     editLink: {
-      repo: 'vuejs/docs',
+      repo: 'vuejs-translations/docs-cs',
       text: 'Navrhněte úpravu této stránky na GitHubu'
     },
 
