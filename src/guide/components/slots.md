@@ -47,12 +47,12 @@ Výsledný vykreslený DOM bude:
 
 </div>
 
-S použitím slotů je `<FancyButton>` zodpovědný za vykreslení vnějšího `<button>` (a jeho "fancy" stylování), zatímco vnitřní obsah je dodaný komponentou rodiče.
+S použitím slotů je `<FancyButton>` zodpovědný za vykreslení vnějšího `<button>` (a jeho „fancy“ stylování), zatímco vnitřní obsah je dodaný komponentou rodiče.
 
 Další způsob, jak pochopit sloty, je porovnat je s JavaScript funkcemi:
 
 ```js
-// komponenta rodiče předávající obsah slotu
+// komponenta rodiče předává obsah slotu
 FancyButton('Klikni na mě!')
 
 // FancyButton vykresluje obsah slotu uvnitř své vlastní šablony
@@ -87,7 +87,7 @@ S použitím slotů je naše komponenta `<FancyButton>` více flexibilní a znov
 
 Mechanismus slotů ve Vue komponentách je inspirován [nativním Web Component elementem `<slot>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot), ovšem s dalšími možnostmi, které uvidíme později.
 
-## Scope vykreslování {#render-scope}
+## Rozsah vykreslování {#render-scope}
 
 Obsah slotu má přístup k datovému scope komponenty rodiče, protože je definován v ní. Například:
 
@@ -112,7 +112,7 @@ V některých případech je užitečné specifikovat pro slot náhradní (fallb
 </button>
 ```
 
-Můžeme chtít, aby se uvnitř `<button>` zobrazil text "Odeslat", pokud rodič žádný obsah slotu neposkytl. Aby byl text "Odeslat" fallback obsahem, můžeme jej umístit mezi tagy `<slot>`:
+Můžeme chtít, aby se uvnitř `<button>` zobrazil text „Odeslat“, pokud rodič žádný obsah slotu neposkytl. Aby byl text „Odeslat“ fallback obsahem, můžeme jej umístit mezi tagy `<slot>`:
 
 ```vue-html{3}
 <button type="submit">
@@ -128,7 +128,7 @@ Nyní když `<SubmitButton>` použijeme v komponentě rodiče bez poskytnutí ob
 <SubmitButton />
 ```
 
-Bude vykreslen fallback obsah, "Odeslat":
+Bude vykreslen fallback obsah, „Odeslat“:
 
 ```html
 <button type="submit">Odeslat</button>
@@ -191,7 +191,7 @@ Pro tyto případy má element `<slot>` speciální atribut `name`, který lze p
 </div>
 ```
 
-Výstup `<slot>` bez `name` má implicitně název "default".
+Výstup pro `<slot>` bez `name` má implicitně název „default“.
 
 V komponentě rodiče, která `<BaseLayout>` používá potřebujeme způsob, jak předat více fragmentů obsahu slotů, z nichž každý je zaměřen na jiný výstup slotu. K tomu slouží **pojmenované sloty**.
 
@@ -205,7 +205,7 @@ Pro předání pojmenovaného slotu musíme použít prvek `<template>` s direkt
 </BaseLayout>
 ```
 
-`v-slot` má učený zkrácený zápis `#`, takže `<template v-slot:header>` může být zkráceno jen na `<template #header>`. Představte si to jako pokyn "vykreslit tento fragment šablony do slotu 'header' komponenty potomka".
+`v-slot` má učený zkrácený zápis `#`, takže `<template v-slot:header>` může být zkráceno jen na `<template #header>`. Představte si to jako pokyn _„vykreslit tento fragment šablony do slotu 'header' komponenty potomka“_.
 
 ![named slots diagram](./images/named-slots.png)
 
@@ -317,7 +317,7 @@ Mějte na paměti, že výraz podléhá [pravidlům syntaxe](/guide/essentials/t
 
 ## Scoped sloty {#scoped-slots}
 
-Jak už bylo rozebíráno v oddílu [scope vykreslování](#render-scope), obsah slotu nemá přístup ke stavovým proměnným komponenty potomka.
+Jak už bylo rozebíráno v oddílu [rozsah vykreslování](#render-scope), obsah slotu nemá přístup ke stavovým proměnným komponenty potomka.
 
 V některých případech by však mohlo být užitečné, kdyby obsah slotu mohl využívat data ze scope rodiče i potomka. Abychom toho dosáhli, potřebujeme způsob, jak může komponenta potomka předat svá data do slotu při jeho vykreslování.
 
@@ -412,7 +412,7 @@ Předávání vlastností do pojemnovaného slotu:
 
 Pamatujte si, že atribut `name` pojmenovaného slotu nebude jako vlastnost zahrnut, protože jde o vyhrazené klíčové slovo - takže výsledný objekt `headerProps` bude `{ message: 'ahoj' }`.
 
-Pokud kombinujete pojmenované sloty s výchozím scoped slotem, musíte pro výchozí slot použít explicitní tag `<template>`. Pokus umístit direktivu `v-slot` přímo na komponentu způsobí kompilační chybu. Tím se brání nejasnostem ohledně scope pro vlastnosti výchozího slotu. Například:
+Pokud kombinujete pojmenované sloty s výchozím scoped slotem, musíte pro výchozí slot použít explicitní tag `<template>`. Pokus umístit direktivu `v-slot` přímo na komponentu způsobí kompilační chybu. Tím se Vue brání nejasnostem ohledně scope pro vlastnosti výchozího slotu. Například:
 
 ```vue-html
 <!-- tato šablona se nezkompiluje -->
@@ -427,7 +427,7 @@ Pokud kombinujete pojmenované sloty s výchozím scoped slotem, musíte pro vý
 </template>
 ```
 
-Použití explicitního tagu `<template>` pro výchozí slot pomáhá udělat jasno v tom, že vlastnost `message` není přístupná v jiném slotu:
+Použití explicitního tagu `<template>` pro výchozí slot pomáhá ujasnit si, že vlastnost `message` není přístupná v jiném slotu:
 
 ```vue-html
 <template>
@@ -446,7 +446,7 @@ Použití explicitního tagu `<template>` pro výchozí slot pomáhá udělat ja
 
 ### Příklad - Fancy List {#fancy-list-example}
 
-Možná se ptáte, jaké by byl pro scoped sloty vhodné využití. Zde je příklad: představte si komponentu `<FancyList>`, která vykresluje seznam položek – může zapouzdřit logiku pro načítání vzdálených dat, používat data k zobrazení seznamu nebo dokonce pokročilé funkce, jako je stránkování nebo nekonečný scrolling. Chceme však, aby byla flexibilní s tím, jak vypadá každá položka, a ponechal styl každé položky na komponentě rodiče, která ji implementuje. Požadované použití tedy může vypadat takto:
+Možná se ptáte, jaké by byl pro scoped sloty vhodné využití. Zde je příklad: představte si komponentu `<FancyList>`, která vykresluje seznam položek – může zapouzdřit logiku pro načítání vzdálených dat, používat data k zobrazení seznamu nebo dokonce pokročilé funkce, jako je stránkování nebo nekonečný scrolling. Chceme však, aby byla flexibilní ohledně toho, jak vypadá každá položka, a ponechat styl každé položky na komponentě rodiče, která ji implementuje. Požadované použití tedy může vypadat takto:
 
 ```vue-html
 <FancyList :api-url="url" :per-page="10">
@@ -480,17 +480,17 @@ Uvnitř `<FancyList>` můžeme vykreslit stejný `<slot>` vícekrát s různými
 
 </div>
 
-### Komponenty bez vykreslování {#renderless-components}
+### Komponenty bez vykreslení {#renderless-components}
 
 Příklad s `<FancyList>`, o kterém jsme hovořili výše, zapouzdřuje jak opakovaně použitelnou logiku (načítání dat, stránkování atd.), tak vizuální výstup, přičemž část vizuálního výstupu deleguje na komponentu rodiče prostřednictvím scoped slotů.
 
-Pokud tento koncept posuneme ještě o něco dále, můžeme přijít s komponentami, které pouze zapouzdřují logiku a samy o sobě nic nevykreslují – vizuální výstup je plně delegován na komponentu rodiče s použitím scoped slotů. Tento typ komponenty nazýváme **komponenty bez vykreslování (renderless)**.
+Pokud tento koncept posuneme ještě o něco dále, můžeme přijít s komponentami, které pouze zapouzdřují logiku a samy o sobě nic nevykreslují – vizuální výstup je plně delegován na komponentu rodiče s použitím scoped slotů. Tento typ komponenty nazýváme **komponenty bez vykreslení (renderless)**.
 
 Příklad renderless komponenty může být taková, která zapouzdřuje logiku pro sledování aktuální polohy myši:
 
 ```vue-html
 <MouseTracker v-slot="{ x, y }">
-  Mouse is at: {{ x }}, {{ y }}
+  Myš je na: {{ x }}, {{ y }}
 </MouseTracker>
 ```
 

@@ -10,7 +10,7 @@ Pokud potřebujeme předat data z nadřazené komponenty podřazené komponentě
 
 <!-- https://www.figma.com/file/yNDTtReM2xVgjcGVRzChss/prop-drilling -->
 
-Všimněte si, že ačkoli komponentu `<Footer>` tyto vlastnosti možná vůbec nezajímají, musí je deklarovat a předat dál, aby k nim komponenta `<DeepChild>` měla přístup. Pokud by existoval delší rodičovský řetězec, ovlivnilo by to po cestě ještě více komponent. Tomu se říká "props drilling" a rozhodně není zábavné se s tím potýkat.
+Všimněte si, že ačkoli komponentu `<Footer>` tyto vlastnosti možná vůbec nezajímají, musí je deklarovat a předat dál, aby k nim komponenta `<DeepChild>` měla přístup. Pokud by existoval delší rodičovský řetězec, ovlivnilo by to po cestě ještě více komponent. Tomu se říká „props drilling“ a rozhodně není zábavné se s tím potýkat.
 
 Drilling vlastností můžeme řešit pomocí `provide` a `inject`. Komponenta rodiče může sloužit jako **poskytovatel závislostí (dependency provider)** pro všechny své potomky. Jakákoli komponenta ve stromu potomků, bezohledu na hloubku jejího zanoření, může **implementovat (inject)** závislosti poskytované komponentami v rodčovském řetězci.
 
@@ -22,7 +22,7 @@ Drilling vlastností můžeme řešit pomocí `provide` a `inject`. Komponenta r
 
 <div class="composition-api">
 
-Pro poskytnutí dat komponentám potomků použijte funkci [`provide()`](/api/composition-api-dependency-injection#provide) function:
+Pro poskytnutí dat komponentám potomků použijte funkci [`provide()`](/api/composition-api-dependency-injection#provide):
 
 ```vue
 <script setup>
@@ -44,7 +44,7 @@ export default {
 }
 ```
 
-Funkce `provide()` přijímá dva parametry. První parametr se nazává **injection key**, což může být string nebo `Symbol`. Injection key je použit v komponentně potomka k vyhledání hodnoty, která má být implementována. Jedna komponenta může volat `provide()` vícekrát s různými injection keys pro poskytnutí různých hodnot.
+Funkce `provide()` přijímá dva parametry. První parametr se nazývá **injection key**, což může být string nebo `Symbol`. Injection key je použit v komponentně potomka k&nbsp;vyhledání hodnoty, která má být implementována. Jedna komponenta může volat `provide()` vícekrát s různými injection keys pro poskytnutí různých hodnot.
 
 Druhý parametr je poskytovaná hodnota. Hodnota může být jakéhokoli typu vč. reaktivního stavu jako jsou refs:
 
@@ -61,7 +61,7 @@ Poskytnutí reaktivních hodnot umožňuje komponentám potomků, které poskytn
 
 <div class="options-api">
 
-Pro poskytnutí dat komponentám potomků použijte sekci [`provide`](/api/options-composition#provide):
+Pro poskytnutí dat komponentám potomků použijte možnost [`provide`](/api/options-composition#provide):
 
 ```js
 export default {
@@ -71,7 +71,7 @@ export default {
 }
 ```
 
-Pro každou proměnnou objektu `provide`, je klíč použit v komponentě potomka k lokalizaci správné hodnoty pro inject, zatímco hodnota je to, co bude implementováno.
+Pro každou proměnnou objektu `provide`, je jeho klíč použit v komponentě potomka k&nbsp;lokalizaci správné hodnoty (injection key), zatímco hodnota bude implementována.
 
 Pokud potřebujeme poskytovat stav konkrétní instance, například data deklarovaná pomocí `data()`, pak je třeba použít `provide` ve tvaru funkce:
 
@@ -91,7 +91,7 @@ export default {
 }
 ```
 
-Vemte ovšem na vědomí, že toto **nezajistí** reaktivitu implementace. Jak [udělat injection reaktivní](#working-with-reactivity) se budeme bavit později.
+Vemte ovšem na vědomí, že toto **nezajistí** reaktivitu implementace. Jak [udělat reaktivní implementaci](#working-with-reactivity) budeme probírat později.
 
 </div>
 
@@ -107,13 +107,13 @@ const app = createApp({})
 app.provide(/* klíč */ 'message', /* hodnota */ 'Ahoj!')
 ```
 
-Provide na úrovni aplikace je k dispozici všem komponentám vykresleným v aplikaci. To je obzvláště užitečné při psaní [pluginů](/guide/reusability/plugins), protože pluginy obvykle nejsou schopny poskytovat hodnoty pomocí komponent.
+Provide na úrovni aplikace je k dispozici všem komponentám vykresleným v aplikaci. Zvlášť užitečné je to při psaní [pluginů](/guide/reusability/plugins), protože pluginy obvykle nejsou schopny poskytovat hodnoty pomocí komponent.
 
 ## Inject {#inject}
 
 <div class="composition-api">
 
-Pro implementaci dat poskytnutých komponentou předka použijte funkci [`inject()`](/api/composition-api-dependency-injection#inject) function:
+Pro implementaci dat poskytnutých komponentou předka použijte funkci [`inject()`](/api/composition-api-dependency-injection#inject):
 
 ```vue
 <script setup>
@@ -123,7 +123,7 @@ const message = inject('message')
 </script>
 ```
 
-Pokud je poskytovaná hodnota ref, bude jako ref implementována a **nebude** automaticky rozbalena. To umožňuje komponentě, která implementuje, zachovat reaktivitu spojení s komponentou, která data poskytuje.
+Pokud je poskytovaná hodnota ref, bude jako ref implementována a **nebude** automaticky rozbalena. To umožňuje komponentě, která implementuje, zachovat reaktivitu spojení s&nbsp;komponentou, která data poskytuje.
 
 [Kompletní provide/inject příklad vč. reaktivity](https://play.vuejs.org/#eNqFUUFugzAQ/MrKF1IpxfeIVKp66Kk/8MWFDXYFtmUbpArx967BhURRU9/WOzO7MzuxV+fKcUB2YlWovXYRAsbBvQije2d9hAk8Xo7gvB11gzDDxdseCuIUG+ZN6a7JjZIvVRIlgDCcw+d3pmvTglz1okJ499I0C3qB1dJQT9YRooVaSdNiACWdQ5OICj2WwtTWhAg9hiBbhHNSOxQKu84WT8LkNQ9FBhTHXyg1K75aJHNUROxdJyNSBVBp44YI43NvG+zOgmWWYGt7dcipqPhGZEe2ef07wN3lltD+lWN6tNkV/37+rdKjK2rzhRTt7f3u41xhe37/xJZGAL2PLECXa9NKdD/a6QTTtGnP88LgiXJtYv4BaLHhvg==)
 
@@ -144,7 +144,7 @@ export default {
 
 <div class="options-api">
 
-Pro implementaci dat poskytnutých komponentou předka použijte sekci [`inject`](/api/options-composition#inject):
+Pro implementaci dat poskytnutých komponentou předka použijte možnost [`inject`](/api/options-composition#inject):
 
 ```js
 export default {
@@ -155,7 +155,7 @@ export default {
 }
 ```
 
-Implementace jsou vyhodnoceny **dříve** než vlastní stav komponenty, takže lze na implementované hodnoty přistupovat v sekci `data()`:
+Implementace jsou vyhodnoceny **dříve** než vlastní stav komponenty, takže lze na implementované hodnoty přistupovat v možnosti `data()`:
 
 ```js
 export default {
@@ -175,7 +175,7 @@ export default {
 
 Pokud je pro `inject` použita syntaxe pole, jsou implementované vlastnosti vystaveny na instanci komponenty pomocí stejného klíče. Ve výše uvedeném příkladu byla vlastnost poskytnuta pod klíčem `"message"` a implementováína jako `this.message`. Lokální klíč je stejný jako injection key.
 
-Pokud chceme implementovat vlastnost pomocí jiného lokálního klíče, musíme pro volbu `inject` použít objektovou syntaxi:
+Pokud chceme implementovat vlastnost pomocí jiného lokálního klíče, musíme pro možnost `inject` použít objektovou syntaxi:
 
 ```js
 export default {
@@ -187,13 +187,13 @@ export default {
 }
 ```
 
-V tomto případě nalezne komponenta vlastnost poskytovanou pod klíčem `"message"` a vystaví ji jako `this.localMessage`.
+V tomto případě nalezne komponenta vlastnost poskytovanou pod klíčem `"message"` a&nbsp;vystaví ji jako `this.localMessage`.
 
 </div>
 
-### Výchozí hodnoty pro injection {#injection-default-values}
+### Výchozí hodnoty pro implementaci {#injection-default-values}
 
-Ve výchozím nastavení `inject` předpokládá, že implementovaná hodnota je někde v rodičovském řetězci poskytována. V případě, že klíč poskytnut není, zobrazí se runtime varování.
+Ve výchozím nastavení `inject` předpokládá, že implementovaná hodnota je někde v&nbsp;rodičovském řetězci poskytována. V případě, že klíč poskytnut není, zobrazí se runtime varování.
 
 Pokud chceme, aby implementovaná vlastnost fungovala s volitelnými poskytovateli, musíme deklarovat výchozí hodnotu, podobně jako u vlastností:
 
@@ -205,7 +205,7 @@ Pokud chceme, aby implementovaná vlastnost fungovala s volitelnými poskytovate
 const value = inject('message', 'default value')
 ```
 
-V některých případech může být nutné výchozí hodnotu vytvořit voláním funkce nebo instancí nové třídy. Abychom se vyhnuli zbytečným výpočtům nebo vedlejším efektům v případě, že volitelnou hodnotu nepoužijeme, můžeme pro vytvoření výchozí hodnoty použít tovární (factory) metodu:
+V některých případech může být nutné výchozí hodnotu vytvořit voláním funkce nebo instancí nové třídy. Abychom se vyhnuli zbytečným výpočtům nebo vedlejším efektům v&nbsp;případě, že volitelnou hodnotu nepoužijeme, můžeme pro vytvoření výchozí hodnoty použít tovární (factory) metodu:
 
 ```js
 const value = inject('key', () => new ExpensiveClass(), true)
@@ -219,7 +219,7 @@ Třetí argument indikuje, že výchozí hodnota by měla být považována za t
 
 ```js
 export default {
-  // pro deklaraci výchozích hodnot pro injection
+  // pro deklaraci výchozích hodnot pro implementaci
   // je nutná objektová syntaxe
   inject: {
     message: {
@@ -277,7 +277,7 @@ const { location, updateLocation } = inject('location')
 </template>
 ```
 
-Pokud se chcete ujistit, že data předaná skrz `provide` nemohou být změněna komponentou, která je implementuje, můžte poskytovanou hdonotu obalit pomocí [`readonly()`](/api/reactivity-core#readonly).
+Pokud se chcete ujistit, že data předaná skrz `provide` nemohou být změněna komponentou, která je implementuje, můžte poskytovanou hodnotu obalit pomocí [`readonly()`](/api/reactivity-core#readonly).
 
 ```vue
 <script setup>
@@ -292,7 +292,7 @@ provide('read-only-count', readonly(count))
 
 <div class="options-api">
 
-Aby byla injection reaktivně propojena se komponentou poskytovatele, musíme poskytovat computed proměnnou pomocí funkce [computed()](/api/reactivity-core#computed):
+Aby byla implementace reaktivně propojena se komponentou poskytovatele, musíme poskytovat computed proměnnou pomocí funkce [computed()](/api/reactivity-core#computed):
 
 ```js{10}
 import { computed } from 'vue'
@@ -314,7 +314,7 @@ export default {
 
 [Kompletní provide/inject příklad vč. reaktivity](https://play.vuejs.org/#eNqNUctqwzAQ/JVFFyeQxnfjBEoPPfULqh6EtYlV9EKWTcH43ytZtmPTQA0CsdqZ2dlRT16tPXctkoKUTeWE9VeqhbLGeXirheRwc0ZBds7HKkKzBdBDZZRtPXIYJlzqU40/I4LjjbUyIKmGEWw0at8UgZrUh1PscObZ4ZhQAA596/RcAShsGnbHArIapTRBP74O8Up060wnOO5QmP0eAvZyBV+L5jw1j2tZqsMp8yWRUHhUVjKPoQIohQ460L0ow1FeKJlEKEnttFweijJfiORElhCf5f3umObb0B9PU/I7kk17PJj7FloN/2t7a2Pj/Zkdob+x8gV8ZlMs2de/8+14AXwkBngD9zgVqjg2rNXPvwjD+EdlHilrn8MvtvD1+Q==)
 
-Funkce `computed()` se typicky používá v komponentách psaných v Composition API, ale lze ji také použít pro doplnění některých případů užití v Options API. O jejím použití se můžete dočíst víc v průvodcích [Základy rektivity](/guide/essentials/reactivity-fundamentals) and [Computed proměnné](/guide/essentials/computed) s preferencí API nastavenou na Composition API.
+Funkce `computed()` se typicky používá v komponentách psaných v Composition API, ale lze ji také použít pro doplnění některých případů užití v Options API. O jejím použití se můžete dočíst víc v průvodcích [Základy rektivity](/guide/essentials/reactivity-fundamentals) and [Computed proměnné](/guide/essentials/computed) s preferencí nastavenou na Composition API.
 
 </div>
 
