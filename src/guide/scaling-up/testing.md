@@ -351,7 +351,7 @@ Nakonec aktualizujte `package.json` přidáním skriptu pro testování a spusť
 > npm test
 ```
 
-### Testování composables{#testovani-komponovatelnych-funkci}
+### Testování composables{#testing-composables}
 
 > Tato sekce předpokládá, že jste si přečetli kapitolu [Composables](/guide/reusability/composables).
 
