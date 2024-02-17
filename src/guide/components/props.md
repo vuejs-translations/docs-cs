@@ -525,6 +525,7 @@ Hodnota `type` může být jeden z následujících nativních konstruktorů:
 - `Date`
 - `Function`
 - `Symbol`
+- `Error`
 
 Kromě toho může být `type` také vlastní třída nebo funkce konstruktoru a ověření bude provedeno pomocí kontroly `instanceof`. Například následující třídu:
 
