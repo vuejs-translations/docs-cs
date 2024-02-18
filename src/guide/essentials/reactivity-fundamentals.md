@@ -302,7 +302,7 @@ export default {
 
 <div class="composition-api">
 
-Refs mohou obsahovat hodnotu jakéhokoliv typu, včetně hlubok vnořených objektů, polí a vestavěných JavaScipt datových struktur jako je `Map`.
+Refs mohou obsahovat hodnotu jakéhokoli typu, včetně hlubok vnořených objektů, polí a vestavěných JavaScipt datových struktur jako je `Map`.
 
 Ref svou hodnotu udělá hluboce reaktivní (deep reactivity). To znamená, že můžete očekávat detekci změn, i když změníte vnořené objekty nebo pole:
 

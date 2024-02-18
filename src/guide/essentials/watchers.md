@@ -271,6 +271,42 @@ watch(
 
 </div>
 
+
+## Jednorázové watchery <sup class="vt-badge" data-text="3.4+" /> {#once-watchers}
+
+Callback watcheru bude spuštěn kdykoli, když se změní sledovaný zdroj. Pokud ho po změně zdroje chcete spustit puze jednou, použijte nastavení `once: true`.
+
+<div class="options-api">
+  
+```js
+export default {
+  watch: {
+    source: {
+      handler(newValue, oldValue) {
+        // když se změní `source`, bude spuštěno pouze jednou
+      },
+      once: true
+    }
+  }
+}
+```
+
+</div>
+
+<div class="composition-api">
+
+```js
+watch(
+  source,
+  (newValue, oldValue) => {
+    // když se změní `source`, bude spuštěno pouze jednou
+  },
+  { once: true }
+)
+```
+
+</div>
+
 <div class="composition-api">
 
 ## `watchEffect()` \*\* {#watcheffect}
@@ -377,7 +413,7 @@ watchPostEffect(() => {
 
 </div>
 
-### Sync Watchers {#sync-watchers}
+### Synchronní watchery {#sync-watchers}
 
 Je také možné vytvořit watcher, který bude spuštěn synchronně před provedením jakýchkoli Vue aktualizací.
 
