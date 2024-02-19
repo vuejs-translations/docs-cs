@@ -24,19 +24,19 @@ const myPlugin = {
 }
 ```
 
-Pro pluginy neexistuje žádný přesně definovaný rozsah, ale běžné scénáře, ve kterých jsou pluginy užitečné, zahrnují:
+Pro pluginy neexistuje žádný přesně definovaný rozsah, ale běžné scénáře, ve kterých jsou užitečné, zahrnují:
 
 1. Registrace jedné nebo více globálních komponent nebo vlastních direktiv pomocí [`app.component()`](/api/application#app-component) a [`app.directive()`](/api/application#app-directive).
 
 2. Označení zdroje jako [injectable](/guide/components/provide-inject) napříč aplikací prostředinctvím volání [`app.provide()`](/api/application#app-provide).
 
-3. Přidání globálních promměných instance či metod jejich připohjením k [`app.config.globalProperties`](/api/application#app-config-globalproperties).
+3. Přidání globálních promměných instance či metod jejich připojením k&nbsp;[`app.config.globalProperties`](/api/application#app-config-globalproperties).
 
 4. Knihovna, která potřebuje provést kombinaci výše uvedného (např. [vue-router](https://github.com/vuejs/vue-router-next)).
 
 ## Tvorba pluginu {#writing-a-plugin}
 
-Abychom lépe pochopili, jak vlastní Vue.js pluginy vytvářet, vytvoříme velmi zjednodušenou verzi pluginu, který zobrazuje řetězce `i18n` (zkratka pro [Internationalization](https://en.wikipedia.org/wiki/Internationalization_and_localization)).
+Abychom lépe pochopili, jak vlastní Vue.js pluginy vytvářet, vytvoříme velmi zjednodušenou verzi pluginu, který zobrazuje překladové `i18n` (zkratka pro [Internationalization](https://en.wikipedia.org/wiki/Internationalization_and_localization)) řetězce.
 
 Začněme nastavením objektu pluginu. Doporučujeme jej vytvořit v samostatném souboru a exportovat ho, jak je uvedeno níže, aby byla logika uzavřená a oddělená.
 
@@ -49,7 +49,7 @@ export default {
 }
 ```
 
-Chceme vytvořit překladovou funkci. Tato funkce obdrží string `key` s tečkovým oddělovačem, který použijeme k vyhledání přeloženého řetězce v možnostech zadaných uživatelem. Toto je zamýšlené použití v šablonách:
+Chceme vytvořit překladovou funkci. Tato funkce obdrží string `key` s tečkovým oddělovačem, který použijeme k vyhledání přeloženého textu v možnostech zadaných uživatelem. Toto je zamýšlené použití v šablonách:
 
 ```vue-html
 <h1>{{ $translate('greetings.hello') }}</h1>
@@ -89,10 +89,10 @@ app.use(i18nPlugin, {
 
 Nyní bude naše volání `$translate('greetings.hello')` za běhu nahrazeno textem `Bonjour!`.
 
-Viz také: [Rozšiřování globálních proměnných](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
+Viz také: [Rozšiřování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
 
 :::tip
-Globální proměnné používejte jen zřídka, protože pokud se v aplikaci používá příliš mnoho globálních promnených vložených různými pluginy, může se to rychle stát nepřehledné.
+Globální vlastnosti používejte jen zřídka, protože pokud se v aplikaci používá příliš mnoho globálních promnených vložených různými pluginy, může se rychle stát nepřehlednou.
 :::
 
 ### Provide / Inject spolu s pluginy {#provide-inject-with-plugins}

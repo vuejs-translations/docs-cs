@@ -14,7 +14,7 @@ Kromě výchozí sady vestavěných direktiv (jako je `v-model` nebo `v-show`) u
 
 Ve Vue jsme zavedli dvě formy znovupoužitelného kódu: [komponenty](/guide/essentials/component-basics) a [composables](./composables). Komponenty jsou hlavními stavebními bloky, zatímco composables se zaměřují na znovupoužití stavové logiky. Vlastní direktivy jsou naproti tomu určeny hlavně ke znovupoužití logiky, která se týká low-level přístupu k DOM na prostých elementech.
 
-Vlastní direktiva je definována jako objekt obsahující lifecycle hooks podobné těm, které má komponenta. Hooks obdrží element, na který je direktiva navázána. Zde je příklad direktivy, která provede focus na input, když je element vložen do DOM pomocí Vue:
+Vlastní direktiva je definována jako objekt obsahující lifecycle hooks podobné těm, které má komponenta. Hook obdrží element, na který je direktiva navázána. Zde je příklad direktivy, která provede focus na input, když je element vložen do DOM pomocí Vue:
 
 <div class="composition-api">
 
@@ -55,16 +55,16 @@ export default {
 </div>
 
 <div class="demo">
-  <input v-focus placeholder="Na tento prvek by měl být focus" />
+  <input v-focus placeholder="Na tento prvek by měl být focus" style="width:265px" />
 </div>
 
 Za předpokladu, že jste na stránce neklikli jinam, by měl být na výše uvedeném input elementu automaticky nastavený focus. Tato direktiva je užitečnější než atribut `autofocus`, protože funguje nejen při načítání stránky - funguje i tehdy, když je prvek vkládán dynamicky pomocí Vue.
 
 <div class="composition-api">
 
-Ve `<script setup>` lze jako vlastní direktivu použít jakoukoli proměnnou zapsanou v camelCase tvaru, která začíná předponou `v`. Ve výše uvedeném příkladu lze `vFocus` použít v šabloně jako `v-focus`.
+Ve `<script setup>` lze jako vlastní direktivu použít jakoukoli proměnnou zapsanou v&nbsp;camelCase tvaru, která začíná předponou `v`. Ve výše uvedeném příkladu lze `vFocus` použít v šabloně jako `v-focus`.
 
-Pokud se `<script setup>` nepoužvá, lze vlastní direktivy registrovat pomocí sekce `directives`:
+Pokud se `<script setup>` nepoužvá, lze vlastní direktivy registrovat pomocí možnosti `directives`:
 
 ```js
 export default {
@@ -84,7 +84,7 @@ export default {
 
 <div class="options-api">
 
-Podobně jako u komponent musí být vlastní direktivy zaregistrovány, aby je bylo možné použít v šablonách. Ve výše uvedeném příkladu používáme lokální registraci pomocí sekce `directives`.
+Podobně jako u komponent musí být vlastní direktivy zaregistrovány, aby je bylo možné použít v šablonách. Ve výše uvedeném příkladu používáme lokální registraci pomocí možnosti `directives`.
 
 </div>
 
@@ -105,7 +105,7 @@ Vlastní direktivy by se měly používat pouze v případě, že požadované f
 
 ## Lifecycle Hooks direktiv {#directive-hooks}
 
-Objekt definice direktivy může poskytovat několik "hook" funkcí (všechny jsou nepovinné):
+Objekt definice direktivy může poskytovat několik „hook“ funkcí (všechny jsou nepovinné):
 
 ```js
 const mojeDirektiva = {
@@ -142,7 +142,7 @@ Hooks direktiv obdrží tyto parametry:
   - `value`: Hodnota předávaná do direktivy. Například pro `v-my-directive="1 + 1"` bude hodnota `2`.
   - `oldValue`: Předchozí hodnota. Dostupná pouze v `beforeUpdate` a `updated`. Je dostupná, ať už se hodnota změnila nebo ne.
   - `arg`: Parametr předávaný do direktivy, pokud existuje. Například pro `v-my-directive:foo` bude parametr `"foo"`.
-  - `modifiers`: Objekt, který obsahuje modifikátory, pokud jsou. Například pro `v-my-directive.foo.bar` bude objekt modifikátorů `{ foo: true, bar: true }`.
+  - `modifiers`: Objekt, který obsahuje modifikátory, pokud jsou nastaveny. Například pro `v-my-directive.foo.bar` bude objekt modifikátorů `{ foo: true, bar: true }`.
   - `instance`: Instance komponent, ve které je direktiva použita.
   - `dir`: Objekt definice direktivy
 
@@ -172,15 +172,15 @@ Podobně jako vestavěné direktivy mohou být argumenty vlastních direktiv dyn
 <div v-example:[arg]="value"></div>
 ```
 
-Zde bude parametr směrnice reaktivně aktualizován na základě vlastnosti `arg` ze stavu naší komponenty.
+Zde bude parametr direktivy reaktivně aktualizován na základě vlastnosti `arg` ze stavu naší komponenty.
 
 :::tip Poznámka
-Kromě `el` byste s těmito argumenty měli zacházet jako s read-only hodnotami a nikdy je neměnit. Pokud potřebujete sdílet informace napříč hooks, doporučujeme to dělat prostřednictvím elementu [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
+Kromě `el` byste s těmito argumenty měli zacházet jako s read-only hodnotami a nikdy je neměnit. Pokud potřebujete sdílet informace napříč hooks, doporučujeme to dělat prostřednictvím atributu [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
 :::
 
 ## Zkrácený zápis funkcí {#function-shorthand}
 
-Pro vlastní direktivy je běžné, že mají stejné chování pro `mounted` i `updated` a nepotřebují další hooks. V takových případech můžeme direktivu definovat jako funkci:
+Pro vlastní direktivy je běžné, že mají stejné chování pro `mounted` i `updated` a&nbsp;nepotřebují další hooks. V takových případech můžeme direktivu definovat jako funkci:
 
 ```vue-html
 <div v-color="color"></div>
