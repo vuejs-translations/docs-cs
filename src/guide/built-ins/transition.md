@@ -582,6 +582,31 @@ To může být užitečné, pokud jste definovali přechody / animace pomocí ko
 
 Můžete také aplikovat různé chování v JavaScriptových metodách pro přechod na základě aktuálního stavu vaší komponenty. V neposlední řadě, nejlepší způsob vytváření dynamických přechodů je pomocí [znovupoužitelných přechodů](#reusable-transitions), komponent, které přijímají vlastnosti (props) pro změnu povahy použitých přechodů. Možná to zní trochu kýčovitě, ale opravdu jediným omezením je vaše představivost.
 
+## Transitions with the Key Attribute {#transitions-with-the-key-attribute}
+
+Sometimes you need to force the re-render of a DOM element in order for a transition to occur.
+
+Take this counter component for example.
+
+```vue
+<script setup>
+import { ref } from 'vue';
+const count = ref(0);
+
+setInterval(() => count.value++, 1000);
+</script>
+
+<template>
+  <Transition>
+    <span :key="count">{{ count }}</span>
+  </Transition>
+</template>
+```
+
+If we had excluded the `key` attribute, only the text node would be updated and thus no transition would occur. However, with the `key` attribute in place, Vue knows to create a new `span` element whenever `count` changes and thus the `Transition` component has 2 different elements to transition between.
+
+[Try it in the Playground](https://play.vuejs.org/#eNp9UsFu2zAM/RVCl6Zo4nhYd/GcAtvQQ3fYhq1HXTSFydTKkiDJbjLD/z5KMrKgLXoTHx/5+CiO7JNz1dAja1gbpFcuQsDYuxtuVOesjzCCxx1MsPO2gwuiXnzkhhtpTYggbW8ibBJlUV/mBJXfmYh+EHqxuITNDYzcQGFWBPZ4dUXEaQnv6jrXtOuiTJoUROycFhEpAmi3agCpRQgbzp68cA49ZyV174UJKiprckxIcMJA84hHImc9oo7jPOQ0kQ4RSvH6WXW7JiV6teszfQpDPGqEIK3DLSGpQbazsyaugvqLDVx77JIhbqp5wsxwtrRvPFI7NWDhEGtYYVrQSsgELzOiUQw4I2Vh8TRgA9YJqeIR6upDABQh9TpTAPE7WN3HlxLp084Foi3N54YN1KWEVpOMkkO2ZJHsmp3aVw/BGjqMXJE22jml0X93STRw1pReKSe0tk9fMxZ9nzwVXP5B+fgK/hAOCePsh8dAt4KcnXJR+D3S16X07a9veKD3KdnZba+J/UbyJ+Zl0IyF9rk3Wxr7jJenvcvnrcz+PtweItKuZ1Np0MScMp8zOvkvb1j/P+776jrX0UbZ9A+fYSTP)
+
 ---
 
 **Související**
