@@ -365,6 +365,8 @@ Import Maps jsou relativně nová funkcionalita prohlížečů. Ujistěte se že
 
 :::warning Poznámka k produkčnímu použití
 Dosavadní příklady jsou používány při development buildech Vue - pokud chcete Vue z&nbsp;CDN používat i v produkci, konzultujte s [Průvodcem nasazením do produkce](/guide/best-practices/production-deployment#without-build-tools).
+
+I když lze Vue používat i bez build fáze, alternativou je zvážit využití [`vuejs/petite-vue`](https://github.com/vuejs/petite-vue), které může lépe vyhovovat tam, kde by bylo možné sáhnout po [`jquery/jquery`](https://github.com/jquery/jquery) (v&nbsp;minulosti) nebo [`alpinejs/alpine`](https://github.com/alpinejs/alpine) (v současnosti).
 :::
 
 ### Rozdělování modulů {#splitting-up-the-modules}
