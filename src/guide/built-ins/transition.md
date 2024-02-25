@@ -20,7 +20,7 @@ Kromě těchto dvou komponent můžeme ve Vue aplikovat animace také pomocí da
 
 ## Komponenta `<Transition>` {#the-transition-component}
 
-`<Transition>` je vestavěná komponenta, což znamená, že je k dispozici v jakékoli šabloně komponenty, aniž by bylo nutné ji registrovat. Lze ji použít k aplikaci vstupních a výstupních animací na elementy nebo komponenty, které jsou jí předány prostřednictvím výchozího slotu. Vstup nebo výstup může být spuštěn jednou z následujících akcí:
+`<Transition>` je vestavěná komponenta, což znamená, že je k dispozici v jakékoli šabloně komponenty, aniž by bylo nutné ji registrovat. Lze ji použít k aplikaci vstupních a&nbsp;výstupních animací na elementy nebo komponenty, které jsou jí předány prostřednictvím výchozího slotu. Vstup nebo výstup může být spuštěn jednou z&nbsp;následujících akcí:
 
 - Podmíněné vykreslování přes `v-if`
 - Podmíněné zobrazení přes `v-show`
@@ -68,9 +68,9 @@ Zde je příklad nejzákladnějšího použití:
 
 Když je element v komponentě `<Transition>` vložen nebo odebrán, stane se toto:
 
-1. Vue automaticky zjistí, zda cílový má prvek aplikovány CSS přechody nebo animace. Pokud ano, budou v odpovídajících časech přidány / odebrány některé [CSS třídy přechodu](#transition-classes).
+1. Vue automaticky zjistí, zda má cílový prvek aplikovány CSS přechody nebo animace. Pokud ano, budou v odpovídajících časech přidány / odebrány některé [CSS třídy přechodu](#transition-classes).
 
-2. Pokud existují listenery pro [JS události](#javascript-hooks), budou jejich metody v odpovídajících časech provolány.
+2. Pokud existují listenery pro [JavaScript události](#javascript-hooks), budou jejich metody v odpovídajících časech provolány.
 
 3. Pokud nejsou detekovány žádné CSS přechody / animace a nejsou nastaveny žádné JavaScriptové události, operace DOM pro vložení a/nebo odebrání elementů budou provedeny v následujícím animačním snímku prohlížeče.
 
@@ -84,17 +84,17 @@ Existuje šest tříd aplikovaných pro přechody vstupu / výstupu.
 
 <!-- https://www.figma.com/file/rlOv0ZKJFFNA9hYmzdZv3S/Transition-Classes -->
 
-1. `v-enter-from`: Počáteční stav pro vstup. Je přidána před vložením prvku, odebráno jeden snímek po vložení prvku.
+1. `v-enter-from`: Počáteční stav pro vstup. Je přidána před vložením prvku, odebrána jeden snímek po vložení prvku.
 
 2. `v-enter-active`: Aktivní stav pro vstup. Používá se během celé fáze vstupu. Je přidána před vložením prvku a odstraněna po dokončení přechodu/animace. Třída může být použita k definici trvání (duration), zpoždění (delay) a křivky pro zjemnění (easing) pro vstupní přechod.
 
-3. `v-enter-to`: Koncový stav pro vstup. Je přidána jeden snímek po vložení prvku (ve stejný okamžik, kdy je odstraněno `v-enter-from`) a odstraněna po dokončení přechodu/animace.
+3. `v-enter-to`: Koncový stav pro vstup. Je přidána jeden snímek po vložení prvku (ve&nbsp;stejný okamžik, kdy je odstraněno `v-enter-from`) a odstraněna po dokončení přechodu/animace.
 
 4. `v-leave-from`: Počáteční stav pro odchod. Je přidána okamžitě po spuštění odchodového přechodu a odstraněna po jednom snímání.
 
 5. `v-leave-active`: Aktivní stav pro odchod. Používá se během celé fáze odchodu. Je přidána okamžitě po spuštění odchodového přechodu a odstraněna po dokončení přechodu/animace. Tato třída může být použita k definování trvání, zpoždění a křivky pro odchodový přechod.
 
-6. `v-leave-to`: Koncový stav pro odchod. Je přidána jeden snímek po spuštění odchodového přechodu (ve stejný okamžik, kdy je odstraněno `v-leave-from`) a odstraněna po dokončení přechodu/animace.
+6. `v-leave-to`: Koncový stav pro odchod. Je přidána jeden snímek po spuštění odchodového přechodu (ve stejný okamžik, kdy je odstraněno `v-leave-from`) a&nbsp;odstraněna po dokončení přechodu/animace.
 
 `v-enter-active` a `v-leave-active` nám pro vstupní / odchodové přechody umožňují specifikovat různé křivky uvolnění, jak uvidíme na příkladu v následujících sekcích.
 
@@ -124,7 +124,7 @@ Pro pojmenovaný přechod budou jeho přechodové třídy uvozeny místo předpo
 
 ### CSS přechody {#css-transitions}
 
-`<Transition>` se nejčastěji používá v kombinaci s [nativními CSS přechody](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions), jako v jednoduchém příkladu výše. CSS vlastnost `transition` je zkratka, která nám umožňuje specifikovat více různých aspektů přechodu, včetně vlastností, které by měly být animovány, trvání přechodu a [křivky pro zjemnění](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function).
+`<Transition>` se nejčastěji používá v kombinaci s [nativními CSS přechody](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions), jako v&nbsp;jednoduchém příkladu výše. CSS vlastnost `transition` je zkratka, která nám umožňuje specifikovat více různých aspektů přechodu, včetně vlastností, které by měly být animovány, trvání přechodu a [easing funkce](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function).
 
 Zde je více pokročilý příklad, který přechází mezi více vlastnostmi s různou dobou trvání a křivkami pro vstup a výstup:
 
@@ -176,7 +176,7 @@ Většinu CSS animací stačí deklarovat pod třídami `*-enter-active` a `*-le
 ```vue-html
 <Transition name="bounce">
   <p v-if="show" style="text-align: center;">
-    Ahoj, já jsem skákací text!
+    Ahoj, já jsem poskakující text!
   </p>
 </Transition>
 ```
@@ -253,7 +253,7 @@ Tyto třídy budou použity místo tříd s výchozími názvy. Obzvlášť uži
 
 Vue potřebuje připojit event listenery, aby vědělo, kdy přechod skončil. V závislosti na typu použitých CSS pravidel to může být buď `transitionend` nebo `animationend`. Pokud používáte pouze jeden z nich, Vue automaticky detekuje správný typ.
 
-Nicméně někdy můžete chtít mít na stejném elementu oba, například mít CSS animaci spouštěnou Vue spolu s efektem CSS přechodu při najetí myší. V těchto případech musíte explicitně deklarovat typ, o který se Vue stará, předáním vlastnosti `type` s hodnotou buď `animation` nebo `transition`:
+Nicméně někdy můžete chtít mít na stejném elementu oba, například mít CSS animaci spouštěnou Vue spolu s efektem CSS přechodu při najetí myší. V těchto případech musíte explicitně deklarovat typ, o který se Vue stará, předáním vlastnosti `type` s&nbsp;hodnotou buď `animation` nebo `transition`:
 
 ```vue-html
 <Transition type="animation">...</Transition>
@@ -261,7 +261,7 @@ Nicméně někdy můžete chtít mít na stejném elementu oba, například mít
 
 ### Vnořené přechody a explicitní délky přechodů {#nested-transitions-and-explicit-transition-durations}
 
-I přestože jsou přechodové třídy použity pouze na přímém potomkovi uvnitř `<Transition>`, můžeme přecházet na vnořené elementy pomocí vnořených CSS selektorů:
+Přestože jsou přechodové třídy použity pouze na přímém potomkovi uvnitř `<Transition>`, můžeme přecházet na vnořené elementy pomocí vnořených CSS selektorů:
 
 ```vue-html
 <Transition name="nested">
@@ -298,9 +298,9 @@ Můžeme dokonce přidat zpoždění přechodu na vnořený prvek při vstupu, c
 }
 ```
 
-Toto však vytváří malý problém. Výchozím chováním komponenty `<Transition>` je automaticky zjistit, kdy přechod skončil, posloucháním **prvního** události `transitionend` nebo `animationend` na root elementu přechodu. S vnořeným přechodem by však požadovaným chováním mělo být čekání, dokud neskončí i přechody všech vnitřních prvků.
+To však vytváří malý problém. Výchozím chováním komponenty `<Transition>` je automaticky zjistit, kdy přechod skončil, posloucháním **první** události `transitionend` nebo `animationend` na root elementu přechodu. S vnořeným přechodem by však požadovaným chováním mělo být čekání, dokud neskončí i přechody všech vnitřních prvků.
 
-V takových případech můžete specifikovat explicitní dobu přechodu (v milisekundách) pomocí vlastnosti `duration` na komponentě `<transition>`. Celková doba by měla odpovídat zpoždění plus době přechodu vnitřního prvku:
+V takových případech můžete specifikovat explicitní dobu přechodu (v milisekundách) pomocí vlastnosti `duration` na komponentě `<Transition>`. Celková doba by měla odpovídat zpoždění plus době přechodu vnitřního prvku:
 
 ```vue-html
 <Transition :duration="550">...</Transition>
@@ -309,7 +309,6 @@ V takových případech můžete specifikovat explicitní dobu přechodu (v mili
 <NestedTransitions />
 
 [Vyzkoušejte si to](https://play.vuejs.org/#eNqVVd9v0zAQ/leO8LAfrE3HNKSFbgKmSYMHQNAHkPLiOtfEm2NHttN2mvq/c7bTNi1jgFop9t13d9995ziPyfumGc5bTLJkbLkRjQOLrm2uciXqRhsHj2BwBiuYGV3DAUEPcpUrrpUlaKUXcOkBh860eJSrcRqzUDxtHNaNZA5pBzCets5pBe+4FPz+Mk+66Bf+mSdXE12WEsdphMWQiWHKCicoLCtaw/yKIs/PR3kCitVIG4XWYUEJfATFFGIO84GYdRUIyCWzlra6dWg2wA66dgqlts7c+d8tSqk34JTQ6xqb9TjdUiTDOO21TFvrHqRfDkPpExiGKvBITjdl/L40ulVFBi8R8a3P17CiEKrM4GzULIOlFmpQoSgrl8HpKFpX3kFZu2y0BNhJxznvwaJCA1TEYcC4E3MkKp1VIptjZ43E3KajDJiUMBqeWUBmcUBUqJGYOT2GAiV7gJAA9Iy4GyoBKLH2z+N0W3q/CMC2yCCkyajM63Mbc+9z9mfvZD+b071MM23qLC69+j8PvX5HQUDdMC6cL7BOTtQXCJwpas/qHhWIBdYtWGgtDWNttWTmThu701pf1W6+v1Hd8Xbz+k+VQxmv8i7Fv1HZn+g/iv2nRkjzbd6npf/Rkz49DifQ3dLZBBYOJzC4rqgCwsUbmLYlCAUVU4XsCd1NrCeRHcYXb1IJC/RX2hEYCwJTvHYVMZoavbBI09FmU+LiFSzIh0AIXy1mqZiFKaKCmVhiEVJ7GftHZTganUZ56EYLL3FykjhL195MlMM7qxXdmEGDPOG6boRE86UJVPMki+p4H01WLz4Fm78hSdBo5xXy+yfsd3bpbXny1SA1M8c82fgcMyW66L75/hmXtN44a120ktDPOL+h1bL1HCPsA42DaPdwge3HcO/TOCb2ZumQJtA15Yl65Crg84S+BdfPtL6lezY8C3GkZ7L6Bc1zNR0=)
-```
 
 Pokud je to nutné, můžete specifikovat i samostatné hodnoty pro dobu trvání při vstupu a odchodu pomocí objektu:
 
@@ -325,7 +324,7 @@ Můžete si všimnout, že animace zobrazené výše využívají převážně v
 
 2. Většina moderních prohlížečů může využít hardwarovou akceleraci GPU během `transform` animace.
 
-Naopak vlastnosti jako `height` nebo `margin` vyvolají změnu CSS layoutu, takže jsou na animaci mnohem dražší a měly by být používány opatrně. Abychom zjistili, které všechny CSS vlastnosti vyvolají při animaci změnu layoutu, můžeme zkontrolovat zdroje jako [CSS-Triggers](https://csstriggers.com/).
+Naopak vlastnosti jako `height` nebo `margin` vyvolají změnu CSS layoutu, takže jsou na animaci mnohem dražší a měly by se používat opatrně. Pro zjištění, které všechny CSS vlastnosti změnu layoutu při animaci vyvolají, můžeme použít zdroje jako [CSS Triggers](https://csstriggers.com/).
 
 ## JavaScript události {#javascript-hooks}
 
@@ -570,7 +569,7 @@ Zde je předchozí demo s `mode="out-in"`:
 
 ## Dynamické přechody {#dynamic-transitions}
 
-Vlastnosti (props) `<Transition>` jako `name` mohou být také dynamické! To nám umožňuje používat různé přechody operativně na základě změny stavu:
+Vlastnosti `<Transition>` jako `name` mohou být také dynamické! To nám umožňuje používat různé přechody operativně na základě změny stavu:
 
 ```vue-html
 <Transition :name="transitionName">
@@ -578,7 +577,7 @@ Vlastnosti (props) `<Transition>` jako `name` mohou být také dynamické! To n�
 </Transition>
 ```
 
-To může být užitečné, pokud jste definovali přechody / animace pomocí konvenčních tříd Vue přechodů a chcete mezi nimi přepínat.
+Může to být užitečné, pokud jste definovali přechody / animace pomocí konvenčních tříd Vue přechodů a chcete mezi nimi přepínat.
 
 Můžete také aplikovat různé chování v JavaScriptových metodách pro přechod na základě aktuálního stavu vaší komponenty. V neposlední řadě, nejlepší způsob vytváření dynamických přechodů je pomocí [znovupoužitelných přechodů](#reusable-transitions), komponent, které přijímají vlastnosti (props) pro změnu povahy použitých přechodů. Možná to zní trochu kýčovitě, ale opravdu jediným omezením je vaše představivost.
 

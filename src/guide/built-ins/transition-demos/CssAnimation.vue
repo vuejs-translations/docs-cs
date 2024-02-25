@@ -8,7 +8,7 @@ const show = ref(true)
     <button @click="show = !show">Změnit zobrazení</button>
     <Transition name="bounce">
       <p v-if="show" style="margin-top: 20px; text-align: center">
-        Ahoj, já jsem skákací text!
+        Ahoj, já jsem poskakující text!
       </p>
     </Transition>
   </div>
