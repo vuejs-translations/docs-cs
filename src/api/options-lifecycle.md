@@ -18,7 +18,9 @@ Voláno při inicializaci instance.
 
 - **Podrobnosti**
 
-  Voláno okamžitě po inicializaci instance, po vyřešení vlastností (props), před zpracováním dalších možností (options), jako je `data()` nebo `computed`.
+  Voláno okamžitě po inicializaci instance a po vyřešení (resolve) vlastností (props).
+  
+  Až po této metodě proběhne definice reaktivních proměnných pro vlastnosti a nastavení prvků stavu jako jsou `data()` nebo `computed`.
 
   Pamatujte, že `setup()` hook z Composition API je volán před jakýmkoli hookem Options API, včetně `beforeCreate()`.
 
