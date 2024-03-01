@@ -407,6 +407,8 @@ export default {
 
     // voláno po dokončení vstupního přechodu
     onAfterEnter(el) {},
+
+    // called when the enter transition is cancelled before completion.
     onEnterCancelled(el) {},
 
     // voláno před odchodem
