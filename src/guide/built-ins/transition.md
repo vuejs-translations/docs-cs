@@ -407,6 +407,8 @@ export default {
 
     // voláno po dokončení vstupního přechodu
     onAfterEnter(el) {},
+
+    // voláno, pokud je vstupní přechod zrušen (cancelled) před dokončením
     onEnterCancelled(el) {},
 
     // voláno před odchodem
