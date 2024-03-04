@@ -181,7 +181,7 @@ Možnost `emits` a `defineEmits()` makro také podporují objektovou syntaxi. P�
 <div class="composition-api">
 
 ```vue
-<script setup>
+<script setup lang="ts">
 const emit = defineEmits({
   submit(payload: { email: string, password: string }) {
     // vrací `true` nebo `false` pro určení,
