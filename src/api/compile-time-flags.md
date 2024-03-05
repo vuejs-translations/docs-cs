@@ -26,7 +26,7 @@ Podívejte se na [Průvodce konfigurací](#configuration-guides), jak je nakonfi
 
   Povolit / zakázat podporu nástrojů pro vývoj (DevTools) v produkčních buildech. Povolení povede k zahrnutí více kódu do distribučního balíčku, proto se doporučuje tuto možnost povolit pouze pro účely ladění.
 
-## `__VUE_PROD_HYDRATION_MISMATCH_DETAILS__` <sup class="vt-badge" data-text="3.4+" /> {#VUE_PROD_HYDRATATION_MISMATCH_DETAILS}
+## `__VUE_PROD_HYDRATION_MISMATCH_DETAILS__` <sup class="vt-badge" data-text="3.4+" /> {#VUE_PROD_HYDRATION_MISMATCH_DETAILS}
 
 - **Výchozí hodnota:** `false`
 
