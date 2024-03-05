@@ -224,7 +224,7 @@ export function register() {
 
 Pokud máte mnoho komponent, můžete také využít funkce build nástroje, jako je [globální import pro Vite](https://vitejs.dev/guide/features.html#glob-import) nebo [`require.context` pro webpack](https://webpack.js.org/guides/dependency-management/#requirecontext), abyste načetli všechny komponenty z adresáře.
 
-### Web Components a Typescript {#web-components-and-typescript}
+### Web Components a TypeScript {#web-components-and-typescript}
 
 Pokud vyvíjíte aplikaci nebo knihovnu, můžete chtít [ověřovat typy](/guide/scaling-up/tooling.html#typescript) vašich Vue komponent, včetně těch, které jsou definovány jako custom elementy.
 
