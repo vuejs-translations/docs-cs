@@ -32,8 +32,6 @@ Při použití Vite-based nastavení jsou vývojový (dev) server a bundler tran
     Vue - Official nahrazuje [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), naše předchozí oficiální rozšíření VSCode pro Vue 2. Pokud máte momentálně nainstalovaný Vetur, ujistěte se, že ho ve Vue 3 projektech vypnete.
     :::
 
-  - Pro typovou podporu pro importy `*.vue` v TS souborech je také potřeba [TypeScript Vue Plugin](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
 - [WebStorm](https://www.jetbrains.com/webstorm/) též poskytuje nativní podporu jak pro TypeScript, tak pro Vue. Další JetBrains IDE je také podporují, buď nativně nebo pomocí [bezplatného pluginu](https://plugins.jetbrains.com/plugin/9442-vue-js). Od verze 2023.2 obsahuje WebStorm a Vue Plugin vestavěnou podporu pro Vue Language Server. Můžete nastavit službu Vue tak, aby používala integraci Volar na všech verzích TypeScriptu v _Settings > Languages & Frameworks > TypeScript > Vue_. Výchozí nastavení používá Volar pro verze TypeScriptu 5.0 a vyšší.
 
 ### Konfigurace `tsconfig.json` {#configuring-tsconfig-json}
@@ -54,24 +52,6 @@ Viz také:
 
 - [Oficiální dokumentace k volbám TypeScript překladače](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
 - [Poznámky k překladu TypeScriptu v esbuild](https://esbuild.github.io/content-types/#typescript-caveats)
-
-### Režim převzetí Volar {#volar-takeover-mode}
-
-> Tato sekce se vztahuje pouze na VSCode + Volar.
-
-Pro zajištění spolupráce Vue SFC a TypeScriptu dohromady vytváří Volar samostatnou instanci služby jazyka TS se specifickou podporou pro Vue a používá ji ve Vue SFC. Zároveň jsou běžné soubory TS stále zpracovávány vestavěnou službou jazyka TS ve VSCode, a proto potřebujeme [TypeScript Vue Plugin](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) pro podporu importů Vue SFC v TS souborech. Tato výchozí konfigurace funguje, ale pro každý projekt spouštíme dvě instance služby jazyka TS: jednu od Volar a jednu od vestavěné služby ve VSCode. To je trochu neefektivní a může vést k problémům s výkonem v rozsáhlých projektech.
-
-Volar pro zlepšení výkonu poskytuje funkci nazvanou "Režim převzetí" (Takeover Mode). V režimu převzetí Volar poskytuje podporu jak pro soubory Vue, tak pro soubory TS pomocí jediné instance služby jazyka TS.
-
-Pro povolení režimu převzetí musíte v **pracovním prostoru svého projektu** zakázat vestavěnou službu jazyka TS ve VSCode pomocí těchto kroků:
-
-1. Ve pracovním prostoru svého projektu zobrazte nabídku příkazů pomocí `Ctrl + Shift + P` (macOS: `Cmd + Shift + P`).
-2. Zadejte `built` a vyberte "Extensions: Show Built-in Extensions".
-3. Do vyhledávacího pole rozšíření zadejte `typescript` (neodstraňujte předponu `@builtin`).
-4. Klepněte na malou ikonu ozubeného kola u "TypeScript and JavaScript Language Features" a vyberte "Disable (Workspace)".
-5. Obnovte pracovní prostor. Režim převzetí bude povolen při otevření souboru Vue nebo TS.
-
-<img src="./images/takeover-mode.png" width="590" height="426" style="margin:0px auto;border-radius:8px">
 
 ### Poznámka k Vue CLI a `ts-loader` {#note-on-vue-cli-and-ts-loader}
 
