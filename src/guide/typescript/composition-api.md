@@ -411,8 +411,6 @@ const openModal = () => {
 </script>
 ```
 
-Pamatujte, že pokud chcete použít tuto techniku v TypeScriptových souborech místo Vue SFC, musíte povolit  [Volar Takeover Mode](./overview#volar-takeover-mode).
-
 V případech, kdy přesný typ komponenty není dostupný nebo není důležitý, lze místo toho použít `ComponentPublicInstance`. Pak bude obsahovat pouze vlastnosti, které jsou sdílené všemi komponentami, jako například `$el`:
 
 ```ts
