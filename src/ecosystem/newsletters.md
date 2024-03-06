@@ -8,6 +8,5 @@ Zde je (neúplný) seznam těch aktivních, na které jsme narazili:
 - [Jakub Andrzejewski](https://dev.to/jacobandrewsky)
 - [Weekly Vue News](https://weekly-vue.news/)
 - [Vue.js Developers Newsletter](https://vuejsdevelopers.com/newsletter/)
-- [VueDose](https://vuedose.tips/articles#newsletter)
 
 Pokud znáte další skvělé weby, které tu ještě nejsou zahrnuty, zadejte prosím pull request pomocí odkazu níže!
