@@ -786,7 +786,7 @@ Funkční komponenty mohou být registrovány a používány stejně jako běžn
 
 ### Typování funkčních komponent<sup class="vt-badge ts" /> {#typování-funkčních-komponent}
 
-Funkční komponenty mohou být typovány na základě toho, zda jsou pojmenované nebo anonymní. Volar také podporuje kontrolu typů správně typovaných funkčních komponent při jejich použití v SFC šablonách.
+Funkční komponenty mohou být typovány na základě toho, zda jsou pojmenované nebo anonymní. [Rozšíření Vue - Official](https://github.com/vuejs/language-tools) také podporuje kontrolu typů správně typovaných funkčních komponent při jejich použití v SFC šablonách.
 
 **Pojmenovaná funkční komponenta**
 

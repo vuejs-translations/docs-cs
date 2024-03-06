@@ -26,7 +26,7 @@ Při použití Vite-based nastavení jsou vývojový (dev) server a bundler tran
 
 - Silně doporučujeme [Visual Studio Code](https://code.visualstudio.com/) (VSCode) pro jeho skvělou podporu TypeScriptu bez dalšího nastavování.
 
-  - [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (dříve Volar) je oficiální rozšíření pro VSCode, které poskytuje podporu TypeScriptu pro Vue SFC, spolu s mnoha dalšími skvělými funkcemi.
+  - [Rozšíření Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (dříve Volar) je oficiální rozšíření pro VSCode, které poskytuje podporu TypeScriptu pro Vue SFC, spolu s mnoha dalšími skvělými funkcemi.
 
     :::tip
     Vue - Official nahrazuje [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), naše předchozí oficiální rozšíření VSCode pro Vue 2. Pokud máte momentálně nainstalovaný Vetur, ujistěte se, že ho ve Vue 3 projektech vypnete.

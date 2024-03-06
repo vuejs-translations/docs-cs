@@ -86,10 +86,10 @@ Pokud hledáte odlehčenou alternativu pro použití bez build fáze, podívejte
 
 ## Podpora v IDE {#ide-support}
 
-- Doporučené nastavení IDE je [VSCode](https://code.visualstudio.com/) + rozšíření [Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar). Rozšíření poskytuje zvýrazňování syntaxe, podporu TypeScriptu a inteligentní nápovědu pro výrazy šablon a vlastnosti (props) komponent.
+- Doporučené nastavení IDE je [VSCode](https://code.visualstudio.com/) + [rozšíření Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (dříve Volar). Rozšíření poskytuje zvýrazňování syntaxe, podporu TypeScriptu a inteligentní nápovědu pro výrazy šablon a vlastnosti (props) komponent.
 
   :::tip
-    Volar nahrazuje [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), naše předchozí oficiální rozšíření VSCode pro Vue 2. Pokud máte momentálně nainstalovaný Vetur, ujistěte se, že ho ve Vue 3 projektech vypnete.
+    Vue - Official nahrazuje [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), naše předchozí oficiální rozšíření VSCode pro Vue 2. Pokud máte momentálně nainstalovaný Vetur, ujistěte se, že ho ve Vue 3 projektech vypnete.
   :::
 
 - [WebStorm](https://www.jetbrains.com/webstorm/) též poskytuje skvělou vestavěnou podporu pro Vue SFC.
@@ -120,7 +120,7 @@ Rozšíření prohlížeče Vue devtools vám umožňuje prozkoumat strom kompon
 
 Hlavní článek: [Používání Vue s TypeScriptem](/guide/typescript/overview).
 
-- [Volar](https://github.com/johnsoncodehk/volar) poskytuje typovou pro SFC pomocí bloků `<script lang="ts">`, včetně výrazů šablony a ověřování vlastností (props) mezi komponentami.
+- [Rozšíření Vue - Official](https://github.com/vuejs/language-tools) poskytuje typovou pro SFC pomocí bloků `<script lang="ts">`, včetně výrazů šablony a ověřování vlastností (props) mezi komponentami.
 
 - Použijte [`vue-tsc`](https://github.com/vuejs/language-tools/tree/master/packages/tsc) pro provádění stejné typové kontroly z příkazového řádku nebo pro generování souborů `d.ts` pro SFC.
 
@@ -150,9 +150,9 @@ Uživatelé, kteří dříve používali Vue CLI, mohou být zvyklí na konfigur
 
 ## Formátování {#formatting}
 
-- Rozšíření [Volar](https://github.com/johnsoncodehk/volar) pro VSCode samo o sobě poskytuje formátování pro Vue SFC.
+- [Rozšíření Vue - Official](https://github.com/vuejs/language-tools) pro VSCode samo o sobě poskytuje formátování pro Vue SFC.
 
-- Alternativně, [Prettier](https://prettier.io/) poskytuje vestavěnou podporu pro formátování Vue SFC.
+- Alternativně nabízí vestavěnou podporu pro formátování Vue SFC také [Prettier](https://prettier.io/).
 
 ## Nástroje pro integraci vlastních SFC bloků  {#sfc-custom-block-integrations}
 
