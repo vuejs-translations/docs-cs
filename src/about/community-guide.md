@@ -23,7 +23,7 @@ Náš [Kodex chování](/about/coc) je průvodcem, který usnadní obohacení n�
 
 ### Získejte podporu {#get-support}
 
-- [Discord Chat](https://chat.vuejs.org/): Místo, kde se mohou Vue vývojáři setkávat a chatovat v reálném čase.
+- [Discord Chat](https://discord.com/invite/vue): Místo, kde se mohou Vue vývojáři setkávat a chatovat v reálném čase.
 - [Fórum](https://forum.vuejs.org/): Nejlepší místo, kde můžete klást otázky a dostat odpovědi o Vue a jeho ekosystému.
 - [DEV komunita](https://dev.to/t/vue): Sdílejte a diskutujte o tématech souvisejících s Vue na Dev.to.
 - [Meetups](https://events.vuejs.org/meetups): Chcete najít místní Vue nadšence, jako jste vy? Máte zájem stát se lídrem komunity? Pomoc a podporu, kterou potřebujete, máme přímo zde!
