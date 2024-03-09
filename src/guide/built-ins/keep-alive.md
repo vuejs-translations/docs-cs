@@ -8,21 +8,21 @@ import SwitchComponent from './keep-alive-demos/SwitchComponent.vue'
 
 ## Základní použití {#basic-usage}
 
-V kapitole Základy komponent jsme představili syntaxi pro [Dynamické komponenty](/guide/essentials/component-basics#dynamic-components) s použitím speciálního elementu `<component>`:
+V kapitole Základy komponent jsme představili syntaxi pro [Dynamické komponenty](/guide/essentials/component-basics#dynamic-components) s&nbsp;použitím speciálního elementu `<component>`:
 
 ```vue-html
 <component :is="activeComponent" />
 ```
 
-Ve výchozím nastavení bude instance aktivní komponenty odpojena (unmounted), když se z ní přesunete jinam. To způsobí ztrátu jakýchkoli změn stavu, které si drží. Když se tato komponenta znovu zobrazí, vytvoří se nová instance pouze ve výchozím stavu.
+Ve výchozím nastavení bude instance aktivní komponenty odpojena (unmounted), když se z ní přesunete jinam. To způsobí ztrátu jakýchkoli změn stavu, které si drží. Když se tato komponenta znovu zobrazí, vytvoří se nová instance čistě ve výchozím stavu.
 
-V příkladu níže máme dvě stavové komponenty – A obsahuje počítadlo, zatímco B obsahuje zprávu synchronizovanou s uživatelským vstupem přes `v-model`. Zkuste aktualizovat stav jedné z nich, přepněte na druhou a poté se do ni přepněte zpátky:
+V příkladu níže máme dvě stavové komponenty – A obsahuje počítadlo, zatímco B obsahuje zprávu synchronizovanou s uživatelským vstupem přes `v-model`. Zkuste aktualizovat stav jedné z nich, přepněte na druhou a poté se do ní přepněte zpátky:
 
 <SwitchComponent />
 
 Uvidíte, že po přepnutí zpět byl předchozí změněný stav resetován.
 
-Vytváření nové instance komponenty po přepnutí je normálně užitečné chování, ale v tomto případě bychom opravdu rádi, aby byly tyto dvě instance komponent zachovány, i když jsou neaktivní. Abychom tento problém vyřešili, můžeme naši dynamickou komponentu zabalit  do vestavěné komponenty `<KeepAlive>`:
+Vytváření nové instance komponenty po přepnutí je normálně užitečné chování, ale v&nbsp;tomto případě bychom opravdu rádi, aby byly tyto dvě instance komponent zachovány, i když jsou neaktivní. Abychom tento problém vyřešili, můžeme naši dynamickou komponentu zabalit  do vestavěné komponenty `<KeepAlive>`:
 
 ```vue-html
 <!-- neaktivní komponenty budou umístěny do cache -->
@@ -47,12 +47,12 @@ Nyní bude mezi přepínámím komponent stav zachován:
 </div>
 
 :::tip
-Při použití v [in-DOM šablonách](/guide/essentials/component-basics#in-dom-template-parsing-caveats), měla by být používána jako `<keep-alive>`.
+Při použití v [in-DOM šablonách](/guide/essentials/component-basics#in-dom-template-parsing-caveats) by měl být použit zápis `<keep-alive>`.
 :::
 
 ## Include / Exclude {#include-exclude}
 
-Ve výchozím nastavení `<KeepAlive>` bude do cache umisťovat každou komponentu uvnitř. Můžeme toto chování upravit pomocí vlastností (props) `include` a `exclude`. Obě vlastnosti mohou být řetězce oddělený čárkami, regulární výraz nebo pole obsahující libovolné hodnoty obou typů:
+Ve výchozím nastavení `<KeepAlive>` bude do cache umisťovat každou komponentu uvnitř. Můžeme toto chování upravit pomocí vlastností (props) `include` a `exclude`. Obě vlastnosti mohou být řetězce oddělené čárkami, regulární výraz nebo pole obsahující libovolné hodnoty obou typů:
 
 ```vue-html
 <!-- řetězce oddělené čárkami -->
@@ -60,18 +60,18 @@ Ve výchozím nastavení `<KeepAlive>` bude do cache umisťovat každou komponen
   <component :is="view" />
 </KeepAlive>
 
-<!-- regex (použijete `v-bind`) -->
+<!-- regex (použijte `v-bind`) -->
 <KeepAlive :include="/a|b/">
   <component :is="view" />
 </KeepAlive>
 
-<!-- pole (použijete `v-bind`) -->
+<!-- pole (použijte `v-bind`) -->
 <KeepAlive :include="['a', 'b']">
   <component :is="view" />
 </KeepAlive>
 ```
 
-Shoda je porovnávána s atributem [`name`] (/api/options-misc#name) komponenty, takže ty, které je třeba podmíněně uložit do cache pomocí `KeepAlive`, musí explicitně deklarovat atribut `name`.
+Shoda je porovnávána s atributem [`name`](/api/options-misc#name) komponenty, takže ty, které je třeba podmíněně uložit do cache pomocí `KeepAlive`, musí atribut `name` explicitně deklarovat.
 
 :::tip
 Od verze 3.2.34 odvodí Single-File komponenta (SFC) používající `<script setup>` svou vlastnost `name` automaticky na základě názvu souboru, čímž nutnost deklarovat jméno ručně odpadá.
@@ -93,7 +93,7 @@ Když je instance komponenty odstraněna z DOM, ale je součástí stromu kompon
 
 <div class="composition-api">
 
-"Kept-alive" komponenta může registrovat lifecycle hooks pro tyto dva stavy pomocí [`onActivated()`](/api/composition-api-lifecycle#onactivated) a [`onDeactivated()`](/api/composition-api-lifecycle#ondeactivated):
+„Kept-alive“ komponenta může registrovat lifecycle hooks pro tyto dva stavy pomocí [`onActivated()`](/api/composition-api-lifecycle#onactivated) a [`onDeactivated()`](/api/composition-api-lifecycle#ondeactivated):
 
 ```vue
 <script setup>
@@ -141,4 +141,4 @@ Pamatujte, že:
 
 **Související**
 
-- [`<KeepAlive>` API reference](/api/built-in-components#keepalive)
+- [API reference pro `<KeepAlive>`](/api/built-in-components#keepalive)

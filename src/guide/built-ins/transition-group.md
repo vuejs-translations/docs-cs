@@ -10,23 +10,23 @@ import ListStagger from './transition-demos/ListStagger.vue'
 
 ## Rozdíly oproti `<Transition>` {#differences-from-transition}
 
-`<TransitionGroup>` podporuje stejné vlastnosti, CSS transiton třídy a listenery JavaScriptových událostí jako `<Transition>`, s následujícími rozdíly:
+`<TransitionGroup>` podporuje stejné vlastnosti, CSS třídy přechodu a listenery JavaScriptových událostí jako `<Transition>`, s následujícími rozdíly:
 
 - Výchozí nastavení nevykresluje obalující element. Můžete však specifikovat element, který bude vykreslen, pomocí vlastnosti `tag`.
 
-- [Transition režimy](./transition#transition-modes) nejsou k dispozici, protože již nepřepínáme mezi navzájem exkluzivními elementy.
+- [Režimy přechodu](./transition#transition-modes) nejsou k dispozici, protože již nepřepínáme mezi navzájem exkluzivními elementy.
 
-- Prvky uvnitř **vždy musí** mít unikátní atribut `key`.
+- Prvky uvnitř **musí vždy** mít unikátní atribut `key`.
 
-- CSS transition třídy jsou aplikovány na jednotlivé prvky v seznamu, **nikoli** na skupinu / kontejner samotný.
+- CSS třídy přechodu jsou aplikovány na jednotlivé prvky v seznamu, **nikoli** na skupinu / kontejner samotný.
 
 :::tip
-Při použití v [in-DOM šabloných](/guide/essentials/component-basics#in-dom-template-parsing-caveats), měla by být zapsána jako `<transition-group>`.
+Při použití v [in-DOM šabloných](/guide/essentials/component-basics#in-dom-template-parsing-caveats) by měl být použit zápis `<transition-group>`.
 :::
 
 ## Přechody při vstupu / odchodu {#enter-leave-transitions}
 
-Zde je příklad použití transitions při vstupu na / odchodu z seznamu vytvořeného pomocí `v-for` s využitím `<TransitionGroup>`:
+Zde je příklad použití přechodů při vstupu na / odchodu ze seznamu vytvořeného pomocí `v-for` s využitím `<TransitionGroup>`:
 
 ```vue-html
 <TransitionGroup name="list" tag="ul">
@@ -52,10 +52,10 @@ Zde je příklad použití transitions při vstupu na / odchodu z seznamu vytvo�
 
 ## Přechody při pohybu {#move-transitions}
 
-Výše uvedený příklad má několik zjevných nedostatků: když je prvek vložen nebo odstraněn, okolní prvky okamžitě "skočí" na své místo místo plynulého pohybu. To můžeme opravit přidáním několika dalších CSS pravidel:
+Výše uvedený příklad má několik zjevných nedostatků: když je prvek vložen nebo odstraněn, okolní prvky místo plynulého pohybu okamžitě „skočí“ na své místo. To můžeme opravit přidáním několika dalších CSS pravidel:
 
 ```css{1,13-17}
-.list-move, /* aplikuj transition na pohybující se prvky */
+.list-move, /* aplikuj přechod na pohybující se prvky */
 .list-enter-active,
 .list-leave-active {
   transition: all 0.5s ease;
@@ -67,7 +67,8 @@ Výše uvedený příklad má několik zjevných nedostatků: když je prvek vlo
   transform: translateX(30px);
 }
 
-/* zajistí, že odcházející prvky jsou vyjmuty z layout flow, aby bylo možné správně vypočítat pohybové animace */
+/* zajistí, že odcházející prvky jsou vyjmuty z layout flow, 
+aby bylo možné správně vypočítat pohybové animace */
 .list-leave-active {
   position: absolute;
 }
@@ -79,9 +80,9 @@ Teď to vypadá mnohem lépe - dokonce se plynule animuje, když je celý seznam
 
 [Celý příklad](/examples/#list-transition)
 
-## Překrývané přechody seznamu {#staggering-list-transitions}
+## Posunuté přechody seznamu {#staggering-list-transitions}
 
-Komunikací pomocí datových atributů je také možné přechody v seznamu překrývat. Nejprve vykreslíme index položky jako datový atribut na DOM elementu:
+Komunikací s třídami přechodu pomocí datových atributů je také možné přechody v&nbsp;seznamu posunout (stagger). Nejprve vykreslíme index položky jako datový atribut DOM elementu:
 
 ```vue-html{11}
 <TransitionGroup
