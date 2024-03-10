@@ -6,7 +6,7 @@ import { VTCodeGroup, VTCodeGroupTab } from '@vue/theme'
 
 ## Proč testovat? {#why-test}
 
-Automatizované testy vám a vašemu týmu pomáhají rychle a sebejistě stavět složité Vue aplikace tím, že předcházejí regresím a podporují rozdělení vaší aplikace na testovatelné funkce, moduly, třídy a komponenty. Stejně jako u jakékoli aplikace může vaše nová Vue aplikace selhat různými způsoby a je důležité, abyste tyto problémy odhalili a opravili před vydáním.
+Automatizované testy vám a vašemu týmu pomáhají rychle a sebejistě stavět složité Vue aplikace tím, že předcházejí regresím a podporují rozdělení vaší aplikace na testovatelné funkce, moduly, třídy a komponenty. Stejně jako u jakéhokoli jiného programu může vaše nová Vue aplikace různými způsoby selhat a je důležité, abyste tyto problémy odhalili a&nbsp;opravili před vydáním.
 
 V této příručce se budeme zabývat základní terminologií a poskytneme naše doporučení ohledně nástrojů, které si pro vaši Vue 3 aplikaci vybrat.
 
@@ -14,17 +14,17 @@ Existuje jedna sekce specifická pro Vue, která se zabývá composable funkcemi
 
 ## Kdy testovat? {#when-to-test}
 
-Začněte testovat brzy! Doporučujeme začít psát testy co nejdříve. Čím déle s přidáním testů do vaší aplikace čekáte, tím více závislostí bude vaše aplikace mít a tím těžší bude začít.
+Začněte testovat brzy! Doporučujeme začít psát testy co nejdříve. Čím déle s přidáním testů do vaší aplikace čekáte, tím více závislostí bude mít, a tím těžší bude začít.
 
 ## Typy testování {#testing-types}
 
-Při návrhu strategie testování vaší Vue aplikace byste měli využít následující typy testování:
+Při návrhu strategie testování vaší Vue aplikace byste měli využít následující typy testů:
 
 - **Jednotkové**: Kontrolují, zda vstupy do dané funkce, třídy nebo composable funkce produkují očekávaný výstup nebo vedlejší efekty.
 - **Komponentové**: Kontrolují, zda se vaše komponenta připojuje (mounts), vykresluje se, lze s ní interagovat a chová se tak, jak se očekává. Tyto testy importují více kódu než jednotkové (unit) testy, jsou složitější a vyžadují více času na vykonání.
 - **End-to-end**: Kontrolují funkce, které se rozprostírají přes více stránek a provádí skutečné síťové požadavky na vaši produkční Vue aplikaci. Tyto testy často zahrnují spuštění databáze nebo jiného backendu.
 
-Každý typ testování hraje ve strategii testování vaší aplikace roli a každý vás ochrání před různými typy problémů.
+Každý typ hraje ve strategii testování vaší aplikace roli a každý vás ochrání před různými typy problémů.
 
 ## Přehled {#overview}
 
@@ -32,7 +32,7 @@ Stručně si popíšeme, co to jsou jednotkové, komponentové a end-to-end test
 
 ## Jednotkové testování {#unit-testing}
 
-Jednotkové (Unit) testy jsou psány k ověření, že malé, izolované části kódu fungují správně. Jednotkový test obvykle pokrývá jednu funkci, třídu, composable nebo modul. Jednotkové testy se zaměřují na logickou správnost a zabývají se pouze malou částí celkové funkcionality aplikace. Mohou simulovat velkou část prostředí vaší aplikace (např. počáteční stav, složité třídy, moduly třetích stran a síťové požadavky).
+Jednotkové (unit) testy jsou psány k ověření, že malé, izolované části kódu fungují správně. Jednotkový test obvykle pokrývá jednu funkci, třídu, composable nebo modul. Jednotkové testy se zaměřují na logickou správnost a zabývají se pouze malou částí celkové funkcionality aplikace. Mohou simulovat velkou část prostředí vaší aplikace (např. počáteční stav, složité třídy, moduly třetích stran a síťové požadavky).
 
 Obecně platí, že jednotkové testy odhalí problémy s business logikou a logickou správností funkce.
 
@@ -91,21 +91,21 @@ Komponentu lze testovat dvěma způsoby:
 
 1. Whitebox: Jednotkové testování
 
-   Testy označované jako "Whitebox testy" jsou obeznámené s implementačními detaily a závislostmi komponenty. Zaměřují se na **izolaci** testované komponenty. Tyto testy obvykle zahrnují mockování některých nebo všech potomků komponenty, stejně jako nastavení stavu pluginu a závislostí (např. Pinia).
+   Testy označované jako „Whitebox testy“ jsou obeznámené s implementačními detaily a závislostmi komponenty. Zaměřují se na **izolaci** testované komponenty. Tyto testy obvykle zahrnují mockování některých nebo všech potomků komponenty, stejně jako nastavení stavu pluginu a závislostí (např. Pinia).
 
 2. Blackbox: Komponentové testování
 
-   Testy označované jako "Blackbox testy" nejsou obeznámené s implementačními detaily komponenty. Tyto testy mockují co nejméně, aby otestovaly integraci komponenty a celého systému. Obvykle vykreslují všechny potomky komponenty a jsou považovány za "integrační testy". Viz [doporučení pro testování komponent](#component-testing) níže.
+   Testy označované jako „Blackbox testy“ nejsou obeznámené s implementačními detaily komponenty. Tyto testy mockují co nejméně, aby otestovaly integraci komponenty a celého systému. Obvykle vykreslují všechny potomky komponenty a&nbsp;jsou považovány za „integrační testy“. Viz [doporučení pro testování komponent](#component-testing) níže.
 
 ### Doporučení {#recommendation}
 
 - [Vitest](https://vitest.dev/)
 
-  Jelikož oficiální nastavení vytvořené pomocí `create-vue` je založeno na [Vite](https://vitejs.dev/), doporučujeme použít unit test framework, který může přímo využít stejnou konfiguraci a transformační pipeline z Vite. [Vitest](https://vitest.dev/) je unit test framework navržený speciálně pro tento účel, vytvořený a udržovaný členy týmu Vue / Vite. Snadno se integruje s projekty založenými na Vite a je velmi rychlý.
+  Jelikož oficiální nastavení vytvořené pomocí `create-vue` je založeno na [Vite](https://vitejs.dev/), doporučujeme použít unit test framework, který může přímo využít stejnou konfiguraci a transformační pipeline z Vite. [Vitest](https://vitest.dev/) je unit test framework navržený speciálně pro tento účel, vytvořený a udržovaný členy týmu Vue / Vite. Snadno se integruje s&nbsp;projekty založenými na Vite a je velmi rychlý.
 
 ### Další možnosti {#other-options}
 
-- [Jest](https://jestjs.io/) je populární unit test framework. Nicméně, doporučujeme použít Jest pouze v případě, že máte existující sadu Jest test, kterou je potřeba migrovat do projektu založeného na Vite. Vitest nabízí plynulejší integraci a lepší výkon.
+- [Jest](https://jestjs.io/) je populární unit test framework. Nicméně doporučujeme použít Jest pouze v&nbsp;případě, že máte existující sadu Jest testů, kterou je potřeba migrovat do projektu založeného na Vite. Vitest nabízí plynulejší integraci a lepší výkon.
 
 ## Testování komponent {#component-testing}
 
@@ -122,9 +122,9 @@ Komponentové testy by se měly zaměřit na veřejné rozhraní komponenty spí
 - Pro **vizuální** logiku: ověřte správný výstup vykreslování na základě zadaných vlastností (props) a slotů (slots).
 - Pro **behaviorální** logiku: ověřte správné aktualizace vykreslování nebo emitované události v reakci na události uživatelského vstupu.
 
-V následujícím příkladu ukazujeme komponentu Stepper, která obsahuje DOM element označený jako "increment", na nějž lze kliknut. Předáváme vlastnost (prop) s názvem `max`, která zabrání inkrementaci Stepperu nad hodnotu `2`, takže pokud klikneme na tlačítko 3krát, uživatelské rozhraní by mělo stále zobrazovat hodnotu `2`.
+V následujícím příkladu ukazujeme komponentu Stepper, která obsahuje DOM element označený jako „increment“, na nějž lze kliknut. Předáváme vlastnost s názvem `max`, která zabrání inkrementaci Stepperu nad hodnotu `2`, takže pokud klikneme na tlačítko 3krát, uživatelské rozhraní by mělo stále zobrazovat hodnotu `2`.
 
-Nevíme nic o implementaci komponenty Stepper, pouze že "vstup" je vlastnosti (prop) `max` a "výstup" je stav DOM, jak ho uvidí uživatel.
+Nevíme nic o implementaci komponenty Stepper, pouze že „vstup“ je vlastnosti `max` a&nbsp;„výstup“ je stav DOM, jak ho uvidí uživatel.
 
 <VTCodeGroup>
   <VTCodeGroupTab label="Vue Test Utils">
@@ -196,17 +196,17 @@ Nevíme nic o implementaci komponenty Stepper, pouze že "vstup" je vlastnosti (
 
   Úkolem komponenty je vykreslovat správný výstup DOM, takže testy zaměřené na výstup DOM poskytují stejnou úroveň zajištění správnosti (ne-li více), zatímco jsou odolnější vůči změnám.
 
-  Nespoléhejte se výhradně na testy snímků obrazovky. Ověřování HTML řetězců nevyjadřuje správnost. Pište testy s úmyslem.
+  Nespoléhejte se výhradně na testy snímků obrazovky. Ověřování HTML řetězců nevyjadřuje správnost. Pište testy s úmyslem (intentionality).
 
   Pokud je třeba metodu důkladně otestovat, zvažte její extrakci do samostatné utility funkce a napište pro ni samostatný jednotkový test. Pokud ji nelze čistě extrahovat, může být testována jako součást komponentového, integračního nebo end-to-end testu, který ji pokrývá.
 
 ### Doporučení {#recommendation-1}
 
-- [Vitest](https://vitest.dev/) pro komponenty nebo composables, které se vykreslují bez UI (např. funkce [`useFavicon`](https://vueuse.org/core/useFavicon/#usefavicon) v VueUse). Komponenty a DOM lze testovat pomocí [`@vue/test-utils`](https://github.com/vuejs/test-utils).
+- [Vitest](https://vitest.dev/) pro komponenty nebo composables, které se vykreslují bez UI (např. funkce [`useFavicon`](https://vueuse.org/core/useFavicon/#usefavicon) ve VueUse). Komponenty a DOM lze testovat pomocí [`@vue/test-utils`](https://github.com/vuejs/test-utils).
 
-- [Cypress Component Testing](https://on.cypress.io/component) pro komponenty, jejichž očekávané chování závisí na správném vykreslování stylů nebo spouštění nativních událostí DOM. Lze jej použít s Testing Library pomocí [@testing-library/cypress](https://testing-library.com/docs/cypress-testing-library/intro).
+- [Cypress Component Testing](https://on.cypress.io/component) pro komponenty, jejichž očekávané chování závisí na správném vykreslování stylů nebo spouštění nativních událostí DOM. Lze jej použít s&nbsp;Testing Library pomocí [@testing-library/cypress](https://testing-library.com/docs/cypress-testing-library/intro).
 
-Hlavní rozdíly mezi nástrojem Vitest a test runnery v prohlížeči jsou rychlost a kontext provedení. Stručně řečeno, runnery v prohlížeči, jako je Cypress, mohou odhalit problémy, které runnery založené na Node.js, jako je Vitest, zjistit nemohou (např. problémy se styly, skutečné nativní události DOMu, cookies, lokální úložiště a selhání sítě), ale runnery v prohlížeči jsou _řády pomalejší než Vitest_, protože otevírají prohlížeč, kompilují vaše styly a další. Cypress je runner v prohlížeči, které podporuje testování komponent. Přečtěte si prosím [stránku porovnání ve Vitest dokumentaci](https://vitest.dev/guide/comparisons.html#cypress) pro nejnovější informace o srovnání Vitestu a Cypressu.
+Hlavní rozdíly mezi nástrojem Vitest a test runnery v prohlížeči jsou rychlost a kontext provedení. Stručně řečeno, runnery v prohlížeči, jako je Cypress, mohou odhalit problémy, které runnery založené na Node.js, jako je Vitest, zjistit nemohou (např. problémy se styly, skutečné nativní události DOMu, cookies, lokální úložiště a selhání sítě), ale jsou _o řády pomalejší než Vitest_, protože otevírají prohlížeč, kompilují vaše styly a další. Cypress je runner v prohlížeči, které podporuje testování komponent. Přečtěte si prosím [stránku porovnání ve Vitest dokumentaci](https://vitest.dev/guide/comparisons.html#cypress) pro nejnovější informace o srovnání nástrojů Vitest a Cypress.
 
 ### Knihovny pro připojení komponent {#mounting-libraries}
 
@@ -216,23 +216,23 @@ Testování komponent často zahrnuje připojení (mount) testované komponenty 
 
 - [`@testing-library/vue`](https://github.com/testing-library/vue-testing-library) je knihovna pro testování Vue zaměřená na testování komponent bez závislosti na implementačních detailech. Její hlavní filosofií je, že čím více se testy podobají skutečnému způsobu používání softwaru, tím více sebevědomí mohou poskytnout.
 
-Doporučujeme používat `@vue/test-utils` pro testování komponent v aplikacích. `@testing-library/vue` má problémy s testováním asynchronních komponent s použitím Suspense, takže by se měla používat opatrně.
+Pro testování komponent v aplikacích oporučujeme používat `@vue/test-utils`, protože `@testing-library/vue` má problémy s testováním asynchronních komponent s použitím `<Suspense>` a měla by se používat opatrně.
 
 ### Další možnosti {#other-options-1}
 
 - [Nightwatch](https://nightwatchjs.org/) je E2E test runner s podporou testování Vue komponent. ([Ukázkový projekt](https://github.com/nightwatchjs-community/todo-vue))
 
-- [WebdriverIO](https://webdriver.io/docs/component-testing/vue) pro testování komponent napříč prohlížeči spoléhající se na nativní interakci uživatele založenou na standardizované automatizaci. Lze jej také použít s Testing Library.
+- [WebdriverIO](https://webdriver.io/docs/component-testing/vue) pro testování komponent napříč prohlížeči spoléhající se na nativní interakci uživatele založenou na standardizované automatizaci. Lze jej také použít s&nbsp;Testing Library.
 
 ## E2E testování {#e2e-testing}
 
-Ačkoli jednotkové testy poskytují vývojářům určitou míru jistoty, jednotkové a komponentové testy mají svá omezení v zajištění celkového pokrytí aplikace při nasazení do produkce. Výsledkem jsou testy end-to-end (E2E), které pokrývají to, co je pravděpodobně nejdůležitější aspekt aplikace: co se děje, když uživatelé skutečně používají vaše aplikace.
+Ačkoli jednotkové testy poskytují vývojářům určitou míru jistoty, jednotkové a&nbsp;komponentové testy mají svá omezení v zajištění celkového pokrytí aplikace při nasazení do produkce. Výsledkem jsou testy end-to-end (E2E), které pokrývají to, co je pravděpodobně nejdůležitější aspekt aplikace: co se děje, když uživatelé skutečně používají vaše aplikace.
 
 End-to-end testy se zaměřují na chování vícestránkových aplikací, které provádějí síťové požadavky na vaši produkční Vue aplikaci. Často zahrnují spuštění databáze nebo jiného backendu a mohou být dokonce spuštěny proti živému prostředí pro nasazení.
 
-End-to-end testy často odhalují problémy s vaším routerem, knihovnou pro správu stavu, komponentami nejvyšší úrovně (např. App nebo Layout), veřejnými prostředky nebo jakýmkoli zpracováním požadavků. Jak bylo řečeno výše, odhalují kritické problémy, které mohou být nemožné odhalit pomocí jednotkových nebo komponentových testů.
+End-to-end testy často odhalují problémy s vaším routerem, knihovnou pro správu stavu, komponentami nejvyšší úrovně (např. App nebo Layout), veřejnými prostředky nebo jakýmkoli zpracováním požadavků. Jak bylo řečeno výše, odhalují kritické problémy, které může být nemožné odhalit pomocí jednotkových nebo komponentových testů.
 
-End-to-end testy neimportují žádný kód vaší Vue aplikace, ale spoléhají se zcela na testování vaší aplikace navigací skrze celé stránky v reálném prohlížeči.
+End-to-end testy neimportují žádný kód vaší Vue aplikace, nýbrž se zcela spoléhají na testování vaší aplikace navigací skrze celé stránky v reálném prohlížeči.
 
 End-to-end testy ověřují mnoho vrstev vaší aplikace. Mohou cílit buď na vaši lokálně vytvořenou aplikaci, nebo dokonce na živé prostředí pro nasazení. Testování proti prostředí pro nasazení nezahrnuje pouze váš frontendový kód a statický server, ale také všechny související backendové služby a infrastrukturu.
 
@@ -242,15 +242,15 @@ Testováním, jak akce uživatele ovlivňují vaši aplikaci, jsou E2E testy ča
 
 ### Výběr řešení pro E2E testování  {#choosing-an-e2e-testing-solution}
 
-Ačoliv end-to-end (E2E) testování na webu získalo negativní pověst kvůli nespolehlivým (nestabilním) testům a zpomalení vývojových procesů, moderní nástroje pro E2E testování udělaly směrem k vytváření spolehlivějších, interaktivnějších a užitečnějších testů pokrok. Následující sekce dávají pár rad, na co při výběru E2E testovacího frameworku pro vaši aplikaci myslet.
+Ačoliv end-to-end (E2E) testování na webu získalo negativní pověst kvůli nespolehlivým (nestabilním) testům a zpomalení vývojových procesů, moderní nástroje pro E2E testování udělaly pokrok směrem k vytváření spolehlivějších, interaktivnějších a užitečnějších testů. Následující sekce dávají pár rad, na co při výběru E2E testovacího frameworku pro vaši aplikaci myslet.
 
 #### Testování napříč prohlížeči {#cross-browser-testing}
 
-Jednou z hlavních výhod E2E testování je jeho schopnost testovat vaši aplikaci napříč různými prohlížeči. I když by se mohlo zdát žádoucí dosáhnout 100% pokrytí prohlížečů, je důležité si uvědomit, že testování napříč prohlížeči má klesající výnos vzhledem k časové náročnosti a výpočetním prostředkům potřebným pro jejich spouštění. Proto je důležité zvážit tento trade-off při volbě rozsahu testování napříč prohlížeči ve vaši aplikaci.
+Jednou z hlavních výhod E2E testování je jeho schopnost testovat vaši aplikaci napříč různými prohlížeči. I když by se mohlo zdát žádoucí dosáhnout 100% pokrytí prohlížečů, je důležité si uvědomit, že testování napříč prohlížeči má klesající výnos vzhledem k&nbsp;časové náročnosti a výpočetním prostředkům potřebným pro jejich spouštění. Proto je důležité zvážit tento trade-off při volbě rozsahu testování napříč prohlížeči ve vaši aplikaci.
 
 #### Rychlejší zpětná vazba {#faster-feedback-loops}
 
-Jedním z hlavních problémů E2E testování a vývoje je, že spuštění celé sady testů trvá dlouho. Obvykle se to děje pouze v rámci kontinuální integrace a nasazování (CI/CD) pipeline. Moderní E2E testovací frameworky pomohly tento problém řešit přidáním funkcí jako je paralelizace, což často umožňuje spouštění CI/CD pipeline mnohem rychleji než dříve. Kromě toho, při lokálním vývoji mají schopnost selektivně spustit jednotlivý test pro stránku, na které pracujete, a zároveň poskytují automatický hot-reload testů, což umožňuje zvýšit produktivitu a efektivitu vývojáře.
+Jedním z hlavních problémů E2E testování a vývoje je, že spuštění celé sady testů trvá dlouho. Obvykle se to děje pouze v rámci kontinuální integrace a nasazování (CI/CD) pipeline. Moderní E2E testovací frameworky pomohly tento problém řešit přidáním funkcí jako je paralelizace, což často umožňuje spouštění CI/CD pipelines mnohem rychleji než dříve. Kromě toho, při lokálním vývoji mají schopnost selektivně spustit jednotlivý test pro stránku, na které pracujete, a zároveň poskytují automatický hot-reload testů, což umožňuje zvýšit produktivitu a efektivitu vývojáře.
 
 #### Prvotřídní zážitek při debuggování{#first-class-debugging-experience}
 
@@ -272,7 +272,7 @@ Když jsou E2E testy spouštěny v rámci CI/CD pipeline, často se spouštějí
 
 - [Nightwatch](https://nightwatchjs.org/) je řešení pro end-to-end testování založené na [Selenium WebDriver](https://www.npmjs.com/package/selenium-webdriver). To mu dává nejširší rozsah podpory prohlížečů.
 
-- [WebdriverIO](https://webdriver.io/) je testovací automatizační framework pro testování webových a mobilních aplikací založený na protokolu WebDriver.
+- [WebdriverIO](https://webdriver.io/) je testovací automatizační framework pro testování webových a&nbsp;mobilních aplikací založený na protokolu WebDriver.
 
 ## Návody {#recipes}
 
@@ -355,14 +355,14 @@ Nakonec aktualizujte `package.json` přidáním skriptu pro testování a spusť
 
 > Tato sekce předpokládá, že jste si přečetli kapitolu [Composables](/guide/reusability/composables).
 
-Pokud jde o testování composables, můžeme je rozdělit do dvou kategorií: composable funkce, které nezávisí na instanci hostitelské komponenty, a composable funkce, které na ní závisí.
+Pokud jde o testování composables, můžeme je rozdělit do dvou kategorií: composable funkce, které nezávisí na instanci hostitelské komponenty, a ty, které na ní závisí.
 
-Composable funkce závisí na instanci hostitelské komponenty, pokud používá následující API:
+Composable závisí na instanci hostitelské komponenty, pokud používá následující API:
 
 - Lifecycle hooks
 - Provide / Inject
 
-Pokud composable funkce pouze používá Reactivity API, může být testována přímo voláním a ověřením jejího vráceného stavu/metod:
+Pokud composable funkce pouze používá Reactivity API, může být testována přímo voláním a ověřením jejího vráceného stavu / vrácených metod:
 
 ```js
 // counter.js

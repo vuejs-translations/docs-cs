@@ -8,22 +8,22 @@ outline: deep
 
 ### Co je SSR? {#what-is-ssr}
 
-Vue.js je framework pro tvorbu aplikací na straně klienta. Ve výchozím nastavení Vue komponenty jako svůj výstup produkují a manipulují DOM v prohlížeči. Je však také možné vykreslit tytéž komponenty do HTML řetězců už na serveru, poslat je do prohlížeče přímo a nakonec statický markup do plně interaktivní aplikace "hydratovat" na straně klienta.
+Vue.js je framework pro tvorbu aplikací na straně klienta. Ve výchozím nastavení Vue komponenty jako svůj výstup produkují a manipulují DOM v prohlížeči. Je však také možné vykreslit tytéž komponenty do HTML řetězců už na serveru, poslat je do prohlížeče přímo a nakonec statický markup do plně interaktivní aplikace „hydratovat“ na&nbsp;straně klienta.
 
-Aplikace Vue.js vykreslená na serveru se také může považovat za "izomorfní" nebo "univerzální", v tom smyslu, že většina kódu aplikace běží jak na serveru, **tak** na klientovi.
+Aplikace Vue.js vykreslená na serveru se také může považovat za „izomorfní“ nebo „univerzální“, v tom smyslu, že většina kódu aplikace běží jak na serveru, **tak** na klientovi.
 
 ### Proč používat SSR? {#why-ssr}
 
 V porovnání s aplikací typu Single-Page Application (SPA) na straně klienta má SSR především tyto výhody:
 
-- **Rychlejší načítání obsahu**: to je zvláště patrné s pomalým internetem nebo na pomalých zařízeních. Serverem vykreslený markup nemusí čekat, než je stažen a proveden všechen JavaScript, aby byl zobrazen, takže uživatel uvidí plně vykreslenou stránku dříve. Navíc se načítání dat provádí při první návštěvě na straně serveru, který má pravděpodobně rychlejší připojení k databázi než klient. To obecně vede k lepším metrikám [Core Web Vitals](https://web.dev/vitals/), lepšímu uživatelskému zážitku a může být klíčové pro aplikace, kde je rychlost načítání obsahu přímo spojena s konverzní mírou.
+- **Rychlejší načítání obsahu**: to je zvláště patrné s pomalým internetem nebo na pomalých zařízeních. Serverem vykreslený markup nemusí čekat, než je stažen a&nbsp;proveden všechen JavaScript, aby byl zobrazen, takže uživatel uvidí plně vykreslenou stránku dříve. Navíc se načítání dat provádí při první návštěvě na straně serveru, který má pravděpodobně rychlejší připojení k databázi než klient. To obecně vede k lepším metrikám [Core Web Vitals](https://web.dev/vitals/), lepšímu uživatelskému zážitku a může být klíčové pro aplikace, kde je rychlost načítání obsahu přímo spojena s konverzní mírou.
 
 - **Jednotný mentální model**: můžete použít stejný jazyk a stejný deklarativní, komponentně orientovaný mentální model pro vývoj celé aplikace, místo aby jste přeskakovali mezi backendovým templating systémem a frontendovým frameworkem.
 
 - **Lepší SEO**: roboty vyhledávačů rovnou uvidí plně vykreslenou stránku.
 
   :::tip
-  V současné době umí Google a Bing bez problémů indexovat synchronní JavaScriptové aplikace. Klíčové slovo je zde "synchronní". Pokud vaše aplikace začíná s loading indikátorem a poté získává obsah pomocí Ajax, robot vyhledávače nebude čekat, než skončíte. To znamená, že pokud máte asynchronně získávaný obsah na stránkách, kde je SEO důležité, může být nutné SSR použít.
+  V současné době umí Google a Bing bez problémů indexovat synchronní JavaScriptové aplikace. Klíčové slovo je zde „synchronní“. Pokud vaše aplikace začíná s loading indikátorem a poté získává obsah pomocí Ajax, robot vyhledávače nebude čekat, než skončíte. To znamená, že pokud máte asynchronně získávaný obsah na stránkách, kde je SEO důležité, může být nutné SSR použít.
   :::
 
 
@@ -31,7 +31,7 @@ Existují také některé kompromisy (trade-offs), které je třeba při použí
 
 - Omezení vývoje. Kód specifický pro prohlížeč může být použit pouze v určitých fázích životního cyklu; některé externí knihovny mohou vyžadovat speciální přístup, aby mohly běžet v aplikaci s vykreslováním na serveru.
 
-- Složitější nastavení buildu a požadavky na nasazení. Na rozdíl od plně statické SPA, která může být nasazena na libovolný statický souborový server, vyžaduje aplikace s vykreslováním na serveru prostředí, ve kterém může běžet server Node.js.
+- Složitější nastavení buildu a požadavky na nasazení. Na rozdíl od plně statické SPA, která může být nasazena na libovolný statický souborový server, vyžaduje aplikace s&nbsp;vykreslováním na serveru prostředí, ve kterém může běžet server Node.js.
 
 - Větší zátěž na straně serveru. Vykreslování celé aplikace v Node.js bude náročnější na CPU než pouhé poskytování statických souborů, takže pokud očekáváte vysokou návštěvnost, připravte se na odpovídající zátěž serveru a vhodně využívejte strategie pro caching.
 
@@ -245,7 +245,7 @@ Během SSR se každá požadovaná URL mapuje na požadovaný stav naší aplika
 
 Protože nejsou žádné dynamické aktualizace, lifecycle hooks jako <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span> nebo <span class="options-api">`updated`</span><span class="composition-api">`onUpdated`</span> **NEBUDOU** během SSR volány a budou vykonány pouze na klientovi.<span class="options-api"> Jediné hooks, které jsou při SSR volány, jsou `beforeCreate` a `created`</span>
 
-Měli byste se vyhnout kódu, který produkuje vedlejší efekty, které v <span class="options-api">`beforeCreate` a `created`</span><span class="composition-api">`setup()` nebo v root scope `<script setup>`</span> vyžadují úklid. Příkladem takových vedlejších efektů je nastavení časovačů pomocí `setInterval`. V klientském kódu můžeme nastavit časovač a poté ho zrušit v <span class="options-api">`beforeUnmount`</span><span class="composition-api">`onBeforeUnmount`</span> nebo <span class="options-api">`unmounted`</span><span class="composition-api">`onUnmounted`</span>. Nicméně, protože unmount hooks během SSR nikdy nebudou volány, časovače zůstanou navždy. Abyste tomu předešli, přesuňte váš kód s vedlejšími efekty do <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span>.
+Měli byste se vyhnout kódu, který produkuje vedlejší efekty, které v <span class="options-api">`beforeCreate` a&nbsp;`created`</span><span class="composition-api">`setup()` nebo v&nbsp;root scope `<script setup>`</span> vyžadují úklid. Příkladem takových vedlejších efektů je nastavení časovačů pomocí `setInterval`. V klientském kódu můžeme nastavit časovač a&nbsp;poté ho zrušit v&nbsp;<span class="options-api">`beforeUnmount`</span><span class="composition-api">`onBeforeUnmount`</span> nebo <span class="options-api">`unmounted`</span><span class="composition-api">`onUnmounted`</span>. Nicméně, protože unmount hooks během SSR nikdy nebudou volány, časovače zůstanou navždy. Abyste tomu předešli, přesuňte váš kód s&nbsp;vedlejšími efekty do <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span>.
 
 ### Přístup k platformně specifickým API {#access-to-platform-specific-apis}
 
@@ -253,9 +253,9 @@ Univerzální kód nemůže předpokládat přístup k platformně specifickým 
 
 Pro úkoly, které jsou sdílené mezi serverem a klientem, ale s API různých platforem, se doporučuje obalit platformně specifické implementace do univerzálního API nebo použít knihovny, které to za vás udělají. Například můžete použít [`node-fetch`](https://github.com/node-fetch/node-fetch) pro použití stejného fetch API jak na serveru, tak na klientovi.
 
-Pro API pouze pro prohlížeč je běžným přístupem "lazy" přístupování k nim uvnitř lifecycle hooks pouze na klientovi, jako je <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span>.
+Pro API pouze pro prohlížeč je běžným přístupem „lazy“ přístupování k nim uvnitř lifecycle hooks pouze na klientovi, jako je <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span>.
 
-Vemte na vědomí, že pokud knihovna třetí strany není pro univerzální použití zamýšlena, může být obtížné ji do aplikace s vykreslováním na serveru integrovat. Možná se vám podaří ji rozchodit pomocí mockování některých globálních proměnných, ale bude to "hack" a můžete narušit kód pro detekci prostředí jiných knihoven.
+Vemte na vědomí, že pokud knihovna třetí strany není pro univerzální použití zamýšlena, může být obtížné ji do aplikace s vykreslováním na serveru integrovat. Možná se vám podaří ji rozchodit pomocí mockování některých globálních proměnných, ale bude to „hack“ a můžete narušit kód pro detekci prostředí jiných knihoven.
 
 ### Cross-Request State Pollution {#cross-request-state-pollution}
 
@@ -292,7 +292,7 @@ Knihovny pro správu stavu, jako je Pinia, jsou navrženy, aby toto respektovaly
 
 Pokud struktura DOM předvykresleného HTML neodpovídá očekávanému výstupu aplikace na straně klienta, dojde k chybě nesouladu hydratace (hydration mismatch). Nejčastější příčiny jsou:
 
-1. Šablona obsahuje neplatnou vnořenou strukturu HTML a vykreslené HTML bylo "opraveno" chováním nativního HTML parseru v prohlížeči. Například běžnou chybou je, že [`<div>` nemůže být umístěn uvnitř `<p>`](https://stackoverflow.com/questions/8397852/why-cant-the-p-tag-contain-a-div-tag-inside-it):
+1. Šablona obsahuje neplatnou vnořenou strukturu HTML a vykreslené HTML bylo „opraveno“ chováním nativního HTML parseru v prohlížeči. Například běžnou chybou je, že [`<div>` nemůže být umístěn uvnitř `<p>`](https://stackoverflow.com/questions/8397852/why-cant-the-p-tag-contain-a-div-tag-inside-it):
 
    ```html
    <p><div>ahoj</div></p>
@@ -310,11 +310,11 @@ Pokud struktura DOM předvykresleného HTML neodpovídá očekávanému výstupu
 
    1. Pro vykreslení části, která závisí na náhodných hodnotách, pouze na klientovi, použijte `v-if` + `onMounted`. Váš framework může mít také vestavěné funkce, které to usnadní, například komponenta `<ClientOnly>` ve VitePress.
 
-   2. Použijte knihovnu generátoru náhodných čísel, která podporuje generování s použitím seeds, a zajistěte, aby běh na serveru a klientovi používal stejný seed (např. zahrnutím seedu do serializovaného stavu a jeho získáním klientovi).
+   2. Použijte knihovnu generátoru náhodných čísel, která podporuje generování s&nbsp;použitím seeds, a zajistěte, aby běh na serveru a klientovi používal stejný seed (např. zahrnutím seedu do serializovaného stavu a jeho získáním klientovi).
 
-3. Server a klient jsou v různých časových pásmech. Někdy chceme převést timestamp na místní čas uživatele. Nicméně, časová pásma na serveru a na klientovi nejsou vždy stejná a při běhu na serveru nemusíme spolehlivě znát časové pásmo uživatele. V takových případech by měla být konverze na místní čas provedena pouze na klientovi.
+3. Server a klient jsou v různých časových pásmech. Někdy chceme převést timestamp na místní čas uživatele. Nicméně, časová pásma na serveru a na klientovi nejsou vždy stejná a při běhu na serveru nemusíme spolehlivě znát časové pásmo uživatele. V&nbsp;takových případech by měla být konverze na místní čas dělána pouze na klientovi.
 
-Když Vue na nesoulad hydratace narazí, pokusí se automaticky obnovit a upravit předvykreslený DOM tak, aby odpovídal stavu na straně klienta. To povede ke ztrátě výkonu vykreslování kvůli odstranění nesprávných a připojení nových elementů, ale ve většině případů by aplikace měla nadále fungovat správně. Nicméně je stále nejlepší nesoulady hydratace eliminovat během vývoje.
+Když Vue na nesoulad hydratace narazí, pokusí se automaticky obnovit a upravit předvykreslený DOM tak, aby odpovídal stavu na straně klienta. To povede ke ztrátě výkonu vykreslování kvůli odstranění nesprávných a připojení nových elementů, ale ve většině případů by aplikace měla nadále fungovat správně. Nicméně je stále nejlepší nesoulady hydratace během vývoje eliminovat.
 
 ### Vlastní direktivy {#custom-directives}
 
