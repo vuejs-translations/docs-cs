@@ -4,24 +4,24 @@
 
 Směrování (routing) na straně serveru znamená, že server odesílá odpověď na základě URL cesty, kterou chce uživatel navštívit. Když klikneme na odkaz v tradiční webové aplikaci s vykreslováním na straně serveru (SSR), prohlížeč obdrží od serveru HTML odpověď a znovu načte celou stránku s novým HTML obsahem.
 
-V [Single-page aplikaci](https://developer.mozilla.org/cs/docs/Glossary/SPA) (SPA) však může klientský JavaScript zachytit navigaci, dynamicky načíst nová data a aktualizovat zobrazenou stránku bez plného reloadu stránky. To obvykle vede k rychlejší odezvě a lepšímu uživatelskému zážitku, zejména v případech, které připomínají skutečné "aplikace", kde se od uživatele očekává provádění mnoha interakcí po delší dobu.
+V [Single-page aplikaci](https://developer.mozilla.org/cs/docs/Glossary/SPA) (SPA) však může klientský JavaScript zachytit navigaci, dynamicky načíst nová data a aktualizovat zobrazenou stránku bez plného reloadu. To obvykle vede k rychlejší odezvě a lepšímu uživatelskému zážitku, zejména v případech, které připomínají skutečné „aplikace“, kde se od uživatele očekává provádění mnoha interakcí po delší dobu.
 
-V takových SPA je "směrování" prováděno na straně klienta, v prohlížeči. Router na klientovi je zodpovědný za správu vykresleného obsahu aplikace pomocí API prohlížečě, jako je [History API](https://developer.mozilla.org/cs/docs/Web/API/History) nebo událost [`hashchange`](https://developer.mozilla.org/cs/docs/Web/API/Window/hashchange_event).
+V takových SPA je „směrování“ prováděno na straně klienta, v prohlížeči. Router na klientovi je zodpovědný za správu vykresleného obsahu aplikace pomocí API prohlížečě, jako je [History API](https://developer.mozilla.org/cs/docs/Web/API/History) nebo událost [`hashchange`](https://developer.mozilla.org/cs/docs/Web/API/Window/hashchange_event).
 
 ## Oficiální router {#official-router}
 
 <!-- TODO aktualizovat odkazy -->
 <div>
   <VueSchoolLink href="https://vueschool.io/courses/vue-router-4-for-everyone" title="Lekce o Vue Router zdarma">
-    Podívejte se na bezplatný video kurz od Vue School
+    Podívejte se ukázkovou hodinu od Vue School zdarma
   </VueSchoolLink>
 </div>
 
-Vue je pro vytváření SPA dobře připraveno. Pro většinu SPA se doporučuje použít oficiálně podporovanou [knihovnu Vue Router](https://github.com/vuejs/router). Další podrobnosti naleznete v [dokumentaci](https://router.vuejs.org/) Vue Routeru.
+Vue je na vytváření SPA dobře připraveno. Pro většinu SPA se doporučuje použít oficiálně podporovanou [knihovnu Vue Router](https://github.com/vuejs/router). Další podrobnosti naleznete v&nbsp;[dokumentaci](https://router.vuejs.org/) Vue Routeru.
 
 ## Jednoduché směrování od základů {#simple-routing-from-scratch}
 
-Pokud potřebujete pouze velmi jednoduché směrování a nechcete používat plnohodnotnou knihovnu, můžete to udělat pomocí [dynamických komponent](/guide/essentials/component-basics#dynamic-components) a aktualizovat aktuální stav komponenty posloucháním událostí [`hashchange`](https://developer.mozilla.org/cs/docs/Web/API/Window/hashchange_event) v prohlížeči nebo pomocí [History API](https://developer.mozilla.org/cs/docs/Web/API/History).
+Pokud potřebujete pouze velmi jednoduché směrování a nechcete používat plnohodnotnou knihovnu, můžete to udělat pomocí [dynamických komponent](/guide/essentials/component-basics#dynamic-components) a&nbsp;aktualizovat aktuální stav komponenty posloucháním událostí [`hashchange`](https://developer.mozilla.org/cs/docs/Web/API/Window/hashchange_event) v prohlížeči nebo pomocí [History API](https://developer.mozilla.org/cs/docs/Web/API/History).
 
 Zde je příklad základní struktury:
 

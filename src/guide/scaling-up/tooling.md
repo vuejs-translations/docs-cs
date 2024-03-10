@@ -6,7 +6,7 @@ import { VTCodeGroup, VTCodeGroupTab } from '@vue/theme'
 
 ## Vyzkoušejte si to online {#try-it-online}
 
-Abyste si mohli vyzkoušet Vue SFC, nemusíte na svém počítači nic instalovat - existují online "hřiště", která vám to umožní udělat přímo ve webovém prohlížeči:
+Abyste si mohli vyzkoušet Vue SFC, nemusíte na svém počítači nic instalovat - existují online „hřiště“, která vám to umožní přímo ve webovém prohlížeči:
 
 - [Vue SFC Playground](https://play.vuejs.org)
   - Vždy nasazeno z nejnovějšího commitu
@@ -15,13 +15,13 @@ Abyste si mohli vyzkoušet Vue SFC, nemusíte na svém počítači nic instalova
   - Prostředí podobné IDE, které spouští skutečný Vite dev server ve webovém prohlížeči
   - Nejbližší k lokálnímu nastavení
 
-Tato online hřiště je rovněž doporučeno používat pro poskytování reprodukcí při hlášení chyb.
+Tato online hřiště je rovněž doporučeno používat pro tvorbu reprodukcí při hlášení chyb.
 
-## Scaffolding projektu {#project-scaffolding}
+## Založení projektu (scaffolding) {#project-scaffolding}
 
 ### Vite {#vite}
 
-[Vite](https://vitejs.dev/) je odlehčený a rychlý build tool s prvotřídní podpory pro Vue SFC. Je vytvořen Evanem You, který je také autorem Vue!
+[Vite](https://vitejs.dev/) je odlehčený a rychlý build nástroj s prvotřídní podporou pro Vue SFC. Je vytvořen Evanem You, který je také autorem Vue!
 
 Pro zahájení práce s Vite + Vue jednoduše spusťte:
 
@@ -72,17 +72,17 @@ Pro informace o migraci z Vue CLI na Vite:
 - [Průvodce migrací Vue CLI -> Vite od VueSchool.io](https://vueschool.io/articles/vuejs-tutorials/how-to-migrate-from-vue-cli-to-vite/)
 - [Nástroje / Pluginy, které pomáhají s automatickou migrací](https://github.com/vitejs/awesome-vite#vue-cli)
 
-### Poznámka k kompilaci šablon v prohlížeči {#note-on-in-browser-template-compilation}
+### Poznámka ke kompilaci šablon v prohlížeči {#note-on-in-browser-template-compilation}
 
-Při použití Vue bez build fáze jsou šablony komponent psány buďto přímo v HTML stránky nebo jako vložené JavaScriptové řetězce. V takových případech musí Vue dodat kompilátor šablon do prohlížeče, aby bylo možné provádět kompilaci šablon na požádání (on-the-fly). Na druhou stranu, kompilátor není potřebný, pokud šablony během build fáze předkompilujeme. Pro snížení velikosti klientského JS balíčku Vue poskytuje [různé "buildy"](https://unpkg.com/browse/vue@3/dist/) optimalizované pro různé použití.
+Při použití Vue bez build fáze jsou šablony komponent psány buďto přímo v HTML stránky nebo jako vložené JavaScriptové řetězce. V takových případech musí Vue dodat kompilátor šablon do prohlížeče, aby bylo možné provádět kompilaci šablon na požádání (on-the-fly). Na druhou stranu, kompilátor není potřebný, pokud šablony během build fáze předkompilujeme. Pro snížení velikosti klientského JS balíčku Vue poskytuje [různé „buildy“](https://unpkg.com/browse/vue@3/dist/) optimalizované pro různé použití.
 
 - Soubory buildu, které začínají `vue.runtime.*`, jsou **buildy pouze pro runtime**: neobsahují kompilátor. Při použití těchto buildů musí být všechny šablony předkompilovány pomocí build fáze.
 
-- Soubory buildu, které neobsahují `.runtime`, jsou **úplné buildy**: obsahují kompilátor a podporují kompilaci šablon přímo v prohlížeči. Nicméně zvětší velikost přeneseného balíčku o ~14kb.
+- Soubory buildu, které neobsahují `.runtime`, jsou **úplné buildy**: obsahují kompilátor a&nbsp;podporují kompilaci šablon přímo v prohlížeči. Nicméně zvětší velikost přeneseného balíčku o **~14kb**.
 
-Naše výchozí nástroje používají build pouze pro runtime, protože všechny šablony ve SFC jsou předkompilovány. Pokud z nějakého důvodu potřebujete kompilaci šablon v prohlížeči i s build fází, můžete tak učinit konfigurací nástroje pro sestavení, který přiřadí `vue` na `vue/dist/vue.esm-bundler.js`.
+Naše výchozí nástroje používají build pouze pro runtime, protože všechny SFC šablony jsou předkompilovány. Pokud z nějakého důvodu potřebujete kompilaci šablon v&nbsp;prohlížeči i s build fází, můžete tak učinit konfigurací build nástroje, který přiřadí `vue` na `vue/dist/vue.esm-bundler.js`.
 
-Pokud hledáte odlehčenou alternativu pro použití bez build fáze, podívejte se na [petite-vue](https://github.com/vuejs/petite-vue).
+Pokud hledáte odlehčenou alternativu použitelnou bez build fáze, lze využít [petite-vue](https://github.com/vuejs/petite-vue).
 
 ## Podpora v IDE {#ide-support}
 
@@ -94,7 +94,7 @@ Pokud hledáte odlehčenou alternativu pro použití bez build fáze, podívejte
 
 - [WebStorm](https://www.jetbrains.com/webstorm/) též poskytuje skvělou vestavěnou podporu pro Vue SFC.
 
-- Další IDE, která podporují [Language Service Protocol](https://microsoft.github.io/language-server-protocol/) (LSP), mohou základní Volar funkce pomocí LSP také využívat:
+- Další IDE, která podporují [Language Service Protocol](https://microsoft.github.io/language-server-protocol/) (LSP), mohou s jeho pomocí základní Volar funkce také využívat:
 
   - Podpora v Sublime Textu pomocí [LSP-Volar](https://github.com/sublimelsp/LSP-volar).
 
@@ -106,7 +106,7 @@ Pokud hledáte odlehčenou alternativu pro použití bez build fáze, podívejte
 
 <VueSchoolLink href="https://vueschool.io/lessons/using-vue-dev-tools-with-vuejs-3" title="Lekce o Vue.js Devtools zdarma"/>
 
-Rozšíření prohlížeče Vue devtools vám umožňuje prozkoumat strom komponent Vue aplikace, prohlédnout si stav jednotlivých komponent, sledovat události správy stavu a profilovat výkon.
+Rozšíření prohlížeče Vue devtools vám umožňuje prozkoumat strom komponent Vue aplikace, prohlédnout si stav jednotlivých komponent, sledovat události správy stavu a&nbsp;profilovat výkon.
 
 ![Screenshot z devtools](https://raw.githubusercontent.com/vuejs/devtools/main/media/screenshot-shadow.png)
 
@@ -138,7 +138,7 @@ Hlavní článek: [Průvodce testováním](/guide/scaling-up/testing).
 
 Vue tým udržuje [eslint-plugin-vue](https://github.com/vuejs/eslint-plugin-vue), plugin pro [ESLint](https://eslint.org/), který podporuje lintovací pravidla specifická pro SFC.
 
-Uživatelé, kteří dříve používali Vue CLI, mohou být zvyklí na konfiguraci linterů pomocí webpack loaderů. Nicméně, při použití nastavení založeného na Vite je naše obecné doporučení:
+Uživatelé, kteří dříve používali Vue CLI, mohou být zvyklí na konfiguraci linterů pomocí webpack loaderů. Nicméně při použití nastavení založeného na Vite je naše obecné doporučení:
 
 1. `npm install -D eslint eslint-plugin-vue`, poté postupujte podle [průvodce konfigurací](https://eslint.vuejs.org/user-guide/#usage) `eslint-plugin-vue`.
 
@@ -154,11 +154,11 @@ Uživatelé, kteří dříve používali Vue CLI, mohou být zvyklí na konfigur
 
 - Alternativně nabízí vestavěnou podporu pro formátování Vue SFC také [Prettier](https://prettier.io/).
 
-## Nástroje pro integraci vlastních SFC bloků  {#sfc-custom-block-integrations}
+## Nástroje pro integraci custom SFC bloků  {#sfc-custom-block-integrations}
 
-Vlastní bloky jsou zkompilovány do importů do stejného Vue souboru s různými request queries. Je na v projektu použitém build nástroji, jak se s těmito importy zachází.
+Custom bloky jsou zkompilovány do importů do stejného Vue souboru s různými request queries. Je na v projektu použitém build nástroji, jak se s těmito importy zachází.
 
-- Pokud používáte Vite, měl by být k přeměně odpovídajících vlastních bloků na spustitelný JavaScript použit vlastní Vite plugin. [Příklad](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#example-for-transforming-custom-blocks)
+- Pokud používáte Vite, měl by být k přeměně odpovídajících vlastních bloků na spustitelný JavaScript použit custom Vite plugin. [Příklad](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#example-for-transforming-custom-blocks)
 
 - Pokud používáte Vue CLI nebo čistý webpack, měl by být k přeměně odpovídajících bloků nakonfigurován webpack loader. [Příklad](https://vue-loader.vuejs.org/guide/custom-blocks.html)
 
@@ -168,7 +168,7 @@ Vlastní bloky jsou zkompilovány do importů do stejného Vue souboru s různý
 
 - [Dokumentace](https://github.com/vuejs/core/tree/main/packages/compiler-sfc)
 
-Tento balíček je součástí monorepa Vue jádra a je vždy publikován se stejnou verzí jako hlavní balíček `vue`. Je zahrnut jako závislost hlavního balíčku `vue` a je nastaven jako proxy pod `vue/compiler-sfc`, takže jej nemusíte samostatně instalovat.
+Tento balíček je součástí Vue jádra a je vždy publikován se stejnou verzí jako hlavní balíček `vue`. Je zahrnut jako závislost hlavního balíčku `vue` a je nastaven jako proxy pod `vue/compiler-sfc`, takže jej nemusíte samostatně instalovat.
 
 Samotný balíček poskytuje nástroje nižší úrovně pro zpracování Vue SFC a je určen pouze pro autory nástrojů, kteří potřebují podporovat Vue SFC ve vlastních knihovnách.
 
