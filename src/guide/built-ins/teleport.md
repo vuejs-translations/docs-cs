@@ -2,15 +2,15 @@
 
  <VueSchoolLink href="https://vueschool.io/lessons/vue-3-teleport" title="Lekce o komponentě Teleport ve Vue.js zdarma"/>
 
-`<Teleport>` je vestavěná komponenta, který nám umožňuje "teleportovat" část šablony komponenty do DOM elementu, který existuje mimo DOM hierarchii této komponenty.
+`<Teleport>` je vestavěná komponenta, který nám umožňuje „teleportovat“ část šablony komponenty do DOM elementu, který existuje mimo DOM hierarchii této komponenty.
 
 ## Základní použití {#basic-usage}
 
-Někdy se můžeme setkat s následujícím scénářem: část šablony komponenty k ní patří logicky, ale z vizuálního hlediska by měla být zobrazena jinde v DOM, mimo Vue aplikaci.
+Někdy se můžeme setkat s tímto scénářem: část šablony komponenty k ní logicky patří, ale z vizuálního hlediska by měla být zobrazena jinde v DOM, mimo Vue aplikaci.
 
-Nejběžnějším příkladem je vytváření modálního okna přes celou obrazovku. Ideálně bychom chtěli, aby tlačítko modálního okna a samotné modální okno existovaly uvnitř stejné komponenty, protože obě souvisí se stavem otevření/zavření modálního okna. Ale to znamená, že modální okno bude vykresleno spolu s tlačítkem, hluboce vnořeno v DOM hierarchii aplikace. To může přinést různé záludné problémy při pozicování modálního okna pomocí CSS.
+Nejběžnějším příkladem je vytváření modálního okna přes celou obrazovku. Ideálně bychom chtěli, aby tlačítko modálního okna a samotné modální okno existovaly uvnitř stejné komponenty, protože obě souvisí se stavem otevření/zavření modálního okna. Ale&nbsp;to znamená, že modální okno bude vykresleno spolu s tlačítkem, hluboce vnořeno v&nbsp;DOM hierarchii aplikace. To může přinést různé záludné problémy při pozicování modálního okna pomocí CSS.
 
-Představte si následující HTML strukturu.
+Představte si následující HTML strukturu:
 
 ```vue-html
 <div class="outer">
@@ -111,7 +111,7 @@ Při použití této komponenty uvnitř původní HTML struktury může nastat n
 </Teleport>
 ```
 
-Atribut `to` uvnitř `<Teleport>` slouží jako cíl a očekává CSS selektor nebo samotný DOM element. Zde v podstatě říkáme Vue, aby "**teleportoval** tento fragment šablony **do** tagu **`body`**".
+Atribut `to` uvnitř `<Teleport>` slouží jako cíl a očekává CSS selektor nebo samotný DOM element. Zde v podstatě říkáme Vue, ať _„**teleportuje** tento fragment šablony **do** tagu **`body`**“_.
 
 Můžete kliknout na tlačítko níže a pomocí nástrojů pro vývojáře ve vašem prohlížeči zkontrolovat tag `<body>`:
 
@@ -147,10 +147,10 @@ const open = ref(false)
 }
 </style>
 
-Pro vytvoření animovaných modálních oken můžete kombinovat `<Teleport>` s [`<Transition>`](./transition) - viz [příklad zde](/examples/#modal).
+Pro vytvoření animovaných modálních oken můžete `<Teleport>` kombinovat s&nbsp;[`<Transition>`](./transition) - viz [příklad zde](/examples/#modal).
 
 :::tip
-Cíl teleportace `to` musí být už v DOM, když je připojena (mounted) komponenta `<Teleport>`. Ideálně by to měl být prvek mimo celou Vue aplikaci. Pokud je cílem teleportace jiný prvek vykreslený Vue, musíte se ujistit, že je tento prvek připojen dříve než `<Teleport>`.
+Cíl teleportace `to` už musí být v DOM, když je komponenta `<Teleport>` připojena (mounted). Ideálně by to měl být prvek mimo celou Vue aplikaci. Pokud je cílem teleportace jiný prvek vykreslený Vue, musíte se ujistit, že je tento prvek připojen dříve než `<Teleport>`.
 :::
 
 ## Použití s komponentami {#using-with-components}
@@ -173,7 +173,7 @@ Stav `isMobile` může být dynamicky aktualizován pomocí detekce změn v medi
 
 ## Více teleportací na stejný cíl {#multiple-teleports-on-the-same-target}
 
-Běžným použitím by byla znovupoužitelná komponenta `<Modal>`, která může mít současně více aktivních  instancí. Pro tento případ může více komponent `<Teleport>` připojit svůj obsah ke stejnému cílovému elementu. Pořadí bude jednoduché připojení - pozdější připojení budou umístěna za dřívějšími uvnitř cílového elementu.
+Běžným použitím by byla znovupoužitelná komponenta `<Modal>`, která může mít současně více aktivních  instancí. Pro tento případ může více komponent `<Teleport>` připojit svůj obsah ke stejnému cílovému elementu. Pořadí bude jednoduché připojení na konec (append) - později připojené fragmenty šablony budou uvnitř cílového elementu umístěny za dřívějšími.
 
 S následujícím použitím:
 
@@ -186,7 +186,7 @@ S následujícím použitím:
 </Teleport>
 ```
 
-Bude vykreslený výsledkem:
+Bude vykresleným výsledkem:
 
 ```html
 <div id="modals">
@@ -200,4 +200,4 @@ Bude vykreslený výsledkem:
 **Související**
 
 - [API reference pro `<Teleport>`](/api/built-in-components#teleport)
-- [Zpracování teleportů v SSR režimu](/guide/scaling-up/ssr#teleports)
+- [Zpracování teleportace v SSR režimu](/guide/scaling-up/ssr#teleports)

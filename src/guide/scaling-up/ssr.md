@@ -340,7 +340,7 @@ const myDirective = {
 
 ### Teleportace {#teleports}
 
-Teleportace vyžaduje při SSR speciální zpracování. Pokud vykreslená aplikace obsahuje teleporty, teleportovaný obsah nebude součástí vykresleného řetězce. Jednodušším řešením je podmíněné vykreslení teleportace při inicializaci.
+Teleportace pomocí vestavěné komponenty `<Teleport>` vyžaduje při SSR speciální zpracování. Pokud vykreslená aplikace obsahuje teleporty, teleportovaný obsah nebude součástí vykresleného řetězce. Jednodušším řešením je podmíněné vykreslení teleportace při inicializaci.
 
 Pokud však potřebujete hydratovat teleportovaný obsah, je dostupná vlastnost `teleports` objektu ssr kontextu:
 
