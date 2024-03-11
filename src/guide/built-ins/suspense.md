@@ -132,3 +132,9 @@ Následující příklad ukazuje, jak tyto komponenty správně vnořit, aby se 
 ```
 
 Vue Router má vestavěnou podporu pro [„lazy“ načítání komponent](https://router.vuejs.org/guide/advanced/lazy-loading.html) pomocí dynamických importů. Ty se od asynchronních komponent liší a v současnosti na ně `<Suspense>` nereaguje. Stále však mohou mít další asynchronní komponenty jako potomky a ty mohou `<Suspense>` vyvolat obvyklým způsobem.
+
+---
+
+**Související**
+
+- [API reference pro `<Suspense>`](/api/built-in-components#suspense)
