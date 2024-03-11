@@ -102,7 +102,7 @@ Komunikací s třídami přechodu pomocí datových atributů je také možné p
 </TransitionGroup>
 ```
 
-Poté pomocí JavaScript událostí animujeme prvek s prodlevou založenou na datovém atributu. Tento příklad používá pro provedení animace knihovnu [GreenSock](https://greensock.com/):
+Poté pomocí JavaScript událostí animujeme prvek s prodlevou založenou na datovém atributu. Tento příklad používá pro provedení animace knihovnu [GSAP](https://gsap.com/):
 
 ```js{5}
 function onEnter(el, done) {

@@ -450,7 +450,7 @@ Při použití čistě JavaScriptových přechodů je obvykle vhodné přidat vl
 
 S `:css="false"` jsme také plně zodpovědní za řízení konce přechodu. V tomto případě jsou pro metody (hooks) `@enter` a `@leave` vyžadovány callbacky `done`. Jinak budou metody volány synchronně a přechod okamžitě skončí.
 
-Zde je ukázka použití knihovny [GreenSock](https://greensock.com/) k provedení animací. Samozřejmě můžete použít libovolnou jinou animační knihovnu, například [Anime.js](https://animejs.com/) nebo [Motion One](https://motion.dev/).
+Zde je ukázka použití knihovny [GSAP](https://gsap.com/) k provedení animací. Samozřejmě můžete použít libovolnou jinou animační knihovnu, například [Anime.js](https://animejs.com/) nebo [Motion One](https://motion.dev/).
 
 <JsHooks />
 
