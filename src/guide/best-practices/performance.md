@@ -6,15 +6,15 @@ outline: deep
 
 ## Přehled {#overview}
 
-Vue je navrženo tak, aby bylo dostatečně výkonný pro většinu běžných použití bez potřeby manuálních optimalizací. Nicméně vždy existují náročné scénáře, kde je potřeba dodatečné doladění. V této sekci se budeme zabývat tím, na co byste měli dávat pozor, pokud jde o výkon ve Vue aplikaci.
+Vue je navrženo tak, aby bylo dostatečně výkonné pro většinu běžných použití bez potřeby manuálních optimalizací. Nicméně vždy existují náročné scénáře, kde je potřeba dodatečné doladění. V této sekci budeme probírat, na co byste měli dávat pozor, pokud jde o výkon ve Vue aplikaci.
 
 Nejprve se podívejme na dva hlavní aspekty webového výkonu:
 
 - **Výkon načítání stránky** (Page Load): jak rychle aplikace zobrazí obsah a stane se interaktivní při první návštěvě. To se obvykle měří pomocí web vital metrik jako [Largest Contentful Paint (LCP)](https://web.dev/lcp/) a [First Input Delay (FID)](https://web.dev/fid/).
 
-- **Výkon aktualizace** (Update): jak rychle se aplikace aktualizuje v reakci na uživatelský vstup. Například jak rychle se aktualizuje seznam, když uživatel píše do vyhledávacího pole, nebo jak rychle se stránka přepíná, když uživatel klikne na odkaz v navigaci v Single-Page aplikaci (SPA).
+- **Výkon aktualizace** (Update): jak rychle se aplikace aktualizuje v reakci na uživatelský vstup. Například jak rychle se aktualizuje seznam, když uživatel píše do vyhledávacího pole, nebo jak rychle se stránka přepíná, když uživatel klikne na navigační odkaz v&nbsp;Single-Page aplikaci (SPA).
 
-Ačkoli by bylo ideální maximalizovat obojí, různé frontendové architektury mají tendenci ovlivňovat, jak snadno je možné dosáhnout požadovaného výkonu v těchto aspektech. Navíc i typ aplikace, kterou stavíte, výrazně ovlivňuje to, na co byste se měli z hlediska výkonu zaměřit. Proto je prvním krokem k zajištění optimálního výkonu vybrat správnou architekturu pro typ aplikace, kterou tvoříte:
+Ačkoli by bylo ideální maximalizovat obojí, různé frontendové architektury mají tendenci ovlivňovat, jak snadno je možné dosáhnout požadovaného výkonu v těchto aspektech. Navíc i typ aplikace, kterou stavíte, výrazně ovlivňuje, na co byste se měli z hlediska výkonu zaměřit. Proto je prvním krokem k zajištění optimálního výkonu vybrat správnou architekturu pro typ aplikace, kterou tvoříte:
 
 - Prozkoumejte [Způsoby použití Vue](/guide/extras/ways-of-using-vue), abyste viděli, jak můžete Vue využít různými způsoby.
 
@@ -32,16 +32,16 @@ Pro profilování výkonu načítání produkčních nasazení:
 Pro profilování výkonu během lokálního vývoje:
 
 - [Chrome DevTools Performance Panel](https://developer.chrome.com/docs/devtools/evaluate-performance/)
-  - [`app.config.performance`](/api/application#app-config-performance) umožňuje zobrazovat Vue-specifické metriky výkonu v časové ose v Chrome DevTools.
-- [Vue DevTools Extension](/guide/scaling-up/tooling#browser-devtools) také poskytuje funkci pro profilování výkonu.
+  - [`app.config.performance`](/api/application#app-config-performance) umožňuje zobrazovat Vue-specifické metriky výkonu v&nbsp;časové ose v Chrome DevTools.
+- [Rozšíření Vue DevTools](/guide/scaling-up/tooling#browser-devtools) také poskytuje funkci pro profilování výkonu.
 
 ## Optimalizace načítání stránky {#page-load-optimizations}
 
-Existuje mnoho faktorů nezávislých na frameworku pro optimalizaci výkonu načítání stránky - podívejte se do [tohoto průvodce web.dev](https://web.dev/fast/) pro komplexní přehled. Zde se budeme především zaměřovat na techniky specifické pro Vue.
+Existuje mnoho faktorů pro optimalizaci výkonu načítání stránky nezávislých na frameworku - podívejte se do [tohoto průvodce web.dev](https://web.dev/fast/) pro komplexní přehled. Zde se budeme zaměřovat především na techniky specifické pro Vue.
 
 ### Výběr správné architektury {#choosing-the-right-architecture}
 
-Pokud je váš případ užití citlivý na výkon načítání stránky, vyhněte se jejímu odesílání jako čistého client-side SPA. Chcete, aby váš server přímo odesílal HTML s obsahem, který uživatelé chtějí vidět. Čisté vykreslování na klientovi trpí pomalým time-to-content. To lze zmírnit pomocí [Server-Side Rendering (SSR)](/guide/extras/ways-of-using-vue#fullstack-ssr) nebo [Static Site Generation (SSG)](/guide/extras/ways-of-using-vue#jamstack-ssg). Podívejte se na [průvodce SSR](/guide/scaling-up/ssr), abyste se naučili, jak provádět SSR ve Vue. Pokud vaše aplikace nemá požadavky na bohatou interaktivitu, můžete k vykreslení HTML použít i tradiční backendový server a rozšířit jej pomocí Vue na klientovi.
+Pokud je váš případ užití citlivý na výkon načítání stránky, vyhněte se jejímu odesílání jako čistého client-side SPA. Chcete, aby váš server odesílal přímo HTML s obsahem, který uživatelé chtějí vidět. Čisté vykreslování na klientovi trpí pomalým time-to-content. To lze zmírnit pomocí [Server-Side Rendering (SSR)](/guide/extras/ways-of-using-vue#fullstack-ssr) nebo [Static Site Generation (SSG)](/guide/extras/ways-of-using-vue#jamstack-ssg). Podívejte se na [průvodce vykreslováním na serveru](/guide/scaling-up/ssr), abyste se naučili, jak provádět SSR ve Vue. Pokud vaše aplikace nemá požadavky na bohatou interaktivitu, můžete k&nbsp;vykreslení HTML použít i tradiční backendový server a rozšířit jej pomocí Vue na klientovi.
 
 Pokud vaše hlavní aplikace musí být SPA, ale má marketingové stránky (úvod, o nás, blog), odesílejte je samostatně! Vaše marketingové stránky by měly být ideálně nasazeny jako statické HTML s minimálním JS pomocí SSG.
 
@@ -51,21 +51,21 @@ Jedním z nejefektivnějších způsobů, jak zlepšit výkon načítání strá
 
 - Pokud je to možné, použijte build fázi.
 
-  - Mnoho z Vue API je ["tree-shakable"](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking), pokud je balíček vytvořen pomocí moderního nástroje pro sestavení. Například, pokud nepoužíváte vestavěnou komponentu `<Transition>`, nebude v konečném produkčním balíčku zahrnuta. Tree-shaking může odstranit i další nepoužívané moduly ve vašem zdrojovém kódu.
+  - Mnoho z Vue API je [„tree-shakable“](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking), pokud je balíček vytvořen pomocí moderního build nástroje. Například, pokud nepoužíváte vestavěnou komponentu `<Transition>`, nebude v konečném produkčním balíčku zahrnuta. Tree-shaking může odstranit i další nepoužívané moduly ve vašem zdrojovém kódu.
 
-- Při použití build fáze jsou šablony předkompilovány, takže není nutné do prohlížeče odesílat Vue kompilátor. To ušetří **14kb** min+gzipped JavaScript a zabrání nákladům na runtime kompilaci.
+- Při použití build fáze jsou šablony předkompilovány, takže není nutné do prohlížeče odesílat Vue kompilátor. To ušetří **14kb** min+gzipped JavaScriptu a zabrání nákladům na runtime kompilaci.
 
-- Buďte opatrní na velikost při zavádění nových závislostí! V reálných aplikacích jsou zbytečně velké balíčky nejčastěji výsledkem zavedení těžkých závislostí, aniž by si to vývojář uvědomil.
+- Dávejte pozor na velikost při zavádění nových závislostí! V reálných aplikacích jsou zbytečně velké balíčky nejčastěji výsledkem zavedení těžkých závislostí, aniž by si to vývojář uvědomil.
 
   - Pokud používáte build fázi, upřednostňujte závislosti, které nabízejí formáty ES modulů a podporují tree-shaking. Například upřednostňujte `lodash-es` před `lodash`.
 
-  - Zkontrolujte velikost závislosti a posuďte, zda stojí za to poskytovanou funkcionalitu. Když je závislost přátelská k tree-shakingu, skutečný nárůst velikosti bude záviset na API, které z ní skutečně importujete. Nástroje jako [bundlejs.com](https://bundlejs.com/) lze použít pro rychlé kontroly, ale měření s vaším skutečným sestavením bude vždy nejpřesnější.
+  - Zkontrolujte velikost závislosti a posuďte, zda stojí za poskytovanou funkcionalitu. Když je závislost přátelská k tree-shakingu, skutečný nárůst velikosti bude záviset na API, které z ní skutečně importujete. Nástroje jako [bundlejs.com](https://bundlejs.com/) lze použít pro rychlé kontroly, ale měření s vaším skutečným sestavením bude vždy nejpřesnější.
 
-- Pokud používáte Vue především pro postupné vylepšování a chcete se vyhnout build dázi, zvažte použití [petite-vue](https://github.com/vuejs/petite-vue) (pouze **6kb**).
+- Pokud používáte Vue především pro postupné vylepšování a chcete se vyhnout build fázi, zvažte použití [petite-vue](https://github.com/vuejs/petite-vue) (pouze **6kb**).
 
 ### Dělení kódu {#code-splitting}
 
-Dělení kódu je proces, kdy sestavovací nástroj rozdělí balíček aplikace na více menších částí, které lze poté načítat na vyžádání nebo paralelně. S pomocí správného dělení kódu lze požadované funkce načíst okamžitě při načítání stránky a další části lze načítat, až když jsou potřeba, čímž se zlepšuje výkon.
+Dělení kódu je proces, kdy sestavovací nástroj rozdělí balíček aplikace na více menších částí, které lze poté načítat na vyžádání nebo paralelně. S pomocí správného dělení kódu lze požadované funkce načíst okamžitě při načítání stránky a další části je možné načítat, až když jsou potřeba, čímž se zlepšuje výkon.
 
 Build nástroje jako Rollup (na kterém je založené Vite) nebo webpack mohou automaticky vytvářet rozdělené části (chunks) detekováním syntaxe dynamického importu ESM:
 
@@ -77,7 +77,7 @@ function loadLazy() {
 }
 ```
 
-"Lazy" načítání je nejlepší použít na funkce, které nejsou potřebné okamžitě po úvodním načtení stránky. Ve Vue aplikacích je lze použít ve spojení s Vue funkcí [Async Component](/guide/components/async) pro vytváření rozdělených částí pro stromy komponent:
+„Lazy“ načítání je nejlepší použít na funkce, které nejsou potřebné okamžitě po úvodním načtení stránky. Ve Vue aplikacích je lze použít ve spojení s Vue funkcí [Async Component](/guide/components/async) pro vytváření rozdělených částí pro stromy komponent:
 
 ```js
 import { defineAsyncComponent } from 'vue'
@@ -88,13 +88,13 @@ import { defineAsyncComponent } from 'vue'
 const Foo = defineAsyncComponent(() => import('./Foo.vue'))
 ```
 
-Pro aplikace používající Vue Router se silně doporučuje používat "lazy" načítání pro komponenty cest (route). Vue Router má pro "lazy" načítání explicitní podporu, oddělenou od `defineAsyncComponent`. Pro více informací se podívejte na [Lazy Loading Routes](https://router.vuejs.org/guide/advanced/lazy-loading.html).
+Pro aplikace používající Vue Router se silně doporučuje používat „lazy“ načítání pro komponenty cest (route). Vue Router má pro „lazy“ načítání explicitní podporu, oddělenou od `defineAsyncComponent`. Pro více informací se podívejte na [Lazy Loading Routes](https://router.vuejs.org/guide/advanced/lazy-loading.html).
 
 ## Optimalizace aktualizací {#update-optimizations}
 
-### Stabilita props {#props-stability}
+### Stabilita vlastností (props) {#props-stability}
 
-V Vue se komponentna potomka aktualizuje pouze tehdy, když se změní alespoň jedna z jeho přijatých vlastností (props). Uvažte následující příklad:
+V Vue se komponenta potomka aktualizuje pouze tehdy, když se změní alespoň jedna z&nbsp;jeho přijatých vlastností (props). Uvažte následující příklad:
 
 ```vue-html
 <ListItem
@@ -179,7 +179,7 @@ Jedním z nejčastějších problémů s výkonem ve všech frontendových aplik
 
 Nemusíme však nutně vykreslovat všechny tyto uzly najednou. Ve většině případů se na obrazovku uživatele vejde pouze malá podmnožina našeho velkého seznamu. Výkon můžeme výrazně zlepšit pomocí **virtuálního seznamu**, což je technika, při které se vykreslují pouze položky, které jsou aktuálně ve viewportu nebo blízko něj.
 
-Implementace virtuálního seznamu není jednoduchá, naštěstí existují knihovny od komunity, které můžete přímo použít:
+Implementace virtuálního seznamu není jednoduchá, naštěstí existují komunitní knihovny, které můžete rovnou použít:
 
 - [vue-virtual-scroller](https://github.com/Akryum/vue-virtual-scroller)
 - [vue-virtual-scroll-grid](https://github.com/rocwang/vue-virtual-scroll-grid)
@@ -187,9 +187,9 @@ Implementace virtuálního seznamu není jednoduchá, naštěstí existují knih
 
 ### Snížení reaktivního zatížení pro velké neměnné struktury {#reduce-reactivity-overhead-for-large-immutable-structures}
 
-Reaktivní systém Vue je defaultně "hluboký" (deep). To umožňuje intuitivní správu stavu, ale zároveň vytváří určitou úroveň zatížení, pokud jsou data velká, protože každý přístup k vlastnosti spouští proxy funkce (proxy traps), které sledování závislostí provádějí. To se obvykle projevuje při práci s velkými poli hluboce vnořených objektů, kde jedno vykreslení musí přistupovat k více než 100 000 vlastnostem, takže by to mělo ovlivnit pouze velmi specifické případy použití.
+Reaktivní systém Vue je defaultně „hluboký“ (deep). To umožňuje intuitivní správu stavu, ale zároveň vytváří určitou úroveň zatížení, pokud jsou data velká, protože každý přístup k vlastnosti spouští proxy funkce (proxy traps), které sledování závislostí provádějí. To se obvykle projevuje při práci s velkými poli hluboce vnořených objektů, kde jedno vykreslení musí přistupovat k více než 100 000 vlastnostem, takže by to mělo ovlivnit pouze velmi specifické případy použití.
 
-Vue poskytuje možnost vypnout deep reaktivitu pomocí funkcí [`shallowRef()`](/api/reactivity-advanced#shallowref) a [`shallowReactive()`](/api/reactivity-advanced#shallowreactive). Mělké (shallow) API vytváří stav, který je reaktivní pouze na root úrovni a všechny vnořené objekty vystavuje nedotčené. To udržuje rychlý přístup k vnořeným vlastnostem, ovšem s tím, že musíme považovat všechny vnořené objekty za neměnné a aktualizace mohou být spouštěny pouze nahrazením root stavu:
+Vue poskytuje možnost vypnout deep reaktivitu pomocí funkcí [`shallowRef()`](/api/reactivity-advanced#shallowref) a&nbsp;[`shallowReactive()`](/api/reactivity-advanced#shallowreactive). Mělké (shallow) API vytváří stav, který je reaktivní pouze na root úrovni a všechny vnořené objekty vystavuje nedotčené. To udržuje rychlý přístup k vnořeným vlastnostem, ovšem s tím, že musíme považovat všechny vnořené objekty za neměnné a aktualizace mohou být spouštěny pouze nahrazením root stavu:
 
 ```js
 const shallowArray = shallowRef([
@@ -215,6 +215,6 @@ shallowArray.value = [
 
 ### Vyhněte se zbytečným abstrakcím komponent {#avoid-unnecessary-component-abstractions}
 
-Někdy můžeme pro lepší abstrakci nebo organizaci kódu vytvářet [komponenty bez vykreslování](/guide/components/slots#renderless-components) nebo higher-order komponenty (tj. komponenty, které vykreslují jiné komponenty s dodatečnými vlastnostmi (props)). Ačkoli to není nic špatného, mějte na paměti, že instance komponent jsou mnohem dražší než běžné DOM elementy a vytváření příliš mnoha kvůli abstrakčním vzorům bude mít na výkon negativní dopad.
+Někdy můžeme pro lepší abstrakci nebo organizaci kódu vytvářet [komponenty bez vykreslování](/guide/components/slots#renderless-components) nebo _higher-order komponenty_ (tj. komponenty, které vykreslují jiné komponenty s dodatečnými vlastnostmi (props)). Ačkoli to není nic špatného, mějte na paměti, že instance komponent jsou mnohem dražší než běžné DOM elementy a&nbsp;vytváření příliš mnoha kvůli abstrakčním vzorům bude mít na výkon negativní dopad.
 
 Je třeba si uvědomit, že redukce pouze několika instancí výrazný efekt mít nebude, takže se tím nemusíte příliš trápit, pokud je komponenta v aplikaci vykreslena jen párkrát. Nejlepší scénář pro zvážení této optimalizace je opět u velkých seznamů. Představte si seznam s 100 položkami, kde každá položka obsahuje mnoho komponent potomků. Odstranění jedné zbytečné abstrakce zde může vést k redukci stovek instancí komponent.

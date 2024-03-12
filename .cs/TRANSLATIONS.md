@@ -27,7 +27,8 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟥 binding = binding
 * 🟩 bug = chyba ('bug' lze občas nechat, ale určitě raději "zdroj chyb" než "zdroj bugů")
 * 🟩 build step = build fáze
-* 🟩 build-in (adj.) = vestavěný
+* 🟩 build tool = build nástroj
+* 🟩 built-in (adj.) = vestavěný
 * 🟩 by default = ve výchozím nastavení
 * 🟥 cache = cache
 * 🟥 callback = callback

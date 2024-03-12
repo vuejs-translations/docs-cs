@@ -1,6 +1,6 @@
 # Přístupnost {#accessibility}
 
-Přístupnost (accessibility) webu (také známá jako a11y) označuje praxi vytváření webových stránek, které mohou být používány kýmkoli - ať už se jedná o osobu s postižením, pomalým připojením, zastaralým nebo nefunkčním hardwarem nebo jednoduše o někoho v nevhodném prostředí. Například přidání titulků k videu pomůže jak uživatelům se sluchovým postižením, tak uživatelům, kteří se nacházejí v hlučném prostředí a nemohou svůj telefon slyšet. Stejně tak ujištšní se, že váš text nemá příliš nízký kontrast, pomůže jak uživatelům se zrakovým postižením, tak uživatelům, kteří se snaží svůj telefon používat na přímém slunci.
+Přístupnost (accessibility) webu (také známá jako a11y) označuje praxi vytváření webových stránek, které mohou být používány kýmkoli - ať už se jedná o osobu s&nbsp;postižením, pomalým připojením, zastaralým nebo nefunkčním hardwarem nebo jednoduše o někoho v nevhodném prostředí. Například přidání titulků k videu pomůže jak uživatelům se sluchovým postižením, tak uživatelům, kteří se nacházejí v hlučném prostředí a nemohou svůj telefon slyšet. Stejně tak ujištšní se, že váš text nemá příliš nízký kontrast, pomůže jak uživatelům se zrakovým postižením, tak uživatelům, kteří se snaží svůj telefon používat na přímém slunci.
 
 Jste připraveni začít, ale nevíte přesně jak?
 
@@ -15,7 +15,7 @@ Obvykle se to dělá na začátku souboru `App.vue`, protože to bude první foc
 ```vue-html
 <ul class="skip-links">
   <li>
-    <a href="#main" ref="skipLink" class="skip-link">Přeskočit na hlavní obsah</a>
+    <a href="#main" ref="skipLink" class="skip-link">Přejít na hlavní obsah</a>
   </li>
 </ul>
 ```
@@ -86,7 +86,7 @@ Jedním z nejdůležitějších prvků přístupnosti je zajistit, aby design po
 
 ### Nadpisy {#headings}
 
-Uživatelé mohou v aplikaci navigovat pomocí nadpisů. Mít popisné nadpisy pro každou část vaší aplikace uživatelům usnadňuje předvídat obsah každé sekce. Pokud jde o nadpisy, pro přístupnost existuje několik doporučených postupů:
+Uživatelé mohou v aplikaci navigovat pomocí nadpisů. Mít popisné nadpisy pro každou část vaší aplikace uživatelům usnadňuje předvídat obsah každé sekce. Pokud jde o&nbsp;nadpisy, pro přístupnost existuje několik doporučených postupů:
 
 - Vnořujte nadpisy podle jejich pořadí: `<h1>` - `<h6>`
 - Nepřeskakujte nadpisy uvnitř sekce
@@ -119,11 +119,11 @@ Uživatelé mohou v aplikaci navigovat pomocí nadpisů. Mít popisné nadpisy p
 | HTML            | ARIA Role            | Účel orientačního bodu                                                                                           |
 | --------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | header          | role="banner"        | Hlavní nadpis: název stránky                                                                                     |
-| nav             | role="navigation"    | Sbírka odkazů vhodných pro navigaci v dokumentu nebo souvisejících dokumentech                                  |
+| nav             | role="navigation"    | Sbírka odkazů vhodných pro navigaci v&nbsp;dokumentu nebo souvisejících dokumentech                                  |
 | main            | role="main"          | Hlavní nebo centrální obsah dokumentu                                                                             |
-| footer          | role="contentinfo"   | Informace o nadřazeném dokumentu: poznámky/kopie práv/odkazy na prohlášení o ochraně soukromí                     |
+| footer          | role="contentinfo"   | Informace o nadřazeném dokumentu: poznámky/kopie práv/odkazy na prohlášení o&nbsp;ochraně soukromí                     |
 | aside           | role="complementary" | Podporuje hlavní obsah, ale je oddělený a má vlastní význam                                             |
-| search          | role="search"        | Tato sekce obsahuje funkce pro vyhledávání v aplikaci                                                               |
+| search          | role="search"        | Tato sekce obsahuje funkce pro vyhledávání v&nbsp;aplikaci                                                               |
 | form            | role="form"          | Sbírka prvků spojených s formulářem                                                                              |
 | section         | role="region"        | Obsah, který je relevantní a který uživatelé pravděpodobně budou chtít procházet. Pro tento prvek musí být poskytnut label |
 
@@ -163,7 +163,7 @@ Všimněte si, že na element formuláře můžete přidat `autocomplete='on'` a
 Poskytujte popisky (labels), které popisují účel všech ovládacích prvků formuláře; propojte `for` a `id`:
 
 ```vue-html
-<label for="name">Jméno: </label>
+<label for="name">Jméno:</label>
 <input type="text" name="name" id="name" v-model="name" />
 ```
 
@@ -174,7 +174,7 @@ Pokud zkontrolujete tento element v nástrojích pro vývojáře v Chrome a otev
 ![Chrome Developer Tools zobrazující přístupné jméno vstupu z popisku](./images/AccessibleLabelChromeDevTools.png)
 
 :::warning Varování:
-Možná jste viděli vstupní pole takto obalena popisky:
+Možná jste viděli vstupní pole takto obalená popisky:
 
 ```vue-html
 <label>
@@ -191,7 +191,7 @@ Explicitní nastavení popisků s odpovídajícím id je v asistenčních techno
 Také můžete  vstupu přidat přístupné jméno (accessible name) pomocí [`aria-label`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label).
 
 ```vue-html
-<label for="name">Jméno: </label>
+<label for="name">Jméno:</label>
 <input
   type="text"
   name="name"
@@ -220,7 +220,7 @@ Použití [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Acces
 >
   <h1 id="billing">Fakturace</h1>
   <div class="form-item">
-    <label for="name">Jméno: </label>
+    <label for="name">Jméno:</label>
     <input
       type="text"
       name="name"
@@ -239,7 +239,7 @@ Použití [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Acces
 
 #### `aria-describedby` {#aria-describedby}
 
-[aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) se používá stejným způsobem jako `aria-labelledby`, ale poskytuje popis s dodatečnými informacemi, které by uživatel mohl potřebovat. Lze to použít k popisu kritérií pro jakýkoli vstup:
+[aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) se používá stejným způsobem jako `aria-labelledby`, ale poskytuje popis s dodatečnými informacemi, které by uživatel mohl potřebovat. Lze to použít k&nbsp;popisu kritérií pro jakýkoli vstup:
 
 ```vue-html
 <form
@@ -250,7 +250,7 @@ Použití [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Acces
 >
   <h1 id="billing">Fakturace</h1>
   <div class="form-item">
-    <label for="name">Celé jméno: </label>
+    <label for="name">Celé jméno:</label>
     <input
       type="text"
       name="name"
@@ -273,7 +273,7 @@ Popis můžete vidět v Chrome DevTools:
 
 ### Placeholder {#placeholder}
 
-Vyhněte se používání placeholderů, protože mohou mnoho uživatelů zmást.
+Vyhněte se používání placeholderů, protože mohou řadu uživatelů zmást.
 
 Jedním z problémů s placeholdery je, že výchozí stav nesplňuje kritéria [barevného kontrastu](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html); oprava barevného kontrastu způsobí, že placeholder vypadá jako předvyplněná data ve vstupních polích. Podívejte se na následující příklad, kde můžete vidět, že placeholder pro příjmení, který splňuje kritéria barevného kontrastu, vypadá jako předvyplněná data:
 
@@ -324,7 +324,7 @@ Nejlepší je poskytnout všechny informace, které uživatel k vyplnění formu
 
 ### Instrukce {#instructions}
 
-Při přidávání instrukcí pro vaše vstupní pole se ujistěte, že je správně propojíte s vstupem.
+Při přidávání instrukcí pro vaše vstupní pole se ujistěte, že je správně propojíte s&nbsp;vstupem.
 Můžete poskytnout dodatečné instrukce a propojit více ID uvnitř [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby). To umožňuje flexibilnější design.
 
 ```vue-html
@@ -356,7 +356,7 @@ Alternativně můžete instrukce k vstupu připojit pomocí [`aria-describedby`]
 
 ### Skrývání obsahu {#hiding-content}
 
-Obvykle se nedoporučuje vizuálně skrývat popisky, i když má vstup přístupné jméno. Pokud však funkčnost vstupu lz  s okolním kontextem pochopit, můžeme vizuální popisek skrýt.
+Obvykle se nedoporučuje vizuálně skrývat popisky, i když má vstup přístupné jméno. Pokud však funkčnost vstupu lze z okolního kontextu pochopit, můžeme popisek skrýt.
 
 Podívejme se na toto vyhledávací pole:
 
@@ -529,7 +529,7 @@ Existuje široká škála postižení, která lze hrubě rozdělit do čtyř kat
 
 - _[Vizuální](https://webaim.org/articles/visual/)_ - Tito uživatelé mohou využít čteček obrazovky, zvětšování obrazovky, ovládání kontrastu obrazovky nebo braillova displeje.
 - _[Sluchová](https://webaim.org/articles/auditory/)_ - Tito uživatelé mohou využít titulky, přepisy nebo videa ve znakové řeči.
-- _[Motorická](https://webaim.org/articles/motor/)_ - Tito uživatelé mohou využít řadu [asistenčních technologií pro motorické postižení](https://webaim.org/articles/motor/assistive): softwaru pro rozpoznávání hlasu, sledování očí, přístupu pomocí jednoho tlačítka, hlavového ovladače, přepínacího ovladače 'sip and puff', přizpůsobeného trackballu, adaptivní klávesnice nebo jiných asistenčních technologií.
+- _[Motorická](https://webaim.org/articles/motor/)_ - Tito uživatelé mohou využít řadu [asistenčních technologií pro motorické postižení](https://webaim.org/articles/motor/assistive): softwaru pro rozpoznávání hlasu, sledování očí, přístupu pomocí jednoho tlačítka, hlavového ovladače, přepínacího ovladače _‚sip and puff‘_, přizpůsobeného trackballu, adaptivní klávesnice nebo jiných asistenčních technologií.
 - _[Kognitivní](https://webaim.org/articles/cognitive/)_ - Tito uživatelé mohou využít doplňková média, strukturální organizaci obsahu, jasné a jednoduché psaní.
 
 Podívejte se na následující odkazy od WebAim, abyste uživatelům lépe porozuměli:
