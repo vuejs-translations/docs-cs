@@ -27,7 +27,7 @@ Projekty vytvořené pomocí `create-vue` (založené na Vite) nebo Vue CLI (zal
 Pokud používáte vlastní nastavení, ujistěte se, že:
 
 1. `vue` se překládá na `vue.runtime.esm-bundler.js`.
-2. [Compile-Time flags](https://github.com/vuejs/core/tree/main/packages/vue#bundler-build-feature-flags) jsou správně nakonfigurovány.
+2. [Compile-Time flags](/api/compile-time-flags) jsou správně nakonfigurovány.
 3. <code>process.env<wbr>.NODE_ENV</code> je během sestavení nahrazeno hodnotou `"production"`.
 
 Další odkazy:

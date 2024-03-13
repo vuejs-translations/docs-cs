@@ -114,7 +114,7 @@ Od verze 3.3 můžete přímo v `<script setup>` použít `defineOptions` pro na
 
 :::
 
-Pokud plánujete používat výhradně Composition API (spolu s výše uvedenými vlastnostmi), můžete zmenšit velikost produkčního balíčku o několik kilobytů pomocí [přepínače při kompilaci](https://github.com/vuejs/core/tree/main/packages/vue#bundler-build-feature-flags), který z Vue odstraní kód související s Options API. Upozorňujeme, že to ovlivní i Vue komponenty ve vašich závislostech.
+Pokud plánujete používat výhradně Composition API (spolu s výše uvedenými vlastnostmi), můžete zmenšit velikost produkčního balíčku o několik kilobytů pomocí [přepínače při kompilaci](/api/compile-time-flags), který z Vue odstraní kód související s Options API. Upozorňujeme, že to ovlivní i Vue komponenty ve vašich závislostech.
 
 ### Můžu použít obě API ve stejném komponentu? {#can-i-use-both-apis-in-the-same-component}
 
