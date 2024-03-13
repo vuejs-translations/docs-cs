@@ -106,7 +106,7 @@ Extrahuje typy vlastností (props) z objektu s runtime props. veřejně orientov
 
 ## ComponentCustomProperties {#componentcustomproperties}
 
-Používá se k rozšíření typu instance komponenty pro podporu custom globálních vlastností.
+Používá se k obohacení typu instance komponenty pro podporu custom globálních vlastností.
 
 - **Příklad**
 
@@ -122,14 +122,14 @@ Používá se k rozšíření typu instance komponenty pro podporu custom globá
   ```
 
   :::tip
-  Rozšíření musí být umístěno v souboru modulu `.ts` nebo `.d.ts`. Pro více informací se podívejte na [rozšiřování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties).
+  Obohacení musí být umístěno v souboru modulu `.ts` nebo `.d.ts`. Pro více informací se podívejte na [obohacování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties).
   :::
 
-- **Viz také:** [Průvodce - Rozšiřování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties)
+- **Viz také:** [Průvodce - Obohacování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties)
 
 ## ComponentCustomOptions {#componentcustomoptions}
 
-Používá se k rozšíření typu vlastností komponenty pro podporu custom vlastností.
+Používá se k obohacení typu vlastností komponenty pro podporu custom vlastností.
 
 - **Příklad**
 
@@ -144,14 +144,14 @@ Používá se k rozšíření typu vlastností komponenty pro podporu custom vla
   ```
 
   :::tip
-  Rozšíření musí být umístěno v souboru modulu `.ts` nebo `.d.ts`. Pro více informací se podívejte na [rozšiřování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties).
+  Obohacení musí být umístěno v souboru modulu `.ts` nebo `.d.ts`. Pro více informací se podívejte na [obohacování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties).
   :::
 
-- **Viz také:** [ Rozšiřování globálních vlastností](/guide/typescript/options-api#augmenting-custom-options)
+- **Viz také:** [ Obohacování globálních vlastností](/guide/typescript/options-api#augmenting-custom-options)
 
 ## ComponentCustomProps {#componentcustomprops}
 
-Používá se k rozšíření povolených TSX vlastností (props) pro použití nedeklarovaných vlastností na prvcích TSX.
+Používá se k obohacení povolených TSX vlastností (props) pro použití nedeklarovaných vlastností na prvcích TSX.
 
 - **Příklad**
 
@@ -171,12 +171,12 @@ Používá se k rozšíření povolených TSX vlastností (props) pro použití 
   ```
 
   :::tip
-  Rozšíření musí být umístěno v souboru modulu `.ts` nebo `.d.ts`. Pro více informací se podívejte na [rozšiřování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties).
+  Obohacení musí být umístěno v souboru modulu `.ts` nebo `.d.ts`. Pro více informací se podívejte na [obohacování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties).
   :::
 
 ## CSSProperties {#cssproperties}
 
-Používá se k rozšíření povolených hodnot u vazeb vlastností stylů.
+Používá se k obohacení povolených hodnot u vazeb vlastností stylů.
 
 - **Příklad**
 
@@ -199,11 +199,11 @@ Používá se k rozšíření povolených hodnot u vazeb vlastností stylů.
   ```
 
 :::tip
-Rozšíření musí být umístěno v souboru modulu `.ts` nebo `.d.ts`. Pro více informací se podívejte na [rozšiřování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties).
+Obohacení musí být umístěno v souboru modulu `.ts` nebo `.d.ts`. Pro více informací se podívejte na [obohacování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties).
 :::
 
 :::info Viz také
-Podpora SFC `<style>` tagů pro propojení hodnot CSS s dynamickým stavem komponenty pomocí CSS funkce `v-bind`. To umožňuje custom vlastnosti bez rozšíření typů.
+Podpora SFC `<style>` tagů pro propojení hodnot CSS s dynamickým stavem komponenty pomocí CSS funkce `v-bind`. To umožňuje custom vlastnosti bez obohacení typů.
 
 - [v-bind() v CSS](/api/sfc-css-features#v-bind-in-css)
   :::

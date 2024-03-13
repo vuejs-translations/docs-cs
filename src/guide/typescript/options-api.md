@@ -3,12 +3,12 @@
 > Tato stránka předpokládá, že jste již přečetli přehled o [Používání Vue s TypeScriptem](./overview).
 
 :::tip
-I když Vue používání TypeScriptu s Options API podporuje, doporučuje se používat Vue s TypeScriptem pomocí Composition API, protože nabízí jednodušší, efektivnější a robustnější odvozování typů.
+I když Vue používání TypeScriptu s Options API podporuje, doporučuje se používat Vue s&nbsp;TypeScriptem pomocí Composition API, protože nabízí jednodušší, efektivnější a&nbsp;robustnější odvozování typů.
 :::
 
 ## Typování vlastností komponenty {#typing-component-props}
 
-Odvozování typů pro vlastnosti (props) v Options API vyžaduje obalení komponenty pomocí `defineComponent()`. Tímto způsobem je Vue schopno odvodit typy pro vlastnosti na základě volby `props`, přičemž bere v úvahu další možnosti, jako je `required: true` a `default`:
+Odvozování typů pro vlastnosti (props) v Options API vyžaduje obalení komponenty pomocí `defineComponent()`. Tímto způsobem je Vue schopno odvodit typy pro vlastnosti na základě možnosti `props`, přičemž bere v úvahu další vlastnosti, jako je `required: true` a `default`:
 
 ```ts
 import { defineComponent } from 'vue'
@@ -82,7 +82,8 @@ export default defineComponent({
   props: {
     bookA: {
       type: Object as PropType<Book>,
-      // ujistěte se, že používáte arrow funkce, pokud máte verzi TypeScriptu nižší než 4.7
+      // ujistěte se, že používáte arrow funkce, 
+      // pokud máte verzi TypeScriptu nižší než 4.7
       default: () => ({
         title: 'Výraz arrow funkce'
       }),
@@ -92,7 +93,7 @@ export default defineComponent({
 })
 ```
 
-Tím se zabrání TypeScriptu v odvozování typu `this` uvnitř těchto funkcí, což bohužel může způsobit selhání odvozování typu. Jednalo se o předchozí [omezení návrhu](https://github.com/microsoft/TypeScript/issues/38845), které bylo vylepšeno v [TypeScriptu 4.7](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-7.html#improved-function-inference-in-objects-and-methods).
+Tím se zabrání TypeScriptu v odvozování typu `this` uvnitř těchto funkcí, což bohužel může způsobit selhání odvozování typu. Jednalo se o předchozí [omezení návrhu](https://github.com/microsoft/TypeScript/issues/38845), které bylo vylepšeno v [TypeScript v4.7](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-7.html#improved-function-inference-in-objects-and-methods).
 
 ## Typování emitovaných událostí komponenty {#typing-component-emits}
 
@@ -174,7 +175,7 @@ export default defineComponent({
 })
 ```
 
-Explicitní označení může být také vyžadováno v některých okrajových případech, kdy TypeScript nedokáže odvodit typ computed proměnné kvůli cyklické inferenci.
+Explicitní označení může být také vyžadováno v některých okrajových případech, kdy TypeScript nedokáže typ computed proměnné odvodit kvůli cyklické inferenci.
 
 ## Typování event handlerů {#typing-event-handlers}
 
@@ -199,7 +200,7 @@ export default defineComponent({
 </template>
 ```
 
-Bez typového označení bude mít argument `event` implicitně typ `any`. To povede k chybu v TS, pokud je v `tsconfig.json` použita volba `"strict": true` nebo `"noImplicitAny": true`. Proto se doporučuje argumenty event handlerů explicitně označit. Kromě toho můžete potřebovat odvození typů při přístupu k vlastnostem `event`:
+Bez typového označení bude mít argument `event` implicitně typ `any`. To povede k&nbsp;chybě v TS, pokud je v `tsconfig.json` použita volba `"strict": true` nebo `"noImplicitAny": true`. Proto se doporučuje argumenty event handlerů explicitně označit. Kromě toho můžete potřebovat odvození typů při přístupu k vlastnostem objektu `event`:
 
 ```ts
 import { defineComponent } from 'vue'
@@ -213,9 +214,9 @@ export default defineComponent({
 })
 ```
 
-## Rozšiřování globálních vlastností {#augmenting-global-properties}
+## Obohacování globálních vlastností {#augmenting-global-properties}
 
-Některé pluginy instalují globálně dostupné vlastnosti do všech instancí komponent pomocí [`app.config.globalProperties`](/api/application#app-config-globalproperties). Například můžeme nainstalovat `this.$http` pro načítání dat nebo `this.$translate` pro internacionalizaci (překlad). Aby to dobře fungovalo s TypeScriptem, Vue poskytuje rozhraní `ComponentCustomProperties`, které je navrženo pro rozšíření pomocí [rozšiřování TypeScript modulů](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation):
+Některé pluginy instalují globálně dostupné vlastnosti do všech instancí komponent pomocí [`app.config.globalProperties`](/api/application#app-config-globalproperties). Například můžeme nainstalovat `this.$http` pro načítání dat nebo `this.$translate` pro internacionalizaci (překlad). Aby to dobře fungovalo s TypeScriptem, Vue poskytuje rozhraní `ComponentCustomProperties`, které je navrženo pro rozšíření pomocí [obohacování (augmentation) TypeScript modulů](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation):
 
 ```ts
 import axios from 'axios'
@@ -232,11 +233,11 @@ Viz také:
 
 - [Jednotkové TypeScript testy pro `component type extensions`](https://github.com/vuejs/core/blob/main/packages/dts-test/componentTypeExtensions.test-d.tsx)
 
-### Umístění rozšíření typu {#type-augmentation-placement}
+### Umístění obohacení typu {#type-augmentation-placement}
 
-Toto rozšíření typu můžeme umístit do souboru `.ts` nebo do souboru `*.d.ts` pro celý projekt. V obou případech se ujistěte, že je zahrnuto v souboru `tsconfig.json`. Pro autory knihoven / pluginů by měl být tento soubor specifikován vlastností `types` v souboru `package.json`.
+Obohacení typu můžeme umístit do souboru `.ts` nebo do souboru `*.d.ts` pro celý projekt. V obou případech se ujistěte, že je zahrnuto v souboru `tsconfig.json`. Pro autory knihoven / pluginů by měl být tento soubor specifikován vlastností `types` v&nbsp;souboru `package.json`.
 
-Abychom mohli rozšíření modulu využít, je nutné zajistit, aby bylo rozšíření umístěno v [TypeScript modulu](https://www.typescriptlang.org/docs/handbook/modules.html). To znamená, že soubor musí obsahovat alespoň jeden import nebo export nejvyšší úrovně, i když je to jen `export {}`. Pokud je rozšíření umístěno mimo modul, místo jejich rozšíření původní typy přepíše!
+Abychom mohli obohacení modulu využít, je nutné zajistit, aby bylo umístěno v&nbsp;[TypeScript modulu](https://www.typescriptlang.org/docs/handbook/modules.html). To znamená, že soubor musí obsahovat alespoň jeden import nebo export nejvyšší úrovně, i když je to jen `export {}`. Pokud je obohacení umístěno mimo modul, původní typy místo jejich doplnění přepíše!
 
 ```ts
 // Nefunguje, přepisuje původní typy.
@@ -272,7 +273,7 @@ export default defineComponent({
 })
 ```
 
-Bez správného rozšíření typu budou mít parametry tohoto hooku implicitně typ `any`. Můžeme rozšířit rozhraní `ComponentCustomOptions`, abychom tyto vlastní možnosti podporovali:
+Bez správného obohacení typu budou mít parametry tohoto hooku implicitně typ `any`. Můžeme rozšířit rozhraní `ComponentCustomOptions`, abychom tyto vlastní možnosti podporovali:
 
 ```ts
 import { Route } from 'vue-router'
@@ -284,9 +285,9 @@ declare module 'vue' {
 }
 ```
 
-Nyní bude možnost `beforeRouteEnter` správně typována. Berte na vědomí, že se jedná pouze o příklad - dobře typované knihovny jako `vue-router` by měly tyto rozšíření ve vlastních definicích typů provádět automaticky.
+Nyní bude možnost `beforeRouteEnter` správně typována. Berte na vědomí, že se jedná pouze o příklad - dobře typované knihovny jako `vue-router` by měly tato obohacení ve vlastních definicích typů provádět automaticky.
 
-Umístění tohoto rozšíření podléhá [stejným omezením](#type-augmentation-placement) jako rozšíření globálních vlastností.
+Umístění tohoto obohacení podléhá [stejným omezením](#type-augmentation-placement) jako obohacování globálních vlastností.
 
 Viz také:
 

@@ -20,7 +20,7 @@ Here we keep track of selected translations for common (mainly technical) terms 
 * 🟩 async request = asynchronní volání
 * 🟩 attribute = atribut
 * 🟩 array = pole
-* 🟩 augment = rozšíření
+* 🟩 augmentation = obohacení
 * 🟥 backend = backend
 * 🟩 best practice = osvědčené postupy
 * 🟩 bind (v.) = provést binding

@@ -129,9 +129,9 @@ Pomocná funkce pro podporu typů při definování Vue komponenty s odvozován�
   type FooInstance = InstanceType<typeof Foo>
   ```
 
-  ### Syntaxe pomocífunkce <sup class="vt-badge" data-text="3.3+" /> {#function-signature}
+  ### Syntaxe pomocí funkce <sup class="vt-badge" data-text="3.3+" /> {#function-signature}
 
-  `defineComponent()` má také alternativní způsob zápisu, který je určen pro použití s Composition API a [vykreslovacími funkcemi nebo JSX](/guide/extras/render-function.html).
+  `defineComponent()` má také alternativní způsob zápisu, který je určen pro použití s&nbsp;Composition API a [funkcemi pro vykreslení nebo JSX](/guide/extras/render-function.html).
 
   Místo předávání objektu s možnostmi (options) se očekává funkce. Tato funkce funguje stejně jako funkce [`setup()`](/api/composition-api-setup.html#composition-api-setup) z Composition API: přijímá vlastnosti (props) a kontext pro setup. Návratová hodnota by měla být funkce pro vykreslení - podporovány jsou jak `h()`, tak JSX:
 

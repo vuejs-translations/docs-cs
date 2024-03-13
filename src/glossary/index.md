@@ -186,7 +186,7 @@ S Options AP je každý hook poskytován jako samostatná sekce, např. `mounted
 Další podrobnosti naleznete zde:
 - [Průvodce - Lifecycle Hooks](/guide/essentials/lifecycle.html)
 
-## Macro {#macro}
+## Makro {#macro}
 
 Viz [Makro překladače](#compiler-macro).
 

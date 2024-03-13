@@ -6,7 +6,7 @@
 
 ### Při použití `<script setup>` {#using-script-setup}
 
-Při použití `<script setup>` podporuje odvozování typů vlastností (props) macro `defineProps()` na základě svého parametru:
+Při použití `<script setup>` podporuje odvozování typů vlastností (props) makro `defineProps()` na základě svého parametru:
 
 ```vue
 <script setup lang="ts">
@@ -20,7 +20,7 @@ props.bar // number | undefined
 </script>
 ```
 
-Toto se nazývá "runtime deklarace", protože parametr předaný do `defineProps()` bude za běhu použit jako sekce `props` .
+Toto se nazývá „runtime deklarace“, protože parametr předaný do `defineProps()` bude za běhu použit jako možnost `props` .
 
 Je ovšem obvykle přímočařejší definovat vlastnosti pomocí čistých typů (pure types) pomocí generického typového parametru:
 
@@ -33,7 +33,7 @@ const props = defineProps<{
 </script>
 ```
 
-Toto se nazývá "deklarace na základě typu". Kompilátor se pokusí na základě typového parametru odvodit ekvivalentní runtime vlastnosti. V tomto případě se náš druhý příklad kompiluje do přesně stejných runtime vlastností jako první příklad.
+Tato varianta se nazývá „deklarace na základě typu“. Kompilátor se pokusí na základě typového parametru odvodit ekvivalentní runtime vlastnosti. V tomto případě se náš druhý příklad kompiluje do přesně stejných runtime vlastností jako první příklad.
 
 Můžete použít buď deklaraci na základě typu NEBO runtime deklaraci, ale nemůžete je použít současně.
 
@@ -64,9 +64,9 @@ const props = defineProps<Props>()
 
 Ve verzi 3.2 a nižší byl generický typový parametr pro `defineProps()` omezen na typový literál nebo odkaz na lokální rozhraní.
 
-Toto omezení bylo vyřešeno ve verzi 3.3. Nejnovější verze Vue podporuje odkazování na importované a omezenou sadu složitějších typů na pozici typového parametru. Nicméně, protože runtime konverze typu stále závisí na AST, některé složité typy, které vyžadují skutečnou typovu analýzu, např. podmíněné typy, podporovány nejsou. Můžete použít podmíněné typy pro typ jedné vlastnosti, ale ne pro celý objekt vlastností.
+Toto omezení bylo vyřešeno ve verzi 3.3. Nejnovější verze Vue podporuje na pozici typového parametru odkazování na importované typy a omezenou sadu složitějších typů. Nicméně, protože runtime konverze typu stále závisí na AST, některé složité typy, které vyžadují skutečnou typovu analýzu, např. podmíněné typy, podporovány nejsou. Můžete použít podmíněné typy pro typ jedné vlastnosti, ale ne pro celý objekt vlastností.
 
-### Výchozí hodnoty props {#props-default-values}
+### Výchozí hodnoty vlastností {#props-default-values}
 
 Při použití deklarace založené na typu ztrácíme schopnost deklarovat výchozí hodnoty pro vlastnosti. To lze vyřešit pomocí makra `withDefaults`:
 
@@ -82,11 +82,11 @@ const props = withDefaults(defineProps<Props>(), {
 })
 ```
 
-Výše uvedené bude pro runtime props přeloženo na ekvivalentní `default` vlastnosti. Navíc pomocná funkce `withDefaults` poskytuje typovou kontrolu pro výchozí hodnoty a zajistí, že vrácený typ `props` má odstraněny příznaky volitelosti pro ty vlastnosti, které mají výchozí hodnoty deklarované.
+Výše uvedené bude pro runtime vlastnosti přeloženo na ekvivalentní `default` vlastnosti. Navíc pomocná funkce `withDefaults` poskytuje typovou kontrolu pro výchozí hodnoty a&nbsp;zajistí, že vrácený typ `props` má odstraněny příznaky volitelosti pro ty vlastnosti, které mají výchozí hodnoty deklarované.
 
 ### Bez `<script setup>` {#without-script-setup}
 
-Pokud nepoužíváte `<script setup>`, je nutné  k povolení odvozování typu vlastností použít `defineComponent()`. Typ objektu vlastností předaný do `setup()` je odvozen z možnosti `props`.
+Pokud nepoužíváte `<script setup>`, je nutné k povolení odvozování typu vlastností použít `defineComponent()`. Typ objektu vlastností předaný do `setup()` je odvozen z&nbsp;možnosti `props`.
 
 ```ts
 import { defineComponent } from 'vue'
@@ -101,9 +101,9 @@ export default defineComponent({
 })
 ```
 
-### Složité typy props {#complex-prop-types}
+### Složité typy vlastností {#complex-prop-types}
 
-Při deklaraci založené na typu může prop používat složitý typ stejně jako jakýkoli jiný typ:
+Při deklaraci založené na typu může vlastnost používat složitý typ stejně jako jakýkoli jiný typ:
 
 ```vue
 <script setup lang="ts">
@@ -129,7 +129,7 @@ const props = defineProps({
 })
 ```
 
-Funguje to stejným způsobem, i pokud specifikujeme sekci `props` přímo:
+Funguje to stejným způsobem, i pokud specifikujeme možnost `props` přímo:
 
 ```ts
 import { defineComponent } from 'vue'
@@ -142,7 +142,7 @@ export default defineComponent({
 })
 ```
 
-Sekce `props` se nejčastěji používá s Options API, takže v průvodci [TypeScript s Options API](/guide/typescript/options-api#typing-component-props) najdete podrobnější příklady. Techniky ukázané v těchto příkladech se také vztahují na runtime deklarace pomocí `defineProps()`.
+Možnost `props` se nejčastěji používá s Options API, takže podrobnější příklady najdete v průvodci [TypeScript s Options API](/guide/typescript/options-api#typing-component-props). Techniky ukázané v těchto příkladech se také vztahují na runtime deklarace pomocí `defineProps()`.
 
 ## Typování emitovaných událostí komponenty {#typing-component-emits}
 
@@ -309,7 +309,7 @@ function handleChange(event) {
 </template>
 ```
 
-Bez typového označení bude mít argument `event` implicitně typ `any`. To povede k chybu v TS, pokud je v `tsconfig.json` použita volba `"strict": true` nebo `"noImplicitAny": true`. Proto se doporučuje argumenty event handlerů explicitně označit. Kromě toho můžete potřebovat odvození typů při přístupu k vlastnostem `event`:
+Bez typového označení bude mít argument `event` implicitně typ `any`. To povede k&nbsp;chybě v TS, pokud je v `tsconfig.json` použita volba `"strict": true` nebo `"noImplicitAny": true`. Proto se doporučuje argumenty event handlerů explicitně označit. Kromě toho můžete potřebovat odvození typů při přístupu k vlastnostem objektu `event`:
 
 ```ts
 function handleChange(event: Event) {
@@ -317,7 +317,7 @@ function handleChange(event: Event) {
 }
 ```
 
-## Typování Provide / Inject {#typing-provide-inject}
+## Typování provide / inject {#typing-provide-inject}
 
 Poskytování (provide) a implementace (inject) se obvykle provádí v oddělených komponentách. Pro správné typování vkládaných hodnot poskytuje Vue rozhraní `InjectionKey`, což je generický typ rozšiřující `Symbol`. Může být použito k synchronizaci typu vkládané hodnoty mezi poskytovatelem a konzumentem:
 
@@ -340,7 +340,7 @@ Při použití řetězcových injection keys bude typ vkládané hodnoty `unknow
 const foo = inject<string>('foo') // typ: string | undefined
 ```
 
-Mějte na paměti, že vkládaná hodnota může být stále `undefined`, protože není zaručeno, že poskytovatel tuto hodnotu poskytne za běhu.
+Mějte na paměti, že vkládaná hodnota může být stále `undefined`, protože není zaručeno, že poskytovatel tuto hodnotu za běhu poskytne.
 
 Typ `undefined` lze odstranit poskytnutím výchozí hodnoty:
 
@@ -348,15 +348,15 @@ Typ `undefined` lze odstranit poskytnutím výchozí hodnoty:
 const foo = inject<string>('foo', 'bar') // typ: string
 ```
 
-Pokud jste si jisti, že hodnota je vždy poskytnuta, můžete také hodnotu přímo přetypovat:
+Pokud jste si jisti, že je hodnota vždy poskytnuta, můžete také hodnotu přímo přetypovat:
 
 ```ts
 const foo = inject('foo') as string
 ```
 
-## Typování Template Refs {#typing-template-refs}
+## Typování template refs {#typing-template-refs}
 
-Template refs by měly být vytvářeny s explicitním generickým typovým parametrem a počáteční hodnotou `null`:
+Template refs by měly být vytvářeny s explicitním generickým typovým parametrem a&nbsp;počáteční hodnotou `null`:
 
 ```vue
 <script setup lang="ts">
@@ -378,9 +378,9 @@ Pro získání správného DOM interface můžete zkontrolovat stránky jako [MD
 
 Pamatujte, že pro přísnou typovou bezpečnost je při přístupu k `el.value` nutné použít optional chaining nebo type guards. Je to způsobeno tím, že počáteční hodnota ref je `null`, dokud není komponenta připojena (mounted), a může být také nastavena na `null`, pokud je odkazovaný prvek odstraněn pomocí `v-if`.
 
-## Typování Template Refs komponenty {#typing-component-template-refs}
+## Typování template refs komponenty {#typing-component-template-refs}
 
-Někdy může být potřeba anotovat template ref pro komponentu potomka, aby bylo možné zavolat jeho veřejnou metodu. Například máme komponentu potomka `MyModal` s metodou, která otevírá modální okno:
+Někdy může být potřeba anotovat template ref pro komponentu potomka, aby bylo možné zavolat jeho veřejnou metodu. Například máme komponentu potomka `MyModal` s&nbsp;metodou, která otevírá modální okno:
 
 ```vue
 <!-- MyModal.vue -->
@@ -396,7 +396,7 @@ defineExpose({
 </script>
 ```
 
-Pro získání typu instance `MyModal` musíme nejprve získat jeho typ pomocí `typeof` a poté použít vestavěnou utilitu `InstanceType` v TypeScriptu k extrakci jeho instančního typu:
+Pro získání typu instance `MyModal` musíme nejprve získat jeho typ pomocí `typeof` a&nbsp;poté použít vestavěnou utilitu `InstanceType` v TypeScriptu k extrakci jeho instančního typu:
 
 ```vue{5}
 <!-- App.vue -->

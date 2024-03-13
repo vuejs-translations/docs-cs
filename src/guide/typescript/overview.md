@@ -4,9 +4,9 @@ outline: deep
 
 # Používání Vue s TypeScriptem {#using-vue-with-typescript}
 
-Typový systém jako TypeScript dokáže pomocí statické analýzy při sestavování odhalit mnoho běžných chyb. To snižuje riziko runtime chyb v produkci a také nám umožňuje s větší jistotou refaktorovat kód ve velkých aplikacích. TypeScript také zlepšuje ergonomi0 proi vývojáře pomocí automatického doplňování na základě typů v IDE.
+Typový systém jako TypeScript dokáže pomocí statické analýzy při buildu odhalit mnoho běžných chyb. Tím snižuje riziko runtime chyb v produkci a také nám umožňuje s větší jistotou refaktorovat kód ve velkých aplikacích. TypeScript také zlepšuje ergonomi pro vývojáře pomocí automatického doplňování na základě typů v IDE.
 
-Vue je samo o sobě napsáno v TypeScriptu a poskytuje pro TypeScript plnou podporu. Všechny oficiální Vue balíčky obsahují zabalené deklarace typů, které by měly fungovat ihned po instalaci.
+Vue je samo o sobě v TypeScriptu napsáno a poskytuje pro TypeScript plnou podporu. Všechny oficiální Vue balíčky obsahují zabalené deklarace typů, které by měly fungovat ihned po instalaci.
 
 ## Nastavení projektu {#project-setup}
 
@@ -14,11 +14,11 @@ Oficiální nástroj pro vytváření projektových šablon [`create-vue`](https
 
 ### Přehled {#overview}
 
-Při použití Vite-based nastavení jsou vývojový (dev) server a bundler transpile-only a neprovádějí žádnou typovou kontrolu. To zajišťuje, že vývojový server Vite zůstává i při použití TypeScriptu velmi rychlý.
+Při použití Vite-based nastavení jsou vývojový (dev) server a bundler transpile-only a&nbsp;neprovádějí žádnou typovou kontrolu. To zajišťuje, že Vite dev server zůstává i při použití TypeScriptu velmi rychlý.
 
-- Během vývoje doporučujeme pro okamžitou zpětnou vazbu pro typové chyby spoléhat na dobře nastavené [IDE](#ide-support).
+- Během vývoje doporučujeme pro okamžitou zpětnou vazbu ohledně typových chyb spoléhat na dobře nastavené [IDE](#ide-support).
 
-- Pokud používáte SFC, použijte pro kontrolu typů a generování deklarací typů z příkazové řádky nástroj [`vue-tsc`](https://github.com/vuejs/language-tools/tree/master/packages/tsc). `vue-tsc` je wrapper okolo `tsc`, vlastního příkazového rozhraní TypeScriptu. Pracuje podobně jako `tsc`, s tím rozdílem, že  kromě souborů TypeScriptu podporuje i Vue SFC. Můžete spustit `vue-tsc` v režimu sledování (watch mode) paralelně s Vite dev serverem nebo použít Vite plugin jako [vite-plugin-checker](https://vite-plugin-checker.netlify.app/), který kontroluje v samostatném pracovním vlákně.
+- Pokud používáte SFC, použijte pro kontrolu typů a generování deklarací typů z&nbsp;příkazové řádky nástroj [`vue-tsc`](https://github.com/vuejs/language-tools/tree/master/packages/tsc). `vue-tsc` je wrapper okolo `tsc`, vlastního příkazového rozhraní TypeScriptu. Pracuje podobně jako `tsc` s tím rozdílem, že  kromě souborů TypeScriptu podporuje i Vue SFC. Můžete spustit `vue-tsc` v režimu sledování (watch mode) paralelně s Vite dev serverem nebo použít Vite plugin jako [vite-plugin-checker](https://vite-plugin-checker.netlify.app/), který kontroluje v samostatném pracovním vlákně.
 
 - Vue CLI podporu pro TypeScript také poskytuje, ale již není doporučován. Viz [poznámky níže](#note-on-vue-cli-and-ts-loader).
 
@@ -36,17 +36,17 @@ Při použití Vite-based nastavení jsou vývojový (dev) server a bundler tran
 
 ### Konfigurace `tsconfig.json` {#configuring-tsconfig-json}
 
-Projekty vytvořené pomocí `create-vue` obsahují přednastavený `tsconfig.json`. Základní konfigurace je abstrahována v balíčku [`@vue/tsconfig`](https://github.com/vuejs/tsconfig). V rámci projektu používáme [Project References](https://www.typescriptlang.org/docs/handbook/project-references.html) pro zajištění správných typů pro kód spouštěný v různých prostředích (např. kód aplikace a testovací kód by měly mít různé globální proměnné).
+Projekty vytvořené pomocí `create-vue` obsahují přednastavený `tsconfig.json`. Základní konfigurace je abstrahována v balíčku [`@vue/tsconfig`](https://github.com/vuejs/tsconfig). V rámci projektu používáme [Project References](https://www.typescriptlang.org/docs/handbook/project-references.html) pro zajištění správných typů pro kód spouštěný v různých prostředích (např. kód pro aplikaci a pro automatické testy by měl mít různé globální proměnné).
 
 Při ruční konfiguraci `tsconfig.json` jsou zvlášť zajímavé některé možnosti:
 
-- [`compilerOptions.isolatedModules`](https://www.typescriptlang.org/tsconfig#isolatedModules) je nastaveno na `true`, protože Vite pro transpilaci TypeScriptu používá [esbuild](https://esbuild.github.io/) a je omezen na transpilaci jednoho souboru. [`compilerOptions.verbatimModuleSyntax`](https://www.typescriptlang.org/tsconfig#verbatimModuleSyntax) je [nadmnozžina `isolatedModules`](https://github.com/microsoft/TypeScript/issues/53601) a je to také dobrá volba - používá ji [`@vue/tsconfig`](https://github.com/vuejs/tsconfig).
+- [`compilerOptions.isolatedModules`](https://www.typescriptlang.org/tsconfig#isolatedModules) je nastaveno na `true`, protože Vite pro transpilaci TypeScriptu používá [esbuild](https://esbuild.github.io/) a je omezen na transpilaci jednoho souboru. [`compilerOptions.verbatimModuleSyntax`](https://www.typescriptlang.org/tsconfig#verbatimModuleSyntax) je [nadmnožina `isolatedModules`](https://github.com/microsoft/TypeScript/issues/53601) a je to také dobrá volba - používá ji [`@vue/tsconfig`](https://github.com/vuejs/tsconfig).
 
-- Pokud používáte Options API, musíte nastavit [`compilerOptions.strict`](https://www.typescriptlang.org/tsconfig#strict) na `true` (nebo alespoň povolit [`compilerOptions.noImplicitThis`](https://www.typescriptlang.org/tsconfig#noImplicitThis), což je součástí volby `strict`), abyste mohli využít typovou kontrolu `this` ve vlastnostech (options) komponenty. Jinak bude `this` považováno za `any`.
+- Pokud používáte Options API, musíte nastavit [`compilerOptions.strict`](https://www.typescriptlang.org/tsconfig#strict) na `true` (nebo alespoň povolit [`compilerOptions.noImplicitThis`](https://www.typescriptlang.org/tsconfig#noImplicitThis), což je součástí volby `strict`), abyste mohli využít typovou kontrolu `this` v možnostech (options) komponenty. Jinak bude `this` považováno za `any`.
 
 - Pokud jste nakonfigurovali aliasy resolveru ve svém build nástroji, například alias `@/*` nakonfigurovaný výchozím způsobem v projektu `create-vue`, musíte jej pro TypeScript také nakonfigurovat pomocí [`compilerOptions.paths`](https://www.typescriptlang.org/tsconfig#paths).
 
-- Pokud chcete ve Vue používat TSX, nastavte [`compilerOptions.jsx`](https://www.typescriptlang.org/tsconfig#jsx) na `"preserve"` a [`compilerOptions.jsxImportSource`](https://www.typescriptlang.org/tsconfig#jsxImportSource) na `"vue"`.
+- Pokud chcete ve Vue používat TSX, nastavte [`compilerOptions.jsx`](https://www.typescriptlang.org/tsconfig#jsx) na `"preserve"` a&nbsp;[`compilerOptions.jsxImportSource`](https://www.typescriptlang.org/tsconfig#jsxImportSource) na `"vue"`.
 
 Viz také:
 
@@ -55,13 +55,13 @@ Viz také:
 
 ### Poznámka k Vue CLI a `ts-loader` {#note-on-vue-cli-and-ts-loader}
 
-V nastavení založeném na nástroji webpack, jako je Vue CLI, je běžné provádět typovou kontrolu jako součást transformačního procesu modulu, například pomocí `ts-loader`. To však není čisté řešení, protože systém typů potřebuje pro provedení typové kontroly znalost celého grafu modulů. Transformační krok jednotlivého modulu jednoduše není správné místo pro tuto úlohu. Vede to k následujícím problémům:
+V nastavení založeném na nástroji webpack, jako je Vue CLI, je běžné provádět typovou kontrolu jako součást transformačního procesu modulu, například pomocí `ts-loader`. To&nbsp;však není čisté řešení, protože systém typů potřebuje pro provedení typové kontroly znalost celého grafu modulů. Transformační krok jednotlivého modulu jednoduše není správné místo pro tuto úlohu. Vede to k následujícím problémům:
 
-- `ts-loader` může provádět typovou kontrolu pouze po transformaci kódu. To neodpovídá chybám, které vidíme v IDE nebo od `vue-tsc`, jenž se zpětně mapují přímo na zdrojový kód.
+- `ts-loader` může provádět typovou kontrolu až po transformaci kódu. To ale neodpovídá chybám, které vidíme v IDE nebo od `vue-tsc`, jenž se zpětně mapují přímo na zdrojový kód.
 
 - Typová kontrola může být pomalá. Když se provádí ve stejném vlákně/procesu jako transformace kódu, výrazně to ovlivňuje rychlost sestavení celé aplikace.
 
-- Již máme typovou kontrolu běžící přímo v našem IDE v samostatném procesu, takže náklady na zpomalení vývojového (dev) prostředí jednoduše nejsou dobrým kompromisem.
+- Již máme typovou kontrolu běžící přímo v našem IDE v samostatném procesu, takže náklady na zpomalení vývojového (dev) prostředí opravdu nejsou dobrý kompromis.
 
 Pokud v současnosti používáte Vue 3 + TypeScript přes Vue CLI, silně doporučujeme přejít na Vite. Také pracujeme na možnostech CLI, které umožní podporu pouze pro překlad TS, abyste mohli pro typovou kontrolu přejít na `vue-tsc`.
 
@@ -69,13 +69,13 @@ Pokud v současnosti používáte Vue 3 + TypeScript přes Vue CLI, silně dopor
 
 ### `defineComponent()` {#definecomponent}
 
-Aby TypeScript správně odvozoval typy uvnitř vlastností (options) komponenty, musíme komponenty definovat pomocí [`defineComponent()`](/api/general#definecomponent):
+Aby TypeScript správně odvozoval typy uvnitř možností (options) komponenty, musíme komponenty definovat pomocí [`defineComponent()`](/api/general#definecomponent):
 
 ```ts
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  // povolené odvozování typů
+  // povolené odvozování typů (type inference)
   props: {
     name: String,
     msg: { type: String, required: true }
@@ -99,7 +99,7 @@ export default defineComponent({
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  // povolená inference typu
+  // povolené odvozování typů (type inference)
   props: {
     message: String
   },
@@ -174,7 +174,7 @@ let x: string | number = 1
 </template>
 ```
 
-To lze obejít pomocí inline přetypování:
+Chybu lze obejít pomocí inline přetypování:
 
 ```vue{6}
 <script setup lang="ts">
@@ -192,16 +192,16 @@ Pokud používáte Vue CLI nebo nastavení založené na nástroji webpack, Type
 
 ### Použití s TSX {#usage-with-tsx}
 
-Vue také podporuje tvorbu komponent s JSX / TSX. Podrobnosti jsou popsány v průvodci [Funkce pro vykreslení & JSX](/guide/extras/render-function.html#jsx-tsx).
+Vue také podporuje tvorbu komponent s JSX / TSX. Podrobnosti jsou popsány v&nbsp;průvodci [Funkce pro vykreslení & JSX](/guide/extras/render-function.html#jsx-tsx).
 
 ## Generické komponenty {#generic-components}
 
 Generické komponenty jsou podporovány ve dvou případech:
 
 - SFC: [`<script setup>` s atributem `generic`](/api/sfc-script-setup.html#generics)
-- Komponenty vykreslovací funkce / JSX: [funkční signatura `defineComponent()`](/api/general.html#function-signature)
+- Komponenty funkce pro vykreslení / JSX: [syntaxe pomocí funkce `defineComponent()`](/api/general.html#function-signature)
 
 ## Návody pro specifická API {#api-specific-recipes}
 
-- [TS s Composition API](./composition-api)
-- [TS s Options API](./options-api)
+- [TypeScript s Composition API](./composition-api)
+- [TypeScript s Options API](./options-api)
