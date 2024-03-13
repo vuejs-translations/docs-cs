@@ -147,7 +147,7 @@ Hooks direktiv obdrží tyto parametry:
   - `dir`: Objekt definice direktivy
 
 - `vnode`: VNode objekt, který představuje navázaný element.
-- `prevNode`: VNode objekt, který představoval navázaný element při předchozím vykreslení. Dostupný pouze v `beforeUpdate` a `updated`.
+- `prevVnode`: VNode objekt, který představoval navázaný element při předchozím vykreslení. Dostupný pouze v `beforeUpdate` a `updated`.
 
 Jako příklad uvažte následující použití direktivy:
 
