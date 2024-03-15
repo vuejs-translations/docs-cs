@@ -1,8 +1,8 @@
 # Vue a Web Components {#vue-and-web-components}
 
-[Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) je obecný termín pro sadu nativních webových API, které umožňují vývojářům vytvářet vlastní znovupoužitelné elementy.
+[Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) je obecný termín pro sadu nativních webových API, které umožňují vývojářům vytvářet vlastní znovupoužitelné custom elementy.
 
-Považujeme Vue a Web Components především za doplňkové technologie. Vue má vynikající podporu jak pro konzumaci, tak pro vytváření custom elementů. Bez ohledu na to, zda integrujete vlastní prvky do existující Vue aplikace, nebo používáte Vue k vytváření a distribuci custom elementů, jste ve správné společnosti.
+Považujeme Vue a Web Components především za doplňkové technologie. Vue má vynikající podporu jak pro konzumaci, tak pro vytváření custom elementů. Bez ohledu na to, zda integrujete vlastní prvky do existující Vue aplikace, nebo používáte Vue k&nbsp;jejich vytváření a distribuci, jste ve správné společnosti.
 
 ## Použití custom elementů ve Vue {#using-custom-elements-in-vue}
 
@@ -10,9 +10,9 @@ Vue [dosahuje v testech Custom Elements Everywhere perfektního skóre 100%](htt
 
 ### Přeskočení řešení komponent {#skipping-component-resolution}
 
-Ve výchozím nastavení se Vue pokusí vyřešit neregistrovaný HTML tag jako registrovanou Vue komponentu, než se vrátí k vykreslení custom elementu. To způsobí, že Vue během vývoje vyvolá varování "failed to resolve component". Abychom Vue řekli, že určité tagy by měly být považovány za custom elementy a přeskočit řešení komponent, můžeme specifikovat volbu [`compilerOptions.isCustomElement`](/api/application#app-config-compileroptions).
+Ve výchozím nastavení se Vue pokusí vyřešit neregistrovaný HTML tag jako registrovanou Vue komponentu, než se vrátí k vykreslení custom elementu. To způsobí, že Vue během vývoje vyvolá varování „failed to resolve component“. Abychom Vue řekli, že určité tagy by měly být považovány za custom elementy a přeskočit řešení komponent, můžeme specifikovat volbu [`compilerOptions.isCustomElement`](/api/application#app-config-compileroptions).
 
-Pokud používáte Vue s nastavením pro build, volba by měla být předána pomocí konfigurace buildu, protože se jedná o volbu kompilace.
+Pokud používáte Vue s nastavením pro build fázi, volba by měla být předána pomocí konfigurace buildu, protože se jedná o volbu kompilace.
 
 #### Příklad konfigurace v prohlížeči {#example-in-browser-config}
 
@@ -64,7 +64,7 @@ module.exports = {
 
 ### Předávání vlastností DOM {#passing-dom-properties}
 
-Protože atributy DOM mohou být pouze řetězce, musíme složitá data custom elementů předávat jako vlastnosti DOM. Při nastavování vlastností (props) na custom elementu Vue 3 automaticky kontroluje přítomnost vlastnosti DOM pomocí operátoru `in` a upřednostňuje nastavení hodnoty jako vlastnosti DOM, pokud je klíč přítomen. To znamená, že ve většině případů se o to nemusíte starat, pokud custom element dodržuje [doporučené postupy](https://web.dev/custom-elements-best-practices/).
+Protože atributy DOM mohou být pouze řetězce, musíme složitá data custom elementů předávat jako vlastnosti DOM. Při nastavování vlastností (props) na custom elementu Vue 3 automaticky kontroluje přítomnost vlastnosti DOM pomocí operátoru `in` a&nbsp;upřednostňuje nastavení hodnoty jako vlastnosti DOM, pokud je klíč přítomen. To znamená, že ve většině případů se o to nemusíte starat, pokud custom element dodržuje [doporučené postupy](https://web.dev/custom-elements-best-practices/).
 
 Nicméně mohou existovat vzácné případy, kdy musí být data předána jako vlastnost DOM, ale custom element nedefinuje/neodráží vlastnost správně (což způsobuje selhání kontroly `in`). V tomto případě můžete vynutit vazbu `v-bind` jako vlastnost DOM pomocí modifikátoru `.prop`:
 
@@ -118,7 +118,7 @@ document.body.appendChild(
 
 - Custom element Vue vytvoří interní instanci Vue komponenty uvnitř svého shadow root, když je poprvé zavolána jeho metoda [`connectedCallback`](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements#using_the_lifecycle_callbacks).
 
-- Když je na elementu zavolána metoda `disconnectedCallback`, Vue zkontroluje, zda je element z dokumentu odpojen (v příštím 'microtask tick').
+- Když je na elementu zavolána metoda `disconnectedCallback`, Vue v příštím mikro-cyklu (microtask tick) zkontroluje, zda je element z dokumentu odpojen.
 
   - Pokud je element stále v dokumentu, jedná se o přesun a instance komponenty bude zachována;
 
@@ -128,15 +128,15 @@ document.body.appendChild(
 
 - Všechny vlastnosti deklarované pomocí sekce `props` budou na custom elementu definovány jako vlastnosti (properties). Vue automaticky zajišťuje reflexi mezi atributy/vlastnostmi tam, kde to má smysl.
 
-  - Atributy jsou vždy reflexovány na odpovídající vlastnosti.
+  - Atributy jsou vždy reflektovány na odpovídající vlastnosti.
 
-  - Vlastnosti s primitivními hodnotami (`string`, `boolean` nebo `number`) jsou reflexovány jako atributy.
+  - Vlastnosti s primitivními hodnotami (`string`, `boolean` nebo `number`) jsou reflektovány jako atributy.
 
 - Vue také automaticky přetypovává vlastnosti deklarované s typy `Boolean` nebo `Number` na požadovaný typ, když jsou nastaveny jako atributy (které jsou vždy řetězce). Například, při deklaraci následujících vlastností:
 
   ```js
   props: {
-    vybrano: Boolean,
+    selected: Boolean,
     index: Number
   }
   ```
@@ -144,10 +144,10 @@ document.body.appendChild(
 A při použití custom elementu:
 
 ```vue-html
-<my-element vybrano index="1"></my-element>
+<my-element selected index="1"></my-element>
 ```
 
-Uvnitř komponenty bude `vybrano` přetypováno na `true` (boolean) and `index` na `1` (number).
+Uvnitř komponenty bude `selected` přetypováno na `true` (boolean) and `index` na `1` (number).
 
 #### Události (events) {#events}
 
@@ -173,9 +173,9 @@ Uvnitř komponenty lze sloty vykreslovat pomocí elementu `<slot/>` jako obvykle
 
 ### SFC jako custom element {#sfc-as-custom-element}
 
-`defineCustomElement` funguje i s Vue Single-File komponentami (SFC). Nicméně, s výchozím nastavením nástrojů bude `<style>` uvnitř SFC během produkčního buildu stále extrahován a sloučen do jednoho CSS souboru. Při použití SFC jako custom elementu je často žádoucí vložit `<style>` tagy do shadow root custom elementu.
+Metoda `defineCustomElement` funguje i s Vue Single-File komponentami (SFC). Nicméně, s výchozím nastavením nástrojů bude `<style>` uvnitř SFC během produkčního buildu stále extrahován a sloučen do jednoho CSS souboru. Při použití SFC jako custom elementu je často žádoucí vložit `<style>` tagy do shadow root custom elementu.
 
-Oficiální nástroje pro SFC podporují import SFC v "režimu custom elementu" (vyžaduje `@vitejs/plugin-vue@^1.4.0` nebo `vue-loader@^16.5.0`). SFC načtený v režimu custom elementu vkládá své `<style>` tagy jako CSS řetězce a vystavuje je pod volbou `styles` komponenty. To bude zachyceno `defineCustomElement` a vloženo do shadow root elementu při vytváření instance.
+Oficiální nástroje pro SFC podporují import SFC v „režimu custom elementu“ (vyžaduje `@vitejs/plugin-vue@^1.4.0` nebo `vue-loader@^16.5.0`). SFC načtený v režimu custom elementu vkládá své `<style>` tagy jako CSS řetězce a vystavuje je pod možností `styles` komponenty. To bude zachyceno `defineCustomElement` a vloženo do shadow root elementu při vytváření instance.
 
 Pro aktivaci tohoto režimu jednoduše ukončete název souboru komponenty příponou `.ce.vue`:
 
@@ -185,7 +185,7 @@ import Example from './Example.ce.vue'
 
 console.log(Example.styles) // ["/* vložené CSS */"]
 
-// převést na konstruktor customs elementu
+// převést na konstruktor custom elementu
 const ExampleElement = defineCustomElement(Example)
 
 // zaregistrovat
@@ -199,7 +199,7 @@ Pokud chcete upravit, které soubory mají být v režimu custom elementu import
 
 ### Tipy pro knihovnu custom elementů Vue {#tips-for-a-vue-custom-elements-library}
 
-Při vytváření custom elementů s Vue jsou elementy závislé na běhovém prostředí Vue. Základní velikost je přibližně 16 kB v závislosti na tom, kolik funkcí se používá. To znamená, že pokud dodáváte pouze jeden custom element, není ideální používat Vue - měli byste použít čistý JavaScript, [petite-vue](https://github.com/vuejs/petite-vue) nebo frameworky specializující se na malou runtime velikost. Základní velikost je více než ospravedlnitelná, pokud dodáváte kolekci custom elementů s komplexní logikou, protože Vue umožní napsat každou komponentu s mnohem menším množstvím kódu. Čím více elementů dodáváte společně, tím lepší je to kompromis.
+Při vytváření custom elementů s Vue jsou elementy závislé na běhovém prostředí Vue. Základní velikost je přibližně **16 kB** v závislosti na tom, kolik funkcí se používá. To znamená, že pokud dodáváte pouze jeden custom element, není ideální používat Vue - měli byste použít čistý JavaScript, [petite-vue](https://github.com/vuejs/petite-vue) nebo frameworky specializující se na malou runtime velikost. Základní velikost je více než ospravedlnitelná, pokud dodáváte kolekci custom elementů s komplexní logikou, protože Vue umožní napsat každou komponentu s mnohem menším množstvím kódu. Čím více elementů dodáváte společně, tím lepší je to kompromis.
 
 Pokud budou custom elementy použity v aplikaci, která Vue také používá, můžete se rozhodnout vyčlenit Vue z vytvořeného balíčku, aby elementy používaly stejnou kopii Vue z hostitelské aplikace.
 
@@ -228,7 +228,7 @@ Pokud máte mnoho komponent, můžete také využít funkce build nástroje, jak
 
 Pokud vyvíjíte aplikaci nebo knihovnu, můžete chtít [ověřovat typy](/guide/scaling-up/tooling.html#typescript) vašich Vue komponent, včetně těch, které jsou definovány jako custom elementy.
 
-Custom elementy jsou registrovány globálně pomocí nativních API, takže ve výchozím nastavení nemají při použití ve Vue šablonách odvozování typů. Abyste poskytli podporu typů pro Vue komponenty registrované jako custom elementy, můžeme zaregistrovat globální typy komponent pomocí rozhraní [`GlobalComponents`](https://github.com/vuejs/language-tools/blob/master/packages/vscode-vue/README.md#usage) ve Vue šablonách a/nebo v [JSX](https://www.typescriptlang.org/docs/handbook/jsx.html#intrinsic-elements):
+Custom elementy jsou registrovány globálně pomocí nativních API, takže ve výchozím nastavení nemají při použití ve Vue šablonách odvozování typů. Abyste poskytli podporu typů pro Vue komponenty registrované jako custom elementy, můžeme zaregistrovat globální typy komponent pomocí rozhraní [`GlobalComponents`](https://github.com/vuejs/language-tools/blob/master/packages/vscode-vue/README.md#usage) ve Vue šablonách a/nebo v&nbsp;[JSX](https://www.typescriptlang.org/docs/handbook/jsx.html#intrinsic-elements):
 
 ```typescript
 import { defineCustomElement } from 'vue'
@@ -249,9 +249,9 @@ declare module 'vue' {
 
 ## Web Components vs. Vue komponenty {#web-components-vs-vue-components}
 
-Někteří vývojáři věří, že by se měli vyhnout proprietárním komponentám v rámci frameworku a že pouze používání custom elementů zajišťuje "budoucnostní odolnost" aplikace. Zde se pokusíme vysvětlit, proč si myslíme, že toto je příliš zjednodušený pohled na problém.
+Někteří vývojáři věří, že by se měli vyhnout proprietárním komponentám v rámci frameworku a že pouze používání custom elementů zajišťuje „budoucnostní odolnost“ aplikace. Zde se pokusíme vysvětlit, proč si myslíme, že to je příliš zjednodušený pohled na problém.
 
-Skutečně existuje určitá míra překryvu funkcí mezi custom elementy a Vue komponentami: obojí nám umožňuje definovat znovupoužitelné komponenty s předáváním dat, emitováním událostí a správou životního cyklu. Nicméně, API custom elementů je relativně nízkoúrovňové a základní. Pro vytvoření skutečné aplikace potřebujeme několik dalších schopností, které platforma nepokrývá:
+Skutečně existuje určitá míra překryvu funkcí mezi custom elementy a Vue komponentami: obojí nám umožňuje definovat znovupoužitelné komponenty s&nbsp;předáváním dat, emitováním událostí a správou životního cyklu. Nicméně, API custom elementů je relativně nízkoúrovňové a základní. Pro vytvoření skutečné aplikace potřebujeme několik dalších schopností, které platforma nepokrývá:
 
 - Deklarativní a efektivní systém šablonování;
 
