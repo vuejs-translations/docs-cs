@@ -8,17 +8,17 @@ import SpreadSheet from './demos/SpreadSheet.vue'
 
 # Reaktivita podrobně {#reactivity-in-depth}
 
-Jednou z nejvýraznějších vlastností Vue je nenápadný systém reaktivity. Stav komponenty se skládá z reaktivních JavaScript objektů. Když je upravíte, zobrazení se aktualizuje. To dělá správu stavu jednodušší a intuitivní. Je však také důležité pochopit, jak to funguje, abyste se vyhnuli některým běžným problémům. Na této stránce se budeme zabývat některými podrobnostmi reaktivního systému Vue na nižší úrovni.
+Jednou z nejvýraznějších vlastností Vue je nenápadný systém reaktivity. Stav komponenty se skládá z reaktivních JavaScript objektů. Když je upravíte, zobrazení se aktualizuje. To dělá správu stavu jednodušší a intuitivní. Je však také důležité pochopit, jak to funguje, abyste se vyhnuli běžným problémům. Na této stránce se budeme zabývat některými podrobnostmi reaktivního systému Vue na nižší úrovni.
 
 ## Co je reaktivita? {#what-is-reactivity}
 
-Tento termín se v programování často používá, ale co tím lidé myslí? Reaktivita je programovací paradigma, které nám umožňuje přizpůsobit se změnám deklarativním způsobem. Klasickým příkladem, který lidé obvykle ukazují, protože je skvělý, je tabulkový procesor Excel:
+Tento termín se v programování často používá, ale co tím lidé myslí? Reaktivita je programovací paradigma, které nám umožňuje přizpůsobit se změnám deklarativním způsobem. Klasickým příkladem, který lidé obvykle ukazují, protože je velmi názorný, je tabulkový procesor Excel:
 
 <SpreadSheet />
 
-Zde je buňka A2 definována pomocí vzorce `= A0 + A1` (kliknutím na A2 si můžete zobrazit nebo upravit vzorec), takže tabulkový procesor nám dává výsledek 3. Žádné překvapení. Ale pokud aktualizujete A0 nebo A1, všimnete si, že A2 se také automaticky aktualizuje.
+Zde je buňka A2 definována pomocí vzorce `= A0 + A1` (kliknutím na A2 si můžete zobrazit nebo upravit vzorec), takže tabulkový procesor nám dává výsledek 3. Žádné překvapení. Když však aktualizujete A0 nebo A1, všimnete si, že A2 se také automaticky aktualizuje.
 
-JavaScript obvykle takto nefunguje. Kdybychom chtěli napsat něco srovnatelného v JavaScriptu:
+JavaScript obvykle takto nefunguje. Kdybychom chtěli napsat něco srovnatelného v&nbsp;JavaScriptu:
 
 ```js
 let A0 = 1
@@ -33,7 +33,7 @@ console.log(A2) // Stále 3
 
 Když změníme `A0`, `A2` se automaticky nezmění.
 
-Jak bychom to tedy udělali v JavaScriptu? Nejprve, abychom znovu spustili kód, který aktualizuje `A2`, zabalme ho do funkce:
+Jak bychom to tedy v JavaScriptu udělali? Abychom znovu spustili kód, který aktualizuje `A2`, zabalme ho nejprve do funkce:
 
 ```js
 let A2
@@ -65,9 +65,9 @@ Tato funkce `whenDepsChange()` má následující úkoly:
 
 ## Jak funguje reaktivita ve Vue {#how-reactivity-works-in-vue}
 
-Ve skutečnosti nemůžeme sledovat čtení a zápis lokálních proměnných jako v příkladu. V čistém JavaScriptu pro to prostě neexistuje mechanismus. Co ale **můžeme** udělat, je zachytit čtení a zápis **vlastností objektů**.
+Ve skutečnosti nemůžeme čtení a zápis lokálních proměnných sledovat jako v příkladu. V&nbsp;čistém JavaScriptu pro to prostě neexistuje mechanismus. Co ale **můžeme** udělat, je zachytit čtení a zápis **vlastností objektů**.
 
-Existují dva způsoby, jak zachytit přístup k vlastnostem v JavaScriptu: [getter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get) / [setter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set) a [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Vue 2 používalo výhradně getter / setters kvůli omezením podpory prohlížečů. Ve Vue 3 se pro reaktivní objekty používají Proxies a pro refs se používají getter / setters. Zde je pseudokód, který ilustruje, jak fungují:
+Existují dva způsoby, jak zachytit přístup k vlastnostem v JavaScriptu: [getters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get) / [setters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set) a&nbsp;[Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Vue 2 používalo výhradně getters / setters kvůli omezením podpory prohlížečů. Ve Vue 3 se pro reaktivní objekty používají proxies a pro refs se používají getters / setters. Zde je pseudokód, který ilustruje, jak fungují:
 
 ```js{4,9,17,22}
 function reactive(obj) {
@@ -99,16 +99,16 @@ function ref(value) {
 ```
 
 :::tip
-Ukázky kódu zde a níže mají za úkol vysvětlit základní koncepty co nejjednodušším způsobem, takže mnoho detailů je vynecháno a okrajové případy jsou ignorovány.
+Ukázky kódu zde a níže mají za úkol vysvětlit základní koncepty co nejjednodušším způsobem, takže je mnoho detailů vynecháno a okrajové případy jsou ignorovány.
 :::
 
 Toto vysvětluje několik [omezení reaktivních objektů](/guide/essentials/reactivity-fundamentals#limitations-of-reactive), o kterých jsme mluvili v kapitole základů:
 
-- Když přiřadíte nebo destruujete vlastnost reaktivního objektu do místní proměnné, přístup nebo přiřazení k této proměnné není reaktivní, protože již nevyvolává get / set proxy traps na zdrojovém objektu. Toto "odpojení" však ovlivňuje pouze vazbu proměnné - pokud proměnná odkazuje na neprimitivní hodnotu, jako je objekt, změna objektu reaktivní pořád bude.
+- Když přiřadíte nebo destruujete vlastnost reaktivního objektu do místní proměnné, přístup nebo přiřazení k této proměnné není reaktivní, protože již nevyvolává get / set proxy traps na zdrojovém objektu. Toto „odpojení“ však ovlivňuje pouze vazbu proměnné - pokud proměnná odkazuje na neprimitivní hodnotu, jako je objekt, změna objektu reaktivní pořád bude.
 
-- Vrácená proxy z `reactive()`, i když se chová stejně jako originál, má odlišnou identitu, pokud ji porovnáme s původním pomocí operátoru `===`.
+- Vrácená proxy z `reactive()`, i když se chová stejně jako originál, má odlišnou identitu, pokud ji porovnáme s původním objektem pomocí operátoru `===`.
 
-Uvnitř `track()` kontrolujeme, zda je právě spuštěný efekt. Pokud ano, vyhledáme efekty odběratelů (uložené v kolekci Set) pro sledovanou vlastnost a přidáme efekt do kolekce:
+Uvnitř `track()` kontrolujeme, zda je právě spuštěný efekt. Pokud ano, vyhledáme efekty odběratelů (uložené v Set kolekci) pro sledovanou vlastnost a přidáme efekt do kolekce:
 
 ```js
 // Toto bude nastaveno před spuštěním efektu.
@@ -125,7 +125,7 @@ function track(target, key) {
 
 Odběry efektů jsou uloženy ve globální datové struktuře `WeakMap<target, Map<key, Set<effect>>>`. Pokud nebyl nalezen Set odběratelů efektů pro vlastnost (sledovanou poprvé), bude vytvořen. To je v krátkosti to, co funkce `getSubscribersForProperty()` dělá. Pro jednoduchost se vyhneme jejím podrobnostem.
 
-Uvnitř `trigger()` pro vlastnost opět vyhledáváme efekty odběratelů. Tentokrát je však voláme:
+Uvnitř funkce `trigger()` pro vlastnost opět vyhledáváme efekty odběratelů. Tentokrát je však voláme:
 
 ```js
 function trigger(target, key) {
@@ -183,7 +183,7 @@ A0.value = 2
 
 Interně `computed` spravuje svou neplatnost a nový výpočet pomocí reaktivního efektu.
 
-Takže jaký je příklad běžného a užitečného reaktivního efektu? Například aktualizace DOM! Jednoduché "reaktivní vykreslování" můžeme implementovat takto:
+Takže jaký je příklad běžného a užitečného reaktivního efektu? Například aktualizace DOM! Jednoduché „reaktivní vykreslování“ můžeme implementovat takto:
 
 ```js
 import { ref, watchEffect } from 'vue'
@@ -198,7 +198,7 @@ watchEffect(() => {
 count.value++
 ```
 
-Vlastně je to velmi podobné tomu, jak Vue komponenta udržuje synchronizaci svého stavu s DOM - každá instance komponenty vytváří reaktivní efekt pro vykreslování a aktualizaci DOM. Samozřejmě, Vue komponenty používají mnohem efektivnější způsoby aktualizace DOM než `innerHTML`. O tom se mluví v [Mechanismu vykreslování](./rendering-mechanism).
+Vlastně je to velmi podobné tomu, jak Vue komponenta udržuje synchronizaci svého stavu s DOM - každá instance komponenty vytváří reaktivní efekt pro vykreslování a&nbsp;aktualizaci DOM. Samozřejmě, Vue komponenty používají mnohem efektivnější způsoby aktualizace DOM než `innerHTML`. O nich se mluví v [Mechanismu vykreslování](./rendering-mechanism).
 
 <div class="options-api">
 
@@ -208,9 +208,9 @@ API `ref()`, `computed()` a `watchEffect()` jsou součástí Composition API. Po
 
 ## Runtime vs. Compile-time reaktivita {#runtime-vs-compile-time-reactivity}
 
-Reaktivní systém Vue je převážně runtime-based: sledování a spouštění se provádí přímo v prohlížeči během spouštění kódu. Výhodou runtime reaktivity je, že může fungovat bez build fáze a je zde méně okrajových případů. Na druhou stranu je omezen syntaxí JavaScriptu, což vede k potřebě kontejnerů pro hodnoty jako Vue refs.
+Reaktivní systém Vue je převážně runtime-based: sledování a spouštění se provádí přímo v prohlížeči během spouštění kódu. Výhodou runtime reaktivity je, že může fungovat bez build fáze a je zde méně okrajových případů. Na druhou stranu je omezena syntaxí JavaScriptu, což vede k potřebě kontejnerů pro hodnoty jako jsou Vue refs.
 
-Některé frameworky, například [Svelte](https://svelte.dev/), se rozhodly tyto omezení překonat implementací reaktivity během kompilace. Analyzuje a transformuje kód, aby reaktivitu simulovaly. Kompilační krok umožňuje frameworku změnit sémantiku samotného JavaScriptu - například implicitně vkládá kód, který provádí analýzu závislostí a spouštění efektů při přístupu k lokálně definovaným proměnným. Nevýhodou je, že takové transformace vyžadují build fázi a změna sémantiky JavaScriptu v podstatě vytváří jazyk, který vypadá jako JavaScript, ale kompiluje se do něčeho jiného.
+Některé frameworky, například [Svelte](https://svelte.dev/), se rozhodly tyto omezení překonat implementací reaktivity během kompilace. Analyzují a transformují kód, aby reaktivitu simulovaly. Kompilační krok umožňuje frameworku změnit sémantiku samotného JavaScriptu - například implicitně vkládá kód, který provádí analýzu závislostí a spouštění efektů při přístupu k lokálně definovaným proměnným. Nevýhodou je, že takové transformace vyžadují build fázi a změna sémantiky JavaScriptu v podstatě vytváří jazyk, který vypadá jako JavaScript, ale kompiluje se do něčeho jiného.
 
 Tým Vue tuto cestu zkoumal pomocí experimentální funkce nazvané [transformace reaktivity](/guide/extras/reactivity-transform), ale nakonec jsme se rozhodli, že by to pro projekt nebylo vhodné z důvodů uvedených [zde](https://github.com/vuejs/rfcs/discussions/369#discussioncomment-5059028).
 
@@ -280,7 +280,7 @@ type DebuggerEvent = {
 
 <!-- TODO options API ekvivalent -->
 
-Computed proměnné můžeme ladit tak, že `computed()` předáme druhý objekt s možnostmi `onTrack` a `onTrigger`:
+Computed proměnné můžeme ladit tak, že `computed()` předáme druhý objekt s&nbsp;možnostmi `onTrack` a `onTrigger`:
 
 - `onTrack` se zavolá, když je reaktivní vlastnost nebo ref sledován jako závislost.
 - `onTrigger` se zavolá, když je změnou závislosti spuštěn callback watcheru.
@@ -342,15 +342,15 @@ Možnosti `onTrack` a `onTrigger` watcheru fungují pouze v režimu vývoje.
 
 ## Integrace s externími systémy pro správu stavu {#integration-with-external-state-systems}
 
-Reaktivní systém Vue funguje tak, že převádí běžné JavaScriptové objekty na hluboce reaktivní proxy. Hluboká konverze může být zbytečná a někdy i nežádoucí při integraci s externími systémy pro správu stavu (např. pokud i externí řešení používá Proxies).
+Reaktivní systém Vue funguje tak, že převádí běžné JavaScriptové objekty na hluboce reaktivní proxy. Hluboká konverze může být zbytečná a někdy i nežádoucí při integraci s&nbsp;externími systémy pro správu stavu (např. pokud i externí řešení používá Proxies).
 
-Obecná myšlenka integrace reaktivního systému Vue s externím řešením pro správu stavu je uchovávat externí stav v [`shallowRef`](/api/reactivity-advanced#shallowref). "Mělký" ref je reaktivní pouze tehdy, když se přistupuje k jeho vlastnosti `.value` - vnitřní hodnota zůstává nedotčena. Při změně externího stavu nahraďte hodnotu ref, aby se spustily aktualizace.
+Obecná myšlenka integrace reaktivního systému Vue s externím řešením pro správu stavu je uchovávat externí stav v [`shallowRef`](/api/reactivity-advanced#shallowref). „Mělký“ ref je reaktivní pouze tehdy, když se přistupuje k jeho vlastnosti `.value` - vnitřní hodnota zůstává nedotčena. Při změně externího stavu nahraďte hodnotu ref, aby se spustily aktualizace.
 
 ### Neměnná data {#immutable-data}
 
 Pokud implementujete funkci undo / redo, pravděpodobně chcete po každé úpravě uživatele vytvořit snímek stavu aplikace. Nicméně pokud je strom stavu rozsáhlý, měnitelný reaktivní systém Vue pro to není nejvhodnější, protože serializace celého stavového objektu při každé aktualizaci může být drahá z hlediska výkonu a paměťových nákladů.
 
-[Neměnné (immutable) datové struktury](https://en.wikipedia.org/wiki/Persistent_data_structure) řeší tento problém tím, že stavové objekty nikdy nemění - místo toho vytvářejí nové objekty, které s těmi starými sdílejí stejné, nezměněné části. Existuje různé způsoby použití neměnných dat v JavaScriptu, ale s Vue doporučujeme použít [Immer](https://immerjs.github.io/immer/), protože vám umožňuje používat neměnná data a zachovává ergonomičtější, měnitelnou syntaxi.
+[Neměnné (immutable) datové struktury](https://en.wikipedia.org/wiki/Persistent_data_structure) řeší tento problém tím, že stavové objekty nikdy nemění - místo toho vytvářejí nové objekty, které s těmi starými sdílejí stejné, nezměněné části. Existuje různé způsoby použití neměnných dat v JavaScriptu, ale s&nbsp;Vue doporučujeme použít [Immer](https://immerjs.github.io/immer/), protože vám umožňuje používat neměnná data a&nbsp;zachovává ergonomičtější, měnitelnou syntaxi.
 
 Immer můžeme integrovat s Vue pomocí jednoduché composable:
 
@@ -400,20 +400,20 @@ export function useMachine(options) {
 
 ## Propojení se signály {#connection-to-signals}
 
-Celá řada dalších frameworků zavedla reaktivní prvky podobné refs z Composition API Vue pod termínem "signály":
+Celá řada dalších frameworků zavedla reaktivní prvky podobné refs z Composition API Vue pod termínem „signály“:
 
 - [Solid Signals](https://www.solidjs.com/docs/latest/api#createsignal)
 - [Angular Signals](https://angular.io/guide/signals)
 - [Preact Signals](https://preactjs.com/guide/v10/signals/)
 - [Qwik Signals](https://qwik.builder.io/docs/components/state/#usesignal)
 
-V jádru jsou signály stejným druhem prosté reaktivity (reactivity primitive) jako Vue refs. Jedná se o kontejner hodnot, který poskytuje sledování závislostí při přístupu a spouštění vedlejších efektů při změně. Toto paradigma založené na prosté reaktivitě není ve světě frontendu nijak zvlášť nový koncept: sahá až do implementací jako [Knockout observables](https://knockoutjs.com/documentation/observables.html) a [Meteor Tracker](https://docs.meteor.com/api/tracker.html) z doby před více než deseti lety. Vue Options API a knihovna pro správu stavu Reactu [MobX](https://mobx.js.org/) jsou také založeny na stejných principech, ale skrývají prostou reaktivitu za vlastnosti objektů.
+V jádru jsou signály stejným druhem prosté reaktivity (reactivity primitive) jako Vue refs. Jedná se o kontejner hodnot, který poskytuje sledování závislostí při přístupu a&nbsp;spouštění vedlejších efektů při změně. Toto paradigma založené na prosté reaktivitě není ve světě frontendu nijak zvlášť nový koncept: sahá až do implementací jako [Knockout observables](https://knockoutjs.com/documentation/observables.html) a [Meteor Tracker](https://docs.meteor.com/api/tracker.html) z doby před více než deseti lety. Vue Options API a knihovna pro správu stavu Reactu [MobX](https://mobx.js.org/) jsou také založeny na stejných principech, ale skrývají prostou reaktivitu za vlastnosti objektů.
 
-  I když to není nutná vlastnost, aby se něco kvalifikovalo jako signály, dnes se tento koncept často diskutuje ve spojitosti s modelem vykreslování, kde aktualizace probíhají prostřednictvím jemně granulovaných odběrů (fine-grained subscriptions). Vue v současné době díky použití virtuálního DOM pro dosažení podobných optimalizací [spoléhá na kompilátory](/guide/extras/rendering-mechanism#compiler-informed-virtual-dom). Zkoumáme však také novou kompilační strategii inspirovanou Solid (režim Vapor), která na virtuální DOM nespoléhá a více využívá vestavěný reaktivní systém Vue.
+  I když to není nutná vlastnost, aby se něco kvalifikovalo jako signály, dnes se tento koncept často diskutuje ve spojitosti s modelem vykreslování, kde aktualizace probíhají prostřednictvím jemně granulovaných odběrů (fine-grained subscriptions). Vue v&nbsp;současné době díky použití virtuálního DOM pro dosažení podobných optimalizací [spoléhá na kompilátory](/guide/extras/rendering-mechanism#compiler-informed-virtual-dom). Zkoumáme však také novou kompilační strategii inspirovanou Solid (režim Vapor), která na virtuální DOM nespoléhá a více využívá vestavěný reaktivní systém Vue.
 
 ### Kompromisy návrhu API {#api-design-trade-offs}
 
-Návrh signálů v Preactu a Qwik je velmi podobný Vue [shallowRef](/api/reactivity-advanced#shallowref): všechny tři poskytují měnitelné rozhraní prostřednictvím vlastnosti `.value`. Zaměříme se na diskuzi o signálech v Solidu a Angularu.
+Návrh signálů v Preactu a Qwik je velmi podobný Vue [shallowRef](/api/reactivity-advanced#shallowref): všechny tři poskytují měnitelné rozhraní prostřednictvím vlastnosti `.value`. Zaměříme se na diskuzi o&nbsp;signálech v Solidu a Angularu.
 
 #### Solid Signály {#solid-signals}
 

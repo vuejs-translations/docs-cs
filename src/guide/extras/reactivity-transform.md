@@ -12,7 +12,7 @@ Transformace reaktivity je funkcí specifickou pro Composition API a vyžaduje b
 
 ## Refs vs. reaktivní proměnné {#refs-vs-reactive-variables}
 
-Od zavedení Composition API je jednou z hlavních nevyřešených otázek použití refs oproti reaktivním objektům. Při destruování reaktivních objektů je snadné ztratit reaktivitu, zatímco při použití refs je obtížné všude používat `.value`. Navíc, pokud nepoužíváte  typový systém, `.value` snadno přehlédnete.
+Od zavedení Composition API je jednou z hlavních nevyřešených otázek použití refs oproti reaktivním objektům. Při destrukturování reaktivních objektů je snadné ztratit reaktivitu, zatímco při použití refs je obtížné všude používat `.value`. Navíc, pokud nepoužíváte  typový systém, `.value` snadno přehlédnete.
 
 [Vue Reactivity Transform](https://github.com/vuejs/core/tree/main/packages/reactivity-transform) je compile-time transformace, která nám umožňuje psát kód takto:
 
@@ -89,7 +89,7 @@ const __temp = useMouse(),
 console.log(x.value, y.value)
 ```
 
-Všimněte si, že pokud `x` již je ref, `toRef(__temp, 'x')` ho jednoduše vrátí tak, jak je, a žádný další ref nebude vytvořen. Pokud destrukturovaná hodnota není ref (např. funkce), stále to funguje - hodnota bude obalena v ref, aby zbytek kódu fungoval, jak se očekává.
+Zapamatujte si, že pokud `x` již je ref, `toRef(__temp, 'x')` ho jednoduše vrátí tak, jak je, a&nbsp;žádný další ref nebude vytvořen. Pokud destrukturovaná hodnota není ref (např. funkce), stále to funguje - hodnota bude obalena v ref, aby zbytek kódu fungoval, jak se očekává.
 
 Destrukturovaní s `$()` funguje jak na reaktivních objektech, tak na obyčejných objektech obsahujících refs.
 
@@ -105,13 +105,13 @@ function myCreateRef() {
 let count = $(myCreateRef())
 ```
 
-## Destrukturování reaktivních props {#reactive-props-destructure}
+## Destrukturování reaktivních vlastností {#reactive-props-destructure}
 
 S aktuálním použitím `defineProps()` v `<script setup>` existují dva problémy:
 
-1. Podobně jako `.value`, musíte vždy přistupovat k props jako `props.x`, abyste zachovali reaktivitu. To znamená, že nemůžete destrukturovat `defineProps`, protože výsledné destrukturované proměnné nejsou reaktivní a nebudou se aktualizovat.
+1. Podobně jako `.value`, musíte vždy přistupovat k vlastnostem (props) jako k&nbsp;`props.x`, abyste zachovali reaktivitu. To znamená, že nemůžete destrukturovat `defineProps`, protože výsledné destrukturované proměnné nejsou reaktivní a&nbsp;nebudou se aktualizovat.
 
-2. Při použití [pouze typové deklarace props](/api/sfc-script-setup#type-only-props-emit-declarations) neexistuje snadný způsob, jak deklarovat výchozí hodnoty. Pro tento účel jsme zavedli API `withDefaults()`, ale stále je obtížné ho používat.
+2. Při použití [pouze typové deklarace props](/api/sfc-script-setup#type-only-props-emit-declarations) neexistuje snadný způsob, jak deklarovat výchozí hodnoty. Pro tento účel jsme zavedli API `withDefaults()`, ale není moc pohodlné ho používat.
 
 Tyto problémy můžeme řešit pomocí compile-time transformace, když se `defineProps` použije s destrukturováním, podobně jako jsme viděli dříve s `$()`:
 
@@ -158,7 +158,7 @@ export default {
 
 ## Zachování reaktivity přes hranice funkcí {#retaining-reactivity-across-function-boundaries}
 
-Zatímco reaktivní proměnné nás zbavují nutnosti používat všude `.value`, vytváří problém "ztráty reaktivity", když reaktivní proměnné předáváme přes hranice funkcí. To se může stát ve dvou případech:
+Zatímco reaktivní proměnné nás zbavují nutnosti používat všude `.value`, vytváří problém „ztráty reaktivity“, když reaktivní proměnné předáváme přes hranice funkcí. To&nbsp;se může stát ve dvou případech:
 
 ### Předání do funkce jako parametr {#passing-into-function-as-argument}
 
@@ -203,7 +203,7 @@ Jak můžeme vidět, `$$()` je makro, které slouží jako **escape hint**: reak
 
 ### Návrat v rámci rozsahu funkce {#returning-inside-function-scope}
 
-Reaktivita může být také ztracena, pokud jsou reaktivní proměnné použity přímo v návratovém výrazu:
+Reaktivita může být také ztracena, pokud jsou reaktivní proměnné použity přímo v&nbsp;návratovém výrazu:
 
 ```ts
 function useMouse() {
@@ -229,7 +229,7 @@ return {
 }
 ```
 
-Abychom zachovali reaktivitu, měli bychom vracet skutečné refs, ne aktuální hodnotu v době návratu.
+Abychom zachovali reaktivitu, měli bychom vracet skutečné refs, ne aktuální hodnotu v&nbsp;době návratu.
 
 Opět můžeme k opravě použít `$$()`. V tomto případě lze `$$()` použít přímo na vráceném objektu - jakýkoli odkaz na reaktivní proměnné uvnitř volání `$$()` si zachová odkaz na jejich podkladové refs:
 

@@ -116,7 +116,7 @@ function dismiss() {
           }}
         </p>
         <p>
-          Nastavení je odlišné od vaší uložené preference a ovlivní pouze aktuální session prohlížeče.
+          Nastavení je odlišné od vaší uložené preference a&nbsp;ovlivní pouze aktuální session prohlížeče.
         </p>
       </template>
       <p class="actions">
