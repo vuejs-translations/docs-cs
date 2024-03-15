@@ -8,9 +8,9 @@ Jak Vue převádí šablonu na skutečné DOM elementy? Jak Vue tyto uzly efekti
 
 ## Virtuální DOM {#virtual-dom}
 
-O termínu "virtuální DOM" jste již pravděpodobně slyšeli. Na něm je vykreslovací systém Vue založený.
+O termínu „virtuální DOM“ jste již pravděpodobně slyšeli. Na něm je vykreslovací systém Vue založený.
 
-Virtuální DOM (VDOM) je programovací koncept, kde je ideální, neboli "virtuální", reprezentace UI uchovávána v paměti a synchronizována s "reálným" DOM. Tento koncept byl vyvinutý v rámci [Reactu](https://reactjs.org/) a byl s různými implementacemi převzat mnoha dalšími frameworky, včetně Vue.
+Virtuální DOM (VDOM) je programovací koncept, kde je ideální, neboli „virtuální“, reprezentace UI uchovávána v paměti a synchronizována s „reálným“ DOM. Tento koncept byl vyvinutý v rámci [Reactu](https://reactjs.org/) a byl s různými implementacemi převzat mnoha dalšími frameworky, včetně Vue.
 
 Virtuální DOM je spíše vzor než konkrétní technologie, takže neexistuje jedna kanonická implementace. Můžeme si to ilustrovat na jednoduchém příkladu:
 
@@ -26,19 +26,19 @@ const vnode = {
 }
 ```
 
-Zde je `vnode` obyčejný JavaScriptový objekt (tzv. "virtuální uzel"), který reprezentuje element `<div>`. Obsahuje veškeré informace, které potřebujeme k vytvoření skutečného elementu. Obsahuje také další potomky VNodes, což z něj činí root virtuálního DOM stromu.
+Zde je `vnode` obyčejný JavaScriptový objekt (tzv. „virtuální uzel“), který reprezentuje element `<div>`. Obsahuje veškeré informace, které potřebujeme k vytvoření skutečného elementu. Obsahuje také další potomky VNodes, což z něj činí root virtuálního DOM stromu.
 
-Vykreslovací modul může procházet virtuálním DOM stromem a vytvářet z něj skutečný DOM strom. Tento proces se nazývá **mount** ("připojení").
+Vykreslovací modul může procházet virtuálním DOM stromem a vytvářet z něj skutečný DOM strom. Tento proces se nazývá **mount** („připojení“).
 
-Pokud máme dvě kopie virtuálních DOM stromů, vykreslovací modul je také může procházet a porovnávat, zjišťovat rozdíly a aplikovat tyto změny na skutečný DOM. Tento proces se nazývá **patch** ("aktualizace"), také známý jako "diffing" nebo "reconciliation".
+Pokud máme dvě kopie virtuálních DOM stromů, vykreslovací modul je také může procházet a porovnávat, zjišťovat rozdíly a aplikovat tyto změny na skutečný DOM. Tento proces se nazývá **patch** („aktualizace“), také známý jako „diffing“ nebo „reconciliation“.
 
-Hlavní výhodou virtuálního DOM je, že umožňuje vývojáři programově zakládat, prohlížet a skládat požadované struktury UI deklarativním způsobem, zatímco přímá manipulace s DOM je ponechána na vykreslovacím modulu.
+Hlavní výhodou virtuálního DOM je, že umožňuje vývojáři programově zakládat, prohlížet a skládat požadované struktury UI deklarativním způsobem, zatímco přímá manipulace s&nbsp;DOM je ponechána na vykreslovacím modulu.
 
 ## Vykreslovací pipeline {#render-pipeline}
 
 V globálním pohledu se při připojování Vue komponenty děje následující:
 
-1. **Kompilace**: Vue šablony jsou kompilovány do **funkcí pro vykreslení**: funkcí, které vrací virtuální DOM stromy. Tento krok lze provést buď předem v rámci build fáze, nebo on-the-fly pomocí runtime kompilátoru.
+1. **Kompilace**: Vue šablony jsou kompilovány do **funkcí pro vykreslení**: funkcí, které vrací virtuální DOM stromy. Tento krok lze provést buď předem v rámci build fáze, nebo _on-the-fly_ pomocí runtime kompilátoru.
 
 2. **Mount**: Během spouštění vykreslovacího modulu jsou volány funkce pro vykreslení, prochází se vrácený virtuální DOM strom a na jeho základě jsou vytvořeny skutečné DOM elementy. Tento krok se provádí jako [reaktivní efekt](./reactivity-in-depth), takže sleduje všechny použité reaktivní závislosti.
 
@@ -58,13 +58,13 @@ Proč tedy Vue primárně doporučuje šablony? Existuje několik důvodů:
 
 2. Šablony jsou snáze staticky analyzovatelné díky své deterministické syntaxi. To umožňuje kompilátoru Vue šablon provádět v době kompilace mnoho optimalizací, aby se zlepšil výkon virtuálního DOM (o čemž se budeme bavit níže).
 
-V praxi jsou šablony dostatečné pro většinu použití v aplikacích. Funkce pro vykreslení se obvykle používají pouze ve znovupoužitelných komponentech, které potřebují pracovat s více dynamickou vykreslovací logikou. Použití těchto funkcí je podrobněji popsáno v průvodci [Funkce pro vykreslení a JSX](./render-function).
+V praxi jsou šablony dostatečné pro většinu použití v aplikacích. Funkce pro vykreslení se obvykle používají pouze ve znovupoužitelných komponentách, které potřebují pracovat s více dynamickou vykreslovací logikou. Použití těchto funkcí je podrobněji popsáno v průvodci [Funkce pro vykreslení & JSX](./render-function).
 
 ## Kompilátorem informovaný virtuální DOM {#compiler-informed-virtual-dom}
 
 Implementace virtuálního DOM v Reactu a většině dalších implementací virtuálního DOM jsou čistě runtime: srovnávací algoritmus nemůže předpokládat nic o přicházejícím virtuálním DOM stromu, takže musí strom plně procházet a porovnávat vlastnosti každého VNode, aby zajistil správnost. Navíc, i když se část stromu nikdy nemění, jsou pro ni při každém překreslení vždy vytvářeny nové VNodes, což vede k zbytečnému zatížení paměti. To je jedna z nejvíce kritizovaných stránek virtuálního DOM: poněkud hrubý proces srovnávání obětuje efektivitu ve prospěch deklarativnosti a správnosti.
 
-Ale nemusí to tak být. Ve Vue ovládá framework jak kompilátor, tak běhové prostředí. To nám umožňuje implementovat mnoho optimalizací prováděných při kompilaci, které může využít pouze pevně svázaný renderer. Kompilátor může staticky analyzovat šablonu a v generovaném kódu ponechávat nápovědy, aby běhové prostředí mohlo využívat zkratky, kdykoli je to možné. Zároveň stále zachováváme možnost, aby uživatel přešel na úroveň funkce pro vykreslení a získal tak v okrajových případech přímější kontrolu. Tento hybridní přístup nazýváme **Kompilátorem informovaný virtuální DOM** ("Compiler-Informed Virtual DOM").
+Ale nemusí to tak být. Ve Vue ovládá framework jak kompilátor, tak běhové prostředí. To&nbsp;nám umožňuje implementovat mnoho optimalizací prováděných při kompilaci, které může využít pouze pevně svázaný renderer. Kompilátor může staticky analyzovat šablonu a v generovaném kódu ponechávat nápovědy, aby běhové prostředí mohlo využívat zkratky, kdykoli je to možné. Zároveň stále zachováváme možnost, aby uživatel přešel na úroveň funkce pro vykreslení a získal tak v okrajových případech přímější kontrolu. Tento hybridní přístup nazýváme **Kompilátorem informovaný virtuální DOM** (Compiler-Informed Virtual DOM).
 
 Níže budeme mluvit o několika hlavních optimalizacích provedených kompilátorem Vue šablon pro zlepšení runtime výkonu virtuálního DOM.
 
@@ -84,7 +84,7 @@ Velmi často se v šabloně budou nacházet části, které neobsahují žádné
 
 Div elementy `foo` a `bar` jsou statické - znovu vytvářet VNodes a porovnávat je při každém překreslení je zbytečné. Vue kompilátor automaticky vytáhne volání tvorby jejich VNodes z funkce pro vykreslení a při každém překreslení použije stejné VNodes znovu. Renderer také dokáže úplně přeskočit jejich porovnávání, když si všimne, že starý a nový VNode je ten samý.
 
-Kromě toho, když je dostatek po sobě jdoucích statických elementů, budou sloučeny do jednoho "statického VNode", který obsahuje prostý HTML řetězec pro všechny tyto elementy ([Příklad](https://template-explorer.vuejs.org/#eyJzcmMiOiI8ZGl2PlxuICA8ZGl2IGNsYXNzPVwiZm9vXCI+Zm9vPC9kaXY+XG4gIDxkaXYgY2xhc3M9XCJmb29cIj5mb288L2Rpdj5cbiAgPGRpdiBjbGFzcz1cImZvb1wiPmZvbzwvZGl2PlxuICA8ZGl2IGNsYXNzPVwiZm9vXCI+Zm9vPC9kaXY+XG4gIDxkaXYgY2xhc3M9XCJmb29cIj5mb288L2Rpdj5cbiAgPGRpdj57eyBkeW5hbWljIH19PC9kaXY+XG48L2Rpdj4iLCJzc3IiOmZhbHNlLCJvcHRpb25zIjp7ImhvaXN0U3RhdGljIjp0cnVlfX0=)). Tyto statické vnodes jsou připojeny přímo atributem `innerHTML`. Také si na počátečním připojení cachují odpovídající DOM elementy - pokud je stejný obsah použit jinde v aplikaci, jsou vytvořeny nové DOM elementy pomocí nativní funkce `cloneNode()`, což je extrémně efektivní.
+Kromě toho, když je dostatek po sobě jdoucích statických elementů, budou sloučeny do jednoho „statického VNode“, který obsahuje prostý HTML řetězec pro všechny tyto elementy ([příklad](https://template-explorer.vuejs.org/#eyJzcmMiOiI8ZGl2PlxuICA8ZGl2IGNsYXNzPVwiZm9vXCI+Zm9vPC9kaXY+XG4gIDxkaXYgY2xhc3M9XCJmb29cIj5mb288L2Rpdj5cbiAgPGRpdiBjbGFzcz1cImZvb1wiPmZvbzwvZGl2PlxuICA8ZGl2IGNsYXNzPVwiZm9vXCI+Zm9vPC9kaXY+XG4gIDxkaXYgY2xhc3M9XCJmb29cIj5mb288L2Rpdj5cbiAgPGRpdj57eyBkeW5hbWljIH19PC9kaXY+XG48L2Rpdj4iLCJzc3IiOmZhbHNlLCJvcHRpb25zIjp7ImhvaXN0U3RhdGljIjp0cnVlfX0=)). Tyto statické vnodes jsou připojeny přímo atributem `innerHTML`. Také si na počátečním připojení cachují odpovídající DOM elementy - pokud je stejný obsah použit jinde v aplikaci, jsou vytvořeny nové DOM elementy pomocí nativní funkce `cloneNode()`, což je extrémně efektivní.
 
 ### Patch Flags {#patch-flags}
 
@@ -97,7 +97,7 @@ Pro jediný element s dynamickými vazbami můžeme také v době kompilace odvo
 <!-- pouze vazby na `id` a `value` -->
 <input :id="id" :value="value">
 
-<!-- pouze textové potomky -->
+<!-- potomci jsou pouze text -->
 <div>{{ dynamic }}</div>
 ```
 
@@ -111,7 +111,7 @@ createElementVNode("div", {
 }, null, 2 /* CLASS */)
 ```
 
-Poslední argument, `2`, je [patch flag](https://github.com/vuejs/core/blob/main/packages/shared/src/patchFlags.ts). Prvek může mít více patch flags, které se sloučí do jednoho čísla. Runtime renderer pak může pomocí [bitových operací](https://en.wikipedia.org/wiki/Bitwise_operation) flagy kontrolovat a určit, zda je třeba provést určitou akci:
+Poslední argument, `2`, je [patch flag](https://github.com/vuejs/core/blob/main/packages/shared/src/patchFlags.ts). Prvek může mít více patch flags, které se sloučí do jednoho čísla. Runtime renderer pak může pomocí [bitových operací](https://en.wikipedia.org/wiki/Bitwise_operation) flagy kontrolovat a&nbsp;určit, zda je třeba provést určitou akci:
 
 ```js
 if (vnode.patchFlag & PatchFlags.CLASS /* 2 */) {
@@ -119,7 +119,7 @@ if (vnode.patchFlag & PatchFlags.CLASS /* 2 */) {
 }
 ```
 
-Bitové kontroly jsou extrémně rychlé. Díky patch flags je Vue schopno provést nejmenší možné množství práce při aktualizaci elementů s dynamickými vazbami.
+Bitové kontroly jsou extrémně rychlé. Díky patch flags je Vue schopno při aktualizaci elementů s dynamickými vazbami provést nejmenší možné množství práce.
 
 Vue také zakóduje typ potomků, které VNode obsahuje. Například šablona s více root elementy je reprezentována jako fragment. Většinou víme jistě, že se pořadí těchto  root elementů nikdy nezmění, takže tato informace může být také předána do runtime jako patch flag:
 
@@ -145,7 +145,7 @@ export function render() {
 }
 ```
 
-Konceptuálně je "blok" částí šablony, která má stabilní vnitřní strukturu. V tomto případě má celá šablona jediný blok, protože neobsahuje žádné strukturální direktivy jako `v-if` a `v-for`.
+Konceptuálně je „blok“ částí šablony, která má stabilní vnitřní strukturu. V tomto případě má celá šablona jediný blok, protože neobsahuje žádné strukturální direktivy jako `v-if` a `v-for`.
 
 Každý blok sleduje všechny elementy potomků (nejen přímé potomky), kteří mají příznaky opravy. Například:
 
@@ -167,7 +167,7 @@ div (root blok)
 - div s vazbou {{ bar }}
 ```
 
-Když je třeba tuto komponentu znovu vykreslit, stačí projít zploštělým stromem místo celého stromu. Toto se nazývá **Zploštění stromu** ("tree flattening") a výrazně snižuje počet elementů, které je třeba projít při srovnávání virtuálního DOM. Jakékoli statické části šablony jsou reálně přeskočeny.
+Když je třeba tuto komponentu znovu vykreslit, stačí projít zploštělým stromem místo celého stromu. Toto se nazývá **Zploštění stromu** (tree flattening) a výrazně snižuje počet elementů, které je třeba projít při srovnávání virtuálního DOM. Jakékoli statické části šablony jsou reálně přeskočeny.
 
 Direktivy `v-if` a `v-for` vytvoří nové blokové elementy:
 

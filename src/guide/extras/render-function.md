@@ -26,7 +26,7 @@ const vnode = h(
 )
 ```
 
-`h()` je zkratka pro **hyperscript** - což znamená "JavaScript, který produkuje HTML (hypertext markup language)". Tento název je dědictvím konvencí sdílených mnoha implementacemi virtuálního DOM. Popisnější název by mohl být `createVnode()`, ale kratší název pomáhá, když tuto funkci musíte v rámci funkce pro vykreslení volat mnohokrát.
+`h()` je zkratka pro **hyperscript** - což znamená „JavaScript, který produkuje HTML (hypertext markup language)“. Tento název je dědictvím konvencí sdílených mnoha implementacemi virtuálního DOM. Popisnější název by mohl být `createVnode()`, ale kratší název pomáhá, když tuto funkci musíte v rámci funkce pro vykreslení volat mnohokrát.
 
 Funkce `h()` je navržena tak, aby byla velmi flexibilní:
 
@@ -35,7 +35,8 @@ Funkce `h()` je navržena tak, aby byla velmi flexibilní:
 h('div')
 h('div', { id: 'foo' })
 
-// Vue automaticky vybere správný způsob přiřazení hodnot z props objektu - zda jde o html atributy nebo vlastnosti (props) komponenty
+// Vue automaticky vybere správný způsob přiřazení hodnot z props objektu
+// - zda jde o html atributy nebo vlastnosti (props) komponenty
 h('div', { class: 'bar', innerHTML: 'hello' })
 
 // mohou být přidány modifikátory vlastností, jako `.prop` a `.attr`
@@ -97,7 +98,7 @@ export default {
 }
 ```
 
-Funkce pro vykreslení je deklarována uvnitř `setup()` a má tak přirozený přístup k vlastnostem (props) a jakémukoli reaktivnímu stavu deklarovanému ve stejném scope.
+Funkce pro vykreslení je deklarována uvnitř `setup()` a má tak přirozený přístup k&nbsp;vlastnostem (props) a jakémukoli reaktivnímu stavu deklarovanému ve stejném scope.
 
 Kromě vrácení jednoho VNode můžete také vrátit řetězce nebo pole:
 
@@ -242,7 +243,7 @@ Definice typů ve Vue také poskytuje odvozování typů pro použití TSX. Při
 
 Podobně jako transformace, JSX Vue také potřebuje odlišné definice typů.
 
-Od verze 3.4 už Vue implicitně neregistruje globální `JSX` namespace. Abyste řekli TypeScriptu, že má používatVue JSX definice typů, přidejte do vašeho `tsconfig.json` následující:
+Od verze 3.4 už Vue implicitně neregistruje globální `JSX` namespace. Abyste řekli TypeScriptu, že má používat Vue JSX definice typů, přidejte do vašeho `tsconfig.json` následující:
 
 ```json
 {
@@ -574,7 +575,7 @@ JSX ekvivalent:
 }}</MyComponent>
 ```
 
-Předávání slotů jako funkcí umožňuje jejich "lazy" volání v komponentě potomka. Díky tomu jsou závislosti slotu sledovány komponentou potomka místo rodičovské, což vede k přesnějším a efektivnějším aktualizacím.
+Předávání slotů jako funkcí umožňuje jejich „lazy“ volání v komponentě potomka. Díky tomu jsou závislosti slotu sledovány komponentou potomka místo rodičovské, což vede k přesnějším a efektivnějším aktualizacím.
 
 ### Scoped sloty {#scoped-slots}
 
@@ -644,7 +645,7 @@ export default {
 
 ### `v-model` {#v-model}
 
-Direktiva `v-model` je při kompilaci šablony rozšířena na vlastnosti `modelValue` a `onUpdate:modelValue` - tyto vlastnosti (props) musíme poskytnout sami:
+Direktiva `v-model` je při kompilaci šablony rozšířena na vlastnosti `modelValue` a&nbsp;`onUpdate:modelValue` - tyto vlastnosti (props) musíme poskytnout sami:
 
 <div class="composition-api">
 
@@ -776,7 +777,7 @@ MyComponent.emits = ['click']
 
 Pokud není specifikována možnost `props`, objekt `props` předaný funkci bude obsahovat všechny atributy, stejně jako `attrs`. Pokud není specifikována možnost `props`, názvy props nebudou normalizovány na camelCase.
 
-Pro funkční komponenty s explicitními `props` fungují [fallthrough atributy](/guide/components/attrs) stejně jako u běžných komponent. Pro funkční komponenty, které své `props` explicitně nezadávají, však budou ve výchozím stavu děděny pouze `class`, `style` a event listenery `onXxx` z `attrs`. V obou případech lze pomocí `inheritAttrs` nastavit `false`, aby se dědění atributů zakázalo:
+Pro funkční komponenty s explicitními `props` fungují [fallthrough atributy](/guide/components/attrs) stejně jako u&nbsp;běžných komponent. Pro funkční komponenty, které své `props` explicitně nezadávají, však budou ve výchozím stavu děděny pouze `class`, `style` a event listenery `onXxx` z&nbsp;`attrs`. V obou případech lze pomocí `inheritAttrs` nastavit `false`, aby se dědění atributů zakázalo:
 
 ```js
 MyComponent.inheritAttrs = false
