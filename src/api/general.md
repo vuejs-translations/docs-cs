@@ -26,7 +26,7 @@ Pomocná funkce pro čekání na příští aktualizaci DOM.
 
 - **Podrobnosti**
 
-  Když ve Vue měníte reaktivní stav, výsledné aktualizace DOM se neprovádějí synchronně. Místo toho je Vue ukládá do fronty a aplikuje je až v "dalším tiknutí" (next tick), aby se zajistilo, že každá komponenta se aktualizuje pouze jednou, bez ohledu na to, kolik změn stavu jste provedli.
+  Když ve Vue měníte reaktivní stav, výsledné aktualizace DOM se neprovádějí synchronně. Místo toho je Vue ukládá do fronty a aplikuje je až v „dalším tiknutí“ (next tick), aby se zajistilo, že každá komponenta se aktualizuje pouze jednou, bez ohledu na to, kolik změn stavu jste provedli.
 
   `nextTick()` můžete použít ihned po změně stavu, abyste počkali na dokončení aktualizace DOM. Můžete buď jako parametr předat callback, nebo počkat na vrácený Promise.
 
@@ -47,7 +47,7 @@ Pomocná funkce pro čekání na příští aktualizaci DOM.
     console.log(document.getElementById('counter').textContent) // 0
 
     await nextTick()
-    // DOM už nyní je aktualizován
+    // DOM už je nyní aktualizován
     console.log(document.getElementById('counter').textContent) // 1
   }
   </script>
@@ -119,9 +119,9 @@ Pomocná funkce pro podporu typů při definování Vue komponenty s odvozován�
 
   První parametr očekává objekt s možnostmi (options) komponenty. Návratová hodnota bude stejný objekt s možnostmi, protože tato funkce se spouští pouze pro účely odvozování typů bez vedlejších efektů.
 
-  Vemte však na vědomí, že návratový typ je trochu specifický: bude to typ konstruktoru, jehož instanční typ je určen z odvozeného typu instance komponenty na základě options. To se používá pro odvozování typů, když je vrácený typ použit jako tag v TSX.
+  Mějte však na paměti, že návratový typ je trochu specifický: bude to typ konstruktoru, jehož instanční typ je určen z odvozeného typu instance komponenty na základě options. To se používá pro odvozování typů, když je tento typ použit jako tag v TSX.
 
-  Typ instance komponenty (ekvivalent typu `this` v jeho options) můžete získat z návratového typu `defineComponent()` takto:
+  Typ instance komponenty (ekvivalent typu `this` v jeho options) můžete získat z&nbsp;návratového typu `defineComponent()` takto:
 
   ```ts
   const Foo = defineComponent(/* ... */)
@@ -131,9 +131,9 @@ Pomocná funkce pro podporu typů při definování Vue komponenty s odvozován�
 
   ### Syntaxe pomocí funkce <sup class="vt-badge" data-text="3.3+" /> {#function-signature}
 
-  `defineComponent()` má také alternativní způsob zápisu, který je určen pro použití s&nbsp;Composition API a [funkcemi pro vykreslení nebo JSX](/guide/extras/render-function.html).
+  `defineComponent()` má také alternativní způsob zápisu, který je určen pro použití s&nbsp;Composition API a [funkce pro vykreslení & JSX](/guide/extras/render-function.html).
 
-  Místo předávání objektu s možnostmi (options) se očekává funkce. Tato funkce funguje stejně jako funkce [`setup()`](/api/composition-api-setup.html#composition-api-setup) z Composition API: přijímá vlastnosti (props) a kontext pro setup. Návratová hodnota by měla být funkce pro vykreslení - podporovány jsou jak `h()`, tak JSX:
+  Místo předávání objektu s možnostmi (options) se očekává funkce. Tato funkce funguje stejně jako funkce [`setup()`](/api/composition-api-setup.html#composition-api-setup) z Composition API: přijímá vlastnosti (props) a&nbsp;kontext pro setup. Návratová hodnota by měla být funkce pro vykreslení - podporovány jsou jak `h()`, tak JSX:
 
   ```js
   import { ref, h } from 'vue'
@@ -177,7 +177,7 @@ const Comp = defineComponent(
 )
 ```
 
-V budoucnu plánujeme poskytnout Babel plugin, který automaticky odvodí a implementuje runtime vlastnosti (stejně jako u `defineProps` ve SFC), takže deklarace runtime vlastností budou moct být vynechány.
+V budoucnu plánujeme poskytnout Babel plugin, který runtime vlastnosti automaticky odvodí a&nbsp;implementuje (stejně jako u `defineProps` ve SFC), takže deklarace runtime vlastností budou moct být vynechány.
 
 ### Poznámka k webpack Treeshaking {#note-on-webpack-treeshaking}
 
@@ -195,7 +195,7 @@ Toto není nutné, pokud používáte Vite, protože Rollup (základní produkč
 
 ## defineAsyncComponent() {#defineasynccomponent}
 
-Definuje asynchronní komponentu, která se načítá "lazy" až při jejím vykreslení. Parametrem může být buď funkce pro načítání, nebo objekt s pokročilejší kontrolou chování načítání.
+Definuje asynchronní komponentu, která se načítá „lazy“ až při jejím vykreslení. Parametrem může být buď funkce pro načítání, nebo objekt s pokročilejší kontrolou chování načítání.
 
 - **Typ**
 

@@ -39,7 +39,7 @@ Vytvoří instanci aplikace.
 
 ## createSSRApp() {#createssrapp}
 
-Vytvoří instanci aplikace v režimu [SSR hydratace](/guide/scaling-up/ssr#client-hydration). Použití je zcela totožné jako u `createApp()`.
+Vytvoří instanci aplikace v režimu [SSR hydratace](/guide/scaling-up/ssr#client-hydration). Použití je zcela totožné jako u&nbsp;`createApp()`.
 
 ## app.mount() {#app-mount}
 
@@ -59,7 +59,7 @@ Připojí (mount) instanci aplikace do mateřského elementu.
 
   Pokud má komponenta definovanou šablonu nebo vykreslovací funkci, nahradí všechny existující DOM elementy uvnitř kontejneru. Jinak, pokud je k dispozici runtime kompilátor, bude jako šablona použito `innerHTML` kontejneru.
 
-  V režimu SSR hydratace, provede hydrataci existujících DOM elementů uvnitř kontejneru. Pokud existují [neshody](/guide/scaling-up/ssr#hydration-mismatch), existující DOM elementy budou změněny tak, aby odpovídaly očekávanému výstupu.
+  V režimu SSR hydratace provede hydrataci existujících DOM elementů uvnitř kontejneru. Pokud existuje [nesoulad](/guide/scaling-up/ssr#hydration-mismatch), existující DOM elementy budou změněny tak, aby odpovídaly očekávanému výstupu.
 
   Pro každou instanci aplikace lze `mount()` zavolat pouze jednou.
 
@@ -72,7 +72,7 @@ Připojí (mount) instanci aplikace do mateřského elementu.
   app.mount('#app')
   ```
 
-  Lze také připojit ke konkrétnímu DOM elementu:
+  Aplikaci lze připojit i ke konkrétnímu DOM elementu:
 
   ```js
   app.mount(document.body.firstChild)
@@ -80,7 +80,7 @@ Připojí (mount) instanci aplikace do mateřského elementu.
 
 ## app.unmount() {#app-unmount}
 
-Odstraní (unmount) připojenou instanci aplikace a spustí 'unmount' lifecycle hooky pro všechny komponenty v aplikačním stromu komponent.
+Odpojí (unmount) připojenou instanci aplikace a spustí _unmount_ lifecycle hooky pro všechny komponenty v aplikačním stromu komponent.
 
 - **Typ**
 
@@ -214,7 +214,7 @@ Pro znovupoužití logiky je lepší použít [Composables](/guide/reusability/c
 
 ## app.provide() {#app-provide}
 
-Poskytne hodnotu, která může být vložena (injected) do všech komponent potomků v rámci aplikace.
+Poskytne hodnotu, která může být implementována (injected) do všech komponent potomků v rámci aplikace.
 
 - **Typ**
 
@@ -226,7 +226,7 @@ Poskytne hodnotu, která může být vložena (injected) do všech komponent pot
 
 - **Podrobnosti**
 
-  Očekává 'injection key' jako první a poskytnutou hodnotu jako druhý argument. Vrací instanci aplikace jako takovou.
+  Očekává klíč (injection key) jako první a poskytnutou hodnotu jako druhý argument. Vrací instanci aplikace jako takovou.
 
 - **Příklad**
 
@@ -285,7 +285,7 @@ Spustí callback s aktuální aplikací jako kontextem (injection context).
 
 - **Podrobnosti**
 
-  Očekává callback funkci a okamžitě ji spustí. Během synchronního volání callbacku mohou volání `inject()` vyhledávat hodnoty poskytované v rámci aktuální aplikace, i když momentálně neexistuje žádná aktivní instance komponenty. Návratová hodnota callback funkce bude také vrácena.
+  Očekává callback funkci a okamžitě ji spustí. Během synchronního volání callbacku mohou volání `inject()` vyhledávat hodnoty poskytované v rámci aktuální aplikace, i&nbsp;když momentálně neexistuje žádná aktivní instance komponenty. Návratová hodnota callback funkce bude také vrácena.
 
 - **Příklad**
 
@@ -422,7 +422,7 @@ Přiřadí vlastní handler pro Vue runtime varování.
 
 ## app.config.performance {#app-config-performance}
 
-Nastavte tuto vlastnost na `true`, abyste povolili sledování výkonu inicializace, kompilace, vykreslování a běhových úprav komponent v panelu výkon/časová osa (performance/timeine) nástroje pro vývojáře (devtools) v prohlížeči. Funguje pouze v režimu vývoje a v prohlížečích, které podporují rozhraní [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark).
+Nastavte tuto vlastnost na `true`, abyste povolili sledování výkonu inicializace, kompilace, vykreslování a běhových úprav komponent v panelu výkon/časová osa (performance/timeline) nástroje pro vývojáře (devtools) v prohlížeči. Funguje pouze v&nbsp;režimu vývoje a v prohlížečích, které podporují rozhraní [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark).
 
 - **Typ:** `boolean`
 
@@ -473,7 +473,7 @@ Upravuje chování manipulace s mezerami (whitespace) v šablonách.
 
 - **Podrobnosti**
 
-  Vue odstraňuje / zhušťuje bílé znaky v šablonách, aby byl vytvořený zkompilovaný výstup efektivnější. Výchozí strategie je "condense" s následujícím chováním:
+  Vue odstraňuje / zhušťuje bílé znaky v šablonách, aby byl vytvořený zkompilovaný výstup efektivnější. Výchozí strategie je „condense“ s následujícím chováním:
 
   1. Počáteční / koncové mezery uvnitř prvku jsou zhuštěny do jedné mezery.
   2. Mezery mezi prvky, které obsahují nové řádky, jsou odstraněny.
@@ -497,7 +497,7 @@ Upravuje oddělovače používané pro textovou interpolaci ve šabloně.
 
 - **Podrobnosti**
 
-  Toto se typicky používá pro předcházení konfliktům se serverovými frameworky, které také používají "mustache" syntaxi.
+  Toto se typicky používá pro předcházení konfliktům se serverovými frameworky, které také používají „mustache“ syntaxi.
 
 - **Příklad**
 
@@ -548,7 +548,7 @@ Objekt, který může být použit k registraci globálních vlastností, ke kte
   app.config.globalProperties.msg = 'ahoj'
   ```
 
-Umožňí použití `msg` uvnitř kterékoli šablony a také na `this` libovolné instance komoonenty:
+Umožňí použití `msg` uvnitř kterékoli šablony a také na `this` libovolné instance komponenty:
 
   ```js
   export default {
@@ -576,7 +576,7 @@ Objekt pro definici strategií pro slučování custom vlastností komponenty.
 
 - **Podrobnosti**
 
-  Některé pluginy / knihovny přidávají podporu pro custom vlastnosti komponent (implementací globálních mixinů (mixins)). Tyto vlastnosti mohou vyžadovat speciální logiku pro slučování, když je třeba "sloučit" vlastnost z více zdrojů (např. mixins nebo dědičnosti komponenty).
+  Některé pluginy / knihovny přidávají podporu pro custom vlastnosti komponent (implementací globálních mixins). Tyto vlastnosti mohou vyžadovat speciální logiku pro slučování, když je třeba „sloučit“ vlastnost z více zdrojů (např. mixins nebo dědičnosti komponenty).
 
   Funkce pro strategii slučování může být pro custom vlastnost zaregistrována jejím přiřazením na objekt `app.config.optionMergeStrategies` s použitím názvu vlastnosti jako klíče.
 
