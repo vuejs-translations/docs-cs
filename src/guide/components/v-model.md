@@ -27,7 +27,7 @@ Komponenta rodiče pak může provést binding hodnoty pomocí `v-model`:
 
 ```vue-html
 <!-- Parent.vue -->
-<Child v-model="count" />
+<Child v-model="countModel" />
 ```
 
 Hodnota vrácená z  `defineModel()` je ref. Může být přistupována a měněna jako jakýkoli jiný ref, kromě toho, že slouží jako obousměrný binding mezi hodnotou z rodiče a tou lokální:
