@@ -21,7 +21,7 @@ export default {
   setup() {
     const count = ref(0)
 
-    // vystavit šabloně a dalším sekcím Options API
+    // vystavit šabloně a dalším možnostem Options API
     return {
       count
     }
@@ -46,7 +46,7 @@ Samotný `setup()` nemá přístup k instanci komponenty - `this` bude mít uvni
 
 ## Přístup k vlastnostem (props) {#accessing-props}
 
-Prvním argumentem v funkci `setup` je argument `props`. Stejně jako byste očekávali v běžné komponentě, `props` uvnitř funkce `setup` jsou reaktivní a budou při předání nových vlastností aktualizovány.
+Prvním argumentem v funkci `setup` je argument `props`. Stejně jako byste očekávali v&nbsp;běžné komponentě, `props` uvnitř funkce `setup` jsou reaktivní a budou při předání nových vlastností aktualizovány.
 
 ```js
 export default {
@@ -61,7 +61,7 @@ export default {
 
 Všimněte si, že pokud destrukturujete objekt `props`, destrukturované proměnné ztratí reaktivitu. Proto se doporučuje k props vždy přistupovat ve formě `props.xxx`.
 
-Pokud skutečně potřebujete props destrukturovat nebo je předat do externí funkce a zachovat reaktivitu, můžete to udělat pomocí utilitních API [toRefs()](./reactivity-utilities#torefs) a [toRef()](/api/reactivity-utilities#toref):
+Pokud skutečně potřebujete props destrukturovat nebo je předat do externí funkce a&nbsp;zachovat reaktivitu, můžete to udělat pomocí utilitních API [toRefs()](./reactivity-utilities#torefs) a [toRef()](/api/reactivity-utilities#toref):
 
 ```js
 import { toRefs, toRef } from 'vue'
@@ -111,7 +111,7 @@ export default {
 }
 ```
 
-`attrs` a `slots` jsou objekty se stavem, které jsou vždy aktualizovány, když je aktualizována samotná komponenta. To znamená, že byste se měli vyhnout destrukturování a vždy odkazovat na vlastnosti jako `attrs.x` nebo `slots.x`. Také si uvědomte, že na rozdíl od `props` jsou vlastnosti `attrs` a `slots` **ne**reaktivní. Pokud plánujete provádět vedlejší efekty na základě změn v `attrs` nebo `slots`, měli byste tak činit uvnitř lifecycle hooku `onBeforeUpdate`.
+`attrs` a `slots` jsou objekty se stavem, které jsou vždy aktualizovány, když je aktualizována samotná komponenta. To znamená, že byste se měli vyhnout destrukturování a vždy odkazovat na vlastnosti jako `attrs.x` nebo `slots.x`. Také si zapamatujte, že na rozdíl od `props` jsou vlastnosti `attrs` a `slots` **ne**reaktivní. Pokud plánujete provádět vedlejší efekty na základě změn v `attrs` nebo `slots`, měli byste tak činit uvnitř lifecycle hooku `onBeforeUpdate`.
 
 ### Vystavení veřejných vlastností {#exposing-public-properties}
 
@@ -134,7 +134,7 @@ export default {
 
 ## Použití s funkcemi pro vykreselní{#usage-with-render-functions}
 
-`setup` může také vrátit [funkci pro vykreslení](/guide/extras/render-function), která může přímo využívat reaktivní stav deklarovaný ve stejném rozsahu:
+`setup` může také vrátit [funkci pro vykreslení](/guide/extras/render-function), která může přímo využívat reaktivní stav deklarovaný ve stejném rozsahu (scope):
 
 ```js{6}
 import { h, ref } from 'vue'

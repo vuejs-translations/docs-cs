@@ -1,7 +1,7 @@
 # Composition API: Lifecycle hooks {#composition-api-lifecycle-hooks}
 
 :::info Poznámka k použití
-Všechny API funkce uvedené na této stránce musí být volány synchronně během `setup()` fáze komponenty. Pro více informací se podívejte na [Průvodce - Lifecycle Hooks](/guide/essentials/lifecycle).
+Všechny API funkce uvedené na této stránce musí být volány synchronně v `setup()` fázi komponenty. Pro více informací se podívejte na [Průvodce - Lifecycle hooks](/guide/essentials/lifecycle).
 :::
 
 ## onMounted() {#onmounted}
@@ -16,11 +16,11 @@ Registruje callback, který se volá po připojení komponenty.
 
 - **Detaily**
 
-  Komponenta je považována za připojenou poté, co:
+  Komponenta je považována za připojenou (mounted) poté, co:
 
   - Byly připojeny všechny její synchronní komponenty potomků (neplatí pro asynchronní komponenty nebo komponenty uvnitř `<Suspense>` hierarchie).
 
-  - Byl vytvořen její vlastní DOM a vložen do rodičovského kontejneru. Všimněte si, že to zaručuje, že DOM komponenty je v dokumentu pouze tehdy, pokud je v dokumentu také root kontejner aplikace.
+  - Byl vytvořen její vlastní DOM a vložen do rodičovského kontejneru. Všimněte si, že to zaručuje, že DOM komponenty je v dokumentu pouze tehdy, pokud je v něm také root kontejner aplikace.
 
   Tento hook se typicky používá pro provádění vedlejších efektů, které potřebují přístup k vykreslenému DOM komponenty, nebo pro omezení kódu souvisejícího s DOM na klientovi v [aplikaci vykreslené na serveru](/guide/scaling-up/ssr).
 
@@ -60,13 +60,13 @@ Registruje callback, který se volá poté, co komponenta aktualizuje svůj DOM 
 
   Hook `updated` nadřazené komponenty se volá až po `updated` komponent potomků.
 
-  Tento hook se volá po každé aktualizaci DOM komponenty, která může být způsobena různými změnami stavu, protože z důvodu optimalizace výkonu může být více změn stavu seskupeno do jednoho vykreslovací cyklu. Pokud potřebujete přistupovat k aktualizovanému DOM po konkrétní změně stavu, použijte místo toho [nextTick()](/api/general#nexttick).
+  Tento hook se volá po každé aktualizaci DOM komponenty, která může být způsobena různými změnami stavu, protože z důvodu optimalizace výkonu může být více změn stavu seskupeno do jednoho vykreslovací cyklu. Pokud potřebujete přistupovat k&nbsp;aktualizovanému DOM po konkrétní změně stavu, použijte místo toho [nextTick()](/api/general#nexttick).
 
-**Tento hook není volán během vykreslování na serveru (SSR).**
+  **Tento hook není volán během vykreslování na serveru (SSR).**
 
-:::warning
- V hooku `updated` neměňte stav komponenty - to pravděpodobně povede k nekonečné smyčce aktualizací!
-:::
+  :::warning Varování
+  V hooku `updated` neměňte stav komponenty - to pravděpodobně povede k nekonečné smyčce aktualizací!
+  :::
 
 - **Příklad**
 
@@ -101,11 +101,11 @@ Registruje callback, který se zavolá po odstranění komponenty.
 
 - **Detaily**
 
-  Komponenta je považována za odstraněnou poté, co:
+  Komponenta je považována za odstraněnou (unmounted) poté, co:
 
   - Byly odstraněny všechny její podřízené komponenty.
 
-  - Byly zastaveny všechny asociované reaktivní efekty (efekt vykreslování a computed proměnné / watchery vytvořené během `setup()`) 
+  - Byly zastaveny všechny asociované reaktivní efekty (efekt vykreslování a&nbsp;computed proměnné / watchery vytvořené během `setup()`) 
 
   Použijte tento hook k ručnímu čištění vytvořených vedlejších efektů, jako jsou časovače, DOM event listenery nebo serverová připojení.
 
@@ -156,7 +156,7 @@ Registruje callback, který se zavolá před tím, než se komponenta chystá ak
 
 - **Podrobnosti**
 
-  Tento hook lze použít k přístupu ke stavu DOM před aktualizací DOM Vue. Je také bezpečné upravovat stav komponenty uvnitř tohoto hooku.
+  Tento hook lze použít k přístupu ke stavu DOM předtím, než ho Vue aktualizuje. Uvnitř tohoto hooku je také bezpečné upravovat stav komponenty.
 
   **Tento hook není volán během vykreslování na serveru (SSR).**
 
@@ -178,7 +178,7 @@ Registruje hook, který se má volat před odstraněním instance komponenty.
 
 ## onErrorCaptured() {#onerrorcaptured}
 
-Registruje callback, který se má volat, když je zachycena chyba propagující se z komponenty potomka.
+Registruje callback, který se má volat, když je zachycena chyba propagující se z&nbsp;komponenty potomka.
 
 - **Typ**
 
@@ -204,13 +204,13 @@ Registruje callback, který se má volat, když je zachycena chyba propagující
   - Custom directive hooks
   - Transition hooks
 
-  Hook dostává tři argumenty: chybu, instanci komponenty, která chybu vyvolala, a řetězec s informací, která specifikuje typ zdroje chyby.
+  Hook dostává tři argumenty: chybu, instanci komponenty, která chybu vyvolala, a&nbsp;řetězec s informací, která specifikuje typ zdroje chyby.
 
   :::tip
   V produkčním prostředí bude třetí parametr (`info`) zkrácený kód místo kompletního řetězce s informací. Na mapování kódů na texty se můžete podívat do [Reference chybových kódů v produkci](/error-reference/#runtime-errors).
   :::
 
-  Pro zobrazení stavu chyby uživateli můžete upravit stav komponenty v `errorCaptured()`. Je však důležité, aby stav chyby nevykresloval původní obsah, který způsobil chybu; jinak bude komponenta vržena do nekonečné smyčky vykreslování.
+  Pro zobrazení stavu chyby uživateli můžete upravit stav komponenty v&nbsp;`errorCaptured()`. Je však důležité, aby stav chyby nevykresloval původní obsah, který způsobil chybu; jinak bude komponenta vržena do nekonečné smyčky vykreslování.
 
   Hook může vrátit `false`, aby zastavil další propagaci chyby. Podrobnosti o propagaci chyb naleznete níže.
 
@@ -222,7 +222,7 @@ Registruje callback, který se má volat, když je zachycena chyba propagující
 
   - Pokud `errorCaptured` hook sám vyvolá chybu, tato chyba a původní zachycená chyba jsou odeslány do `app.config.errorHandler`.
 
-  - Hook `errorCaptured` může vrátit `false`, aby zabránil propagaci chyby dále. To v podstatě znamená "tato chyba byla zpracována a měla by být ignorována." Pro tuto chybu to zabrání volání dalších `errorCaptured` hooks nebo `app.config.errorHandler`.
+  - Hook `errorCaptured` může vrátit `false`, aby zabránil propagaci chyby dále. To v&nbsp;podstatě znamená _„tato chyba byla zpracována a měla by být ignorována“_. Pro tuto chybu to zabrání volání dalších `errorCaptured` hooks nebo `app.config.errorHandler`.
 
 ## onRenderTracked() <sup class="vt-badge dev-only" /> {#onrendertracked}
 
@@ -326,7 +326,7 @@ Registruje asynchronní funkci, která se vyhodnotí před vykreslením instance
   const data = ref(null)
 
   onServerPrefetch(async () => {
-    // komponenta je vykreslena jako součást výcozího požadavku
+    // komponenta je vykreslena jako součást výchozího požadavku
     // data se načítají na serveru, protože to je rychlejší než na klientovi
     data.value = await fetchOnServer(/* ... */)
   })
@@ -342,4 +342,4 @@ Registruje asynchronní funkci, která se vyhodnotí před vykreslením instance
   </script>
   ```
 
-- **Viz také:** [Server-Side Rendering](/guide/scaling-up/ssr)
+- **Viz také:** [Vykreslování na serveru (SSR)](/guide/scaling-up/ssr)

@@ -90,52 +90,51 @@ Může také být použito k vytvoření ref pro vlastnost na zdrojovém reaktiv
     foo: 1,
     bar: 2
   })
+  
+  // dvousměrný odkaz, který se synchronizuje s původní vlastností
+  const fooRef = toRef(state, 'foo')
 
-```js
-// dvousměrný odkaz, který se synchronizuje s původní vlastností
-const fooRef = toRef(state, 'foo')
+  // změna odkazu aktualizuje původní hodnotu
+  fooRef.value++
+  console.log(state.foo) // 2
 
-// změna odkazu aktualizuje původní hodnotu
-fooRef.value++
-console.log(state.foo) // 2
+  // změna původní hodnoty také aktualizuje odkaz
+  state.foo++
+  console.log(fooRef.value) // 3
+  ```
 
-// změna původní hodnoty také aktualizuje odkaz
-state.foo++
-console.log(fooRef.value) // 3
-```
+  Všimněte si, že to je odlišné od:
 
-Všimněte si, že to je odlišné od:
+  ```js
+  const fooRef = ref(state.foo)
+  ```
 
-```js
-const fooRef = ref(state.foo)
-```
+  Výše uvedený odkaz **není** synchronizován s `state.foo`, protože `ref()` přijímá pouze prostou číselnou hodnotu.
 
-Výše uvedený odkaz **není** synchronizován s `state.foo`, protože `ref()` přijímá pouze prostou číselnou hodnotu.
+  `toRef()` je užitečné, když chcete předat odkaz na vlastnost do composable funkce:
 
-`toRef()` je užitečné, když chcete předat odkaz na vlastnost do composable funkce:
+  ```vue
+  <script setup>
+  import { toRef } from 'vue'
 
-```vue
-<script setup>
-import { toRef } from 'vue'
+  const props = defineProps(/* ... */)
 
-const props = defineProps(/* ... */)
+  // převést `props.foo` na odkaz a předat ho do
+  // composable funkce
+  useSomeFeature(toRef(props, 'foo'))
 
-// převést `props.foo` na odkaz a předat ho do
-// composable funkce
-useSomeFeature(toRef(props, 'foo'))
+  // getter syntaxe - doporučeno ve verzi 3.3+
+  useSomeFeature(toRef(() => props.foo))
+  </script>
+  ```
 
-// getter syntaxe - doporučeno ve verzi 3.3+
-useSomeFeature(toRef(() => props.foo))
-</script>
-```
+  Při použití `toRef` s vlastnostmi (props) komponenty jsou stále aplikována běžná omezení týkající se změny vlastností. Pokus o přiřazení nové hodnoty k odkazu je ekvivalentní pokusu o změnu vlastnosti přímo a není povolen. V takovém případě byste měli zvážit použití [`computed`](./reactivity-core#computed) s `get` a `set`. Pro více informací se podívejte se na průvodce [použitím `v-model` s komponentami](/guide/components/v-model).
 
-Při použití `toRef` s vlastnostmi (props) komponenty jsou stále aplikována běžná omezení týkající se změny vlastností. Pokus o přiřazení nové hodnoty k odkazu je ekvivalentní pokusu o změnu vlastnosti přímo a není povolen. V takovém případě byste měli zvážit použití [`computed`](./reactivity-core#computed) s `get` a `set`. Pro více informací se podívejte se na průvodce [použitím `v-model` s komponentami](/guide/components/v-model).
-
-Při použití signatury pro vlastnosti objektu vrátí `toRef()` použitelný odkaz i v případě, že zdrojová vlastnost v současné době neexistuje. To umožňuje pracovat s volitelnými vlastnostmi, které by nebyly zachyceny pomocí [`toRefs`](#torefs).
+  Při použití signatury pro vlastnosti objektu vrátí `toRef()` použitelný odkaz i v případě, že zdrojová vlastnost v současné době neexistuje. To umožňuje pracovat s volitelnými vlastnostmi, které by nebyly zachyceny pomocí [`toRefs`](#torefs).
 
 ## toValue() <sup class="vt-badge" data-text="3.3+" /> {#tovalue}
 
-Normalizuje hodnoty / refs / gettery na hodnoty. Je to podobné jako [unref()](#unref), s tím rozdílem, že také normalizuje gettery. Pokud je argument getter, bude vyvolán a bude vrácena jeho návratová hodnota.
+Normalizuje hodnoty / refs / gettery na hodnoty. Podobá se [unref()](#unref) s tím rozdílem, že&nbsp;normalizuje i gettery. Pokud je argument getter, bude vyvolán a bude vrácena jeho návratová hodnota.
 
 To lze použít v [composable funkcích](/guide/reusability/composables.html) k normalizaci parametru, který může být buď hodnota, ref nebo getter.
 
@@ -144,7 +143,6 @@ To lze použít v [composable funkcích](/guide/reusability/composables.html) k 
   ```ts
   function toValue<T>(source: T | Ref<T> | (() => T)): T
   ```
-```
 
 - **Příklad**
 
@@ -203,7 +201,7 @@ Převede reaktivní objekt na obyčejný, kde každá vlastnost výsledného obj
   }
   */
 
-  // Ref a původní vlastnost jsou "propojeny"
+  // Ref a původní vlastnost jsou „propojeny“
   state.foo++
   console.log(stateAsRefs.foo.value) // 2
 
@@ -230,7 +228,7 @@ Převede reaktivní objekt na obyčejný, kde každá vlastnost výsledného obj
   const { foo, bar } = useFeatureX()
   ```
 
-  `toRefs` vygeneruje refs pouze pro vlastnosti, které jsou 'enumerable' na zdrojovém objektu v době volání. Pro vytvoření ref pro vlastnost, která ještě nemusí existovat, místo toho použijte [`toRef`](#toref).
+  `toRefs` vygeneruje refs pouze pro vlastnosti, které jsou na zdrojovém objektu [enumerable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) v době volání. Pro vytvoření ref pro vlastnost, která ještě nemusí existovat, místo toho použijte [`toRef`](#toref).
 
 ## isProxy() {#isproxy}
 

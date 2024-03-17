@@ -2,7 +2,7 @@
 
 ## shallowRef() {#shallowref}
 
-"Mělká" verze [`ref()`](./reactivity-core#ref).
+„Mělká“ verze [`ref()`](./reactivity-core#ref).
 
 - **Typ**
 
@@ -16,7 +16,7 @@
 
 - **Podrobnosti**
 
-  Na rozdíl od `ref()` je vnitřní hodnota mělké reference uložena a vystavena tak, jak je, a nebude hluboce reaktivní. Reaktivní je pouze přístup k `.value`.
+  Na rozdíl od `ref()` je vnitřní hodnota mělké reference uložena a vystavena tak, jak je, a nebude hluboce (deep) reaktivní. Reaktivní je pouze přístup k `.value`.
 
   `shallowRef()` se obvykle používá pro optimalizaci výkonu velkých datových struktur nebo pro integraci s externími systémy pro správu stavu.
 
@@ -38,7 +38,7 @@
 
 ## triggerRef() {#triggerref}
 
-Vynutí spuštění efektů, které závisí na [shallow ref](#shallowref). Toto se obvykle používá po provedení hlubokých mutací vnitřní hodnoty mělké reference.
+Vynutí spuštění efektů, které závisí na [shallow ref](#shallowref). To se obvykle používá po provedení hlubokých mutací vnitřní hodnoty mělké reference.
 
 - **Typ**
 
@@ -53,7 +53,7 @@ Vynutí spuštění efektů, které závisí na [shallow ref](#shallowref). Toto
     greet: 'Ahoj, Vue'
   })
 
-  // "Ahoj, Vue" se zaloguje jednou při prvním spuštění
+  // 'Ahoj, Vue' se zaloguje jednou při prvním spuštění
   watchEffect(() => {
     console.log(shallow.value.greet)
   })
@@ -61,7 +61,7 @@ Vynutí spuštění efektů, které závisí na [shallow ref](#shallowref). Toto
   // Toto nezpůsobí spuštění efektu, protože reference je mělká
   shallow.value.greet = 'Ahoj, Vue 3'
 
-  // Zaloguje "Ahoj, Vue 3"
+  // Zaloguje 'Ahoj, Vue 3'
   triggerRef(shallow)
   ```
 
@@ -91,7 +91,7 @@ Vytvoří upravenou referenci s explicitní kontrolou sledování závislostí a
 
 - **Příklad**
 
-  Vytvoření 'debounced' ref, který aktualizuje hodnotu až po určitém časovém prodlení po posledním volání `set`:
+  Vytvoření „debounced“ ref, který aktualizuje hodnotu až po určitém časovém prodlení po posledním volání `set`:
 
   ```js
   import { customRef } from 'vue'
@@ -133,7 +133,7 @@ Vytvoří upravenou referenci s explicitní kontrolou sledování závislostí a
 
 ## shallowReactive() {#shallowreactive}
 
-"Mělká" verze [`reactive()`](./reactivity-core#reactive).
+„Mělká“ verze [`reactive()`](./reactivity-core#reactive).
 
 - **Typ**
 
@@ -143,10 +143,10 @@ Vytvoří upravenou referenci s explicitní kontrolou sledování závislostí a
 
 - **Podrobnosti**
 
-  Na rozdíl od `reactive()` zde není hluboká konverze: reaktivní jsou pouze vlastnosti na nejvyšší úrovni mělce reaktivního objektu. Hodnoty vlastností jsou uloženy a vystaveny tak, jak jsou - to také znamená, že vlastnosti s hodnotami ref **nebudou** automaticky rozbaleny.
+  Na rozdíl od `reactive()` zde není hluboká konverze: reaktivní jsou pouze vlastnosti na nejvyšší úrovni mělce reaktivního objektu. Hodnoty vlastností jsou uloženy a&nbsp;vystaveny tak, jak jsou - to také znamená, že vlastnosti s hodnotami ref **nebudou** automaticky rozbaleny.
 
   :::warning Používejte opatrně
-  Měl byste používat mělké datové struktury pouze pro stav na úrovni kořene komponenty. Vyhněte se vnořování do hluboké reaktivní struktury, protože to vytváří strom s nekonzistentním chováním reaktivity, což může být obtížné pochopit a ladit.
+  Měl byste používat mělké datové struktury pouze pro stav na kořenové úrovni komponenty. Vyhněte se vnořování do hluboké reaktivní struktury, protože to vytváří strom s nekonzistentním chováním reaktivity, což může být obtížné pochopit a ladit.
   :::
 
 - **Příklad**
@@ -171,7 +171,7 @@ Vytvoří upravenou referenci s explicitní kontrolou sledování závislostí a
 
 ## shallowReadonly() {#shallowreadonly}
 
-"Mělká" verze [`readonly()`](./reactivity-core#readonly).
+„Mělká“ verze [`readonly()`](./reactivity-core#readonly).
 
 - **Typ**
 
@@ -181,10 +181,10 @@ Vytvoří upravenou referenci s explicitní kontrolou sledování závislostí a
 
 - **Detaily**
 
-  Na rozdíl od `readonly()` zde není hluboká konverze: pouze vlastnosti na nejvyšší úrovni jsou nastaveny jako pouze pro čtení. Hodnoty vlastností jsou uloženy a vystaveny tak, jak jsou - to znamená, že vlastnosti s ref hodnotami nebudou automaticky rozbaleny.
+  Na rozdíl od `readonly()` zde není hluboká konverze: pouze vlastnosti na nejvyšší úrovni jsou nastaveny jako pouze pro čtení. Hodnoty vlastností jsou uloženy a&nbsp;vystaveny tak, jak jsou - to znamená, že vlastnosti s ref hodnotami nebudou automaticky rozbaleny.
 
   :::warning Používejte opatrně
-  Měl byste používat mělké datové struktury pouze pro stav na úrovni kořene komponenty. Vyhněte se vnořování do hluboké reaktivní struktury, protože to vytváří strom s nekonzistentním chováním reaktivity, což může být obtížné pochopit a ladit.
+  Měl byste používat mělké datové struktury pouze pro stav na kořenové úrovni komponenty. Vyhněte se vnořování do hluboké reaktivní struktury, protože to vytváří strom s nekonzistentním chováním reaktivity, což může být obtížné pochopit a ladit.
   :::
 
 - **Příklad**
@@ -254,13 +254,13 @@ Označuje objekt tak, aby nikdy nebyl převeden na proxy. Vrací samotný (raw) 
   ```
 
   :::warning Používejte opatrně
-  `markRaw()` a "mělké" API funkce, jako je `shallowReactive()`, vám umožňují selektivně odmítnout výchozí hlubokou reaktivní/readonly konverzi a vložit do vašeho stavového grafu neupravené, neproxované objekty. Můžete je použít z různých důvodů:
+  `markRaw()` a mělké API funkce, jako je `shallowReactive()`, vám umožňují selektivně odmítnout výchozí hlubokou reaktivní/readonly konverzi a vložit do vašeho stavového grafu neupravené, neproxyované objekty. Můžete je použít z různých důvodů:
 
   - Některé hodnoty jednoduše nemají být reaktivní, například složitá instance třetí strany nebo objekt Vue komponenty.
 
   - Přeskočení proxy konverze může znamenat vylepšení výkonu při vykreslování velkých seznamů s neměnnými zdroji dat.
 
-  Jsou považovány za pokročilé, protože možnost opt-outu z výchozího chování platí pouze na nejvyšší úrovni objektu, takže pokud nastavíte vnořený, neoznačený a neupravený objekt do reaktivního objektu, a poté na něj znovu přistoupíte, dostanete zpět proxy verzi. To může vést k **rizikům identity** - tj. provádění operace, která se spoléhá na identitu objektu, ale používá jak původní, tak proxy verzi stejného objektu:
+  Jsou považovány za pokročilé, protože možnost opt-outu z výchozího chování platí pouze na nejvyšší úrovni objektu, takže pokud nastavíte vnořený, neoznačený a&nbsp;neupravený objekt do reaktivního objektu, a poté na něj znovu přistoupíte, dostanete zpět proxy verzi. To může vést k **rizikům identity** - tj. provádění operace, která se spoléhá na identitu objektu, ale používá jak původní, tak proxy verzi stejného objektu:
 
   ```js
   const foo = markRaw({

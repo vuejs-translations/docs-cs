@@ -12,7 +12,7 @@ Poskytuje hodnotu, která může být implementována komponentami potomka.
 
 - **Podrobnosti**
 
-  `provide()` přijímá dva argumenty: klíč (injection key) kterým může být řetězec nebo symbol, a hodnotu, která má být implementována.
+  `provide()` přijímá dva argumenty: klíč (injection key), kterým může být řetězec nebo symbol, a hodnotu, která má být implementována.
 
   Při použití TypeScriptu může být klíč symbolem přetypovaným jako `InjectionKey` - typem poskytovaným Vue, který rozšiřuje `Symbol` a který lze použít k synchronizaci typu hodnoty mezi `provide()` a `inject()`.
 
@@ -39,7 +39,7 @@ Poskytuje hodnotu, která může být implementována komponentami potomka.
 
 - **Viz také**:
   - [Průvodce - Provide / Inject](/guide/components/provide-inject)
-  - [Průvodce - Typování Provide / Inject](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
+  - [Průvodce - Typování provide / inject](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
 
 ## inject() {#inject}
 
@@ -64,7 +64,7 @@ Implementuje hodnotu poskytnutou komponentou předka nebo aplikací (pomocí `ap
 
 - **Podrobnosti**
 
-  První argument je klíč pro implementaci (injection key). Vue se bude procházet hierarchií rodičovských komponent, aby našelo poskytovanou hodnotu s odpovídajícím klíčem. Pokud více komponent v hierarchii poskytuje stejný klíč, ten z nejbližší komponenty "překryje" ty vyšší v řetězci. Pokud nebyla nalezena žádná hodnota s odpovídajícím klíčem, `inject()` vrátí `undefined`, pokud není poskytnuta výchozí hodnota.
+  První argument je klíč pro implementaci (injection key). Vue se bude procházet hierarchií rodičovských komponent, aby našelo poskytovanou hodnotu s&nbsp;odpovídajícím klíčem. Pokud více komponent v hierarchii poskytuje stejný klíč, ten z&nbsp;nejbližší komponenty „překryje“ ty výše v řetězci. Pokud nebyla nalezena žádná hodnota s odpovídajícím klíčem, `inject()` vrátí `undefined`, pokud není poskytnuta výchozí hodnota.
 
 Druhý argument je volitelný a jde o výchozí hodnotou, která se použije, pokud nebyla nalezena žádná odpovídající poskytnutá hodnota.
 
@@ -76,7 +76,7 @@ Při použití TypeScriptu může být klíč typu `InjectionKey` - typu poskyto
 
 - **Příklad**
 
-  Za předpokladu, že rodičovská komponenta poskytuje hodnoty, jak je ukázáno v předchozím příkladu `provide()`:
+  Za předpokladu, že rodičovská komponenta poskytuje hodnoty, jak je ukázáno v&nbsp;předchozím příkladu `provide()`:
 
   ```vue
   <script setup>
@@ -105,7 +105,7 @@ Při použití TypeScriptu může být klíč typu `InjectionKey` - typu poskyto
 
 ## hasInjectionContext() <sup class="vt-badge" data-text="3.3+" /> {#has-injection-context}
 
-Vrací true pokud může být funkce [inject()](#inject) použita, aniž by vyvolala varování, že je volána na špatném místě (např. mimo `setup()`). Tato metoda je navržena pro použití v knihovnách, které chtějí používat `inject()` interně bez výpisu varování pro koncové uživatele.
+Vrací true, pokud může být funkce [inject()](#inject) použita, aniž by vyvolala varování, že je volána na špatném místě (např. mimo `setup()`). Tato metoda je navržena pro použití v&nbsp;knihovnách, které chtějí používat `inject()` interně bez výpisu varování pro koncové uživatele.
 
 - **Typ**
 
@@ -115,4 +115,4 @@ Vrací true pokud může být funkce [inject()](#inject) použita, aniž by vyvo
 
 - **Viz také**:
   - [Průvodce - Provide / Inject](/guide/components/provide-inject)
-  - [Průvodce - Typování Provide / Inject](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
+  - [Průvodce - Typování provide / inject](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
