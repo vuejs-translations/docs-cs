@@ -92,7 +92,7 @@ Pomocná funkce pro čekání na příští aktualizaci DOM.
 
   </div>
 
-- **See also:** [`this.$nextTick()`](/api/component-instance#nexttick)
+- **Viz také:** [`this.$nextTick()`](/api/component-instance#nexttick)
 
 ## defineComponent() {#definecomponent}
 

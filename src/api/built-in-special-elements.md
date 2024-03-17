@@ -158,7 +158,7 @@ Tag `<template>` se používá jako placeholder, když chceme použít vestavěn
 
   Single-file komponenty (SFC) používají [tag `<template>` nejvyšší úrovně](/api/sfc-spec#language-blocks) k obalení celé šablony. Tento způsob použití je oddělen od použití `<template>` popsaného výše. Tento tag nejvyšší úrovně není součástí samotné šablony a nepodporuje syntaxi šablony, jako jsou direktivy.
 
-- **See also:**
+- **Viz také:**
   - [Průvodce - `v-if` na `<template>`](/guide/essentials/conditional#v-if-on-template)
   - [Průvodce - `v-for` na `<template>`](/guide/essentials/list#v-for-on-template)
   - [Průvodce - Pojmenované sloty](/guide/components/slots#named-slots)

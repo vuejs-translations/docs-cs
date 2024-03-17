@@ -342,4 +342,4 @@ Registruje asynchronní funkci, která se vyhodnotí před vykreslením instance
   </script>
   ```
 
-- **See also:** [Server-Side Rendering](/guide/scaling-up/ssr)
+- **Viz také:** [Server-Side Rendering](/guide/scaling-up/ssr)

@@ -1,11 +1,11 @@
 # Reactivity API: Core {#reactivity-api-core}
 
-:::info See also
+:::info Viz také
 Pro lepší porozumění Reactivity API je doporučeno přečíst následující kapitoly v průvodci:
 
 - [Základy reaktivity](/guide/essentials/reactivity-fundamentals) (s preferencí API nastavenou na Composition API)
 - [Reaktivita podrobně](/guide/extras/reactivity-in-depth)
-  :::
+:::
 
 
 ## ref() {#ref}

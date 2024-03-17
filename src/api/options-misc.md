@@ -164,4 +164,4 @@ Objekt, který registruje direktivy, které budou dostupné na instanci komponen
   <input v-focus>
   ```
 
-- **See also** [Custom Directives](/guide/reusability/custom-directives)
+- **Viz takéo** [Custom Directives](/guide/reusability/custom-directives)

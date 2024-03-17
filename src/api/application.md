@@ -266,7 +266,7 @@ export default {
 
 </div>
 
-- **See also:**
+- **Viz také:**
   - [Provide / Inject](/guide/components/provide-inject)
   - [Provide na úprvni aplikace](/guide/components/provide-inject#app-level-provide)
   - [app.runWithContext()](#app-runwithcontext)
