@@ -32,11 +32,11 @@ Na toto:
 
 ### Root elementy komponent potomka{#child-component-root-elements}
 
-Se `scoped` atributem nebudou styly komponenty rodiče prosakovat do komponent potomků. Nicméně root element komponenty potomka bude ovlivněn jak rodičovským `scoped` CSS, tak vlastním `scoped` CSS. Toto je záměr, aby rodič mohl stylovat root element svého potomka pro účely rozvržení.
+Se `scoped` atributem nebudou styly komponenty rodiče prosakovat do komponent potomků. Nicméně root element komponenty potomka bude ovlivněn jak rodičovským `scoped` CSS, tak vlastním `scoped` CSS. Toto je záměr, aby rodič mohl stylovat root element svého potomka pro účely rozvržení (layout).
 
 ### Deep selektory {#deep-selectors}
 
-Pokud chcete, aby selektor ve `scoped` stylech byl "hluboký" a ovlivňoval i komponenty potomků, můžete použít pseudotřídu `:deep()`:
+Pokud chcete, aby selektor ve `scoped` stylech byl „hluboký“ a ovlivňoval i komponenty potomků, můžete použít pseudotřídu `:deep()`:
 
 ```vue
 <style scoped>
@@ -55,7 +55,7 @@ Výše uvedený kód se zkompiluje na:
 ```
 
 :::tip
-Obsah DOM vytvořený pomocí `v-html` není ovlivněn `scoped` styly, ale stále jej lze stylovat pomocí deep selektorů.
+Obsah DOM vytvořený pomocí `v-html` není ovlivněn `scoped` styly, ale pomocí deep selektorů jej stále lze stylovat.
 :::
 
 ### Selektory pro sloty {#slotted-selectors}
@@ -98,7 +98,7 @@ Můžete také do stejné komponenty zahrnout jak lokální, tak globální styl
 
 ### Tipy pro lokální styly {#scoped-style-tips}
 
-- **Lokální styly neodstraňují potřebu tříd**. Kvůli způsobu, jakým prohlížeče vyhodnocují různé CSS selektory, bude `p { color: red }` mnohem pomalejší, když je použit s atributovým selektorem. Pokud místo toho použijete třídy nebo id, například `.example { color: red }`, prakticky tím tento problém výkonosti eliminujete.
+- **Lokální styly neodstraňují potřebu tříd**. Kvůli způsobu, jakým prohlížeče vyhodnocují různé CSS selektory, bude `p { color: red }` mnohem pomalejší, když je použit s&nbsp;atributovým selektorem. Pokud místo toho použijete třídy nebo id, například `.example { color: red }`, prakticky tím tento problém výkonosti eliminujete.
 
 - **Buďte opatrní s selektory potomků v rekurzivních komponentách!** Pro CSS pravidlo se selektorem `.a .b`, pokud prvek odpovídající `.a` obsahuje rekurzivní komponentu potomka, pak všechny `.b` v této komponentě potomka budou pravidlu odpovídat.
 
@@ -199,4 +199,4 @@ p {
 </style>
 ```
 
-Skutečná hodnota bude zkompilována do hashovaného custom CSS vlastnosti, takže CSS je stále statické. Custom vlastnost bude aplikována na roote element komponenty pomocí inline stylů a reaktivně aktualizována, pokud se změní zdrojová hodnota.
+Skutečná hodnota bude zkompilována do hashované custom CSS vlastnosti, takže CSS je stále statické. Custom vlastnost bude aplikována na root element komponenty pomocí inline stylů a reaktivně aktualizována, pokud se změní zdrojová hodnota.

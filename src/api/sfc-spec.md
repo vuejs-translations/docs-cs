@@ -50,7 +50,7 @@ export default {
 
 ### `<script setup>` {#script-setup}
 
-- Každý soubor `*.vue` může obsahovat maximálně jeden blok `<script setup>` (s výjimkou normálního `<script>`).
+- Každý soubor `*.vue` může obsahovat maximálně jeden blok `<script setup>` (s&nbsp;výjimkou normálního `<script>`).
 
 - Skript je předzpracován a používán jako `setup()` funkce komponenty, což znamená, že bude spuštěn **pro každou instanci komponenty**. Hlavní (top-level) vazby uvnitř `<script setup>` jsou automaticky vystaveny šabloně. Pro více informací se podívejte na [samostatnou dokumentaci pro `<script setup>`](/api/sfc-script-setup).
 
@@ -58,7 +58,7 @@ export default {
 
 - Každý soubor `*.vue` může obsahovat více bloků `<style>`.
 
-- Element `<style>` může mít atributy `scoped` nebo `module` (podrobnosti naleznete na stránce [Funkce CSS pro SFC](/api/sfc-css-features)), které pomáhají zapouzdřit styly do aktuální komponenty. V jedné komponentě mohou být smíchány různé značky `<style>` s různými režimy zapouzdření.
+- Element `<style>` může mít atributy `scoped` nebo `module` (podrobnosti naleznete na stránce [CSS funkce pro SFC](/api/sfc-css-features)), které pomáhají zapouzdřit styly do aktuální komponenty. V jedné komponentě mohou být smíchány různé značky `<style>` s&nbsp;různými režimy zapouzdření.
 
 ### Vlastní bloky {#custom-blocks}
 
@@ -68,7 +68,7 @@ Do souboru `*.vue` můžete navíc přidat další vlastní bloky pro potřeby k
 - [vite-plugin-vue-gql: `<gql>`](https://github.com/wheatjs/vite-plugin-vue-gql)
 - [vue-i18n: `<i18n>`](https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n#i18n-custom-block)
 
-Zpracování vlastních bloků závisí na nástrojích - pokud chcete vytvořit vlastní integrace bloků, podívejte se pro další informace na sekci [Nástroje pro integraci vlastních bloků SFC](/guide/scaling-up/tooling#sfc-custom-block-integrations).
+Zpracování vlastních bloků závisí na nástrojích - pokud chcete vytvořit vlastní integrace, podívejte se pro další informace na sekci [Nástroje pro integraci vlastních SFC bloků](/guide/scaling-up/tooling#sfc-custom-block-integrations).
 
 ## Automatické odvození názvu {#automatic-name-inference}
 
@@ -88,7 +88,7 @@ Bloky mohou pomocí atributu `lang` deklarovat programovací jazyk, v němž má
 </script>
 ```
 
-`lang` lze použít na jakýkoli blok - například můžeme použít `<style>` s [Sass](https://sass-lang.com/) a `<template>` + [Pug](https://pugjs.org/api/getting-started.html):
+`lang` lze použít na jakýkoli blok - například můžeme použít `<style>` se [Sass](https://sass-lang.com/) a&nbsp;`<template>` + [Pug](https://pugjs.org/api/getting-started.html):
 
 ```vue-html
 <template lang="pug">
@@ -109,7 +109,7 @@ Dejte pozor, že integrace s různými pre-procesory se může lišit podle zvol
 - [Vue CLI](https://cli.vuejs.org/guide/css.html#pre-processors)
 - [webpack + vue-loader](https://vue-loader.vuejs.org/guide/pre-processors.html#using-pre-processors)
 
-## `src` importy {#src-imports}
+## Importy `src` {#src-imports}
 
 Pokud dáváte přednost rozdělení vašich `*.vue` komponent do více souborů, můžete použít atribut `src` pro import externího souboru do příslušného bloku jazyka:
 

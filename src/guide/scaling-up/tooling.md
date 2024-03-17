@@ -154,9 +154,9 @@ Uživatelé, kteří dříve používali Vue CLI, mohou být zvyklí na konfigur
 
 - Alternativně nabízí vestavěnou podporu pro formátování Vue SFC také [Prettier](https://prettier.io/).
 
-## Nástroje pro integraci custom SFC bloků  {#sfc-custom-block-integrations}
+## Nástroje pro integraci vlastních SFC bloků {#sfc-custom-block-integrations}
 
-Custom bloky jsou zkompilovány do importů do stejného Vue souboru s různými request queries. Je na v projektu použitém build nástroji, jak se s těmito importy zachází.
+Vlastní bloky jsou zkompilovány do importů do stejného Vue souboru s různými request queries. Je na v projektu použitém build nástroji, jak se s těmito importy zachází.
 
 - Pokud používáte Vite, měl by být k přeměně odpovídajících vlastních bloků na spustitelný JavaScript použit custom Vite plugin. [Příklad](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#example-for-transforming-custom-blocks)
 

@@ -3,7 +3,7 @@
 `<script setup>` je alias pro pro použití Composition API uvnitř Single-file komponent (SFC). Pokud používáte jak SFC, tak Composition API, je to doporučená syntaxe. Oproti běžnému `<script>` poskytuje několik výhod:
 
 - Stručnější zápis s menším množstvím boilerplate kódu
-- Možnost deklarovat vlastnosti (props) a emitované události (emits) čistě v TypeScriptu
+- Možnost deklarovat vlastnosti (props) a emitované události (emits) čistě v&nbsp;TypeScriptu
 - Lepší runtime výkon (šablona je zkompilována do funkce pro vykreslení ve stejném scope, bez prostředníka)
 - Lepší výkon odvozování typů v IDE (méně práce pro jazykový server při extrakci typů z kódu)
 
@@ -53,7 +53,7 @@ import { capitalize } from './helpers'
 
 ## Reaktivita {#reactivity}
 
-Reaktivní stav musí být explicitně vytvořen pomocí [Reactivity API](./reactivity-core). Podobně jako hodnoty vrácené z funkce `setup()`, pokud jsou refs odkazovány v šablonách, jsou automaticky "rozbaleny":
+Reaktivní stav musí být explicitně vytvořen pomocí [Reactivity API](./reactivity-core). Podobně jako hodnoty vrácené z funkce `setup()`, pokud jsou refs odkazovány v šablonách, jsou automaticky „rozbaleny“:
 
 ```vue
 <script setup>
@@ -144,7 +144,7 @@ const vMojeDirektiva = {
 </template>
 ```
 
-Pokud importujete direktivu odjinut, může být přejmenována tak, aby odpovídala požadovanému názvosloví:
+Pokud importujete direktivu odjinud, může být přejmenována tak, aby odpovídala požadovanému názvosloví:
 
 ```vue
 <script setup>
@@ -170,15 +170,15 @@ const emit = defineEmits(['change', 'delete'])
 
 - `defineProps` a `defineEmits` jsou **makra překladače** použitelná pouze uvnitř `<script setup>`. Nemusí být importovány a jsou kompilovány, když je zpracováno `<script setup>`.
 
-- `defineProps` přijímá stejnou hodnotu jako sekce `props`, zatímco `defineEmits` přijímá stejnou hodnotu jako sekce `emits`.
+- `defineProps` přijímá stejnou hodnotu jako možnost `props`, zatímco `defineEmits` přijímá stejnou hodnotu jako možnost `emits`.
 
-- `defineProps` a `defineEmits` poskytují správné odvozování typů na základě předaných možností.
+- `defineProps` a `defineEmits` poskytují správné odvozování typů na základě předaných vlastností.
 
 - Vlastnosti předané `defineProps` a `defineEmits` budou vytaženy (hoisted) z nastavení do scope celého modulu. Proto vlastnosti nemohou odkazovat na místní proměnné deklarované v rozsahu setup funkce. Pokud tak učiníte, dojde při kompilaci k chybovému hlášení. Nicméně lze odkazovat na importované vazby, protože jsou také ve scope modulu.
 
 ### Pouze typové deklarace props/emit<sup class="vt-badge ts" /> {#type-only-props-emit-declarations}
 
-Props a emits lze také deklarovat pomocí "pure-type" syntaxe tím, že předáte literal type argument do `defineProps` nebo `defineEmits`:
+Props a emits lze také deklarovat pomocí „pure-type“ syntaxe tím, že  do `defineProps` nebo `defineEmits` jako argument předáte typový literál:
 
 ```ts
 const props = defineProps<{
@@ -198,17 +198,17 @@ const emit = defineEmits<{
 }>()
 ```
 
-- `defineProps` nebo `defineEmits` mohou používat pouze BUĎ runtime deklaraci NEBO deklaraci na zákldě typu. Použití obojího zároveň povede k chybovému sestavení.
+- `defineProps` nebo `defineEmits` mohou používat pouze BUĎ runtime deklaraci NEBO deklaraci na zákldě typu. Použití obojího zároveň povede k chybě při kompilaci.
 
-- Při použití deklarace typu je automaticky generována ekvivalentní runtime deklarace z analýzy statického kódu, aby se odstránila potřeba dvojité deklarace a zároveň zajistila správná funkčnost za běhu.
+- Při použití deklarace typu je automaticky generována ekvivalentní runtime deklarace z&nbsp;analýzy statického kódu, aby se odstránila potřeba dvojité deklarace a zároveň zajistila správná funkčnost za běhu.
 
   - V režimu vývoje (dev) kompilátor zkusí odvodit odpovídající ověření za běhu z typů. Například zde je `foo: String` odvozeno z typu `foo: string`. Pokud je typ odkazem na importovaný typ, odvozený výsledek bude `foo: null` (rovnocenný typu `any`), protože kompilátor nemá informace o externích souborech.
 
   - V režimu produkce kompilátor vygeneruje deklaraci ve formátu pole, aby se snížila velikost balíčku (props zde budou zkompilovány do `['foo', 'bar']`)
 
-- Ve verzi 3.2 a nižší byl generický typový parametr pro `defineProps()` omezen na type literal nebo odkaz na lokální rozhraní.
+- Ve verzi 3.2 a nižší byl generický typový parametr pro `defineProps()` omezen na typový literál nebo odkaz na lokální rozhraní.
 
-  Toto omezení bylo vyřešeno ve verzi 3.3. Nejnovější verze Vue podporuje odkazování na importované a omezenou sadu složitějších typů na pozici typového parametru. Nicméně, protože runtime konverze typu stále závisí na AST, některé složité typy, které vyžadují skutečnou typovu analýzu, např. podmíněné typy, podporovány nejsou. Můžete použít podmíněné typy pro typ jedné vlastnosti, ale ne pro celý objekt vlastností.
+  Toto omezení bylo vyřešeno ve verzi 3.3. Nejnovější verze Vue podporuje na pozici typového parametru odkazování na importované typy a omezenou sadu složitějších typů. Nicméně, protože runtime konverze typu stále závisí na AST, některé složité typy, které vyžadují skutečnou typovu analýzu, např. podmíněné typy, podporovány nejsou. Můžete použít podmíněné typy pro typ jedné vlastnosti, ale ne pro celý objekt vlastností.
 
 ### Výchozí hodnoty props při použití deklarace typu {#default-props-values-when-using-type-declaration}
 
@@ -226,7 +226,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 ```
 
-Výše uvedené bude pro runtime props přeloženo na ekvivalentní `default` vlastnosti. Navíc pomocná funkce `withDefaults` poskytuje typovou kontrolu pro výchozí hodnoty a zajistí, že vrácený typ `props` má odstraněny příznaky volitelosti pro ty vlastnosti, které mají výchozí hodnoty deklarované.
+Výše uvedené bude pro runtime vlastnosti přeloženo na ekvivalentní `default` vlastnosti. Navíc pomocná funkce `withDefaults` poskytuje typovou kontrolu pro výchozí hodnoty a&nbsp;zajistí, že vrácený typ `props` má odstraněny příznaky volitelosti pro ty vlastnosti, které mají výchozí hodnoty deklarované.
 
 ## defineModel() <sup class="vt-badge" data-text="3.4+" /> {#definemodel}
 
@@ -235,7 +235,8 @@ Toto makro slouží k deklaraci obousměrného (two-way)  bindingu vlastnosti (p
 Interně toto makro deklaruje vlastnost (prop) modelu a odpovídající událost (event) aktualizace hodnoty. Pokud je první parametr řetězecový literál, bude použit jako název vlastnosti; jinak se název vlastnosti nastaví na výchozí hodnotu `"modelValue"`. V obou případech můžete také předat další objekt, který může obsahovat možnosti (options) pro vlastnost a možnosti transformace ref pro hodnotu modelu.
 
 ```js
-// deklaruje prop "modelValue", která je konzumována komponentou rodiče pomocí v-model
+// deklaruje prop "modelValue", která je konzumována 
+// komponentou rodiče pomocí v-model
 const model = defineModel()
 // NEBO: deklaruje prop "modelValue" s možnostmi
 const model = defineModel({ type: String })
@@ -243,7 +244,8 @@ const model = defineModel({ type: String })
 // vyvolá událost "update:modelValue" při změně
 model.value = 'hello'
 
-// deklaruje prop "count", která je konzumována komponentou rodiče pomocí v-model:count
+// deklaruje prop "count", která je konzumována 
+// komponentou rodiče pomocí v-model:count
 const count = defineModel('count')
 // NEBO: deklaruje prop "count" s možnostmi
 const count = defineModel('count', { type: Number, default: 0 })
@@ -288,7 +290,7 @@ Když je modifikátor přítomen, pravděpodobně potřebujeme transformovat hod
 
 ```js
 const [modelValue, modelModifiers] = defineModel({
-  // get() vynechán, protože zde není potřeba
+  // get() je vynechán, protože zde není potřeba
   set(value) {
     // pokud je použit modifikátor .trim, vrátíme hodnotu ořezanou o bílé znaky
     if (modelModifiers.trim) {
@@ -336,11 +338,11 @@ defineExpose({
 </script>
 ```
 
-Když rodič získá instanci této komponenty pomocí template refs, získaná instance bude ve tvaru `{ a: number, b: number }` (referenční hodnoty jsou automaticky "rozbaleny" stejně jako u normálních instancí).
+Když rodič získá instanci této komponenty pomocí template refs, získaná instance bude ve tvaru `{ a: number, b: number }` (referenční hodnoty jsou automaticky „rozbaleny“ stejně jako u normálních instancí).
 
 ## defineOptions() <sup class="vt-badge" data-text="3.3+" /> {#defineoptions}
 
-Tato makra mohou být použita k deklaraci vlastností komponenty přímo uvnitř `<script setup>` bez použití samostatného bloku `<script>`:
+Toto makro může být použito k deklaraci vlastností komponenty přímo uvnitř `<script setup>` bez použití samostatného bloku `<script>`:
 
 ```vue
 <script setup>
@@ -354,13 +356,13 @@ defineOptions({
 ```
 
 - Podporováno pouze ve verzi 3.3 a vyšší.
-- Jedná se o makro. Vlastnosti budou vytaženy (hoisted) na úroveň modulu a nebudou mít přístup k lokálním proměnným ve `<script setup>`, které nejsou konstantní literály.
+- Jedná se o makro. Vlastnosti budou vytaženy (hoisted) na úroveň modulu a nebudou mít přístup k lokálním proměnným ve `<script setup>`, které nejsou konstantní literály (literal constants).
 
 ## defineSlots()<sup class="vt-badge ts"/> {#defineslots}
 
 Toto makro může být použito k poskytnutí typové nápovědy pro IDE pro kontrolu názvu slotu a typů props.
 
-`defineSlots()` přijímá pouze parametr typu a žádné runtime argumenty. Parametr typu by měl být typový literál, kde klíč vlastnosti je název slotu a typ hodnoty je funkce slotu. První parametr funkce je props, které slot očekává přijmout, a jeho typ bude použit pro slot props ve šabloně. Návratový typ je aktuálně ignorován a může být `any`, ale v budoucnu jej možná budeme chtít využít pro kontrolu obsahu slotu.
+`defineSlots()` přijímá pouze parametr typu a žádné runtime argumenty. Parametr typu by měl být typový literál, kde klíč vlastnosti je název slotu a typ hodnoty je funkce slotu. První parametr funkce jsou props, které slot očekává přijmout, a jeho typ bude použit pro slot props ve šabloně. Návratový typ je aktuálně ignorován a může být `any`, ale v&nbsp;budoucnu jej možná budeme chtít využít pro kontrolu obsahu slotu.
 
 Také vrací objekt `slots`, který je ekvivalentní objektu `slots` dostupnému v kontextu `setup` nebo vrácenému funkcí `useSlots()`.
 
@@ -376,7 +378,7 @@ const slots = defineSlots<{
 
 ## `useSlots()` & `useAttrs()` {#useslots-useattrs}
 
-Použití `slots` a `attrs` uvnitř `<script setup>` by mělo být relativně vzácné, protože k nim můžete přistupovat přímo jako `$slots` a `$attrs` ve šabloně. V případě, kdy je opravdu potřebujete, použijte příslušné pomocné funkce `useSlots` a `useAttrs`:
+Použití `slots` a `attrs` uvnitř `<script setup>` by mělo být relativně vzácné, protože k&nbsp;nim můžete přistupovat přímo jako `$slots` a `$attrs` ve šabloně. V případě, kdy je opravdu potřebujete, použijte příslušné pomocné funkce `useSlots` a `useAttrs`:
 
 ```vue
 <script setup>
@@ -393,7 +395,7 @@ const attrs = useAttrs()
 
 `<script setup>` může být použito společně s normálním `<script>`. Jednoduchý `<script>` může být potřeba v případech, kdy chceme:
 
-- Deklarovat vlastnosti, které nelze vyjádřit v `<script setup>`, například `inheritAttrs` nebo custom možnosti zpřístupněné pomocí pluginů (Může být nahrazeno funkcí [`defineOptions`](/api/sfc-script-setup#defineoptions) ve verzi 3.3+).
+- Deklarovat vlastnosti, které nelze vyjádřit v `<script setup>`, například `inheritAttrs` nebo custom možnosti zpřístupněné pomocí pluginů (Může být nahrazeno makrem [`defineOptions`](/api/sfc-script-setup#defineoptions) ve verzi 3.3+).
 - Deklarovat pojmenované exporty.
 - Provést vedlejší efekty nebo vytvořit objekty, které by měly být spuštěny pouze jednou.
 
@@ -431,10 +433,10 @@ const post = await fetch(`/api/post/1`).then((r) => r.json())
 </script>
 ```
 
-Navíc, výraz, na který se čeká, bude automaticky zkompilován ve formátu, který zachovává aktuální kontext komponenty po `await`.
+Navíc platí, že výraz, na který se čeká, bude automaticky zkompilován ve formátu, jenž zachovává aktuální kontext komponenty po `await`.
 
 :::warning Poznámka
-`async setup()` musí být použit ve spojení s `Suspense`, což je v současné době stále ještě experimentální funkce. Plánujeme ji dokončit a zdokumentovat v budoucích verzích - ale pokud jste zvědaví nyní, můžete se podívat na její [testy](https://github.com/vuejs/core/blob/main/packages/runtime-core/__tests__/components/Suspense.spec.ts), abyste viděli, jak funguje.
+`async setup()` musí být použit ve spojení s `Suspense`, což je v současné době stále ještě experimentální funkce. Plánujeme ji dokončit a zdokumentovat v budoucích verzích - ale pokud jste zvědaví už teď, můžete se podívat na její [testy](https://github.com/vuejs/core/blob/main/packages/runtime-core/__tests__/components/Suspense.spec.ts), abyste viděli, jak funguje.
 :::
 
 ## Generika <sup class="vt-badge ts" /> {#generics}
@@ -450,7 +452,7 @@ defineProps<{
 </script>
 ```
 
-Hodnota `generic` funguje úplně stejně jako seznam parametrů mezi `<...>` v TypeScriptu. Například můžete použít více parametrů, omezení `extends`, výchozí typy a odkazovat na importované typy:
+Hodnota `generic` funguje úplně stejně jako seznam parametrů mezi `<...>` v&nbsp;TypeScriptu. Například můžete použít více parametrů, omezení `extends`, výchozí typy a odkazovat na importované typy:
 
 ```vue
 <script
@@ -468,5 +470,5 @@ defineProps<{
 
 ## Omezení {#restrictions}
 
-- Kvůli rozdílu v semantice vykonávání modulů se kód uvnitř `<script setup>` spoléhá na kontext SFC. Při přesunu do externích souborů `.js` nebo `.ts` může dojít k zmatení jak u vývojářů, tak i SW nástrojů. Proto **`<script setup>`** nelze použít s atributem `src`.
+- Kvůli rozdílu v sémantice vykonávání modulů se kód uvnitř `<script setup>` spoléhá na kontext SFC. Při přesunu do externích souborů `.js` nebo `.ts` může dojít k zmatení jak u vývojářů, tak i SW nástrojů. Proto **`<script setup>`** nelze použít s atributem `src`.
 - `<script setup>` nepodporuje in-DOM šablonu root komponenty. ([Související diskuze](https://github.com/vuejs/core/issues/8391))
