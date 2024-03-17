@@ -417,8 +417,8 @@ export const sidebar: ThemeConfig['sidebar'] = {
       text: 'Pokročilá API',
       items: [
         { text: 'API funkce pro vykreslení', link: '/api/render-function' },
-        { text: 'API pro vykreslování na serveru (SSR)', link: '/api/ssr' },
-        { text: 'Utility typy', link: '/api/utility-types' },
+        { text: 'API pro vykreslování na serveru', link: '/api/ssr' },
+        { text: 'TypeScript utility typy', link: '/api/utility-types' },
         { text: 'Custom API pro vykreslování', link: '/api/custom-renderer' },
         { text: 'Compile-Time flags', link: '/api/compile-time-flags' }
       ]

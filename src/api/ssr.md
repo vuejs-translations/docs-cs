@@ -1,4 +1,4 @@
-# API pro vykreslování na serveru (SSR){#server-side-rendering-api}
+# API pro vykreslování na serveru {#server-side-rendering-api}
 
 ## renderToString() {#rendertostring}
 

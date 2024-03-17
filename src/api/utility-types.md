@@ -1,4 +1,4 @@
-# Utility typy {#utility-types}
+# TypeScript utility typy {#utility-types}
 
 :::info Poznámka
 Tato stránka vypisuje pouze několik běžně používaných utility typů, které pro své použití mohou vyžadovat vysvětlení. Pro úplný seznam exportovaných typů se podívejte do [zdrojového kódu](https://github.com/vuejs/core/blob/main/packages/runtime-core/src/index.ts#L131).
