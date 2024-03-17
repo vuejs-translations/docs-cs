@@ -63,7 +63,7 @@ const filtered = computed(() => {
         <input
           ref="search"
           type="search"
-          placeholder="Enter keyword"
+          placeholder="Hledat"
           id="api-filter"
           v-model="query"
         />
