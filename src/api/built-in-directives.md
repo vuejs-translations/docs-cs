@@ -8,7 +8,7 @@ Aktualizuje textový obsah elementu.
 
 - **Podrobnosti**
 
-  `v-text` funguje tak, že elementu nastavuje vlastnost [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent), takže přepíše jakýkoli existující obsah uvnitř elementu. Pokud potřebujete aktualizovat část `textContent`, měli byste místo toho použít ["mustache" interpolaci](/guide/essentials/template-syntax#text-interpolation).
+  `v-text` funguje tak, že elementu nastavuje vlastnost [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent), což přepíše jakýkoli existující obsah uvnitř elementu. Pokud potřebujete aktualizovat část `textContent`, měli byste místo toho použít [„mustache“ interpolaci](/guide/essentials/template-syntax#text-interpolation).
 
 - **Příklad**
 
@@ -18,7 +18,7 @@ Aktualizuje textový obsah elementu.
   <span>{{msg}}</span>
   ```
 
-- **Viz také:** [Syntaxe šablo - Interpolace textu](/guide/essentials/template-syntax#text-interpolation)
+- **Viz také:** [Syntaxe šablon - Interpolace textu](/guide/essentials/template-syntax#text-interpolation)
 
 ## v-html {#v-html}
 
@@ -34,7 +34,7 @@ Aktualizuje [innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element
   Dynamické vykreslování libovolného HTML na vašem webu může být velmi nebezpečné, protože může snadno vést k [XSS útokům](https://en.wikipedia.org/wiki/Cross-site_scripting). Používejte `v-html` pouze na důvěryhodný obsah a **nikdy** na obsah poskytovaný uživatelem.
   :::
 
-  V [Single-file komponentách (SFC)](/guide/scaling-up/sfc) se `scoped` styly nebudou aplikovat na obsah uvnitř `v-html`, protože toto HTML není zpracováváno kompilátorem Vue šablony. Pokud chcete cílit na obsah `v-html` pomocí CSS scénářů, můžete místo toho použít [CSS moduly](./sfc-css-features#css-modules) nebo další, globální `<style>` element s manuální strategií omezování rozsahu, jako je BEM.
+  V [Single-file komponentách (SFC)](/guide/scaling-up/sfc) se `scoped` styly na obsah uvnitř `v-html` nebudou aplikovat, protože toto HTML není zpracováváno kompilátorem Vue šablony. Pokud chcete cílit na obsah `v-html` pomocí scoped CSS, můžete místo toho použít [CSS moduly](./sfc-css-features#css-modules) nebo další, globální `<style>` element s manuální strategií omezování rozsahu, jako je BEM.
 
 - **Příklad**
 
@@ -76,7 +76,7 @@ Podmíněné vykreslování elementu nebo fragmentu šablony na základě pravdi
 
 ## v-else {#v-else}
 
-Označuje "else blok" pro `v-if` nebo řetězec `v-if` / `v-else-if`.
+Označuje „else blok“ pro `v-if` nebo řetězec `v-if` / `v-else-if`.
 
 - **Nepředpokládá výraz**
 
@@ -101,7 +101,7 @@ Označuje "else blok" pro `v-if` nebo řetězec `v-if` / `v-else-if`.
 
 ## v-else-if {#v-else-if}
 
-Označuje "else if blok" pro `v-if`. Může být řetězený (více "else if" větví).
+Označuje „else if blok“ pro `v-if`. Může být řetězený (více „else if“ větví).
 
 - **Očekává:** `any`
 
@@ -182,7 +182,7 @@ Připojí k elementu event listener.
   - `.stop` - zavolá `event.stopPropagation()`.
   - `.prevent` - zavolá `event.preventDefault()`.
   - `.capture` - přidá event listener v režimu zachycení (capture mode).
-  - `.self` - spustí handler pouze tehdy, pokud byla událost vyvolána z tohoto elementu.
+  - `.self` - spustí handler pouze pokud byla událost vyvolána z tohoto elementu.
   - `.{keyAlias}` - spustí handler pouze pro určité klávesy.
   - `.once` - spustí handler maximálně jednou.
   - `.left` - spustí handler pouze pro události levého tlačítka myši.
@@ -240,7 +240,7 @@ Připojí k elementu event listener.
   <button v-on="{ mousedown: doThis, mouseup: doThat }"></button>
   ```
 
-  Naslouchání vlastním událostem na komponentě potomka (handler je volán při emitování "my-event" z potomka):
+  Naslouchání vlastním událostem na komponentě potomka (handler je volán při emitování „my-event“ z potomka):
 
   ```vue-html
   <MyComponent @my-event="handleThis" />
@@ -259,7 +259,7 @@ Dynamicky váže jeden nebo více atributů nebo vlastností (props) komponenty 
 
 - **Zkratka:** 
   - `:` nebo `.` (pokud se používá modifikátor `.prop`)
-  - Vynechání hodnoty (pokud mají atribut vázaná hodnota stejný název) <sup class="vt-badge">3.4+</sup>
+  - Vynechání hodnoty (pokud mají atribut a vázaná hodnota stejný název) <sup class="vt-badge">3.4+</sup>
 
 - **Očekává:** `libovolný (s parametrem) | Objekt (bez parametru)`
 
@@ -268,7 +268,7 @@ Dynamicky váže jeden nebo více atributů nebo vlastností (props) komponenty 
 - **Modifikátory**
 
   - `.camel` - převede název atributu z kebab-case na camelCase.
-  - `.prop` - vynutí binding jako vlastnost DOM. <sup class="vt-badge">3.2+</sup>
+  - `.prop` - vynutí binding jako vlastnost (prop) DOM. <sup class="vt-badge">3.2+</sup>
   - `.attr` - vynutí binding jako atribut DOM. <sup class="vt-badge">3.2+</sup>
 
 - **Použití**
@@ -277,7 +277,7 @@ Dynamicky váže jeden nebo více atributů nebo vlastností (props) komponenty 
 
   Při nastavování bindingu na element Vue ve výchozím nastavení kontroluje, zda má element klíč definovaný jako vlastnost pomocí operátoru `in`. Pokud je vlastnost definována, Vue nastaví hodnotu jako vlastnost DOM místo atributu. To by mělo fungovat ve většině případů, ale toto chování můžete přepsat explicitním použitím modifikátorů `.prop` nebo `.attr`. To je někdy nutné, zejména při [práci s custom elementy](/guide/extras/web-components#passing-dom-properties).
 
-  Při použití pro binding vlastností (props) komponenty musí být vlastnost v komponentě potomka správně deklarována.
+  Při použití pro binding vlastností (props) komponenty musí být vlastnost v&nbsp;komponentě potomka správně deklarována.
 
   Pokud se používá bez parametru, může být použito pro binding objektu obsahujícího páry název-hodnota atributu.
 
@@ -307,22 +307,22 @@ Dynamicky váže jeden nebo více atributů nebo vlastností (props) komponenty 
   <div :class="[classA, classB]"></div>
   <div :class="[classA, { classB: isB, classC: isC }]"></div>
 
-<!-- binding stylů -->
-<div :style="{ fontSize: size + 'px' }"></div>
-<div :style="[styleObjectA, styleObjectB]"></div>
+  <!-- binding stylů -->
+  <div :style="{ fontSize: size + 'px' }"></div>
+  <div :style="[styleObjectA, styleObjectB]"></div>
 
-<!-- binding objektu attributů -->
-<div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
+  <!-- binding objektu attributů -->
+  <div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
 
-<!-- binding vlastnost (prop), "prop" musí být v komponentě potmka deklarována -->
-<MyComponent :prop="someThing" />
+  <!-- binding vlastnosti, `prop` musí být deklarována v komponentě potomka -->
+  <MyComponent :prop="someThing" />
 
-<!-- předání props z rodiče, které jsou společné  s komponentnou potomka -->
-<MyComponent v-bind="$props" />
+  <!-- předání props z rodiče, které jsou společné s komponentnou potomka -->
+  <MyComponent v-bind="$props" />
 
-<!-- XLink -->
-<svg><a :xlink:special="foo"></a></svg>
-```
+  <!-- XLink -->
+  <svg><a :xlink:special="foo"></a></svg>
+  ```
 
 Modifikátor `.prop` má také zkrácenou formu, `.`:
 
@@ -366,7 +366,7 @@ Vytvoří oboustranný binding na input element formuláře nebo komponenty.
 
 - **Viz také:**
 
-  - [Vazby input elementů formuláře](/guide/essentials/forms)
+  - [Binding dat z formulářů](/guide/essentials/forms)
   - [Binding přes v-model](/guide/components/v-model)
 
 ## v-slot {#v-slot}
@@ -387,7 +387,7 @@ Určuje pojmenované sloty nebo scoped sloty, které očekávají předání vla
 - **Příklad**
 
   ```vue-html
-  <!-- Jmenované sloty -->
+  <!-- Pojmenované sloty -->
   <BaseLayout>
     <template v-slot:header>
       Obsah záhlaví
@@ -428,7 +428,7 @@ Přeskočit kompilaci tohoto elementu a všech jeho potomků.
 
 - **Podrobnosti**
 
-  Uvnitř elementu s `v-pre` budou všechny syntaxe Vue šablony zachovány a vykresleny tak, jak jsou. Nejběžnějším použitím je zobrazení nezpracovaných "mustache" tagů.
+  Uvnitř elementu s `v-pre` budou všechny syntaxe Vue šablony zachovány a&nbsp;vykresleny tak, jak jsou. Nejběžnějším použitím je zobrazení nezpracovaných „mustache“ tagů.
 
 - **Příklad**
 
@@ -462,7 +462,7 @@ Vykreslit element nebo komponentu pouze jednou a přeskočit budoucí aktualizac
   </ul>
   ```
 
-  Od verze 3.2 si můžete také část šablony "zapamatovat" (memoize) s podmínkami neplatnosti pomocí [`v-memo`](#v-memo).
+  Od verze 3.2 si můžete také část šablony „zapamatovat“ (memoize) s podmínkami neplatnosti pomocí [`v-memo`](#v-memo).
 
 - **Viz také:**
   - [Syntaxe šablon - Interpolace textu](/guide/essentials/template-syntax#text-interpolation)
@@ -474,7 +474,7 @@ Vykreslit element nebo komponentu pouze jednou a přeskočit budoucí aktualizac
 
 - **Podrobnosti**
 
-  Uloží si (memoize) podstrom šablony. Může být použito jak na elementech, tak na komponentách. Direktiva očekává pole hodnot závislostí pevné délky, které se porovnávají pro memoizaci. Pokud každá hodnota v poli byla stejná jako při posledním vykreslení, aktualizace pro celý podstrom bude přeskočena. Například:
+  Uloží si (memoize) podstrom šablony. Může být použito jak na elementech, tak na komponentách. Direktiva očekává pole hodnot závislostí pevné délky, které se porovnávají pro zapamatování. Pokud každá hodnota v poli byla stejná jako při posledním vykreslení, aktualizace pro celý podstrom bude přeskočena. Například:
 
   ```vue-html
   <div v-memo="[hodnotaA, hodnotaB]">
@@ -482,22 +482,22 @@ Vykreslit element nebo komponentu pouze jednou a přeskočit budoucí aktualizac
   </div>
   ```
 
-  Při opětovném vykreslení komponenty, pokud zůstanou jak `hodnotaA`, tak `hodnotaB` stejné, všechny aktualizace pro tento `<div>` a jeho potomky budou přeskočeny. Ve skutečnosti bude přeskočeno i vytváření Virtual DOM VNode, protože memoizovaná kopie podstromu může být znovu použita.
+  Pokud při opětovném vykreslení komponenty zůstanou jak `hodnotaA`, tak `hodnotaB` stejné, všechny aktualizace pro tento `<div>` a jeho potomky budou přeskočeny. Ve skutečnosti bude přeskočeno i vytváření Virtual DOM VNode, protože memoizovaná kopie podstromu může být znovu použita.
 
-  Je důležité správně specifikovat pole pro memoizaci, jinak můžeme přeskočit aktualizace, které by aplikovány být měly. `v-memo` s prázdným polem závislostí (`v-memo="[]"`) by bylo funkčně ekvivalentní `v-once`.
+  Je důležité správně specifikovat pole pro zapamatování, jinak můžeme přeskočit aktualizace, které by aplikovány být měly. `v-memo` s prázdným polem závislostí (`v-memo="[]"`) by bylo funkčně ekvivalentní `v-once`.
 
   **Použití s `v-for`**
 
   `v-memo` je poskytováno výhradně pro mikrooptimalizace výkonu a je potřeba jen zřídka. Nejběžnější případ, kdy se to může hodit, je při vykreslování velkých seznamů `v-for` (kde `length > 1000`):
 
   ```vue-html
-  <div v-for="polozka in seznam" :key="polozka.id" v-memo="[polozka.id === vybrano]">
-    <p>ID: {{ polozka.id }} - vybráno: {{ polozka.id === vybrano }}</p>
+  <div v-for="prvek in seznam" :key="prvek.id" v-memo="[prvek.id === vybrano]">
+    <p>ID: {{ prvek.id }} - vybráno: {{ prvek.id === vybrano }}</p>
     <p>...další potomci</p>
   </div>
   ```
 
-  Při změně stavu `vybrano` komponenty bude vytvořeno velké množství VNodes, i když většina položek zůstala přesně stejná. Použití `v-memo` zde znamená "aktualizujte tuto položku pouze tehdy, pokud se změnila z nevybrané na vybranou nebo naopak". To umožňuje každé neovlivněné položce znovu použít její předchozí VNode a úplně přeskočit porovnávání rozdílů. Poznamenejme, že zde do pole závislostí memoizace nemusíme zahrnout `polozka.id`, protože Vue ji automaticky odvodí z `:key` položky.
+  Při změně stavu `vybrano` komponenty bude vytvořeno velké množství VNodes, i když většina položek zůstala přesně stejná. Použití `v-memo` zde znamená _„aktualizujte tuto položku pouze tehdy, pokud se změnila z nevybrané na vybranou nebo naopak“_. To&nbsp;umožňuje každé neovlivněné položce znovu použít její předchozí VNode a úplně přeskočit porovnávání rozdílů. Poznamenejme, že zde do pole závislostí pro zapamatování nemusíme zahrnout `prvek.id`, protože Vue ji automaticky odvodí z&nbsp;`:key` položky.
 
   :::warning Varování
   Při použití `v-memo` s `v-for` se ujistěte, že jsou použity na stejném elementu. **`v-memo` nefunguje uvnitř `v-for`.**
@@ -518,7 +518,7 @@ Používá se k skrytí nezkompilované šablony, dokud není připravena.
 
   **Tato direktiva je potřeba pouze při použití bez build fáze.**
 
-  Při použití in-DOM šablon může dojít k "blikání (flashing) nezkompilovaných šablon": uživatel může vidět nezpracované "mustache" značky, dokud je připojená (mounted) komponenta nenahradí vykresleným obsahem.
+  Při použití in-DOM šablon může dojít k „blikání (flashing) nezkompilovaných šablon“: uživatel může vidět nezpracované „mustache“ značky, dokud je připojená (mounted) komponenta nenahradí vykresleným obsahem.
 
   `v-cloak` zůstane na elementu, dokud není připojena příslušná instance komponenty. Spolu s CSS pravidly jako `[v-cloak] { display: none }` lze použít k skrytí nezpracovaných šablon, dokud není komponenta připravena.
 

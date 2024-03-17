@@ -6,9 +6,9 @@
 
 ## `<component>` {#component}
 
-"Meta komponenta" pro vykreslování dynamických komponent nebo elementů.
+„Meta komponenta“ pro vykreslování dynamických komponent nebo elementů.
 
-- **Vlastnosti (Props)**
+- **Props**
 
   ```ts
   interface DynamicComponentProps {
@@ -48,7 +48,7 @@
   </template>
   ```
 
-  Vykreslování komponent podle definice (Composition API s `<script setup>`):
+  Vykreslování komponent podle definice (Composition API se `<script setup>`):
 
   ```vue
   <script setup>
@@ -88,25 +88,25 @@
   </template>
   ```
 
-Registrace není vyžadována, pokud do `is` místo jejího názvu předáte samotnou komponentu, např. ve `<script setup>`.
+  Registrace není vyžadována, pokud do `is` místo jejího názvu předáte samotnou komponentu, např. ve `<script setup>`.
 
-Pokud je na tagu `<component>` použit `v-model`, kompilátor šablony jej transformuje na vlastnost (prop)`modelValue` a event listener `update:modelValue`, podobně jako by to udělal pro jakoukoli jinou komponentu. Není to však kompatibilní s nativními HTML elementy, jako jsou `<input>` nebo `<select>`. Kvůli tomu použití `v-model` s dynamicky vytvořeným nativním elementem nebude fungovat:
+  Pokud je na tagu `<component>` použit `v-model`, kompilátor šablony jej transformuje na vlastnost (prop) `modelValue` a event listener `update:modelValue`, podobně jako by to udělal pro jakoukoli jinou komponentu. Není to však kompatibilní s nativními HTML elementy, jako jsou `<input>` nebo `<select>`. Kvůli tomu nebude použití `v-model` s&nbsp;dynamicky vytvořeným nativním elementem  fungovat:
 
-```vue
-<script setup>
-import { ref } from 'vue'
+  ```vue
+  <script setup>
+  import { ref } from 'vue'
 
-const tag = ref('input')
-const username = ref('')
-</script>
+  const tag = ref('input')
+  const username = ref('')
+  </script>
 
-<template>
-  <!-- Toto nebude fungovat, protože 'input' je nativní HTML element -->
-  <component :is="tag" v-model="username" />
-</template>
-```
+  <template>
+    <!-- Toto nebude fungovat, protože 'input' je nativní HTML element -->
+    <component :is="tag" v-model="username" />
+  </template>
+  ```
 
-V praxi se tento okrajový případ běžně nevyskytuje, protože nativní formulářová pole jsou ve skutečných aplikacích obvykle obalena komponentami. Pokud však skutečně potřebujete použít nativní element přímo, můžete `v-model` rozdělit na atribut a událost ručně.
+  V praxi se tento okrajový případ běžně nevyskytuje, protože nativní formulářová pole jsou ve skutečných aplikacích obvykle obalena komponentami. Pokud však skutečně potřebujete použít nativní element přímo, můžete `v-model` ručně rozdělit na atribut a&nbsp;událost.
 
 - **Viz také:** [Dynamické komponenty](/guide/essentials/component-basics#dynamic-components)
 
@@ -146,7 +146,7 @@ Tag `<template>` se používá jako placeholder, když chceme použít vestavěn
 
 - **Podrobnosti**
 
-  Speciální obsluha je pro `<template>` spuštěna pouze tehdy, pokud je tag použit s jednou z těchto direktiv:
+  Speciální obsluha je pro `<template>` spuštěna pouze tehdy, pokud je tag použit spolu s jednou z těchto direktiv:
 
   - `v-if`, `v-else-if` nebo `v-else`
   - `v-for`
@@ -160,5 +160,5 @@ Tag `<template>` se používá jako placeholder, když chceme použít vestavěn
 
 - **Viz také:**
   - [Průvodce - `v-if` na `<template>`](/guide/essentials/conditional#v-if-on-template)
-  - [Průvodce - `v-for` na `<template>`](/guide/essentials/list#v-for-on-template)
+  - [Průvodce - `v-for` nad `<template>`](/guide/essentials/list#v-for-on-template)
   - [Průvodce - Pojmenované sloty](/guide/components/slots#named-slots)

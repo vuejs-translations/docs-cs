@@ -21,7 +21,7 @@ h(Transition, {
 
 ## `<Transition>` {#transition}
 
-Poskytuje animované přechodové (transition) efekty pro **jeden** element nebo komponentu.
+Poskytuje animované přechodové (transition) efekty pro **jeden** element nebo **jednu** komponentu.
 
 - **Props**
 
@@ -159,7 +159,7 @@ Poskytuje přechodové efekty pro **více** elementů nebo komponent v seznamu.
 
   Pamatujte, že každý potomek v `<transition-group>` musí být [**jednoznačně označen**](/guide/essentials/list#maintaining-state-with-key), aby animace fungovaly správně.
 
-  `<TransitionGroup>` podporuje pohyblivé přechody pomocí CSS transformace. Pokud se pozice potomka na obrazovce po aktualizaci změní, bude mu aplikována pohybová CSS třída (automaticky generovaná z atributu `name` nebo konfigurovaná pomocí vlastnosti `move-class`). Pokud je CSS vlastnost `transform` při aplikaci pohybové třídy "transition-able", element bude na své cílové místo plynule animován pomocí [techniky FLIP](https://aerotwist.com/blog/flip-your-animations/).
+  `<TransitionGroup>` podporuje pohyblivé přechody pomocí CSS transformace. Pokud se pozice potomka na obrazovce po aktualizaci změní, bude mu aplikována pohybová CSS třída (automaticky generovaná z atributu `name` nebo konfigurovaná pomocí vlastnosti `move-class`). Pokud je CSS vlastnost `transform` při aplikaci pohybové třídy „transition-able“, element bude na své cílové místo plynule animován pomocí [techniky FLIP](https://aerotwist.com/blog/flip-your-animations/).
 
 - **Příklad**
 
@@ -182,12 +182,13 @@ Ukládá stav dynamicky přepínatelných komponent obalených uvnitř do cache.
   ```ts
   interface KeepAliveProps {
     /**
-     * Pokud je specifikováno, budou do cache ukládány pouze komponenty s názvy odpovídajícími
-     * `include`.
+     * Pokud je specifikováno, budou do cache ukládány pouze komponenty
+     * s názvy odpovídajícími `include`.
      */
     include?: MatchPattern
     /**
-     * Jakákoli komponenta s názvem odpovídajícím `exclude` nebude ukládána do cache.
+     * Jakákoli komponenta s názvem odpovídajícím `exclude` nebude 
+     * ukládána do cache.
      */
     exclude?: MatchPattern
     /**
@@ -201,11 +202,11 @@ Ukládá stav dynamicky přepínatelných komponent obalených uvnitř do cache.
 
 - **Podrobnosti**
 
-  Když obaluje dynamickou komponentu, `<KeepAlive>` ukládá neaktivní instance komponent, aniž by je ničil.
+  Když obaluje dynamickou komponentu, `<KeepAlive>` ukládá neaktivní instance komponent, aniž by je ničila.
 
   V `<KeepAlive>` může být v každém okamžiku pouze jedna aktivní instance komponenty jako přímý potomek.
 
-  Když je komponenta uvnitř `<KeepAlive>` přepnuta, budou se volat odpovídající lifecycle hooky `activated` a `deactivated` poskytující alternativu k `mounted` a `unmounted`, které volány nejsou. To platí jak pro přímého potomka `<KeepAlive>`, tak pro všechny jeho potomky.
+  Když je komponenta uvnitř `<KeepAlive>` přepnuta, budou se volat odpovídající lifecycle hooky `activated` a `deactivated` poskytující alternativu k `mounted` a&nbsp;`unmounted`, které volány nejsou. To platí jak pro přímého potomka `<KeepAlive>`, tak&nbsp;pro všechny jeho potomky.
 
 - **Příklad**
 
@@ -244,24 +245,24 @@ Ukládá stav dynamicky přepínatelných komponent obalených uvnitř do cache.
     <component :is="view"></component>
   </KeepAlive>
 
-<!-- regex (použijte `v-bind`) -->
-<KeepAlive :include="/a|b/">
-  <component :is="view"></component>
-</KeepAlive>
+  <!-- regex (použijte `v-bind`) -->
+  <KeepAlive :include="/a|b/">
+    <component :is="view"></component>
+  </KeepAlive>
 
-<!-- Pole (použijte `v-bind`) -->
-<KeepAlive :include="['a', 'b']">
-  <component :is="view"></component>
-</KeepAlive>
-```
+  <!-- Pole (použijte `v-bind`) -->
+  <KeepAlive :include="['a', 'b']">
+    <component :is="view"></component>
+  </KeepAlive>
+  ```
 
-Použití s `max`:
+  Použití s `max`:
 
-```vue-html
-<KeepAlive :max="10">
-  <component :is="view"></component>
-</KeepAlive>
-```
+  ```vue-html
+  <KeepAlive :max="10">
+    <component :is="view"></component>
+  </KeepAlive>
+  ```
 
 - **Viz také:** [Průvodce - KeepAlive](/guide/built-ins/keep-alive)
 
@@ -329,6 +330,6 @@ Používá se pro orchestraci vnořených asynchronních závislostí ve stromu 
 
   `<Suspense>` přijímá dva sloty: `#default` a `#fallback`. Zobrazí obsah fallback slotu, zatímco v paměti vykresluje default slot.
 
-  Pokud narazí na asynchronní závislosti ([Asynchronní komponenty](/guide/components/async) a komponenty s [`async setup()`](/guide/built-ins/suspense#async-setup)) při vykreslování default slotu, počká, dokud nebudou všechny vyřešeny, než ho zobrazí.
+  Pokud narazí na asynchronní závislosti ([Asynchronní komponenty](/guide/components/async) a komponenty s&nbsp;[`async setup()`](/guide/built-ins/suspense#async-setup)) při vykreslování default slotu, počká, dokud nebudou všechny vyřešeny, než ho zobrazí.
 
 - **Viz také:** [Průvodce - Suspense](/guide/built-ins/suspense)
