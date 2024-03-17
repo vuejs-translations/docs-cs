@@ -39,7 +39,7 @@ Funkce, která vrací počáteční reaktivní stav pro instanci komponenty.
   }
   ```
 
-  Mějte na paměti, že pokud s vlastností `data` používáte arrow funkce, `this` nebude instancí komponenty, ale stále můžete přistupovat k instanci jako k prvnímu parametru funkce:
+  Mějte na paměti, že pokud s možností `data` používáte arrow funkce, `this` nebude instancí komponenty, ale stále můžete přistupovat k instanci jako k prvnímu parametru funkce:
 
   ```js
   data: (vm) => ({ a: vm.myProp })
@@ -81,15 +81,15 @@ type PropType<T> = { new (): T } | { new (): T }[]
   Ve Vue je třeba všechny vlastnosti komponenty explicitně deklarovat. Vlastnosti komponenty lze deklarovat ve dvou formách:
 
   - Jednoduchá forma pomocí pole řetězců
-  - Plná forma pomocí objektu, kde každý klíč je název vlastnosti a hodnota je typ vlastnosti (konstruktorová funkce) nebo pokročilé možnosti.
+  - Plná forma pomocí objektu, kde je každý klíč název vlastnosti a hodnota typ vlastnosti (konstruktorová funkce) nebo pokročilé možnosti (options).
 
-  S objektovou syntaxí může každá vlastnost dále definovat následující možnosti:
+  S objektovou syntaxí může každá vlastnost dále definovat následující vlastnosti:
 
-  - **`type`**: Může být jedním z následujících nativních konstruktorů: `String`, `Number`, `Boolean`, `Array`, `Object`, `Date`, `Function`, `Symbol`, libovolná vlastní konstruktorová funkce nebo pole těchto typů. Ve vývojovém režimu Vue zkontroluje, zda hodnota vlastnosti odpovídá deklarovanému typu, a vyvolá varování, pokud tomu tak není. Pro více informací se podívejte na [Validaci vlastností](/guide/components/props#prop-validation).
+  - **`type`**: Může být jedním z následujících nativních konstruktorů: `String`, `Number`, `Boolean`, `Array`, `Object`, `Date`, `Function`, `Symbol`, libovolná vlastní konstruktorová funkce nebo pole těchto typů. Ve vývojovém (dev) režimu Vue zkontroluje, zda hodnota vlastnosti odpovídá deklarovanému typu, a vyvolá varování, pokud tomu tak není. Pro více informací se podívejte na [Validaci vlastností](/guide/components/props#prop-validation).
 
     Také pamatujte, že vlastnost s typem `Boolean` ovlivňuje chování přetypování hodnoty jak ve vývojovém, tak ve produkčním režimu. Pro více informací se podívejte se na [Přetypování Boolean](/guide/components/props#boolean-casting).
 
-  - **`default`**: Určuje výchozí hodnotu pro vlastnost, pokud není předána rodičem nebo má hodnotu `undefined`. Výchozí hodnoty objektů nebo polí musí být vráceny pomocí tovární funkce. Tovární funkce také dostává jako parametr objekt s původními vlastnostmi.
+  - **`default`**: Určuje výchozí hodnotu pro vlastnost, pokud není předána rodičem nebo má hodnotu `undefined`. Výchozí hodnoty objektů nebo polí musí být vráceny pomocí tovární funkce. Tovární funkce také dostává jako parametr objekt s&nbsp;původními vlastnostmi.
 
   - **`required`**: Určuje, zda je vlastnost povinná. Ve vývojovém prostředí bude vyvoláno varování v konzoli, pokud je tato hodnota pravdivá a vlastnost není předána.
 
@@ -203,23 +203,6 @@ Deklaruje computed proměnné, které mají být vystaveny na instanci komponent
   }
   ```
 
-```js
-export default {
-  data() {
-    return { a: 1 }
-  },
-  methods: {
-    plus() {
-      this.a++
-    }
-  },
-  created() {
-    this.plus()
-    console.log(this.a) // => 2
-  }
-}
-```
-
 - **Viz také:**
   - [Průvodce - Computed proměnné](/guide/essentials/computed)
   - [Průvodce - Typování computed proměnných](/guide/typescript/options-api#typing-computed-properties) <sup class="vt-badge ts" />
@@ -242,7 +225,7 @@ Deklaruje metody, které budou začleněny do instance komponenty.
 
   Na deklarované metody lze z instance komponenty přímo přistupovat nebo je používat ve výrazech šablon. Všechny metody mají kontext `this` automaticky vázaný na instanci komponenty, i když jsou předávány.
 
-  Při deklaraci metod se vyhněte používání arrow funkcí, protože nebudou mít přístup k instanci komponenty pomocí `this`.
+  Při deklaraci metod se vyhněte používání arrow funkcí, protože nebudou mít přístup k&nbsp;instanci komponenty pomocí `this`.
 
 - **Příklad**
 
@@ -302,14 +285,14 @@ Deklarujte callbacky pro sledování změn dat.
 
 Možnost `watch` očekává objekt, kde klíče jsou vlastnosti reaktivní instance komponenty, které se mají sledovat (například vlastnosti deklarované pomocí `data` nebo `computed`) - a hodnoty jsou odpovídající callbacky. Callback obdrží novou a starou hodnotu sledovaného zdroje.
 
-Kromě vlastnosti na root úrovni může být klíč také jednoduchá tečkou oddělená cesta, například `a.b.c`. Všimněte si, že toto použití **nepodporuje** složité výrazy - podporovány jsou pouze tečkou oddělené cesty. Pokud potřebujete sledovat složité zdroje dat, použijte imperativní [`$watch()`](/api/component-instance#watch) API.
+Kromě vlastnosti na kořenové úrovni může být klíč také jednoduchá tečkou oddělená cesta, například `a.b.c`. Všimněte si, že toto použití **nepodporuje** složité výrazy - podporovány jsou pouze tečkou oddělené cesty. Pokud potřebujete sledovat složité zdroje dat, použijte imperativní [`$watch()`](/api/component-instance#watch) API.
 
-Hodnota může být také řetězec s názvem metody (deklarované pomocí `methods`) nebo objekt obsahující další možnosti. Při použití objektové syntaxe by měl být calback deklarován v poli `handler`. Další možnosti zahrnují:
+Hodnota může být také řetězec s názvem metody (deklarované pomocí `methods`) nebo objekt obsahující další možnosti (options). Při použití objektové syntaxe by měl být calback deklarován v poli `handler`. Další možnosti zahrnují:
 
 - **`immediate`**: spustit callback při okamžitě vytvoření watcheru. Stará hodnota bude při prvním volání `undefined`.
-- **`deep`**: vynutit hluboký průchod zdrojem, pokud je to objekt, aby se callback spustil při vnořených změnách. Viz [Deep Watchers](/guide/essentials/watchers#deep-watchers).
+- **`deep`**: vynutit hluboký (deep) průchod zdrojem, pokud je to objekt, aby se callback spustil při vnořených změnách. Viz [Deep Watchers](/guide/essentials/watchers#deep-watchers).
 - **`flush`**: upravit časování vyvolání callbacku. Viz [Časování provedení callback funkce](/guide/essentials/watchers#callback-flush-timing) a [`watchEffect()`](/api/reactivity-core#watcheffect).
-- **`onTrack / onTrigger`**: ladit závislosti watcheru. Viz [Debugging watcherů](/guide/extras/reactivity-in-depth#watcher-debugging).
+- **`onTrack / onTrigger`**: ladit závislosti watcheru. Viz [Ladění watcherů](/guide/extras/reactivity-in-depth#watcher-debugging).
 
 Při deklarování callbacků pro sledování stavu se vyhněte používání arrow funkcí, protože nebudou mít přístup k instanci komponenty pomocí `this`.
 
@@ -335,7 +318,8 @@ Při deklarování callbacků pro sledování stavu se vyhněte používání ar
       },
       // řetězcový název metody
       b: 'someMethod',
-      // callback bude vyvolán pokaždé, když se změní libovolná sledovaná vlastnost objektu bez ohledu na její vnořenou hloubku
+      // callback bude vyvolán pokaždé, když se změní libovolná 
+      // sledovaná vlastnost objektu bez ohledu na její vnořenou hloubku
       c: {
         handler(val, oldVal) {
           console.log('c se změnilo')

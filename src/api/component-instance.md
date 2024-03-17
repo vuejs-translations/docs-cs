@@ -32,7 +32,7 @@ Objekt představující aktuální, vyřešené vlastnosti (props) komponenty.
 
 - **Podrobnosti**
 
-  Budou zahrnuty pouze vlastnosti deklarované pomocí sekce [`props`](./options-state#props). Instance komponenty zajišťuje proxy přístup k vlastnostem na svém objektu props.
+  Budou zahrnuty pouze vlastnosti deklarované pomocí možnosti [`props`](./options-state#props). Instance komponenty zajišťuje proxy přístup k vlastnostem na svém objektu props.
 
 ## $el {#el}
 
@@ -137,7 +137,7 @@ Objekt představující [sloty (slots)](/guide/components/slots), které předal
 
   Pokud je to [scoped slot](/guide/components/slots#scoped-slots), jsou parametry předané do slotových funkcí dostupné jako slot props.
 
-- **Viz také:** [Funkce pro vykreslení - Vykreslení slotů](/guide/extras/render-function#rendering-slots)
+- **Viz také:** [Funkce pro vykreslení - Vykreslování slotů](/guide/extras/render-function#rendering-slots)
 
 ## $refs {#refs}
 
@@ -217,9 +217,9 @@ Imperativní API pro vytváření watcherů.
   Druhým parametrem je callback funkce. Callback dostává novou a starou hodnotu sledovaného zdroje.
 
   - **`immediate`**: spustit callback při okamžitě vytvoření watcheru. Stará hodnota bude při prvním volání `undefined`.
-  - **`deep`**: vynutit hluboký průchod zdrojem, pokud je to objekt, aby se callback spustil při vnořených změnách. Viz [Deep Watchers](/guide/essentials/watchers#deep-watchers).
+  - **`deep`**: vynutit hluboký (deep) průchod zdrojem, pokud je to objekt, aby se callback spustil při vnořených změnách. Viz [Deep Watchers](/guide/essentials/watchers#deep-watchers).
   - **`flush`**: upravit časování vyvolání callbacku. Viz [Časování provedení callback funkce](/guide/essentials/watchers#callback-flush-timing) a [`watchEffect()`](/api/reactivity-core#watcheffect).
-  - **`onTrack / onTrigger`**: ladit závislosti watcheru. Viz [Debugging watcherů](/guide/extras/reactivity-in-depth#watcher-debugging).
+  - **`onTrack / onTrigger`**: ladit závislosti watcheru. Viz [Ladění watcherů](/guide/extras/reactivity-in-depth#watcher-debugging).
 
 - **Příklad**
 
@@ -288,7 +288,7 @@ Spustí vlastní událost na aktuální instanci. Jakékoli další parametry bu
 
 - **Viz také:**
 
-  - [Události komponent](/guide/components/events)
+  - [Události komponent (Events)](/guide/components/events)
   - [Options - `emits`](./options-state#emits)
 
 ## $forceUpdate() {#forceupdate}

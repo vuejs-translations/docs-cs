@@ -16,7 +16,7 @@ Poskytujte hodnoty, které mohou být implementovány potomky komponent.
 
   `provide` a [`inject`](#inject) se používají společně, aby umožnili komponentě předka fungovat jako injektor závislostí pro všechny své potomky, bez ohledu na to, jak hluboká je hierarchie komponent, dokud jsou ve stejném rodičovském řetězci.
 
-  Volba `provide` by měla být buď objekt nebo funkce, která vrací objekt. Tento objekt obsahuje vlastnosti, které jsou dostupné pro vkládání do komponent potomků. V tomto objektu můžete použít klíče typu Symbol.
+  Volba `provide` by měla být buď objekt nebo funkce, která vrací objekt. Tento objekt obsahuje vlastnosti, které jsou dostupné pro vkládání do komponent potomků. V&nbsp;tomto objektu můžete použít klíče typu Symbol.
 
 - **Příklad**
 
@@ -83,12 +83,12 @@ Deklaruje vlastnosti, které se mají implementovat do aktuální komponenty vyh
   - Objekt, kde klíče jsou názvy místních vazeb a hodnota je buď:
     - Klíč (string nebo Symbol), který se má vyhledat v dostupných injections, nebo
     - Objekt, kde:
-      - Vlastnost `from` je klíč (string nebo Symbol), který se má vyhledat v dostupných injections, a
-      - Vlastnost `default` se používá jako fallback hodnota. Podobně jako u výchozích hodnot props, pro objektové typy je třeba použít tovární funkci, aby se zabránilo sdílení hodnot mezi více instancemi komponent.
+      - Vlastnost `from` je klíč (string nebo Symbol), který se má vyhledat v&nbsp;dostupných injections, a
+      - Vlastnost `default` se používá jako fallback hodnota. Podobně jako u&nbsp;výchozích hodnot props, pro objektové typy je třeba použít tovární funkci, aby se zabránilo sdílení hodnot mezi více instancemi komponent.
 
-Implementovaná vlastnost bude `undefined`, pokud nebyla poskytnuta odpovídající vlastnost ani výchozí hodnota.
+  Implementovaná vlastnost bude `undefined`, pokud nebyla poskytnuta odpovídající vlastnost ani výchozí hodnota.
 
-Všimněte si, že vazby implemetovaných hodnot **nejsou reaktivní**. To je záměrné. Nicméně, pokud je vložená hodnota reaktivní objekt, vlastnosti tohoto objektu zůstávají reaktivní. Pro více informací se podívejte na [Práci s reaktivitou](/guide/components/provide-inject#working-with-reactivity).
+  Všimněte si, že vazby implemetovaných hodnot **nejsou reaktivní**. To je záměrné. Nicméně, pokud je vložená hodnota reaktivní objekt, vlastnosti tohoto objektu zůstávají reaktivní. Pro více informací se podívejte na [Práci s reaktivitou](/guide/components/provide-inject#working-with-reactivity).
 
 - **Příklad**
 
@@ -154,7 +154,7 @@ Všimněte si, že vazby implemetovaných hodnot **nejsou reaktivní**. To je z�
   }
   ```
 
-  Podobně jako u výchozích hodnot vlastností (props), pro neprimitivní hodnoty je třeba použít tovární funkci:
+  Podobně jako u výchozích hodnot vlastností, pro neprimitivní hodnoty je třeba použít tovární funkci:
 
   ```js
   const Child = {
@@ -183,37 +183,37 @@ Pole objektů s možnostmi (options), které se mají smíchat do aktuální kom
 
 - **Detaily**
 
-  Volba `mixins` přijímá pole objektů mixinu. Tyto mixin objekty mohou obsahovat volby instance (instance options) jako normální objekty instance (instance objects) a budou sloučeny s konečnými volbami pomocí určité logiky sloučení volby. Například, pokud váš mixin obsahuje `created` hook a sama komponenta také, budou volány obě funkce.
+  Volba `mixins` přijímá pole mixin objektů. Tyto objekty mohou obsahovat volby instance (instance options) jako normální objekty instance (instance objects) a budou sloučeny do konečné podoby pomocí určité logiky sloučení volby. Například, pokud váš mixin obsahuje `created` hook a sama komponenta také, budou volány obě funkce.
 
-Mixinové hooks jsou volány v pořadí, v jakém jsou poskytnuty, a před hooks samotného komponentu.
+  Hooks pro mixins jsou volány v pořadí, v jakém jsou poskytnuty, a před hooks samotného komponentu.
 
-:::warning Už není doporučeno
-V Vue 2 byly mixinové funkce hlavním mechanismem pro vytváření znovupoužitelných částí logiky komponenty. Ačkoli jsou mixinové funkce ve Vue 3 nadále podporovány, nyní jsou preferovaným přístupem pro znovupoužití kódu mezi komponenty [composable funkce pomocí Composition API](/guide/reusability/composables).
-:::
+  :::warning Už není doporučeno
+  V Vue 2 byly mixinové funkce hlavním mechanismem pro vytváření znovupoužitelných částí logiky komponenty. Ačkoli jsou mixinové funkce ve Vue 3 nadále podporovány, nyní jsou preferovaným přístupem pro znovupoužití kódu mezi komponentami [composable funkce pomocí Composition API](/guide/reusability/composables).
+  :::
 
-- **Příklad**
+  - **Příklad**
 
-```js
-const mixin = {
-  created() {
-    console.log(1)
+  ```js
+  const mixin = {
+    created() {
+      console.log(1)
+    }
   }
-}
 
-createApp({
-  created() {
-    console.log(2)
-  },
-  mixins: [mixin]
-})
+  createApp({
+    created() {
+      console.log(2)
+    },
+    mixins: [mixin]
+  })
 
-// => 1
-// => 2
-```
+  // => 1
+  // => 2
+  ```
 
 ## extends {#extends}
 
-"Základní třída" komponenty, ze které se dědí.
+„Základní třída“ komponenty, ze které se dědí.
 
 - **Typ**
 
@@ -225,13 +225,13 @@ interface ComponentOptions {
 
 - **Detaily**
 
-Umožňuje jedné komponentě rozšířit jinou a zdědit její možnosti.
+  Umožňuje jedné komponentě rozšířit jinou a zdědit její možnosti.
 
-Z implementačního hlediska je `extends` téměř identické jako `mixins`. S komponentou specifikovanou pomocí `extends` bude zacházeno tak, jako by byla prvním mixinem.
+  Z implementačního hlediska je `extends` téměř identické jako `mixins`. S komponentou specifikovanou pomocí `extends` bude zacházeno tak, jako by byla prvním mixinem.
 
-Nicméně, `extends` a `mixins` vyjadřují různé záměry. Volba `mixins` se především používá k sestavování částí funkcionality, zatímco `extends` se především zabývá dědičností.
+  Nicméně, `extends` a `mixins` vyjadřují různé záměry. Volba `mixins` se především používá k sestavování částí funkcionality, zatímco `extends` se především zabývá dědičností.
 
-Stejně jako u `mixins` budou jakékoli možnosti (kromě `setup()`) sloučeny pomocí příslušné strategie pro sloučení.
+  Stejně jako u `mixins` budou jakékoli možnosti (kromě `setup()`) sloučeny pomocí příslušné strategie pro sloučení.
 
 - **Příklad**
 
@@ -247,10 +247,9 @@ const CompB = {
 :::warning Nedoporučeno pro Composition API
 `extends` je navrženo pro Options API a neřeší sloučení hooku `setup()`.
 
-V Composition API je preferovaný mentální model pro znovupoužití logiky "kompozice" před "dědičností". Pokud máte logiku z komponenty, kterou chcete znovu použít v jiné komponentě, zvažte extrakci příslušné logiky do [composable objektu](/guide/reusability/composables#composables).
+V Composition API je preferovaný mentální model pro znovupoužití logiky „kompozice“ před „dědičností“. Pokud máte logiku z komponenty, kterou chcete znovu použít v jiné komponentě, zvažte extrakci příslušné logiky do [composable objektu](/guide/reusability/composables#composables).
 
-Pokud stále chcete "rozšířit" komponentu pomocí Composition API, můžete zavolat `setup()` základní komponenty v `setup()` rozšiřující komponenty:
-```
+Pokud stále chcete „rozšířit“ komponentu pomocí Composition API, můžete zavolat `setup()` základní komponenty v `setup()` rozšiřující komponenty:
 
 ```js
 import Base from './Base.js'

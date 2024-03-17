@@ -20,13 +20,13 @@ Explicitně deklaruje zobrazované jméno komponenty.
   - Zobrazení v inspekčním stromu komponent v nástroji Vue DevTools
   - Zobrazení v traces ve varováních komponent
 
-  Pokud používáte Single-File komponenty (SFC), komponenta již automaticky odvozuje své jméno z názvu souboru. Například soubor pojmenovaný `MyComponent.vue` bude mít odvozené zobrazované jméno "MyComponent".
+  Pokud používáte Single-File komponenty (SFC), komponenta již automaticky odvozuje své jméno z názvu souboru. Například soubor pojmenovaný `MyComponent.vue` bude mít odvozené zobrazované jméno „MyComponent“.
 
   Další případ je, když je komponenta globálně registrována pomocí [`app.component`](/api/application#app-component), globální ID je automaticky nastaveno jako její jméno.
 
   Možnost `name` vám umožňuje přepsat odvozené jméno nebo jméno explicitně poskytnout, pokud nelze žádné odvodit (například když nejsou použity build nástroje nebo ve vložené komponentě, která není ve formátu SFC).
 
-  Existuje jedna situace, kdy je `name` explicitně nutné: při porovnávání s cachovatelnými komponentami v [`<KeepAlive>`](/guide/built-ins/keep-alive) prostřednictvím jeho vlastností `include / exclude`.
+  Existuje jedna situace, kdy je `name` explicitně nutné: při porovnávání s&nbsp;cachovatelnými komponentami v [`<KeepAlive>`](/guide/built-ins/keep-alive) prostřednictvím jeho vlastností `include / exclude`.
 
   :::tip
   Od verze 3.2.34 si komponenta ve formátu SFC s použitím `<script setup>` automaticky odvodí vlastnost `name` na základě názvu souboru, což odstraňuje potřebu ručně deklarovat jméno i při použití s `<KeepAlive>`.
@@ -46,7 +46,7 @@ Ovládá, zda má být povoleno výchozí chování pro předávání atributů 
 
 - **Detaily**
 
-  Ve výchozím nastavení se vazby na atributy z rodičovského scope, které nejsou rozpoznány jako vlastnosti (props), "propadnou" ("fallthrough"). To znamená, že pokud máme komponentu s jediným root elementem, tyto vazby budou aplikovány na root elemente potomka jako běžné HTML atributy. Při tvorbě komponenty, která obaluje cílový prvek nebo jinou komponentu, to nemusí být vždy žádoucí chování. Nastavením `inheritAttrs` na `false` lze toto výchozí chování zakázat. Atributy jsou dostupné pomocí vlastnosti instance `$attrs` a lze je explicitně vázat na non-root element pomocí `v-bind`.
+  Ve výchozím nastavení se vazby na atributy z rodičovského scope, které nejsou rozpoznány jako vlastnosti (props), „propadnou“ (fallthrough). To znamená, že pokud máme komponentu s jediným root elementem, tyto vazby budou aplikovány na root element potomka jako běžné HTML atributy. Při tvorbě komponenty, která obaluje cílový prvek nebo jinou komponentu, to nemusí být vždy žádoucí chování. Nastavením `inheritAttrs` na `false` lze toto výchozí chování zakázat. Atributy jsou dostupné pomocí vlastnosti instance `$attrs` a lze je explicitně vázat na non-root element pomocí `v-bind`.
 
 - **Příklad**
 
@@ -164,4 +164,4 @@ Objekt, který registruje direktivy, které budou dostupné na instanci komponen
   <input v-focus>
   ```
 
-- **Viz takéo** [Custom Directives](/guide/reusability/custom-directives)
+- **Viz také** [Vlastní direktivy](/guide/reusability/custom-directives)

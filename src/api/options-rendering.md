@@ -1,6 +1,6 @@
 # Options API: Vykreslování {#options-rendering}
 
-## šablona {#template}
+## template {#template}
 
 Šablona pro komponentu ve formě textového řetězce.
 
@@ -14,11 +14,11 @@
 
 - **Podrobnosti**
 
-  Šablona poskytnutá pomocí vlastnosti `template` bude kompilována na požádání (on-the-fly) za běhu. Tato volba je podporována pouze při použití takového Vue buildu, který zahrnuje kompilátor šablon. Kompilátor šablon **NENÍ** zahrnut ve Vue buildech, které mají ve svém názvu slovo `runtime`, např. `vue.runtime.esm-bundler.js`. Pro více informací o různých variantách se podívejte do [průvodce distribučními soubory](https://github.com/vuejs/core/tree/main/packages/vue#which-dist-file-to-use).
+  Šablona poskytnutá pomocí možnosti `template` bude kompilována na požádání za běhu (on-the-fly). Tato volba je podporována pouze při použití takového Vue buildu, který zahrnuje kompilátor šablon. Kompilátor šablon **NENÍ** zahrnut ve Vue buildech, které mají ve svém názvu slovo `runtime`, např. `vue.runtime.esm-bundler.js`. Pro více informací o různých variantách se podívejte do [průvodce distribučními soubory](https://github.com/vuejs/core/tree/main/packages/vue#which-dist-file-to-use).
 
   Pokud řetězec začíná znakem `#`, bude použit jako `querySelector` a jako řetězec šablony se použije `innerHTML` vybraného prvku. To umožňuje vytvářet zdrojovou šablonu pomocí nativních prvků `<template>`.
 
-  Pokud je ve stejné komponentě přítomna i vlastnost `render`, bude `template` ignorováno.
+  Pokud je ve stejné komponentě přítomna i možnost `render`, bude `template` ignorováno.
 
   Pokud root komponenta vaší aplikace nemá specifikováno `template` ani `render`, Vue se místo toho pokusí použít jako šablonu `innerHTML` připojeného prvku.
 
@@ -55,7 +55,7 @@ Funkce, která programově vrací virtuální DOM strom komponenty.
 
   `render` je alternativou ke string templates, která vám pro deklaraci výstupu vykreslení komponenty umožňuje využít plnou programovou sílu JavaScriptu.
 
-  Předkompilované šablony, například ty ve Single-File komponentách (SFC), jsou při buildu zkompilovány do možnosti `render`. Pokud jsou v komponentě přítomny jak `render`, tak `template`, `render` má vyšší prioritu.
+  Předkompilované šablony, například ty v Single-File komponentách (SFC), jsou při buildu zkompilovány do možnosti `render`. Pokud jsou v komponentě přítomny jak `render`, tak `template`, `render` má vyšší prioritu.
 
 - **Viz také:**
   - [Mechanismus vykreslování](/guide/extras/rendering-mechanism)
