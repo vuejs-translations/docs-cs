@@ -1,6 +1,6 @@
 # Instance komponenty {#component-instance}
 
-:::info
+:::info Poznámka
 Tato stránka dokumentuje vestavěné vlastnosti a metody, které jsou přístupné na veřejné instanci komponenty, tj. `this`.
 
 Všechny vlastnosti uvedené na této stránce jsou pouze pro čtení (kromě vnořených vlastností v `$data`).

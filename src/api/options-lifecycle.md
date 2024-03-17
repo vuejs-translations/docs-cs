@@ -120,7 +120,7 @@ Voláno poté, co komponenta aktualizovala svůj DOM strom kvůli změně reakti
 
   **Tento hook není volán během vykreslování na serveru (SSR).**
 
-  :::warning
+  :::warning Varování
   V hooku `updated` neměňte stav komponenty - to pravděpodobně povede k nekonečné smyčce aktualizací!
   :::
 

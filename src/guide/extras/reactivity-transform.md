@@ -283,7 +283,7 @@ Při explicitním importu z `vue/macros` bude typ fungovat bez deklarování glo
 
 ## Explicitní povolení {#explicit-opt-in}
 
-:::warning
+:::warning Varování
 Následující se vztahuje pouze na verze Vue 3.3 a nižší. Její podpora byla odstraněna ve verze 3.4 Vue Core a z `@vitejs/plugin-vue` verze 5.0+. Pokud plánujete transformaci nadále používat, přejděte prosím na [Vue Macros](https://vue-macros.sxzz.moe/features/reactivity-transform.html).
 :::
 

@@ -96,7 +96,7 @@ Jak jste se již naučili, Vue automaticky sanitizuje obsah HTML, což vám zabr
 <div innerHTML={this.userProvidedHtml}></div>
 ```
 
-:::warning
+:::warning Varování
 Uživatelem poskytnutý HTML kód nemůže být považován za 100% bezpečný, pokud není umístěn v sandboxovaném iframe nebo v části aplikace, která je vystavena pouze uživateli, který tento HTML kód napsal. Kromě toho povolování uživatelům psát vlastní Vue šablony přináší podobná rizika.
 :::
 
@@ -153,7 +153,7 @@ Důrazně nedoporučujeme ve Vue kdykoli vykreslovat prvek `<script>`, protože 
 
 Každý HTML prvek má atributy s hodnotami přijímajícími JavaScript řetězce, jako například `onclick`, `onfocus` a `onmouseenter`. Binding uživatelem poskytovaného JavaScriptu na kterýkoli z těchto událostních atributů představuje potenciální bezpečnostní riziko, a proto byste se mu měli vyhnout.
 
-:::warning
+:::warning Varování
 Uživatelem poskytovaný JavaScript nemůže být nikdy považován za 100% bezpečný, pokud není v sandboxovaném iframe nebo v části aplikace, která je vystavena pouze uživateli, který tento JavaScript napsal.
 :::
 

@@ -173,7 +173,7 @@ Pokud zkontrolujete tento element v nástrojích pro vývojáře v Chrome a otev
 
 ![Chrome Developer Tools zobrazující přístupné jméno vstupu z popisku](./images/AccessibleLabelChromeDevTools.png)
 
-:::warning Varování:
+:::warning Varování
 Možná jste viděli vstupní pole takto obalená popisky:
 
 ```vue-html

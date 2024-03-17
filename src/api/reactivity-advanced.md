@@ -145,7 +145,7 @@ Vytvoří upravenou referenci s explicitní kontrolou sledování závislostí a
 
   Na rozdíl od `reactive()` zde není hluboká konverze: reaktivní jsou pouze vlastnosti na nejvyšší úrovni mělce reaktivního objektu. Hodnoty vlastností jsou uloženy a&nbsp;vystaveny tak, jak jsou - to také znamená, že vlastnosti s hodnotami ref **nebudou** automaticky rozbaleny.
 
-  :::warning Používejte opatrně
+  :::warning Používejte s rozvahou
   Měl byste používat mělké datové struktury pouze pro stav na kořenové úrovni komponenty. Vyhněte se vnořování do hluboké reaktivní struktury, protože to vytváří strom s nekonzistentním chováním reaktivity, což může být obtížné pochopit a ladit.
   :::
 
@@ -183,7 +183,7 @@ Vytvoří upravenou referenci s explicitní kontrolou sledování závislostí a
 
   Na rozdíl od `readonly()` zde není hluboká konverze: pouze vlastnosti na nejvyšší úrovni jsou nastaveny jako pouze pro čtení. Hodnoty vlastností jsou uloženy a&nbsp;vystaveny tak, jak jsou - to znamená, že vlastnosti s ref hodnotami nebudou automaticky rozbaleny.
 
-  :::warning Používejte opatrně
+  :::warning Používejte s rozvahou
   Měl byste používat mělké datové struktury pouze pro stav na kořenové úrovni komponenty. Vyhněte se vnořování do hluboké reaktivní struktury, protože to vytváří strom s nekonzistentním chováním reaktivity, což může být obtížné pochopit a ladit.
   :::
 
@@ -253,7 +253,7 @@ Označuje objekt tak, aby nikdy nebyl převeden na proxy. Vrací samotný (raw) 
   console.log(isReactive(bar.foo)) // false
   ```
 
-  :::warning Používejte opatrně
+  :::warning Používejte s rozvahou
   `markRaw()` a mělké API funkce, jako je `shallowReactive()`, vám umožňují selektivně odmítnout výchozí hlubokou reaktivní/readonly konverzi a vložit do vašeho stavového grafu neupravené, neproxyované objekty. Můžete je použít z různých důvodů:
 
   - Některé hodnoty jednoduše nemají být reaktivní, například složitá instance třetí strany nebo objekt Vue komponenty.

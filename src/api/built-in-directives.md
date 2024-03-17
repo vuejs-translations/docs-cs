@@ -499,7 +499,7 @@ Vykreslit element nebo komponentu pouze jednou a přeskočit budoucí aktualizac
 
   Při změně stavu `vybrano` komponenty bude vytvořeno velké množství VNodes, i když většina položek zůstala přesně stejná. Použití `v-memo` zde znamená "aktualizujte tuto položku pouze tehdy, pokud se změnila z nevybrané na vybranou nebo naopak". To umožňuje každé neovlivněné položce znovu použít její předchozí VNode a úplně přeskočit porovnávání rozdílů. Poznamenejme, že zde do pole závislostí memoizace nemusíme zahrnout `polozka.id`, protože Vue ji automaticky odvodí z `:key` položky.
 
-  :::warning
+  :::warning Varování
   Při použití `v-memo` s `v-for` se ujistěte, že jsou použity na stejném elementu. **`v-memo` nefunguje uvnitř `v-for`.**
   :::
 
