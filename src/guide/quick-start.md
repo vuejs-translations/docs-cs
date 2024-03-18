@@ -79,8 +79,8 @@ Pokud si nejste nastavením jisti, zvolte prozatím jednoduše stisknutím Enter
 <VTCodeGroup>
   <VTCodeGroupTab label="npm">
 
-  ```sh
-  $ cd <jmeno-vaseho-projektu>
+  ```sh-vue
+  $ cd {{'<jmeno-vaseho-projektu>'}}
   $ npm install
   $ npm run dev
   ```
@@ -88,8 +88,8 @@ Pokud si nejste nastavením jisti, zvolte prozatím jednoduše stisknutím Enter
   </VTCodeGroupTab>
   <VTCodeGroupTab label="pnpm">
   
-  ```sh
-  $ cd <jmeno-vaseho-projektu>
+  ```sh-vue
+  $ cd {{'<jmeno-vaseho-projektu>'}}
   $ pnpm install
   $ pnpm run dev
   ```
@@ -97,8 +97,8 @@ Pokud si nejste nastavením jisti, zvolte prozatím jednoduše stisknutím Enter
   </VTCodeGroupTab>
   <VTCodeGroupTab label="yarn">
   
-  ```sh
-  $ cd <jmeno-vaseho-projektu>
+  ```sh-vue
+  $ cd {{'<jmeno-vaseho-projektu>'}}
   $ yarn
   $ yarn dev
   ```
@@ -106,8 +106,8 @@ Pokud si nejste nastavením jisti, zvolte prozatím jednoduše stisknutím Enter
   </VTCodeGroupTab>
   <VTCodeGroupTab label="bun">
   
-  ```sh
-  $ cd <jmeno-vaseho-projektu>
+  ```sh-vue
+  $ cd {{'<jmeno-vaseho-projektu>'}}
   $ bun install
   $ bun run dev
   ```
