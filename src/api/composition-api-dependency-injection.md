@@ -66,13 +66,13 @@ Implementuje hodnotu poskytnutou komponentou předka nebo aplikací (pomocí `ap
 
   První argument je klíč pro implementaci (injection key). Vue se bude procházet hierarchií rodičovských komponent, aby našelo poskytovanou hodnotu s&nbsp;odpovídajícím klíčem. Pokud více komponent v hierarchii poskytuje stejný klíč, ten z&nbsp;nejbližší komponenty „překryje“ ty výše v řetězci. Pokud nebyla nalezena žádná hodnota s odpovídajícím klíčem, `inject()` vrátí `undefined`, pokud není poskytnuta výchozí hodnota.
 
-Druhý argument je volitelný a jde o výchozí hodnotou, která se použije, pokud nebyla nalezena žádná odpovídající poskytnutá hodnota.
+  Druhý argument je volitelný a jde o výchozí hodnotou, která se použije, pokud nebyla nalezena žádná odpovídající poskytnutá hodnota.
 
-Druhý argument může být také tovární funkce, která vrací hodnoty, které jsou nákladné na vytvoření. V tomto případě musí být jako třetí argument předáno `true` pro indikaci, že by měla být funkce použita jako tovární metoda místo samotné hodnoty.
+  Druhý argument může být také tovární funkce, která vrací hodnoty, které jsou nákladné na vytvoření. V tomto případě musí být jako třetí argument předáno `true` pro indikaci, že by měla být funkce použita jako tovární metoda místo samotné hodnoty.
 
-Podobně jako u API pro registraci lifecycle hooks, musí být `inject()` voláno synchronně během `setup()` fáze komponenty.
+  Podobně jako u API pro registraci lifecycle hooks, musí být `inject()` voláno synchronně během `setup()` fáze komponenty.
 
-Při použití TypeScriptu může být klíč typu `InjectionKey` - typu poskytovaného Vue, který rozšiřuje `Symbol` a který lze použít k synchronizaci typu hodnoty mezi `provide()` a `inject()`.
+  Při použití TypeScriptu může být klíč typu `InjectionKey` - typu poskytovaného Vue, který rozšiřuje `Symbol` a který lze použít k synchronizaci typu hodnoty mezi `provide()` a `inject()`.
 
 - **Příklad**
 
@@ -103,6 +103,11 @@ Při použití TypeScriptu může být klíč typu `InjectionKey` - typu poskyto
   </script>
   ```
 
+- **Viz také**:
+  - [Průvodce - Provide / Inject](/guide/components/provide-inject)
+  - [Průvodce - Typování provide / inject](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
+
+
 ## hasInjectionContext() <sup class="vt-badge" data-text="3.3+" /> {#has-injection-context}
 
 Vrací true, pokud může být funkce [inject()](#inject) použita, aniž by vyvolala varování, že je volána na špatném místě (např. mimo `setup()`). Tato metoda je navržena pro použití v&nbsp;knihovnách, které chtějí používat `inject()` interně bez výpisu varování pro koncové uživatele.
@@ -112,7 +117,3 @@ Vrací true, pokud může být funkce [inject()](#inject) použita, aniž by vyv
   ```ts
   function hasInjectionContext(): boolean
   ```
-
-- **Viz také**:
-  - [Průvodce - Provide / Inject](/guide/components/provide-inject)
-  - [Průvodce - Typování provide / inject](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
