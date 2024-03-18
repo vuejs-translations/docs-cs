@@ -5,14 +5,14 @@ outline: deep
 # Compile-Time flags {#compile-time-flags}
 
 :::tip
-Compile-Time flags se uplatní pouze při použití Vue buildu pomocí `esm-bundler` (tj. `vue/dist/vue.esm-bundler.js`).
+Compile-Time flags se uplatní pouze při použití Vue buildu pomocí `esm-bundler` (tj.&nbsp;`vue/dist/vue.esm-bundler.js`).
 :::
 
 Při použití Vue s build fází je možné konfigurovat několik příznaků (compile-time flags) umožňujích povolit / zakázat určité funkce. Výhodou jejich použití je, že funkce zakázané tímto způsobem lze odstranit z finálního balíčku pomocí tree-shakingu.
 
-Vue bude fungovat i tehdy, pokud tyto příznaky nejsou explicitně nakonfigurovány. Nicméně se doporučuje je nakonfigurovat vždy, aby bylo možné příslušné funkce správně odstranit, pokud jto jde.
+Vue bude fungovat i tehdy, pokud tyto příznaky nejsou explicitně nakonfigurovány. Nicméně se doporučuje nakonfigurovat je vždy, aby bylo možné příslušné funkce správně odstranit, pokud to jde.
 
-Podívejte se na [Průvodce konfigurací](#configuration-guides), jak je nakonfigurovat v závislosti na vašem build nástroji.
+Podívejte se na [Průvodce konfigurací](#configuration-guides), jak je nastavit v závislosti na vašem build nástroji.
 
 ## `__VUE_OPTIONS_API__` {#VUE_OPTIONS_API}
 
@@ -30,7 +30,7 @@ Podívejte se na [Průvodce konfigurací](#configuration-guides), jak je nakonfi
 
 - **Výchozí hodnota:** `false`
 
-  Povolit / zakázat podrobná varování o nesouladech hydratace (hydration mismatch) v produkčních buildech. Povolení povede k zahrnutí více kódu do distribučního balíčku, proto se doporučuje tuto možnost povolit pouze pro účely ladění.
+  Povolit / zakázat podrobná varování o nesouladech hydratace (hydration mismatch) v&nbsp;produkčních buildech. Povolení povede k zahrnutí více kódu do distribučního balíčku, proto se doporučuje tuto možnost povolit pouze pro účely ladění.
 
 ## Průvodce konfigurací {#configuration-guides}
 

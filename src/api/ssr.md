@@ -142,7 +142,7 @@ Vykreslí vstup a přesune ho do existující instance [Web WritableStream](http
 
   ```js
   // TransformStream je dostupný v prostředích jako jsou CloudFlare workers.
-  // v Node.js je potřeba TransformStream explicitně importovat z 'stream/web'
+  // v Node.js je potřeba TransformStream explicitně importovat ze 'stream/web'
   const { readable, writable } = new TransformStream()
   pipeToWebWritable(app, {}, writable)
 

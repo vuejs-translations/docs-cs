@@ -30,7 +30,7 @@ Používá se k anotaci vlastnosti (prop) s pokročilejšími typy při použit�
   }
   ```
 
-- **Viz také:** [Průvodce - Typování vlastností (props) komponent](/guide/typescript/options-api#typing-component-props)
+- **Viz také:** [Průvodce - Typování vlastností komponenty](/guide/typescript/options-api#typing-component-props)
 
 ## MaybeRef\<T> {#mayberef}
 
@@ -40,7 +40,7 @@ Alias pro `T | Ref<T>`. Užitečné pro anotaci vstupních parametrů v [Composa
 
 ## MaybeRefOrGetter\<T> {#maybereforgetter}
 
-Alias pro `T | Ref<T> | (() => T)`. Užitečné pro anotaci vstupních parametrů v [Composables](/guide/reusability/composables.html).
+Alias pro `T | Ref<T> | (() => T)`. Užitečné pro anotaci parametrů v [Composables](/guide/reusability/composables.html).
 
 - Podporováno pouze od verze 3.3+.
 
@@ -77,7 +77,7 @@ Pro extrakci veřejně orientovaných vlastností, tj. vlastností, které můž
 
 ## ExtractPublicPropTypes\<T> {#extractpublicproptypes}
 
-Extrahuje typy vlastností (props) z objektu s runtime props. veřejně orientované - tj. vlastnost, které může předat rodič. 
+Extrahuje typy vlastností (props) z objektu s runtime props. Extrahované typy jsou veřejně orientované - tj. vlastnosti, které může předat rodič. 
 
 - **Příklad**
 
@@ -166,7 +166,7 @@ Používá se k obohacení povolených TSX vlastností (props) pro použití ned
   ```
 
   ```tsx
-  // nyní funguje i když hello není deklarovanou vlastností
+  // nyní funguje, i když `hello` není deklarovanou vlastností
   <MyComponent hello="world" />
   ```
 

@@ -7,14 +7,14 @@ Vytváří virtuální DOM elementy (VNodes).
 - **Typ**
 
   ```ts
-  // úplný podpis
+  // plná signatura
   function h(
     type: string | Component,
     props?: object | null,
     children?: Children | Slot | Slots
   ): VNode
 
-  // vynechání props
+  // s vynecháním props
   function h(type: string | Component, children?: Children | Slot): VNode
 
   type Children = string | number | boolean | VNode | null | Children[]
@@ -32,7 +32,7 @@ Vytváří virtuální DOM elementy (VNodes).
 
   Při vytváření VNode komponenty musí být potomci předány jako slotové funkce. Pokud komponenta očekává pouze výchozí slot, může být předána jediná slotová funkce. Jinak musí být sloty předány jako objekt slotových funkcí.
 
-  Pokud potomci nejsou objekt typu `Slots`, může být pro pohodlnější zápis parametr props vynechán.
+  Pokud potomci nejsou objekt typu `Slots`, může být pro pohodlnější zápis vynechán parametr props.
 
 - **Příklad**
 
@@ -72,33 +72,32 @@ Vytváří virtuální DOM elementy (VNodes).
   ```js
   import Foo from './Foo.vue'
 
-```js
-// předávání props
-h(Foo, {
-  // ekvivalent k some-prop="hello"
-  someProp: 'hello',
-  // ekvivalent k @update="() => {}"
-  onUpdate: () => {}
-})
+  // předávání props
+  h(Foo, {
+    // ekvivalent k some-prop="hello"
+    someProp: 'hello',
+    // ekvivalent k @update="() => {}"
+    onUpdate: () => {}
+  })
 
-// předávání jednoho výchozího slotu
-h(Foo, () => 'výchozí slot')
+  // předávání jednoho výchozího slotu
+  h(Foo, () => 'výchozí slot')
 
-// předávání pojmenovaných slotů
-// `null` je nutné použít, aby se
-// objekt slotů nezaměňoval s props
-h(MyComponent, null, {
-  default: () => 'výchozí slot',
-  foo: () => h('div', 'foo'),
-  bar: () => [h('span', 'one'), h('span', 'two')]
-})
-```
+  // předávání pojmenovaných slotů
+  // `null` je nutné použít, aby se
+  // objekt slotů nezaměňoval s props
+  h(MyComponent, null, {
+    default: () => 'výchozí slot',
+    foo: () => h('div', 'foo'),
+    bar: () => [h('span', 'one'), h('span', 'two')]
+  })
+  ```
 
 - **Viz také:** [Průvodce - Funkce pro vykreslení - Vytváření VNodes](/guide/extras/render-function#creating-vnodes)
 
 ## mergeProps() {#mergeprops}
 
-Sloučí více objektů props s speciálním zpracováním některých vlastností.
+Sloučí více objektů props se speciálním zpracováním některých vlastností.
 
 - **Typ**
 
@@ -157,7 +156,6 @@ Klonuje VNode.
   VNodes by měly být po vytvoření považovány za neměnné a neměli byste měnit vlastnoti existujícího VNode. Místo toho je klonujte s odlišnými / dalšími props.
 
   VNodes mají speciální interní vlastnosti, takže jejich klonování není tak jednoduché jako použití JS spread operátoru. `cloneVNode()` se o většinu interní logiky postará.
-```
 
 - **Příklad**
 
