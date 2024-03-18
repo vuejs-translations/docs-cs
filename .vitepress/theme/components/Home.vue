@@ -68,22 +68,22 @@ onMounted(async () => {
     <div class="vt-box">
       <h2>Přístupný</h2>
       <p>
-        Staví na standardech HTML, CSS a JavaScriptu s intuitivním API
-        a dokumentací světové třídy.
+        Staví na standardech HTML, CSS a JS s intuitivním API
+        a&nbsp;prvotřídní dokumentací.
       </p>
     </div>
     <div class="vt-box">
       <h2>Výkonný</h2>
       <p>
-        Skutečně reaktivní, kompilačně-optimalizovaný vykreslovací systém, 
-        který jen vzácně potřebuje manuální optimalizaci.
+        Skutečně reaktivní systém vykreslování optimalizovaný pro kompilaci, 
+        jenž pouze vzácně potřebuje manuální optimalizaci.
       </p>
     </div>
     <div class="vt-box">
       <h2>Univerzální</h2>
       <p>
         Bohatý, přírůstkově přizpůsobitelný ekosystém,
-        který lze volně škálovat mezi knihovnou a plně-vybaveným frameworkem.
+        který lze volně škálovat mezi knihovnou a plně vybaveným frameworkem.
       </p>
     </div>
   </section>

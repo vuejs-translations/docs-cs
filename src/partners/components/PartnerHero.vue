@@ -7,11 +7,9 @@ defineProps<{ title?: string }>()
     <h1 class="title">{{ title || 'Partneři Vue' }}</h1>
     <p class="lead">
       Partneři Vue jsou Vue-týmem podporované subjekty, které nabízí prvotřídní
-      konzultační a vývojářské služby pro Vue. Pokud má vaše společnost 
-      zájem být jako partner zahrnuta, prosím,
-      <a href="https://airtable.com/shrCQhat57SApJI2l" target="_blank">
-        ohlaste svůj zájem zde
-      </a>.
+      konzultační a vývojářské služby pro Vue. Pokud vaše společnost 
+      stojí o to být jako partner zahrnuta, prosím 
+      <a href="https://airtable.com/shrCQhat57SApJI2l" target="_blank">ohlaste svůj zájem zde</a>.
     </p>
   </div>
 </template>
