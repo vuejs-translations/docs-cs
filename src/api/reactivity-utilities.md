@@ -1,4 +1,4 @@
-# Reactivity API: Utilities {#api-pro-reaktivitu-pomucky}
+# Reactivity API: Utility {#api-pro-reaktivitu-pomucky}
 
 ## isRef() {#isref}
 
