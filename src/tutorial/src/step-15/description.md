@@ -1,6 +1,6 @@
 # Dokázali jste to! {#you-did-it}
 
-Dokončili jste tutorial!
+Dokončili jste tutoriál!
 
 V tuto chvíli byste měli mít dobrou představu o tom, jaké to je pracovat s Vue. Spoustu věcí jsme však probrali opravdu rychle a odbyli detaily, takže rozhodně pokračujte v učení! Jako další krok můžete:
 

@@ -103,7 +103,7 @@ Vue je framework a ekosystém, který pokrývá většinu z běžných potřeb f
 - Jamstack / Static Site Generation (SSG)
 - Použitelné pro desktop, mobilní zařízení, WebGL a dokonce i terminál
 
-Pokud vám tyto pojmy přijdou strašidelné, nebojte se! Tento tutorial a průvodce vyžaduje pouze základní znalost HTML a JavaScriptu a nemusíte být odborník na žádnou z výše uvedných oblastí.
+Pokud vám tyto pojmy přijdou strašidelné, nebojte se! Tento tutoriál a průvodce vyžaduje pouze základní znalost HTML a JavaScriptu a nemusíte být odborník na žádnou z výše uvedných oblastí.
 
 Pokud jste zkušený vývojář, kterého zajímá, jak nejlépe zapracovat Vue do svého portfolia, nebo jste zvědaví co tyto pojmy znamenají, rozebíráme je více podrobně ve [Způsobech použití Vue](/guide/extras/ways-of-using-vue).
 
@@ -267,7 +267,7 @@ Různí vývojáři mají různé způsoby učení. Vyberte si způsob, který v
 
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/tutorial/">
-    <p class="next-steps-link">Vyzkoušejte tutorial</p>
+    <p class="next-steps-link">Vyzkoušejte tutoriál</p>
     <p class="next-steps-caption">Pro ty, kterým vyhovuje, když si mohou věci sami vyzkoušet.</p>
   </a>
   <a class="vt-box" href="/guide/quick-start.html">

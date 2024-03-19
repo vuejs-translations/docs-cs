@@ -12,7 +12,7 @@ const nav: ThemeConfig['nav'] = [
     activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
     items: [
       { text: 'Průvodce', link: '/guide/introduction' },
-      { text: 'Tutorial', link: '/tutorial/' },
+      { text: 'Tutoriál', link: '/tutorial/' },
       { text: 'Příklady', link: '/examples/' },
       { text: 'Jak začít', link: '/guide/quick-start' },
       // { text: 'Style Guide', link: '/style-guide/' },

@@ -432,7 +432,7 @@ Pokud jste přeskočili [Úvod](/guide/introduction), silně doporučujme přeč
     <p class="next-steps-caption">Průvodce vás detailně provede všemi vlastnostmi frameworku.</p>
   </a>
   <a class="vt-box" href="/tutorial/">
-    <p class="next-steps-link">Vyzkoušejte tutorial</p>
+    <p class="next-steps-link">Vyzkoušejte tutoriál</p>
     <p class="next-steps-caption">Pro ty, kterým vyhovuje, když si mohou věci sami vyzkoušet.</p>
   </a>
   <a class="vt-box" href="/examples/">

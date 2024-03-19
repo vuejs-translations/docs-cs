@@ -6,7 +6,7 @@
       <div></div>
       <div></div>
     </div>
-    <div>Tutorial se načítá...</div>
+    <div>Tutoriál se načítá...</div>
   </div>
 </template>
 
