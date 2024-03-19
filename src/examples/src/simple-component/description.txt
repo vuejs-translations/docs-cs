@@ -1,2 +1,2 @@
 Zde ukazujeme nejjednodušší možnou komponentu, která akceptuje vlastnost (prop) a vykresluje ji.
-O komponentách se dozvíte víc v Pruvodci!
+O komponentách se dozvíte víc v Průvodci!

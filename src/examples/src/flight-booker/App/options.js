@@ -39,9 +39,9 @@ export default {
   methods: {
     book() {
       alert(
-        isReturn.value
-          ? `Rezervovali jste si zpáteční letenku s odletem ${departureDate.value} a návratem ${returnDate.value}.`
-          : `Rezervovali jste si jednosměrnou letenku s odletem ${departureDate.value}.`
+        this.isReturn
+          ? `Rezervovali jste si zpáteční letenku s odletem ${this.departureDate} a návratem ${this.returnDate}.`
+          : `Rezervovali jste si jednosměrnou letenku s odletem ${this.departureDate}.`
       )
     }
   }

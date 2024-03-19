@@ -2,7 +2,7 @@ import { ref, reactive, computed, watch } from 'vue'
 
 export default {
   setup() {
-    const names = reactive(['Emil, Hans', 'Mustermann, Max', 'Tisch, Roman'])
+    const names = reactive(['Novák, Jan', 'Kovář, Petr', 'Svobodová, Tereza'])
     const selected = ref('')
     const prefix = ref('')
     const first = ref('')

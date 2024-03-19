@@ -3,7 +3,7 @@ export default {
     return {
       text: 'Změnit',
       checked: true,
-      checkedNames: ['Jack'],
+      checkedNames: ['Jan'],
       picked: 'Jedna',
       selected: 'A',
       multiSelected: ['A']
