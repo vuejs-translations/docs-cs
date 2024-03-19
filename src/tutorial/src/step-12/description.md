@@ -1,6 +1,6 @@
 # Props {#props}
 
-Komponenta potomka přijímá vstup z rodiče přes vlastnosti (**props**). Nejprve je třeba deklarovat props, které přijímá:
+Komponenta potomka přijímá vstup z rodiče přes vlastnosti (**props**). Nejprve je třeba deklarovat vlastnosti, které přijímá:
 
 <div class="composition-api">
 <div class="sfc">
@@ -14,7 +14,7 @@ const props = defineProps({
 </script>
 ```
 
-Poznámka: `defineProps()` je makro překladače a není nutné jej importovat. Po deklaraci lze vlastnost `msg` použít v šabloně podřízené komponenty. Lze k ní také přistupovat v JavaScript kódu prostřednictvím objektu vráceného z `defineProps()`.
+Poznámka: `defineProps()` je makro překladače a není nutné jej importovat. Po deklaraci lze vlastnost `msg` použít v šabloně komponenty potomka. Lze k ní také přistupovat v JavaScript kódu prostřednictvím objektu vráceného z `defineProps()`.
 
 </div>
 
@@ -53,7 +53,7 @@ Jakmile je deklarována, vlastnost `msg` je vystavena přes `this` a může být
 
 </div>
 
-Rodič může předat vlastnosti svému potomkovi stejně jako atributy. K předání dynamické hodnoty můžeme také použít `v-bind` syntaxi:
+Rodič může předat vlastnosti svému potomkovi stejně jako atributy. K&nbsp;předání dynamické hodnoty můžeme také použít `v-bind` syntaxi:
 
 <div class="sfc">
 

@@ -40,7 +40,7 @@ V komponentně potomka může vykrelit obsah slotu z rodiče pomocí elementu `<
 
 </div>
 
-Obsah uvnitř tagu `<slot>` bude zpracován jako "záložní" (fallback): zobrazí se, pokud komponenta rodiče nepředala slotu žádný obsah:
+Obsah uvnitř tagu `<slot>` bude zpracován jako „záložní“ (fallback): zobrazí se, pokud komponenta rodiče nepředala slotu žádný obsah:
 
 ```vue-html
 <slot>Záložní obsah</slot>

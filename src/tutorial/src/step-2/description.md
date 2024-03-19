@@ -2,7 +2,7 @@
 
 <div class="sfc">
 
-To, co vidíte v editoru je Vue Single-File komponenta (SFC). SFC je znovupoužitelná nezávislý blok kódu, který obaluje HTML, CSS a JavaScript prvky, které patří dohromady, zapsané uvnitř `.vue` souboru.
+To, co vidíte v editoru je Vue Single-File komponenta (SFC). SFC je znovupoužitelná nezávislý blok kódu, který obaluje HTML, CSS a&nbsp;JavaScript prvky, které patří dohromady, zapsané uvnitř `.vue` souboru.
 
 </div>
 
@@ -10,7 +10,7 @@ Klíčová vlastnost Vue je **deklarativní vykreslování**: použitím šablon
 
 <div class="composition-api">
 
-Stav, který může vyvolat aktualizace se nazývá **reaktivní**. Můžeme deklarovat reaktivní stav použitím Vue `reactive()` API. Objekty vytvoření pomocí `reactive()` jsou JavaScript [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) které fungují stejně jako běžné objekty:
+Stav, který může vyvolat aktualizace se nazývá **reaktivní**. Můžeme deklarovat reaktivní stav použitím Vue API funkce `reactive()`. Objekty vytvoření pomocí `reactive()` jsou JavaScript [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) které fungují stejně jako běžné objekty:
 
 ```js
 import { reactive } from 'vue'
@@ -38,7 +38,7 @@ Detaily fungování `reactive()` a `ref()` jsou popsány v <a target="_blank" hr
 
 <div class="sfc">
 
-Reaktivní stav deklarovaný v komponentě v bloku `<script setup>` může být použit přímo v šabloně. Tímto způsobem můžeme vykreslovat dynamický text na základě hodnoty objektů `counter` a `message` s použitím tzv. 'mustaches' syntaxe:
+Reaktivní stav deklarovaný v komponentě v bloku `<script setup>` může být použit přímo v šabloně. Tímto způsobem můžeme vykreslovat dynamický text na základě hodnoty objektů `counter` a&nbsp;`message` s použitím tzv. „mustache“ syntaxe:
 
 </div>
 
@@ -57,7 +57,7 @@ setup() {
 }
 ```
 
-Vlastnosti ve vráceném objektu budou zpřístupněny v šabloně. Tímto způsobem můžeme vykreslovat vykreslovat dynamický text na základě hodnoty `message` s použitím tzv. 'mustaches' syntaxe:
+Vlastnosti ve vráceném objektu budou zpřístupněny v šabloně. Tímto způsobem můžeme vykreslovat vykreslovat dynamický text na základě hodnoty `message` s použitím tzv. „mustache“ syntaxe:
 
 </div>
 
@@ -66,15 +66,15 @@ Vlastnosti ve vráceném objektu budou zpřístupněny v šabloně. Tímto způs
 <p>Počet: {{ counter.pocet }}</p>
 ```
 
-Všimněte si, že nepotřebujeme `.value` když přistupujeme k `message` ref objektu v šabloně: hotnota je automaticky rozbalena pro stručnější použití.
+Všimněte si, že nepotřebujeme `.value` když přistupujeme k `message` ref objektu v šabloně: hodnota je pro stručnější použití automaticky rozbalena.
 
 </div>
 
 <div class="options-api">
 
-Stav, který může vyvolat aktualizace se nazývá **reaktivní**. Ve Vue, reaktivní stav je udržován uvnitř komponent. <span class="html">V ukázkovém kódu je objekt posílaný do `createApp()` komponenta. </span>
+Stav, který může vyvolat aktualizace se nazývá **reaktivní**. Ve Vue je reaktivní stav udržován uvnitř komponent. <span class="html">V ukázkovém kódu je objekt posílaný do `createApp()` komponenta. </span>
 
-V komponentě můžeme deklarovat reaktivní stav pomocí volby `data`, což by měla být funkce, která vrací objekt:
+V komponentě můžeme deklarovat reaktivní stav pomocí možnosti `data`, což by měla být funkce, která vrací objekt:
 
 <div class="sfc">
 
@@ -103,7 +103,7 @@ createApp({
 
 </div>
 
-Vlastnost `message` bude zpřístupněna v šabloně. Tímto způsobem můžeme vykreslit dynamický text v závislosti na hodnotě `message` pomocí 'mustaches' syntaxe:
+Vlastnost `message` bude zpřístupněna v šabloně. Tímto způsobem můžeme vykreslit dynamický text v závislosti na hodnotě `message` pomocí „mustache“ syntaxe:
 
 ```vue-html
 <h1>{{ message }}</h1>
@@ -111,7 +111,7 @@ Vlastnost `message` bude zpřístupněna v šabloně. Tímto způsobem můžeme 
 
 </div>
 
-Obsah uvnitř 'mustaches' není omezen jen na identifikátory nebo cesty - lze použít jakýkoli platný JavaScript výraz:
+Obsah uvnitř „mustache“ není omezen jen na identifikátory nebo cesty - lze použít jakýkoli platný JavaScript výraz:
 
 ```vue-html
 <h1>{{ message.split('').reverse().join('') }}</h1>
@@ -125,6 +125,6 @@ Nyní zkuste sami vytvořit nějaký reaktivní stav a použít jej k vypsání 
 
 <div class="options-api">
 
-Nyní zkuste sami vytvořit nějakou datovou vlastnost a použít ji k vypsání dynamického textového obsahu pro `<h1>` tag v šabloně.
+Nyní zkuste sami vytvořit nějakou datovou vlastnost a použít ji k&nbsp;vypsání dynamického textového obsahu pro `<h1>` tag v šabloně.
 
 </div>

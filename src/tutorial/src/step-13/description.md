@@ -1,6 +1,6 @@
 # Emits {#emits}
 
-Kromě přijímání vlastností (props) může komponenta potomka také vysílat (**emits**) události (event) pro komponentu rodiče:
+Kromě přijímání vlastností (props) může komponenta potomka také vysílat (**emits**) události (events) pro komponentu rodiče:
 
 <div class="composition-api">
 <div class="sfc">

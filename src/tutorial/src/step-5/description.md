@@ -32,7 +32,7 @@ function onInput(e) {
 
 Zkuste začít do vstupního pole psát – text v `<p>` by se měl během psaní aktualizovat.
 
-Pro zjednodušení two-way bindingu, obsahuje Vue direktivu `v-model`, která je prakticky pouze aliasem pro výše uvedené:
+Pro zjednodušení vazby, obsahuje Vue direktivu `v-model`, která je prakticky pouze aliasem pro výše uvedené:
 
 ```vue-html
 <input v-model="text">
@@ -40,6 +40,6 @@ Pro zjednodušení two-way bindingu, obsahuje Vue direktivu `v-model`, která je
 
 `v-model` automaticky synchronizuje hodnotu `<input>` s navázaným stavem, takže pro to už nemusíme vytvářet vlastní event handler.
 
-`v-model` funguje nejen na textových vstupech, ale také na jiných typech vstupů, jako je `<checkbox>`, `<radio>` a `<select>`. Další podrobnosti popisuje <a target="_blank" href="/guide/essentials/forms.html">Průvodce - Binding dat z formulářů</a>.
+`v-model` funguje nejen na textových vstupech, ale také na jiných typech vstupů, jako je `<checkbox>`, `<radio>` a `<select>`. Další podrobnosti popisuje <a target="_blank" href="/guide/essentials/forms.html">průvodce Binding dat z formulářů</a>.
 
 Nyní zkuste provést refaktoring kódu tak, aby místo aktuální podoby používal `v-model`.

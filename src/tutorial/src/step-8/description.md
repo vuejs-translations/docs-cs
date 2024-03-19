@@ -22,7 +22,8 @@ export default {
   // ...
   computed: {
     filteredTodos() {
-      // vrací filtrovaný seznamu `todos` v závislosti na `this.hideCompleted`
+      // vrací filtrovaný seznamu `todos`
+      // v závislosti na `this.hideCompleted`
     }
   }
 }
@@ -36,7 +37,8 @@ createApp({
   // ...
   computed: {
     filteredTodos() {
-      // vrací filtrovaný seznamu `todos` v závislosti na `this.hideCompleted`
+      // vrací filtrovaný seznamu `todos` 
+      // v závislosti na `this.hideCompleted`
     }
   }
 })
@@ -47,7 +49,7 @@ createApp({
 </div>
 <div class="composition-api">
 
-Představujeme <a target="_blank" href="/guide/essentials/computed.html">`computed()`</a>. Můžeme vytvořit "computed ref", který počítá svou `.value` dynamicky na základě jiných reaktivních zdrojů dat:
+Představujeme <a target="_blank" href="/guide/essentials/computed.html">`computed()`</a>. Můžeme vytvořit „computed ref“, který počítá svou `.value` dynamicky na základě jiných reaktivních zdrojů dat:
 
 <div class="sfc">
 
@@ -99,6 +101,6 @@ createApp({
 + <li v-for="todo in filteredTodos">
 ```
 
-Computed proměnná sleduje další reaktivní stavy použité při jejím výpočtu jako své závislosti. Výsledek uloží do mezipaměti (cache) a automaticky jej aktualizuje, když se jeho závislosti změní.
+Computed proměnná sleduje další reaktivní stavy použité při jejím výpočtu jako své závislosti. Výsledek uloží do mezipaměti (cache) a&nbsp;automaticky jej aktualizuje, když se jeho závislosti změní.
 
-Nyní zkuste přidat computed proměnnou `filteredTodos` a implementujte její výpočetní logiku! Pokud je implementována správně, při zapnutém skrývání dokončených položek by mělo zaškrtnutí úkolu okamžitě příslušný úkol skrýt.
+Nyní zkuste přidat computed proměnnou `filteredTodos` a doplňit její&nbsp;výpočetní logiku! Pokud je implementována správně, při zapnutém skrývání dokončených položek by mělo zaškrtnutí úkolu okamžitě příslušný úkol skrýt.

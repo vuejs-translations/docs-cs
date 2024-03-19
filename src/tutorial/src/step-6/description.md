@@ -15,6 +15,6 @@ Můžeme použít i `v-else` a `v-else-if` k odlišení dalších větví podmí
 <h1 v-else>Ale ne 😢</h1>
 ```
 
-V současné době demo příklad zobrazuje obě `<h1>` současně a tlačítko nedělá nic. Zkuste k nim přidat direktivy `v-if` a `v-else` a implementujte funkci `toggle()`, abychom mezi nimi mohli pomocí tlačítka přepínat.
+V současné době demo příklad zobrazuje obě `<h1>` současně a&nbsp;tlačítko nedělá nic. Zkuste k nim přidat direktivy `v-if` a `v-else` a&nbsp;implementujte funkci `toggle()`, abychom mezi nimi mohli pomocí tlačítka přepínat.
 
-V9ce detailů o `v-if`: <a target="_blank" href="/guide/essentials/conditional.html">Průvodce - Podmíněné vykreslování</a>
+Více detailů o `v-if`: <a target="_blank" href="/guide/essentials/conditional.html">Průvodce - Podmíněné vykreslování</a>

@@ -14,7 +14,7 @@ Kvůli častému použití má `v-on` svou zkrácenou syntaxi:
 
 <div class="options-api">
 
-V tomto případě `increment` odkazuje na funkci deklarovanou pomocí sekce `methods`:
+V tomto případě `increment` odkazuje na funkci deklarovanou pomocí možnosti `methods`:
 
 <div class="sfc">
 
@@ -55,7 +55,7 @@ createApp({
 
 </div>
 
-Uvnitř metody můžeme přistupovat k instanci komponenty pomocí `this`. Instance komponenty vystavuje datové proměnné deklarované v sekci `data`. Změnou těchto proměnných můžeme aktualizovat stav komponenty.
+Uvnitř metody můžeme přistupovat k instanci komponenty pomocí `this`. Instance komponenty vystavuje datové proměnné deklarované v možnosti `data`. Změnou těchto proměnných můžeme aktualizovat stav komponenty.
 
 </div>
 
@@ -84,7 +84,7 @@ function increment() {
 
 V tomto případě `increment` odkazuje na funkci v objektu vráceném ze `setup()`:
 
-```js{$}
+```js{4-7}
 setup() {
   const pocet = ref(0)
 
@@ -106,6 +106,6 @@ Uvnitř funkce můžeme aktualizovat stav komponenty pomocí změn příslušný
 
 </div>
 
-Event handlery mohou také používat inline výrazy a mohou zjednodušit běžné úkoly pomocí modifikátorů. Tyto detaily pokrývá <a target="_blank" href="/guide/essentials/event-handling.html">Průvodce - Obsluha událostí</a>.
+Event handlery mohou také používat inline výrazy a mohou zjednodušit běžné úkoly pomocí modifikátorů. Tyto detaily pokrývá <a target="_blank" href="/guide/essentials/event-handling.html">průvodce Obsluha událostí</a>.
 
 Teď zkuste <span class="options-api">metodu</span><span class="composition-api">funkci</span> `increment` sami implementovat a provést binding na tlačítko s využítím `v-on`.

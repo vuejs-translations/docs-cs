@@ -15,7 +15,7 @@ watch(count, (newCount) => {
 })
 ```
 
-`watch()` může přímo sledovat ref a callback funkce se spustí vždy, když se změní hodnota `count`. `watch()` může sledovat i jiné typy datových zdrojů – další podrobnosti jsou uvedeny v <a target="_blank" href="/guide/essentials/watchers.html">Průvodce – Watchers</a>.
+`watch()` může přímo sledovat ref a callback funkce se spustí vždy, když se změní hodnota `count`. `watch()` může sledovat i jiné typy datových zdrojů – další podrobnosti jsou uvedeny v <a target="_blank" href="/guide/essentials/watchers.html">průvodci Watchers</a>.
 
 </div>
 <div class="options-api">
@@ -36,7 +36,7 @@ export default {
 }
 ```
 
-Zde používáme sekci `watch` ke sledování změn vlastnosti `count`. Když se `count` změní, je volánja callback funkce a jako parametr obdrží novou hodnotu. Další podrobnosti jsou uvedeny v <a target="_blank" href="/guide/essentials/watchers.html">Průvodce – Watchers</a>.
+Zde používáme sekci `watch` ke sledování změn vlastnosti `count`. Když se `count` změní, je volána callback funkce a jako parametr obdrží novou hodnotu. Další podrobnosti jsou uvedeny v <a target="_blank" href="/guide/essentials/watchers.html">průvodci Watchers</a>.
 
 </div>
 

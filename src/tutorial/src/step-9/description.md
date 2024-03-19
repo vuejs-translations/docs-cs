@@ -1,6 +1,6 @@
 # Životní cyklus a Template Refs {#lifecycle-and-template-refs}
 
-Doposud za nás Vue vyřizovalo všechny aktualizace DOM díky reaktivitě a deklarativnímu vykreslování. Nevyhnutelně však nastanou případy, kdy potřebujeme s DOM pracovat manuálně.
+Zatím za nás Vue vyřizovalo všechny aktualizace DOM díky reaktivitě a&nbsp;deklarativnímu vykreslování. Nevyhnutelně však nastanou případy, kdy potřebujeme s DOM pracovat manuálně.
 
 Můžeme si vyžádat **template ref** - tj. referenci na element v šabloně - pomocí <a target="_blank" href="/api/built-in-special-attributes.html#ref">speciálního atributu `ref`</a>:
 
@@ -10,7 +10,7 @@ Můžeme si vyžádat **template ref** - tj. referenci na element v šabloně - 
 
 <div class="composition-api">
 
-Abychom k _template ref_ získali přístup, musíme deklarovat<span class="html"> a vystavit</span> ref s odpovídajícím názvem:
+Abychom k _template ref_ získali přístup, musíme deklarovat<span class="html"> a vystavit</span> ref s&nbsp;odpovídajícím názvem:
 
 <div class="sfc">
 
@@ -67,9 +67,9 @@ createApp({
 
 <div class="options-api">
 
-Element bude vystaven v rámci `this.$refs` jako `this.$refs.pElementRef`. Můžete k němu nicméně přistoupit až poté, co je komponenta připojena (**mounted**).
+Element bude vystaven v `this.$refs` jako `this.$refs.pElementRef`. Můžete k němu nicméně přistoupit až poté, co je komponenta připojena (**mounted**).
 
-Pro spuštění kódu až po připojení komponenty, můžeme použít sekci `mounted`:
+Pro spuštění kódu až po připojení komponenty, můžeme použít možnost `mounted`:
 
 <div class="sfc">
 
@@ -95,6 +95,6 @@ createApp({
 </div>
 </div>
 
-Tomuto se říká **lifecycle hook** - umožňuje zaregistrovat callback funkce, které budou zavolány v určitých okamžicích životního cyklu komponenty. Existují i další jako jsou <span class="options-api">`created` a `updated`</span><span class="composition-api">`onUpdated` a `onUnmounted`</span>. Podívejte se na <a target="_blank" href="/guide/essentials/lifecycle.html#lifecycle-diagram">Diagram životního cyklu</a> pro další podrobnosti.
+Tomuto se říká **lifecycle hook** - umožňuje zaregistrovat callback funkce, které budou zavolány v určitých okamžicích životního cyklu komponenty. Existují i další jako jsou <span class="options-api">`created` a `updated`</span><span class="composition-api">`onUpdated` a `onUnmounted`</span>. Podívejte se&nbsp;na <a target="_blank" href="/guide/essentials/lifecycle.html#lifecycle-diagram">Diagram životního cyklu</a> pro další podrobnosti.
 
-Nyní zkuste přidat <span class="options-api"> `mounted`</span><span class="composition-api"> `onMounted`</span> hook, přistoupit k `<p>` pomocí <span class="options-api">`this.$refs.pElementRef`</span><span class="composition-api">`pElementRef.value`</span> a provést nad ním nějakou operaci přímo v rámci DOM (např. změnit jeho `textContent`).
+Nyní zkuste přidat <span class="options-api"> `mounted`</span><span class="composition-api"> `onMounted`</span> hook, přistoupit k `<p>` pomocí <span class="options-api">`this.$refs.pElementRef`</span><span class="composition-api">`pElementRef.value`</span> a provést nad ním nějakou operaci přímo v&nbsp;rámci DOM (např. změnit jeho `textContent`).

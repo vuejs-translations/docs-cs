@@ -27,7 +27,7 @@ export default {
 }
 ```
 
-Dále musíme komponentu zaregistrovat s využitím sekce `components`. Zde používáme zkrácený zápis (object property shorthand) pro registraci komponenty `ChildComp` pod názvem `ChildComp`.
+Dále musíme komponentu zaregistrovat s využitím možnosti `components`. Zde používáme zkrácený zápis (object property shorthand) pro registraci komponenty `ChildComp` pod názvem `ChildComp`.
 
 </div>
 </div>
@@ -54,7 +54,7 @@ createApp({
 })
 ```
 
-Dále musíme komponentu zaregistrovat s využitím sekce `components`. Zde používáme zkrácený zápis (object property shorthand) pro registraci komponenty `ChildComp` pod názvem `ChildComp`.
+Dále musíme komponentu zaregistrovat s využitím možnosti `components`. Zde používáme zkrácený zápis (object property shorthand) pro registraci komponenty `ChildComp` pod názvem `ChildComp`.
 
 Protože šablonu píšeme v DOM, bude podléhat pravidlům analýzy prohlížeče, které u názvů značek nerozlišují malá a velká písmena. Proto musíme k odkazování na komponentu potomka použít kebab-case název:
 
@@ -65,4 +65,4 @@ Protože šablonu píšeme v DOM, bude podléhat pravidlům analýzy prohlíže�
 </div>
 
 
-Nyní to zkuste sami – importujte komponentu potomka a vykreslete ji v šabloně.
+Nyní to zkuste sami – importujte komponentu potomka a vykreslete ji v&nbsp;šabloně.

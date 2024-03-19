@@ -12,7 +12,7 @@ Direktivu `v-for` můžeme použít k vykreslení seznamu prvků založeném na 
 
 `todo` je lokální proměnná, která reprezentuje prvek pole, nad kterým se právě iteruje. Je přístupná pouze uvnitř elementu `v-for`, podobně jako funguje scope uvnitř funkce.
 
-Všimněte si, jak také každému `todo` objektu dáváme jedinečné `id` a provádíme jeho binding na <a target="_blank" href="/api/built-in-special-attributes.html#key">speciální atribut `key`</a> pro každý element `<li>`. Atribut `key` umožňuje Vue přesně pohybovat každým `<li>` tak, aby odpovídalo pozici jemu odpovídajícímu objektu v poli.
+Všimněte si, jak také každému `todo` objektu dáváme jedinečné `id` a&nbsp;provádíme jeho binding na <a target="_blank" href="/api/built-in-special-attributes.html#key">speciální atribut `key`</a> pro každý element `<li>`. Atribut `key` umožňuje Vue přesně pohybovat každým `<li>` tak, aby odpovídalo pozici jemu odpovídajícímu objektu v poli.
 
 Existují dva způsoby, jak list aktualizovat:
 
