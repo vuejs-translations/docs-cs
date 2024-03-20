@@ -21,7 +21,7 @@ import { VTCodeGroup, VTCodeGroupTab } from '@vue/theme'
 :::tip Předpoklady
 
 - Znalost použití příkazového řádku (command line)
-- Nainstalovaný [Node.js](https://nodejs.org/) ve verzi 18.0 nebo vyšší
+- Nainstalovaný [Node.js](https://nodejs.org/) ve verzi 18.3 nebo vyšší
   :::
 
 V této sekci si ukážeme jak vystavět základ Vue [Single Page aplikaci](/guide/extras/ways-of-using-vue#single-page-application-spa) na vašem lokálním počítači. Vytvořený projekt bude používat build setup založený na [Vite](https://vitejs.dev) a umožní nám použít Vue [Single-File komponenty](/guide/scaling-up/sfc) (SFCs).
