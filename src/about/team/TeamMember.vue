@@ -24,6 +24,10 @@ const avatarUrl = computed(() => {
     `https://www.github.com/${props.member.socials.github}.png`
   )
 })
+
+function arrayify(value: string | string[]): string[] {
+  return Array.isArray(value) ? value : [value]
+}
 </script>
 
 <template>
@@ -68,7 +72,7 @@ const avatarUrl = computed(() => {
       <div class="profiles">
         <section v-if="member.projects" class="desc">
           <div class="desc-title">
-            <h2 class="sr-only">Projects</h2>
+            <h2 class="sr-only">Projekty</h2>
             <VTIconCode class="desc-icon code" />
           </div>
           <ul class="desc-list">
@@ -90,17 +94,23 @@ const avatarUrl = computed(() => {
 
         <section class="desc">
           <div class="desc-title">
-            <h2 class="sr-only">Location</h2>
+            <h2 class="sr-only">Lokalita</h2>
             <VTIconMapPin class="desc-icon" />
           </div>
-          <p class="desc-text">
-            {{ member.location }}
-          </p>
+          <ul class="desc-list">
+            <li
+              v-for="location in arrayify(member.location)"
+              :key="location"
+              class="desc-item"
+            >
+              {{ location }}
+            </li>
+          </ul>
         </section>
 
         <section class="desc">
           <div class="desc-title">
-            <h2 class="sr-only">Languages</h2>
+            <h2 class="sr-only">Jazyky</h2>
             <VTIconGlobe class="desc-icon" />
           </div>
           <ul class="desc-list">
@@ -116,7 +126,7 @@ const avatarUrl = computed(() => {
 
         <section v-if="member.website" class="desc">
           <div class="desc-title">
-            <h2 class="sr-only">Website</h2>
+            <h2 class="sr-only">Web</h2>
             <VTIconLink class="desc-icon" />
           </div>
           <p class="desc-text">

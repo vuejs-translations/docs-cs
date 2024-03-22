@@ -1,5 +1,8 @@
 <script lang="ts">
-const shuffleMembers = (members: Member[], pinTheFirstMember = false): void => {
+const shuffleMembers = (
+  members: Member[],
+  pinTheFirstMember = false
+): void => {
   let offset = pinTheFirstMember ? 1 : 0
   // `i` is between `1` and `length - offset`
   // `j` is between `0` and `length - offset - 1`
@@ -37,8 +40,10 @@ shuffleMembers(membersPartnerData as Member[])
   <div class="TeamPage">
     <TeamHero>
       <template #title>Poznejte náš Tým</template>
-      <template #lead>Vývoj Vue a jeho ekosystému je veden mezinárodním týmem, 
-        jehož část si vybrala být <span class="nowrap">uvedena níže.</span>
+      <template #lead>
+        Vývoj Vue a jeho ekosystému je veden mezinárodním týmem, 
+        jehož část si vybrala být 
+        <span class="nowrap">uvedena níže.</span>
       </template>
 
       <template #action>
@@ -49,26 +54,31 @@ shuffleMembers(membersPartnerData as Member[])
       </template>
     </TeamHero>
 
-    <TeamList :members="membersCoreData as Member[]">
+    <TeamList :members="(membersCoreData as Member[])">
       <template #title>Core Team Members</template>
-      <template #lead>Členové Core týmu jsou aktivně zapojeni v&nbsp;údržbě 
+      <template #lead>
+        Členové Core týmu jsou aktivně zapojeni v&nbsp;údržbě 
         jednoho či více core projektů. Výrazně přispěli do Vue ekosystému 
-        s&nbsp;dlouhodobým zaměření na úspěch projektu a&nbsp;jeho uživatelů.
+        s&nbsp;dlouhodobým zaměřením na úspěch projektu a&nbsp;jeho uživatelů.
       </template>
     </TeamList>
 
-    <TeamList :members="membersEmeritiData as Member[]">
+    <TeamList :members="(membersEmeritiData as Member[])">
       <template #title>Core Team Emeriti</template>
-      <template #lead>Zde vzdáváme hold některým již neaktivním členům Core týmu,
-        kteří výrazně přispěli v&nbsp;minulosti.</template>
+      <template #lead>
+        Zde vzdáváme hold některým již neaktivním členům Core týmu,
+        kteří výrazně přispěli v&nbsp;minulosti.
+      </template>
     </TeamList>
 
-    <TeamList :members="membersPartnerData as Member[]">
+    <TeamList :members="(membersPartnerData as Member[])">
       <template #title>Komunitní partneři</template>
-      <template #lead>Někteří členové Vue komuniti ji obohatili natolik,
+      <template #lead>
+        Někteří členové Vue komuniti ji obohatili natolik,
         že si zaslouží speciální zmínku. Rozvinuli jsme více osobní vztah
         s&nbsp;těmito klíčovými partnery a&nbsp;často s&nbsp;nimi koordinujeme chystanou
-        funkcionalitu a&nbsp;novinky.</template>
+        funkcionalitu a&nbsp;novinky.
+      </template>
     </TeamList>
   </div>
 </template>
