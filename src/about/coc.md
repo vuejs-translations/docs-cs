@@ -2,7 +2,7 @@
 
 ## Náš slib {#our-pledge}
 
-V zájmu podpory otevřeného a přívětivého prostředí se jako přispěvatelé a správci zavazujeme, že se našeho projektu a fungování naší komunity budeme účastnit tak, abychom vytvořili prostor bez obtěžování pro každého, bez ohledu na věk, váhu, vzhled, tělesné postižení, etnický původ, sexuální charakteristiky, genderovou identitu a vyjádření, úroveň zkušeností, vzdělání, socioekonomický status, národnost, rasu, náboženství, politickou stranu nebo sexuální identitu a orientaci. Upozorňujeme však, že náboženství, politická strana nebo jiná ideologická příslušnost neposkytují žádné výjimky pro chování, které v tomto Kodexu chování označujeme za nepřijatelné.
+V zájmu podpory otevřeného a přívětivého prostředí se jako přispěvatelé a správci zavazujeme, že se našeho projektu a fungování naší komunity budeme účastnit tak, abychom vytvořili prostor bez obtěžování pro každého, bez ohledu na věk, váhu, vzhled, tělesné postižení, etnický původ, sexuální charakteristiky, genderovou identitu a&nbsp;vyjádření, úroveň zkušeností, vzdělání, socioekonomický status, národnost, rasu, náboženství, politickou stranu nebo sexuální identitu a orientaci. Upozorňujeme však, že&nbsp;náboženství, politická strana nebo jiná ideologická příslušnost neposkytují žádné výjimky pro chování, které v tomto Kodexu chování označujeme za nepřijatelné.
 
 ## Naše standardy {#our-standards}
 
@@ -10,7 +10,7 @@ Příklady chování, které přispívá k vytváření pozitivního prostředí
 
 - Používání vstřícného a inkluzivního jazyka
 - Respektování různých názorů a zkušeností
-- Slušné přijetí konstruktivní kritiku
+- Slušné přijetí konstruktivní kritiky
 - Zaměření na to, co je pro komunitu nejlepší
 - Projevení empatie vůči ostatním členům komunity
 
@@ -20,7 +20,7 @@ Příklady nepřijatelného chování účastníků jsou například:
 - Trolling, urážlivé/hanlivé komentáře a osobní nebo politické útoky
 - Veřejné nebo soukromé obtěžování
 - Zveřejňování soukromých informací jiných osob, jako je fyzická nebo elektronická adresa, bez výslovného povolení
-- Jiné chování, které by mohlo být v profesionálním prostředí důvodně považováno za nevhodné
+- Jiné chování, které by mohlo být v profesionálním prostředí považováno za nevhodné
 
 ## Naše odpovědnosti {#our-responsibilities}
 
@@ -40,8 +40,8 @@ Správci projektu, kteří nebudou Kodex chování dodržovat či vymáhat sprá
 
 ## Zdroj {#attribution}
 
-Tento Kodex chování je převzatý z [Contributor Covenant][homepage], verze 1.4, dostupné na https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
+Tento Kodex chování je převzatý z [Contributor Covenant][homepage] verze 1.4, dostupné na https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
 
-For answers to common questions about this code of conduct, see https://www.contributor-covenant.org/faq
+Pro odpovědi na běžné otázky k tomuto Kodexu se podívejte na https://www.contributor-covenant.org/faq
 
 [homepage]: https://www.contributor-covenant.org

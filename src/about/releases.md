@@ -34,7 +34,7 @@ Vue nemá pevně daný release cyklus.
 
 - Major verze budou vždy oznámeny předem a projdou fází předběžné diskuse a alpha / beta pre-release fázemi.
 
-## Speciáílní přípdy Sémantického verzování {#semantic-versioning-edge-cases}
+## Speciáílní případy sémantického verzování {#semantic-versioning-edge-cases}
 
 Vue verzování se řídí pravidly [Sémantického verzování](https://semver.org/) s několika speciálními případy.
 
@@ -52,9 +52,9 @@ Pokud používáte TypeScript, můžete použít semver rozsah, který uzamkne a
 
 Novější **minor** verze Vue kompilátoru může generovat kód, který není kompatibilní s Vue runtime ze starší minor verze. Například kód generovaný Vue kompilátorem 3.2 nemusí být plně kompatibilní, pokud je spouštěn z Vue runtime 3.1.
 
-To se týká pouze autorů knihoven, protože v aplikacích je verze kompilátoru a verze runtime vždy stejná. Nesoulad verzí může nastat pouze v případě, že distribuujete předem zkompilovaný kód Vue komponenty jako package a cílový uživatel jej použije v projektu používajícím starší verzi Vue. V důsledku toho může být nutné, aby váš package výslovně deklaroval minimální požadovanou minor verzi Vue.
+To se týká pouze autorů knihoven, protože v aplikacích je verze kompilátoru a verze runtime vždy stejná. Nesoulad verzí může nastat pouze v případě, že distribuujete předem zkompilovaný kód Vue komponenty jako package a cílový uživatel jej použije v&nbsp;projektu používajícím starší verzi Vue. V důsledku toho může být nutné, aby váš balíček výslovně deklaroval minimální požadovanou minor verzi Vue.
 
-## Pre Releases {#pre-releases}
+## Pre-releases {#pre-releases}
 
 Minor verze obvykle procházejí předem neurčeným počtem beta verzí. Major verze projdou fází alfa a fází beta.
 
@@ -76,4 +76,4 @@ Všechny RFC jsou spravovány v [vuejs/rfcs](https://github.com/vuejs/rfcs) repo
 
 Některé funkce jsou dodávány a dokumentovány ve stabilní verzi Vue, ale jsou označeny jako experimentální. Experimentální funkce jsou obvykle ty, které mají přidruženou RFC diskusi s většinou návrhových problémů vyřešených na papíře, ale stále postrádající zpětnou vazbu z reálného použití.
 
-Cílem experimentálních funkcí je umožnit uživatelům poskytnou zpětnou vazbu jejich testováním v produkčním prostředí, aniž by museli používat nestabilní verzi Vue. Samotné experimentální funkce jsou považovány za nestabilní a měly by být používány pouze kontrolovaným způsobem s vědomím, že se způsob použití funkce může s jakoukoli novou verzí vydání změnit.
+Cílem experimentálních funkcí je umožnit uživatelům poskytnou zpětnou vazbu jejich testováním v produkčním prostředí, aniž by museli používat nestabilní verzi Vue. Samotné experimentální funkce jsou považovány za nestabilní a měly by být používány pouze kontrolovaným způsobem s vědomím, že se způsob použití funkce může s&nbsp;jakoukoli novou verzí vydání změnit.
