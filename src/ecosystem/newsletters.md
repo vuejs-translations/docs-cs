@@ -9,4 +9,4 @@ Zde je (neúplný) seznam těch aktivních, na které jsme narazili:
 - [Weekly Vue News](https://weekly-vue.news/)
 - [Vue.js Developers Newsletter](https://vuejsdevelopers.com/newsletter/)
 
-Pokud znáte další skvělé weby, které tu ještě nejsou zahrnuty, zadejte prosím pull request pomocí odkazu níže!
+Pokud znáte další užitečné weby, které tu ještě nejsou zahrnuty, zadejte prosím pomocí odkazu níže pull request!

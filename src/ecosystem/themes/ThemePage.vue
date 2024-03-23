@@ -8,7 +8,7 @@ import ThemeContact from './ThemeContact.vue'
   <div class="ThemePage">
     <ThemeHero>
       <template #title>Šablony</template>
-      <template #lead>Prohlédněte si šablony, UI kity a pluginy. Můžete se podívat, jak naši partneři vytvářejí reálné Vue aplikace.</template>
+      <template #lead>Prohlédněte si šablony, UI kity a pluginy. Můžete se podívat, jak&nbsp;naši partneři vytvářejí reálné Vue aplikace.</template>
     </ThemeHero>
 
     <ThemeList />

@@ -18,8 +18,8 @@
       "We’re active members of the JavaScript and PHP community, and love to collaborate with other enthusiasts."
     ],
     "proficiencies": ["Vue", "Laravel", "React", "Node.js", "Unity"],
-    "region": ["North America"],
-    "location": ["Ontario, Canada"],
+    "region": ["Severní Amerika"],
+    "location": ["Ontario, Kanada"],
     "website": {
       "text": "www.vehikl.com",
       "url": "https://www.vehikl.com?utm_source=vue_partners_page"
@@ -41,8 +41,8 @@
       "Starting in February 2018 with Frontend Love and Vue.js Amsterdam, we are now responsible for many other conferences in Europe under the Frontend Love brand: React Live, AngularNL, Vue.js Amsterdam, and JS World Conference."
     ],
     "proficiencies": ["Vue", "Nuxt", "Node.js", "JAMStack"],
-    "region": ["Europe"],
-    "location": ["Amsterdam, Netherlands"],
+    "region": ["Evropa"],
+    "location": ["Amsterdam, Nizozemsko"],
     "website": {
       "text": "passionatepeople.io",
       "url": "https://passionatepeople.io/"
@@ -75,7 +75,7 @@
       "React Native",
       "Flutter"
     ],
-    "region": ["Europe"],
+    "region": ["Evropa"],
     "website": {
       "text": "www.monterail.com",
       "url": "https://www.monterail.com/services/vue/?utm_source=vuejs.org"
@@ -96,7 +96,7 @@
       "- Headless / Jamstack website development",
       "If you're looking for a Vue.js-focused front-end development team that writes great quality code and gets stuff done, click the contact button below and get in touch!"
     ],
-    "region": ["North America", "Latin America"],
+    "region": ["Severní Amerika", "Latinská Amerika"],
     "proficiencies": [
       "Vue.js",
       "Nuxt",
@@ -125,7 +125,7 @@
       "As for the methodology, running our startup studio has imprinted agile into our DNA. We have built a dozen MVPs and continued developing them over time according to the ever-changing business requirements, honing our ability to optimize for low initial time-to-market and high development velocity on any project we take on. We also internalized and standardized setting up and maintaining adequate codebase test coverage and regularly using CI/CD pipelines, making our lives and codes that much more manageable.",
       "If you would like to collaborate on extending your product team, you can contact us through our website."
     ],
-    "region": ["Europe"],
+    "region": ["Evropa"],
     "proficiencies": [
       "Vue",
       "Laravel",
@@ -148,7 +148,7 @@
       "Our team loves to follow the industry standards, some of which are managing git repo, code review, release deployments via CI/CD (DevOps), automated software testing, maintaining detailed technical documentation, application performance monitoring, etc.",
       "Email us, and let's build your software product."
     ],
-    "region": ["North America", "Asia", "Europe"],
+    "region": ["Severní Amerika", "Asie", "Evropa"],
     "proficiencies": ["Vue", "Laravel", "Nuxt", "Ionic", "Node.js"],
     "website": {
       "text": "webreinvent.com",
@@ -171,7 +171,7 @@
       "Want to learn more? Find us at herodevs.com or send us a note at hello@herodevs.com."
     ],
     "proficiencies": ["Vue", "Angular", "Migration", "EOL Support"],
-    "region": ["North America"],
+    "region": ["Severní Amerika"],
     "website": {
       "text": "herodevs.com",
       "url": "https://www.herodevs.com/support/vue"
