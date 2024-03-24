@@ -2,11 +2,11 @@
 
 Oficiální český překlad [dokumentace Vue.js](https://vuejs.org/).
 
-Podívejte se na [poznámky k překladu](/about/cs).
+Podívejte se na [poznámky k překladu](https://github.com/vuejs-translations/docs-cs/blob/main/src/about/cs.md).
 
 ## Pomoc s projektem
 
-Tato stránka je vytvořena pomocí [VitePress](https://github.com/vuejs/vitepress) a závisí na [@vue/theme](https://github.com/vuejs/vue-theme). Obsah je psán v Markdown formátu v soubrech umístěných v adresáři `src`. Pro jednodušší změny můžeze soubor editovat přímo na GitHubu a následně vytvořit Pull Request. 
+Tato stránka je vytvořena pomocí [VitePress](https://github.com/vuejs/vitepress) a závisí na [@vue/theme](https://github.com/vuejs/vue-theme). Obsah je psán v Markdown formátu v soubrech v adresáři `src`. Pro jednodušší změny můžeze soubor editovat přímo na GitHubu a následně vytvořit Pull Request. 
 
 Pro lokální spuštění je preferovaný package manažer [pnpm](https://pnpm.io/):
 
@@ -21,7 +21,7 @@ Projekt potřebje Node.js ve verzi `v14.0.0` nebo vyšší, protože používám
 
 - Podívejte se dokumentaci VitePress ohledně podporovaných [Markdown rozšíření](https://vitepress.dev/guide/markdown) a na schopnost [použití Vue syntaxe uvnitř Markdown souborů](https://vitepress.dev/guide/using-vue).
 
-- Přečtěte si [Writing Guide](https://github.com/vuejs-translations/docs-cs/blob/main/.github/contributing/writing-guide.md) (v angličtině) pro obecná pravidla a doporučení pro psaní a údržbu obsahu dokumentace + na [poznámky k českému překladu](/about/cs) pro udržení konzistence české verze.
+- Přečtěte si [Writing Guide](https://github.com/vuejs-translations/docs-cs/blob/main/.github/contributing/writing-guide.md) (v angličtině) pro obecná pravidla a doporučení pro psaní a údržbu obsahu dokumentace + na [poznámky k českému překladu](https://github.com/vuejs-translations/docs-cs/blob/main/src/about/cs.md) pro udržení konzistence české verze.
 
 - Vítáme jakoukoliv zpětnou vazbu a návrhy vylepšení ohledně kvality nebo přesnosti překladu. Pokud vám zde nějaký obsah vysloveně chybí, ujistěte se nejprve, že existuje v [originální Vue.js dokumentaci](https://vuejs.org/). Pokud ano, je to chyba, a musíme chybějící informace doplnit. Pokud ne, bude jej třeba nejprve vytvořit tam a potom teprve přenést do českého překladu. V každém případě [založte k probému issue](https://github.com/vuejs-translations/docs-cs/issues), domluvíme se na vhodném postupu.
 
