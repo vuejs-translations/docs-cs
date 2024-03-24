@@ -35,7 +35,7 @@ Náš [Kodex chování](/about/coc) je průvodcem, který usnadní obohacení n�
 - [The Awesome Vue Page](https://github.com/vuejs/awesome-vue): Podívejte se, jaké další skvělé prostředky byly publikovány dalšími úžasnými lidmi.
 - [Vue Telescope Explorer](https://vuetelescope.com/explore): Prozkoumejte webové stránky vytvořené pomocí Vue s&nbsp;vhledem do toho, jaké frameworky / knihovny používají.
 - [Made with Vue.js](https://madewithvuejs.com/): Ukázky projektů a knihoven vytvořených pomocí Vue.
-- [„Show and Tell“ sub-fórum](https://forum.vuejs.org/c/show-and-tell): Další skvělé místo, kde se můžete podívat, co ostatní vytvořili s a pro rostoucí Vue ekosystém.
+- [„Show and Tell“ sub-fórum](https://github.com/vuejs/core/discussions/categories/show-and-tell): Další skvělé místo, kde se můžete podívat, co ostatní vytvořili s a pro rostoucí Vue ekosystém.
 
 ## Co můžete udělat {#what-you-can-do}
 
