@@ -6,7 +6,7 @@ Podívejte se na [poznámky k překladu](https://github.com/vuejs-translations/d
 
 ## Pomoc s projektem
 
-Tato stránka je vytvořena pomocí [VitePress](https://github.com/vuejs/vitepress) a závisí na [@vue/theme](https://github.com/vuejs/vue-theme). Obsah je psán v Markdown formátu v soubrech v adresáři `src`. Pro jednodušší změny můžeze soubor editovat přímo na GitHubu a následně vytvořit Pull Request. 
+Tato stránka je vytvořena pomocí [VitePress](https://github.com/vuejs/vitepress) a závisí na [@vue/theme](https://github.com/vuejs/vue-theme). Obsah je psán ve formátu Markdown v souborech v adresáři `src`. Pro jednodušší změny můžete soubor editovat přímo na GitHubu a následně vytvořit Pull Request.
 
 Pro lokální spuštění je preferovaný package manažer [pnpm](https://pnpm.io/):
 
@@ -23,7 +23,7 @@ Projekt potřebje Node.js ve verzi `v14.0.0` nebo vyšší, protože používám
 
 - Přečtěte si [Writing Guide](https://github.com/vuejs-translations/docs-cs/blob/main/.github/contributing/writing-guide.md) (v angličtině) pro obecná pravidla a doporučení pro psaní a údržbu obsahu dokumentace + na [poznámky k českému překladu](https://github.com/vuejs-translations/docs-cs/blob/main/src/about/cs.md) pro udržení konzistence české verze.
 
-- Vítáme jakoukoliv zpětnou vazbu a návrhy vylepšení ohledně kvality nebo přesnosti překladu. Pokud vám zde nějaký obsah vysloveně chybí, ujistěte se nejprve, že existuje v [originální Vue.js dokumentaci](https://vuejs.org/). Pokud ano, je to chyba, a musíme chybějící informace doplnit. Pokud ne, bude jej třeba nejprve vytvořit tam a potom teprve přenést do českého překladu. V každém případě [založte k probému issue](https://github.com/vuejs-translations/docs-cs/issues), domluvíme se na vhodném postupu.
+- Vítáme jakoukoliv zpětnou vazbu a návrhy vylepšení ohledně kvality nebo přesnosti překladu. Pokud vám zde nějaký obsah vysloveně chybí, ujistěte se nejprve, že existuje v [originální Vue.js dokumentaci](https://vuejs.org/). Pokud ano, je to chyba a musíme chybějící informace doplnit. Pokud ne, bude jej třeba nejprve vytvořit tam, a potom teprve přenést do českého překladu. V každém případě [založte k probému issue](https://github.com/vuejs-translations/docs-cs/issues), domluvíme se na vhodném postupu.
 
 ## Práce se vzhledem
 
