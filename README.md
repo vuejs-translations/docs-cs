@@ -1,25 +1,30 @@
-# vuejs.org
+# cs.vuejs.org
 
-## Contributing
+Oficiální český překlad [dokumentace Vue.js](https://vuejs.org/).
 
-This site is built with [VitePress](https://github.com/vuejs/vitepress) and depends on [@vue/theme](https://github.com/vuejs/vue-theme). Site content is written in Markdown format located in `src`. For simple edits, you can directly edit the file on GitHub and generate a Pull Request.
+Podívejte se na [poznámky k překladu](/about/cs).
 
-For local development, [pnpm](https://pnpm.io/) is preferred as package manager:
+## Pomoc s projektem
+
+Tato stránka je vytvořena pomocí [VitePress](https://github.com/vuejs/vitepress) a závisí na [@vue/theme](https://github.com/vuejs/vue-theme). Obsah je psán v Markdown formátu v soubrech umístěných v adresáři `src`. Pro jednodušší změny můžeze soubor editovat přímo na GitHubu a následně vytvořit Pull Request. 
+
+Pro lokální spuštění je preferovaný package manažer [pnpm](https://pnpm.io/):
 
 ```bash
 pnpm i
 pnpm run dev
 ```
 
-This project requires Node.js to be `v14.0.0` or higher, because we use new JavaScript features in our code, such as optional chaining.
+Projekt potřebje Node.js ve verzi `v14.0.0` nebo vyšší, protože používáme novější JavaScript funkce, jako je _optional chaining_.
 
+## Práce s obsahem
 
-## Working on the content
+- Podívejte se dokumentaci VitePress ohledně podporovaných [Markdown rozšíření](https://vitepress.dev/guide/markdown) a na schopnost [použití Vue syntaxe uvnitř Markdown souborů](https://vitepress.dev/guide/using-vue).
 
-- See VitePress docs on supported [Markdown Extensions](https://vitepress.dev/guide/markdown) and the ability to [use Vue syntax inside markdown](https://vitepress.dev/guide/using-vue).
+- Přečtěte si [Writing Guide](https://github.com/vuejs-translations/docs-cs/blob/main/.github/contributing/writing-guide.md) (v angličtině) pro obecná pravidla a doporučení pro psaní a údržbu obsahu dokumentace + na [poznámky k českému překladu](/about/cs) pro udržení konzistence české verze.
 
-- See the [Writing Guide](https://github.com/vuejs/docs/blob/main/.github/contributing/writing-guide.md) for our rules and recommendations on writing and maintaining documentation content.
+- Vítáme jakoukoliv zpětnou vazbu a návrhy vylepšení ohledně kvality nebo přesnosti překladu. Pokud vám zde nějaký obsah vysloveně chybí, ujistěte se nejprve, že existuje v [originální Vue.js dokumentaci](https://vuejs.org/). Pokud ano, je to chyba, a musíme chybějící informace doplnit. Pokud ne, bude jej třeba nejprve vytvořit tam a potom teprve přenést do českého překladu. V každém případě [založte k probému issue](https://github.com/vuejs-translations/docs-cs/issues), domluvíme se na vhodném postupu.
 
-## Working on the theme
+## Práce se vzhledem
 
-If changes need to made for the theme, check out the [instructions for developing the theme alongside the docs](https://github.com/vuejs/vue-theme#developing-with-real-content).
+Pokud by bylo potřeba provést změny vzhledu, podívejte se na [instrukce pro vývoj vzhledu souběžně s dokumentací](https://github.com/vuejs/vue-theme#developing-with-real-content).
