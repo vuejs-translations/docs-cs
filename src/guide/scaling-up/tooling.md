@@ -86,10 +86,10 @@ Pokud hledáte odlehčenou alternativu použitelnou bez build fáze, lze využí
 
 ## Podpora v IDE {#ide-support}
 
-- Doporučené nastavení IDE je [VSCode](https://code.visualstudio.com/) + [rozšíření Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (dříve Volar). Rozšíření poskytuje zvýrazňování syntaxe, podporu TypeScriptu a inteligentní nápovědu pro výrazy šablon a vlastnosti (props) komponent.
+- Doporučené nastavení IDE je [VS Code](https://code.visualstudio.com/) + [rozšíření Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (dříve Volar). Rozšíření poskytuje zvýrazňování syntaxe, podporu TypeScriptu a inteligentní nápovědu pro výrazy šablon a vlastnosti (props) komponent.
 
   :::tip
-    Vue - Official nahrazuje [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), naše předchozí oficiální rozšíření VSCode pro Vue 2. Pokud máte momentálně nainstalovaný Vetur, ujistěte se, že ho ve Vue 3 projektech vypnete.
+    Vue - Official nahrazuje [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), naše předchozí oficiální rozšíření VS Code pro Vue 2. Pokud máte momentálně nainstalovaný Vetur, ujistěte se, že ho ve Vue 3 projektech vypnete.
   :::
 
 - [WebStorm](https://www.jetbrains.com/webstorm/) též poskytuje skvělou vestavěnou podporu pro Vue SFC.
@@ -142,7 +142,7 @@ Uživatelé, kteří dříve používali Vue CLI, mohou být zvyklí na konfigur
 
 1. `npm install -D eslint eslint-plugin-vue`, poté postupujte podle [průvodce konfigurací](https://eslint.vuejs.org/user-guide/#usage) `eslint-plugin-vue`.
 
-2. Nastavte rozšíření IDE pro ESLint, například [ESLint pro VSCode](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), abyste měli během vývoje zpětnou vazbu linteru přímo ve vašem editoru. Tím se také zabrání zbytečným nákladům na lintování při spuštění vývojového (dev) serveru.
+2. Nastavte rozšíření IDE pro ESLint, například [ESLint pro VS Code](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), abyste měli během vývoje zpětnou vazbu linteru přímo ve vašem editoru. Tím se také zabrání zbytečným nákladům na lintování při spuštění vývojového (dev) serveru.
 
 3. Spusťte ESLint jako součást příkazu pro produkční build, abyste získali úplnou zpětnou vazbu linteru před odesláním do produkce.
 
@@ -150,7 +150,7 @@ Uživatelé, kteří dříve používali Vue CLI, mohou být zvyklí na konfigur
 
 ## Formátování {#formatting}
 
-- [Rozšíření Vue - Official](https://github.com/vuejs/language-tools) pro VSCode samo o sobě poskytuje formátování pro Vue SFC.
+- [Rozšíření Vue - Official](https://github.com/vuejs/language-tools) pro VS Code samo o sobě poskytuje formátování pro Vue SFC.
 
 - Alternativně nabízí vestavěnou podporu pro formátování Vue SFC také [Prettier](https://prettier.io/).
 

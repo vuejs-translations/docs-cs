@@ -24,12 +24,12 @@ Při použití Vite-based nastavení jsou vývojový (dev) server a bundler tran
 
 ### Podpora IDE {#ide-support}
 
-- Silně doporučujeme [Visual Studio Code](https://code.visualstudio.com/) (VSCode) pro jeho skvělou podporu TypeScriptu bez dalšího nastavování.
+- Silně doporučujeme [Visual Studio Code](https://code.visualstudio.com/) (VS Code) pro jeho skvělou podporu TypeScriptu bez dalšího nastavování.
 
-  - [Rozšíření Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (dříve Volar) je oficiální rozšíření pro VSCode, které poskytuje podporu TypeScriptu pro Vue SFC, spolu s mnoha dalšími skvělými funkcemi.
+  - [Rozšíření Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (dříve Volar) je oficiální rozšíření pro VS Code, které poskytuje podporu TypeScriptu pro Vue SFC, spolu s mnoha dalšími skvělými funkcemi.
 
     :::tip
-    Vue - Official nahrazuje [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), naše předchozí oficiální rozšíření VSCode pro Vue 2. Pokud máte momentálně nainstalovaný Vetur, ujistěte se, že ho ve Vue 3 projektech vypnete.
+    Vue - Official nahrazuje [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), naše předchozí oficiální rozšíření VS Code pro Vue 2. Pokud máte momentálně nainstalovaný Vetur, ujistěte se, že ho ve Vue 3 projektech vypnete.
     :::
 
 - [WebStorm](https://www.jetbrains.com/webstorm/) též poskytuje nativní podporu jak pro TypeScript, tak pro Vue. Další JetBrains IDE je také podporují, buď nativně nebo pomocí [bezplatného pluginu](https://plugins.jetbrains.com/plugin/9442-vue-js). Od verze 2023.2 obsahuje WebStorm a Vue Plugin vestavěnou podporu pro Vue Language Server. Můžete nastavit službu Vue tak, aby používala integraci Volar na všech verzích TypeScriptu v _Settings > Languages & Frameworks > TypeScript > Vue_. Výchozí nastavení používá Volar pro verze TypeScriptu 5.0 a vyšší.

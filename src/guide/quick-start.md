@@ -420,7 +420,7 @@ Z bezpečnostních důvodů mohou ES moduly fungovat jen přes protokol `http://
 
 Pro spuštění lokálního HTTP serveru si napřed nainstalujte [Node.js](https://nodejs.org/en/) a potom zadejte `npx serve` z příkazové řádky ve stejném adresáři, v jakém je váš HTML soubor. Můžete použít i jakýkoli jiný HTTP server, který umí poskytovat statické soubory se správnými MIME typy.
 
-Mohli jste si povšimnout, že šablona importované komponenty je zapsaná jako inline JavaScript řetězec. Pokud používáte VSCode, můžete nainstalovat rozšíření [es6&#8209;string&#8209;html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) a pro zapnutí zvýraznění syntaxe řetězce uvést předponou `/*html*/`.
+Mohli jste si povšimnout, že šablona importované komponenty je zapsaná jako inline JavaScript řetězec. Pokud používáte VS Code, můžete nainstalovat rozšíření [es6&#8209;string&#8209;html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) a pro zapnutí zvýraznění syntaxe řetězce uvést předponou `/*html*/`.
 
 ## Další kroky {#next-steps}
 
