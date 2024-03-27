@@ -2,9 +2,11 @@
 
 ## Obecné poznámky
 
-Proč tato sekce?
+Tuto stránku, která je specifická pro českou verzi dokumentace, jsme se rozhodli založit proto, abychom vytvořili podklad pro udržení konzistence překladu do budoucna. Původní překlad dokončený na jaře 2024 je dílem jednoho člověka, ale je možné, že se v&nbsp;průběhu času přidají další přispivatelé. Bylo by dobré držet nějakou jednotnou linii a&nbsp;stejné výrazy překládat stále stejně.
 
-Pokud jsme měli pocit, že český překlad může být matoucí či zavádějící, uvádíme v závorce původní anglický termín.
+Níže naleznete komentáře k původu vybraných překladů a důvody, které k nim vedly. Může to být jak reference, tak podklad pro případnou diskusi, že by se ten či onen termín měl napříč dokumentací změnit. Pokud budete takové návrhy mít, neváhejte [založit issue](https://github.com/vuejs-translations/docs-cs/issues) a začít diskusi.
+
+Pokud jsme měli pocit, že český překlad může být matoucí či zavádějící, uvádíme v&nbsp;závorce i původní anglický termín.
 
 ## Poznámky ke konkrétním překladům
 
@@ -12,11 +14,11 @@ Pokud jsme měli pocit, že český překlad může být matoucí či zaváděj�
 
 #### Elementy (elements / nodes)
 
-Když se mluví o prvcích DOM, snažili jsme se pojmy důsledně unifikovat a nepřeskaovat náhodně mezi `elementem`, `prvkem`, `tagem` či `uzlem`. Pro překlad jsme zcela arbitrárně upřednostnili slovo `element`.
+Když se mluví o prvcích DOM, snažili jsme se pojmy důsledně unifikovat a nepřeskakovat náhodně mezi `elementem`, `prvkem`, `tagem` či `uzlem`. Pro překlad jsme zcela arbitrárně upřednostnili slovo `element`.
 
-Malou výjimku jsme udělali v částech věnovaných vykreslování, kde se mluví o „virtuálním DOM“. Zde bývá použito nepřeložené `vnode`, což je zkratka pro „virtual node“. Zde se jevilo lepší pojem coby _„terminus technicus“_ zachovat.
+Malou výjimku jsme udělali v částech věnovaných vykreslování, kde se mluví o&nbsp;_„virtuálním DOM“_. Zde bývá použito nepřeložené `vnode`, což je zkratka pro _„virtual node“_. Zde se jevilo lepší pojem coby _terminus technicus_ zachovat.
 
-Občas se objevuje i netransformované slovo `tag`, ale pouze ve chvíli, kdy se mluví o konkrétním HTML markupu (například o `<h1>` pro nadpis).
+Občas se objevuje i netransformované slovo `tag`, ale pouze ve chvíli, kdy se mluví o&nbsp;konkrétním HTML markupu (například o `<h1>` pro nadpis).
 
 #### Atributy (attributes)
 
@@ -28,7 +30,21 @@ Vždy je myšlen atribut HTML elementu dle specifikace jazyka HTML. V následuj�
 
 #### Event listenery / handlery
 
-Zde jsme se rozhodli zachovat raději anglofonní přepis, než zavádět české překlady „posluchače událostí“ či „obsluha událostí“. Věříme, že programátoři s nezbytným minimem znalostí JavaScriptu budou vědět, o co jde.
+Zde jsme se rozhodli zachovat raději anglofonní přepis, než zavádět české překlady _„posluchače událostí“_ či _„obsluha událostí“_. Věříme, že programátoři s nezbytným minimem znalostí JavaScriptu budou vědět, o co jde.
+
+#### Root
+
+Obvykle se pojem vyskytuje ve spojení jako `root element`. Šlo by přeložit do češtiny jako _„kořenový“_, ale zatím se nám do toho nechtělo. Je to kandidát na změnu, pokud by&nbsp;se našlo dost hlasů, kterým nepřeložená forma nevyhovuje.
+
+#### Scope
+
+Pojem `scope` se sice dá přeložit jako _„rozsah platnosti“_, protože přesně to (nejen) v&nbsp;JavaScriptu znamená, ale podobně jako u jiných nepřeložených slov nám to přišlo nadbytečné.
+
+#### Arrow funkce
+
+Jde o alternativní způsob zápisu funkcí v JavaScriptu ve formátu: `( /* parametry funkce */ ) => { /* tělo funkce */ }`. Označení `arrow` pochází ze symbolu `=>`. Tento částečný překlad je podle nás v češtině častější, než doslovné a&nbsp;přitom matoucí _„šipkové funkce“_.
+
+[Viz](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
 ### Vue
 
@@ -38,47 +54,43 @@ Tato stránka se zabývá pouze původem překladů do češtiny. Glosář vysv�
 
 #### ref
 
-Slovo `ref` patrně rozumně přeložit nelze. Označuje „reaktivní proměnnou“ vzniklou použitím built-in funkce `ref()`, což je jeden ze základních stavebních kamenů současného Vue.
+Slovo `ref` patrně rozumně přeložit nelze. Označuje _„reaktivní proměnnou“_ vzniklou použitím built-in funkce `ref()`, což je jeden ze základních stavebních kamenů současného Vue.
 
 [Viz](/glossary/#ref)
 
 #### Možnosti (options)
 
-Slovo `options` je sice nejspíš každému v IT „jasné“, ale najít jeho uspokojivý překlad do češtiny je složitější. Zvlášť tak, aby byl konzistentní s jinými. Nakonec vyhrálo slovo „možnost“.
+Slovo `option` je sice nejspíš každému v IT jasné, ale najít jeho uspokojivý překlad do češtiny je složitější. Zvlášť tak, aby byl konzistentní s jinými. Nakonec vyhrálo slovo `možnost`.
 
 [Viz](/glossary/#options-api)
 
 #### Vlastnosti (props)
 
-Pojem `props` **není** totožný s „properties“. Označuje „vlastnosti“, ale pouze ty, které se předávají dovnitř [SFC komponenty](https://vuejs.org/glossary/#single-file-component), která je speciálním způsobem deklaruje. 
+Pojem `props` **není** totožný s _„properties“_. Označuje _„vlastnosti“_, ale pouze ty, které se předávají dovnitř [SFC komponenty](https://vuejs.org/glossary/#single-file-component), která je speciálním způsobem deklaruje. 
 
 [Viz](/glossary/#prop)
 
 #### Lifecycle hooks
 
-„Lifecycle“ sice jako „životní cyklus“ přeložíme snadno, ovšem ve spojení s pojmem „hooks“ je to horší. Překladače sice nabídly možnost „háčky životního cyklu“, nemyslíme si však, že bychom tomu pomohli. Pojem každopádně značí kus kódu (funkci), který se vykoná v určitou chvíli práce s komponentou. To znamená například při připojení vykreslené komponenty do DOM (mount) nebo naopak její odebrání (unmount).
+Slovo _„lifecycle“_ sice jako _„životní cyklus“_ přeložíme snadno, ovšem ve spojení s pojmem „hooks“ je to horší. Překladače sice nabídly možnost _„háčky životního cyklu“_, nemyslíme si však, že bychom tomu pomohli. Pojem každopádně značí mechanismus Vue, který vykoná zadaný kus kódu (callback funkci) v určitou chvíli práce s komponentou. To znamená například při připojení vykreslené komponenty do DOM (`mount`) nebo naopak její odebrání (`unmount`).
 
 [Viz](/glossary/#lifecycle-hooks)
 
 #### Provide / inject
 
-Další oříšek z cyklu vnitřního fungování Vue. Jde o mechanismus, jak posílat vlastnosti (props) do komponent potomků přes více mezičlánků. Aby se zabránilo negativnímu jevu, který překládáme jako _„drilling vlastností“_, kdy každá komponenta v řetězci musí deklrovat vlastnost jenom proto, aby ji mohla přeposlat dát, lze v nadřazené komponentě použít techniku **„poskytutí“** (`provide`) hodnoty, kterou lze v libovolném potomkovi **„implementovat“** (`inject`). 
+Další oříšek z cyklu vnitřního fungování Vue. Jde o způsob, jak posílat vlastnosti (props) do komponent potomků přes více mezičlánků. Aby se zabránilo negativnímu jevu, který překládáme jako _„drilling vlastností“_, kdy každá komponenta v řetězci musí deklrovat vlastnost jenom proto, aby ji mohla přeposlat dát, lze v nadřazené komponentě použít techniku **„poskytutí“** (`provide`) hodnoty, kterou lze v libovolném potomkovi **„implementovat“** (`inject`). 
 
-Chtěli jsme se zejména vyhnout použití spíše nelogického českého slova „injektovat“, proto opis pomocí „implementovat“. Zároveň tam, kde se hovoří přímo o „Provide / inject“ mechanismu jako takovém, překlad nepoužíváme, aby nedocházelo k přílišnému zmatení.
+Chtěli jsme se zejména vyhnout použití spíše nelogického českého slova _„injektovat“_, proto opis pomocí _„implementovat“_. Zároveň tam, kde se hovoří přímo o _„Provide / inject“_ mechanismu jako takovém, překlad nepoužíváme, aby nedocházelo k přílišnému zmatení.
 
 [Viz](/glossary/#provide-inject)
 
-<!-- WIP -->
+#### Binding
 
-- root
-- scope
-- mount
-- arrow fce
-- binding?
+Toto je možná nejvíc kontroverzní (ne)překlad v aktuální verzi dokumentace. Myšlena je vždy _„vazba“_ - například proměnné na hodnotu uživatelského vstupu z formuláře nebo vlastnosti komponenty na dynamickou hodnotu. Přišlo nám, že zachováním nepřeloženého pojmu bude zjevnější např. u nadpisů kapitol příručky (_„Binding dat z&nbsp;formulářů“_ vs. _„Vazba dat s formulářů“_), ale pravdou je i to, že v běžném textu slovo „binding“ často působí nepatřičně. O této záležitosti budeme ještě přemýšlet.
 
 ## Slovník vybraných přeložených pojmů
 
-Zde sledujeme překlady pro (hlavně) technické pojmy, které se objevují na více místech v dokumentaci, za účelem zachovnání konzistence překladu. Zde uvedené hodnoty nejsou dogma, ale je to něco, od čeho se lze odrazit. Pokud budete někdy chtít pomoct s překladem, prosím podívejte se na tento seznam, zda už „závazný“ překlad neexistuje. Případně neváhejte doplnit chybějící nebo navrhnout alternativy.
+Zde sledujeme překlady pro (hlavně) technické pojmy, které se objevují na více místech v dokumentaci, za účelem zachovnání konzistence překladu. Zde uvedené hodnoty nejsou dogma, ale je to něco, od čeho se lze odrazit. Pokud budete někdy chtít pomoct s&nbsp;překladem, podívejte se prosím na tento seznam, zda už „závazný“ překlad neexistuje. Případně neváhejte doplnit chybějící nebo [navrhnout](https://github.com/vuejs-translations/docs-cs/issues) alternativy.
 
 ### Varianty
 
@@ -105,7 +117,7 @@ Zde sledujeme překlady pro (hlavně) technické pojmy, které se objevují na v
 * 🟩 best practice = osvědčené postupy
 * 🟩 bind (v.) = provést binding
 * 🟥 binding = binding
-* 🟩 bug = chyba ('bug' lze občas nechat, ale určitě raději „zdroj chyb“ než „zdroj bugů“)
+* 🟩 bug = chyba ('bug' lze nechat, ale určitě raději „zdroj chyb“ než „zdroj bugů“)
 * 🟩 build step = build fáze
 * 🟩 build tool = build nástroj
 * 🟩 built-in (adj.) = vestavěný
@@ -192,7 +204,7 @@ Zde sledujeme překlady pro (hlavně) technické pojmy, které se objevují na v
 * 🟩 mutate (v.) = měnit
 * 🟩 mutation = změna
 * 🟩 nested = vnořený
-* 🟩 node (DOM) = element (dle mého není třeba rozlišovat mezi „element“ (obecný) a „node“ (konkrétní))
+* 🟩 node (DOM) = element (není třeba mít „element“ (obecný) a „node“ (konkrétní))
 * 🟩 notice (v.) = všimněte si
 * 🟩 object types = objektové typy
 * 🟥 open source = open source
@@ -278,4 +290,4 @@ Zde sledujeme překlady pro (hlavně) technické pojmy, které se objevují na v
 
 Nikdo není dokonalý a jelikož alespoň jedna chyba je v každém programu, nepochybně jsou nějaké chyby i v tomto překladu. Cokoli se vám nebude zdát nebo pokud vám přijde, že něco není z námi použitých formulací pochopitelné, neváhejte se ozvat.
 
-Můžete využít [GitHub issues](https://github.com/vuejs-translations/docs-cs/issues) a založit hlášení přímo tam, nebo kontaktujte jedním z dostupných způsobů [Aloise Sečkára](https://alois-seckar.cz/).
+Můžete využít [GitHub issues](https://github.com/vuejs-translations/docs-cs/issues) a založit hlášení přímo tam, nebo kontaktujte jedním z&nbsp;dostupných způsobů [Aloise Sečkára](https://alois-seckar.cz/).
