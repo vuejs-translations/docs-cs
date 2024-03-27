@@ -189,7 +189,7 @@ S tímto zápisem bude vždy aplikována `errorClass`, ale `activeClass` bude p�
 To však může být trochu nepřehledné, pokud máte podmíněných tříd více. Proto je kromě toho možné použít uvnitř pole i objektovou syntaxi:
 
 ```vue-html
-<div :class="[{ active: isActive }, errorClass]"></div>
+<div :class="[{ activeClass: isActive }, errorClass]"></div>
 ```
 
 ### S komponentami {#with-components}
