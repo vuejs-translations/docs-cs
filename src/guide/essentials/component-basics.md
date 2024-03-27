@@ -298,7 +298,7 @@ A potom pro každý z nich vykreslit jeho vlastní kompomentu pomocí `v-for`:
 
 </div>
 
-Všimněte si, jak je k předávání dynamických prop hodnot použitá direktiva `v-bind`. To je užitečné zejména tehdy, když předem přesně nevíte, jaký obsah se chystáte vykreslit.
+Všimněte si, jak je k předávání dynamických prop hodnot použitá zkrácená [`v-bind` syntaxe](/api/built-in-directives.html#v-bind) (`:titulek="post.titulek"`). To je užitečné zejména tehdy, když předem přesně nevíte, jaký obsah se chystáte vykreslit.
 
 To je zatím vše, co o vlastnostech (props) potřebujete vědět. Poté, co si přečtete tuto stránku a budete se s jejím obsahem cítit seznámeni, však doporučujeme později se vrátit a přečíst si úplného [průvodce pro Vlastnosti (Props)](/guide/components/props).
 
