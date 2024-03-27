@@ -75,7 +75,7 @@ Pokud má atribut stejný název jako JavaScript hodnota, která je na něj váz
 <div v-bind:id></div>
 ```
 
-Je to podobné jako „property shorthand“ syntaxe při deklaraci JavaScript objektů. Tato funkce je ovšem dostupná až ve Vue 3.4+.
+Je to podobné jako „property shorthand“ syntaxe při deklaraci JavaScript objektů. Tato funkce je ovšem dostupná až od Vue 3.4+.
 
 ### Boolean atributy {#boolean-attributes}
 

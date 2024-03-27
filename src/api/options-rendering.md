@@ -86,7 +86,7 @@ Nastavuje možnosti runtime kompilátoru pro šablonu komponenty.
 
 ## slots<sup class="vt-badge ts"/> {#slots}
 
-Možnost pomoci s odvozením typů při programovém použití slotů ve funkcích pro vykreslení. Podporováno pouze ve verzi 3.3+.
+Možnost pomoci s odvozením typů při programovém použití slotů ve funkcích pro vykreslení. Podporováno až od verze 3.3+.
 
 - **Detaily**
 

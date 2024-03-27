@@ -36,7 +36,7 @@ Používá se k anotaci vlastnosti (prop) s pokročilejšími typy při použit�
 
 Alias pro `T | Ref<T>`. Užitečné pro anotaci vstupních parametrů v [Composables](/guide/reusability/composables.html).
 
-- Podporováno pouze od verze 3.3+.
+- Podporováno až od verze 3.3+.
 
 ## ExtractPropTypes\<T> {#extractproptypes}
 
@@ -73,7 +73,7 @@ Pro extrakci veřejně orientovaných vlastností, tj. vlastností, které můž
 
 Extrahuje typy vlastností (props) z objektu s runtime props. Extrahované typy jsou veřejně orientované - tj. vlastnosti, které může předat rodič. 
 
-- Podporováno pouze od verze 3.3+.
+- Podporováno až od verze 3.3+.
 
 - **Příklad**
 

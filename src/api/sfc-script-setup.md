@@ -374,7 +374,7 @@ const slots = defineSlots<{
 </script>
 ```
 
-- Podporováno pouze ve verzi 3.3+.
+- Podporováno až od verze 3.3+.
 
 ## `useSlots()` & `useAttrs()` {#useslots-useattrs}
 
@@ -395,7 +395,7 @@ const attrs = useAttrs()
 
 `<script setup>` může být použito společně s normálním `<script>`. Jednoduchý `<script>` může být potřeba v případech, kdy chceme:
 
-- Deklarovat vlastnosti, které nelze vyjádřit v `<script setup>`, například `inheritAttrs` nebo custom možnosti zpřístupněné pomocí pluginů (Může být nahrazeno makrem [`defineOptions`](/api/sfc-script-setup#defineoptions) ve verzi 3.3+).
+- Deklarovat vlastnosti, které nelze vyjádřit v `<script setup>`, například `inheritAttrs` nebo custom možnosti zpřístupněné pomocí pluginů (Může být nahrazeno makrem [`defineOptions`](/api/sfc-script-setup#defineoptions) od verze 3.3+).
 - Deklarovat pojmenované exporty.
 - Provést vedlejší efekty nebo vytvořit objekty, které by měly být spuštěny pouze jednou.
 

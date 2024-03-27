@@ -106,7 +106,7 @@ Pomocná funkce pro podporu typů při definování Vue komponenty s odvozován�
     component: ComponentOptions
   ): ComponentConstructor
 
-  // syntaxe pomocí funkce (vyžaduje 3.3+)
+  // syntaxe pomocí funkce (3.3+)
   function defineComponent(
     setup: ComponentOptions['setup'],
     extraOptions?: ComponentOptions
