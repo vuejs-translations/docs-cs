@@ -44,7 +44,7 @@ components/
 
 **Názvy souborů [Single-File komponent (SFC)](/guide/scaling-up/sfc) by měly být buďto vždy PascalCase nebo vždy kebab-case.**
 
-PascalCase funguje nejlépe s automatickým dokončováním v editorech kódu, protože je konzistentní s tím, jak odkazujeme na komponenty v JS(X) a v šablonách, kdykoli je to možné. Názvy s mixem malých a velkých písmen však mohou někdy způsobit problémy v case-insensitive souborových systémech, a proto je kebab-case také dokonale přijatelný.
+PascalCase funguje nejlépe s automatickým dokončováním v editorech kódu, protože je konzistentní s tím, jak odkazujeme na komponenty v JS(X) a v šablonách, kdykoli je to možné. Názvy s mixem malých a velkých písmen však mohou někdy způsobit problémy v&nbsp;case-insensitive souborových systémech, a proto je kebab-case také dokonale přijatelný.
 
 <div class="style-example style-example-bad">
 <h3>Špatně</h3>
@@ -158,9 +158,9 @@ components/
 
 ## Těsně provázané názvy komponent {#tightly-coupled-component-names}
 
-**Komponenty potomků, ktero jsou těsně provázané s jejich rodičovskou komponentou, by měly obsahovat název nadřazené komponenty jako předponu.**
+**Komponenty potomků, které jsou těsně provázané s jejich rodičovskou komponentou, by měly obsahovat název nadřazené komponenty jako předponu.**
 
-Pokud má komponenta smysl pouze v kontextu jedné nadřazené komponenty, měl by být tento vztah zřejmý z jejího názvu. Vzhledem k tomu, že editory obvykle řadí soubory abecedně, toto také drží související soubory vedle sebe.
+Pokud má komponenta smysl pouze v kontextu jedné nadřazené komponenty, měl by být tento vztah zřejmý z jejího názvu. Vzhledem k tomu, že editory obvykle řadí soubory abecedně, to také drží související soubory vedle sebe.
 
 ::: details Podrobné vysvětlení
 Možná budete v pokušení řešit tento problém vnořením podřízených komponent do adresářů pojmenovaných po jejich rodiči. Například:
@@ -174,7 +174,7 @@ components/
    |- index.vue
 ```
 
-or:
+nebo:
 
 ```
 components/
@@ -234,7 +234,7 @@ components/
 ::: details Podrobné vysvětlení
 Možná se ptáte:
 
-> ""Proč bychom nutili názvy komponent používat méně přirozený jazyk?"
+> „Proč bychom nutili názvy komponent používat méně přirozený jazyk?“
 
 V přirozené angličtině se přídavná jména a další deskriptory obvykle objevují před podstatnými jmény, zatímco výjimky vyžadují spojovací slova. Například:
 
@@ -244,11 +244,15 @@ V přirozené angličtině se přídavná jména a další deskriptory obvykle o
 
 Pokud chcete, určitě můžete tato spojovací slova zahrnout do názvů komponent, ale pořadí je stále důležité.
 
-:::warning Čeština
-Výše uvedený text platí spíše pro anglický jazyk. V češtině sice také říkáme _Káva s mlékem_, ale vystačíme si s _Polévka dne_ a _Návštěvník muzea_ i bez spojovacích slov.
-:::
+---
 
-Také si uvědomte, že **co je považováno za "nejvyšší level" bude platit v kontextu vaší aplikace**. Představte si například aplikaci s vyhledávacím formulářem. Může obsahovat komponenty jako jsou tato:
+  **Poznámka - Čeština**
+  
+  Výše uvedený text platí spíše pro anglický jazyk. V češtině sice také říkáme _Káva s&nbsp;mlékem_, ale vystačíme si s _Polévka dne_ a _Návštěvník muzea_ i bez spojovacích slov.
+
+---
+
+Také si uvědomte, že **co je považováno za „nejvyšší level“, bude platit v kontextu vaší aplikace**. Představte si například aplikaci s vyhledávacím formulářem. Může obsahovat komponenty jako jsou tato:
 
 ```
 components/
@@ -260,7 +264,7 @@ components/
 |- TermsCheckbox.vue
 ```
 
-Jak jste si mohli všimnout, je docela obtížné zjistit, které komponenty jsou specifické pro vyhledávání. Nyní přejmenujme komponenty podle pravidla:
+Jak jste si mohli všimnout, je docela obtížné zjistit, které komponenty jsou specifické pro&nbsp;vyhledávání. Nyní přejmenujme komponenty podle pravidla:
 
 ```
 components/
@@ -274,12 +278,12 @@ components/
 
 Protože editory obvykle organizují soubory abecedně, všechny důležité vztahy mezi komponentami jsou nyní zřejmé na první pohled.
 
-Možná vás napadlo vyřešit tento problém vnořením všech komponent vyhledávání do adresáře „search“ a všech komponent nastavení do adresáře „settings“. Tento přístup doporučujeme zvážit pouze ve skutečně velkých aplikacích (např. 100+ komponent), a to z těchto důvodů:
+Možná vás napadlo vyřešit tento problém vnořením všech komponent vyhledávání do adresáře „search“ a všech komponent nastavení do adresáře „settings“. Tento přístup doporučujeme zvážit pouze ve skutečně velkých aplikacích (např. 100+ komponent), a&nbsp;to&nbsp;z těchto důvodů:
 
 - Procházení vnořenými podadresáři obvykle zabere více času než procházení jediným adresářem `components`.
-- Konflikty názvů (např. více komponent `ButtonDelete.vue`) ztěžují rychlou navigaci ke konkrétní komponentě v editoru kódu.
-- Refaktorování bude obtížnější, protože funkce find-and-replace často nestačí k aktualizaci relativních odkazů na přesouvanou komponentu.
-  :::
+- Konflikty názvů (např. více komponent `ButtonDelete.vue`) ztěžují rychlou navigaci ke&nbsp;konkrétní komponentě v editoru kódu.
+- Refaktorování bude obtížnější, protože funkce _find-and-replace_ často nestačí k&nbsp;aktualizaci relativních odkazů na přesouvanou komponentu.
+:::
 
 <div class="style-example style-example-bad">
 <h3>Špatně</h3>
@@ -315,7 +319,7 @@ components/
 
 **Komponenty, kter nemají žádný obsah, by měly být zapsány jako nepárové (self-closing) v [Single-File komponentách (SFC)](/guide/scaling-up/sfc), string-šablonách, a [JSX](/guide/extras/render-function#jsx-tsx) - nikdy však v in-DOM šablonách.**
 
-Komponenty zapsané jako nepárový (self-closing) tag sdělují nejen, že nemají žádný obsah, ale ani **nemají** žádný obsah mít. Je to rozdíl mezi prázdnou stránkou v knize a stránkou označenou „Tato stránka byla záměrně ponechána prázdná“. Váš kód je také bez zbytečného uzavíracího tagu čistší.
+Komponenty zapsané jako nepárový (self-closing) tag sdělují nejen, že nemají žádný obsah, ale ani **nemají** žádný obsah mít. Je to rozdíl mezi prázdnou stránkou v knize a stránkou označenou _„Tato stránka byla záměrně ponechána prázdná“_. Váš kód je také bez zbytečného uzavíracího tagu čistší.
 
 HTML bohužel neumožňuje uživatelské nepárové (self-closing) elementy – pouze [oficiální „void“ elementy](https://www.w3.org/TR/html/syntax.html#void-elements). To je důvod, proč je tato strategie možná pouze tehdy, když se Vue kompilátor šablon může k šabloně  dostat před jejím vložením do DOM a poskytnout HTML vyhovující specifikaci.
 
@@ -361,7 +365,7 @@ PascalCase má oproti kebab-case několik výhod:
 
 Bohužel kvůli necitlivosti HTML na malá a velká písmena musí in-DOM šablony nadále používat kebab-case.
 
-Také vezměte do úvahy, že pokud jste již do kebab-case investovali hodně úsilí, může být konzistence s HTML konvencemi a možnost používat velká a malá písmena stejně ve všech vašich projektech důležitější než výše uvedené výhody. V těchto případech je také přijatelné **používání kebab-case všude.**
+Také vezměte do úvahy, že pokud jste již do kebab-case investovali hodně úsilí, může být konzistence s HTML konvencemi a možnost používat velká a malá písmena stejně ve&nbsp;všech vašich projektech důležitější než výše uvedené výhody. V těchto případech je také přijatelné **používání kebab-case všude.**
 
 <div class="style-example style-example-bad">
 <h3>Špatně</h3>
@@ -561,8 +565,9 @@ const props = defineProps({
 </div>
 
 ```vue-html
-// pro SFC - ujistěte se, že je použití malých a velkých písmen konzistentní napříč projektem
-// můžete použít kteroukoli konvenci, ale nedoporučujeme míchat oba dva různé styly
+// pro SFC - ujistěte se, že je použití malých a velkých písmen 
+// konzistentní napříč projektem můžete použít kteroukoli konvenci, 
+// ale nedoporučujeme míchat oba dva různé styly
 <WelcomeMessage greeting-text="hi"/>
 // nebo
 <WelcomeMessage greetingText="hi"/>
@@ -618,7 +623,7 @@ V JavaScriptu je dělení objektů s více vlastnostmi na více řádků obecně
 
 **Šablony komponent by měly obsahovat pouze jednoduché výrazy a složitější výrazy přepracované do computed proměnných nebo funkcí.**
 
-Složité výrazy ve vašich šablonách je učiní méně deklarativní. Měli bychom se snažit popsat _co_ by se mělo objevit, nikoli _jak_ tuto hodnotu počítáme. Computed proměnné a funkce také umožňují opětovné použití kódu.
+Složité výrazy ve vašich šablonách je učiní méně deklarativní. Měli bychom se snažit popsat _co_ by se mělo objevit, nikoli _jak_ tuto hodnotu počítáme. Computed proměnné a&nbsp;funkce také umožňují opětovné použití kódu.
 
 <div class="style-example style-example-bad">
 <h3>Špatně</h3>
@@ -680,15 +685,16 @@ const normalizedFullName = computed(() =>
 Jednodušší, dobře pojmenované computed proměnné jsou:
 
 - **Jednodušší na testování**
+
   Když každá computed proměnná obsahuje pouze velmi jednoduchý výraz s velmi malým počtem závislostí, je mnohem jednodušší napsat testy potvrzující, že funguje správně.
 
 - **Jednodušší pro čtení**
 
-  Zjednodušení computed proměnných vás nutí přiřadit každé hodnotě popisný název, i když není znovu použita. To usnadňuje ostatním vývojářům (a vašemu budoucímu já) soustředit se na kód, který je zajímá, a zjistit, o co v něm jde.
+  Zjednodušení computed proměnných vás nutí přiřadit každé hodnotě popisný název, i&nbsp;když není znovu použita. To usnadňuje ostatním vývojářům (a vašemu budoucímu já) soustředit se na kód, který je zajímá, a zjistit, o co v něm jde.
 
 - **Lépe se přizpůsobují změnovým požadavkům**
 
-  Jakákoli hodnota, kterou lze pojmenovat, může být užitečná pro zobrazení. Můžeme se například rozhodnout zobrazit zprávu, která uživateli řekne, kolik peněz ušetřil. Můžeme se také rozhodnout vypočítat DPH, ale možná ji budeme chtít zobrazit samostatně, nikoli jako součást konečné ceny.
+  Jakákoli hodnota, kterou lze pojmenovat, může být užitečná pro zobrazení. Můžeme se&nbsp;například rozhodnout zobrazit zprávu, která uživateli řekne, kolik peněz ušetřil. Můžeme se také rozhodnout vypočítat DPH, ale možná ji budeme chtít zobrazit samostatně, nikoli jako součást konečné ceny.
 
   Malé, cíleně vypočítané vlastnosti vytvářejí méně předpokladů o tom, jak budou informace použity, takže vyžadují méně refaktoringu, když se požadavky mění.
   :::
@@ -821,11 +827,11 @@ Ačkoli hodnoty atributů bez mezer nemusí mít v HTML uvozovky, tato praxe ča
 
 ```vue-html
 <template v-slot:header>
-  <h1>Here might be a page title</h1>
+  <h1>Zde může být nadpis stránky</h1>
 </template>
 
 <template #footer>
-  <p>Here's some contact info</p>
+  <p>Zde jsou kontaktní informace</p>
 </template>
 ```
 
@@ -864,21 +870,21 @@ Ačkoli hodnoty atributů bez mezer nemusí mít v HTML uvozovky, tato praxe ča
 
 ```vue-html
 <template v-slot:header>
-  <h1>Here might be a page title</h1>
+  <h1>Zde může být nadpis stránky</h1>
 </template>
 
 <template v-slot:footer>
-  <p>Here's some contact info</p>
+  <p>Zde jsou kontaktní informaceo</p>
 </template>
 ```
 
 ```vue-html
 <template #header>
-  <h1>Here might be a page title</h1>
+  <h1>Zde může být nadpis stránky</h1>
 </template>
 
 <template #footer>
-  <p>Here's some contact info</p>
+  <p>Zde jsou kontaktní informace</p>
 </template>
 ```
 

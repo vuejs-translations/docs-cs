@@ -1,14 +1,14 @@
 # Pravidla priority C: Doporučené {#priority-c-rules-recommended}
 
-Tam, kde existuje více stejně dobrých možností, lze pro zajištění konzistence vybrat libovolnou z nich. V těchto pravidlech popisujeme každou přijatelnou možnost a navrhujeme výchozí variantu. To znamená, že se můžete ve své vlastní kódové bázi volně rozhodnout, pokud budete konzistentní a máte pro to dobrý důvod. Ale mějte prosím dobrý důvod! Přizpůsobením se standardu komunity budete:
+Tam, kde existuje více stejně dobrých možností, lze pro zajištění konzistence vybrat libovolnou z nich. V těchto pravidlech popisujeme každou přijatelnou možnost a&nbsp;navrhujeme výchozí variantu. To znamená, že se můžete ve své vlastní kódové bázi volně rozhodnout, pokud budete konzistentní a máte pro to dobrý důvod. Ale mějte prosím dobrý důvod! Přizpůsobením se standardu komunity budete:
 
-1. trénovat svůj mozek, aby snadněji analyzoval většinu kódu v rámci Vue komunity, se kterým se setkáte
+1. trénovat svůj mozek, aby snadněji analyzoval většinu kódu v rámci Vue komunity, se&nbsp;kterým se setkáte
 2. umět zkopírovat a vložit většinu příkladů kódu v rámci Vue komunity bez dalších úprav
 3. častěji nacházet nové zaměstnance, kteří jsou již zvyklí na váš styl kódování, alespoň pokud jde o Vue
 
 ## Pořadí možností nastavení komponent/instancí {#component-instance-options-order}
 
-**Možnosti nastavení komponent/instancí by měly být řazeny konzistentně.**
+**Možnosti nastavení komponent/instancí (options) by měly být řazeny konzistentně.**
 
 Toto je výchozí pořadí, které doporučujeme pro možnosti nastavení komponent. Jsou rozděleny do kategorií, takže budete vědět, kam přidat nová nastavení z pluginů.
 
@@ -75,7 +75,7 @@ Toto je výchozí pořadí, které doporučujeme pro možnosti nastavení kompon
 
 **Atributy elementů (včetně komponent) by měly být řazeny konzistentně.**
 
-Toto je výchozí pořadí, které doporučujeme pro atributy komponent. Jsou rozděleny do kategorií, takže budete vědět, kam přidat vlastní atributy a příkazy.
+Toto je výchozí pořadí, které doporučujeme pro atributy komponent. Jsou rozděleny do&nbsp;kategorií, takže budete vědět, kam přidat vlastní atributy a příkazy.
 
 1. **Definice** (poskytuje možnosti komponent)
 
@@ -255,7 +255,7 @@ const inputClasses = computed(() => {
 
 ## Pořadí hlavních sekcí Single-file komponenty (SFC) {#single-file-component-top-level-element-order}
 
-**[Single-File komponenty (SFC)](/guide/scaling-up/sfc) by měly vždy řadit tagy sekcí `<script>`, `<template>` a `<style>` konzistentně, přičemž `<style>` by měl být poslední, protože je vždy nezbytný jeden ze dvou zbylých.**
+**[Single-File komponenty (SFC)](/guide/scaling-up/sfc) by měly vždy řadit tagy sekcí `<script>`, `<template>` a&nbsp;`<style>` konzistentně, přičemž `<style>` by měl být poslední, protože je vždy nezbytný jeden ze dvou zbylých.**
 
 <div class="style-example style-example-bad">
 <h3>Špatně</h3>

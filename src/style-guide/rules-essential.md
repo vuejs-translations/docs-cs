@@ -1,6 +1,6 @@
 # Pravidla priority A: Zásadní (prevence chyb) {#priority-a-rules-essential}
 
-Tato pravidla pomáhají předcházet chybám, proto se je za každou cenu naučte a dodržujte je. Výjimky mohou existovat, ale měly by být velmi vzácné a měly by být dělány pouze osobami s odbornými znalostmi jak JavaScriptu, tak Vue.
+Tato pravidla pomáhají předcházet chybám, proto se je za každou cenu naučte a&nbsp;dodržujte je. Výjimky mohou existovat, ale měly by být velmi vzácné a měly by být&nbsp;dělány pouze osobami s odbornými znalostmi jak JavaScriptu, tak Vue.
 
 ## Používejte víceslovné názvy komponent {#use-multi-word-component-names}
 
@@ -40,7 +40,7 @@ V hotovém kódu by definice vlastností (props) měly být vždy co nejpodrobn�
 Podrobná [definice vlastností](/guide/components/props#prop-validation) má dvě výhody:
 
 - Dokumentují API komponenty, takže je snadněji vidět, jak má být komponenta používána.
-- Během vývoje vás Vue upozorní, pokud budou komponentě předávané vlastnosti v chybném formátu, což vám pomůže zachytit potenciální zdroje chyb.
+- Během vývoje vás Vue upozorní, pokud budou komponentě předávané vlastnosti v&nbsp;chybném formátu, což vám pomůže zachytit potenciální zdroje chyb.
   :::
 
 <div class="options-api">
@@ -131,7 +131,7 @@ const props = defineProps({
 
 ## Používejte `v-for` spolu s klíčem {#use-keyed-v-for}
 
-`key` společně s `v-for` je _vždy_ vyžadován v komponentách, za účelem udržení interního stavu komponent v podstromu. Ovšem i u elementů je dobrým zvykem udržovat předvídatelné chování, jako je [stálost objektu](https://bost.ocks.org/mike/constancy/) při animacích.
+`key` společně s `v-for` je v komponentách _vždy_ vyžadován, za účelem udržení interního stavu komponent v podstromu. Ovšem i u elementů je dobrým zvykem udržovat předvídatelné chování, jako je [stálost objektu](https://bost.ocks.org/mike/constancy/) při animacích.
 
 ::: details Podrobné vysvětlení
 Řekněme že máte seznam TODO prvků:
@@ -144,11 +144,11 @@ data() {
     todos: [
       {
         id: 1,
-        text: 'Naucit se pouzivat v-for'
+        text: 'Naučit se používat v-for'
       },
       {
         id: 2,
-        text: 'Naucit se pouzivat key'
+        text: 'Naučit se používat key'
       }
     ]
   }
@@ -331,7 +331,7 @@ Nebo můžete použít tag `<template>` s `v-for`, kterým obalíte `<li>` eleme
 
 ## Používejte omezené stylování komponent {#use-component-scoped-styling}
 
-V aplikacích mohou být styly na nejvyšší úrovni komponenty `App` a v layout komponentách globální, ale všechy ostatní komponenty by měly mít styly vždy omezené (scoped).
+V aplikacích mohou být styly na nejvyšší úrovni komponenty `App` a v komponentách pro&nbsp;layout globální, ale všechy ostatní komponenty by měly mít styly vždy omezené (scoped).
 
 To platí pouze pro [Single-File komponenty (SFC)](/guide/scaling-up/sfc). _Není_ nezbytné používat [atribut `scoped`](https://vue-loader.vuejs.org/en/features/scoped-css.html). Omezení lze zajistit pomocí [CSS modulů](https://vue-loader.vuejs.org/en/features/css-modules.html), a class-based strategie jako je [BEM](http://getbem.com/), či jiné knihovny/konvence.
 

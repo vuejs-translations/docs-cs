@@ -1,17 +1,17 @@
-# Pravidla priority D: Používejte s rozvahou {#priority-d-rules-use-with-caution}
+# Pravidla priority D: Používejte s&nbsp;rozvahou {#priority-d-rules-use-with-caution}
 
 Některé funkce Vue existují pro přizpůsobení se vzácným okrajovým případům nebo kvůli hladší migraci z legacy kódu. Při nadměrném používání však mohou ztížit údržbu vašeho kódu nebo se dokonce stát zdrojem chyb. Tato pravidla upozorňují na potenciálně rizikové funkce a popisují, kdy a proč je třeba se jim vyhnout.
 
 ## Selektory prvků + `scoped` {#element-selectors-with-scoped}
 
-**Selektory prvků by neměly být v rámci `scoped` používány.**
+**Selektory prvků by v rámci `scoped` neměly být používány.**
 
 Upřednostněte selektory tříd před selektory prvků ve `scoped` stylech, protože velké počty selektorů prvků jsou pomalé.
 
 ::: details Podrobné vysvětlení
 Pro zajištění omezení stylů přidává Vue do prvků komponent jedinečný atribut, jako je `data-v-f3f3eg9`. Poté jsou selektory upraveny tak, aby byly vybírány pouze odpovídající prvky s tímto atributem (např. `button[data-v-f3f3eg9]`).
 
-Problém je v tom, že velký počet selektorů atributů prvku (např. `button[data-v-f3f3eg9]`) bude podstatně pomalejší než selektory atributů třídy (např. `.btn-close[data-v-f3f3eg9]` ). Proto by selektory tříd měly být preferovány, kdykoli je to možné.
+Problém je v tom, že velký počet selektorů atributů prvku (např. `button[data-v-f3f3eg9]`) bude výrazně pomalejší než selektory atributů třídy (např. `.btn-close[data-v-f3f3eg9]`). Proto by měly být preferovány selektory tříd, kdykoli je to možné.
 :::
 
 <div class="style-example style-example-bad">
