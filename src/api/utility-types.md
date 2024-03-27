@@ -38,12 +38,6 @@ Alias pro `T | Ref<T>`. Užitečné pro anotaci vstupních parametrů v [Composa
 
 - Podporováno pouze od verze 3.3+.
 
-## MaybeRefOrGetter\<T> {#maybereforgetter}
-
-Alias pro `T | Ref<T> | (() => T)`. Užitečné pro anotaci parametrů v [Composables](/guide/reusability/composables.html).
-
-- Podporováno pouze od verze 3.3+.
-
 ## ExtractPropTypes\<T> {#extractproptypes}
 
 Extrahuje typy vlastností (props) z objektu s runtime props. Extrahované typy jsou interně orientované - tj. vyřešené vlastnosti přijaté komponentou. To znamená, že vlastnosti typu boolean a vlastnosti s výchozími hodnotami jsou vždy definovány, i když nejsou povinné.
@@ -78,6 +72,8 @@ Pro extrakci veřejně orientovaných vlastností, tj. vlastností, které můž
 ## ExtractPublicPropTypes\<T> {#extractpublicproptypes}
 
 Extrahuje typy vlastností (props) z objektu s runtime props. Extrahované typy jsou veřejně orientované - tj. vlastnosti, které může předat rodič. 
+
+- Podporováno pouze od verze 3.3+.
 
 - **Příklad**
 
