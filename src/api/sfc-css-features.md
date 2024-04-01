@@ -120,7 +120,7 @@ Tag `<style module>` je kompilován jako [CSS moduly](https://github.com/css-mod
 
 Výsledné třídy jsou hashovány, aby se předešlo kolizím, čímž se dosáhne stejného efektu omezování platnosti CSS pouze na aktuální komponentu.
 
-Pro více podrobností, jako jsou [globální výjimky](https://github.com/css-modules/css-modules#exceptions) a [kompozice](https://github.com/css-modules/css-modules#composition), se podívejte na [specifikaci CSS modulů](https://github.com/css-modules/css-modules).
+Pro více podrobností, jako jsou [globální výjimky](https://github.com/css-modules/css-modules/blob/master/docs/composition.md#exceptions) a [kompozice](https://github.com/css-modules/css-modules/blob/master/docs/composition.md#composition), se podívejte na [specifikaci CSS modulů](https://github.com/css-modules/css-modules).
 
 ### Vlastní název implementovaných tříd {#custom-inject-name}
 
