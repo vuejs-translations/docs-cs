@@ -25,7 +25,7 @@ footer: false
 
 ## Co je to Vue? {#what-is-vue}
 
-Vue (výslovnost /vjú/) je  JavaScriptový framework pro tvorbu uživatelského rozhraní. Je&nbsp;postaven na standardech HTML, CSS a JavaScriptu a poskytuje deklaratorní programovací model orientovaný na komponenty, který pomáhá efektivně vyvíjet jednoduchá i složitá UI.
+Vue (výslovnost /vjú/) je JavaScriptový framework pro tvorbu uživatelského rozhraní. Je&nbsp;postaven na standardech HTML, CSS a JavaScriptu a poskytuje deklarativní programovací model orientovaný na komponenty, který pomáhá efektivně vyvíjet libovolně složitá UI.
 
 Zde je minimální příklad:
 
