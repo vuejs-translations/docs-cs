@@ -317,6 +317,7 @@ Používá se pro orchestraci vnořených asynchronních závislostí ve stromu 
   ```ts
   interface SuspenseProps {
     timeout?: string | number
+    suspensible?: boolean
   }
   ```
 
@@ -331,5 +332,7 @@ Používá se pro orchestraci vnořených asynchronních závislostí ve stromu 
   `<Suspense>` přijímá dva sloty: `#default` a `#fallback`. Zobrazí obsah fallback slotu, zatímco v paměti vykresluje default slot.
 
   Pokud narazí na asynchronní závislosti ([Asynchronní komponenty](/guide/components/async) a komponenty s&nbsp;[`async setup()`](/guide/built-ins/suspense#async-setup)) při vykreslování default slotu, počká, dokud nebudou všechny vyřešeny, než ho zobrazí.
+
+  Nastavením komponenty Suspense na `suspensible` budou všechny asynchronní závislosti obsluhovány nadřazenou Suspense. Podívejte se na [detaily implementace](https://github.com/vuejs/core/pull/6736).
 
 - **Viz také:** [Průvodce - Suspense](/guide/built-ins/suspense)

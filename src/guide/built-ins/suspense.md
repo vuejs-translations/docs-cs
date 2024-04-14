@@ -133,6 +133,34 @@ Následující příklad ukazuje, jak tyto komponenty správně vnořit, aby se 
 
 Vue Router má vestavěnou podporu pro [„lazy“ načítání komponent](https://router.vuejs.org/guide/advanced/lazy-loading.html) pomocí dynamických importů. Ty se od asynchronních komponent liší a v současnosti na ně `<Suspense>` nereaguje. Stále však mohou mít další asynchronní komponenty jako potomky a ty mohou `<Suspense>` vyvolat obvyklým způsobem.
 
+## Vnořené Suspense {#nested-suspense}
+
+Když máme více asynchronních komponent (což je běžné ve vnořených cestách (routes) nebo v cestách založených na layoutech) jako například tyto:
+
+```vue-html
+<Suspense>
+  <component :is="DynamicAsyncOuter">
+    <component :is="DynamicAsyncInner" />
+  </component>
+</Suspense>
+```
+
+`<Suspense>` vytvoří v souladu s očekáváním ohraničení, které vyřeší všechny asynchronní komponenty v celém stromě závislostí. Pokud změníme `DynamicAsyncOuter`, `<Suspense>` na ni správně počká. Ale když změníme `DynamicAsyncInner`, vnořená `DynamicAsyncInner` vykreslí prázný element, dokud nebude vyřešena (místo předchozí komponenty nebo fallback slotu).
+
+Abychom to vyřešili, můžeme přidat vnořenou suspense k obsluze aktualizace vnořené komponenty tímto způsobem:
+
+```vue-html
+<Suspense>
+  <component :is="DynamicAsyncOuter">
+    <Suspense suspensible> <!-- zde -->
+      <component :is="DynamicAsyncInner" />
+    </Suspense>
+  </component>
+</Suspense>
+```
+
+Pokud nenastavíte vlastnost `suspensible`, vnitřní `<Suspense>` bude rodičovskou `<Suspense>` považována za synchronní komponentu. To znamená, že má svůj vlastní fallback slot a když se obě `Dynamic` komponenty změní najednou, mohou se objevit prázdné elementy a spustit více aktualizčních cyklů, zatímco vnořená `<Suspense>` načítá svůj strom závislostí. Což nemusí být žádoucí. Když je `suspensible` nastaveno, obsluha asynchronního načítání je předána rodičovské `<Suspense>` (vč. emitovaných událostí) a&nbsp;vnitřní `<Suspense>` slouží jen jako další ohraničení pro řešení závislostí a aktualizace.
+
 ---
 
 **Související**
