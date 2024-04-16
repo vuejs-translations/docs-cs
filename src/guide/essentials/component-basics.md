@@ -469,6 +469,7 @@ Stala se chyba.
 Toho lze dosáhnout použitím speciálního Vue elementu `<slot>`:
 
 ```vue{4}
+<!-- AlertBox.vue -->
 <template>
   <div class="alert-box">
     <strong>Toto je chyba pro testovací účely</strong>
