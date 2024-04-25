@@ -296,7 +296,7 @@ Ačkoli se doporučuje camelCase, `:style` podporuje i CSS klíče zapsané keba
 ```js
 const styleObject = reactive({
   color: 'red',
-  fontSize: '13px'
+  fontSize: '30px'
 })
 ```
 
