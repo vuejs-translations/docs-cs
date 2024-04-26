@@ -436,7 +436,7 @@ const post = await fetch(`/api/post/1`).then((r) => r.json())
 Navíc platí, že výraz, na který se čeká, bude automaticky zkompilován ve formátu, jenž zachovává aktuální kontext komponenty po `await`.
 
 :::warning Poznámka
-`async setup()` musí být použit ve spojení s `Suspense`, což je v současné době stále ještě experimentální funkce. Plánujeme ji dokončit a zdokumentovat v budoucích verzích - ale pokud jste zvědaví už teď, můžete se podívat na její [testy](https://github.com/vuejs/core/blob/main/packages/runtime-core/__tests__/components/Suspense.spec.ts), abyste viděli, jak funguje.
+`async setup()` musí být použit ve spojení se [`Suspense`](/guide/built-ins/suspense.html), což je v současné době stále ještě experimentální funkce. Plánujeme ji dokončit a zdokumentovat v budoucích verzích - ale pokud jste zvědaví už teď, můžete se podívat na její [testy](https://github.com/vuejs/core/blob/main/packages/runtime-core/__tests__/components/Suspense.spec.ts), abyste viděli, jak funguje.
 :::
 
 ## Generika <sup class="vt-badge ts" /> {#generics}
