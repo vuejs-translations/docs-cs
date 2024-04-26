@@ -116,7 +116,7 @@ methods: {
 
 </div>
 
-Method handler automaticky přijímá objekt nativní události DOM, který ji vyvolá – ve výše uvedeném příkladu jsme schopni přistupovat k elementu odesílajícímu událost přes `event.target.tagName`.
+Method handler automaticky přijímá objekt nativní události DOM, který ji vyvolá – ve výše uvedeném příkladu jsme schopni přistupovat k elementu odesílajícímu událost přes `event.target`.
 
 <div class="composition-api">
 
