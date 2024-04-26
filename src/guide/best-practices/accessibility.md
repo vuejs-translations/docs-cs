@@ -169,7 +169,7 @@ Poskytujte popisky (labels), které popisují účel všech ovládacích prvků 
 
 <!-- <common-codepen-snippet title="Popisek formuláře" slug="XWpaaaj" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
-Pokud zkontrolujete tento element v nástrojích pro vývojáře v Chrome a otevřete záložku Přístupnost (Accessibility) v rámci záložky Elements, uvidíte, jak vstup získává své jméno z popisku:
+Pokud zkontrolujete tento element v nástrojích pro vývojáře v Chrome DevTools a otevřete záložku Přístupnost (Accessibility) v rámci záložky Elements, uvidíte, jak vstup získává své jméno z popisku:
 
 ![Chrome Developer Tools zobrazující přístupné jméno vstupu z popisku](./images/AccessibleLabelChromeDevTools.png)
 
