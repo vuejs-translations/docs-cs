@@ -183,9 +183,10 @@ Syntaxe funguje s [`<script setup>`](./sfc-script-setup) a podporuje JavaScripto
 
 ```vue
 <script setup>
-const theme = {
-  color: 'red'
-}
+import { ref } from 'vue'
+const theme = ref({
+    color: 'red',
+})
 </script>
 
 <template>
