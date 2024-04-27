@@ -1,5 +1,6 @@
 <h2>Textové pole</h2>
-<input v-model="text"> {{ text }}
+<input v-model="text">
+<p>{{ text }}</p>
 
 <h2>Checkbox (zaškrnutí)</h2>
 <input type="checkbox" id="checkbox" v-model="checked">
@@ -16,7 +17,7 @@
 <label for="petr">Petr</label>
 <input type="checkbox" id="tereza" value="Tereza" v-model="checkedNames">
 <label for="tereza">Tereza</label>
-<p>Vybraná jména: <pre>{{ checkedNames }}</pre></p>
+<p>Vybraná jména: {{ checkedNames }}</p>
 
 <h2>Radio (přepínač)</h2>
 <input type="radio" id="one" value="Jedna" v-model="picked">
@@ -24,8 +25,7 @@
 <br>
 <input type="radio" id="two" value="Dva" v-model="picked">
 <label for="two">Dva</label>
-<br>
-<span>Vybráno: {{ picked }}</span>
+<p>Vybráno: {{ picked }}</p>
 
 <h2>Select (výběr)</h2>
 <select v-model="selected">
@@ -34,7 +34,7 @@
   <option>B</option>
   <option>C</option>
 </select>
-<span>Vybráno: {{ selected }}</span>
+<p>Vybráno: {{ selected }}</p>
 
 <h2>Multi Select</h2>
 <select v-model="multiSelected" multiple style="width:100px">
@@ -42,4 +42,4 @@
   <option>B</option>
   <option>C</option>
 </select>
-<span>Vybráno: {{ multiSelected }}</span>
+<p>Vybráno: {{ multiSelected }}</p>
