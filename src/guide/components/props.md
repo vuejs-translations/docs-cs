@@ -391,13 +391,18 @@ defineProps({
     type: String,
     required: true
   },
-  // číslo s výchozí hodnotou
+  // povinný string, který může nabývat hodnoty `null`
   propD: {
+    type: [String, null],
+    required: true
+  },
+  // číslo s výchozí hodnotou
+  propE: {
     type: Number,
     default: 100
   },
   // objekt s výchozí hodnotou
-  propE: {
+  propF: {
     type: Object,
     // výchozí hodnota objektu či pole musí být
     // vrácena z tovární (factory) metody
@@ -409,14 +414,14 @@ defineProps({
   },
   // vlastní validační funkce
   // od verze 3.4+ jsou jako druhý parametr předávány kompletní props
-  propF: {
+  propG: {
     validator(value, props) {
       // hodnota musí odpovídat jednomu z těchto tří řetězců
       return ['success', 'warning', 'danger'].includes(value)
     }
   },
   // funkce s výchozí hodnotou
-  propG: {
+  propH: {
     type: Function,
     // na rozdíl od výchozí hodnoty objektu či pole, 
     // toto není tovární (factory) metoda
@@ -448,13 +453,18 @@ export default {
       type: String,
       required: true
     },
-    // číslo s výchozí hodnotou
+    // povinný string, který může nabývat hodnoty `null`
     propD: {
+      type: [String, null],
+      required: true
+    },
+    // číslo s výchozí hodnotou
+    propE: {
       type: Number,
       default: 100
     },
     // objekt s výchozí hodnotou
-    propE: {
+    propF: {
       type: Object,
       // výchozí hodnota objektu či pole musí být
       // vrácena z tovární (factory) metody
@@ -466,14 +476,14 @@ export default {
     },
     // vlastní validační funkce
     // od verze 3.4+ jsou jako druhý parametr předávány kompletní props
-    propF: {
+    propG: {
       validator(value, props) {
         // hodnota musí odpovídat jednomu z těchto tří řetězců
         return ['success', 'warning', 'danger'].includes(value)
       }
     },
     // funkce s výchozí hodnotou
-    propG: {
+    propH: {
       type: Function,
       // na rozdíl od výchozí hodnoty objektu či pole,
       // toto není tovární (factory) metoda
@@ -562,6 +572,39 @@ export default {
 </div>
 
 Vue použije `instanceof Person` k ověření, zda je hodnota vlastnosti `author` skutečně instancí třídy `Person`.
+
+### Nullable Type {#nullable-type}
+
+Pokud je typ povinný, ale hodnota může být null, lze použít syntaxi pole, které obsahuje `null`:
+
+<div class="composition-api">
+
+```js
+defineProps({
+  id: {
+    type: [String, null],
+    required: true
+  }
+})
+```
+
+</div>
+<div class="options-api">
+
+```js
+export default {
+  props: {
+    id: {
+      type: [String, null],
+      required: true
+    }
+  }
+}
+```
+
+</div>
+
+Pamatujte, že pokud je `type` pouze `null` bez použití syntaxe pole, bude povolen jakýkoliv typ.
 
 ## Přetypování Boolean {#boolean-casting}
 
