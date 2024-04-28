@@ -113,6 +113,7 @@ const nav: ThemeConfig['nav'] = [
         link: '/about/community-guide'
       },
       { text: 'Kodex chování', link: '/about/coc' },
+      { text: 'Zásady ochrany osobních údajů', link: '/about/privacy' },
       { text: 'Poznámky k českému překladu', link: '/about/cs' },
       {
         text: 'Vue.js: The Documentary (Video)',
