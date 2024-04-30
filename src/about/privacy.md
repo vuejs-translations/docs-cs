@@ -1,4 +1,4 @@
-# Zásady ochrany osobních údajů Vue.js
+# Zásady ochrany osobních údajů Vue.js {#vue.js-privacy-policy}
 
 > Účinné od: 26. dubna 2024
 
@@ -14,7 +14,7 @@ Pro upřesnění doplňujeme, že tyto zásady ochrany osobních údajů se vzta
 
 4. Statistiky použití našich publikovaných rozšíření prohlížeče, které jsou shromažďovány dodavateli prohlížečů a podléhají jejich příslušným podmínkám a&nbsp;ujednáním.
 
-## Jaké druhy informací sbíráme?
+## Jaké druhy informací sbíráme? {#what-kinds-of-information-do-we-collect}
 
 Nesbíráme ani neukládáme žádný typ osobních údajů, ale můžeme anonymizovaná data sbírat prostřednictvím služeb třetích stran integrovaných do našich webových stránek:
 
@@ -27,14 +27,14 @@ Nesbíráme ani neukládáme žádný typ osobních údajů, ale můžeme anonym
   - Zásady ochrany osobních údajů společnosti Algolia: https://www.algolia.com/policies/privacy/
   - Bezpečnostní a ochranné zásady společnosti Algolia: https://www.algolia.com/distributed-secure/security-compliance/
 
-## Jak využíváme informace?
+## Jak využíváme informace? {#how-do-we-use-information}
 
 Jediným účelem sběru výše uvedených dat je porozumět návštěvnosti našich webových stránek. Používáme je způsobem co nejvíce šetrným k soukromí, abychom mohli neustále zlepšovat kvalitu našich webových stránek a dokumentace. Právním základem podle GDPR je _„Článek 6(1)(f); kde naše oprávněné zájmy spočívají v neustálém zlepšování našich webových stránek a podnikání.“_ Jak již bylo vysvětleno, žádné osobní údaje nejsou uchovávány v čase.
 
-## Uchovávání dat
+## Uchovávání dat {#data-retention}
 
 Všechna sbíraná data jsou uložena v rámci výše uvedených službách třetích stran a&nbsp;podléhají příslušným zásadám uchovávání dat těchto služeb.
 
-## Otázky
+## Otázky {#questions}
 
 Pokud máte ohledně této zásady ochrany osobních údajů nebo našich postupů jakékoli otázky, kontaktujte nás emailem na hello@vuejs.org.
