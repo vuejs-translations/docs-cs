@@ -154,8 +154,6 @@ Popisky (labels) jsou obvykle umístěny nad nebo vlevo od polí formuláře:
 </form>
 ```
 
-<!-- <common-codepen-snippet title="Jednoduchý formulář" slug="dyNzzWZ" :height="368" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
-
 Všimněte si, že na element formuláře můžete přidat `autocomplete='on'` a bude se aplikovat na všechny vstupy ve formuláři. Pro každý vstup můžete také nastavit různé [hodnoty atributu autocomplete](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete).
 
 ### Popisky {#labels}
@@ -166,8 +164,6 @@ Poskytujte popisky (labels), které popisují účel všech ovládacích prvků 
 <label for="name">Jméno:</label>
 <input type="text" name="name" id="name" v-model="name" />
 ```
-
-<!-- <common-codepen-snippet title="Popisek formuláře" slug="XWpaaaj" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
 Pokud zkontrolujete tento element v nástrojích pro vývojáře v Chrome DevTools a otevřete záložku Přístupnost (Accessibility) v rámci záložky Elements, uvidíte, jak vstup získává své jméno z popisku:
 
@@ -201,8 +197,6 @@ Také můžete  vstupu přidat přístupné jméno (accessible name) pomocí [`a
 />
 ```
 
-<!-- <common-codepen-snippet title="Formulář s ARIA popiskem" slug="NWdvvYQ" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
-
 Můžete si tento element prohlédnout v Chrome DevTools, abyste viděli, jak se přístupné jméno změnilo:
 
 ![Chrome Developer Tools zobrazující přístupné jméno vstupu z aria-label](./images/AccessibleARIAlabelDevTools.png)
@@ -233,8 +227,6 @@ Použití [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Acces
 </form>
 ```
 
-<!-- <common-codepen-snippet title="Formulář s ARIA labelledby" slug="MWJvvBe" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
-
 ![Chrome Developer Tools zobrazující přístupné jméno vstupu z aria-labelledby](./images/AccessibleARIAlabelledbyDevTools.png)
 
 #### `aria-describedby` {#aria-describedby}
@@ -264,8 +256,6 @@ Použití [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Acces
   <button type="submit">Odeslat</button>
 </form>
 ```
-
-<!-- <common-codepen-snippet title="Formulář s ARIA describedby" slug="gOgxxQE" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
 Popis můžete vidět v Chrome DevTools:
 
@@ -352,8 +342,6 @@ Alternativně můžete instrukce k vstupu připojit pomocí [`aria-describedby`]
 </fieldset>
 ```
 
-<!-- <common-codepen-snippet title="Formulář s instrukcemi" slug="WNREEqv" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
-
 ### Skrývání obsahu {#hiding-content}
 
 Obvykle se nedoporučuje vizuálně skrývat popisky, i když má vstup přístupné jméno. Pokud však funkčnost vstupu lze z okolního kontextu pochopit, můžeme popisek skrýt.
@@ -386,8 +374,6 @@ Můžeme použít CSS k vizuálnímu skrytí prvků, ale přitom je ponechat dos
 }
 ```
 
-<!-- <common-codepen-snippet title="Formulář pro hledání" slug="QWdMqWy" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
-
 #### `aria-hidden="true"` {#aria-hidden-true}
 
 Přidáním `aria-hidden="true"` se prvek skryje před asistenční technologií, ale zůstane vizuálně dostupný pro ostatní uživatele. Nepoužívejte jej na ovladatelných prvcích, pouze na dekorativním, duplikovaném nebo mimo obrazovku umístěném obsahu.
@@ -413,8 +399,6 @@ Pro vytvoření tlačítek můžete také použít element `input`:
   <input type="submit" value="Odeslat" />
 </form>
 ```
-
-<!-- <common-codepen-snippet title="Formulář s tlačítky" slug="JjEyrYZ" :height="467" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
 ### Funkční obrázky {#functional-images}
 
@@ -448,8 +432,6 @@ Můžete použít tuto techniku k vytvoření funkčních obrázků (functional 
   </button>
 </form>
 ```
-
-<!-- <common-codepen-snippet title="Funkční obrázky" slug="jOyLGqM" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
 ## Standardy {#standards}
 
