@@ -237,7 +237,7 @@ Zkontroluje, zda je objekt proxy vytvořenou pomocí [`reactive()`](./reactivity
 - **Typ**
 
   ```ts
-  function isProxy(value: unknown): boolean
+  function isProxy(value: any): boolean
   ```
 
 ## isReactive() {#isreactive}
