@@ -59,6 +59,7 @@ const model = defineModel()
 Takto se implementovala komponenta potomka se stejnou funkcionalitou před verzí 3.4:
 
 ```vue
+<!-- Child.vue -->
 <script setup>
 const props = defineProps(['modelValue'])
 const emit = defineEmits(['update:modelValue'])
@@ -70,6 +71,16 @@ const emit = defineEmits(['update:modelValue'])
     @input="emit('update:modelValue', $event.target.value)"
   />
 </template>
+```
+
+Poté se `v-model="modelValue"` v komponentě rodiče zkompiluje jako:
+
+```vue-html
+<!-- Parent.vue -->
+<Child
+  :modelValue="foo"
+  @update:modelValue="$event => (foo = $event)"
+/>
 ```
 
 Jak můžete vidět, je to trochu zbytečně složité. Nicméně je dobré vědět, jak to ve skutečnosti funguje.
