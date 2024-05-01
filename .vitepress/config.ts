@@ -351,7 +351,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
       items: [
         { text: 'setup()', link: '/api/composition-api-setup' },
         {
-          text: 'Reactivity API: Jádro',
+          text: 'Reactivity API: Core',
           link: '/api/reactivity-core'
         },
         {

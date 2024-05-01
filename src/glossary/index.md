@@ -292,7 +292,7 @@ Další podrobnosti naleznete zde:
 Reactivity API je podmnožinou Composition API.
 
 Další podrobnosti naleznete zde:
-- [Reactivity API: Jádro](/api/reactivity-core.html)
+- [Reactivity API: Core](/api/reactivity-core.html)
 - [Reactivity API: Utility](/api/reactivity-utilities.html)
 - [Reactivity API: Pokročilé](/api/reactivity-advanced.html)
 
@@ -305,7 +305,7 @@ Další podrobnosti naleznete zde:
 Existuje několik různých typů `ref`. Například `ref()`, `shallowRef()`, `computed()` a&nbsp;`customRef()`. Funkce `isRef()` se používá k ověření, zda se jedná o ref, a&nbsp;`isReadonly()` lze použít ke kontrole, zda ref umožňuje přímé přiřazení do své hodnoty.
 
 Další podrobnosti naleznete zde:
-- [Reactivity API: Jádro](/api/reactivity-core.html)
+- [Reactivity API: Core](/api/reactivity-core.html)
 - [Reactivity API: Utility](/api/reactivity-utilities.html)
 - [Reactivity API: Pokročilé](/api/reactivity-advanced.html)
 

@@ -1,4 +1,4 @@
-# Reactivity API: Jádro {#reactivity-api-core}
+# Reactivity API: Core {#reactivity-api-core}
 
 :::info Viz také
 Pro lepší porozumění Reactivity API je doporučeno přečíst následující kapitoly v průvodci:
