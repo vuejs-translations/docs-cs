@@ -367,7 +367,7 @@ h(
       /* ... */
     }
   },
-  'klikni na mě'
+  'Klikni na mě'
 )
 ```
 
@@ -377,7 +377,7 @@ h(
     /* ... */
   }}
 >
-  klikni na mě
+  Klikni na mě
 </button>
 ```
 

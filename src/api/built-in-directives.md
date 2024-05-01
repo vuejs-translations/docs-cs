@@ -451,7 +451,7 @@ Vykreslit element nebo komponentu pouze jednou a přeskočit budoucí aktualizac
   <span v-once>Toto se nikdy nezmění: {{msg}}</span>
   <!-- element s potomky -->
   <div v-once>
-    <h1>komentář</h1>
+    <h1>Komentář</h1>
     <p>{{msg}}</p>
   </div>
   <!-- komponenta -->

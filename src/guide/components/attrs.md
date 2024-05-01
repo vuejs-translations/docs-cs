@@ -14,7 +14,7 @@ Když komponenta vykresluje jediný root element, budou k atributům root elemen
 
 ```vue-html
 <!-- šablona pro <MyButton> -->
-<button>klikni na mě</button>
+<button>Klikni na mě</button>
 ```
 
 A s rodičem užívajícím komponentu takto:
@@ -26,7 +26,7 @@ A s rodičem užívajícím komponentu takto:
 Bude ve výsledku vykreslený DOM vypadat:
 
 ```html
-<button class="large">klikni na mě</button>
+<button class="large">Klikni na mě</button>
 ```
 
 V tomto případě `<MyButton>` nedeklarovala `class` jako svou vlastnost. Proto je `class` zpracována jako fallthrough attribut a automaticky přidána do root elementu komponenty `<MyButton>`.
@@ -37,13 +37,13 @@ Pokud root element komponenty potomka již obsahuje existující atributy `class
 
 ```vue-html
 <!-- šablona pro <MyButton> -->
-<button class="btn">klikni na mě</button>
+<button class="btn">Klikni na mě</button>
 ```
 
 Pak se vykreslený DOM změní na:
 
 ```html
-<button class="btn large">klikni na mě</button>
+<button class="btn large">Klikni na mě</button>
 ```
 
 ### Dědičnost `v-on` listenerů {#v-on-listener-inheritance}
@@ -112,7 +112,7 @@ Při použití naši ukázkové `<MyButton>` komponenty z [předchozí sekce](#a
 
 ```vue-html
 <div class="btn-wrapper">
-  <button class="btn">klikni na mě</button>
+  <button class="btn">Klikni na mě</button>
 </div>
 ```
 
@@ -120,7 +120,7 @@ Chceme, aby všechny falltrough atributy jako `class` nebo `v-on` listener byly 
 
 ```vue-html{2}
 <div class="btn-wrapper">
-  <button class="btn" v-bind="$attrs">klikni na mě</button>
+  <button class="btn" v-bind="$attrs">Klikni na mě</button>
 </div>
 ```
 

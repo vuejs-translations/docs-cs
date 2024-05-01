@@ -19,7 +19,7 @@ function update() {
 </script>
 
 <template>
-  <div>hodnota v-model z rodiče je: {{ model }}</div>
+  <div>Hodnota v-model z rodiče je: {{ model }}</div>
 </template>
 ```
 

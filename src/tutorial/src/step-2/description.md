@@ -63,7 +63,7 @@ Vlastnosti ve vráceném objektu budou zpřístupněny v šabloně. Tímto způs
 
 ```vue-html
 <h1>{{ message }}</h1>
-<p>Počet: {{ counter.pocet }}</p>
+<p>Počet je: {{ counter.pocet }}</p>
 ```
 
 Všimněte si, že nepotřebujeme `.value` když přistupujeme k `message` ref objektu v šabloně: hodnota je pro stručnější použití automaticky rozbalena.

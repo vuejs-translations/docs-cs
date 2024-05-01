@@ -141,7 +141,7 @@ const obj = reactive({ count: 0 })
 
 // toto nebude fungovat, protože do watch() předáváme pouze number
 watch(obj.count, (count) => {
-  console.log(`count is: ${count}`)
+  console.log(`Počet je: ${count}`)
 })
 ```
 
@@ -152,7 +152,7 @@ Místo toho použijte getter
 watch(
   () => obj.count,
   (count) => {
-    console.log(`count is: ${count}`)
+    console.log(`Počet je: ${count}`)
   }
 )
 ```

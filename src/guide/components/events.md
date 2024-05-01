@@ -31,7 +31,7 @@ Komponenta může vysílat (emit) vlastní události přímo ve výrazech šablo
 
 ```vue-html
 <!-- MyComponent -->
-<button @click="$emit('someEvent')">klikni na mě</button>
+<button @click="$emit('someEvent')">Klikni na mě</button>
 ```
 
 <div class="options-api">
