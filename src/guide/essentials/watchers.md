@@ -109,7 +109,7 @@ watch(question, async (newQuestion, oldQuestion) => {
 
 ### Zdrojové typy pro Watch {#watch-source-types}
 
-První parametr `watch` může být některý z různých typů reaktivních "zdrojů": může to být ref (vč. computed refs), reaktivní objekt, getter funkce nebo pole více různých zdrojů:
+První parametr `watch` může být některý z různých typů reaktivních "zdrojů": může to být ref (vč. computed refs), reaktivní objekt, [getter funkce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get#description) nebo pole více různých zdrojů:
 
 ```js
 const x = ref(0)
@@ -271,13 +271,12 @@ watch(
 
 </div>
 
-
 ## Jednorázové watchery <sup class="vt-badge" data-text="3.4+" /> {#once-watchers}
 
 Callback watcheru bude spuštěn kdykoli, když se změní sledovaný zdroj. Pokud ho po změně zdroje chcete spustit puze jednou, použijte nastavení `once: true`.
 
 <div class="options-api">
-  
+
 ```js
 export default {
   watch: {

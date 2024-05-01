@@ -200,7 +200,7 @@ const { data, error } = useFetch(url)
 url.value = '/new-url'
 ```
 
-Nebo akceptovat getter funkci:
+Nebo [getter funkci](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get#description):
 
 ```js
 // re-fetch když se změní props.id

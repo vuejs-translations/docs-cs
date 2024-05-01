@@ -130,7 +130,7 @@ const publishedBooksMessage = computed(() => {
 
 [Vyzkoušejte si to](https://play.vuejs.org/#eNp1kE9Lw0AQxb/KI5dtoTainkoaaREUoZ5EEONhm0ybYLO77J9CCfnuzta0vdjbzr6Zeb95XbIwZroPlMySzJW2MR6OfDB5oZrWaOvRwZIsfbOnCUrdmuCpQo+N1S0ET4pCFarUynnI4GttMT9PjLpCAUq2NIN41bXCkyYxiZ9rrX/cDF/xDYiPQLjDDRbVXqqSHZ5DUw2tg3zP8lK6pvxHe2DtvSasDs6TPTAT8F2ofhzh0hTygm5pc+I1Yb1rXE3VMsKsyDm5JcY/9Y5GY8xzHI+wnIpVw4nTI/10R2rra+S4xSPEJzkBvvNNs310ztK/RDlLLjy1Zic9cQVkJn+R7gIwxJGlMXiWnZEq77orhH3Pq2NH9DjvTfpfSBSbmA==)
 
-Zde jsme deklarovali computed proměnnou `publishedBooksMessage`. Funkce `computed()` očekává, že jí bude předán getter, a vrácená hodnota je **computed ref**. Podobně jako u&nbsp;normálních refs můžete k vypočítanému výsledku přistupovat přes výraz `publishedBooksMessage.value`. Computed refs jsou v šablonách také automaticky rozbaleny, takže na ně můžete ve výrazech v šablonách odkazovat bez `.value`.
+Zde jsme deklarovali computed proměnnou `publishedBooksMessage`. Funkce `computed()` očekává, že jí bude předána [getter funkce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get#description), a vrácená hodnota je **computed ref**. Podobně jako u&nbsp;normálních refs můžete k vypočítanému výsledku přistupovat přes výraz `publishedBooksMessage.value`. Computed refs jsou v šablonách také automaticky rozbaleny, takže na ně můžete ve výrazech v šablonách odkazovat bez `.value`.
 
 Computed proměnná automaticky sleduje své reaktivní závislosti. Vue si uvědomuje, že `publishedBooksMessage` závisí na `author.books`, takže když se `author.books` změní, aktualizuje všude všechny reference na `publishedBooksMessage`.
 

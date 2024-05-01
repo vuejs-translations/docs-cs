@@ -47,7 +47,7 @@ Přijímá vnitřní hodnotu a vrací reaktivní a měnitelný objekt ref s jedi
 
 ## computed() {#computed}
 
-Přijímá getter funkci a vrací reaktivní objekt [ref](#ref) pouze pro čtení s vnitřní hodnotu vrácenou z getteru. Může také přijmout objekt s funkcemi `get` a `set` pro vytvoření zapisovatelného objektu ref.
+Přijímá [getter funkci](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get#description) a vrací reaktivní objekt [ref](#ref) pouze pro čtení s vnitřní hodnotu vrácenou z getteru. Může také přijmout objekt s funkcemi `get` a `set` pro vytvoření zapisovatelného objektu ref.
 
 - **Typ**
 

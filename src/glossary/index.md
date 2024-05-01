@@ -279,7 +279,7 @@ V kontextu Vue se reaktivita používá k popisu souboru funkcí. Tyto funkce se
 
 Existuje několik různých způsobů, jak by mohl být  systém reaktivity implementován. Například by mohla být provedena statická analýza kódu pro určení jeho závislostí. Vue však tento způsob nepoužívá.
 
-Místo toho systém reaktivity Vue sleduje přístup k vlastnostem za běhu. K tomu používá jak Proxy obálky (wrappers), tak getter / setter funkce pro vlastnosti.
+Místo toho systém reaktivity Vue sleduje přístup k vlastnostem za běhu. K tomu používá jak Proxy obálky (wrappers), tak [getter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get#description) / [setter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set#description) funkce pro vlastnosti.
 
 Další podrobnosti naleznete zde:
 - [Průvodce - Základy reaktivity](/guide/essentials/reactivity-fundamentals.html)

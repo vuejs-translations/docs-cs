@@ -212,7 +212,7 @@ Imperativní API pro vytváření watcherů.
 
 - **Podrobnosti**
 
-  Prvním parametrem je zdroj watcheru. Může to být název vlastnosti komponenty jako řetězec, jednoduchý řetězec oddělený tečkami nebo getter funkce.
+  Prvním parametrem je zdroj watcheru. Může to být název vlastnosti komponenty jako řetězec, jednoduchý řetězec oddělený tečkami nebo [getter funkce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get#description).
 
   Druhým parametrem je callback funkce. Callback dostává novou a starou hodnotu sledovaného zdroje.
 

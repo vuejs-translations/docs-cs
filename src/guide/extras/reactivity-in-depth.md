@@ -67,7 +67,7 @@ Tato funkce `whenDepsChange()` má následující úkoly:
 
 Ve skutečnosti nemůžeme čtení a zápis lokálních proměnných sledovat jako v příkladu. V&nbsp;čistém JavaScriptu pro to prostě neexistuje mechanismus. Co ale **můžeme** udělat, je zachytit čtení a zápis **vlastností objektů**.
 
-Existují dva způsoby, jak zachytit přístup k vlastnostem v JavaScriptu: [getters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get) / [setters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set) a&nbsp;[Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Vue 2 používalo výhradně getters / setters kvůli omezením podpory prohlížečů. Ve Vue 3 se pro reaktivní objekty používají proxies a pro refs se používají getters / setters. Zde je pseudokód, který ilustruje, jak fungují:
+Existují dva způsoby, jak zachytit přístup k vlastnostem v JavaScriptu: [getter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get#description) / [setter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set#description) funkce a&nbsp;[Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). Vue 2 používalo výhradně getters / setters kvůli omezením podpory prohlížečů. Ve Vue 3 se pro reaktivní objekty používají proxies a pro refs se používají getters / setters. Zde je pseudokód, který ilustruje, jak fungují:
 
 ```js{4,9,17,22}
 function reactive(obj) {
