@@ -210,6 +210,10 @@ app.directive('demo', (el, binding) => {
 
 ## Použití na komponenty {#usage-on-components}
 
+:::warning Nedoporučeno
+Použití vlastních direktiv na komponenty není doporučeno, protože pokud má komponenta více než jeden root element, může mít použití direktivy neočekávané výsledky.
+:::
+
 Při použití na komponenty se vlastní direktivy vždy vztahují na root element komponenty, podobně jako u [Fallthrough atributů](/guide/components/attrs).
 
 ```vue-html
@@ -224,4 +228,4 @@ Při použití na komponenty se vlastní direktivy vždy vztahují na root eleme
 </div>
 ```
 
-Pamatujte, že komponenty mohou mít potenciálně více než jeden root element. Při použití na multi-root komponentu bude direktiva ignorována a bude vypsáno varování. Na rozdíl od atributů předat direktivy jinému elementu pomocí `v-bind="$attrs"` nelze. Obecně se **nedoporučuje** používat vlastní direktivy u komponent.
+Pamatujte, že komponenty mohou mít potenciálně více než jeden root element. Při použití na multi-root komponentu bude direktiva ignorována a bude vypsáno varování. Na rozdíl od atributů předat direktivy jinému elementu pomocí `v-bind="$attrs"` nelze.
