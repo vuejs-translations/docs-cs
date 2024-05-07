@@ -196,7 +196,7 @@ Výše uvedený odkaz vede na _globalní build_ Vue, kde jsou všechny API nejvy
 </script>
 ```
 
-[Codepen demo](https://codepen.io/vuejs-examples/pen/QWJwJLp)
+[CodePen Demo >](https://codepen.io/vuejs-examples/pen/QWJwJLp)
 
 </div>
 
@@ -221,7 +221,7 @@ Výše uvedený odkaz vede na _globalní build_ Vue, kde jsou všechny API nejvy
 </script>
 ```
 
-[Codepen demo](https://codepen.io/vuejs-examples/pen/eYQpQEG)
+[CodePen Demo >](https://codepen.io/vuejs-examples/pen/eYQpQEG)
 
 :::tip
 Řada příkladů pro Composition API napříč celým průvodcem bude používat syntaxi `<script setup>`, která vyžaduje build nástroje. Pokud plánujete používat Composition API bez build fáze, podívejte se na použití [hooku `setup()`](/api/composition-api-setup).
@@ -278,12 +278,12 @@ Všimněte si, že používáme `<script type="module">` a importovaná CDN URL 
 
 <div class="options-api">
 
-[Codepen demo](https://codepen.io/vuejs-examples/pen/VwVYVZO)
+[CodePen Demo >](https://codepen.io/vuejs-examples/pen/VwVYVZO)
 
 </div>
 <div class="composition-api">
 
-[Codepen demo](https://codepen.io/vuejs-examples/pen/MWzazEv)
+[CodePen Demo >](https://codepen.io/vuejs-examples/pen/MWzazEv)
 
 </div>
 
@@ -323,7 +323,7 @@ Můžeme naučit prohlížeč, kde najde `vue` import s využitím [Import Maps]
 </script>
 ```
 
-[Codepen demo](https://codepen.io/vuejs-examples/pen/wvQKQyM)
+[CodePen Demo >](https://codepen.io/vuejs-examples/pen/wvQKQyM)
 
 </div>
 
@@ -354,7 +354,7 @@ Můžeme naučit prohlížeč, kde najde `vue` import s využitím [Import Maps]
 </script>
 ```
 
-[Codepen demo](https://codepen.io/vuejs-examples/pen/YzRyRYM)
+[CodePen Demo >](https://codepen.io/vuejs-examples/pen/YzRyRYM)
 
 </div>
 
