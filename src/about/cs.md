@@ -49,7 +49,7 @@ Jde o alternativní způsob zápisu funkcí v JavaScriptu ve formátu: `( /* par
 ### Vue
 
 :::tip Upozornění
-Tato stránka se zabývá pouze původem překladů do češtiny. Glosář vysvětlující základní pojmy Vue jako takové naleznete na [této stránce](/glossary).
+Tato stránka se zabývá pouze původem překladů do češtiny. Glosář vysvětlující základní pojmy Vue jako takové naleznete na [této stránce](/glossary/).
 :::
 
 #### ref
