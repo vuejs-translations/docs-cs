@@ -211,7 +211,7 @@ app.directive('demo', (el, binding) => {
 ## Použití na komponenty {#usage-on-components}
 
 :::warning Nedoporučeno
-Použití vlastních direktiv na komponenty není doporučeno, protože pokud má komponenta více než jeden root element, může mít použití direktivy neočekávané výsledky.
+Použití vlastních direktiv na komponenty není doporučeno. Pokud má komponenta více než jeden root element, může mít použití direktivy neočekávané výsledky.
 :::
 
 Při použití na komponenty se vlastní direktivy vždy vztahují na root element komponenty, podobně jako u [Fallthrough atributů](/guide/components/attrs).

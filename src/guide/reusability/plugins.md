@@ -92,7 +92,7 @@ Nyní bude naše volání `$translate('greetings.hello')` za běhu nahrazeno tex
 Viz také: [Rozšiřování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
 
 :::tip
-Globální vlastnosti používejte jen zřídka, protože pokud se v aplikaci používá příliš mnoho globálních promnených vložených různými pluginy, může se rychle stát nepřehlednou.
+Globální vlastnosti používejte jen zřídka. Pokud se v aplikaci používá příliš mnoho globálních promněných vložených různými pluginy, může se rychle stát nepřehlednou.
 :::
 
 ### Provide / Inject spolu s pluginy {#provide-inject-with-plugins}
