@@ -444,33 +444,37 @@ Pamatujte si, že atribut `name` pojmenovaného slotu nebude jako vlastnost zahr
 Pokud kombinujete pojmenované sloty s výchozím scoped slotem, musíte pro výchozí slot použít explicitní tag `<template>`. Pokus umístit direktivu `v-slot` přímo na komponentu způsobí kompilační chybu. Tím se Vue brání nejasnostem ohledně scope pro vlastnosti výchozího slotu. Například:
 
 ```vue-html
+<!-- šablona <MyComponent> -->
+<div>
+  <slot :message="hello"></slot>
+  <slot name="footer" />
+</div>
+```
+
+```vue-html
 <!-- tato šablona se nezkompiluje -->
-<template>
-  <MyComponent v-slot="{ message }">
+<MyComponent v-slot="{ message }">
+  <p>{{ message }}</p>
+  <template #footer>
+    <!-- `message` patří do výchozího slotu, a zde není přístupná -->
     <p>{{ message }}</p>
-    <template #footer>
-      <!-- `message` patří do výchozího slotu, a zde není přístupná -->
-      <p>{{ message }}</p>
-    </template>
-  </MyComponent>
-</template>
+  </template>
+</MyComponent>
 ```
 
 Použití explicitního tagu `<template>` pro výchozí slot pomáhá ujasnit si, že vlastnost `message` není přístupná v jiném slotu:
 
 ```vue-html
-<template>
-  <MyComponent>
-    <!-- použitího explicitního výchozího slotu -->
-    <template #default="{ message }">
-      <p>{{ message }}</p>
-    </template>
+<MyComponent>
+  <!-- použitího explicitního výchozího slotu -->
+  <template #default="{ message }">
+    <p>{{ message }}</p>
+  </template>
 
-    <template #footer>
-      <p>Zde jsou kontaktní informace</p>
-    </template>
-  </MyComponent>
-</template>
+  <template #footer>
+    <p>Zde jsou kontaktní informace</p>
+  </template>
+</MyComponent>
 ```
 
 ### Příklad - Fancy List {#fancy-list-example}
