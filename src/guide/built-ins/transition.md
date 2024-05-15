@@ -324,7 +324,7 @@ Můžete si všimnout, že animace zobrazené výše využívají převážně v
 
 2. Většina moderních prohlížečů může využít hardwarovou akceleraci GPU během `transform` animace.
 
-Naopak vlastnosti jako `height` nebo `margin` vyvolají změnu CSS layoutu, takže jsou na animaci mnohem dražší a měly by se používat opatrně. Pro zjištění, které všechny CSS vlastnosti změnu layoutu při animaci vyvolají, můžeme použít zdroje jako [CSS Triggers](https://csstriggers.com/).
+Naopak vlastnosti jako `height` nebo `margin` vyvolají změnu CSS layoutu, takže jsou na animaci mnohem dražší a měly by se používat opatrně.
 
 ## JavaScript události {#javascript-hooks}
 
