@@ -242,7 +242,7 @@ Testováním, jak akce uživatele ovlivňují vaši aplikaci, jsou E2E testy ča
 
 ### Výběr řešení pro E2E testování  {#choosing-an-e2e-testing-solution}
 
-Ačoliv end-to-end (E2E) testování na webu získalo negativní pověst kvůli nespolehlivým (nestabilním) testům a zpomalení vývojových procesů, moderní nástroje pro E2E testování udělaly pokrok směrem k vytváření spolehlivějších, interaktivnějších a užitečnějších testů. Následující sekce dávají pár rad, na co při výběru E2E testovacího frameworku pro vaši aplikaci myslet.
+Ačoliv end-to-end (E2E) testování na webu získalo negativní pověst kvůli nespolehlivým (nestabilním) testům a zpomalení vývojových procesů, moderní nástroje pro E2E testování udělaly pokrok směrem k vytváření spolehlivějších, interaktivnějších a&nbsp;užitečnějších testů. Následující sekce dávají pár rad, na co při výběru E2E testovacího frameworku pro vaši aplikaci myslet.
 
 #### Testování napříč prohlížeči {#cross-browser-testing}
 
@@ -264,15 +264,13 @@ Když jsou E2E testy spouštěny v rámci CI/CD pipeline, často se spouštějí
 
 - [Cypress](https://www.cypress.io/)
 
-  Celkově si myslíme, že Cypress poskytuje nejkompletnější řešení pro end-to-end testování s funkcemi jako informativní grafické rozhraní, vynikající laditelnost, vestavěné assertions a stubs, odolnost proti flaky testům, paralelizace a snímky obrazovky. Jak bylo zmíněno výše, podporuje také [testování komponent](https://docs.cypress.io/guides/component-testing/introduction). Podporuje však pouze prohlížeče založené na Chromiumu a Firefox.
+  Celkově si myslíme, že Cypress poskytuje nejkompletnější řešení pro end-to-end testování s funkcemi jako informativní grafické rozhraní, vynikající možnosti ladění, vestavěné assertions a stubs, odolnost proti flaky testům, paralelizace a snímky obrazovky. Jak bylo zmíněno výše, podporuje také [testování komponent](https://docs.cypress.io/guides/component-testing/introduction). Podporuje prohlížeče založené na Chromium enginu, Firefox a Electron. Podpora pro WebKit je dostupná, ale označená jako experimentální.
 
 ### Další možnosti {#other-options-2}
 
 - [Playwright](https://playwright.dev/) je pro end-to-end testování také skvělé řešení, které podporuje všechny moderní vykreslovací enginy vč. Chromium, WebKit a Firefox. Testujte na Windows, Linuxu a macOS, lokálně nebo v CI, v plném či headless módu a s nativním mobilním emulátorem Google Chrome pro Android a Mobile Safari.
 
-s širším spektrem podpory prohlížečů (především WebKit). Pro více informací se podívejte na [Proč použít Playwright](https://playwright.dev/docs/why-playwright).
-
-- [Nightwatch](https://nightwatchjs.org/) je řešení pro end-to-end testování založené na [Selenium WebDriver](https://www.npmjs.com/package/selenium-webdriver). To mu dává nejširší rozsah podpory prohlížečů.
+- [Nightwatch](https://nightwatchjs.org/) je řešení pro end-to-end testování založené na [Selenium WebDriver](https://www.npmjs.com/package/selenium-webdriver). To mu dává nejširší rozsah podpory prohlížečů vč. nativního mobilního zobrazení. Řešení založená na Seleniu však budou pomalejší než Cypress nebo Playwright.
 
 - [WebdriverIO](https://webdriver.io/) je testovací automatizační framework pro testování webových a&nbsp;mobilních aplikací založený na protokolu WebDriver.
 
