@@ -98,7 +98,8 @@ Pokud máte JavaScript objekt reprezentující více atributů, který vypadá n
 ```js
 const objectOfAttrs = {
   id: 'container',
-  class: 'wrapper'
+  class: 'wrapper',
+  style: 'background-color:green'
 }
 ```
 
