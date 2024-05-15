@@ -268,7 +268,9 @@ Když jsou E2E testy spouštěny v rámci CI/CD pipeline, často se spouštějí
 
 ### Další možnosti {#other-options-2}
 
-- [Playwright](https://playwright.dev/) je pro end-to-end testování také skvělé řešení s širším spektrem podpory prohlížečů (především WebKit). Pro více informací se podívejte na [Proč použít Playwright](https://playwright.dev/docs/why-playwright).
+- [Playwright](https://playwright.dev/) je pro end-to-end testování také skvělé řešení, které podporuje všechny moderní vykreslovací enginy vč. Chromium, WebKit a Firefox. Testujte na Windows, Linuxu a macOS, lokálně nebo v CI, v plném či headless módu a s nativním mobilním emulátorem Google Chrome pro Android a Mobile Safari.
+
+s širším spektrem podpory prohlížečů (především WebKit). Pro více informací se podívejte na [Proč použít Playwright](https://playwright.dev/docs/why-playwright).
 
 - [Nightwatch](https://nightwatchjs.org/) je řešení pro end-to-end testování založené na [Selenium WebDriver](https://www.npmjs.com/package/selenium-webdriver). To mu dává nejširší rozsah podpory prohlížečů.
 
