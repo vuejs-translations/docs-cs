@@ -188,11 +188,11 @@ Oficiální plugin, který poskytuje podporu Vue SFC pro Vite.
 
 Oficiální loader, který poskytuje podporu Vue SFC pro webpack. Pokud používáte Vue CLI, podívejte se také na [dokumentaci k úpravě nastavení `vue-loader` ve Vue CLI](https://cli.vuejs.org/guide/webpack.html#modifying-options-of-a-loader).
 
-## Ostatní online hřiště {#other-online-playgrounds}
+## Ostatní online hřiště {#other-online-playgrounds}s
 
 - [VueUse Playground](https://play.vueuse.org)
 - [Vue + Vite na Repl.it](https://replit.com/@templates/VueJS-with-Vite)
-- [Vue na CodeSandbox](https://codesandbox.io/s/vue-3)
+- [Vue na CodeSandbox](https://codesandbox.io/p/devbox/github/codesandbox/sandbox-templates/tree/main/vue-vite)
 - [Vue na Codepen](https://codepen.io/pen/editor/vue)
 - [Vue na Components.studio](https://components.studio/create/vue3)
 - [Vue na WebComponents.dev](https://webcomponents.dev/create/cevue)
