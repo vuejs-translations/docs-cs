@@ -14,7 +14,7 @@ import { VTCodeGroup, VTCodeGroupTab } from '@vue/theme'
 
 - Pokud máte raději čistě HTML setup bez build fáze, můžete jako počáteční bod využít toto [JSFiddle](https://jsfiddle.net/yyx990803/2ke1ab0z/).
 
-- Pokud už ovládáte Note.js a koncept build nástrojů, můžete si kompletní build vyzkoušet jen ve vašem prohlížeči na [StackBlitz](https://vite.new/vue).
+- Pokud už ovládáte Node.js a koncept build nástrojů, můžete si kompletní build vyzkoušet jen ve vašem prohlížeči na [StackBlitz](https://vite.new/vue).
 
 ## Vytvoření Vue aplikace {#creating-a-vue-application}
 
