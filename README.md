@@ -15,7 +15,11 @@ pnpm i
 pnpm run dev
 ```
 
-Projekt potřebje Node.js ve verzi `v14.0.0` nebo vyšší, protože používáme novější JavaScript funkce, jako je _optional chaining_.
+Projekt potřebje Node.js ve verzi `v18` nebo vyšší. A je doporučeno povolit corepack:
+
+```bash
+corepack enable
+```
 
 ## Práce s obsahem
 
