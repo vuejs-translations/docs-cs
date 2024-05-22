@@ -710,6 +710,11 @@ export default defineConfigWithTheme<ThemeConfig>({
         link: 'https://cs.vuejs.org',
         text: 'Čeština',
         repo: 'https://github.com/vuejs-translations/docs-cs'
+      },      
+      {
+        link: 'https://zh-hk.vuejs.org',
+        text: '繁體中文',
+        repo: 'https://github.com/vuejs-translations/docs-zh-hk'
       },
       {
         link: '/translations/',

@@ -18,6 +18,7 @@ aside: false
 - [فارسی / Perština](https://fa.vuejs.org/) [[zdrojové kódy](https://github.com/vuejs-translations/docs-fa)]
 - [Русский / Ruština](https://ru.vuejs.org/) [[zdrojové kódy](https://github.com/vuejs-translations/docs-ru)]
 - [Čeština](https://cs.vuejs.org/) [[zdrojové kódy](https://github.com/vuejs-translations/docs-cs)]
+- [繁體中文 / Čínština (tradiční)](https://zh-hk.vuejs.org/) [[zdrojové kódy](https://github.com/vuejs-translations/docs-zh-hk)]
 
 ## Probíhající překlady {#work-in-progress-languages}
 
