@@ -23,6 +23,7 @@ aside: false
 ## Probíhající překlady {#work-in-progress-languages}
 
 - [العربية / Arabština](https://ar.vuejs.org/) [[zdrojové kódy](https://github.com/vuejs-translations/docs-ar)]
+- [Español / Španělština](https://vue3-spanish-docs.netlify.app/) [[zdrojové kódy](https://github.com/icarusgk/vuejs-spanish-docs)]
 
 ## Začít nový překlad {#starting-a-new-translation}
 
