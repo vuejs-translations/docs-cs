@@ -21,7 +21,7 @@ importers:
         specifier: ^3.12.5
         version: 3.12.5
       vitepress:
-        specifier: ^1.2.3
+        specifier: ^1.2.2
         version: 1.2.3(@algolia/client-search@4.23.3)(@types/node@20.14.1)(postcss@8.4.38)(search-insights@2.14.0)(terser@5.31.0)(typescript@5.4.5)
       vue:
         specifier: ^3.4.27
