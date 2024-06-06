@@ -146,6 +146,8 @@ React Hooks jsou opakovaně volány pokaždé, když se komponenta aktualizuje. 
 
 - Tzv. „stale closure“ problém spolu s funkcemi pro souběžnost (Concurrent features), ztěžuje určení, kdy se kód hooku spustí, a ztěžuje práci s proměnným stavem, který by měl přetrvávat mezi vykreslením (pomocí `useRef`).
 
+> Poznámka: některé z problémů uvedených výše souvisí s „memoizací“ a mohou být vyřešeny v připravovaném nástroji [React Compiler](https://react.dev/learn/react-compiler).
+
 Na rozdíl od toho Vue Composition API:
 
 - Volá kód `setup()` nebo `<script setup>` pouze jednou. To způsobuje, že kód lépe odpovídá intuitivnímu používání idiomatického JavaScriptu, protože se nemusíte starat o „stale closures“. Volání Composition API také není citlivé na pořadí volání a&nbsp;může být podmíněné.
