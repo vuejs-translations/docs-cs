@@ -20,6 +20,7 @@ function update() {
 
 <template>
   <div>Hodnota v-model z rodiče je: {{ model }}</div>
+  <button @click="update">Přidat</button>
 </template>
 ```
 
