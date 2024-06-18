@@ -727,9 +727,6 @@ export default defineConfigWithTheme<ThemeConfig>({
       indexName: 'cs-vuejs',
       appId: '6KIZ4U5VZN',
       apiKey: 'ad30ee2802d2fd959b35222006f8ba58',
-      searchParameters: {
-        facetFilters: ['version:v3']
-      },
       placeholder: "Najít ve Vue.js dokumentaci",
       translations: {
         button: {
