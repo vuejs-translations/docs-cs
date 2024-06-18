@@ -176,7 +176,7 @@ Direktivy `v-if` a `v-for` vytvoří nové blokové elementy:
   <div>
     <div v-if> <!-- blok pro v-if -->
       ...
-    <div>
+    </div>
   </div>
 </div>
 ```
