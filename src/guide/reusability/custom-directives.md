@@ -111,23 +111,23 @@ Objekt definice direktivy může poskytovat několik „hook“ funkcí (všechn
 const mojeDirektiva = {
   // volána před aplikací
   // navázaných atributů elementů či event listenerů
-  created(el, binding, vnode, prevVnode) {
+  created(el, binding, vnode) {
     // detaily jednotlivých argumentů viz níže
   },
   // volána těsně před vložením elementu do DOM
-  beforeMount(el, binding, vnode, prevVnode) {},
+  beforeMount(el, binding, vnode) {},
   // volána po `mounted` (vložení do DOM) 
   // na komponentě rodiče a všech jejích potomcích
-  mounted(el, binding, vnode, prevVnode) {},
+  mounted(el, binding, vnode) {},
   // volána před `updated` na komponentě rodiče
   beforeUpdate(el, binding, vnode, prevVnode) {},
   // volána po `updated` na komponentě rodiče
   // a všech jejích potomcích
   updated(el, binding, vnode, prevVnode) {},
   // volána před `unmounted` na komponentě rodiče
-  beforeUnmount(el, binding, vnode, prevVnode) {},
+  beforeUnmount(el, binding, vnode) {},
   // volána po `unmounted` na komponentě rodiče
-  unmounted(el, binding, vnode, prevVnode) {}
+  unmounted(el, binding, vnode) {}
 }
 ```
 
