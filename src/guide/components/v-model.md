@@ -74,7 +74,7 @@ const emit = defineEmits(['update:modelValue'])
 </template>
 ```
 
-Poté se `v-model="modelValue"` v komponentě rodiče zkompiluje jako:
+Poté se `v-model="foo"` v komponentě rodiče zkompiluje jako:
 
 ```vue-html
 <!-- Parent.vue -->
