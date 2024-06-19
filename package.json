@@ -15,7 +15,7 @@
     "@vue/theme": "^2.2.12",
     "dynamics.js": "^1.1.5",
     "gsap": "^3.12.5",
-    "vitepress": "^1.2.2",
+    "vitepress": "^1.2.3",
     "vue": "^3.4.27"
   },
   "devDependencies": {
