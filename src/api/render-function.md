@@ -305,7 +305,7 @@ Pro přidání vestavěných [`v-on` modifikátorů](/guide/essentials/event-han
 - **Typ**
 
   ```ts
-  function withModifiers(fn: Function, modifiers: string[]): Function
+  function withModifiers(fn: Function, modifiers: ModifierGuardsKeys[]): Function
   ```
 
 - **Příklad**
