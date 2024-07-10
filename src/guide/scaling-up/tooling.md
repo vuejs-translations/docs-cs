@@ -194,7 +194,6 @@ Oficiální loader, který poskytuje podporu Vue SFC pro webpack. Pokud použív
 - [Vue + Vite na Repl.it](https://replit.com/@templates/VueJS-with-Vite)
 - [Vue na CodeSandbox](https://codesandbox.io/p/devbox/github/codesandbox/sandbox-templates/tree/main/vue-vite)
 - [Vue na Codepen](https://codepen.io/pen/editor/vue)
-- [Vue na Components.studio](https://components.studio/create/vue3)
 - [Vue na WebComponents.dev](https://webcomponents.dev/create/cevue)
 
 <!-- TODO ## Backend Framework Integrations -->
