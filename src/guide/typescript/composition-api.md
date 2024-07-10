@@ -84,6 +84,10 @@ const props = withDefaults(defineProps<Props>(), {
 
 Výše uvedené bude pro runtime vlastnosti přeloženo na ekvivalentní `default` vlastnosti. Navíc pomocná funkce `withDefaults` poskytuje typovou kontrolu pro výchozí hodnoty a&nbsp;zajistí, že vrácený typ `props` má odstraněny příznaky volitelosti pro ty vlastnosti, které mají výchozí hodnoty deklarované.
 
+:::info
+Pamatujte, že výchozí hodnoty pro měnitelné (mutable) referenční typy (jako jsou pole či objekty) by měly být zabaleny do funkcí, aby se předešlo nechtěným změnám a vedlejším efektům zvnějšku. Použití funkce zajistí, že každá instance komponenty dostane svou vlastní kopii výchozí hodnoty.
+:::
+
 ### Bez `<script setup>` {#without-script-setup}
 
 Pokud nepoužíváte `<script setup>`, je nutné k povolení odvozování typu vlastností použít `defineComponent()`. Typ objektu vlastností předaný do `setup()` je odvozen z&nbsp;možnosti `props`.
