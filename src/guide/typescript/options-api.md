@@ -259,7 +259,7 @@ declare module 'vue' {
 }
 ```
 
-## Rozšiřování custom možností {#augmenting-custom-options}
+## Obohacování custom možností {#augmenting-custom-options}
 
 Některé pluginy, například `vue-router`, poskytují podporu pro vlastní možnosti komponent, jako je `beforeRouteEnter`:
 

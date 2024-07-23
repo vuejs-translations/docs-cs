@@ -558,7 +558,7 @@ Umožňí použití `msg` uvnitř kterékoli šablony a také na `this` libovoln
   }
   ```
 
-- **Viz také:** [Průvodce - Rozšiřování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
+- **Viz také:** [Průvodce - Obohacování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
 
 ## app.config.optionMergeStrategies {#app-config-optionmergestrategies}
 

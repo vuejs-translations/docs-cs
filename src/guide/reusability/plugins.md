@@ -89,7 +89,7 @@ app.use(i18nPlugin, {
 
 Nyní bude naše volání `$translate('greetings.hello')` za běhu nahrazeno textem `Bonjour!`.
 
-Viz také: [Rozšiřování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
+Viz také: [Obohacování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
 
 :::tip
 Globální vlastnosti používejte jen zřídka. Pokud se v aplikaci používá příliš mnoho globálních promněných vložených různými pluginy, může se rychle stát nepřehlednou.
