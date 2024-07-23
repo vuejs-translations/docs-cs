@@ -472,6 +472,23 @@ defineProps<{
 </script>
 ```
 
+Pokud chcete použít odkaz na generickou komponentu uvnitř `ref`, musíte použít knihovnu [`vue-component-type-helpers`](https://www.npmjs.com/package/vue-component-type-helpers), protože `InstanceType` nebude fungovat.
+
+```vue
+<script
+  setup
+  lang="ts"
+>
+import componentWithoutGenerics from '../component-without-generics.vue';
+import genericComponent from '../generic-component.vue';
+import type { ComponentExposed } from 'vue-component-type-helpers';
+// funguje pouze pro instanci komponenty bez generických typů
+ref<InstanceType<typeof componentWithoutGenerics>>();
+ref<ComponentExposed<typeof genericComponent>>();
+// ...
+</script>
+```
+
 ## Omezení {#restrictions}
 
 - Kvůli rozdílu v sémantice vykonávání modulů se kód uvnitř `<script setup>` spoléhá na kontext SFC. Při přesunu do externích souborů `.js` nebo `.ts` může dojít k zmatení jak u vývojářů, tak i SW nástrojů. Proto **`<script setup>`** nelze použít s atributem `src`.
