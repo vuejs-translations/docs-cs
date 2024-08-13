@@ -134,7 +134,7 @@ Aby byl zápis bližší JavaScript syntaxi pro iterátory, můžete také míst
 
 ## `v-for` nad objektem {#v-for-with-an-object}
 
-Direktivu `v-for` můžete také použít pro iteraci nad vlastnostmi objektu. Pořadí iterace bude záviset na výsledku volání funkce `Object.keys()` na daný objekt:
+Direktivu `v-for` můžete také použít pro iteraci nad vlastnostmi objektu. Pořadí iterace bude záviset na výsledku volání funkce `Object.values()` na daný objekt:
 
 <div class="composition-api">
 
