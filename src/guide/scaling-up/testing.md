@@ -190,13 +190,13 @@ Nevíme nic o implementaci komponenty Stepper, pouze že „vstup“ je vlastnos
   </VTCodeGroupTab>
 </VTCodeGroup>
 
-- **NEDĚLEJTE**
+**NEDĚLEJTE**
 
-  Neověřujte private stav instance komponenty ani neověřujte private metody komponenty. Testování implementačních detailů dělá testy méně stabilní, protože je pravděpodobnější, že se rozbijí a budou vyžadovat aktualizaci při změně implementace.
+  - Neověřujte private stav instance komponenty ani neověřujte private metody komponenty. Testování implementačních detailů dělá testy méně stabilní, protože je pravděpodobnější, že se rozbijí a budou vyžadovat aktualizaci při změně implementace.
 
-  Úkolem komponenty je vykreslovat správný výstup DOM, takže testy zaměřené na výstup DOM poskytují stejnou úroveň zajištění správnosti (ne-li více), zatímco jsou odolnější vůči změnám.
+  Úkolem komponenty je vykreslovat správný výstup DOM, takže testy zaměřené na výstup DOM poskytují stejnou úroveň zajištění správnosti (ne-li více), přičemž jsou odolnější vůči změnám.
 
-  Nespoléhejte se výhradně na testy snímků obrazovky. Ověřování HTML řetězců nevyjadřuje správnost. Pište testy s úmyslem (intentionality).
+  - Nespoléhejte se výhradně na testy snímků obrazovky. Ověřování HTML řetězců nevyjadřuje správnost. Pište testy s úmyslem (intentionality).
 
   Pokud je třeba metodu důkladně otestovat, zvažte její extrakci do samostatné utility funkce a napište pro ni samostatný jednotkový test. Pokud ji nelze čistě extrahovat, může být testována jako součást komponentového, integračního nebo end-to-end testu, který ji pokrývá.
 
