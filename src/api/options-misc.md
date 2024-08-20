@@ -101,7 +101,13 @@ Ovládá, zda má být povoleno výchozí chování pro předávání atributů 
 
   </div>
 
-- **Viz také:** [Fallthrough atributy](/guide/components/attrs)
+- **Viz také:** 
+
+  - [Fallthrough atributy](/guide/components/attrs)
+  <div class="composition-api">
+
+  - [Použití `inheritAttrs` společně s normálním `<script>`](/api/sfc-script-setup.html#usage-alongside-normal-script)
+  </div>
 
 ## components {#components}
 
