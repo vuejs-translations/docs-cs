@@ -108,17 +108,14 @@ Pokud hledáte odlehčenou alternativu použitelnou bez build fáze, lze využí
 
 ## Devtools pro prohlížeč {#browser-devtools}
 
-<VueSchoolLink href="https://vueschool.io/lessons/using-vue-dev-tools-with-vuejs-3" title="Lekce o Vue.js Devtools zdarma"/>
-
 Rozšíření prohlížeče Vue devtools vám umožňuje prozkoumat strom komponent Vue aplikace, prohlédnout si stav jednotlivých komponent, sledovat události správy stavu a&nbsp;profilovat výkon.
 
-![Screenshot z devtools](https://raw.githubusercontent.com/vuejs/devtools/main/media/screenshot-shadow.png)
+![Screenshot z devtools](./images/devtools.png)
 
 - [Dokumentace](https://devtools.vuejs.org/)
-- [Rozšíření pro Chrome](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-- [Addon pro Firefox](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-- [Rozšíření pro Edge](https://microsoftedge.microsoft.com/addons/detail/vuejs-devtools/olofadcdnkkjdfgjcmjaadnlehnnihnl)
-- [Samostatná aplikace Electron](https://devtools.vuejs.org/guide/installation.html#standalone)
+- [Rozšíření pro Chrome](https://chromewebstore.google.com/detail/vuejs-devtools-beta/ljjemllljcmogpfapbkkighbhhppjdbg)
+- [Vite Plugin](https://devtools.vuejs.org/guide/vite-plugin)
+- [Samostatná aplikace Electron](https://devtools.vuejs.org/guide/standalone)
 
 ## TypeScript {#typescript}
 
