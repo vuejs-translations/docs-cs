@@ -132,11 +132,13 @@ Může také být použito k vytvoření ref pro vlastnost na zdrojovém reaktiv
 
   Při použití signatury pro vlastnosti objektu vrátí `toRef()` použitelný odkaz i v případě, že zdrojová vlastnost v současné době neexistuje. To umožňuje pracovat s volitelnými vlastnostmi, které by nebyly zachyceny pomocí [`toRefs`](#torefs).
 
-## toValue() <sup class="vt-badge" data-text="3.3+" /> {#tovalue}
+## toValue() {#tovalue}
 
 Normalizuje hodnoty / refs / gettery na hodnoty. Podobá se [unref()](#unref) s tím rozdílem, že&nbsp;normalizuje i gettery. Pokud je argument getter, bude vyvolán a bude vrácena jeho návratová hodnota.
 
 To lze použít v [composable funkcích](/guide/reusability/composables.html) k normalizaci parametru, který může být buď hodnota, ref nebo getter.
+
+- Podporováno až od verze 3.3+
 
 - **Typ**
 

@@ -124,9 +124,9 @@ Nyní se pro většinu komponent při změně `activeId` vlastnost `active` nem�
 
 `v-memo` je vestavěná direktiva, která se používá k podmíněnému přeskočení aktualizace velkých podstromů nebo seznamů `v-for`. Pro více informací se podívejte na [API referenci](/api/built-in-directives#v-memo).
 
-### Stabilita computed proměnných <sup class="vt-badge" data-text="3.4+" /> {#computed-stability}
+### Stabilita computed proměnných {#computed-stability}
 
-Od verze 3.4 computed proměnná spustí watch efekty pouze tehdy, když se její vypočítaná hodnota oproti předchozí hodnotě změní. Například následující computed proměnná  `isEven` spustí efekty, jen pokud se vrácená hodnota změní z `true` na `false` nebo naopak:
+Od Vue verze 3.4 computed proměnná spustí watch efekty pouze tehdy, když se její vypočítaná hodnota oproti předchozí hodnotě změní. Například následující computed proměnná  `isEven` spustí efekty, jen pokud se vrácená hodnota změní z `true` na `false` nebo naopak:
 
 ```js
 const count = ref(0)

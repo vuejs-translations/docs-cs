@@ -232,7 +232,9 @@ Výše uvedené bude pro runtime vlastnosti přeloženo na ekvivalentní `defaul
 Pamatujte, že výchozí hodnoty pro měnitelné (mutable) referenční typy (jako jsou pole či objekty) by měly být zabaleny do funkcí, aby se předešlo nechtěným změnám a vedlejším efektům zvnějšku. Použití funkce zajistí, že každá instance komponenty dostane svou vlastní kopii výchozí hodnoty.
 :::
 
-## defineModel() <sup class="vt-badge" data-text="3.4+" /> {#definemodel}
+## defineModel() {#definemodel}
+
+- Podporováno až od verze 3.4+
 
 Toto makro slouží k deklaraci obousměrného (two-way)  bindingu vlastnosti (prop), který může být konzumován pomocí `v-model` z komponenty rodiče. Příklad použití je také rozebrán v průvodci [Komponenta - Binding přes v-model](/guide/components/v-model).
 

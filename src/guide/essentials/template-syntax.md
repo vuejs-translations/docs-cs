@@ -63,7 +63,9 @@ Atributy začínající na `:` mohou vypadat trochu jinak než normální HTML, 
 
 > Ve zbytku průvodce budeme v příkladech kódu používat zkrácenou syntaxi, protože je to pro Vue vývojáře nejběžnější použití.
 
-### Zkratka stejného názvu <sup class="vt-badge" data-text="3.4+" /> {#same-name-shorthand}
+### Zkratka stejného názvu {#same-name-shorthand}
+
+- Podporováno až od verze 3.4+
 
 Pokud má atribut stejný název jako JavaScript hodnota, která je na něj vázána, syntaxe může být dále zkrácena vynecháním hodnoty atributu:
 

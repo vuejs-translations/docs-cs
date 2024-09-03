@@ -271,9 +271,11 @@ export default {
   - [Provide na úprvni aplikace](/guide/components/provide-inject#app-level-provide)
   - [app.runWithContext()](#app-runwithcontext)
 
-## app.runWithContext()<sup class="vt-badge" data-text="3.3+" /> {#app-runwithcontext}
+## app.runWithContext() {#app-runwithcontext}
 
 Spustí callback s aktuální aplikací jako kontextem (injection context).
+
+- Podporováno až od verze 3.3+
 
 - **Typ**
 

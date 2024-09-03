@@ -259,7 +259,7 @@ Dynamicky váže jeden nebo více atributů nebo vlastností (props) komponenty 
 
 - **Zkratka:** 
   - `:` nebo `.` (pokud se používá modifikátor `.prop`)
-  - Vynechání hodnoty (pokud mají atribut a vázaná hodnota stejný název) <sup class="vt-badge">3.4+</sup>
+  - Vynechání hodnoty (pokud mají atribut a vázaná hodnota stejný název), podporováno až od verze 3.4+
 
 - **Očekává:** `libovolný (s parametrem) | Objekt (bez parametru)`
 
@@ -268,8 +268,8 @@ Dynamicky váže jeden nebo více atributů nebo vlastností (props) komponenty 
 - **Modifikátory**
 
   - `.camel` - převede název atributu z kebab-case na camelCase.
-  - `.prop` - vynutí binding jako vlastnost (prop) DOM. <sup class="vt-badge">3.2+</sup>
-  - `.attr` - vynutí binding jako atribut DOM. <sup class="vt-badge">3.2+</sup>
+  - `.prop` - vynutí binding jako vlastnost (prop) DOM (3.2+).
+  - `.attr` - vynutí binding jako atribut DOM (3.2+).
 
 - **Použití**
 
@@ -468,7 +468,9 @@ Vykreslit element nebo komponentu pouze jednou a přeskočit budoucí aktualizac
   - [Syntaxe šablon - Interpolace textu](/guide/essentials/template-syntax#text-interpolation)
   - [v-memo](#v-memo)
 
-## v-memo <sup class="vt-badge" data-text="3.2+" /> {#v-memo}
+## v-memo {#v-memo}
+
+- Podporováno až od verze 3.2+
 
 - **Očekává:** `any[]`
 

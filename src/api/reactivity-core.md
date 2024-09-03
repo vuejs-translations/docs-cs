@@ -114,7 +114,7 @@ Přijímá [getter funkci](https://developer.mozilla.org/en-US/docs/Web/JavaScri
   - [Průvodce - Computed proměnné](/guide/essentials/computed)
   - [Průvodce - Ladění computed proměnných](/guide/extras/reactivity-in-depth#computed-debugging)
   - [Průvodce - Typování `computed()`](/guide/typescript/composition-api#typing-computed) <sup class="vt-badge ts" />
-  - [Průvodce - Výkon - Stabilita computed proměnných](/guide/best-practices/performance#computed-stability) <sup class="vt-badge" data-text="3.4+" />
+  - [Průvodce - Výkon - Stabilita computed proměnných](/guide/best-practices/performance#computed-stability)
 
 ## reactive() {#reactive}
 
@@ -393,7 +393,7 @@ Sleduje jeden nebo více reaktivních datových zdrojů a vyvolá callback, kdy�
   - **`deep`**: vynutit hluboké procházení zdroje, pokud je objektem, takže callback se spustí i při změnách hluboko uvnitř objektu. Viz [Deep Watchers](/guide/essentials/watchers#deep-watchers).
   - **`flush`**: upravit časování vyvolání callbacku. Viz [Časování provedení callback funkce](/guide/essentials/watchers#callback-flush-timing) a [`watchEffect()`](/api/reactivity-core#watcheffect).
   - **`onTrack / onTrigger`**: ladit závislosti watcheru. Viz [Ladění watcherů](/guide/extras/reactivity-in-depth#watcher-debugging).
-  - **`once`**: spustit callback pouze jednou. Watcher se po dokončení prvního běhu callback funkce automaticky zastaví. <sup class="vt-badge" data-text="3.4+" />
+  - **`once`**: (3.4+) spustit callback pouze jednou. Watcher se po dokončení prvního běhu callback funkce automaticky zastaví.
 
   V porovnání s [`watchEffect()`](#watcheffect) nám `watch()` umožňuje:
 

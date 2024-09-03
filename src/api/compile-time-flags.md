@@ -26,11 +26,13 @@ Podívejte se na [Průvodce konfigurací](#configuration-guides), jak je nastavi
 
   Povolit / zakázat podporu nástrojů pro vývoj (DevTools) v produkčních buildech. Povolení povede k zahrnutí více kódu do distribučního balíčku, proto se doporučuje tuto možnost povolit pouze pro účely ladění.
 
-## `__VUE_PROD_HYDRATION_MISMATCH_DETAILS__` <sup class="vt-badge" data-text="3.4+" /> {#VUE_PROD_HYDRATION_MISMATCH_DETAILS}
+## `__VUE_PROD_HYDRATION_MISMATCH_DETAILS__` {#VUE_PROD_HYDRATION_MISMATCH_DETAILS}
 
 - **Výchozí hodnota:** `false`
 
   Povolit / zakázat podrobná varování o nesouladech hydratace (hydration mismatch) v&nbsp;produkčních buildech. Povolení povede k zahrnutí více kódu do distribučního balíčku, proto se doporučuje tuto možnost povolit pouze pro účely ladění.
+
+- Podporováno až od verze 3.4+
 
 ## Průvodce konfigurací {#configuration-guides}
 

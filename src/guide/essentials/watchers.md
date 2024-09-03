@@ -271,7 +271,9 @@ watch(
 
 </div>
 
-## Jednorázové watchery <sup class="vt-badge" data-text="3.4+" /> {#once-watchers}
+## Jednorázové watchery {#once-watchers}
+
+- Podporováno až od verze 3.4+
 
 Callback watcheru bude spuštěn kdykoli, když se změní sledovaný zdroj. Pokud ho po změně zdroje chcete spustit puze jednou, použijte nastavení `once: true`.
 
