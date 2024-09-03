@@ -333,7 +333,7 @@ Nebo můžete použít tag `<template>` s `v-for`, kterým obalíte `<li>` eleme
 
 V aplikacích mohou být styly na nejvyšší úrovni komponenty `App` a v komponentách pro&nbsp;layout globální, ale všechy ostatní komponenty by měly mít styly vždy omezené (scoped).
 
-To platí pouze pro [Single-File komponenty (SFC)](/guide/scaling-up/sfc). _Není_ nezbytné používat [atribut `scoped`](https://vue-loader.vuejs.org/en/features/scoped-css.html). Omezení lze zajistit pomocí [CSS modulů](https://vue-loader.vuejs.org/en/features/css-modules.html), a class-based strategie jako je [BEM](http://getbem.com/), či jiné knihovny/konvence.
+To platí pouze pro [Single-File komponenty (SFC)](/guide/scaling-up/sfc). _Není_ nezbytné používat [atribut `scoped`](https://vue-loader.vuejs.org/guide/scoped-css.html). Omezení lze zajistit pomocí [CSS modulů](https://vue-loader.vuejs.org/guide/css-modules.html), a class-based strategie jako je [BEM](http://getbem.com/), či jiné knihovny/konvence.
 
 **Komponenty knihoven by nicméně měly class-based strategii místo používání atributu `scoped` upřednostňovat.**
 
