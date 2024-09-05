@@ -346,7 +346,9 @@ defineExpose({
 
 Když rodič získá instanci této komponenty pomocí template refs, získaná instance bude ve tvaru `{ a: number, b: number }` (referenční hodnoty jsou automaticky „rozbaleny“ stejně jako u normálních instancí).
 
-## defineOptions() <sup class="vt-badge" data-text="3.3+" /> {#defineoptions}
+## defineOptions() {#defineoptions}
+
+- Podporováno až od verze 3.3+
 
 Toto makro může být použito k deklaraci vlastností komponenty přímo uvnitř `<script setup>` bez použití samostatného bloku `<script>`:
 
@@ -360,11 +362,11 @@ defineOptions({
 })
 </script>
 ```
-
-- Podporováno pouze ve verzi 3.3 a vyšší.
 - Jedná se o makro. Vlastnosti budou vytaženy (hoisted) na úroveň modulu a nebudou mít přístup k lokálním proměnným ve `<script setup>`, které nejsou konstantní literály (literal constants).
 
 ## defineSlots()<sup class="vt-badge ts"/> {#defineslots}
+
+- Podporováno až od verze 3.3+
 
 Toto makro může být použito k poskytnutí typové nápovědy pro IDE pro kontrolu názvu slotu a typů props.
 
@@ -379,8 +381,6 @@ const slots = defineSlots<{
 }>()
 </script>
 ```
-
-- Podporováno až od verze 3.3+.
 
 ## `useSlots()` & `useAttrs()` {#useslots-useattrs}
 

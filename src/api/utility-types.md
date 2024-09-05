@@ -34,9 +34,9 @@ Používá se k anotaci vlastnosti (prop) s pokročilejšími typy při použit�
 
 ## MaybeRef\<T> {#mayberef}
 
-Alias pro `T | Ref<T>`. Užitečné pro anotaci vstupních parametrů v [Composables](/guide/reusability/composables.html).
+- Podporováno až od verze 3.3+
 
-- Podporováno až od verze 3.3+.
+Alias pro `T | Ref<T>`. Užitečné pro anotaci vstupních parametrů v [Composables](/guide/reusability/composables.html).
 
 ## ExtractPropTypes\<T> {#extractproptypes}
 
@@ -71,9 +71,9 @@ Pro extrakci veřejně orientovaných vlastností, tj. vlastností, které můž
 
 ## ExtractPublicPropTypes\<T> {#extractpublicproptypes}
 
-Extrahuje typy vlastností (props) z objektu s runtime props. Extrahované typy jsou veřejně orientované - tj. vlastnosti, které může předat rodič. 
+- Podporováno až od verze 3.3+
 
-- Podporováno až od verze 3.3+.
+Extrahuje typy vlastností (props) z objektu s runtime props. Extrahované typy jsou veřejně orientované - tj. vlastnosti, které může předat rodič.
 
 - **Příklad**
 

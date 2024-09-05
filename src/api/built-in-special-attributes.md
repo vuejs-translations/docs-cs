@@ -91,7 +91,9 @@ Používá se pro binding [dynamických komponent](/guide/essentials/component-b
 
 - **Očekává:** `string | Komponenta`
 
-- **Použití na nativních elementech** <sup class="vt-badge">3.1+</sup>
+- **Použití na nativních elementech**
+
+  - Podporováno až od verze 3.1+
 
   Když je atribut `is` použit na nativním HTML elementu, bude interpretován jako [custom vestavěný element](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example), což je nativní funkce webové platformy.
 

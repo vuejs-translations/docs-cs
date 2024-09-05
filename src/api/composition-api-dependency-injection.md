@@ -110,9 +110,9 @@ Implementuje hodnotu poskytnutou komponentou předka nebo aplikací (pomocí `ap
 
 ## hasInjectionContext() {#has-injection-context}
 
-Vrací true, pokud může být funkce [inject()](#inject) použita, aniž by vyvolala varování, že je volána na špatném místě (např. mimo `setup()`). Tato metoda je navržena pro použití v&nbsp;knihovnách, které chtějí používat `inject()` interně bez výpisu varování pro koncové uživatele.
-
 - Podporováno až od verze 3.3+
+
+Vrací true, pokud může být funkce [inject()](#inject) použita, aniž by vyvolala varování, že je volána na špatném místě (např. mimo `setup()`). Tato metoda je navržena pro použití v&nbsp;knihovnách, které chtějí používat `inject()` interně bez výpisu varování pro koncové uživatele.
 
 - **Typ**
 

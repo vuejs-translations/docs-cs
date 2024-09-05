@@ -273,9 +273,9 @@ export default {
 
 ## app.runWithContext() {#app-runwithcontext}
 
-Spustí callback s aktuální aplikací jako kontextem (injection context).
-
 - Podporováno až od verze 3.3+
+
+Spustí callback s aktuální aplikací jako kontextem (injection context).
 
 - **Typ**
 
