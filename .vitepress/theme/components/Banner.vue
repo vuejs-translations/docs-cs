@@ -72,10 +72,7 @@ html:not(.banner-dismissed) {
 }
 
 .banner-dismissed .banner {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 20px 10px;
+  display: none;
 }
 
 a:hover {
@@ -86,7 +83,7 @@ button {
   position: absolute;
   right: 0;
   top: 0;
-  padding: 5px;
+  padding: 20px 10px;
 }
 
 .close {
@@ -95,13 +92,16 @@ button {
   fill: #fff;
   transform: rotate(45deg);
 }
+
 .vt-banner-text {
   color: #fff;
   font-size: 16px;
 }
+
 .vt-text-primary {
   color: #75c05e;
 }
+
 .vt-primary-action {
   background: #75c05e;
   color: #121c1a;
@@ -116,6 +116,7 @@ button {
   text-decoration: none;
   background: #5a9f45;
 }
+
 @media (max-width: 1280px) {
   .banner .vt-banner-text {
     font-size: 14px;
@@ -124,6 +125,7 @@ button {
     display: none;
   }
 }
+
 @media (max-width: 780px) {
   .vt-tagline {
     display: none;
@@ -139,6 +141,7 @@ button {
     display: none;
   }
 }
+
 @media (max-width: 560px) {
   .vt-place {
     display: none;
