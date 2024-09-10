@@ -336,8 +336,10 @@ Zaregistruje callback pro zrušení v aktuálně aktivním [effect scope](#effec
 
 Tato metoda může být použita jako nesouvisející náhrada `onUnmounted` v opakovaně použitelných kompozičních funkcích, protože každá funkce `setup()` Vue komponenty je také volána v rozsahu efektů.
 
+Pokud je tato funkce volána mimo aktivní rozsah efektů, vyvolá to varování. Od verze 3.5+ lze toto varování potlačit předáním druhého argumentu `true`.
+
 - **Typ**
 
   ```ts
-  function onScopeDispose(fn: () => void): void
+  function onScopeDispose(fn: () => void, failSilently?: boolean): void
   ```
