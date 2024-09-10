@@ -362,7 +362,7 @@ Sleduje jeden nebo více reaktivních datových zdrojů a vyvolá callback, kdy�
 
   interface WatchOptions extends WatchEffectOptions {
     immediate?: boolean // výchozí: false
-    deep?: boolean // výchozí: false
+    deep?: boolean | number // výchozí: false
     flush?: 'pre' | 'post' | 'sync' // výchozí: 'pre'
     onTrack?: (event: DebuggerEvent) => void
     onTrigger?: (event: DebuggerEvent) => void
@@ -390,7 +390,7 @@ Sleduje jeden nebo více reaktivních datových zdrojů a vyvolá callback, kdy�
   Třetím volitelným parametrem je objekt možností (options), který podporuje následující volby:
 
   - **`immediate`**: spustit callback okamžitě při vytvoření watcheru. Stará hodnota bude při prvním volání `undefined`.
-  - **`deep`**: vynutit hluboké procházení zdroje, pokud je objektem, takže callback se spustí i při změnách hluboko uvnitř objektu. Viz [Deep Watchers](/guide/essentials/watchers#deep-watchers).
+  - **`deep`**: vynutit hluboké procházení zdroje, pokud je objektem, takže callback se spustí i při změnách hluboko uvnitř objektu. Od verze 3.5+ je možné zadat také číslo indikující maximální hloubku prohledávání. Viz [Deep Watchers](/guide/essentials/watchers#deep-watchers).
   - **`flush`**: upravit časování vyvolání callbacku. Viz [Časování provedení callback funkce](/guide/essentials/watchers#callback-flush-timing) a [`watchEffect()`](/api/reactivity-core#watcheffect).
   - **`onTrack / onTrigger`**: ladit závislosti watcheru. Viz [Ladění watcherů](/guide/extras/reactivity-in-depth#watcher-debugging).
   - **`once`**: (3.4+) spustit callback pouze jednou. Watcher se po dokončení prvního běhu callback funkce automaticky zastaví.

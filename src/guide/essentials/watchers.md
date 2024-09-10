@@ -223,6 +223,8 @@ watch(
 
 </div>
 
+Ve Vue 3.5+ může být hodnota `deep` také číslo indikující maximální hloubku prohledávání - např. do kolikáté úrovně má Vue procházet vnořené vlastnosti objektu.
+
 :::warning Používejte s rozvahou
 Deep watcher vyžaduje procházení všech vnořených vlastností ve sledovaném objektu, což může být výpočetně náročné, pokud je použito na velkých datových strukturách. Používejte jej pouze v případě potřeby a dávejte pozor na důsledky pro výkon aplikace.
 :::
