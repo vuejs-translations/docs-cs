@@ -117,6 +117,44 @@ Více informací: [Typování vlastností komponent](/guide/typescript/compositi
 
 </div>
 
+
+<div class="composition-api">
+
+## Reaktivní destrukturování vlastností <sup class="vt-badge" data-text="3.5+" /> \*\* {#reactive-props-destructure}
+
+Systém reaktivity Vue sleduje změny stavu na základě přístupu k vlastnostem. Např. když přistoupíte na `props.foo` v computed getter funkci nebo ve watcheru, vlastnost `foo` bude sledována jako reaktivní závislost.
+
+V následujícím kódu:
+
+```ts
+const { foo } = defineProps(['foo'])
+
+watchEffect(() => {
+  // před Vue 3.5 se spustí pouze jednou
+  // ve Vue 3.5+ se spustí znovu při každé změně "foo"
+  console.log(foo)
+})
+```
+
+Ve verzi 3.4 a nižší je `foo` ve skutečnosti konstanta a nikdy se nezmění. Ve verzi 3.5+ doplní překladač Vue automaticky `props.`, když kód ve stejném `<script setup>` bloku přistupuje na proměnné dekonstruované z `defineProps`. Takže výše uvedený kód bude zkompilován do následujícího ekvivalentu:
+
+```js {5}
+const props = defineProps(['foo'])
+
+watchEffect(() => {
+  // `foo` je překladačem transformováno na `props.foo`
+  console.log(props.foo)
+})
+```
+
+Navíc je možné použít nativní JavaScript syntaxi pro deklaraci výchozích hodnot vlastností. To je zvlášť užitečné při použití type-based deklarace:
+
+```ts
+const { foo = 'ahoj' } = defineProps<{ foo?: string }>()
+```
+
+</div>
+
 ## Detaily předávání vlastností {#prop-passing-details}
 
 ### Velká a malá písmena v názvech vlastností {#prop-name-casing}

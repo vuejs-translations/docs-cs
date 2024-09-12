@@ -210,9 +210,45 @@ const emit = defineEmits<{
 
   Toto omezení bylo vyřešeno ve verzi 3.3. Nejnovější verze Vue podporuje na pozici typového parametru odkazování na importované typy a omezenou sadu složitějších typů. Nicméně, protože runtime konverze typu stále závisí na AST, některé složité typy, které vyžadují skutečnou typovu analýzu, např. podmíněné typy, podporovány nejsou. Můžete použít podmíněné typy pro typ jedné vlastnosti, ale ne pro celý objekt vlastností.
 
-### Výchozí hodnoty props při použití deklarace typu {#default-props-values-when-using-type-declaration}
+### Reaktivní destrukturování vlastností <sup class="vt-badge" data-text="3.5+" /> {#reactive-props-destructure}
 
-Jednou z nevýhod type-only deklarace `defineProps` je, že nemá způsob, jak pro props poskytnout výchozí hodnoty. Pro vyřešení tohoto problému je dostupné další makro překladače `withDefaults`:
+Ve Vue 3.5+ jsou proměnné dekonstruované z návratové hodnoty `defineProps` reaktivní. Překladač Vue automaticky doplní `props.`, když kód ve stejném `<script setup>` bloku přistupuje na proměnné dekonstruované z `defineProps`:
+
+```ts
+const { foo } = defineProps(['foo'])
+
+watchEffect(() => {
+  // před Vue 3.5 se spustí pouze jednou
+  // ve Vue 3.5+ se spustí znovu při každé změně "foo"
+  console.log(foo)
+})
+```
+
+Výše uvedený kód bude zkompilován do následujícího ekvivalentu:
+
+```js {5}
+const props = defineProps(['foo'])
+
+watchEffect(() => {
+  // `foo` je překladačem transformováno na `props.foo`
+  console.log(props.foo)
+})
+```
+
+Navíc je možné použít nativní JavaScript syntaxi pro deklaraci výchozích hodnot vlastností. To je zvlášť užitečné při použití type-based deklarace:
+
+```ts
+interface Props {
+  msg?: string
+  labels?: string[]
+}
+
+const { msg = 'ahoj', labels = ['jedna', 'dva'] } = defineProps<Props>()
+```
+
+### Výchozí hodnoty props při použití deklarace typu <sup class="vt-badge ts" /> {#default-props-values-when-using-type-declaration}
+
+Ve Vue 3.5+ lze výchozí hodnoty vlastností (props) deklarovat přirozeně při použití reaktivního destrukturování. Ovšem ve verzích 3.4 a nižších není tato možnost dostupná. Pro type-based deklaraci výchozích hodnot vlastností je třeba použít makro překladače `withDefaults`:
 
 ```ts
 export interface Props {
@@ -222,14 +258,14 @@ export interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   msg: 'ahoj',
-  labels: () => ['jeden', 'dva']
+  labels: () => ['jedna', 'dva']
 })
 ```
 
 Výše uvedené bude pro runtime vlastnosti přeloženo na ekvivalentní `default` vlastnosti. Navíc pomocná funkce `withDefaults` poskytuje typovou kontrolu pro výchozí hodnoty a&nbsp;zajistí, že vrácený typ `props` má odstraněny příznaky volitelosti pro ty vlastnosti, které mají výchozí hodnoty deklarované.
 
 :::info
-Pamatujte, že výchozí hodnoty pro měnitelné (mutable) referenční typy (jako jsou pole či objekty) by měly být zabaleny do funkcí, aby se předešlo nechtěným změnám a vedlejším efektům zvnějšku. Použití funkce zajistí, že každá instance komponenty dostane svou vlastní kopii výchozí hodnoty.
+Pamatujte, že výchozí hodnoty pro měnitelné (mutable) referenční typy (jako jsou pole či objekty) by měly být při použití `withDefaults` zabaleny do funkcí, aby se předešlo nechtěným změnám a vedlejším efektům zvnějšku. Použití funkce zajistí, že každá instance komponenty dostane svou vlastní kopii výchozí hodnoty. U reaktivního dekonstruování proměnných to potřeba **není**.
 :::
 
 ## defineModel() {#definemodel}

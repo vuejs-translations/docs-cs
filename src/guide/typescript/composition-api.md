@@ -68,7 +68,18 @@ Toto omezení bylo vyřešeno ve verzi 3.3. Nejnovější verze Vue podporuje na
 
 ### Výchozí hodnoty vlastností {#props-default-values}
 
-Při použití deklarace založené na typu ztrácíme schopnost deklarovat výchozí hodnoty pro vlastnosti. To lze vyřešit pomocí makra `withDefaults`:
+Při použití deklarace založené na typu ztrácíme schopnost deklarovat výchozí hodnoty pro vlastnosti. To lze vyřešit použitím [reaktivního destrukturování vlastností](/guide/components/props#reactive-props-destructure) <sup class="vt-badge" data-text="3.5+" />:
+
+```ts
+interface Props {
+  msg?: string
+  labels?: string[]
+}
+
+const { msg = 'ahoj', labels = ['jedna', 'dva'] } = defineProps<Props>()
+```
+
+Ve verzích 3.4 a nižších není tato možnost dostupná. Alternativou je použití makra `withDefaults`:
 
 ```ts
 export interface Props {
@@ -77,15 +88,15 @@ export interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  msg: 'hello',
-  labels: () => ['one', 'two']
+  msg: 'ahoj',
+  labels: () => ['jedna', 'dva']
 })
 ```
 
 Výše uvedené bude pro runtime vlastnosti přeloženo na ekvivalentní `default` vlastnosti. Navíc pomocná funkce `withDefaults` poskytuje typovou kontrolu pro výchozí hodnoty a&nbsp;zajistí, že vrácený typ `props` má odstraněny příznaky volitelosti pro ty vlastnosti, které mají výchozí hodnoty deklarované.
 
 :::info
-Pamatujte, že výchozí hodnoty pro měnitelné (mutable) referenční typy (jako jsou pole či objekty) by měly být zabaleny do funkcí, aby se předešlo nechtěným změnám a vedlejším efektům zvnějšku. Použití funkce zajistí, že každá instance komponenty dostane svou vlastní kopii výchozí hodnoty.
+Pamatujte, že výchozí hodnoty pro měnitelné (mutable) referenční typy (jako jsou pole či objekty) by měly být při použití `withDefaults` zabaleny do funkcí, aby se předešlo nechtěným změnám a vedlejším efektům zvnějšku. Použití funkce zajistí, že každá instance komponenty dostane svou vlastní kopii výchozí hodnoty. U reaktivního dekonstruování proměnných to potřeba **není**.
 :::
 
 ### Bez `<script setup>` {#without-script-setup}
