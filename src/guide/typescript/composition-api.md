@@ -33,7 +33,7 @@ const props = defineProps<{
 </script>
 ```
 
-Tato varianta se nazývá „deklarace na základě typu“. Kompilátor se pokusí na základě typového parametru odvodit ekvivalentní runtime vlastnosti. V tomto případě se náš druhý příklad kompiluje do přesně stejných runtime vlastností jako první příklad.
+Tato varianta se nazývá „deklarace na základě typu“. Překladač se pokusí na základě typového parametru odvodit ekvivalentní runtime vlastnosti. V tomto případě se náš druhý příklad kompiluje do přesně stejných runtime vlastností jako první příklad.
 
 Můžete použít buď deklaraci na základě typu NEBO runtime deklaraci, ale nemůžete je použít současně.
 

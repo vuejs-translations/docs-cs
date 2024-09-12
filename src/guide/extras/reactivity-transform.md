@@ -32,7 +32,7 @@ function increment() {
 </template>
 ```
 
-Metoda `$ref()` je **compile-time makro**: není to skutečná metoda, která by se spustila za běhu. Místo toho ji kompilátor Vue používá jako nápovědu, aby s výslednou proměnnou `count` zacházel jako s **reaktivní proměnnou**.
+Metoda `$ref()` je **compile-time makro**: není to skutečná metoda, která by se spustila za běhu. Místo toho ji Vue překladač používá jako nápovědu, aby s výslednou proměnnou `count` zacházel jako s **reaktivní proměnnou**.
 
 Reaktivní proměnné lze přistupovat a přiřazovat stejně jako běžné proměnné, ale tyto operace jsou kompilovány do refs s `.value`. Například část `<script>` výše uvedené komponenty je kompilována do:
 
@@ -95,7 +95,7 @@ Destrukturovaní s `$()` funguje jak na reaktivních objektech, tak na obyčejn�
 
 ## Převod existujících refs na reaktivní proměnné s `$()` {#convert-existing-refs-to-reactive-variables-with}
 
-V některých případech můžeme mít obalující funkce, které také vrací refs. Nicméně, kompilátor Vue nebude schopen předem poznat, že funkce vrátí ref. V takových případech lze makro `$()` použít i k převodu existujících refs na reaktivní proměnné:
+V některých případech můžeme mít obalující funkce, které také vrací refs. Nicméně, Vue překladač nebude schopen předem poznat, že funkce vrátí ref. V takových případech lze makro `$()` použít i k převodu existujících refs na reaktivní proměnné:
 
 ```js
 function myCreateRef() {
@@ -250,7 +250,7 @@ function useMouse() {
 
 ### Použití `$$()` na destrukturovaných vlastnostech {#using-on-destructured-props}
 
-`$$()` funguje i na destrukturovaných vlastnostech (props), protože jsou to také reaktivní proměnné. Kompilátor je pro větší efektivitu převede pomocí `toRef`:
+`$$()` funguje i na destrukturovaných vlastnostech (props), protože jsou to také reaktivní proměnné. Překladač je pro větší efektivitu převede pomocí `toRef`:
 
 ```ts
 const { count } = defineProps<{ count: number }>()

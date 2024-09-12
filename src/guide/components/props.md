@@ -136,7 +136,7 @@ watchEffect(() => {
 })
 ```
 
-Ve verzi 3.4 a nižší je `foo` ve skutečnosti konstanta a nikdy se nezmění. Ve verzi 3.5+ doplní překladač Vue automaticky `props.`, když kód ve stejném `<script setup>` bloku přistupuje na proměnné dekonstruované z `defineProps`. Takže výše uvedený kód bude zkompilován do následujícího ekvivalentu:
+Ve verzi 3.4 a nižší je `foo` ve skutečnosti konstanta a nikdy se nezmění. Ve verzi 3.5+ doplní Vue překladač automaticky `props.`, když kód ve stejném `<script setup>` bloku přistupuje na proměnné dekonstruované z `defineProps`. Takže výše uvedený kód bude zkompilován do následujícího ekvivalentu:
 
 ```js {5}
 const props = defineProps(['foo'])

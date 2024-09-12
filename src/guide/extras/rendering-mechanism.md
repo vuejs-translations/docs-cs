@@ -60,11 +60,11 @@ Proč tedy Vue primárně doporučuje šablony? Existuje několik důvodů:
 
 V praxi jsou šablony dostatečné pro většinu použití v aplikacích. Funkce pro vykreslení se obvykle používají pouze ve znovupoužitelných komponentách, které potřebují pracovat s více dynamickou vykreslovací logikou. Použití těchto funkcí je podrobněji popsáno v průvodci [Funkce pro vykreslení & JSX](./render-function).
 
-## Kompilátorem informovaný virtuální DOM {#compiler-informed-virtual-dom}
+## Překladačem informovaný virtuální DOM {#compiler-informed-virtual-dom}
 
 Implementace virtuálního DOM v Reactu a většině dalších implementací virtuálního DOM jsou čistě runtime: srovnávací algoritmus nemůže předpokládat nic o přicházejícím virtuálním DOM stromu, takže musí strom plně procházet a porovnávat vlastnosti každého VNode, aby zajistil správnost. Navíc, i když se část stromu nikdy nemění, jsou pro ni při každém překreslení vždy vytvářeny nové VNodes, což vede k zbytečnému zatížení paměti. To je jedna z nejvíce kritizovaných stránek virtuálního DOM: poněkud hrubý proces srovnávání obětuje efektivitu ve prospěch deklarativnosti a správnosti.
 
-Ale nemusí to tak být. Ve Vue ovládá framework jak kompilátor, tak běhové prostředí. To&nbsp;nám umožňuje implementovat mnoho optimalizací prováděných při kompilaci, které může využít pouze pevně svázaný renderer. Kompilátor může staticky analyzovat šablonu a v generovaném kódu ponechávat nápovědy, aby běhové prostředí mohlo využívat zkratky, kdykoli je to možné. Zároveň stále zachováváme možnost, aby uživatel přešel na úroveň funkce pro vykreslení a získal tak v okrajových případech přímější kontrolu. Tento hybridní přístup nazýváme **Kompilátorem informovaný virtuální DOM** (Compiler-Informed Virtual DOM).
+Ale nemusí to tak být. Ve Vue ovládá framework jak překladač, tak běhové prostředí. To&nbsp;nám umožňuje implementovat mnoho optimalizací prováděných při kompilaci, které může využít pouze pevně svázaný renderer. Překladač může staticky analyzovat šablonu a v generovaném kódu ponechávat nápovědy, aby běhové prostředí mohlo využívat zkratky, kdykoli je to možné. Zároveň stále zachováváme možnost, aby uživatel přešel na úroveň funkce pro vykreslení a získal tak v okrajových případech přímější kontrolu. Tento hybridní přístup nazýváme **Překladačem informovaný virtuální DOM** (Compiler-Informed Virtual DOM).
 
 Níže budeme mluvit o několika hlavních optimalizacích provedených kompilátorem Vue šablon pro zlepšení runtime výkonu virtuálního DOM.
 

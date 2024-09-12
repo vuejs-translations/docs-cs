@@ -63,7 +63,7 @@ Pro zahájení práce s Vite + Vue jednoduše spusťte:
 Tento příkaz nainstaluje a spustí [create-vue](https://github.com/vuejs/create-vue), oficiální nástroj pro sestavení Vue projektů.
 
 - Chcete-li se o Vite dozvědět víc, podívejte se do [Vite dokumentace](https://vitejs.dev).
-- Chcete-li ve Vite projektu nakonfigurovat chování specifické pro Vue, například předávání možností (options) kompilátoru Vue, podívejte se do dokumentace pro [@vitejs/plugin-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#readme).
+- Chcete-li ve Vite projektu nakonfigurovat chování specifické pro Vue, například předávání možností (options) překladači Vue, podívejte se do dokumentace pro [@vitejs/plugin-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#readme).
 
 Obě výše zmíněná online hřiště také podporují stahování souborů ve formě Vite projektu.
 
@@ -78,11 +78,11 @@ Pro informace o migraci z Vue CLI na Vite:
 
 ### Poznámka ke kompilaci šablon v prohlížeči {#note-on-in-browser-template-compilation}
 
-Při použití Vue bez build fáze jsou šablony komponent psány buďto přímo v HTML stránky nebo jako vložené JavaScriptové řetězce. V takových případech musí Vue dodat kompilátor šablon do prohlížeče, aby bylo možné provádět kompilaci šablon na požádání (on-the-fly). Na druhou stranu, kompilátor není potřebný, pokud šablony během build fáze předkompilujeme. Pro snížení velikosti klientského JS balíčku Vue poskytuje [různé „buildy“](https://unpkg.com/browse/vue@3/dist/) optimalizované pro různé použití.
+Při použití Vue bez build fáze jsou šablony komponent psány buďto přímo v HTML stránky nebo jako vložené JavaScriptové řetězce. V takových případech musí Vue dodat kompilátor šablon do prohlížeče, aby bylo možné provádět kompilaci šablon na požádání (on-the-fly). Na druhou stranu, překladač není potřebný, pokud šablony během build fáze předkompilujeme. Pro snížení velikosti klientského JS balíčku Vue poskytuje [různé „buildy“](https://unpkg.com/browse/vue@3/dist/) optimalizované pro různé použití.
 
-- Soubory buildu, které začínají `vue.runtime.*`, jsou **buildy pouze pro runtime**: neobsahují kompilátor. Při použití těchto buildů musí být všechny šablony předkompilovány pomocí build fáze.
+- Soubory buildu, které začínají `vue.runtime.*`, jsou **buildy pouze pro runtime**: neobsahují překladač. Při použití těchto buildů musí být všechny šablony předkompilovány pomocí build fáze.
 
-- Soubory buildu, které neobsahují `.runtime`, jsou **úplné buildy**: obsahují kompilátor a&nbsp;podporují kompilaci šablon přímo v prohlížeči. Nicméně zvětší velikost přeneseného balíčku o **~14kb**.
+- Soubory buildu, které neobsahují `.runtime`, jsou **úplné buildy**: obsahují překladač a&nbsp;podporují kompilaci šablon přímo v prohlížeči. Nicméně zvětší velikost přeneseného balíčku o **~14kb**.
 
 Naše výchozí nástroje používají build pouze pro runtime, protože všechny SFC šablony jsou předkompilovány. Pokud z nějakého důvodu potřebujete kompilaci šablon v&nbsp;prohlížeči i s build fází, můžete tak učinit konfigurací build nástroje, který přiřadí `vue` na `vue/dist/vue.esm-bundler.js`.
 

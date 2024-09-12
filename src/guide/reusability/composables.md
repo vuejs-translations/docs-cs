@@ -311,7 +311,7 @@ Tato omezení jsou důležitá, protože se jedná o kontexty, ve kterých je Vu
 2. Nalinkovat computed proměnné a watchery, aby je při odstraňování (unmount) instance šlo zlikvidovat pro prevenci úniků paměti (memory leaks).
 
 :::tip
-`<script setup>` je jediné místo, kde můžete composables volat **po** použití příkazu `await`. Kompilátor za vás po asynchronní operaci automaticky obnoví kontext aktivní instance.
+`<script setup>` je jediné místo, kde můžete composables volat **po** použití příkazu `await`. Překladač za vás po asynchronní operaci automaticky obnoví kontext aktivní instance.
 :::
 
 ## Extrakce composables pro organizaci kódu {#extracting-composables-for-code-organization}

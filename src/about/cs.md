@@ -130,7 +130,7 @@ Zde sledujeme překlady pro (hlavně) technické pojmy, které se objevují na v
 * 🟩 child component = komponenta potomka
 * 🟩 Code of Conduct = Kodex chování
 * 🟩 codebase = kódová báze
-* 🟩 compiler = překadač ('kompilátor' lze tolerovat)
+* 🟩 compiler = překadač (celého Vue) / kompilátor (u šablon)
 * 🟩 compiler macro = makro překladače
 * 🟥 composable = composable
 * 🟥 Composition API = Composition API

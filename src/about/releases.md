@@ -50,9 +50,9 @@ Pokud používáte TypeScript, můžete použít semver rozsah, který uzamkne a
 
 ### Kompatibilita kompilovaného kódu se starším runtime {#compiled-code-compatibility-with-older-runtime}
 
-Novější **minor** verze Vue kompilátoru může generovat kód, který není kompatibilní s Vue runtime ze starší minor verze. Například kód generovaný Vue kompilátorem 3.2 nemusí být plně kompatibilní, pokud je spouštěn z Vue runtime 3.1.
+Novější **minor** verze Vue překladače může generovat kód, který není kompatibilní s Vue runtime ze starší minor verze. Například kód generovaný Vue překladačem 3.2 nemusí být plně kompatibilní, pokud je spouštěn z Vue runtime 3.1.
 
-To se týká pouze autorů knihoven, protože v aplikacích je verze kompilátoru a verze runtime vždy stejná. Nesoulad verzí může nastat pouze v případě, že distribuujete předem zkompilovaný kód Vue komponenty jako package a cílový uživatel jej použije v&nbsp;projektu používajícím starší verzi Vue. V důsledku toho může být nutné, aby váš balíček výslovně deklaroval minimální požadovanou minor verzi Vue.
+To se týká pouze autorů knihoven, protože v aplikacích je verze překladače a verze runtime vždy stejná. Nesoulad verzí může nastat pouze v případě, že distribuujete předem zkompilovaný kód Vue komponenty jako package a cílový uživatel jej použije v&nbsp;projektu používajícím starší verzi Vue. V důsledku toho může být nutné, aby váš balíček výslovně deklaroval minimální požadovanou minor verzi Vue.
 
 ## Pre-releases {#pre-releases}
 

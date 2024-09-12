@@ -19,11 +19,11 @@ Další podrobnosti naleznete zde:
 
 ## Makro překladače {#compiler-macro}
 
-*Makro překladače* (*Compiler macro*) je speciální kód, který je zpracován kompilátorem a&nbsp;převeden na něco jiného. Jsou to vlastně pokročilé formy nahrazení řetězců.
+*Makro překladače* (*Compiler macro*) je speciální kód, který je zpracován překladačem a&nbsp;převeden na něco jiného. Jsou to vlastně pokročilé formy nahrazení řetězců.
 
-Vue kompilátor podporuje různá makra pro [SFC](#single-file-component), jako například `defineProps()`, `defineEmits()` a `defineExpose()`. Tato makra jsou záměrně navržena tak, aby vypadala jako běžné JavaScriptové funkce, takže mohou využívat stejného parseru a nástrojů typového odvozování jako běžný JavaScript / TypeScript. Nejedná se však o opravdové funkce, které se spouštějí v prohlížeči. Jsou to pouze speciální řetězce, které kompilátor detekuje a nahradí JS kódem, jenž se skutečně spustí.
+Vue překladač podporuje různá makra pro [SFC](#single-file-component), jako například `defineProps()`, `defineEmits()` a `defineExpose()`. Tato makra jsou záměrně navržena tak, aby vypadala jako běžné JavaScriptové funkce, takže mohou využívat stejného parseru a nástrojů typového odvozování jako běžný JavaScript / TypeScript. Nejedná se však o opravdové funkce, které se spouštějí v prohlížeči. Jsou to pouze speciální řetězce, které překladač detekuje a nahradí JS kódem, jenž se skutečně spustí.
 
-Makra mají omezení svého použití, která se na běžný JS kód nevztahují. Například byste si mohli myslet, že `const dp = defineProps` vám umožní vytvořit alias pro `defineProps`, ale ve skutečnosti to skončí chybou. Existují také omezení ohledně hodnot, které lze do `defineProps()` předat, protože „argumenty“ musí být zpracovány kompilátorem a ne až za běhu.
+Makra mají omezení svého použití, která se na běžný JS kód nevztahují. Například byste si mohli myslet, že `const dp = defineProps` vám umožní vytvořit alias pro `defineProps`, ale ve skutečnosti to skončí chybou. Existují také omezení ohledně hodnot, které lze do `defineProps()` předat, protože „argumenty“ musí být zpracovány překladačem a ne až za běhu.
 
 Pro více informací se podívejte na:
 - [`<script setup>` - `defineProps()` & `defineEmits()`](/api/sfc-script-setup.html#defineprops-defineemits)
@@ -397,7 +397,7 @@ Namísto přímého vytváření DOM elementů generují Vue komponenty popis to
 
 Pokaždé, když se komponenta znovu vykresluje, je nový strom VNodes porovnán s&nbsp;předchozím stromem VNodes a jakékoli rozdíly jsou poté aplikovány na skutečný DOM. Pokud se nic nezměnilo, nemusí se DOM upravovat.
 
-Vue používá hybridní přístup, který nazýváme [Kompilátorem informovaný virtuální DOM](/guide/extras/rendering-mechanism.html#compiler-informed-virtual-dom). Kompilátor šablon Vue je schopen aplikovat optimalizace výkonu na základě statické analýzy šablony. Namísto provádění úplného porovnání starého a nového stromu VNodes komponenty za běhu, může Vue použít informace extrahované kompilátorem k&nbsp;redukci porovnání pouze na ty části stromu, které se mohou skutečně změnit.
+Vue používá hybridní přístup, který nazýváme [Překladačem informovaný virtuální DOM](/guide/extras/rendering-mechanism.html#compiler-informed-virtual-dom). Kompilátor šablon Vue je schopen aplikovat optimalizace výkonu na základě statické analýzy šablony. Namísto provádění úplného porovnání starého a nového stromu VNodes komponenty za běhu, může Vue použít informace extrahované kompilátorem k&nbsp;redukci porovnání pouze na ty části stromu, které se mohou skutečně změnit.
 
 Pro více informací se podívejte na:
 - [Průvodce - Mechanismus vykreslování](/guide/extras/rendering-mechanism.html)

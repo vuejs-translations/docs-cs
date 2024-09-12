@@ -23,8 +23,8 @@ Následující tabulka mapuje kódy na jejich původní plné informační texty
 
 <ErrorsTable kind="runtime" :errors="data.runtime" :highlight="highlight" />
 
-## Chyby kompilátoru {#compiler-errors}
+## Chyby překladače {#compiler-errors}
 
-Následující tabulka poskytuje mapování kódů chyb kompilátoru v produkci na jejich původní texty.
+Následující tabulka poskytuje mapování kódů chyb překladače v produkci na jejich původní texty.
 
 <ErrorsTable kind="compiler" :errors="data.compiler" :highlight="highlight" />

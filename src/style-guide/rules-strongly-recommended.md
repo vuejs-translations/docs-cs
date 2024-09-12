@@ -321,7 +321,7 @@ components/
 
 Komponenty zapsané jako nepárový (self-closing) tag sdělují nejen, že nemají žádný obsah, ale ani **nemají** žádný obsah mít. Je to rozdíl mezi prázdnou stránkou v knize a stránkou označenou _„Tato stránka byla záměrně ponechána prázdná“_. Váš kód je také bez zbytečného uzavíracího tagu čistší.
 
-HTML bohužel neumožňuje uživatelské nepárové (self-closing) elementy – pouze [oficiální „void“ elementy](https://www.w3.org/TR/html/syntax.html#void-elements). To je důvod, proč je tato strategie možná pouze tehdy, když se Vue kompilátor šablon může k šabloně  dostat před jejím vložením do DOM a poskytnout HTML vyhovující specifikaci.
+HTML bohužel neumožňuje uživatelské nepárové (self-closing) elementy – pouze [oficiální „void“ elementy](https://www.w3.org/TR/html/syntax.html#void-elements). To je důvod, proč je tato strategie možná pouze tehdy, když se Vue kompilátor šablon může k šabloně dostat před jejím vložením do DOM a poskytnout HTML vyhovující specifikaci.
 
 <div class="style-example style-example-bad">
 <h3>Špatně</h3>

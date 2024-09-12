@@ -202,9 +202,9 @@ const emit = defineEmits<{
 
 - Při použití deklarace typu je automaticky generována ekvivalentní runtime deklarace z&nbsp;analýzy statického kódu, aby se odstránila potřeba dvojité deklarace a zároveň zajistila správná funkčnost za běhu.
 
-  - V režimu vývoje (dev) kompilátor zkusí odvodit odpovídající ověření za běhu z typů. Například zde je `foo: String` odvozeno z typu `foo: string`. Pokud je typ odkazem na importovaný typ, odvozený výsledek bude `foo: null` (rovnocenný typu `any`), protože kompilátor nemá informace o externích souborech.
+  - V režimu vývoje (dev) překladač zkusí odvodit odpovídající ověření za běhu z typů. Například zde je `foo: String` odvozeno z typu `foo: string`. Pokud je typ odkazem na importovaný typ, odvozený výsledek bude `foo: null` (rovnocenný typu `any`), protože překladač nemá informace o externích souborech.
 
-  - V režimu produkce kompilátor vygeneruje deklaraci ve formátu pole, aby se snížila velikost balíčku (props zde budou zkompilovány do `['foo', 'bar']`)
+  - V režimu produkce překladač vygeneruje deklaraci ve formátu pole, aby se snížila velikost balíčku (props zde budou zkompilovány do `['foo', 'bar']`)
 
 - Ve verzi 3.2 a nižší byl generický typový parametr pro `defineProps()` omezen na typový literál nebo odkaz na lokální rozhraní.
 
@@ -212,7 +212,7 @@ const emit = defineEmits<{
 
 ### Reaktivní destrukturování vlastností <sup class="vt-badge" data-text="3.5+" /> {#reactive-props-destructure}
 
-Ve Vue 3.5+ jsou proměnné dekonstruované z návratové hodnoty `defineProps` reaktivní. Překladač Vue automaticky doplní `props.`, když kód ve stejném `<script setup>` bloku přistupuje na proměnné dekonstruované z `defineProps`:
+Ve Vue 3.5+ jsou proměnné dekonstruované z návratové hodnoty `defineProps` reaktivní. Vue překladač automaticky doplní `props.`, když kód ve stejném `<script setup>` bloku přistupuje na proměnné dekonstruované z `defineProps`:
 
 ```ts
 const { foo } = defineProps(['foo'])

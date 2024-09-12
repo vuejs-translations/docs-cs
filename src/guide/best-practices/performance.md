@@ -53,7 +53,7 @@ Jedním z nejefektivnějších způsobů, jak zlepšit výkon načítání strá
 
   - Mnoho z Vue API je [„tree-shakable“](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking), pokud je balíček vytvořen pomocí moderního build nástroje. Například, pokud nepoužíváte vestavěnou komponentu `<Transition>`, nebude v konečném produkčním balíčku zahrnuta. Tree-shaking může odstranit i další nepoužívané moduly ve vašem zdrojovém kódu.
 
-- Při použití build fáze jsou šablony předkompilovány, takže není nutné do prohlížeče odesílat Vue kompilátor. To ušetří **14kb** min+gzipped JavaScriptu a zabrání nákladům na runtime kompilaci.
+- Při použití build fáze jsou šablony předkompilovány, takže není nutné do prohlížeče odesílat Vue překladač. To ušetří **14kb** min+gzipped JavaScriptu a zabrání nákladům na runtime kompilaci.
 
 - Dávejte pozor na velikost při zavádění nových závislostí! V reálných aplikacích jsou zbytečně velké balíčky nejčastěji výsledkem zavedení těžkých závislostí, aniž by si to vývojář uvědomil.
 
