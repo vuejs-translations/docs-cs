@@ -364,6 +364,128 @@ Jak `watch`, tak `watchEffect` nám umožňují reaktivně provádět operace s 
 
 </div>
 
+## Čištění vedlejších efektů {#side-effect-cleanup}
+
+Někdy můžeme uvnitř watcheru provádět vedlejší efekty, např. asynchronní požadavky:
+
+<div class="composition-api">
+
+```js
+watch(id, (newId) => {
+  fetch(`/api/${newId}`).then(() => {
+    // logika callback funkce
+  })
+})
+```
+
+</div>
+<div class="options-api">
+
+```js
+export default {
+  watch: {
+    id(newId) {
+      fetch(`/api/${newId}`).then(() => {
+        // logika callback funkce
+      })
+    }
+  }
+}
+```
+
+</div>
+
+Co se však stane, pokud se `id` změní před dokončením požadavku? Když se předchozí požadavek dokončí, bude callback pokračovat s hodnotou ID, která už je zastaralá. V&nbsp;ideálním případě bychom chtěli umět tento požadavek zrušit, jakmile se `id` změní.
+
+Můžeme použít API funkci [`onWatcherCleanup()`](/api/reactivity-core/#onwatchercleanup) <sup class="vt-badge" data-text="3.5+" /> pro zaregistrování čistící funkce, která bude zavolána ve chvíli, kdy je watcher zneplatněn a má být znovu spuštěn.
+
+<div class="composition-api">
+
+```js {10-13}
+import { watch, onWatcherCleanup } from 'vue'
+
+watch(id, (newId) => {
+  const controller = new AbortController()
+
+  fetch(`/api/${newId}`, { signal: controller.signal }).then(() => {
+    // logika callback funkce
+  })
+
+  onWatcherCleanup(() => {
+    // zrušit starý požadavek
+    controller.abort()
+  })
+})
+```
+
+</div>
+<div class="options-api">
+
+```js {12-15}
+import { onWatcherCleanup } from 'vue'
+
+export default {
+  watch: {
+    id(newId) {
+      const controller = new AbortController()
+
+      fetch(`/api/${newId}`, { signal: controller.signal }).then(() => {
+        // logika callback funkce
+      })
+
+      onWatcherCleanup(() => {
+        // zrušit starý požadavek
+        controller.abort()
+      })
+    }
+  }
+}
+```
+
+</div>
+
+Pozor, že funkce `onWatcherCleanup` je podporována až ve Vue 3.5+ a musí být volána během synchronního spuštění `watchEffect` efektu nebo callbacku `watch` funkce: nemůžete ji zavolat po `await` výrazu uvnitř asynchronní funkce.
+
+Alternativně lze předat `onCleanup` funkci jako třetí argument callbacku `watch` funkce<span class="composition-api"> nebo jako první argument funkce `watchEffect` efektu</span>:
+
+<div class="composition-api">
+
+```js
+watch(id, (newId, oldId, onCleanup) => {
+  // ...
+  onCleanup(() => {
+    // logika pro zneplatnění
+  })
+})
+
+watchEffect((onCleanup) => {
+  // ...
+  onCleanup(() => {
+    // logika pro zneplatnění
+  })
+})
+```
+
+</div>
+<div class="options-api">
+
+```js
+export default {
+  watch: {
+    id(newId, oldId, onCleanup) {
+      // ...
+      onCleanup(() => {
+        // logika pro zneplatnění
+      })
+    }
+  }
+}
+```
+
+</div>
+
+To funguje i ve verzích před Vue 3.5. Navíc je `onCleanup` předaná jako argument funkce navázaná na instanci watcheru, takže nepodléhá omezení pouze na synchronní volání jako `onWatcherCleanup`.
+
 ## Časování provedení callback funkce {#callback-flush-timing}
 
 Když měníte reaktivní stav, může to vyvolat aktualizace Vue komponent a callback funkce u watcherů, které jste vytvořili.

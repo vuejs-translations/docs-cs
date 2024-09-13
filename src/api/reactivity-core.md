@@ -242,7 +242,7 @@ Okamžitě spustí funkci a sleduje její závislosti. Funkci v případě změn
   function watchEffect(
     effect: (onCleanup: OnCleanup) => void,
     options?: WatchEffectOptions
-  ): StopHandle
+  ): WatchHandle
 
   type OnCleanup = (cleanupFn: () => void) => void
 
@@ -252,7 +252,12 @@ Okamžitě spustí funkci a sleduje její závislosti. Funkci v případě změn
     onTrigger?: (event: DebuggerEvent) => void
   }
 
-  type StopHandle = () => void
+  interface WatchHandle {
+    (): void // stejné jako `stop`
+    pause: () => void
+    resume: () => void
+    stop: () => void
+  }
   ```
 
 - **Detaily**
@@ -277,12 +282,35 @@ Okamžitě spustí funkci a sleduje její závislosti. Funkci v případě změn
   // -> zobrazí 1
   ```
 
+  Zastavení sledování:
+
+  ```js
+  const stop = watchEffect(() => {})
+
+  // když již není sledování potřeba:
+  stop()
+  ```
+
+  Pozastavení / obnovení watcheru: <sup class="vt-badge" data-text="3.5+" />
+
+  ```js
+  const { stop, pause, resume } = watchEffect(() => {})
+
+  // dočasné pozastavení watcheru
+  pause()
+
+  // později znovu spustit
+  resume()
+
+  // zastavit
+  stop()
+  ```
 
   Čištění vedlejších efektů:
 
   ```js
   watchEffect(async (onCleanup) => {
-    const { response, cancel } = doAsyncWork(id.value)
+    const { response, cancel } = doAsyncWork(newId)
     // `cancel` bude zavolán, pokud se změní `id`,
     // takže předchozí nevyřízený požadavek bude zrušen
     // pokud ještě nebyl dokončen
@@ -291,13 +319,19 @@ Okamžitě spustí funkci a sleduje její závislosti. Funkci v případě změn
   })
   ```
 
-  Zastavení sledování:
+  Čištění vedlejších efektů ve Vue 3.5+:
 
   ```js
-  const stop = watchEffect(() => {})
+  import { onWatcherCleanup } from 'vue'
 
-  // když již není sledování potřeba:
-  stop()
+  watchEffect(async () => {
+    const { response, cancel } = doAsyncWork(newId)
+    // `cancel` bude zavolán, pokud se změní `id`,
+    // takže předchozí nevyřízený požadavek bude zrušen
+    // pokud ještě nebyl dokončen
+    onWatcherCleanup(cancel)
+    data.value = await response
+  })
   ```
 
   Možnosti:
@@ -338,14 +372,14 @@ Sleduje jeden nebo více reaktivních datových zdrojů a vyvolá callback, kdy�
     source: WatchSource<T>,
     callback: WatchCallback<T>,
     options?: WatchOptions
-  ): StopHandle
+  ): WatchHandle
 
   // sledování více zdrojů
   function watch<T>(
     sources: WatchSource<T>[],
     callback: WatchCallback<T[]>,
     options?: WatchOptions
-  ): StopHandle
+  ): WatchHandle
 
   type WatchCallback<T> = (
     value: T,
@@ -367,6 +401,13 @@ Sleduje jeden nebo více reaktivních datových zdrojů a vyvolá callback, kdy�
     onTrack?: (event: DebuggerEvent) => void
     onTrigger?: (event: DebuggerEvent) => void
     once?: boolean // default: false (3.4+)
+  }
+
+  interface WatchHandle {
+    (): void // stejné jako `stop`
+    pause: () => void
+    resume: () => void
+    stop: () => void
   }
   ```
 
@@ -477,6 +518,21 @@ Sleduje jeden nebo více reaktivních datových zdrojů a vyvolá callback, kdy�
   stop()
   ```
 
+  Pozastavení / obnovení watcheru: <sup class="vt-badge" data-text="3.5+" />
+
+  ```js
+  const { stop, pause, resume } = watch(() => {})
+
+  // dočasné pozastavení watcheru
+  pause()
+
+  // později znovu spustit
+  resume()
+
+  // zastavit
+  stop()
+  ```
+
   Čištění vedlejších efektů:
 
   ```js
@@ -490,7 +546,45 @@ Sleduje jeden nebo více reaktivních datových zdrojů a vyvolá callback, kdy�
   })
   ```
 
+  Čištění vedlejších efektů ve Vue 3.5+:
+
+  ```js
+  import { onWatcherCleanup } from 'vue'
+
+  watch(id, async (newId) => {
+    const { response, cancel } = doAsyncWork(newId)
+    onWatcherCleanup(cancel)
+    data.value = await response
+  })
+  ```
+
 - **Viz také**:
 
   - [Průvodce - Watchers](/guide/essentials/watchers)
   - [Průvodce - Ladění watcherů](/guide/extras/reactivity-in-depth#watcher-debugging)
+
+## onWatcherCleanup() <sup class="vt-badge" data-text="3.5+" /> {#onwatchercleanup}
+
+Zaregistruje čistící funkci, která se vykoná, když je aktuální watcher znovu spuštěn. Může být volána pouze při synchronním spuštění `watchEffect` efektu nebo callbacku `watch` funkce (např. ji nelze volat po `await` výrazu uvnitř asynchronní funkce).
+
+- **Typ**
+
+  ```ts
+  function onWatcherCleanup(
+    cleanupFn: () => void,
+    failSilently?: boolean
+  ): void
+  ```
+
+- **Příklad**
+
+  ```ts
+  import { watch, onWatcherCleanup } from 'vue'
+
+  watch(id, (newId) => {
+    const { response, cancel } = doAsyncWork(newId)
+    // `cancel` se zavolá, když se změní `id`,
+    // a zruší předchozí request, pokud ještě nebyl dokončen
+    onWatcherCleanup(cancel)
+  })
+  ```
