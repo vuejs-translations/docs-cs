@@ -612,3 +612,22 @@ Objekt pro definici strategií pro slučování custom vlastností komponenty.
   ```
 
 - **Viz také:** [Instance komponenty - `$options`](/api/component-instance#options)
+
+## app.config.idPrefix <sup class="vt-badge" data-text="3.5+" /> {#app-config-idprefix}
+
+Nastavení prefixu pro všechny ID generované přes [useId()](/api/general#useid) uvnitř aplikace.
+
+- **Typ:** `string`
+
+- **Výchozí hodnota:** `undefined`
+
+- **Příklad:**
+
+  ```js
+  app.config.idPrefix = 'my-app'
+  ```
+  ```js
+  // v komponentně:
+  const id1 = useId() // 'my-app:0'
+  const id2 = useId() // 'my-app:1'
+  ```
