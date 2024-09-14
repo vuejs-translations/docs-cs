@@ -109,6 +109,103 @@ Pokud je předána komponenta pro načítání, zobrazí se jako první, zatímc
 
 Pokud je předána komponenta pro chybový stav, zobrazí se, když je Promise vrácený „loader“ funkcí odmítnut (rejected). Můžete také zadat časový limit pro zobrazení chybové komponenty, pokud požadavek trvá příliš dlouho.
 
+## „Lazy“ hydratace <sup class="vt-badge" data-text="3.5+" /> {#lazy-hydration}
+
+> Tato sekce platí, pouze pokud používáte [vykreslování na serveru (SSR)](/guide/scaling-up/ssr). Ve Vue 3.5+ mohou asynchronní komponenty kontrolovat, kdy dochází k jejich hydrataci, pomocí hydratační strategie.
+
+- Vue nabízí několik vestavěných hydratačních strategií. Tyto vestavěné strategie musí být individuálně importované, aby je bylo možné při buildu odstranit, když se nepoužívají (tree-shake). 
+
+- Jejich design je úmyslně nízkoúrovňový pro větší flexibilitu. Potenciálně na nich lze později vystavět makra překladače, ať už přímo ve Vue core nebo v řešeních vyšší úrovně (např. Nuxt).
+
+### Hydrate on Idle
+
+Hydratace pomocí `requestIdleCallback`:
+
+```js
+import { defineAsyncComponent, hydrateOnIdle } from 'vue'
+
+const AsyncComp = defineAsyncComponent({
+  loader: () => import('./Comp.vue'),
+  hydrate: hydrateOnIdle(/* volitelně lze předat maximální timeout */)
+})
+```
+
+### Hydrate on Visible
+
+Hydratace ve chvíli, kdy se element stane viditelný, pomocí `IntersectionObserver`.
+
+```js
+import { defineAsyncComponent, hydrateOnVisible } from 'vue'
+
+const AsyncComp = defineAsyncComponent({
+  loader: () => import('./Comp.vue'),
+  hydrate: hydrateOnVisible()
+})
+```
+
+Volitelně lze předat objekt vlastností pro observer:
+
+```js
+hydrateOnVisible({ rootMargin: '100px' })
+```
+
+### Hydrate on Media Query
+
+Hydratace ve chvíli, kdy odpovídá specifické media query.
+
+```js
+import { defineAsyncComponent, hydrateOnMediaQuery } from 'vue'
+
+const AsyncComp = defineAsyncComponent({
+  loader: () => import('./Comp.vue'),
+  hydrate: hydrateOnMediaQuery('(max-width:500px)')
+})
+```
+
+### Hydrate on Interaction
+
+Hydratace ve chvíli, kdy je na prvku (prvcích) komponenty vyvolána specifická událost (události). Událost, která hydrataci spustila, bude po jejím dokončení vyvolána znovu.
+
+```js
+import { defineAsyncComponent, hydrateOnInteraction } from 'vue'
+
+const AsyncComp = defineAsyncComponent({
+  loader: () => import('./Comp.vue'),
+  hydrate: hydrateOnInteraction('click')
+})
+```
+
+Může být předán i seznam různých typů událostí:
+
+```js
+hydrateOnInteraction(['wheel', 'mouseover'])
+```
+
+### Vlastní strategie
+
+```ts
+import { defineAsyncComponent, type HydrationStrategy } from 'vue'
+
+const myStrategy: HydrationStrategy = (hydrate, forEachElement) => {
+  // forEachElement je pomocná funkce, která iteruje přes všechny root elementy
+  // v nehydratovaném DOM komponenty, jelikož root může být fragment
+  // namísto jediného elementu
+  forEachElement(el => {
+    // ...
+  })
+  // po dokončení přípravy zavolat `hydrate`
+  hydrate()
+  return () => {
+    // vrátit teardown funkci, pokud je potřeba
+  }
+}
+
+const AsyncComp = defineAsyncComponent({
+  loader: () => import('./Comp.vue'),
+  hydrate: myStrategy
+})
+```
+
 ## Použití s Suspense {#using-with-suspense}
 
 Asynchronní komponenty lze použít dohromady s vestavěnou komponentou `<Suspense>`. Interakce `<Suspense>` a ansynchronními komponentami je popsána v&nbsp;[kapitole určené pro `<Suspense>`](/guide/built-ins/suspense).
