@@ -371,6 +371,17 @@ const foo = inject('foo') as string
 
 ## Typování template refs {#typing-template-refs}
 
+S Vue 3.5 a `@vue/language-tools` 2.1 (které obohacují jak jazykové služby v IDE, tak&nbsp;`vue-tsc`) mohou být typy refs získaných s pomocí `useTemplateRef()` v SFC komponentách **automaticky odvozené**. Platí to pro statické hodnoty založené na elementech, na kterých je použit odpovídající `ref` atribut.
+
+V případech, kdy automatické odvození není možné, můžete na template ref použít explicitní přetypování přes generický parametr:
+
+```ts
+const el = useTemplateRef<HTMLInputElement>(null)
+```
+
+<details>
+<summary>Použití před verzí 3.5</summary>
+
 Template refs by měly být vytvářeny s explicitním generickým typovým parametrem a&nbsp;počáteční hodnotou `null`:
 
 ```vue
@@ -389,50 +400,45 @@ onMounted(() => {
 </template>
 ```
 
+</details>
+
 Pro získání správného DOM interface můžete zkontrolovat stránky jako [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#technical_summary).
 
-Pamatujte, že pro přísnou typovou bezpečnost je při přístupu k `el.value` nutné použít optional chaining nebo type guards. Je to způsobeno tím, že počáteční hodnota ref je `null`, dokud není komponenta připojena (mounted), a může být také nastavena na `null`, pokud je odkazovaný prvek odstraněn pomocí `v-if`.
+Pamatujte, že pro přísnou (strict) typovou bezpečnost je při přístupu k `el.value` nutné použít optional chaining nebo type guards. Je to způsobeno tím, že počáteční hodnota ref je `null`, dokud není komponenta připojena (mounted), a může být také nastavena na `null`, pokud je odkazovaný prvek odstraněn pomocí `v-if`.
 
 ## Typování template refs komponenty {#typing-component-template-refs}
 
-Někdy může být potřeba anotovat template ref pro komponentu potomka, aby bylo možné zavolat jeho veřejnou metodu. Například máme komponentu potomka `MyModal` s&nbsp;metodou, která otevírá modální okno:
+S Vue 3.5 a `@vue/language-tools` 2.1 (které obohacují jak jazykové služby v IDE, tak&nbsp;`vue-tsc`) mohou být typy refs získaných s pomocí `useTemplateRef()` v SFC komponentách **automaticky odvozené**. Platí to pro statické hodnoty založené na komponentách, na kterých je použit odpovídající `ref` atribut.
 
-```vue
-<!-- MyModal.vue -->
-<script setup lang="ts">
-import { ref } from 'vue'
+V případech, kdy automatické odvození není možné (například při použití dynamických komponent mimo SFC), můžete na template ref použít explicitní přetypování přes generický parametr.
 
-const isContentShown = ref(false)
-const open = () => (isContentShown.value = true)
-
-defineExpose({
-  open
-})
-</script>
-```
-
-Pro získání typu instance `MyModal` musíme nejprve získat jeho typ pomocí `typeof` a&nbsp;poté použít vestavěnou utilitu `InstanceType` v TypeScriptu k extrakci jeho instančního typu:
+Pro získání typu instance importované komponenty musíme nejprve získat jeho typ pomocí `typeof` a&nbsp;poté použít vestavěnou utilitu `InstanceType` v TypeScriptu k extrakci jeho instančního typu:
 
 ```vue{5}
 <!-- App.vue -->
 <script setup lang="ts">
-import MyModal from './MyModal.vue'
+import { useTemplateRef } from 'vue'
+import Foo from './Foo.vue'
+import Bar from './Bar.vue'
 
-const modal = ref<InstanceType<typeof MyModal> | null>(null)
+type FooType = InstanceType<typeof Foo>
+type BarType = InstanceType<typeof Bar>
 
-const openModal = () => {
-  modal.value?.open()
-}
+const compRef = useTemplateRef<FooType | BarType>('comp')
 </script>
+
+<template>
+  <component :is="Math.random() > 0.5 ? Foo : Bar" ref="comp" />
+</template>
 ```
 
 V případech, kdy přesný typ komponenty není dostupný nebo není důležitý, lze místo toho použít `ComponentPublicInstance`. Pak bude obsahovat pouze vlastnosti, které jsou sdílené všemi komponentami, jako například `$el`:
 
 ```ts
-import { ref } from 'vue'
+import { useTemplateRef } from 'vue'
 import type { ComponentPublicInstance } from 'vue'
 
-const child = ref<ComponentPublicInstance | null>(null)
+const child = useTemplateRef<ComponentPublicInstance | null>(null)
 ```
 
 V případech, kdy je odkazována [generická komponenta](/guide/typescript/overview.html#generic-components), napřklad tato `MyGenericModal`:
@@ -457,15 +463,16 @@ Musí být referencována s použitím `ComponentExposed` z knihovny [`vue-compo
 ```vue
 <!-- App.vue -->
 <script setup lang="ts">
+import { useTemplateRef } from 'vue'
 import MyGenericModal from './MyGenericModal.vue'
+import type { ComponentExposed } from 'vue-component-type-helpers'
 
-import type { ComponentExposed } from 'vue-component-type-helpers';
-
-const modal = ref<ComponentExposed<typeof MyModal> | null>(null)
+const modal = useTemplateRef<ComponentExposed<typeof MyModal>>(null)
 
 const openModal = () => {
-  modal.value?.open('newValue')
+  modal.value?.open('nova-hodnota')
 }
 </script>
 ```
 
+Obecně můžete počítat s tím, že ve `@vue/language-tools` 2.1+ mohou být typy statických template refs odvozovány automaticky a výše uvedené je potřeba pouze v okrajových případech.
