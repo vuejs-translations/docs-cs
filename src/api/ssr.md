@@ -222,3 +222,23 @@ Runtime API používané k získání kontextového objektu předaného do `rend
   }
   </script>
   ```
+
+## data-allow-mismatch <sup class="vt-badge" data-text="3.5+" /> {#data-allow-mismatch}
+
+Speciální atribut, který lze použít k potlačení varování o [nesouladu hydratace](/guide/scaling-up/ssr#hydration-mismatch).
+
+- **Příklad**
+
+  ```html
+  <div data-allow-mismatch="text">{{ data.toLocaleString() }}</div>
+  ```
+  
+  Hodnota může omezit povolený nesoulad na určitý typ. Povolené hodnoty jsou:
+
+  - `text`
+  - `children` (povoluje nesoulad pouze na přímých potomcích)
+  - `class`
+  - `style`
+  - `attribute`
+
+  Pokud není zadána žádná hodnota, jsou povoleny všechny typy nesouladů.

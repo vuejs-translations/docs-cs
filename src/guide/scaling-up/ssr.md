@@ -316,6 +316,10 @@ Pokud struktura DOM předvykresleného HTML neodpovídá očekávanému výstupu
 
 Když Vue na nesoulad hydratace narazí, pokusí se automaticky obnovit a upravit předvykreslený DOM tak, aby odpovídal stavu na straně klienta. To povede ke ztrátě výkonu vykreslování kvůli odstranění nesprávných a připojení nových elementů, ale ve většině případů by aplikace měla nadále fungovat správně. Nicméně je stále nejlepší nesoulady hydratace během vývoje eliminovat.
 
+#### Potlačení nesouladu hydratace <sup class="vt-badge" data-text="3.5+" /> {#suppressing-hydration-mismatches}
+
+Ve Vue 3.5+ je možné selektivně potlačit nevyhnutelné nesoulady použitím atributu [`data-allow-mismatch`](/api/ssr#data-allow-mismatch).
+
 ### Vlastní direktivy {#custom-directives}
 
 Vzhledem k tomu, že většina vlastních direktiv zahrnuje přímou manipulaci s DOM, jsou při SSR ignorovány. Pokud však chcete určit, jak by měla být vlastní direktiva vykreslena (tj. jaké atributy by měla přidat k vykreslenému prvku), můžete v direktivě použít příkaz `getSSRProps`:
