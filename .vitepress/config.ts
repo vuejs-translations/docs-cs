@@ -369,6 +369,10 @@ export const sidebar: ThemeConfig['sidebar'] = {
         {
           text: 'Dependency injection',
           link: '/api/composition-api-dependency-injection'
+        },
+        {
+          text: 'Pomocné funkce',
+          link: '/api/composition-api-helpers'
         }
       ]
     },
