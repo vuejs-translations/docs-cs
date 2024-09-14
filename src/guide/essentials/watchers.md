@@ -397,7 +397,7 @@ export default {
 
 Co se však stane, pokud se `id` změní před dokončením požadavku? Když se předchozí požadavek dokončí, bude callback pokračovat s hodnotou ID, která už je zastaralá. V&nbsp;ideálním případě bychom chtěli umět tento požadavek zrušit, jakmile se `id` změní.
 
-Můžeme použít API funkci [`onWatcherCleanup()`](/api/reactivity-core/#onwatchercleanup) <sup class="vt-badge" data-text="3.5+" /> pro zaregistrování čistící funkce, která bude zavolána ve chvíli, kdy je watcher zneplatněn a má být znovu spuštěn.
+Můžeme použít API funkci [`onWatcherCleanup()`](/api/reactivity-core.html#onwatchercleanup) <sup class="vt-badge" data-text="3.5+" /> pro zaregistrování čistící funkce, která bude zavolána ve chvíli, kdy je watcher zneplatněn a má být znovu spuštěn.
 
 <div class="composition-api">
 
