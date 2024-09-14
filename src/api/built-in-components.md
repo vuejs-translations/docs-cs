@@ -284,7 +284,13 @@ Vykresluje obsah svého slotu na jiné části DOM.
      * místě místo přesunu do cílového kontejneru.
      * Lze měnit dynamicky.
      */
-    disabled?: boolean
+    disabled?: boolean    
+    /**
+     * Když je `true`, Teleport bude před vyhodnocením
+     * svého cíle odložen (defer), dokud nebudou 
+     * připojeny (mounted) další části aplikace (Vue 3.5+)
+     */
+    defer?: boolean
   }
   ```
 
@@ -304,6 +310,14 @@ Vykresluje obsah svého slotu na jiné části DOM.
   <Teleport to="#popup" :disabled="displayVideoInline">
     <video src="./my-movie.mp4">
   </Teleport>
+  ```
+
+  Odložení vyhodnocení cíle<sup class="vt-badge" data-text="3.5+" />:
+
+  ```vue-html
+  <Teleport defer to="#late-div">...</Teleport>
+  <!-- někdy později v šabloně -->
+  <div id="late-div"></div>
   ```
 
 - **Viz také:** [Průvodce - Teleport](/guide/built-ins/teleport)

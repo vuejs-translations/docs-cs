@@ -195,6 +195,18 @@ Bude vykresleným výsledkem:
 </div>
 ```
 
+## Odložený Teleport <sup class="vt-badge" data-text="3.5+" /> {#deferred-teleport}
+
+Ve Vue 3.5+ můžeme použít vlastnost  `defer` pro odložení vyhodnocení cíle Teleportu, dokud nebudou připojeny (mounted) další části aplikace. To umožní Teleportu cílit na kontejner, který je také vykreslován Vue, ale až v pozdější části stromu komponent:
+
+```vue-html
+<Teleport defer to="#late-div">...</Teleport>
+<!-- někdy později v šabloně -->
+<div id="late-div"></div>
+```
+
+Pamatujte, že cílový element musí být vykreslen v stejném mount / update cyklu jako Teleport - např. pokud je `<div>` vykreslen pouze o vteřinu později, Teleport stejně ohlásí chybu. Odložení funguje stejně jako lifecycle hook `mounted`.
+
 ---
 
 **Související**
