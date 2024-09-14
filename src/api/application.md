@@ -90,6 +90,18 @@ Odpojí (unmount) připojenou instanci aplikace a spustí _unmount_ lifecycle ho
   }
   ```
 
+## app.onUnmount() <sup class="vt-badge" data-text="3.5+" /> {#app-onunmount}
+
+Registruje callback, který se má zavolat, když je aplikace odpojena (unmounted).
+
+- **Type**
+
+  ```ts
+  interface App {
+    onUnmount(callback: () => any): void
+  }
+  ```
+
 ## app.component() {#app-component}
 
 Registruje globální komponentu, pokud je zadán jak název, tak definice komponenty, nebo vrátí již registrovanou komponentu, pokud je zadán pouze název.
@@ -621,7 +633,7 @@ Nastavení prefixu pro všechny ID generované přes [useId()](/api/general#usei
 
 - **Výchozí hodnota:** `undefined`
 
-- **Příklad:**
+- **Příklad**
 
   ```js
   app.config.idPrefix = 'my-app'
@@ -631,3 +643,16 @@ Nastavení prefixu pro všechny ID generované přes [useId()](/api/general#usei
   const id1 = useId() // 'my-app:0'
   const id2 = useId() // 'my-app:1'
   ```
+
+## app.config.throwUnhandledErrorInProduction <sup class="vt-badge" data-text="3.5+" /> {#app-config-throwunhandlederrorinproduction}
+
+Vynutí vyvolání neošetřených chyb v produkci.
+
+- **Typ:** `boolean`
+
+- **Výchozí hodnota:** `false`
+
+- **Podrobnosti**
+  Ve výchozím nastavení se chyby vzniklé uvnitř Vue aplikace, které nejsou explicitně ošetřené, chovají jinak ve vývojovém a produkčním prostředí:
+  - Při vývoji je chyba vyvolána (thrown) a může potenciálně celou aplikaci shodit. Je to proto, aby byla chyba více viditelná a mohla být během vývoje objevena a opravena.
+  - V produkci bude chyba pouze zalogována do konzole, aby se minimalizoval dopad na koncové uživatele. Nicméně to může znamenat, že chyby, které se objevují pouze v produkci, nebudou zachycovány nástroji na monitoring. Nastavením `app.config.throwUnhandledErrorInProduction` na hodnotu `true` budou neošetřené chyby vyvolávány i v produkčním módu.
