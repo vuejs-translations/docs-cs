@@ -23,7 +23,7 @@ Další podrobnosti naleznete zde:
 
 Vue překladač podporuje různá makra pro [SFC](#single-file-component), jako například `defineProps()`, `defineEmits()` a `defineExpose()`. Tato makra jsou záměrně navržena tak, aby vypadala jako běžné JavaScriptové funkce, takže mohou využívat stejného parseru a nástrojů typového odvozování jako běžný JavaScript / TypeScript. Nejedná se však o opravdové funkce, které se spouštějí v prohlížeči. Jsou to pouze speciální řetězce, které překladač detekuje a nahradí JS kódem, jenž se skutečně spustí.
 
-Makra mají omezení svého použití, která se na běžný JS kód nevztahují. Například byste si mohli myslet, že `const dp = defineProps` vám umožní vytvořit alias pro `defineProps`, ale ve skutečnosti to skončí chybou. Existují také omezení ohledně hodnot, které lze do `defineProps()` předat, protože „argumenty“ musí být zpracovány překladačem a ne až za běhu.
+Makra mají omezení svého použití, která se na běžný JS kód nevztahují. Například byste si mohli myslet, že `const dp = defineProps` vám umožní vytvořit alias pro `defineProps`, ale ve skutečnosti to skončí chybou. Existují také omezení ohledně hodnot, které lze do `defineProps()` předat, protože „parametry“ musí být zpracovány překladačem a ne až za běhu.
 
 Pro více informací se podívejte na:
 - [`<script setup>` - `defineProps()` & `defineEmits()`](/api/sfc-script-setup.html#defineprops-defineemits)
@@ -232,7 +232,7 @@ Existují tři běžné použití termínu *prop* ve Vue:
 
 *Vlastnosti (props) komponenty* jsou to, na co většina lidí myslí při použití termínu „props“. Ty jsou explicitně definovány komponentou přes `defineProps()` nebo možnost `props`.
 
-Termín *Props VNode* se odkazuje na vlastnosti objektu předaného jako druhý argument do `h()`. Ty mohou zahrnovat vlastnosti (props) komponenty, ale také mohou obsahovat její události, nebo události, atributy a vlastnosti DOM. S vlastnostmi VNode se obvykle setkáte pouze tehdy, pokud pracujete s funkcemi pro vykreslení pro přímou manipulaci s&nbsp;VNodes.
+Termín *Props VNode* se odkazuje na vlastnosti objektu předaného jako druhý parametr do `h()`. Ty mohou zahrnovat vlastnosti (props) komponenty, ale také mohou obsahovat její události, nebo události, atributy a vlastnosti DOM. S vlastnostmi VNode se obvykle setkáte pouze tehdy, pokud pracujete s funkcemi pro vykreslení pro přímou manipulaci s&nbsp;VNodes.
 
 *Props slotu* jsou vlastnosti předané do scoped slotu.
 

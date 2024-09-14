@@ -140,7 +140,7 @@ Můžete přizpůsobit klíč vlastnosti implementovaného objektu tříd tím, 
 
 ### Použití s Composition API {#usage-with-composition-api}
 
-Na implementované třídy lze přistupovat v `setup()` a `<script setup>` pomocí API `useCssModule`. Pro bloky `<style module>` s vlastními implementovanými názvy přijímá `useCssModule` odpovídající hodnotu atributu `module` jako první argument:
+Na implementované třídy lze přistupovat v `setup()` a `<script setup>` pomocí API `useCssModule`. Pro bloky `<style module>` s vlastními implementovanými názvy přijímá `useCssModule` odpovídající hodnotu atributu `module` jako první parametr:
 
 ```js
 import { useCssModule } from 'vue'

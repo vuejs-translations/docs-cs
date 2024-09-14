@@ -195,7 +195,7 @@ Výstup pro `<slot>` bez `name` má implicitně název „default“.
 
 V komponentě rodiče, která `<BaseLayout>` používá potřebujeme způsob, jak předat více fragmentů obsahu slotů, z nichž každý je zaměřen na jiný výstup slotu. K tomu slouží **pojmenované sloty**.
 
-Pro předání pojmenovaného slotu musíme použít prvek `<template>` s direktivou `v-slot` a té předat název slotu jako argument:
+Pro předání pojmenovaného slotu musíme použít prvek `<template>` s direktivou `v-slot` a té předat název slotu jako parametr:
 
 ```vue-html
 <BaseLayout>
@@ -342,7 +342,7 @@ Pokud je header / footer / default slot předán (přítomen v&nbsp;objektu), ch
 </base-layout>
 ```
 
-Mějte na paměti, že výraz podléhá [pravidlům syntaxe](/guide/essentials/template-syntax#dynamic-argument-syntax-constraints) dynamických argumentů pro direktivy.
+Mějte na paměti, že výraz podléhá [pravidlům syntaxe](/guide/essentials/template-syntax#dynamic-argument-syntax-constraints) dynamických parametrů pro direktivy.
 
 ## Scoped sloty {#scoped-slots}
 

@@ -111,7 +111,7 @@ createElementVNode("div", {
 }, null, 2 /* CLASS */)
 ```
 
-Poslední argument, `2`, je [patch flag](https://github.com/vuejs/core/blob/main/packages/shared/src/patchFlags.ts). Prvek může mít více patch flags, které se sloučí do jednoho čísla. Runtime renderer pak může pomocí [bitových operací](https://en.wikipedia.org/wiki/Bitwise_operation) flagy kontrolovat a&nbsp;určit, zda je třeba provést určitou akci:
+Poslední parametr, `2`, je [patch flag](https://github.com/vuejs/core/blob/main/packages/shared/src/patchFlags.ts). Prvek může mít více patch flags, které se sloučí do jednoho čísla. Runtime renderer pak může pomocí [bitových operací](https://en.wikipedia.org/wiki/Bitwise_operation) flagy kontrolovat a&nbsp;určit, zda je třeba provést určitou akci:
 
 ```js
 if (vnode.patchFlag & PatchFlags.CLASS /* 2 */) {

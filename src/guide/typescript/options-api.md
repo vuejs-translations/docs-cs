@@ -179,7 +179,7 @@ Explicitní označení může být také vyžadováno v některých okrajových 
 
 ## Typování event handlerů {#typing-event-handlers}
 
-Při práci s nativními DOM událostmi může být užitečné správně označit argument, který předáváme obslužnému handleru. Podívejme se na tento příklad:
+Při práci s nativními DOM událostmi může být užitečné správně označit parametr, který předáváme obslužnému handleru. Podívejme se na tento příklad:
 
 ```vue
 <script lang="ts">
@@ -200,7 +200,7 @@ export default defineComponent({
 </template>
 ```
 
-Bez typového označení bude mít argument `event` implicitně typ `any`. To povede k&nbsp;chybě v TS, pokud je v `tsconfig.json` použita volba `"strict": true` nebo `"noImplicitAny": true`. Proto se doporučuje argumenty event handlerů explicitně označit. Kromě toho můžete potřebovat odvození typů při přístupu k vlastnostem objektu `event`:
+Bez typového označení bude mít parametr `event` implicitně typ `any`. To povede k&nbsp;chybě v TS, pokud je v `tsconfig.json` použita volba `"strict": true` nebo `"noImplicitAny": true`. Proto se doporučuje parametry event handlerů explicitně označit. Kromě toho můžete potřebovat odvození typů při přístupu k vlastnostem objektu `event`:
 
 ```ts
 import { defineComponent } from 'vue'

@@ -103,7 +103,7 @@ items.forEach((item, index) => {
 })
 ```
 
-Všimněte si, že se hodnota `v-for` shoduje s definicí callback funkce `forEach`. Dokonce můžete použít destrukturování na alias položky `v-for` podobně jako na argumenty funkce:
+Všimněte si, že se hodnota `v-for` shoduje s definicí callback funkce `forEach`. Dokonce můžete použít destrukturování na alias položky `v-for` podobně jako na parametry funkce:
 
 ```vue-html
 <li v-for="{ message } in items">

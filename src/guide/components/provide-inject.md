@@ -211,7 +211,7 @@ V některých případech může být nutné výchozí hodnotu vytvořit volán�
 const value = inject('key', () => new ExpensiveClass(), true)
 ```
 
-Třetí argument indikuje, že výchozí hodnota by měla být považována za tovární funkci.
+Třetí parametr indikuje, že výchozí hodnota by měla být považována za tovární funkci.
 
 </div>
 

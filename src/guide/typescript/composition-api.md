@@ -257,7 +257,7 @@ const n = ref<number>()
 
 ## Typování `reactive()` {#typing-reactive}
 
-`reactive()` také implicitně odvozuje typ z argumentu:
+`reactive()` také implicitně odvozuje typ z parametru:
 
 ```ts
 import { reactive } from 'vue'
@@ -280,7 +280,7 @@ const book: Book = reactive({ title: 'Vue 3 Guide' })
 ```
 
 :::tip
-Není doporučeno používat generický parametr `reactive()`, protože vrácený typ, který zpracovává rozbalování vnořených refs, se od typu generického argumentu liší.
+Není doporučeno používat generický parametr `reactive()`, protože vrácený typ, který zpracovává rozbalování vnořených refs, se od typu generického parametru liší.
 :::
 
 ## Typování `computed()` {#typing-computed}
@@ -299,7 +299,7 @@ const double = computed(() => count.value * 2)
 const result = double.value.split('')
 ```
 
-Můžete také specifikovat explicitní typ pomocí generického argumentu:
+Můžete také specifikovat explicitní typ pomocí generického parametru:
 
 ```ts
 const double = computed<number>(() => {
@@ -309,7 +309,7 @@ const double = computed<number>(() => {
 
 ## Typování event handlerů {#typing-event-handlers}
 
-Při práci s nativními DOM událostmi může být užitečné správně označit argument, který předáváme obslužnému handleru. Podívejme se na tento příklad:
+Při práci s nativními DOM událostmi může být užitečné správně označit parametr, který předáváme obslužnému handleru. Podívejme se na tento příklad:
 
 ```vue
 <script setup lang="ts">
@@ -324,7 +324,7 @@ function handleChange(event) {
 </template>
 ```
 
-Bez typového označení bude mít argument `event` implicitně typ `any`. To povede k&nbsp;chybě v TS, pokud je v `tsconfig.json` použita volba `"strict": true` nebo `"noImplicitAny": true`. Proto se doporučuje argumenty event handlerů explicitně označit. Kromě toho můžete potřebovat odvození typů při přístupu k vlastnostem objektu `event`:
+Bez typového označení bude mít parametr `event` implicitně typ `any`. To povede k&nbsp;chybě v TS, pokud je v `tsconfig.json` použita volba `"strict": true` nebo `"noImplicitAny": true`. Proto se doporučuje parametry event handlerů explicitně označit. Kromě toho můžete potřebovat odvození typů při přístupu k vlastnostem objektu `event`:
 
 ```ts
 function handleChange(event: Event) {

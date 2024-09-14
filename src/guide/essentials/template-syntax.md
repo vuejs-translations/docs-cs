@@ -249,7 +249,7 @@ Pokud je hodnota `eventName` rovna `"focus"`, `v-on:[eventName]`, bude kód v t�
 
 #### Omezení hodnot dynamických parametrů {#dynamic-argument-value-constraints}
 
-Očekává se, že dynamické argumenty budou vyhodnoceny jako řetězec, s výjimkou `null`. Speciální hodnotu `null` lze použít k explicitnímu odstranění bindingu. Jakákoli jiná non-string hodnota vyvolá varování (warning).
+Očekává se, že dynamické parametry budou vyhodnoceny jako řetězec, s výjimkou `null`. Speciální hodnotu `null` lze použít k explicitnímu odstranění bindingu. Jakákoli jiná non-string hodnota vyvolá varování (warning).
 
 #### Omezení syntaxe dynamických parametrů {#dynamic-argument-syntax-constraints}
 

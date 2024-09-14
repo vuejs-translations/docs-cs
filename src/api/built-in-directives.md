@@ -196,9 +196,9 @@ Připojí k elementu event listener.
 
   Pokud je použito na běžném elementu, naslouchá pouze [**nativním DOM událostem**](https://developer.mozilla.org/en-US/docs/Web/Events). Pokud je použito na elementu vlastní komponenty, naslouchá **vlastním událostem** emitovaným na tomto potomkovi.
 
-  Při naslouchání nativním DOM událostem metoda přijímá jako jediný argument nativní událost. Pokud je použit vložený příkaz, příkaz má přístup k speciální vlastnosti `$event`: `v-on:click="handle('ok', $event)"`.
+  Při naslouchání nativním DOM událostem metoda přijímá jako jediný parametr nativní událost. Pokud je použit vložený příkaz, příkaz má přístup k speciální vlastnosti `$event`: `v-on:click="handle('ok', $event)"`.
 
-  `v-on` také podporuje binding na objekt párů událost / listener bez argumentu. Pozor, při použití objektové syntaxe nepodporuje žádné modifikátory.
+  `v-on` také podporuje binding na objekt párů událost / listener bez parametru. Pozor, při použití objektové syntaxe nepodporuje žádné modifikátory.
 
 - **Příklad**
 
@@ -375,7 +375,7 @@ Určuje pojmenované sloty nebo scoped sloty, které očekávají předání vla
 
 - **Zkrácený zápis:** `#`
 
-- **Očekává:** JavaScriptový výraz, který je platný v pozici argumentu funkce, včetně podpory destrukturování. Volitelné - je potřeba pouze pokud očekáváte, že budou do slotu předány vlastnosti.
+- **Očekává:** JavaScriptový výraz, který je platný v pozici parametru funkce, včetně podpory destrukturování. Volitelné - je potřeba pouze pokud očekáváte, že budou do slotu předány vlastnosti.
 
 - **Parametr:** název slotu (volitelné, výchozí hodnota je `default`)
 

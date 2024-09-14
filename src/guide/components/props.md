@@ -270,7 +270,7 @@ Ve dvou výše uvedených příkladech jsme předávali hodnoty typu string, ale
 
 ### Binding více vlastností s využitím objektu {#binding-multiple-properties-using-an-object}
 
-Pokud chcete předat všechny vlastnosti objektu najednou, můžete použít [`v-bind` bez argumentu](/guide/essentials/template-syntax#dynamically-binding-multiple-attributes) (`v-bind` místo `:prop-name`). Například pokud máte objekt `post`:
+Pokud chcete předat všechny vlastnosti objektu najednou, můžete použít [`v-bind` bez parametru](/guide/essentials/template-syntax#dynamically-binding-multiple-attributes) (`v-bind` místo `:prop-name`). Například pokud máte objekt `post`:
 
 <div class="options-api">
 
@@ -444,7 +444,7 @@ defineProps({
     type: Object,
     // výchozí hodnota objektu či pole musí být
     // vrácena z tovární (factory) metody
-    // argumentem funkce budou surové (raw) vlastnosti,
+    // parametrem funkce budou surové (raw) vlastnosti,
     // které jsou předány do komponenty
     default(rawProps) {
       return { message: 'hello' }
@@ -506,7 +506,7 @@ export default {
       type: Object,
       // výchozí hodnota objektu či pole musí být
       // vrácena z tovární (factory) metody
-      // argumentem funkce budou surové (raw) vlastnosti,
+      // parametrem funkce budou surové (raw) vlastnosti,
       // které jsou předány do komponenty
       default(rawProps) {
         return { message: 'hello' }

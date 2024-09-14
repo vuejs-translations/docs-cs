@@ -12,7 +12,7 @@ Poskytuje hodnotu, která může být implementována komponentami potomka.
 
 - **Podrobnosti**
 
-  `provide()` přijímá dva argumenty: klíč (injection key), kterým může být řetězec nebo symbol, a hodnotu, která má být implementována.
+  `provide()` přijímá dva parametry: klíč (injection key), kterým může být řetězec nebo symbol, a hodnotu, která má být implementována.
 
   Při použití TypeScriptu může být klíč symbolem přetypovaným jako `InjectionKey` - typem poskytovaným Vue, který rozšiřuje `Symbol` a který lze použít k synchronizaci typu hodnoty mezi `provide()` a `inject()`.
 
@@ -64,11 +64,11 @@ Implementuje hodnotu poskytnutou komponentou předka nebo aplikací (pomocí `ap
 
 - **Podrobnosti**
 
-  První argument je klíč pro implementaci (injection key). Vue se bude procházet hierarchií rodičovských komponent, aby našelo poskytovanou hodnotu s&nbsp;odpovídajícím klíčem. Pokud více komponent v hierarchii poskytuje stejný klíč, ten z&nbsp;nejbližší komponenty „překryje“ ty výše v řetězci. Pokud nebyla nalezena žádná hodnota s odpovídajícím klíčem, `inject()` vrátí `undefined`, pokud není poskytnuta výchozí hodnota.
+  První parametr je klíč pro implementaci (injection key). Vue se bude procházet hierarchií rodičovských komponent, aby našelo poskytovanou hodnotu s&nbsp;odpovídajícím klíčem. Pokud více komponent v hierarchii poskytuje stejný klíč, ten z&nbsp;nejbližší komponenty „překryje“ ty výše v řetězci. Pokud nebyla nalezena žádná hodnota s odpovídajícím klíčem, `inject()` vrátí `undefined`, pokud není poskytnuta výchozí hodnota.
 
-  Druhý argument je volitelný a jde o výchozí hodnotou, která se použije, pokud nebyla nalezena žádná odpovídající poskytnutá hodnota.
+  Druhý parametr je volitelný a jde o výchozí hodnotou, která se použije, pokud nebyla nalezena žádná odpovídající poskytnutá hodnota.
 
-  Druhý argument může být také tovární funkce, která vrací hodnoty, které jsou nákladné na vytvoření. V tomto případě musí být jako třetí argument předáno `true` pro indikaci, že by měla být funkce použita jako tovární metoda místo samotné hodnoty.
+  Druhý parametr může být také tovární funkce, která vrací hodnoty, které jsou nákladné na vytvoření. V tomto případě musí být jako třetí parametr předáno `true` pro indikaci, že by měla být funkce použita jako tovární metoda místo samotné hodnoty.
 
   Podobně jako u API pro registraci lifecycle hooks, musí být `inject()` voláno synchronně během `setup()` fáze komponenty.
 

@@ -178,7 +178,7 @@ const emit = defineEmits(['change', 'delete'])
 
 ### Pouze typové deklarace props/emit<sup class="vt-badge ts" /> {#type-only-props-emit-declarations}
 
-Props a emits lze také deklarovat pomocí „pure-type“ syntaxe tím, že  do `defineProps` nebo `defineEmits` jako argument předáte typový literál:
+Props a emits lze také deklarovat pomocí „pure-type“ syntaxe tím, že  do `defineProps` nebo `defineEmits` jako parametr předáte typový literál:
 
 ```ts
 const props = defineProps<{
@@ -346,7 +346,7 @@ const [modelValue, modelModifiers] = defineModel({
 
 ### Použití s TypeScriptem <sup class="vt-badge ts" /> {#usage-with-typescript}
 
-Stejně jako `defineProps` a `defineEmits`, `defineModel` může také přijímat typové argumenty k určení typů hodnoty modelu a modifikátorů:
+Stejně jako `defineProps` a `defineEmits`, `defineModel` může také přijímat typové parametry k určení typů hodnoty modelu a modifikátorů:
 
 ```ts
 const modelValue = defineModel<string>()
@@ -406,7 +406,7 @@ defineOptions({
 
 Toto makro může být použito k poskytnutí typové nápovědy pro IDE pro kontrolu názvu slotu a typů props.
 
-`defineSlots()` přijímá pouze parametr typu a žádné runtime argumenty. Parametr typu by měl být typový literál, kde klíč vlastnosti je název slotu a typ hodnoty je funkce slotu. První parametr funkce jsou props, které slot očekává přijmout, a jeho typ bude použit pro slot props ve šabloně. Návratový typ je aktuálně ignorován a může být `any`, ale v&nbsp;budoucnu jej možná budeme chtít využít pro kontrolu obsahu slotu.
+`defineSlots()` přijímá pouze parametr typu a žádné runtime parametry. Parametr typu by měl být typový literál, kde klíč vlastnosti je název slotu a typ hodnoty je funkce slotu. První parametr funkce jsou props, které slot očekává přijmout, a jeho typ bude použit pro slot props ve šabloně. Návratový typ je aktuálně ignorován a může být `any`, ale v&nbsp;budoucnu jej možná budeme chtít využít pro kontrolu obsahu slotu.
 
 Také vrací objekt `slots`, který je ekvivalentní objektu `slots` dostupnému v kontextu `setup` nebo vrácenému funkcí `useSlots()`.
 

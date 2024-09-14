@@ -424,7 +424,7 @@ Sleduje jeden nebo více reaktivních datových zdrojů a vyvolá callback, kdy�
   - Reaktivní objekt
   - ...nebo pole výše uvedených.
 
-  Druhým parametrem je callback, který bude volán při změně zdroje. Callback funkce přijímá tři argumenty: novou hodnotu, starou hodnotu a funkci pro cleanup. Callback pro čištění bude volán před dalším spuštěním efektu a může být použit k čištění neplatných vedlejších efektů, např. čekajícího asynchronního požadavku.
+  Druhým parametrem je callback, který bude volán při změně zdroje. Callback funkce přijímá tři parametry: novou hodnotu, starou hodnotu a funkci pro cleanup. Callback pro čištění bude volán před dalším spuštěním efektu a může být použit k čištění neplatných vedlejších efektů, např. čekajícího asynchronního požadavku.
 
   Při sledování více zdrojů přijímá callback dvě pole obsahující nové / staré hodnoty odpovídající zdrojovému poli.
 

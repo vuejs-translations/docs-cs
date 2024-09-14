@@ -176,7 +176,7 @@ export default {
 
 </div>
 
-Možnost `emits` a `defineEmits()` makro také podporují objektovou syntaxi. Při použití TypeScriptu je možné typovat argumenty, což nám umožňuje provádět runtime validaci obsahu (payload) emitovaných událostí:
+Možnost `emits` a `defineEmits()` makro také podporují objektovou syntaxi. Při použití TypeScriptu je možné typovat parametry, což nám umožňuje provádět runtime validaci obsahu (payload) emitovaných událostí:
 
 <div class="composition-api">
 

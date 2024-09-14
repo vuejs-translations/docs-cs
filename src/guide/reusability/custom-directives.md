@@ -112,7 +112,7 @@ const mojeDirektiva = {
   // volána před aplikací
   // navázaných atributů elementů či event listenerů
   created(el, binding, vnode) {
-    // detaily jednotlivých argumentů viz níže
+    // detaily jednotlivých parametrů viz níže
   },
   // volána těsně před vložením elementu do DOM
   beforeMount(el, binding, vnode) {},
@@ -166,7 +166,7 @@ Parametr `binding` bude objekt ve tvaru:
 }
 ```
 
-Podobně jako vestavěné direktivy mohou být argumenty vlastních direktiv dynamické. Například:
+Podobně jako vestavěné direktivy mohou být parametry vlastních direktiv dynamické. Například:
 
 ```vue-html
 <div v-example:[arg]="value"></div>
@@ -175,7 +175,7 @@ Podobně jako vestavěné direktivy mohou být argumenty vlastních direktiv dyn
 Zde bude parametr direktivy reaktivně aktualizován na základě vlastnosti `arg` ze stavu naší komponenty.
 
 :::tip Poznámka
-Kromě `el` byste s těmito argumenty měli zacházet jako s read-only hodnotami a nikdy je neměnit. Pokud potřebujete sdílet informace napříč hooks, doporučujeme to dělat prostřednictvím atributu [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
+Kromě `el` byste s těmito parametry měli zacházet jako s read-only hodnotami a nikdy je neměnit. Pokud potřebujete sdílet informace napříč hooks, doporučujeme to dělat prostřednictvím atributu [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
 :::
 
 ## Zkrácený zápis funkcí {#function-shorthand}

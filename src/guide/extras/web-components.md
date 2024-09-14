@@ -151,7 +151,7 @@ Uvnitř komponenty bude `selected` přetypováno na `true` (boolean) and `index`
 
 #### Události (events) {#events}
 
-Události emitované pomocí `this.$emit` nebo `setup emit` jsou odesílány jako nativní [CustomEvents](https://developer.mozilla.org/en-US/docs/Web/Events/Creating_and_triggering_events#adding_custom_data_%E2%80%93_customevent) na custom elementu. Další argumenty události (payload) budou vystaveny jako pole na objektu CustomEvent ve vlastnosti `detail`.
+Události emitované pomocí `this.$emit` nebo `setup emit` jsou odesílány jako nativní [CustomEvents](https://developer.mozilla.org/en-US/docs/Web/Events/Creating_and_triggering_events#adding_custom_data_%E2%80%93_customevent) na custom elementu. Další parametry události (payload) budou vystaveny jako pole na objektu CustomEvent ve vlastnosti `detail`.
 
 #### Sloty (slots) {#slots}
 

@@ -195,7 +195,7 @@ Voláno, když byla zachycena chyba propagující se z komponenty potomka.
   - Custom directive hooks
   - Transition hooks
 
-  Hook dostává tři argumenty: chybu, instanci komponenty, která chybu vyvolala, a&nbsp;řetězec s informací, která specifikuje typ zdroje chyby.
+  Hook dostává tři parametry: chybu, instanci komponenty, která chybu vyvolala, a&nbsp;řetězec s informací, která specifikuje typ zdroje chyby.
 
   :::tip
   V produkčním prostředí bude třetí parametr (`info`) zkrácený kód místo kompletního řetězce s informací. Na mapování kódů na texty se můžete podívat do [Reference chybových kódů v produkci](/error-reference/#runtime-errors).

@@ -12,7 +12,7 @@ Vytvoří instanci aplikace.
 
 - **Podrobnosti**
 
-  První argument je root komponenta. Druhý volitelný argument jsou vlastnosti, které se mají root komponentě předat.
+  První parametr je root komponenta. Druhý volitelný parametr jsou vlastnosti, které se mají root komponentě předat.
 
 - **Příklad**
 
@@ -55,7 +55,7 @@ Připojí (mount) instanci aplikace do mateřského elementu.
 
 - **Podrobnosti**
 
-  Argumentem může být buď skutečný DOM element nebo CSS selektor (bude použit první vyhovující element). Vrací instanci root komponenty.
+  Parametrem může být buď skutečný DOM element nebo CSS selektor (bude použit první vyhovující element). Vrací instanci root komponenty.
 
   Pokud má komponenta definovanou šablonu nebo vykreslovací funkci, nahradí všechny existující DOM elementy uvnitř kontejneru. Jinak, pokud je k dispozici runtime kompilátor, bude jako šablona použito `innerHTML` kontejneru.
 
@@ -185,9 +185,9 @@ Nainstaluje [plugin](/guide/reusability/plugins).
 
 - **Detaily**
 
-Očekává plugin jako první argument a volitelně vlastnosti pluginu jako druhý argument.
+Očekává plugin jako první parametr a volitelně vlastnosti pluginu jako druhý parametr.
 
-Plugin může být buď objekt s metodou `install()`, nebo pouze funkce, která bude použita jako metoda `install()`. Vlastnosti (druhý argument `app.use()`) budou do metody `install()` předány.
+Plugin může být buď objekt s metodou `install()`, nebo pouze funkce, která bude použita jako metoda `install()`. Vlastnosti (druhý parametr `app.use()`) budou do metody `install()` předány.
 
 Když je na stejný plugin voláno `app.use()` vícekrát, plugin bude nainstalován pouze jednou.
 
@@ -238,7 +238,7 @@ Poskytne hodnotu, která může být implementována (injected) do všech kompon
 
 - **Podrobnosti**
 
-  Očekává klíč (injection key) jako první a poskytnutou hodnotu jako druhý argument. Vrací instanci aplikace jako takovou.
+  Očekává klíč (injection key) jako první a poskytnutou hodnotu jako druhý parametr. Vrací instanci aplikace jako takovou.
 
 - **Příklad**
 
@@ -376,7 +376,7 @@ Přiřadí globální handler pro nezachycené chyby propagované z aplikace.
 
 - **Podrobnosti**
 
-  Error handler přijímá tři argumenty: objekt chyby, instanci komponenty, která chybu vyvolala, a informační string, který specifikuje typ zdroje chyby.
+  Error handler přijímá tři parametry: objekt chyby, instanci komponenty, která chybu vyvolala, a informační string, který specifikuje typ zdroje chyby.
 
   Může zachytit chyby z následujících zdrojů:
 
@@ -418,7 +418,7 @@ Přiřadí vlastní handler pro Vue runtime varování.
 
 - **Podrobnosti**
 
-  Warning handler přijímá jako první argument zprávu varování, jako druhý argument instanci zdrojové komponenty a jako třetí argument trace string.
+  Warning handler přijímá jako první parametr zprávu varování, jako druhý parametr instanci zdrojové komponenty a jako třetí parametr trace string.
 
   Může být použit k odfiltrování konkrétních varování pro snížení množství výpisů do konzole. Všechna Vue varování by měla být řešena během vývoje, takže se použití doporučuje pouze během ladění se zaměřením na jedno konkrétní varování po skončení debuggingu metodu opět odstranit.
 

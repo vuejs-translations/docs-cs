@@ -446,7 +446,7 @@ export default {
 
 Pozor, že funkce `onWatcherCleanup` je podporována až ve Vue 3.5+ a musí být volána během synchronního spuštění `watchEffect` efektu nebo callbacku `watch` funkce: nemůžete ji zavolat po `await` výrazu uvnitř asynchronní funkce.
 
-Alternativně lze předat `onCleanup` funkci jako třetí argument callbacku `watch` funkce<span class="composition-api"> nebo jako první argument funkce `watchEffect` efektu</span>:
+Alternativně lze předat `onCleanup` funkci jako třetí parametr callbacku `watch` funkce<span class="composition-api"> nebo jako první parametr funkce `watchEffect` efektu</span>:
 
 <div class="composition-api">
 
@@ -484,7 +484,7 @@ export default {
 
 </div>
 
-To funguje i ve verzích před Vue 3.5. Navíc je `onCleanup` předaná jako argument funkce navázaná na instanci watcheru, takže nepodléhá omezení pouze na synchronní volání jako `onWatcherCleanup`.
+To funguje i ve verzích před Vue 3.5. Navíc je `onCleanup` předaná jako parametr funkce navázaná na instanci watcheru, takže nepodléhá omezení pouze na synchronní volání jako `onWatcherCleanup`.
 
 ## Časování provedení callback funkce {#callback-flush-timing}
 

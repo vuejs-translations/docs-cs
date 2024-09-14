@@ -136,7 +136,7 @@ Může také být použito k vytvoření ref pro vlastnost na zdrojovém reaktiv
 
 - Podporováno až od verze 3.3+
 
-Normalizuje hodnoty / refs / gettery na hodnoty. Podobá se [unref()](#unref) s tím rozdílem, že&nbsp;normalizuje i gettery. Pokud je argument getter, bude vyvolán a bude vrácena jeho návratová hodnota.
+Normalizuje hodnoty / refs / gettery na hodnoty. Podobá se [unref()](#unref) s tím rozdílem, že&nbsp;normalizuje i gettery. Pokud je parametrem getter, bude vyvolán a bude vrácena jeho návratová hodnota.
 
 To lze použít v [composable funkcích](/guide/reusability/composables.html) k normalizaci parametru, který může být buď hodnota, ref nebo getter.
 
@@ -154,7 +154,7 @@ To lze použít v [composable funkcích](/guide/reusability/composables.html) k 
   toValue(() => 1) // --> 1
   ```
 
-  Normalizace argumentů v composable funkcích:
+  Normalizace parametrů v composable funkcích:
 
   ```ts
   import type { MaybeRefOrGetter } from 'vue'

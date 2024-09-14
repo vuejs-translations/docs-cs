@@ -46,7 +46,7 @@ Samotný `setup()` nemá přístup k instanci komponenty - `this` bude mít uvni
 
 ## Přístup k vlastnostem (props) {#accessing-props}
 
-Prvním argumentem v funkci `setup` je argument `props`. Stejně jako byste očekávali v&nbsp;běžné komponentě, `props` uvnitř funkce `setup` jsou reaktivní a budou při předání nových vlastností aktualizovány.
+Prvním parametrem v funkci `setup` je objekt `props`. Stejně jako byste očekávali v&nbsp;běžné komponentě, `props` uvnitř funkce `setup` jsou reaktivní a budou při předání nových vlastností aktualizovány.
 
 ```js
 export default {
@@ -81,7 +81,7 @@ export default {
 
 ## Setup Context {#setup-context}
 
-Druhý argument předaný do funkce `setup` je objekt **Setup Context**. Kontextový objekt poskytuje další hodnoty, které mohou být uvnitř `setup` užitečné:
+Druhý parametr předaný do funkce `setup` je objekt **Setup Context**. Kontextový objekt poskytuje další hodnoty, které mohou být uvnitř `setup` užitečné:
 
 ```js
 export default {

@@ -26,7 +26,7 @@ Při použití TypeScriptu je preferovaná varianta využít [`defineSlots()`](/
 
 Toto je pomocná funkce, která uvnitř pohání [`defineModel()`](/api/sfc-script-setup#definemodel). Při použití `<script setup>` je preferovaná varianta využít `defineModel()`.
 
-Funkce `useModel()` může být použita v non-SFC komponentách, např. uvnitř obyčejné `setup()` funkce. Jako první argument očekává `props` objekt a jako druhý název modelu. Volitelný třetí argument může být použit pro deklaraci vlastního getteru a setteru pro výsledný ref objekt modelu. Pamatujte, že na rozdíl od `defineModel()` jste za deklaraci vlastností (props) a událostí (emits) zodpovědní vy.
+Funkce `useModel()` může být použita v non-SFC komponentách, např. uvnitř obyčejné `setup()` funkce. Jako první parametr očekává `props` objekt a jako druhý název modelu. Volitelný třetí parametr může být použit pro deklaraci vlastního getteru a setteru pro výsledný ref objekt modelu. Pamatujte, že na rozdíl od `defineModel()` jste za deklaraci vlastností (props) a událostí (emits) zodpovědní vy.
 
 - **Typ**
 
