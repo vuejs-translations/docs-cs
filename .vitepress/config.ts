@@ -422,6 +422,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
     {
       text: 'Pokročilá API',
       items: [
+        { text: 'Custom elementy', link: '/api/custom-elements' },
         { text: 'API funkce pro vykreslení', link: '/api/render-function' },
         { text: 'API pro vykreslování na serveru', link: '/api/ssr' },
         { text: 'TypeScript utility typy', link: '/api/utility-types' },

@@ -47,15 +47,15 @@ export default {
 ```js
 // vue.config.js
 module.exports = {
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     config.module
       .rule('vue')
       .use('vue-loader')
-      .tap(options => ({
+      .tap((options) => ({
         ...options,
         compilerOptions: {
           // považovat jakýkoli tag, který začíná na ion- jako custom element
-          isCustomElement: tag => tag.startsWith('ion-')
+          isCustomElement: (tag) => tag.startsWith('ion-')
         }
       }))
   }
@@ -81,7 +81,7 @@ Hlavní výhodou custom elementů je, že je lze použít s libovolným framewor
 
 ### defineCustomElement {#definecustomelement}
 
-Vue podporuje vytváření custom elementů pomocí přesně stejných API pro Vue komponenty pomocí metody [`defineCustomElement`](/api/general#definecustomelement). Metoda přijímá stejný parametr jako [`defineComponent`](/api/general#definecomponent), ale místo komponenty vrací konstruktor custom elementu, který rozšiřuje `HTMLElement`:
+Vue podporuje vytváření custom elementů pomocí přesně stejných API pro Vue komponenty pomocí metody [`defineCustomElement`](/api/custom-elements#definecustomelement). Metoda přijímá stejný parametr jako [`defineComponent`](/api/general#definecomponent), ale místo komponenty vrací konstruktor custom elementu, který rozšiřuje `HTMLElement`:
 
 ```vue-html
 <my-vue-element></my-vue-element>
@@ -171,6 +171,20 @@ Uvnitř komponenty lze sloty vykreslovat pomocí elementu `<slot/>` jako obvykle
 
 [Provide / Inject API](/guide/components/provide-inject#provide-inject) a jeho [ekvivalent v Composition API](/api/composition-api-dependency-injection#provide) fungují i mezi Vue-definovanými custom elementy. Nicméně, mějte na paměti, že to funguje **pouze mezi custom elementy**. tj. Vue-definovaný custom element nebude schopen vložit vlastnosti poskytované Vue komponentou, která není custom element.
 
+#### Globální konfigurace <sup class="vt-badge" data-text="3.5+" /> {#app-level-config}
+
+Pomocí volby `configureApp` můžete pro Vue custom element nastavit instanci aplikace:
+
+```js
+defineCustomElement(MyComponent, {
+  configureApp(app) {
+    app.config.errorHandler = (err) => {
+      /* ... */
+    }
+  }
+})
+```
+
 ### SFC jako custom element {#sfc-as-custom-element}
 
 Metoda `defineCustomElement` funguje i s Vue Single-File komponentami (SFC). Nicméně, s výchozím nastavením nástrojů bude `<style>` uvnitř SFC během produkčního buildu stále extrahován a sloučen do jednoho CSS souboru. Při použití SFC jako custom elementu je často žádoucí vložit `<style>` tagy do shadow root custom elementu.
@@ -242,7 +256,7 @@ export const Counter = defineCustomElement(CounterSFC)
 // zaregistrovat globální typy
 declare module 'vue' {
   export interface GlobalComponents {
-    'Counter': typeof Counter,
+    Counter: typeof Counter
   }
 }
 ```
