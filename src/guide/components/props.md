@@ -155,6 +155,34 @@ const { foo = 'ahoj' } = defineProps<{ foo?: string }>()
 
 </div>
 
+Pokud vám ve vašem IDE vyhovuje mít lepší vizuální rozlišení mezi destrukturovanými vlastnostmi a obyčejnými proměnnými, Vue rozšíření pro VS Code nabízí nastavení, které&nbsp;pro destrukturované vlastnosti zpřístupní inline nápovědu.
+
+### Předávání destrukturovaných vlastností do funkcí
+
+Když předáváme destrukturované vlastnosti do funkce, např.:
+
+```js
+const { foo } = defineProps(['foo'])
+
+watch(foo, /* ... */)
+```
+
+Nebude to fungovat podle očekávání, protože to odpovídá `watch(props.foo, ...)` -&nbsp;do&nbsp;`watch` předáváme hodnotu místo reaktivního zdroje dat. Překladač Vue v takovém případě vyvolá varování.
+
+Stejně jako můžeme sledovat běžnou proměnnou pomocí `watch(() => props.foo, ...)`, můžeme i destrukturovanou vlastnost sledovat obaleném do getteru:
+
+```js
+watch(() => foo, /* ... */)
+```
+
+Kromě toho je doporučený postup při předávání destrukturované vlastnosti do externí funkce se zachováním její reaktivity použít:
+
+```js
+useComposable(() => foo)
+```
+
+Když externí funkce potřebuje sledovat změny předané proměnné, např. uvnitř getteru computed či watcheru, může zavolat getter (nebo ji normalizovat pomocí [toValue](/api/reactivity-utilities.html#tovalue)).
+
 ## Detaily předávání vlastností {#prop-passing-details}
 
 ### Velká a malá písmena v názvech vlastností {#prop-name-casing}
