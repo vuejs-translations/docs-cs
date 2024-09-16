@@ -442,7 +442,7 @@ Pokud chcete, aby byl uživatelský vstup automaticky přetypován jako číslo,
 <input v-model.number="age" />
 ```
 
-Pokud hodnotu nelze přetypovat pomocí `parseFloat()`, bude použita původní hodnota.
+Pokud hodnotu nelze přetypovat pomocí `parseFloat()`, bude místo toho použita původní hodnota (string). V případě, že je vstup prázdný (například poté, co uživatel pole vyčistí), bude vrácen prázdný string. Toto chování se liší od [vlastnosti DOM `valueAsNumber`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#valueasnumber). 
 
 Modifikátor `number` se aplikuje automaticky, pokud má vstupní pole atribut `type="number"`.
 
