@@ -127,10 +127,6 @@ Uživatelé mohou v aplikaci navigovat pomocí nadpisů. Mít popisné nadpisy p
 | form            | role="form"          | Sbírka prvků spojených s formulářem                                                                              |
 | section         | role="region"        | Obsah, který je relevantní a který uživatelé pravděpodobně budou chtít procházet. Pro tento prvek musí být poskytnut label |
 
-:::tip Tip:
-Je doporučeno používat HTML prvky s redundantními atributy ARIA rolí, abyste maximalizovali kompatibilitu s [prohlížeči, které nepodporují sémantické prvky HTML5](https://caniuse.com/#feat=html5semantic).
-:::
-
 [Více informací o orientačních bodech](https://www.w3.org/TR/wai-aria-1.2/#landmark_roles)
 
 ## Sémantické formuláře {#semantic-forms}
