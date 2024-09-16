@@ -157,7 +157,7 @@ const { foo = 'ahoj' } = defineProps<{ foo?: string }>()
 
 Pokud vám ve vašem IDE vyhovuje mít lepší vizuální rozlišení mezi destrukturovanými vlastnostmi a obyčejnými proměnnými, Vue rozšíření pro VS Code nabízí nastavení, které&nbsp;pro destrukturované vlastnosti zpřístupní inline nápovědu.
 
-### Předávání destrukturovaných vlastností do funkcí
+### Předávání destrukturovaných vlastností do funkcí {#passing-destructured-props-into-functions}
 
 Když předáváme destrukturované vlastnosti do funkce, např.:
 

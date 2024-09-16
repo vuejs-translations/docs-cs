@@ -117,7 +117,7 @@ Pokud je předána komponenta pro chybový stav, zobrazí se, když je Promise v
 
 - Jejich design je úmyslně nízkoúrovňový pro větší flexibilitu. Potenciálně na nich lze později vystavět makra překladače, ať už přímo ve Vue core nebo v řešeních vyšší úrovně (např. Nuxt).
 
-### Hydrate on Idle
+### Hydrate on Idle {#hydrate-on-idle}
 
 Hydratace pomocí `requestIdleCallback`:
 
@@ -130,7 +130,7 @@ const AsyncComp = defineAsyncComponent({
 })
 ```
 
-### Hydrate on Visible
+### Hydrate on Visible {#hydrate-on-visible}
 
 Hydratace ve chvíli, kdy se element stane viditelný, pomocí `IntersectionObserver`.
 
@@ -149,7 +149,7 @@ Volitelně lze předat objekt vlastností pro observer:
 hydrateOnVisible({ rootMargin: '100px' })
 ```
 
-### Hydrate on Media Query
+### Hydrate on Media Query {#hydrate-on-media-query}
 
 Hydratace ve chvíli, kdy odpovídá specifické media query.
 
@@ -162,7 +162,7 @@ const AsyncComp = defineAsyncComponent({
 })
 ```
 
-### Hydrate on Interaction
+### Hydrate on Interaction {#hydrate-on-interaction}
 
 Hydratace ve chvíli, kdy je na prvku (prvcích) komponenty vyvolána specifická událost (události). Událost, která hydrataci spustila, bude po jejím dokončení vyvolána znovu.
 
@@ -181,7 +181,7 @@ Může být předán i seznam různých typů událostí:
 hydrateOnInteraction(['wheel', 'mouseover'])
 ```
 
-### Vlastní strategie
+### Vlastní strategie {#custom-strategy}
 
 ```ts
 import { defineAsyncComponent, type HydrationStrategy } from 'vue'
