@@ -26,7 +26,7 @@ const vnode = h(
 )
 ```
 
-`h()` je zkratka pro **hyperscript** - což znamená „JavaScript, který produkuje HTML (hypertext markup language)“. Tento název je dědictvím konvencí sdílených mnoha implementacemi virtuálního DOM. Popisnější název by mohl být `createVnode()`, ale kratší název pomáhá, když tuto funkci musíte v rámci funkce pro vykreslení volat mnohokrát.
+`h()` je zkratka pro **hyperscript** - což znamená „JavaScript, který produkuje HTML (hypertext markup language)“. Tento název je dědictvím konvencí sdílených mnoha implementacemi virtuálního DOM. Popisnější název by mohl být `createVNode()`, ale kratší název pomáhá, když tuto funkci musíte v rámci funkce pro vykreslení volat mnohokrát.
 
 Funkce `h()` je navržena tak, aby byla velmi flexibilní:
 
