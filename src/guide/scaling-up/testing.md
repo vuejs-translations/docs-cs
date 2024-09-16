@@ -262,15 +262,13 @@ Když jsou E2E testy spouštěny v rámci CI/CD pipeline, často se spouštějí
 
 ### Doporučení {#recommendation-2}
 
-- [Cypress](https://www.cypress.io/)
+- [Playwright](https://playwright.dev/) pro skvělé řešení pro end-to-end testování které podporuje Chromium, WebKit a Firefox. Testujte na Windows, Linuxu a macOS, lokálně nebo v CI, v plném či&nbsp;headless módu a s nativním mobilním emulátorem Google Chrome pro Android a&nbsp;Mobile Safari. Má informativní UI, vynikající možnosti ladění, vestavěné assertions, paralelizaci, sledování (traces) a je navržen pro eliminaci flaky testů. Je dostupná podpora pro [testování komponent](https://playwright.dev/docs/component-testing), ale označená jako experimentální. Playwright je opensource spravovaný společností Microsoft. 
 
-  Celkově si myslíme, že Cypress poskytuje nejkompletnější řešení pro end-to-end testování s funkcemi jako informativní grafické rozhraní, vynikající možnosti ladění, vestavěné assertions a stubs, odolnost proti flaky testům, paralelizace a snímky obrazovky. Jak bylo zmíněno výše, podporuje také [testování komponent](https://docs.cypress.io/guides/component-testing/introduction). Podporuje prohlížeče založené na Chromium enginu, Firefox a Electron. Podpora pro WebKit je dostupná, ale označená jako experimentální.
+- [Cypress](https://www.cypress.io/) má informativní grafické rozhraní, vynikající možnosti ladění, vestavěné assertions a stubs, odolnost proti flaky testům, paralelizace a snímky obrazovky. Jak&nbsp;bylo zmíněno výše, podporuje také již stabilní [testování komponent](https://docs.cypress.io/guides/component-testing/introduction). Cypress podporuje prohlížeče založené na Chromium enginu, Firefox a Electron. Podpora pro WebKit je dostupná, ale označená jako experimentální. Cypress má MIT licenci, ale některé možnosti jako paralelizace vyžadují registraci do Cypress Cloud.
 
 ### Další možnosti {#other-options-2}
 
-- [Playwright](https://playwright.dev/) je pro end-to-end testování také skvělé řešení, které podporuje všechny moderní vykreslovací enginy vč. Chromium, WebKit a Firefox. Testujte na Windows, Linuxu a macOS, lokálně nebo v CI, v plném či headless módu a s nativním mobilním emulátorem Google Chrome pro Android a Mobile Safari.
-
-- [Nightwatch](https://nightwatchjs.org/) je řešení pro end-to-end testování založené na [Selenium WebDriver](https://www.npmjs.com/package/selenium-webdriver). To mu dává nejširší rozsah podpory prohlížečů vč. nativního mobilního zobrazení. Řešení založená na Seleniu však budou pomalejší než Cypress nebo Playwright.
+- [Nightwatch](https://nightwatchjs.org/) je řešení pro end-to-end testování založené na [Selenium WebDriver](https://www.npmjs.com/package/selenium-webdriver). To&nbsp;mu dává nejširší rozsah podpory prohlížečů vč. nativního mobilního zobrazení. Řešení založená na Seleniu však budou pomalejší než Cypress nebo Playwright.
 
 - [WebdriverIO](https://webdriver.io/) je testovací automatizační framework pro testování webových a&nbsp;mobilních aplikací založený na protokolu WebDriver.
 
