@@ -46,7 +46,10 @@ Zkontrolujte, že máte nainstalovanou nejnovější verzi [Node.js](https://nod
   <VTCodeGroupTab label="yarn">
   
   ```sh
-  # pro Yarn v2+
+  # pro Yarn (v1+)
+  $ yarn create vue
+
+  # pro Yarn (v2+)
   $ yarn create vue@latest
   
   # pro Yarn ^v4.11
