@@ -1,12 +1,23 @@
 # Vlastní direktivy {#custom-directives}
 
 <script setup>
-const vFocus = {
+const vHighlight = {
   mounted: el => {
-    el.focus()
+    el.classList.add('is-highlight')
   }
 }
 </script>
+
+<style>
+.vt-doc p.is-highlight {
+  margin-bottom: 0;
+}
+
+.is-highlight {
+  background-color: yellow;
+  color: black;
+}
+</style>
 
 ## Úvod {#introduction}
 
@@ -20,12 +31,99 @@ Vlastní direktiva je definována jako objekt obsahující lifecycle hooks podob
 
 ```vue
 <script setup>
+// umožní v šablonách v-highlight
+const vHighlight = {
+  mounted: (el) => {
+    el.classList.add('is-highlight')
+  }
+}
+</script>
+<template>
+  <p v-highlight>Tato věta je důležitá!</p>
+</template>
+```
+
+</div>
+
+<div class="options-api">
+
+```js
+const highlight = {
+  mounted: (el) => el.classList.add('is-highlight')
+}
+
+export default {
+  directives: {
+    // umožní v šablonách v-highlight
+    highlight
+  }
+}
+```
+
+```vue-html
+<p v-highlight>Tato věta je důležitá!</p>
+```
+
+</div>
+
+<div class="demo">
+  <p v-highlight>Tato věta je důležitá!</p>
+</div>
+
+<div class="composition-api">
+
+Ve `<script setup>` lze jako vlastní direktivu použít jakoukoli proměnnou zapsanou v&nbsp;camelCase tvaru, která začíná předponou `v`. Ve výše uvedeném příkladu lze `vHighlight` použít v šabloně jako `v-highlight`.
+
+Pokud nepoužíváte `<script setup>`, lze vlastní direktivy registrovat pomocí možnosti `directives`:
+
+```js
+export default {
+  setup() {
+    /*...*/
+  },
+  directives: {
+    // umožní v šablonách v-highlight
+    highlight: {
+      /* ... */
+    }
+  }
+}
+```
+
+</div>
+
+<div class="options-api">
+
+Podobně jako u komponent musí být vlastní direktivy zaregistrovány, aby je bylo možné použít v šablonách. Ve výše uvedeném příkladu používáme lokální registraci pomocí možnosti `directives`.
+
+</div>
+
+Běžné je i registrovat vlastní direktivy globálně na úrovni aplikace:
+
+```js
+const app = createApp({})
+
+// v-highlight bude použitelný ve všech komponentách
+app.directive('highlight', {
+  /* ... */
+})
+```
+
+## Kdy vlastní direktivy používat {#when-to-use}
+
+Vlastní direktivy by se měly používat pouze v případě, že požadované funkcionality lze dosáhnout pouze přímou manipulací s DOM. 
+
+Běžným příkladem je direktiva `v-focus`, která přináší focus na daný element.
+
+<div class="composition-api">
+
+```vue
+<script setup>
 // umožní v šablonách v-focus
 const vFocus = {
   mounted: (el) => el.focus()
 }
 </script>
-
 <template>
   <input v-focus />
 </template>
@@ -54,54 +152,9 @@ export default {
 
 </div>
 
-<div class="demo">
-  <input v-focus placeholder="Na tento prvek by měl být focus" style="width:265px" />
-</div>
+Tato direktiva je užitečnější než atribut `autofocus`, protože funguje nejen při načítání stránky - funguje i tehdy, když je prvek vkládán dynamicky pomocí Vue!
 
-Za předpokladu, že jste na stránce neklikli jinam, by měl být na výše uvedeném input elementu automaticky nastavený focus. Tato direktiva je užitečnější než atribut `autofocus`, protože funguje nejen při načítání stránky - funguje i tehdy, když je prvek vkládán dynamicky pomocí Vue.
-
-<div class="composition-api">
-
-Ve `<script setup>` lze jako vlastní direktivu použít jakoukoli proměnnou zapsanou v&nbsp;camelCase tvaru, která začíná předponou `v`. Ve výše uvedeném příkladu lze `vFocus` použít v šabloně jako `v-focus`.
-
-Pokud se `<script setup>` nepoužvá, lze vlastní direktivy registrovat pomocí možnosti `directives`:
-
-```js
-export default {
-  setup() {
-    /*...*/
-  },
-  directives: {
-    // umožní v šablonách v-focus
-    focus: {
-      /* ... */
-    }
-  }
-}
-```
-
-</div>
-
-<div class="options-api">
-
-Podobně jako u komponent musí být vlastní direktivy zaregistrovány, aby je bylo možné použít v šablonách. Ve výše uvedeném příkladu používáme lokální registraci pomocí možnosti `directives`.
-
-</div>
-
-Běžné je i registrovat vlastní direktivy globálně na úrovni aplikace:
-
-```js
-const app = createApp({})
-
-// v-focus bude použitelný ve všech komponentách
-app.directive('focus', {
-  /* ... */
-})
-```
-
-:::tip
-Vlastní direktivy by se měly používat pouze v případě, že požadované funkcionality lze dosáhnout pouze přímou manipulací s DOM. Pokud je to možné, dávejte přednost deklarativnímu použití šablon pomocí vestavěných direktiv, jako je `v-bind`, protože jsou efektivnější a šetrnější k vykreslování na serveru.
-:::
+Pokud je to však možné, je doporučeno dávat přednost deklarativnímu použití šablon pomocí vestavěných direktiv, jako je `v-bind`, protože jsou efektivnější a šetrnější k&nbsp;vykreslování na serveru.
 
 ## Lifecycle Hooks direktiv {#directive-hooks}
 
