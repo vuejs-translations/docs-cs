@@ -45,6 +45,7 @@ const nav: ThemeConfig['nav'] = [
         text: 'Zdroje',
         items: [
           { text: 'Partneři', link: '/partners/' },
+          { text: 'Vývojáři', link: '/developers/' },
           { text: 'Šablony', link: '/ecosystem/themes' },
           { text: 'UI komponenty', link: 'https://ui-libs.vercel.app/' },
           {
@@ -126,9 +127,13 @@ const nav: ThemeConfig['nav'] = [
     link: '/sponsor/'
   },
   {
-    text: 'Partneři',
-    link: '/partners/',
-    activeMatch: `^/partners/`
+    text: 'Odborníci',
+    badge: { text: 'Nově' },
+    activeMatch: `^/(partners|developers)/`,
+    items: [
+      { text: 'Partneři', link: '/partners/' },
+      { text: 'Vývojáři', link: '/developers/', badge: { text: 'Nově' } }
+    ]
   }
 ]
 
