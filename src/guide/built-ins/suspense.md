@@ -135,6 +135,8 @@ Vue Router má vestavěnou podporu pro [„lazy“ načítání komponent](https
 
 ## Vnořené Suspense {#nested-suspense}
 
+- Podporováno až od verze 3.3+
+
 Když máme více asynchronních komponent (což je běžné ve vnořených cestách (routes) nebo v cestách založených na layoutech) jako například tyto:
 
 ```vue-html
