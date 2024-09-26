@@ -231,7 +231,7 @@ declare module 'vue' {
 
 Viz také:
 
-- [Jednotkové TypeScript testy pro `component type extensions`](https://github.com/vuejs/core/blob/main/packages/dts-test/componentTypeExtensions.test-d.tsx)
+- [Jednotkové TypeScript testy pro `component type extensions`](https://github.com/vuejs/core/blob/main/packages-private/dts-test/componentTypeExtensions.test-d.tsx)
 
 ### Umístění obohacení typu {#type-augmentation-placement}
 
@@ -291,4 +291,4 @@ Umístění tohoto obohacení podléhá [stejným omezením](#type-augmentation-
 
 Viz také:
 
-- [Jednotkové TypeScript testy pro `component type extensions`](https://github.com/vuejs/core/blob/main/packages/dts-test/componentTypeExtensions.test-d.tsx)
+- [Jednotkové TypeScript testy pro `component type extensions`](https://github.com/vuejs/core/blob/main/packages-private/dts-test/componentTypeExtensions.test-d.tsx)
