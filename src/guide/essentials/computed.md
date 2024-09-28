@@ -259,6 +259,103 @@ Když teď zadáte `this.fullName = 'Jan Novák'`, zavolá se setter a `this.fir
 
 </div>
 
+## Získání předchozí hodnoty {#previous}
+
+- Podporováno až od verze 3.4+
+
+V případě, že to potřebujete, můžete získat předchozí hodnotu computed proměnné v&nbsp;podobě prvního parametru getter funkce:
+
+<div class="options-api">
+
+```js
+export default {
+  data() {
+    return {
+      count: 2
+    }
+  },
+  computed: {
+    // Tato computed proměnná vrátí hodnotu `count`, pokud je menší nebo rovno 3.
+    // Když je `count` >=4, bude vrácena poslední hodnota splňující podmínku.
+    alwaysSmall(previous) {
+      if (this.count <= 3) {
+        return this.count;
+      }
+      return previous;
+    }
+  }
+}
+```
+
+</div>
+<div class="composition-api">
+
+```vue
+<script setup>
+import { ref, computed } from 'vue'
+const count = ref(2)
+// Tato computed proměnná vrátí hodnotu `count`, pokud je menší nebo rovno 3.
+// Když je `count` >=4, bude vrácena poslední hodnota splňující podmínku.
+const alwaysSmall = computed((previous) => {
+  if (count.value <= 3) {
+    return count.value;
+  }
+  return previous;
+})
+</script>
+```
+</div>
+
+Pokud používáte zapisovatelnou computed proměnnou:
+
+<div class="options-api">
+
+```js
+export default {
+  data() {
+    return {
+      count: 2
+    }
+  },
+  computed: {
+    alwaysSmall: {
+      get(previous) {
+        if (this.count <= 3) {
+          return this.count;
+        }
+        return previous;
+      },
+      set(newValue) {
+        this.count = newValue * 2;
+      }
+    }
+  }
+}
+```
+
+</div>
+<div class="composition-api">
+
+```vue
+<script setup>
+import { ref, computed } from 'vue'
+const count = ref(2)
+const alwaysSmall = computed({
+  get(previous) {
+    if (count.value <= 3) {
+      return count.value;
+    }
+    return previous;
+  },
+  set(newValue) {
+    count.value = newValue * 2;
+  }
+})
+</script>
+```
+
+</div>
+
 ## Osvěčené postupy {#best-practices}
 
 ### Getter funkce by neměly mít vedlejší účinky {#getters-should-be-side-effect-free}
