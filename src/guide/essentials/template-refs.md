@@ -12,8 +12,7 @@ I když od vás deklarativní model vykreslování ve Vue většinu přímých o
 
 <div class="composition-api">
 
-Pro získání odkazu s Composition API můžeme využít pomocnou funkci [`useTemplateRef()`](/api/composition-api-helpers#usetemplateref) <sup class="vt-badge" data-text=
-"3.5+" />:
+Pro získání odkazu s Composition API můžeme využít pomocnou funkci [`useTemplateRef()`](/api/composition-api-helpers#usetemplateref) <sup class="vt-badge" data-text="3.5+" />:
 
 ```vue
 <script setup>
