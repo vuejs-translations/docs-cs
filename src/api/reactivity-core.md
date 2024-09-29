@@ -390,9 +390,7 @@ Sleduje jeden nebo více reaktivních datových zdrojů a vyvolá callback, kdy�
   type WatchSource<T> =
     | Ref<T> // ref
     | (() => T) // getter
-    | T extends object
-    ? T
-    : never // reaktivní objekt
+    | (T extends object ? T : never) // reaktivní objekt
 
   interface WatchOptions extends WatchEffectOptions {
     immediate?: boolean // výchozí: false
