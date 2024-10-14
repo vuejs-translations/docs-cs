@@ -286,7 +286,7 @@ Když nasloucháme událostem klávesnice, často potřebujeme zkontrolovat konk
 <input @keyup.enter="submit" />
 ```
 
-Jakékoli platné názvy kláves vystavené prostřednictvím [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) můžete přímo použít jako modifikátory převedením na kebab-case.
+Jakékoli platné názvy kláves vystavené prostřednictvím [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_key_values) můžete přímo použít jako modifikátory převedením na kebab-case.
 
 ```vue-html
 <input @keyup.page-down="onPageDown" />
