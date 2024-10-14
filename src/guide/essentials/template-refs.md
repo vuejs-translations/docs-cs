@@ -113,7 +113,7 @@ Viz také: [Typování Template Refs](/guide/typescript/composition-api#typing-t
 
 ## Refs uvnitř `v-for` {#refs-inside-v-for}
 
-> Vyžaduje Vue 3.2.25+
+> Podporováno až od verze 3.5+
 
 <div class="composition-api">
 
