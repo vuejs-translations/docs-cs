@@ -142,6 +142,8 @@ onMounted(() => console.log(itemRefs.value))
 <details>
 <summary>Použití před verzí 3.5</summary>
 
+Ve verzích před 3.5, kde `useTemplateRef()` ještě není dostupné, musíme deklarovat ref s&nbsp;názvem, který odpovídá hodnotě atributu `ref` v šabloně. Ref by měl obsahovat hodnotu typu pole:
+
 ```vue
 <script setup>
 import { ref, onMounted } from 'vue'
