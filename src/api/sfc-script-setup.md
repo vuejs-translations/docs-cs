@@ -481,6 +481,18 @@ Navíc platí, že výraz, na který se čeká, bude automaticky zkompilován ve
 `async setup()` musí být použit ve spojení se [`Suspense`](/guide/built-ins/suspense.html), což je v současné době stále ještě experimentální funkce. Plánujeme ji dokončit a zdokumentovat v budoucích verzích - ale pokud jste zvědaví už teď, můžete se podívat na její [testy](https://github.com/vuejs/core/blob/main/packages/runtime-core/__tests__/components/Suspense.spec.ts), abyste viděli, jak funguje.
 :::
 
+## Importy {#imports-statements}
+Importy ve Vue odpovídají [specifikaci ECMAScript modulů](https://nodejs.org/api/esm.html).
+Navíc můžete použít aliasy definované v nastavení vašeho build nástoje:
+```vue
+<script setup>
+import { ref } from 'vue'
+import { componentA } from './Components'
+import { componentB } from '@/Components'
+import { componentC } from '~/Components'
+</script>
+```
+
 ## Generika <sup class="vt-badge ts" /> {#generics}
 
 Generické typové parametry lze deklarovat pomocí atributu `generic` na značce `<script>`:
