@@ -28,7 +28,7 @@ onMounted(() => {
 </template>
 ```
 
-Při použití TypeScriptu podpora Vue v IDE a `vue-tsc` automaticky odvodí typ `inputRef.value` podle toho, na jaký element nebo komponentu je použit odpovídající `ref` atribut.
+Při použití TypeScriptu podpora Vue v IDE a `vue-tsc` automaticky odvodí typ `input.value` podle toho, na jaký element nebo komponentu je použit odpovídající `ref` atribut.
 
 <details>
 <summary>Použití před verzí 3.5</summary>
