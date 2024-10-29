@@ -216,7 +216,7 @@ Většinu CSS animací stačí deklarovat pod třídami `*-enter-active` a `*-le
 
 ### Vlastní třídy přechodu {#custom-transition-classes}
 
-Můžete specifikovat i své vlastní třídy přechodu pomocí předání následujících vlastností (props) do komponenty `<Transition>`:
+Předáním následujících vlastností (props) do komponenty `<Transition>` můžete specifikovat i své vlastní třídy přechodu:
 
 - `enter-from-class`
 - `enter-active-class`

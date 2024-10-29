@@ -80,6 +80,10 @@ Teď to vypadá mnohem lépe - dokonce se plynule animuje, když je celý seznam
 
 [Celý příklad](/examples/#list-transition)
 
+### Vlastní třídy přechodu {#custom-transition-classes}
+
+Předáním vlastnosti `moveClass` do `<TransitionGroup>` můžete definovat vlastní třídy přechodu (transition classes) pro přesun elementu, podobně jako u [komponenty `<Transition>`](/guide/built-ins/transition.html#custom-transition-classes).
+
 ## Posunuté přechody seznamu {#staggering-list-transitions}
 
 Komunikací s třídami přechodu pomocí datových atributů je také možné přechody v&nbsp;seznamu posunout (stagger). Nejprve vykreslíme index položky jako datový atribut DOM elementu:
