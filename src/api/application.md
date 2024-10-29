@@ -627,7 +627,7 @@ Objekt pro definici strategií pro slučování custom vlastností komponenty.
 
 ## app.config.idPrefix <sup class="vt-badge" data-text="3.5+" /> {#app-config-idprefix}
 
-Nastavení prefixu pro všechny ID generované přes [useId()](/api/general#useid) uvnitř aplikace.
+Nastavení prefixu pro všechny ID generované přes [useId()](/api/composition-api-helpers.html#useid) uvnitř aplikace.
 
 - **Typ:** `string`
 
