@@ -1,0 +1,25 @@
+name: ryu-cho-as
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  ryu-cho:
+    name: Ryu Cho
+    runs-on: ubuntu-latest
+    steps:
+      - uses: AloisSeckar/ryu-cho@v1.0.0
+        with:
+          # ↓ personal access token (classic) with `public_repo` scope
+          access-token: ${{ secrets.RYU_CHO_ACCESS_TOKEN }}
+          username: ${{ secrets.RYU_CHO_USER_NAME }}
+          email: ${{ secrets.RYU_CHO_USER_EMAIL }}
+          upstream-repo: https://github.com/vuejs-translations/docs-cs.git
+          upstream-repo-branch: main
+          head-repo: https://github.com/vuejs/docs
+          head-repo-branch: main
+          track-from: d3e6c66b208ce9c806caddc83df5758d4cf55e9a
+          workflow-name: ryu-cho-as
+          pull-requests: false
