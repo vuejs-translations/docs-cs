@@ -10,7 +10,7 @@ jobs:
     name: Ryu Cho
     runs-on: ubuntu-latest
     steps:
-      - uses: AloisSeckar/ryu-cho@v1.1.0
+      - uses: AloisSeckar/ryu-cho@v1.2.0
         with:
           # ↓ personal access token (classic) with `public_repo` scope
           access-token: ${{ secrets.RYU_CHO_ACCESS_TOKEN }}
@@ -22,4 +22,4 @@ jobs:
           head-repo-branch: main
           track-from: d3e6c66b208ce9c806caddc83df5758d4cf55e9a
           workflow-name: ryu-cho-as
-          pull-requests: false
+          pull-requests: no
