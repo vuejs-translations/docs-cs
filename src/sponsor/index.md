@@ -7,6 +7,9 @@ sponsors: false
 
 <script setup>
 import SponsorsGroup from '@theme/components/SponsorsGroup.vue'
+import { load, data } from '@theme/components/sponsors'
+import { onMounted } from 'vue'
+onMounted(load)
 </script>
 
 # Staňte se Vue.js sponzorem {#become-a-vue-js-sponsor}
@@ -18,11 +21,11 @@ Nesmírné množství úsilí potřebné k udržování tak velkého ekosystému
 
 Sponzoring je možný přes [GitHub Sponsors](https://github.com/sponsors/yyx990803) nebo [OpenCollective](https://opencollective.com/vuejs). Faktur mohou být získány přes platební systém GitHubu. Přijímáme jak pravidelné měsíční příspěvky, tak jednorázové dotace. Pravidelní sponzoři mají nárok na umístění loga podle pravidel pro jednotlivé [Stupně sponzoringu](#tier-benefits).
 
-Pokud máte ke dotazy ke stupňům, k logistice plateb nebo k otázkám osobních údajů, prosím napište na [sponsor@vuejs.org](mailto:sponsor@vuejs.org).
+Pokud máte ke dotazy ke stupňům, k logistice plateb nebo k otázkám osobních údajů, prosím napište na [sponsor@vuejs.org](mailto:sponsor@vuejs.org?subject=Vue.js%20sponsorship%20inquiry).
 
 ## Sponsoring Vue pro firmy {#sponsoring-vue-as-a-business}
 
-Sponzorování Vue vám dává možnost ukázat se více než  **1.7 milionu** Vue vývojářů z&nbsp;celého světa skrz naši webovou stránku a README soubory GitHub projektů. Navíc příspěvky na open-source software zlepšují reputaci vaší značky, což je důležité aktivum pro jakoukoli společnost, která interaguje s vývojáři.
+Sponzorování Vue vám dává možnost ukázat se více než  **2 milionům** Vue vývojářů z&nbsp;celého světa skrz naši webovou stránku a README soubory GitHub projektů. Nejen, že vám to přímo generuje potenciální zákazníky, ale také se zlepšuje reputace vaší značky jakožto firmy, která se stará o Open Source. To je sice nehmotné, ale nesmírně důležité aktivum pro společnosti tvořící produkty pro vývojáře, protože zlepšuje váš konverzní poměr.
 
 Pokud používáte Vue pro vývoj ziskových produktů, dává sponzoring vývoje Vue smysl i&nbsp;obchodně: **zajišťuje, že platforma, na kterou váš produkt spoléhá, zůstane zdravá a&nbsp;aktivně udržovaná**. Expozice a pozitivní image značky v komunitě Vue také usnadňuje přilákání a nábor Vue vývojářů.
 
@@ -36,9 +39,10 @@ Můžete se také zkusit přesvědčit svého zaměstnavatele, aby sponzoroval V
 
 ## Stupně sponzoringu a jejich benefity {#tier-benefits}
 
-- **Global Special**:
-  - Pouze jeden celosvětový sponzor (aktuálně obsazeno).
-  - Exkluzivní umístění loga na úvodní stránce [vuejs.org](/).
+- **Global Special Sponsor**:
+  - Pouze **jeden** celosvětový sponzor<span v-if="!data?.special">. Aktuálně volné. [Spojte se s námi!](mailto:sponsor@vuejs.org?subject=Vue.js%20special%20sponsor%20inquiry)</span><span v-else> (aktuálně obsazeno).</span>
+  - (Exkluzivně) **"Above the fold"** umístění loga na úvodní stránce [vuejs.org](/).
+  - (Exkluzivně) Mimořádný příspěvek a pravidelná sdílení informací o&nbsp;nově vydaných produktech přes [officiální Vue's účet na síti X](https://twitter.com/vuejs) (320 tisíc sledujících).
   - Nejvýraznější umístění loga ze všech ostatních sponzorů.
 - **Platinum (USD $2,000/mo)**:
   - Prominentní umístění loga na úvodní stránce [vuejs.org](/).

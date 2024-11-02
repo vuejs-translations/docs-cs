@@ -74,6 +74,13 @@ onMounted(load)
       <span>{{ description }}</span>
     </template>
   </section>
+  <section v-else id="special-sponsor">
+    <span>
+      <a href="/sponsor/#tier-benefits">
+        Pozice speciálního sponzora je nyní volná - požádejte o ni
+      </a>
+    </span>
+  </section>
 
   <section id="highlights" class="vt-box-container">
     <div class="vt-box">
