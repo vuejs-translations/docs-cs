@@ -10,7 +10,7 @@ jobs:
     name: Ryu Cho
     runs-on: ubuntu-latest
     steps:
-      - uses: AloisSeckar/ryu-cho@v1.2.0
+      - uses: AloisSeckar/ryu-cho@v1
         with:
           # ↓ personal access token (classic) with `public_repo` scope
           access-token: ${{ secrets.RYU_CHO_ACCESS_TOKEN }}
