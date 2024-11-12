@@ -25,12 +25,21 @@ const partnerConfig = {
 
   // Hero Section
   pageHeroBanner: {
-    title: 'Vue Developers',
+    /// title: 'Vue Developers',
     description: 'Vývojáři Vue jsou certifikovaní freelanceři. Platby, dodržování předpisů a\xa0prověřování spravuje náš partner Proxify. Máte zájem být zařazeni mezi ně?',
     applyButton: {
       url: applyUrl,
       label: 'Přihlaste se zde'
-    }
+    },
+
+    title: 'Najděte nejlepší Vue.js vývojáře pro svůj tým',
+    description1: 'Získejte přístup k certifikovaným Vue.js vývojářům dostupným pro váš příští projekt.',
+    description2: 'Proxify zajišťuje proces prověřování, aby byla zajištěna jejich špičková kvalita a spolehlivost.',
+    hireButton: {
+      url: hireUrl,
+      label: 'Najít Vue.js odborníky'
+    },
+    footer: "Nechte se spojit s elitním Vue.js vývojářem za méně než 48 hodin",
   },
 
   // Hero Section
