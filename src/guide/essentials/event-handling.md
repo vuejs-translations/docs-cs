@@ -357,3 +357,5 @@ Modifikátor `.exact` umožňuje ovládat přesnou kombinaci systémových modif
 - `.middle`
 
 Tyto modifikátory omezují vyvolání event handlerů spouštěných určitým tlačítkem myši.
+
+Pozor však, že ačkoliv jsou názvy modifikátorů `.left`, `.right` a `.middle` odvozeny od typického rozložení myši pro praváky, ve skutečnosti reprezentují triggery událostí `main`, `secondary` a `auxiliary` a nikoliv samotná tlačítka. Proto pro levorukou myš sice může být hlavní tlačítko fyzicky napravo, ale stále bude vyvolávat modifikátor `.left`. Trackpad může spustit `.left` poklepáním jednoho, `.right` dvou a `.middle` tří prstů. Stejně tak jiná zařízení a zdroje událostí, které generují události myši, mohou mít režimy spouštění, které se pojmů _„left“_ a _„right“_ vůbec netýkají.
