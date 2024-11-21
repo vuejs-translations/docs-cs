@@ -1,2 +1,2 @@
-Tento příklad načítá pomocí GitHub API poslední změny Vue.js a zobrazuje je v seznamu.
-Můžete přepínat mezi dvěma větvemi.
+Tento příklad načítá pomocí GitHub API poslední změny Vue Core a zobrazuje je v seznamu.
+Můžete přepínat mezi dvěma hlavními větvemi.
