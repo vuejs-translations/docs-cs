@@ -30,7 +30,7 @@ Vue je bezplatný open source projekt vydaný pod [MIT licencí](https://opensou
 
 ## Které prohlížeče Vue podporuje? {#what-browsers-does-vue-support}
 
-Nejnovější verze Vue (3.x) podporuje pouze [prohlížeče s nativní podporou ES2015](https://caniuse.com/es6). To&nbsp;vylučuje IE11. Vue 3.x používá ES2015 funkce, které nelze ve starších prohlížečích nahradit pomocí polyfill technologií. Pokud starší prohlížeče podporovat potřebujete, budete muset použít Vue 2.x.
+Nejnovější verze Vue (3.x) podporuje pouze [prohlížeče s nativní podporou ES2016](https://caniuse.com/es2016). To&nbsp;vylučuje IE11. Vue 3.x používá ES2016 funkce, které nelze ve starších prohlížečích nahradit pomocí polyfill technologií. Pokud starší prohlížeče podporovat potřebujete, budete muset použít Vue 2.x.
 
 ## Je Vue spolehlivé? {#is-vue-reliable}
 
