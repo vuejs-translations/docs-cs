@@ -25,7 +25,7 @@ Kromě výchozí sady vestavěných direktiv (jako je `v-model` nebo `v-show`) u
 
 Ve Vue jsme zavedli dvě formy znovupoužitelného kódu: [komponenty](/guide/essentials/component-basics) a [composables](./composables). Komponenty jsou hlavními stavebními bloky, zatímco composables se zaměřují na znovupoužití stavové logiky. Vlastní direktivy jsou naproti tomu určeny hlavně ke znovupoužití logiky, která se týká low-level přístupu k DOM na prostých elementech.
 
-Vlastní direktiva je definována jako objekt obsahující lifecycle hooks podobné těm, které má komponenta. Hook obdrží element, na který je direktiva navázána. Zde je příklad direktivy, která provede focus na input, když je element vložen do DOM pomocí Vue:
+Vlastní direktiva je definována jako objekt obsahující lifecycle hooks podobné těm, které má komponenta. Hook obdrží element, na který je direktiva navázána. Zde je příklad direktivy, která elementu přidá třídu, když je vložen do DOM pomocí Vue:
 
 <div class="composition-api">
 
