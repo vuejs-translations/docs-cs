@@ -1,15 +1,16 @@
 // api.data.ts
-// a file ending with data.(j|t)s will be evaluated in Node.js
 import fs from 'fs'
 import path from 'path'
 import type { MultiSidebarConfig } from '@vue/theme/src/vitepress/config.ts'
 import { sidebar } from '../../.vitepress/config'
 
+// Interface, který definuje strukturu jednoho API nadpisu
 interface APIHeader {
   anchor: string
   text: string
 }
 
+// Interface, kter definuje strukturu API skupiny s textem, odkazem a polem objektů
 export interface APIGroup {
   text: string
   anchor: string
@@ -20,25 +21,85 @@ export interface APIGroup {
   }[]
 }
 
-// declare resolved data type
+// Deklarace typu pro vyhodnocené API skupiny
 export declare const data: APIGroup[]
 
-export default {
-  // declare files that should trigger HMR
-  watch: './*.md',
-  // read from fs and generate the data
-  load(): APIGroup[] {
-    return (sidebar as MultiSidebarConfig)['/api/'].map((group) => ({
-      text: group.text,
-      anchor: slugify(group.text),
-      items: group.items.map((item) => ({
-        ...item,
-        headers: parsePageHeaders(item.link)
-      }))
-    }))
-  }
+// Utility funkce pro vygenerování "slug" odkazu z řetězce (používaná pro odkazy (#anchors) na stránce)
+function slugify(text: string): string {
+  return (
+    text
+      // nahradit speciální znaky a mezery pomlčkami
+      .replace(/[\s~`!@#$%^&*()\-_+=[\]{}|\\;:"'<>,.?/]+/g, '-')
+      // odstranit vícenásobné pomlčky
+      .replace(/-{2,}/g, '-')
+      // odstranit pomlčky na začátku a na konci
+      .replace(/^-+|-+$/g, '')
+      // ujistit se, že hodnota nezačíná číslem (např. #121)
+      .replace(/^(\d)/, '_$1')
+      // převést na lowercase
+      .toLowerCase()
+  )
 }
 
+// Utility funkce na načtení nadpisů z markdown souboru na předaném odkazu
+function parsePageHeaders(link: string): APIHeader[] {
+  const fullPath = path.join(__dirname, '../', link) + '.md' // vyhodnotit úplnou cestu k souboru
+  const timestamp = fs.statSync(fullPath).mtimeMs // získat čas poslední modifikace souboru
+
+  // kontrola, jestli je soubor uložen v cache a jestli čas poslední modifikace odpovídá
+  const cached = headersCache.get(fullPath)
+  if (cached && timestamp === cached.timestamp) {
+    return cached.headers // vrátit uložené nadpisy, když jsou akutální
+  }
+
+  const src = fs.readFileSync(fullPath, 'utf-8') // číst markdown soubor
+  const headers = extractHeadersFromMarkdown(src) // získat nadpisy z obsahu 
+
+  // uložit získané nadpisy spolu s datem poslední modifikace do cache
+  headersCache.set(fullPath, {
+    timestamp,
+    headers
+  })
+
+  return headers
+}
+
+// Pomocná funkce na získání všech nadpisů (h2) z markdown obsahu
+function extractHeadersFromMarkdown(src: string): APIHeader[] {
+  const h2s = src.match(/^## [^\n]+/gm) // získat všechny h2 nadpisy (## nadpis)
+  const anchorRE = /\{#([^}]+)\}/ // regulární výraz pro načtení odkazu (např.: {#some-anchor})
+  let headers: APIHeader[] = []
+
+  if (h2s) {
+    // zpracovat každý h2 nadpis a získat text + odkaz
+    headers = h2s.map((h) => {
+      const text = cleanHeaderText(h, anchorRE) // vyčistit text nadpsisu
+      const anchor = extractAnchor(h, anchorRE, text) // extrahovat nebo vygenerovat odkaz
+      return { text, anchor }
+    })
+  }
+
+  return headers
+}
+
+// Pomocná funkce pro vyčištění texu nadpisu (např. odstranit superscript či formátování kódu)
+function cleanHeaderText(h: string, anchorRE: RegExp): string {
+  return h
+    .slice(2) // odstranit "##" část
+    .replace(/<sup class=.*/, '') // odstranit superscript (např. tagy <sup>)
+    .replace(/\\</g, '<') // dekódovat escape znaky jako \<
+    .replace(/`([^`]+)`/g, '$1') // odstranit inline formátování (např. `code`)
+    .replace(anchorRE, '') // odstranit tagy odkazů (např. {#anchor})
+    .trim() // oříznout prázdné  znaky na začátku a na konci
+}
+
+// Pomocná funkce pro extrahování odkazu z nadpisu (nebo generování nového, pokud neexistuje)
+function extractAnchor(h: string, anchorRE: RegExp, text: string): string {
+  const anchorMatch = h.match(anchorRE) // načíst odkaz, pokud existuje
+  return anchorMatch?.[1] ?? slugify(text) // pokud odkaz neexistuje, vygenerovat nový přes `slugify`
+}
+
+// Cache pro ukládání nadpisů a jim odpovídajících časů poslední modifikace pro omezení znovu načítání souborů
 const headersCache = new Map<
   string,
   {
@@ -47,52 +108,21 @@ const headersCache = new Map<
   }
 >()
 
-function parsePageHeaders(link: string) {
-  const fullPath = path.join(__dirname, '../', link) + '.md'
-  const timestamp = fs.statSync(fullPath).mtimeMs
-
-  const cached = headersCache.get(fullPath)
-  if (cached && timestamp === cached.timestamp) {
-    return cached.headers
+// Hlavní funkce pro načítání API dat
+export default {
+  // deklarace souborů, které mají vyvolat HMR
+  watch: './*.md',
+  
+  // načíst API data a zpracovat objekty na postranní liště
+  load(): APIGroup[] {
+    // generovat data API skupiny zpracováním konfigurace lišty
+    return (sidebar as MultiSidebarConfig)['/api/'].map((group) => ({
+      text: group.text, // text pro skupinu (např. 'API')
+      anchor: slugify(group.text), // generovat odkaz pro název skupiny
+      items: group.items.map((item) => ({
+        ...item, // původní vlastnosti objektu
+        headers: parsePageHeaders(item.link), // zpracovat nadpisy z markdown odkazu
+      }))
+    }))
   }
-
-  const src = fs.readFileSync(fullPath, 'utf-8')
-  const h2s = src.match(/^## [^\n]+/gm)
-  let headers: APIHeader[] = []
-  if (h2s) {
-    const anchorRE = /\{#([^}]+)\}/
-    headers = h2s.map((h) => {
-      const text = h
-        .slice(2)
-        .replace(/<sup class=.*/, '')
-        .replace(/\\</g, '<')
-        .replace(/`([^`]+)`/g, '$1')
-        .replace(anchorRE, '') // hidden anchor tag
-        .trim()
-      const anchor = h.match(anchorRE)?.[1] ?? slugify(text)
-      return { text, anchor }
-    })
-  }
-  headersCache.set(fullPath, {
-    timestamp,
-    headers
-  })
-  return headers
-}
-
-// same as vitepress' slugify logic
-function slugify(text: string): string {
-  return (
-    text
-      // Replace special characters
-      .replace(/[\s~`!@#$%^&*()\-_+=[\]{}|\\;:"'<>,.?/]+/g, '-')
-      // Remove continuous separators
-      .replace(/-{2,}/g, '-')
-      // Remove prefixing and trailing separators
-      .replace(/^-+|-+$/g, '')
-      // ensure it doesn't start with a number (#121)
-      .replace(/^(\d)/, '_$1')
-      // lowercase
-      .toLowerCase()
-  )
 }
