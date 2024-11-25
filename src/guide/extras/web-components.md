@@ -242,7 +242,7 @@ Pokud máte mnoho komponent, můžete také využít funkce build nástroje, jak
 
 Pokud vyvíjíte aplikaci nebo knihovnu, můžete chtít [ověřovat typy](/guide/scaling-up/tooling.html#typescript) vašich Vue komponent, včetně těch, které jsou definovány jako custom elementy.
 
-Custom elementy jsou registrovány globálně pomocí nativních API, takže ve výchozím nastavení nemají při použití ve Vue šablonách odvozování typů. Abyste poskytli podporu typů pro Vue komponenty registrované jako custom elementy, můžeme zaregistrovat globální typy komponent pomocí rozhraní [`GlobalComponents`](https://github.com/vuejs/language-tools/blob/master/packages/vscode-vue/README.md#usage) ve Vue šablonách a/nebo v&nbsp;[JSX](https://www.typescriptlang.org/docs/handbook/jsx.html#intrinsic-elements):
+Custom elementy jsou registrovány globálně pomocí nativních API, takže ve výchozím nastavení nemají při použití ve Vue šablonách odvozování typů. Abyste poskytli podporu typů pro Vue komponenty registrované jako custom elementy, můžeme zaregistrovat globální typy komponent pomocí rozhraní [`GlobalComponents`](https://github.com/vuejs/language-tools/wiki/Global-Component-Types) ve Vue šablonách a/nebo v&nbsp;[JSX](https://www.typescriptlang.org/docs/handbook/jsx.html#intrinsic-elements):
 
 ```typescript
 import { defineCustomElement } from 'vue'
