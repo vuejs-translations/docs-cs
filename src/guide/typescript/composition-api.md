@@ -376,7 +376,7 @@ S Vue 3.5 a `@vue/language-tools` 2.1 (které obohacují jak jazykové služby v
 V případech, kdy automatické odvození není možné, můžete na template ref použít explicitní přetypování přes generický parametr:
 
 ```ts
-const el = useTemplateRef<HTMLInputElement>(null)
+const el = useTemplateRef<HTMLInputElement>('el')
 ```
 
 <details>
@@ -438,7 +438,7 @@ V případech, kdy přesný typ komponenty není dostupný nebo není důležit�
 import { useTemplateRef } from 'vue'
 import type { ComponentPublicInstance } from 'vue'
 
-const child = useTemplateRef<ComponentPublicInstance | null>(null)
+const child = useTemplateRef<ComponentPublicInstance>('child')
 ```
 
 V případech, kdy je odkazována [generická komponenta](/guide/typescript/overview.html#generic-components), napřklad tato `MyGenericModal`:
@@ -467,7 +467,7 @@ import { useTemplateRef } from 'vue'
 import MyGenericModal from './MyGenericModal.vue'
 import type { ComponentExposed } from 'vue-component-type-helpers'
 
-const modal = useTemplateRef<ComponentExposed<typeof MyGenericModal>>(null)
+const modal = useTemplateRef<ComponentExposed<typeof MyGenericModal>>('modal')
 
 const openModal = () => {
   modal.value?.open('nova-hodnota')
