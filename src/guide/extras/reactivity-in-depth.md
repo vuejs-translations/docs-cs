@@ -403,7 +403,7 @@ export function useMachine(options) {
 Celá řada dalších frameworků zavedla reaktivní prvky podobné refs z Composition API Vue pod termínem „signály“:
 
 - [Solid Signals](https://www.solidjs.com/docs/latest/api#createsignal)
-- [Angular Signals](https://angular.io/guide/signals)
+- [Angular Signals](https://angular.dev/guide/signals)
 - [Preact Signals](https://preactjs.com/guide/v10/signals/)
 - [Qwik Signals](https://qwik.builder.io/docs/components/state/#usesignal)
 
