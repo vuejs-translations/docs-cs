@@ -2,6 +2,30 @@
 import { VTCodeGroup, VTCodeGroupTab } from '@vue/theme'
 </script>
 
+<style>
+.lambdatest {
+  background-color: var(--vt-c-bg-soft);
+  border-radius: 8px;
+  padding: 12px 16px 12px 12px;
+  font-size: 13px;
+  a {
+    display: flex;
+    color: var(--vt-c-text-2);
+  }
+  img {
+    background-color: #fff;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-right: 24px;
+  }
+  .testing-partner {
+    color: var(--vt-c-text-1);
+    font-size: 15px;
+    font-weight: 600;
+  }
+}
+</style>
+
 # Testování {#testing}
 
 ## Proč testovat? {#why-test}
@@ -40,7 +64,7 @@ Vezměme si například tuto funkci `increment`:
 
 ```js
 // helpers.js
-export function increment (current, max = 10) {
+export function increment(current, max = 10) {
   if (current < max) {
     return current + 1
   }
@@ -129,63 +153,66 @@ Nevíme nic o implementaci komponenty Stepper, pouze že „vstup“ je vlastnos
 <VTCodeGroup>
   <VTCodeGroupTab label="Vue Test Utils">
 
-  ```js
-  const valueSelector = '[data-testid=stepper-value]'
-  const buttonSelector = '[data-testid=increment]'
+```js
+const valueSelector = '[data-testid=stepper-value]'
+const buttonSelector = '[data-testid=increment]'
 
-  const wrapper = mount(Stepper, {
-    props: {
-      max: 1
-    }
-  })
+const wrapper = mount(Stepper, {
+  props: {
+    max: 1
+  }
+})
 
-  expect(wrapper.find(valueSelector).text()).toContain('0')
+expect(wrapper.find(valueSelector).text()).toContain('0')
 
-  await wrapper.find(buttonSelector).trigger('click')
+await wrapper.find(buttonSelector).trigger('click')
 
-  expect(wrapper.find(valueSelector).text()).toContain('1')
-  ```
+expect(wrapper.find(valueSelector).text()).toContain('1')
+```
 
   </VTCodeGroupTab>
   <VTCodeGroupTab label="Cypress">
 
-  ```js
-  const valueSelector = '[data-testid=stepper-value]'
-  const buttonSelector = '[data-testid=increment]'
+```js
+const valueSelector = '[data-testid=stepper-value]'
+const buttonSelector = '[data-testid=increment]'
 
-  mount(Stepper, {
-    props: {
-      max: 1
-    }
-  })
+mount(Stepper, {
+  props: {
+    max: 1
+  }
+})
 
-```cs
-  cy.get(valueSelector).should('be.visible').and('contain.text', '0')
-    .get(buttonSelector).click()
-    .get(valueSelector).should('contain.text', '1')
-  ```
+cy.get(valueSelector)
+  .should('be.visible')
+  .and('contain.text', '0')
+  .get(buttonSelector)
+  .click()
+  .get(valueSelector)
+  .should('contain.text', '1')
+```
 
   </VTCodeGroupTab>
   <VTCodeGroupTab label="Testing Library">
 
-  ```js
-  const { getByText } = render(Stepper, {
-    props: {
-      max: 1
-    }
-  })
+```js
+const { getByText } = render(Stepper, {
+  props: {
+    max: 1
+  }
+})
 
-  getByText('0') // implicitní předpoklad, že uvnitř komponenty je "0"
+getByText('0') // implicitní předpoklad, že uvnitř komponenty je "0"
 
-  const button = getByRole('button', { name: /increment/i })
+const button = getByRole('button', { name: /increment/i })
 
-  // provést 'click' event na tlačítko
-  await fireEvent.click(button)
+// provést 'click' event na tlačítko
+await fireEvent.click(button)
 
-  getByText('1')
+getByText('1')
 
-  await fireEvent.click(button)
-  ```
+await fireEvent.click(button)
+```
 
   </VTCodeGroupTab>
 </VTCodeGroup>
@@ -265,6 +292,16 @@ Když jsou E2E testy spouštěny v rámci CI/CD pipeline, často se spouštějí
 - [Playwright](https://playwright.dev/) pro skvělé řešení pro end-to-end testování které podporuje Chromium, WebKit a Firefox. Testujte na Windows, Linuxu a macOS, lokálně nebo v CI, v plném či&nbsp;headless módu a s nativním mobilním emulátorem Google Chrome pro Android a&nbsp;Mobile Safari. Má informativní UI, vynikající možnosti ladění, vestavěné assertions, paralelizaci, sledování (traces) a je navržen pro eliminaci flaky testů. Je dostupná podpora pro [testování komponent](https://playwright.dev/docs/test-components), ale označená jako experimentální. Playwright je opensource spravovaný společností Microsoft. 
 
 - [Cypress](https://www.cypress.io/) má informativní grafické rozhraní, vynikající možnosti ladění, vestavěné assertions a stubs, odolnost proti flaky testům, paralelizace a snímky obrazovky. Jak&nbsp;bylo zmíněno výše, podporuje také již stabilní [testování komponent](https://docs.cypress.io/guides/component-testing/introduction). Cypress podporuje prohlížeče založené na Chromium enginu, Firefox a Electron. Podpora pro WebKit je dostupná, ale označená jako experimentální. Cypress má MIT licenci, ale některé možnosti jako paralelizace vyžadují registraci do Cypress Cloud.
+
+<div class="lambdatest">
+  <a href="https://lambdatest.com" target="_blank">
+    <img src="/images/lambdatest.svg">
+    <div>
+      <div class="testing-partner">Sponzor testování</div>
+      <div>Lambdatest je cloudová platforma pro běh E2E testů, testů přístupnosti (a11y) a vizuálních regresních testů pro všechny hlavní prohlížeče a&nbsp;zařízení s AI podporou pro generování testů!</div>
+    </div>
+  </a>
+</div>
 
 ### Další možnosti {#other-options-2}
 
