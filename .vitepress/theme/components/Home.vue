@@ -17,7 +17,7 @@ onMounted(load)
       <br />JavaScript Framework
     </h1>
     <p class="description">
-      Přístupný, výkoný a univerzální framework pro tvorbu webových UI.
+      Přístupný, výkonný a univerzální framework pro tvorbu webových UI.
     </p>
     <p class="actions">
       <VueMasteryModal />
