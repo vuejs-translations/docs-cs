@@ -305,6 +305,8 @@ defineExpose({
 
 Když rodič získá instanci této komponenty prostřednictvím template refs, získaná instance bude mít tvar `{ a: number, b: number}` (refs se automaticky rozbalí stejně jako u normálních instancí).
 
+Pamatujte, že `defineExpose` musí být voláno před jakoukoliv operací `await`. Jinak nebude možné na proměnné a funkce vystavené po prvním použití await přistupovat.
+
 Viz také: [Typování Template refs komponenty](/guide/typescript/composition-api#typing-component-template-refs) <sup class="vt-badge ts" />
 
 </div>
