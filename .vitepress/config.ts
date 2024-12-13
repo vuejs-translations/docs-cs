@@ -182,16 +182,16 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/guide/essentials/event-handling'
         },
         { text: 'Binding dat z formulářů', link: '/guide/essentials/forms' },
-        {
-          text: 'Lifecycle hooks',
-          link: '/guide/essentials/lifecycle'
-        },
         { text: 'Watchers', link: '/guide/essentials/watchers' },
         { text: 'Template refs', link: '/guide/essentials/template-refs' },
         {
           text: 'Základy komponent',
           link: '/guide/essentials/component-basics'
-        }
+        },
+        {
+          text: 'Lifecycle hooks',
+          link: '/guide/essentials/lifecycle'
+        },
       ]
     },
     {
