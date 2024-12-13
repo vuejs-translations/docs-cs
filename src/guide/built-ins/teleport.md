@@ -6,9 +6,9 @@
 
 ## Základní použití {#basic-usage}
 
-Někdy se můžeme setkat s tímto scénářem: část šablony komponenty k ní logicky patří, ale z vizuálního hlediska by měla být zobrazena jinde v DOM, mimo Vue aplikaci.
+Někdy část šablony logicky patří ke komponentě, ale z vizuálního hlediska by měla být zobrazena jinde v DOM, možná dokonce mimo celou Vue aplikaci.
 
-Nejběžnějším příkladem je vytváření modálního okna přes celou obrazovku. Ideálně bychom chtěli, aby tlačítko modálního okna a samotné modální okno existovaly uvnitř stejné komponenty, protože obě souvisí se stavem otevření/zavření modálního okna. Ale&nbsp;to znamená, že modální okno bude vykresleno spolu s tlačítkem, hluboce vnořeno v&nbsp;DOM hierarchii aplikace. To může přinést různé záludné problémy při pozicování modálního okna pomocí CSS.
+Nejběžnějším příkladem je vytváření modálního okna přes celou obrazovku. Ideálně bychom chtěli, aby byl kód pro tlačítko zobrazení okna a pro modální okno samotné napsán uvnitř stejné SFC komponenty, protože obě části souvisí se stavem otevření / zavření modálního okna. Ale to znamená, že modální okno bude vykresleno spolu s&nbsp;tlačítkem, hluboce vnořeno v DOM hierarchii aplikace. To může přinést různé záludné problémy při pozicování modálního okna pomocí CSS.
 
 Představte si následující HTML strukturu:
 
@@ -169,11 +169,11 @@ V některých případech můžeme chtít `<Teleport>` podmíněně zakázat. Na
 </Teleport>
 ```
 
-Stav `isMobile` může být dynamicky aktualizován pomocí detekce změn v media query.
+Poté můžeme hodnotu `isMobile` dynamicky aktualizovat.
 
 ## Více teleportací na stejný cíl {#multiple-teleports-on-the-same-target}
 
-Běžným použitím by byla znovupoužitelná komponenta `<Modal>`, která může mít současně více aktivních  instancí. Pro tento případ může více komponent `<Teleport>` připojit svůj obsah ke stejnému cílovému elementu. Pořadí bude jednoduché připojení na konec (append) - později připojené fragmenty šablony budou uvnitř cílového elementu umístěny za dřívějšími.
+Běžným použitím by byla znovupoužitelná komponenta `<Modal>`, která může mít současně více aktivních  instancí. Pro tento případ může více komponent `<Teleport>` připojit svůj obsah ke stejnému cílovému elementu. Pořadí bude jednoduché připojení na konec (append). Později připojené fragmenty šablony budou uvnitř téhož cílového elementu umístěny za dřívějšími.
 
 S následujícím použitím:
 
