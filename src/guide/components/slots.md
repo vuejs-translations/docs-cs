@@ -298,12 +298,12 @@ function BaseLayout(slots) {
 
 ## Podmíněné sloty {#conditional-slots}
 
-Někdy chcete část obsahu vykreslit v závislosti na tom, zda slot je nebo není předán.
+Někdy chcete část šablony vykreslit v závislosti na tom, zda byl nebo nebyl předán obsah do slotu.
 
 Abyste toho dosáhli, můžete použít vlastnost [$slots](/api/component-instance.html#slots) v kombinaci s [v-if](/guide/essentials/conditional.html#v-if).
 
 V příkladu níže definujeme komponentu `Card` s třemi podmíněnými sloty: `header`, `footer` a výchozím `default`.
-Pokud je header / footer / default slot předán (přítomen v&nbsp;objektu), chceme jej obalit dodatečným stylováním:
+Pokud je obsah pro header / footer / default slot v&nbsp;objektu přítomen, chceme jej obalit dodatečným stylováním:
 
 ```vue-html
 <template>
