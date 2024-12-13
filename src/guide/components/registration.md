@@ -138,4 +138,4 @@ V celém průvodci používáme při registraci komponent PascalCase názvy. Je 
 
 Toto je doporučený způsob, když pracujete s SFC nebo string šablonami. Nicméně jak rozebíráme v části [Omezení při parsování in-DOM šablon](/guide/essentials/component-basics#in-dom-template-parsing-caveats), PascalCase tagy nelze použít v&nbsp;in-DOM šablonách.
 
-Vue naštěstí podporuje překlad kebab-case tagů na komponenty registrované pomocí PascalCase. To znamená, že na komponentu registrovanou jako `MyComponent` lze v&nbsp;šabloně odkazovat jak prostřednictvím `<MyComponent>`, tak i `<my-component>`. To nám umožňuje používat stejný JavaScript kód registrace komponent bez ohledu na zdroj šablony.
+Vue naštěstí podporuje překlad kebab-case tagů na komponenty registrované pomocí PascalCase. To znamená, že na komponentu registrovanou jako `MyComponent` lze uvnitř Vue šablony (nebo uvnitř HTML elementu vykresleného pomocí Vue) odkazovat jak prostřednictvím `<MyComponent>`, tak i `<my-component>`. To nám umožňuje používat stejný JavaScript kód registrace komponent bez ohledu na zdroj šablony.
