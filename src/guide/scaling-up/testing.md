@@ -243,7 +243,7 @@ Testování komponent často zahrnuje připojení (mount) testované komponenty 
 
 - [`@testing-library/vue`](https://github.com/testing-library/vue-testing-library) je knihovna pro testování Vue zaměřená na testování komponent bez závislosti na implementačních detailech. Její hlavní filosofií je, že čím více se testy podobají skutečnému způsobu používání softwaru, tím více sebevědomí mohou poskytnout.
 
-Pro testování komponent v aplikacích oporučujeme používat `@vue/test-utils`, protože `@testing-library/vue` má problémy s testováním asynchronních komponent s použitím `<Suspense>` a měla by se používat opatrně.
+Pro testování komponent v aplikacích doporučujeme používat `@vue/test-utils`, protože `@testing-library/vue` má problémy s testováním asynchronních komponent s použitím `<Suspense>` a měla by se používat opatrně.
 
 ### Další možnosti {#other-options-1}
 

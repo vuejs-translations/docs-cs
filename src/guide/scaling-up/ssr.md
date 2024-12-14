@@ -8,7 +8,7 @@ outline: deep
 
 ### Co je SSR? {#what-is-ssr}
 
-Vue.js je framework pro tvorbu aplikací na straně klienta. Ve výchozím nastavení Vue komponenty jako svůj výstup produkují a manipulují DOM v prohlížeči. Je však také možné vykreslit tytéž komponenty do HTML řetězců už na serveru, poslat je do prohlížeče přímo a nakonec statický markup do plně interaktivní aplikace „hydratovat“ na&nbsp;straně klienta.
+Vue.js je framework pro tvorbu aplikací na straně klienta. Ve výchozím nastavení Vue komponenty jako svůj výstup produkují a manipulují DOM v prohlížeči. Je však také možné vykreslit tytéž komponenty do HTML řetězců už na serveru, poslat je do prohlížeče přímo, a nakonec statický markup do plně interaktivní aplikace „hydratovat“ na&nbsp;straně klienta.
 
 Aplikace Vue.js vykreslená na serveru se také může považovat za „izomorfní“ nebo „univerzální“, v tom smyslu, že většina kódu aplikace běží jak na serveru, **tak** na klientovi.
 
@@ -18,7 +18,7 @@ V porovnání s aplikací typu Single-Page Application (SPA) na straně klienta 
 
 - **Rychlejší načítání obsahu**: to je zvláště patrné s pomalým internetem nebo na pomalých zařízeních. Serverem vykreslený markup nemusí čekat, než je stažen a&nbsp;proveden všechen JavaScript, aby byl zobrazen, takže uživatel uvidí plně vykreslenou stránku dříve. Navíc se načítání dat provádí při první návštěvě na straně serveru, který má pravděpodobně rychlejší připojení k databázi než klient. To obecně vede k lepším metrikám [Core Web Vitals](https://web.dev/vitals/), lepšímu uživatelskému zážitku a může být klíčové pro aplikace, kde je rychlost načítání obsahu přímo spojena s konverzní mírou.
 
-- **Jednotný mentální model**: můžete použít stejný jazyk a stejný deklarativní, komponentně orientovaný mentální model pro vývoj celé aplikace, místo aby jste přeskakovali mezi backendovým templating systémem a frontendovým frameworkem.
+- **Jednotný mentální model**: můžete použít stejný jazyk a stejný deklarativní, komponentně orientovaný mentální model pro vývoj celé aplikace, místo abyste přeskakovali mezi backendovým templating systémem a frontendovým frameworkem.
 
 - **Lepší SEO**: roboty vyhledávačů rovnou uvidí plně vykreslenou stránku.
 
@@ -43,7 +43,7 @@ Před použitím SSR pro vaši aplikaci byste se měli zeptat, zda ji skutečně
 
 SSG zachovává stejné výkonnostní charakteristiky jako aplikace s vykreslováním na serveru: při načítání obsahu poskytuje skvělý výkon. Zároveň je levnější a snazší na nasazení než aplikace s vykreslováním na serveru, protože výstupem jsou statické HTML a assety. Klíčovým slovem zde je **statický**: SSG lze použít pouze na stránky, které poskytují statická data, tj. data, která jsou známa při sestavení a mezi dvěma requesty se nezmění. Při každé změně dat je potřeba nové nasazení.
 
-Pokud zkoumáte SSR pouze kvůli zlepšení SEO několika marketingových stránek (např. `/`, `/about`, `/contact`, atd.), pravděpodobně budete chtít použít SSG místo SSR. SSG je také skvělý pro webové stránky zaměřené na obsah, jako jsou stránky s dokumentací nebo blogy. Vlastně i tato webová stránka, kterou právě čtete, je staticky generována pomocí [VitePress](https://vitepress.dev/), statického generátoru stránek postaveného nad Vue.
+Pokud zkoumáte SSR pouze kvůli zlepšení SEO několika marketingových stránek (např. `/`, `/about`, `/contact` atd.), pravděpodobně budete chtít použít SSG místo SSR. SSG je také skvělý pro webové stránky zaměřené na obsah, jako jsou stránky s dokumentací nebo blogy. Vlastně i tato webová stránka, kterou právě čtete, je staticky generována pomocí [VitePress](https://vitepress.dev/), statického generátoru stránek postaveného nad Vue.
 
 ## Základní tutoriál {#basic-tutorial}
 
@@ -210,10 +210,10 @@ Přechod od příkladu k SSR aplikaci připravené pro produkci zahrnuje mnohem 
 - Podporovat Vue SFC a další požadavky na build. Ve skutečnosti budeme muset koordinovat dvě sestavení pro stejnou aplikaci: jedno pro klienta a jedno pro server.
 
   :::tip
-  Vue komponenty jsou při použití SSR kompilovány odlišně - šablony jsou pro lepší výkon kompilovány do souboru řetěžců místo funkcí pro vykreslování Virtual DOM.
+  Vue komponenty jsou při použití SSR kompilovány odlišně - šablony jsou pro lepší výkon kompilovány do souboru řetězců místo funkcí pro vykreslování Virtual DOM.
   :::
 
-- V obsluze požadavku na serveru vykreslit HTML s odpovídajícími odkazy na klientovské prostředky a optimálními nápovědami pro zdroje. Může být také nutné přepínat mezi režimem SSR a SSG nebo dokonce kombinovat oba v jedné aplikaci.
+- V obsluze požadavku na serveru vykreslit HTML s odpovídajícími odkazy na klientské prostředky a optimálními nápovědami pro zdroje. Může být také nutné přepínat mezi režimem SSR a SSG nebo dokonce kombinovat oba v jedné aplikaci.
 
 - Spravovat směrování, načítání dat a správu stavových úložišť univerzálním způsobem.
 
@@ -247,13 +247,13 @@ Protože nejsou žádné dynamické aktualizace, lifecycle hooks jako <span clas
 
 Měli byste se vyhnout kódu, který produkuje vedlejší efekty, které v <span class="options-api">`beforeCreate` a&nbsp;`created`</span><span class="composition-api">`setup()` nebo v&nbsp;root scope `<script setup>`</span> vyžadují úklid. Příkladem takových vedlejších efektů je nastavení časovačů pomocí `setInterval`. V klientském kódu můžeme nastavit časovač a&nbsp;poté ho zrušit v&nbsp;<span class="options-api">`beforeUnmount`</span><span class="composition-api">`onBeforeUnmount`</span> nebo <span class="options-api">`unmounted`</span><span class="composition-api">`onUnmounted`</span>. Nicméně, protože unmount hooks během SSR nikdy nebudou volány, časovače zůstanou navždy. Abyste tomu předešli, přesuňte váš kód s&nbsp;vedlejšími efekty do <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span>.
 
-### Přístup k platformně specifickým API {#access-to-platform-specific-apis}
+### Přístup k platformně-specifickým API {#access-to-platform-specific-apis}
 
-Univerzální kód nemůže předpokládat přístup k platformně specifickým API, takže pokud váš kód přímo používá globální proměnné jako `window` nebo `document` dostupné pouze v prohlížeči, při jejich vykonávání v Node.js dojde k chybám a naopak.
+Univerzální kód nemůže předpokládat přístup k platformně-specifickým API, takže pokud váš kód přímo používá globální proměnné jako `window` nebo `document` dostupné pouze v prohlížeči, při jejich vykonávání v Node.js dojde k chybám a naopak.
 
-Pro úkoly, které jsou sdílené mezi serverem a klientem, ale s API různých platforem, se doporučuje obalit platformně specifické implementace do univerzálního API nebo použít knihovny, které to za vás udělají. Například můžete použít [`node-fetch`](https://github.com/node-fetch/node-fetch) pro použití stejného fetch API jak na serveru, tak na klientovi.
+Pro úkoly, které jsou sdílené mezi serverem a klientem, ale s API různých platforem, se doporučuje obalit platformně-specifické implementace do univerzálního API nebo použít knihovny, které to za vás udělají. Například můžete použít [`node-fetch`](https://github.com/node-fetch/node-fetch) pro použití stejného fetch API jak na serveru, tak na klientovi.
 
-Pro API pouze pro prohlížeč je běžným přístupem „lazy“ přístupování k nim uvnitř lifecycle hooks pouze na klientovi, jako je <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span>.
+Pro API pouze pro prohlížeč je běžným přístupem „lazy“ přistupování k nim uvnitř lifecycle hooks pouze na klientovi, jako je <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span>.
 
 Vezměte na vědomí, že pokud knihovna třetí strany není pro univerzální použití zamýšlena, může být obtížné ji do aplikace s vykreslováním na serveru integrovat. Možná se vám podaří ji rozchodit pomocí mockování některých globálních proměnných, ale bude to „hack“ a můžete narušit kód pro detekci prostředí jiných knihoven.
 
@@ -261,7 +261,7 @@ Vezměte na vědomí, že pokud knihovna třetí strany není pro univerzální 
 
 V kapitole o správě stavu jsme představili [jednoduchý vzor správy stavu pomocí Reactivity API](state-management#simple-state-management-with-reactivity-api). V kontextu SSR vyžaduje tento vzor některé dodatečné úpravy.
 
-Vzor deklaruje sdílený stav ve hlavním scope JavaScriptového modulu. To z nich dělá **singletony** - tj. existuje pouze jedna instance reaktivního objektu po celou dobu životnosti naší aplikace. V čistě klientovské aplikaci Vue to funguje správně, protože moduly v naší aplikaci jsou pro každou návštěvu stránky v prohlížeči znovu inicializovány.
+Vzor deklaruje sdílený stav ve hlavním scope JavaScriptového modulu. To z nich dělá **singletony** - tj. existuje pouze jedna instance reaktivního objektu po celou dobu životnosti naší aplikace. V čistě klientské aplikaci Vue to funguje správně, protože moduly v naší aplikaci jsou pro každou návštěvu stránky v prohlížeči znovu inicializovány.
 
 Ovšem v kontextu SSR jsou moduly aplikace na serveru obvykle inicializovány pouze jednou při spuštění serveru. Stejné instance modulů budou při více požadavcích na server použity znovu, stejně jako naše singleton stavové objekty. Pokud měníme sdílený singleton stav s daty specifickými pro jednoho uživatele, může se nechtěně prosadit do požadavku od jiného uživatele. Toto nazýváme **cross-request state pollution**.
 
@@ -360,5 +360,5 @@ Značky pro teleportaci musíte vložit na správné místo ve vašem finálním
 :::tip
 Při použití Teleportace a SSR se vyhněte cílení na `body` - obvykle bude `<body>` obsahovat jiný serverem vykreslený obsah, což znemožňuje Teleportům správně určit výchozí umístění pro hydrataci.
 
-Místo toho upřednostněnte samostatný kontejner, např. `<div id="teleported"></div>`, který obsahuje pouze teleportovaný obsah.
+Místo toho upřednostněte samostatný kontejner, např. `<div id="teleported"></div>`, který obsahuje pouze teleportovaný obsah.
 :::

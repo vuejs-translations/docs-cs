@@ -12,7 +12,7 @@ Pokud potřebujeme předat data z nadřazené komponenty podřazené komponentě
 
 Všimněte si, že ačkoli komponentu `<Footer>` tyto vlastnosti možná vůbec nezajímají, musí je deklarovat a předat dál, aby k nim komponenta `<DeepChild>` měla přístup. Pokud by existoval delší rodičovský řetězec, ovlivnilo by to po cestě ještě více komponent. Tomu se říká „props drilling“ a rozhodně není zábavné se s tím potýkat.
 
-Drilling vlastností můžeme řešit pomocí `provide` a `inject`. Komponenta rodiče může sloužit jako **poskytovatel závislostí (dependency provider)** pro všechny své potomky. Jakákoli komponenta ve stromu potomků, bezohledu na hloubku jejího zanoření, může **implementovat (inject)** závislosti poskytované komponentami v rodčovském řetězci.
+Drilling vlastností můžeme řešit pomocí `provide` a `inject`. Komponenta rodiče může sloužit jako **poskytovatel závislostí (dependency provider)** pro všechny své potomky. Jakákoli komponenta ve stromu potomků, bez ohledu na hloubku jejího zanoření, může **implementovat (inject)** závislosti poskytované komponentami v rodičovském řetězci.
 
 ![Provide/inject scheme](./images/provide-inject.png)
 
@@ -32,7 +32,7 @@ provide(/* klíč */ 'message', /* hodnota */ 'Ahoj!')
 </script>
 ```
 
-Pokud nepoužíváte `<script setup>`, ujistetě se, že je `provide()` voláno synchronně uvnitř `setup()` funkce:
+Pokud nepoužíváte `<script setup>`, ujistěte se, že je `provide()` voláno synchronně uvnitř `setup()` funkce:
 
 ```js
 import { provide } from 'vue'
@@ -200,7 +200,7 @@ Pokud chceme, aby implementovaná vlastnost fungovala s volitelnými poskytovate
 <div class="composition-api">
 
 ```js
-// pokud není poskytnuta žáná odpovídající "message"
+// pokud není poskytnuta žádná odpovídající "message"
 // `value` bude "default value"
 const value = inject('message', 'default value')
 ```
@@ -277,7 +277,7 @@ const { location, updateLocation } = inject('location')
 </template>
 ```
 
-Pokud se chcete ujistit, že data předaná skrz `provide` nemohou být změněna komponentou, která je implementuje, můžte poskytovanou hodnotu obalit pomocí [`readonly()`](/api/reactivity-core#readonly).
+Pokud se chcete ujistit, že data předaná skrz `provide` nemohou být změněna komponentou, která je implementuje, můžete poskytovanou hodnotu obalit pomocí [`readonly()`](/api/reactivity-core#readonly).
 
 ```vue
 <script setup>

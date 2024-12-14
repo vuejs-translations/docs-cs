@@ -138,4 +138,4 @@ Pozor na to, že pro importy pomocí `src` platí stejná pravidla pro zadáván
 
 ## Komentáře {#comments}
 
-V každém bloku byste měli používat syntaxi komentářů používanou v daném jazyce (HTML, CSS, JavaScript, Pug, atd.). Pro komentáře na nejvyšší úrovni použijte syntaxi HTML komentářů: `<!-- obsah komentáře -->`
+V každém bloku byste měli používat syntaxi komentářů používanou v daném jazyce (HTML, CSS, JavaScript, Pug atd.). Pro komentáře na nejvyšší úrovni použijte syntaxi HTML komentářů: `<!-- obsah komentáře -->`

@@ -207,7 +207,7 @@ Nebo [getter funkci](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 const { data, error } = useFetch(() => `/posts/${props.id}`)
 ```
 
-Můžeme refaktorovat naši existující implemntaci pomocí API funkcí [`watchEffect()`](/api/reactivity-core.html#watcheffect) a&nbsp;[`toValue()`](/api/reactivity-utilities.html#tovalue):
+Můžeme refaktorovat naši existující implementaci pomocí API funkcí [`watchEffect()`](/api/reactivity-core.html#watcheffect) a&nbsp;[`toValue()`](/api/reactivity-utilities.html#tovalue):
 
 ```js{8,13}
 // fetch.js
@@ -248,7 +248,7 @@ Zde je [aktualizovaná verze `useFetch()`](https://play.vuejs.org/#eNp9Vdtu20YQ/
 
 ### Naming {#naming}
 
-Composable funkce se podle koncence pojmenovávají camelCase jmény, která začínají na "use".
+Composable funkce se podle konvence pojmenovávají camelCase jmény, která začínají na "use".
 
 ### Vstupní parametry {#input-arguments}
 
@@ -302,7 +302,7 @@ Je v pořádku provádět vedlejší efekty uvnitř composables (např. přidáv
 
 ### Omezení použití {#usage-restrictions}
 
-Composables by měly být volány v rámci `<script setup>` nebo uvnitř `setup()`. V těchto kontextech by také měly být volány **synchrononně**. V některých případech je můžete volat také v lifecycle hooks jako je `onMounted()`.
+Composables by měly být volány v rámci `<script setup>` nebo uvnitř `setup()`. V těchto kontextech by také měly být volány **synchronně**. V některých případech je můžete volat také v lifecycle hooks jako je `onMounted()`.
 
 Tato omezení jsou důležitá, protože se jedná o kontexty, ve kterých je Vue schopno určit právě aktivní instanci komponenty. Přístup k aktivní instanci komponenty je nutný, aby do ní bylo možné:
 
@@ -367,7 +367,7 @@ Uživatelé, kteří přicházejí od Vue 2, možná znají [mixins](/api/option
 
 3. **Implicitní cross-mixin komunikace**: mixins, které spolu potřebují komunikovat, se musí spoléhat na sdílené klíče vlastností, čímž se stávají implicitně spřaženými (coupled). V případě composables lze hodnoty vrácené z jedné composable předat do jiné jako parametry, stejně jako u běžných funkcí.
 
-Z výše uvedených důvodů již ve Vue 3 nedoporučujeme mixins používat. Funkce je zachována pouze pro učely migrace a kvůli obecné znalosti.
+Z výše uvedených důvodů již ve Vue 3 nedoporučujeme mixins používat. Funkce je zachována pouze pro účely migrace a kvůli obecné znalosti.
 ### vs. renderless komponenty {#vs-renderless-components}
 
 V kapitole o slotech (slots) jsme se bavili o vzoru [komponent bez vykreslení](/guide/components/slots#renderless-components) založeném na scoped slotech. Dokonce jsme s použitím renderless komponenty implementovali stejný příklad sledování pohybu myši.

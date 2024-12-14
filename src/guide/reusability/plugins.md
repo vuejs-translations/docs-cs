@@ -28,11 +28,11 @@ Pro pluginy neexistuje žádný přesně definovaný rozsah, ale běžné scén�
 
 1. Registrace jedné nebo více globálních komponent nebo vlastních direktiv pomocí [`app.component()`](/api/application#app-component) a [`app.directive()`](/api/application#app-directive).
 
-2. Označení zdroje jako [injectable](/guide/components/provide-inject) napříč aplikací prostředinctvím volání [`app.provide()`](/api/application#app-provide).
+2. Označení zdroje jako [injectable](/guide/components/provide-inject) napříč aplikací prostřednictvím volání [`app.provide()`](/api/application#app-provide).
 
 3. Přidání globálních promměných instance či metod jejich připojením k&nbsp;[`app.config.globalProperties`](/api/application#app-config-globalproperties).
 
-4. Knihovna, která potřebuje provést kombinaci výše uvedného (např. [vue-router](https://github.com/vuejs/vue-router-next)).
+4. Knihovna, která potřebuje provést kombinaci výše uvedeného (např. [vue-router](https://github.com/vuejs/vue-router-next)).
 
 ## Tvorba pluginu {#writing-a-plugin}
 
@@ -92,7 +92,7 @@ Nyní bude naše volání `$translate('greetings.hello')` za běhu nahrazeno tex
 Viz také: [Obohacování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
 
 :::tip
-Globální vlastnosti používejte jen zřídka. Pokud se v aplikaci používá příliš mnoho globálních promněných vložených různými pluginy, může se rychle stát nepřehlednou.
+Globální vlastnosti používejte jen zřídka. Pokud se v aplikaci používá příliš mnoho globálních proměnných vložených různými pluginy, může se rychle stát nepřehlednou.
 :::
 
 ### Provide / Inject spolu s pluginy {#provide-inject-with-plugins}

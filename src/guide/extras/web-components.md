@@ -288,7 +288,7 @@ declare module 'vue' {
     // ujistěte se, že předáváte Vue typ komponenty
     // (SomeComponent a nikoliv SomeElement)
     // custom elementy vyžadují v názvu pomlčku (hyphen),
-    // použjite tedy jejich kebab-cased název
+    // použijte tedy jejich kebab-cased název
     'some-element': typeof SomeComponent
   }
 }

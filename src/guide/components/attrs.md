@@ -100,7 +100,7 @@ K těmto fallthrough atributům lze přistoupit přímo ve výrazech šablon př
 <span>Fallthrough attributy: {{ $attrs }}</span>
 ```
 
-Objekt `$attrs` obsahuje všechny atributy, které nejsou deklarovány jako `props` nebo `emits` komponenty (např., `class`, `style`, `v-on` listenery, atd.).
+Objekt `$attrs` obsahuje všechny atributy, které nejsou deklarovány jako `props` nebo `emits` komponenty (např., `class`, `style`, `v-on` listenery atd.).
 
 Pár poznámek:
 
@@ -108,7 +108,7 @@ Pár poznámek:
 
 - Event listener `v-on` jako `@click` bude v objektu zpřístupněn jako funkce `$attrs.onClick`.
 
-Při použití naši ukázkové `<MyButton>` komponenty z [předchozí sekce](#attribute-inheritance) můžeme někdy potřebovat obalit element `<button>` do extra `<div>` tagu pro účely stylování:
+Při použití naší ukázkové `<MyButton>` komponenty z [předchozí sekce](#attribute-inheritance) můžeme někdy potřebovat obalit element `<button>` do extra `<div>` tagu pro účely stylování:
 
 ```vue-html
 <div class="btn-wrapper">

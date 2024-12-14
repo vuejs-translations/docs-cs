@@ -30,7 +30,7 @@ Poskytuje animované přechodové (transition) efekty pro **jeden** element nebo
     /**
      * Slouží k automatickému generování názvů CSS tříd pro přechody.
      * Např. `name: 'fade'` se automaticky rozšíří na `.fade-enter`,
-     * `.fade-enter-active`, atd.
+     * `.fade-enter-active` atd.
      */
     name?: string
     /**

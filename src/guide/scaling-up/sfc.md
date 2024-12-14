@@ -90,7 +90,7 @@ export default {
 }
 ```
 
-Tagy `<style>` uvnitř SFC jsou během vývoje obvykle implemntovány jako nativní `<style>` tagy, aby byla podporována okamžitá aktualizace (hot reload). Pro produkci mohou být extrahovány a sloučeny do jednoho CSS souboru.
+Tagy `<style>` uvnitř SFC jsou během vývoje obvykle implementovány jako nativní `<style>` tagy, aby byla podporována okamžitá aktualizace (hot reload). Pro produkci mohou být extrahovány a sloučeny do jednoho CSS souboru.
 
 S SFC si můžete hrát a prozkoumat, jak jsou kompilovány, na našem [Hřišti](https://play.vuejs.org/).
 

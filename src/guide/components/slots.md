@@ -415,7 +415,7 @@ Všimněte si, jak `v-slot="slotProps"` odpovídá signatuře slot funkce. Stejn
 
 ### Pojmenované scoped sloty {#named-scoped-slots}
 
-Pojmenované scoped sloty fugují podobně - vlastnosti slotu jsou přístupné jako hodnota direktivy `v-slot`: `v-slot:name="slotProps"`. Při použití zkráceného zápisu to vypadá takto:
+Pojmenované scoped sloty fungují podobně - vlastnosti slotu jsou přístupné jako hodnota direktivy `v-slot`: `v-slot:name="slotProps"`. Při použití zkráceného zápisu to vypadá takto:
 
 ```vue-html
 <MyComponent>
@@ -433,7 +433,7 @@ Pojmenované scoped sloty fugují podobně - vlastnosti slotu jsou přístupné 
 </MyComponent>
 ```
 
-Předávání vlastností do pojemnovaného slotu:
+Předávání vlastností do pojmenovaného slotu:
 
 ```vue-html
 <slot name="header" message="ahoj"></slot>

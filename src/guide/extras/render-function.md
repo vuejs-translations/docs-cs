@@ -545,7 +545,7 @@ JSX ekvivalent:
 
 ### Předávání slotů {#passing-slots}
 
-Předávání potomků komponentám funguje trochu jinak než předávání potomků elementům. Místo pole musíme předat buď funkci slotu, nebo objekt funkcí slotů. Funkce slotů mohou vrátit cokoli, co může vrátit běžná funkce pro vykreslení - což bude vždy normalizováno na pole VNodes, když je přístupováno v dceřiné komponentě.
+Předávání potomků komponentám funguje trochu jinak než předávání potomků elementům. Místo pole musíme předat buď funkci slotu, nebo objekt funkcí slotů. Funkce slotů mohou vrátit cokoli, co může vrátit běžná funkce pro vykreslení - což bude vždy normalizováno na pole VNodes, když je přistupováno v dceřiné komponentě.
 
 ```js
 // jediný výchozí slot

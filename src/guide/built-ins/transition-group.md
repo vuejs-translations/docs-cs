@@ -21,7 +21,7 @@ import ListStagger from './transition-demos/ListStagger.vue'
 - CSS třídy přechodu jsou aplikovány na jednotlivé prvky v seznamu, **nikoli** na skupinu / kontejner samotný.
 
 :::tip
-Při použití v [in-DOM šabloných](/guide/essentials/component-basics#in-dom-template-parsing-caveats) by měl být použit zápis `<transition-group>`.
+Při použití v [in-DOM šablonách](/guide/essentials/component-basics#in-dom-template-parsing-caveats) by měl být použit zápis `<transition-group>`.
 :::
 
 ## Přechody při vstupu / odchodu {#enter-leave-transitions}

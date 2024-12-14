@@ -92,7 +92,7 @@ export default {
 
 Pro každou vlastnost deklarovanou objektovou syntaxí je klíčem jméno vlastnosti, zatímco hodnotou by měla být funkce konstruktoru očekávaného typu.
 
-Nejen, že to vaší komponentu popisuje, ale také budou prostřednictvím výpisu do konzole prohlížeče varováni ostatní vývojáři, kteří vaši komponetu použjí, pokud budou předávat špatný datový typ. O [validaci vlastností](#prop-validation) budeme více mluvit později níže na této stránce.
+Nejen, že to vaši komponentu popisuje, ale také budou prostřednictvím výpisu do konzole prohlížeče varováni ostatní vývojáři, kteří vaši komponentu použijí, pokud budou předávat špatný datový typ. O [validaci vlastností](#prop-validation) budeme více mluvit později níže na této stránce.
 
 <div class="options-api">
 
@@ -572,19 +572,19 @@ Další podrobnosti:
 
 - Neuvedená `Boolean` vlastnost bude převedena na hodnotu `false`. To můžete změnit nastavením `default` - tj.: `default: undefined`, aby se chovala jako ne-Boolean vlastnost.
 
-- Pokud je zadána `default` hodnota, bude použita, pokud je předáváná hodnota vlastnosti `undefined` - to se týká jak případů, kdy vlastnost chybí, tak těch, kdy je předána explicitní hodnota `undefined`.
+- Pokud je zadána `default` hodnota, bude použita, pokud je předávaná hodnota vlastnosti `undefined` - to se týká jak případů, kdy vlastnost chybí, tak těch, kdy je předána explicitní hodnota `undefined`.
 
 Pokud validace vlastnosti selže, zobrazí Vue varování do konzole (pokud je aplikace sestavena v development módu).
 
 <div class="composition-api">
 
-Pokud používáte [Type-based deklarace vlastností](/api/sfc-script-setup#type-only-props-emit-declarations) <sup class="vt-badge ts" />, Vue se pokusí kompilovat typové anotace na odpovídající runtime deklarace vlastností jak nejlépe dovede. Například, `defineProps<{ msg: string }>` bude při kompilaci převedeno na`{ msg: { type: String, required: true }}`.
+Pokud používáte [Type-based deklarace vlastností](/api/sfc-script-setup#type-only-props-emit-declarations) <sup class="vt-badge ts" />, Vue se pokusí kompilovat typové anotace na odpovídající runtime deklarace vlastností, jak nejlépe dovede. Například, `defineProps<{ msg: string }>` bude při kompilaci převedeno na`{ msg: { type: String, required: true }}`.
 
 </div>
 <div class="options-api">
 
 ::: tip Poznámka
-Zapamatujte si, že vlastnosti jsou validovány **dříve** než je vytvořena instance komponenty, takže proměnné instance (např. `data`, `computed`, atd.) nebudou uvnitř funkcí `default` či `validator` dostupné.
+Zapamatujte si, že vlastnosti jsou validovány **dříve** než je vytvořena instance komponenty, takže proměnné instance (např. `data`, `computed` atd.) nebudou uvnitř funkcí `default` či `validator` dostupné.
 :::
 
 </div>

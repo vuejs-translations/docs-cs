@@ -65,13 +65,13 @@ const posts = await res.json()
 
 ### Asynchronní komponenty {#async-components}
 
-Asynchronní komponenty jsou přirozně **„suspenzovatelné“**. To znamená, že pokud má komponenta v rodičovském řetězci  `<Suspense>`, bude s ní zacházeno jako s asynchronní závislostí této `<Suspense>`. V tomto případě bude stav načítání ovládán `<Suspense>` a&nbsp;vlastní nastavení načítání, chyb, zpoždění a časového limitu v komponentě budou ignorovány.
+Asynchronní komponenty jsou přirozeně **„suspenzovatelné“**. To znamená, že pokud má komponenta v rodičovském řetězci  `<Suspense>`, bude s ní zacházeno jako s asynchronní závislostí této `<Suspense>`. V tomto případě bude stav načítání ovládán `<Suspense>` a&nbsp;vlastní nastavení načítání, chyb, zpoždění a časového limitu v komponentě budou ignorovány.
 
 Asynchronní komponenta se může z kontroly nadřazené `<Suspense>` vyvázat a&nbsp;kontrolovat svůj vlastní stav načítání pomocí nastavení `suspensible: false` ve&nbsp;vlastnostech komponenty.
 
 ## Stav načítání {#loading-state}
 
-Komponenta `<Suspense>` má dva sloty: `#default` a `#fallback`. Oba sloty povolují **pouze jeden** element bezprostředního potomka. Element ve výchozím (default) slotu je zobrazen, pokud je to možné. Poku není, je místo toho zobrazen element v záložním (fallback) slotu.
+Komponenta `<Suspense>` má dva sloty: `#default` a `#fallback`. Oba sloty povolují **pouze jeden** element bezprostředního potomka. Element ve výchozím (default) slotu je zobrazen, pokud je to možné. Pokud není, je místo toho zobrazen element v záložním (fallback) slotu.
 
 ```vue-html
 <Suspense>
@@ -147,7 +147,7 @@ Když máme více asynchronních komponent (což je běžné ve vnořených cest
 </Suspense>
 ```
 
-`<Suspense>` vytvoří v souladu s očekáváním ohraničení, které vyřeší všechny asynchronní komponenty v celém stromě závislostí. Pokud změníme `DynamicAsyncOuter`, `<Suspense>` na ni správně počká. Ale když změníme `DynamicAsyncInner`, vnořená `DynamicAsyncInner` vykreslí prázný element, dokud nebude vyřešena (místo předchozí komponenty nebo fallback slotu).
+`<Suspense>` vytvoří v souladu s očekáváním ohraničení, které vyřeší všechny asynchronní komponenty v celém stromě závislostí. Pokud změníme `DynamicAsyncOuter`, `<Suspense>` na ni správně počká. Ale když změníme `DynamicAsyncInner`, vnořená `DynamicAsyncInner` vykreslí prázdný element, dokud nebude vyřešena (místo předchozí komponenty nebo fallback slotu).
 
 Abychom to vyřešili, můžeme přidat vnořenou suspense k obsluze aktualizace vnořené komponenty tímto způsobem:
 
@@ -161,7 +161,7 @@ Abychom to vyřešili, můžeme přidat vnořenou suspense k obsluze aktualizace
 </Suspense>
 ```
 
-Pokud nenastavíte vlastnost `suspensible`, vnitřní `<Suspense>` bude rodičovskou `<Suspense>` považována za synchronní komponentu. To znamená, že má svůj vlastní fallback slot a když se obě `Dynamic` komponenty změní najednou, mohou se objevit prázdné elementy a spustit více aktualizčních cyklů, zatímco vnořená `<Suspense>` načítá svůj strom závislostí. Což nemusí být žádoucí. Když je `suspensible` nastaveno, obsluha asynchronního načítání je předána rodičovské `<Suspense>` (vč. emitovaných událostí) a&nbsp;vnitřní `<Suspense>` slouží jen jako další ohraničení pro řešení závislostí a aktualizace.
+Pokud nenastavíte vlastnost `suspensible`, vnitřní `<Suspense>` bude rodičovskou `<Suspense>` považována za synchronní komponentu. To znamená, že má svůj vlastní fallback slot a když se obě `Dynamic` komponenty změní najednou, mohou se objevit prázdné elementy a spustit více aktualizačních cyklů, zatímco vnořená `<Suspense>` načítá svůj strom závislostí. Což nemusí být žádoucí. Když je `suspensible` nastaveno, obsluha asynchronního načítání je předána rodičovské `<Suspense>` (vč. emitovaných událostí) a&nbsp;vnitřní `<Suspense>` slouží jen jako další ohraničení pro řešení závislostí a aktualizace.
 
 ---
 

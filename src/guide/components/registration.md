@@ -126,7 +126,7 @@ export default {
 }
 ```
 
-Zapamatujte si, že **lokálně registrované komponenty  _nejsou_ přístupné v komponentách potomků**. V tomto případě bude `ComponentA` dostupá pouze v aktuální komponentě, v&nbsp;komponentách potomků nikoli.
+Zapamatujte si, že **lokálně registrované komponenty  _nejsou_ přístupné v komponentách potomků**. V tomto případě bude `ComponentA` dostupná pouze v aktuální komponentě, v&nbsp;komponentách potomků nikoli.
 
 ## Velká a malá písmena v názvech komponent {#component-name-casing}
 

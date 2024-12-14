@@ -6,7 +6,7 @@ Směrování (routing) na straně serveru znamená, že server odesílá odpově
 
 V [Single-page aplikaci](https://developer.mozilla.org/cs/docs/Glossary/SPA) (SPA) však může klientský JavaScript zachytit navigaci, dynamicky načíst nová data a aktualizovat zobrazenou stránku bez plného reloadu. To obvykle vede k rychlejší odezvě a lepšímu uživatelskému zážitku, zejména v případech, které připomínají skutečné „aplikace“, kde se od uživatele očekává provádění mnoha interakcí po delší dobu.
 
-V takových SPA je „směrování“ prováděno na straně klienta, v prohlížeči. Router na klientovi je zodpovědný za správu vykresleného obsahu aplikace pomocí API prohlížečě, jako je [History API](https://developer.mozilla.org/cs/docs/Web/API/History) nebo událost [`hashchange`](https://developer.mozilla.org/cs/docs/Web/API/Window/hashchange_event).
+V takových SPA je „směrování“ prováděno na straně klienta, v prohlížeči. Router na klientovi je zodpovědný za správu vykresleného obsahu aplikace pomocí API prohlížeče, jako je [History API](https://developer.mozilla.org/cs/docs/Web/API/History) nebo událost [`hashchange`](https://developer.mozilla.org/cs/docs/Web/API/Window/hashchange_event).
 
 ## Oficiální router {#official-router}
 

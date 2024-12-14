@@ -2,7 +2,7 @@
 
 ## Základní použití {#basic-usage}
 
-Direkrivu `v-model` lze použít pro implementaci obousměrného (two-way) bindingu.
+Direktivu `v-model` lze použít pro implementaci obousměrného (two-way) bindingu.
 
 <div class="composition-api">
 
@@ -86,7 +86,7 @@ Poté se `v-model="foo"` v komponentě rodiče zkompiluje jako:
 
 Jak můžete vidět, je to trochu zbytečně složité. Nicméně je dobré vědět, jak to ve skutečnosti funguje.
 
-Protože `defineModel` deklaruje vlastnost (prop), mužete následně upravovat její možnosti (options) předáním do `defineModel`:
+Protože `defineModel` deklaruje vlastnost (prop), můžete následně upravovat její možnosti (options) předáním do `defineModel`:
 
 ```js
 // v-model bude povinná hodnota
@@ -406,7 +406,7 @@ console.log(modifiers) // { capitalize: true }
 </template>
 ```
 
-Pro podmíněné nastavení jak by měla být hodnota na základě modifikátorů čtena / zapisována, můžeme do `defineModel()` předat možnosti `get` a `set`. Tyto dvě nastavení získají hodnotu při čtení / zápisu příslušné ref hodnoty a měly by vrátit transformovanou hodnotu. Takto můžeme použít `set` pro implementaci modifikátoru `capitalize`:
+Pro podmíněné nastavení, jak by měla být hodnota na základě modifikátorů čtena / zapisována, můžeme do `defineModel()` předat možnosti `get` a `set`. Tyto dvě nastavení získají hodnotu při čtení / zápisu příslušné ref hodnoty a měly by vrátit transformovanou hodnotu. Takto můžeme použít `set` pro implementaci modifikátoru `capitalize`:
 
 ```vue{6-8}
 <script setup>

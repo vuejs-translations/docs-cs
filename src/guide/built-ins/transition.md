@@ -637,7 +637,7 @@ export default {
 
 </div>
 
-Pokud bychom atribut `key` vynechali, aktualizoval by se pouze textový uzel, a proto by nedošlo k žádnému přechodu. Ovšem s nadefinovaným unikátném `key` Vue umí vytvořit nový element `span`, kdykoliv se změní hodnota `count`, a tak má komponenta `Transition` dva různé elementy, mezi kterými lze přechod provést.
+Pokud bychom atribut `key` vynechali, aktualizoval by se pouze textový uzel, a proto by nedošlo k žádnému přechodu. Ovšem s nadefinovaným unikátním `key` Vue umí vytvořit nový element `span`, kdykoliv se změní hodnota `count`, a tak má komponenta `Transition` dva různé elementy, mezi kterými lze přechod provést.
 
 <div class="composition-api">
 

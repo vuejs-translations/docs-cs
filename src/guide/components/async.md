@@ -208,4 +208,4 @@ const AsyncComp = defineAsyncComponent({
 
 ## Použití s Suspense {#using-with-suspense}
 
-Asynchronní komponenty lze použít dohromady s vestavěnou komponentou `<Suspense>`. Interakce `<Suspense>` a ansynchronními komponentami je popsána v&nbsp;[kapitole určené pro `<Suspense>`](/guide/built-ins/suspense).
+Asynchronní komponenty lze použít dohromady s vestavěnou komponentou `<Suspense>`. Interakce `<Suspense>` a asynchronními komponentami je popsána v&nbsp;[kapitole určené pro `<Suspense>`](/guide/built-ins/suspense).

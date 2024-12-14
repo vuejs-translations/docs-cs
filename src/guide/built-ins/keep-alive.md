@@ -31,7 +31,7 @@ Vytváření nové instance komponenty po přepnutí je normálně užitečné c
 </KeepAlive>
 ```
 
-Nyní bude mezi přepínámím komponent stav zachován:
+Nyní bude mezi přepínáním komponent stav zachován:
 
 <SwitchComponent use-KeepAlive />
 
@@ -101,7 +101,7 @@ import { onActivated, onDeactivated } from 'vue'
 
 onActivated(() => {
   // zavolá se při úvodním připojení (mounted)
-  // a pokaždé, když je komponenta znvou vložena z cache
+  // a pokaždé, když je komponenta znovu vložena z cache
 })
 
 onDeactivated(() => {
@@ -120,7 +120,7 @@ onDeactivated(() => {
 export default {
   activated() {
     // zavolá se při úvodním připojení (mounted)
-    // a pokaždé, když je komponenta znvou vložena z cache
+    // a pokaždé, když je komponenta znovu vložena z cache
   },
   deactivated() {
     // zavolá se při odebrání z DOM a uložení do cache
