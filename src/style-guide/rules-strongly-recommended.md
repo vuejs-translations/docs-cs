@@ -1,5 +1,9 @@
 # Pravidla priority B: Silně doporučené {#priority-b-rules-strongly-recommended}
 
+::: warning Poznámka
+Tento průvodce Vue.js stylováním je zastaralý a vyžaduje revizi. Pokud máte jakékoliv otázky a návrhy, prosím  [založte nové hlášení](https://github.com/vuejs/docs/issues/new).
+:::
+
 Tato pravidla byla zavedena pro zlepšení čitelnosti a/nebo komfortu pro vývojáře na většině projektů. Pokud je porušíte, váš kód bude stále fungovat, ale porušení by měla být vzácná a dobře odůvodněná.
 
 ## Soubory komponent {#component-files}

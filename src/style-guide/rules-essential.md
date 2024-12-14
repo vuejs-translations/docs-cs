@@ -1,5 +1,9 @@
 # Pravidla priority A: Zásadní (prevence chyb) {#priority-a-rules-essential}
 
+::: warning Poznámka
+Tento průvodce Vue.js stylováním je zastaralý a vyžaduje revizi. Pokud máte jakékoliv otázky a návrhy, prosím  [založte nové hlášení](https://github.com/vuejs/docs/issues/new).
+:::
+
 Tato pravidla pomáhají předcházet chybám, proto se je za každou cenu naučte a&nbsp;dodržujte je. Výjimky mohou existovat, ale měly by být velmi vzácné a měly by být&nbsp;dělány pouze osobami s odbornými znalostmi jak JavaScriptu, tak Vue.
 
 ## Používejte víceslovné názvy komponent {#use-multi-word-component-names}
@@ -218,7 +222,7 @@ Existují dva běžné případy, kdy to může být lákavé:
 
 - Při filtrování položek v seznamu (např. `v-for="user in users" v-if="user.isActive"`). V těchto případech nahraďte `users` novou computed proměnnou, která vrátí filtrovaný seznam (např. `activeUsers`).
 
-- Aby se zabránilo vykreslování seznamu, který by měl být skrytý (např. `v-for="user in users" v-if="shouldShowUsers"`). V těchto případech přesuňte `v-if` na mateřeský element (např. `ul`, `ol`).
+- Aby se zabránilo vykreslování seznamu, který by měl být v některých případech skrytý (např. `v-for="user in users" v-if="shouldShowUsers"`). Zde raději přesuňte `v-if` na mateřeský element (např. `ul`, `ol`).
 
 ::: details Podrobné vysvětlení
 Když Vue zpracovává direktivy, `v-if` má vyšší priorotu než `v-for`. V této šabloně tedy:

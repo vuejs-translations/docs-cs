@@ -223,10 +223,6 @@ Podobně jako u `v-if`, je možné tag `<template>` použití i s `v-for` pro v�
 
 ## `v-for` s `v-if` {#v-for-with-v-if}
 
-::: warning Poznámka
-**Nedoporučuje se** používat `v-if` a `v-for` na stejném prvku kvůli jejich implicitní prioritě. Podrobnosti naleznete v [Průvodci stylováním](/style-guide/rules-essential#avoid-v-if-with-v-for).
-:::
-
 Když existují na stejném elementu, `v-if` má vyšší prioritu než `v-for`. To znamená, že podmínka `v-if` nebude mít přístup k proměnným z `v-for` scope:
 
 ```vue-html
@@ -248,6 +244,16 @@ Toto lze napravit přesunutím `v-for` do obalujícího `<template>` tagu (což 
   </li>
 </template>
 ```
+
+::: warning Poznámka
+**Nedoporučuje se** používat `v-if` a `v-for` na stejném prvku kvůli jejich implicitní prioritě. 
+
+Existují dva běžné případy, kdy to může být lákavé:
+
+- Při filtrování položek v seznamu (např. `v-for="user in users" v-if="user.isActive"`). V těchto případech nahraďte `users` novou computed proměnnou, která vrátí filtrovaný seznam (např. `activeUsers`).
+
+- Aby se zabránilo vykreslování seznamu, který by měl být v některých případech skrytý (např. `v-for="user in users" v-if="shouldShowUsers"`). Zde raději přesuňte `v-if` na mateřeský element (např. `ul`, `ol`).
+:::
 
 ## Udržování stavu pomocí `key` {#maintaining-state-with-key}
 

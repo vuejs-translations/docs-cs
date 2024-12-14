@@ -4,6 +4,10 @@ outline: deep
 
 # Průvodce stylováním {#style-guide}
 
+::: warning Poznámka
+Tento průvodce Vue.js stylováním je zastaralý a vyžaduje revizi. Pokud máte jakékoliv otázky a návrhy, prosím  [založte nové hlášení](https://github.com/vuejs/docs/issues/new).
+:::
+
 Toto je oficiální průvodce pravidly pro psaní kódu ve Vue. Pokud v projektu používáte Vue, je to skvělá reference, abyste se vyhnuli chybám, ztrátě času trivialitami (bikesheddingu) a anti-patternům. Nemyslíme si však, že jakýkoli průvodce stylováním je&nbsp;ideální pro všechny týmy nebo projekty, a proto doporučujeme rozumné odchylky založené na minulých zkušenostech, ostatních použivaných technologiích a osobních hodnotách.
 
 Z velké části se také vyhýbáme návrhům ohledně JavaScriptu nebo HTML obecně. Nezáleží nám na tom, zda použijete středníky nebo koncové čárky. Nezáleží nám na tom, zda váš kód HTML používá pro hodnoty atributů jednoduché nebo dvojité uvozovky. Budou ovšem existovat určité výjimky, u kterých jsme zjistili, že konkrétní vzor je v&nbsp;kontextu Vue užitečný.

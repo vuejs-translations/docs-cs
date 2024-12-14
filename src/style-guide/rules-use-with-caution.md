@@ -1,5 +1,9 @@
 # Pravidla priority D: Používejte s&nbsp;rozvahou {#priority-d-rules-use-with-caution}
 
+::: warning Poznámka
+Tento průvodce Vue.js stylováním je zastaralý a vyžaduje revizi. Pokud máte jakékoliv otázky a návrhy, prosím  [založte nové hlášení](https://github.com/vuejs/docs/issues/new).
+:::
+
 Některé funkce Vue existují pro přizpůsobení se vzácným okrajovým případům nebo kvůli hladší migraci z legacy kódu. Při nadměrném používání však mohou ztížit údržbu vašeho kódu nebo se dokonce stát zdrojem chyb. Tato pravidla upozorňují na potenciálně rizikové funkce a popisují, kdy a proč je třeba se jim vyhnout.
 
 ## Selektory prvků + `scoped` {#element-selectors-with-scoped}

@@ -110,8 +110,8 @@ Obecně řečeno, `v-if` má vyšší náklady na přepínání, zatímco `v-sho
 
 ## `v-if` s `v-for` {#v-if-with-v-for}
 
-::: warning Poznámka
-**Nedoporučuje se** používat `v-if` a `v-for` na stejném prvku kvůli jejich implicitní prioritě. Podrobnosti naleznete v [Průvodci stylováním](/style-guide/rules-essential#avoid-v-if-with-v-for).
-:::
-
 Když jsou `v-if` a `v-for` použity na stejném prvku, bude nejprve vyhodnoceno `v-if`. Podrobnosti naleznete v [průvodci vykreslováním seznamu](list#v-for-with-v-if).
+
+::: warning Poznámka
+**Nedoporučuje se** používat `v-if` a `v-for` na stejném prvku kvůli jejich implicitní prioritě. Podrobnosti naleznete v [průvodci vykreslováním seznamu](list#v-for-with-v-if).
+:::
