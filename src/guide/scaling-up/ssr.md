@@ -231,7 +231,7 @@ Kompletní implementace by byla poměrně složitá a závisela by na souboru bu
 
 Vite poskytuje vestavěnou [podporu pro Vue server-side rendering](https://vitejs.dev/guide/ssr.html), ale je záměrně nízkoúrovňový. Pokud chcete použít přímo Vite, podívejte se na [vite-plugin-ssr](https://vite-plugin-ssr.com/), komunitní plugin, který pro vás abstrahuje mnoho obtížných detailů.
 
-Můžete také najít [příklad](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue) projektu Vue + Vite SSR s manuálním nastavením, který může sloužit jako základ pro další práci. Vemte však na vědomí, že toto je doporučeno pouze pokud máte zkušenosti se SSR / build nástroji a opravdu chcete mít úplnou kontrolu nad vyšší úrovní architektury.
+Můžete také najít [příklad](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue) projektu Vue + Vite SSR s manuálním nastavením, který může sloužit jako základ pro další práci. Vezměte však na vědomí, že toto je doporučeno pouze pokud máte zkušenosti se SSR / build nástroji a opravdu chcete mít úplnou kontrolu nad vyšší úrovní architektury.
 
 ## Psaní kódu přátelského k SSR {#writing-ssr-friendly-code}
 
@@ -255,7 +255,7 @@ Pro úkoly, které jsou sdílené mezi serverem a klientem, ale s API různých 
 
 Pro API pouze pro prohlížeč je běžným přístupem „lazy“ přístupování k nim uvnitř lifecycle hooks pouze na klientovi, jako je <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span>.
 
-Vemte na vědomí, že pokud knihovna třetí strany není pro univerzální použití zamýšlena, může být obtížné ji do aplikace s vykreslováním na serveru integrovat. Možná se vám podaří ji rozchodit pomocí mockování některých globálních proměnných, ale bude to „hack“ a můžete narušit kód pro detekci prostředí jiných knihoven.
+Vezměte na vědomí, že pokud knihovna třetí strany není pro univerzální použití zamýšlena, může být obtížné ji do aplikace s vykreslováním na serveru integrovat. Možná se vám podaří ji rozchodit pomocí mockování některých globálních proměnných, ale bude to „hack“ a můžete narušit kód pro detekci prostředí jiných knihoven.
 
 ### Cross-Request State Pollution {#cross-request-state-pollution}
 

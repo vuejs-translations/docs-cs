@@ -286,7 +286,7 @@ export default {
 
 <div class="composition-api">
 
-Výjimkou zde je, že komponenty používající `<script setup>` jsou **ve výchozím nastavení soukromé**: komponenta rodiče odkazující na komponentu potomka pomocí `<script setup>` nebude mít přístupk ničemu, pokud se komponenta potomka nerozhodne vystavit své veřejné rozhraní pomocí makra `defineExpose`:
+Výjimkou zde je, že komponenty používající `<script setup>` jsou **ve výchozím nastavení soukromé**: komponenta rodiče odkazující na komponentu potomka pomocí `<script setup>` nebude mít přístup k ničemu, pokud se komponenta potomka nerozhodne vystavit své veřejné rozhraní pomocí makra `defineExpose`:
 
 ```vue
 <script setup>

@@ -85,16 +85,16 @@ Výše uvedený příklad ukazuje dva klíčové principy Vue:
 
 - **Deklarativní vykreslování**: Vue rozšiřuje standardní HTML o tzv. template syntaxi, což umožňuje deklarativně popisovat HTML výstup založený na JavaScript proměnných.
 
-- **Reaktivita**: Vue autmaticky sleduje změny stavu JavaScript proměnných a efektivně aktualizuje DOM zobrazené stránky, když dojde ke změně.
+- **Reaktivita**: Vue automaticky sleduje změny stavu JavaScript proměnných a efektivně aktualizuje DOM zobrazené stránky, když dojde ke změně.
 
-Pokud k tomu už teď máte otázky - žádný strach. Ve zbytku dokumentace pokryjeme každý jednotilvý detail. Prozatím prosím pokračujte ve čtení, ať získáte obecné povědomí o tom, co Vue nabízí.
+Pokud k tomu už teď máte otázky - žádný strach. Ve zbytku dokumentace pokryjeme každý jednotlivý detail. Prozatím prosím pokračujte ve čtení, ať získáte obecné povědomí o tom, co Vue nabízí.
 
 :::tip Předpoklady
 Zbytek dokumentace předpokládá základní znalost HTML, CSS a JavaScriptu. Pokud je pro vás frontend vývoj úplnou novinkou, není možná nejlepší nápad vrhnout se jako první rovnou na framework - raději se napřed trochu seznamte se základy a teprve poté se vraťte zpět! Úroveň svých znalostí si můžete vyzkoušet na těchto [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript), [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML) a [CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps) přehledech. Předchozí zkušenost s jinými frameworky pomůže, ale není nezbytná.
 :::
 
 ## Progresivní framework {#the-progressive-framework}
-Vue je framework a ekosystém, který pokrývá většinu z běžných potřeb frontendového vývoje. Ale internet je extrémě různorodý - věci, které na webových stránkách tvoříme se mohou dramaticky lišit ve formě i objemu. Vue bylo s přihlédnutím k tomu navrženo tak, aby bylo flexibilní a přírůstkově adaptibilní. V závislosti na vašich potřebách, může být Vue používáno různými způsoby:
+Vue je framework a ekosystém, který pokrývá většinu z běžných potřeb frontendového vývoje. Ale internet je extrémně různorodý - věci, které na webových stránkách tvoříme se mohou dramaticky lišit ve formě i objemu. Vue bylo s přihlédnutím k tomu navrženo tak, aby bylo flexibilní a přírůstkově adaptibilní. V závislosti na vašich potřebách, může být Vue používáno různými způsoby:
 
 - Obohacení statických HTML bez build fáze
 - Webová komponenta (Web Component) vložená do jakékoli stránky
@@ -103,11 +103,11 @@ Vue je framework a ekosystém, který pokrývá většinu z běžných potřeb f
 - Jamstack / Static Site Generation (SSG)
 - Použitelné pro desktop, mobilní zařízení, WebGL a dokonce i terminál
 
-Pokud vám tyto pojmy přijdou strašidelné, nebojte se! Tento tutoriál a průvodce vyžaduje pouze základní znalost HTML a JavaScriptu a nemusíte být odborník na žádnou z výše uvedných oblastí.
+Pokud vám tyto pojmy přijdou strašidelné, nebojte se! Tento tutoriál a průvodce vyžaduje pouze základní znalost HTML a JavaScriptu a nemusíte být odborník na žádnou z výše uvedených oblastí.
 
 Pokud jste zkušený vývojář, kterého zajímá, jak nejlépe zapracovat Vue do svého portfolia, nebo jste zvědaví co tyto pojmy znamenají, rozebíráme je více podrobně ve [Způsobech použití Vue](/guide/extras/ways-of-using-vue).
 
-Navzdory flexibilitě jsou základní znalosti o fungování Vue sdílené napříč všemi způsoby použití. I pokud jste nyní pouze začátečník, znalosti získané zde vám budou užitečné na další cestě při zdolávání více ambiciózních cílů v budoucnosti. Pokud už jste veterán, můžete si vybrat optimální zůsob využití Vue podle toho, jaké problémy se právě snažíte řešit, a přitom si zachovat stejnou úroveň produktivity. Proto nazýváme Vue "Progresivní Framework": je to technologie, která může růst spolu s vámi a přizpůsobovat se vašim potřebám.
+Navzdory flexibilitě jsou základní znalosti o fungování Vue sdílené napříč všemi způsoby použití. I pokud jste nyní pouze začátečník, znalosti získané zde vám budou užitečné na další cestě při zdolávání více ambiciózních cílů v budoucnosti. Pokud už jste veterán, můžete si vybrat optimální způsob využití Vue podle toho, jaké problémy se právě snažíte řešit, a přitom si zachovat stejnou úroveň produktivity. Proto nazýváme Vue "Progresivní Framework": je to technologie, která může růst spolu s vámi a přizpůsobovat se vašim potřebám.
 
 ## Single-File komponenty {#single-file-components}
 
@@ -159,7 +159,7 @@ button {
 
 </div>
 
-SFC je určující vlastnost Vue a je to doporučený postup jak tvořit Vue komponenty, **pokud** vaše použití zahrnuje build fázi. Více o tématu [jak a proč na SFC](/guide/scaling-up/sfc) najdete v&nbsp;příslušné kapitole - prozatím je potřeba vědět, že Vue za vás zvládne veškeré nastavení build nástrojů.
+SFC je určující vlastnost Vue a je to doporučený postup, jak tvořit Vue komponenty, **pokud** vaše použití zahrnuje build fázi. Více o tématu [jak a proč na SFC](/guide/scaling-up/sfc) najdete v&nbsp;příslušné kapitole - prozatím je potřeba vědět, že Vue za vás zvládne veškeré nastavení build nástrojů.
 
 ## API styly {#api-styles}
 
@@ -206,7 +206,7 @@ export default {
 
 ### Composition API {#composition-api}
 
-S Composition API definujeme komponentu importem API funkcí. V SFC souborech se Compostion API typicky používá spolu se [`<script setup>`](/api/sfc-script-setup). Atritbut `setup` je příznak pro Vue k použití transformací během kompilace, které umožňují použití Composition API s&nbsp;menším množstvím boilerplate kódu. Například importy a proměnné/funkce nejvyšší úrovně deklarované uvnitř `<script setup>` mohou být přímo použity v šabloně.
+S Composition API definujeme komponentu importem API funkcí. V SFC souborech se Compostion API typicky používá spolu se [`<script setup>`](/api/sfc-script-setup). Atribut `setup` je příznak pro Vue k použití transformací během kompilace, které umožňují použití Composition API s&nbsp;menším množstvím boilerplate kódu. Například importy a proměnné/funkce nejvyšší úrovně deklarované uvnitř `<script setup>` mohou být přímo použity v šabloně.
 
 Zde je ta samá komponenta, s úplně stejnou šablonou, ale s použitím Composition API a&nbsp;`<script setup>`:
 
@@ -239,7 +239,7 @@ onMounted(() => {
 
 Oba API styly jsou schopné běžné případy užití plně pokrýt. Jsou to různá rozhraní nad stejným systémem v pozadí. Options API je vlastně implementováno nad Composition API! Základní koncepty a znalosti o Vue jsou sdíleny nad oběma styly.
 
-Options API se zaměřuje na koncept "instance komponenty" (`this` jak je vidět v&nbsp;příkladu), což je typicky bližší uživatelům zvyklým na mentální model založený na třídách z objektovně orientovaných programovacích jazyků (OOP). Je také lépe přístupnější začátečníkům tím, že abstrahuje detaily o reaktivitě a vynucuje organizaci kódu přes skupiny možností.
+Options API se zaměřuje na koncept "instance komponenty" (`this` jak je vidět v&nbsp;příkladu), což je typicky bližší uživatelům zvyklým na mentální model založený na třídách z objektově orientovaných programovacích jazyků (OOP). Je také lépe přístupnější začátečníkům tím, že abstrahuje detaily o reaktivitě a vynucuje organizaci kódu přes skupiny možností.
 
 Composition API je zaměřeno na deklarování reaktivních proměnných přímo ve funkčním rámci a skládáním stavu dohromady z různých funkcí tak, aby bylo možné zvládnout jejich komplexitu. Je to volnější forma a vyžaduje porozumění, jak funguje reaktivita ve Vue, aby bylo možné ji používat efektivně. Výměnou za to její flexibilita umožňuje silnější vzory pro organizaci a znovupoužití logiky.
 
@@ -251,11 +251,11 @@ Pokud jste ve Vue nováčky, zde je naše základní doporučení:
 
 - Pro produkci:
 
-  - Zvote Options API, pokud nepoužíváte build nástroje, nebo máte v plánu Vue použít primárně pro méně složité scénáře, např. progresivní vylepšení.
+  - Zvolte Options API, pokud nepoužíváte build nástroje, nebo máte v plánu Vue použít primárně pro méně složité scénáře, např. progresivní vylepšení.
 
   - Zvolte Composition API + Single-File komponenty (SFC), pokud plánujete ve Vue vytvořit celou aplikaci.
 
-V průběhu vašeho učení se nemusíte upsat jednomu stylu. Zbytek dokumentace poskytuje tam, kde to je možné, příklady kódu pro oba styly, a můžete mezi nimi kdykoli přemínat pomocí **přepínače API preference** nahoře ve sloupci levého menu.
+V průběhu vašeho učení se nemusíte upsat jednomu stylu. Zbytek dokumentace poskytuje tam, kde to je možné, příklady kódu pro oba styly, a můžete mezi nimi kdykoli přepínat pomocí **přepínače API preference** nahoře ve sloupci levého menu.
 
 ## Máte další otázky? {#still-got-questions}
 

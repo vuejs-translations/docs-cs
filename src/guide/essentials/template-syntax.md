@@ -143,7 +143,7 @@ Zatím jsme se v našich šablonách vázali pouze jednoduše na hodnoty proměn
 
 Tyto výrazy budou vyhodnoceny jako JavaScript s použitím datového scope aktuální instance komponenty.
 
-V Vue šablonách lze JavaScriptové výrazy použít na následujících místech:
+Ve Vue šablonách lze JavaScriptové výrazy použít na následujících místech:
 
 - Uvnitř textových interpolací („mustache“ syntaxe)
 - V hodnotě atributu kterékoli Vue direktivy (speciální atributy začínající na `v-`)
@@ -224,7 +224,7 @@ Pro parametr direktivy je možné použít i JavaScript výraz tak, že jej zaba
 
 ```vue-html
 <!--
-Vemte na vědomí, že zde pro hodnoty výrazu platí určitá omezení,
+Vezměte na vědomí, že zde pro hodnoty výrazu platí určitá omezení,
 jež jsou vysvětlena v oddílech „Omezení hodnot dynamických parametrů“
 a „Omezení syntaxe dynamických parametrů“ níže.
 -->

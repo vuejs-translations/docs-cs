@@ -35,7 +35,7 @@ Existují další hooks, které budu volány v různých fázích životního cy
 
 <div class="options-api">
 
-Všechny lifecycle hooks jsou volány s jejich kontextem `this` odkazujícím na momentálně aktivní instanci, která je vyvolala. Vemte na vědomí, že to znamená, že byste se při deklaraci lifecycle hooks měli vyvarovat arrow funkcí, protože pokud to uděláte, nebude moci pomocí `this` přístoupit k instanci komponenty.
+Všechny lifecycle hooks jsou volány s jejich kontextem `this` odkazujícím na momentálně aktivní instanci, která je vyvolala. Vezměte na vědomí, že to znamená, že byste se při deklaraci lifecycle hooks měli vyvarovat arrow funkcí, protože pokud to uděláte, nebude moci pomocí `this` přístoupit k instanci komponenty.
 
 </div>
 
@@ -51,7 +51,7 @@ setTimeout(() => {
 }, 100)
 ```
 
-Pamatujte, že to neznamená, že volání musí být umístěno lexikálně uvnitř `setup()` nebo `<script setup>`. Hook `onMounted()` lze volat i v externí funkci za předpokladu, že je zásobník volání synchronní a pochází z `setup()`.
+Pamatujte, že to neznamená, že volání musí být umístěno lexikálně uvnitř `setup()` nebo `<script setup>`. Hook `onMounted()` lze volat i v externí funkci za předpokladu, že je zásobník volání synchronní a pochází ze `setup()`.
 
 </div>
 

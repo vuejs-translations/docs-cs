@@ -174,7 +174,7 @@ Pokud vaše šablony vytváříte přímo v DOM (např. jako obsah nativního el
 <button-counter></button-counter>
 ```
 
-Pro více detailů se podívejte na [upozornění na omezení při anlýze in-DOM šablon](#in-dom-template-parsing-caveats).
+Pro více detailů se podívejte na [upozornění na omezení při analýze in-DOM šablon](#in-dom-template-parsing-caveats).
 
 ## Předávání vlastností (props) {#passing-props}
 
@@ -277,7 +277,7 @@ const posts = ref([
 
 </div>
 
-A potom pro každý z nich vykreslit jeho vlastní kompomentu pomocí `v-for`:
+A potom pro každý z nich vykreslit jeho vlastní komponentu pomocí `v-for`:
 
 ```vue-html
 <BlogPost
@@ -435,7 +435,7 @@ emit('zvetsit-text')
 
 Viz také: [Typování emitovaných událostí komponenty](/guide/typescript/composition-api#typing-component-emits) <sup class="vt-badge ts" />
 
-Pokud nepoužíváte `<script setup>`, můžete deklarovat emitované události prostřectvím možnosti `emits`. K funkci `emit` můžete přistuput jako k vlastnosti setup kontextu (předávaný do `setup()` jako druhý parametr):
+Pokud nepoužíváte `<script setup>`, můžete deklarovat emitované události prostřednictvím možnosti `emits`. K funkci `emit` můžete přistupit jako k vlastnosti setup kontextu (předávaný do `setup()` jako druhý parametr):
 
 ```js
 export default {

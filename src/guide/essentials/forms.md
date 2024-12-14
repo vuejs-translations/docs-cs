@@ -102,7 +102,7 @@ U jazyků, které vyžadují [IME](https://en.wikipedia.org/wiki/Input_method) (
 
 </div>
 
-Pozor na to, že uvnitř `<textarea>` nefunguje interpolace. Použitje místo toho `v-model`.
+Pozor na to, že uvnitř `<textarea>` nefunguje interpolace. Použijte místo toho `v-model`.
 
 ```vue-html
 <!-- špatně -->
@@ -137,7 +137,7 @@ Jednoduchý checkbox s proměnnou typu boolean:
 
 </div>
 
-Můžeme také provést binding více checkboxů na stejné pole resp. [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set):
+Můžeme také provést binding více checkboxů na stejné pole, resp. [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set):
 
 <div class="composition-api">
 
@@ -427,7 +427,7 @@ Proměnná `pick` bude nastavena na hodnotu `prvni`, když je vybrána první vo
 
 ### `.lazy` {#lazy}
 
-Ve výchozím nastavení `v-model` synchronizuje vstup s daty po každé události `input` (s&nbsp;výjimkou IME kompozice, jak je [uvedeno výše](#vmodel-ime-tip)). Místo toho můžete přidat modifikátor`lazy` k synchronizaci po události `change`:
+Ve výchozím nastavení `v-model` synchronizuje vstup s daty po každé události `input` (s&nbsp;výjimkou IME kompozice, jak je [uvedeno výše](#vmodel-ime-tip)). Místo toho můžete přidat modifikátor `lazy` k synchronizaci po události `change`:
 
 ```vue-html
 <!-- synchronizuje se po „change“ místo „input“ -->

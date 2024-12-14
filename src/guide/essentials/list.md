@@ -10,7 +10,7 @@
 
 ## `v-for` {#v-for}
 
-Pro vykreslení senzamu založeného na hodnotách pole můžeme použít direktivu `v-for`. Zápis `v-for` vyžaduje speciální syntaxi ve formě `item in items`, kde `items` je zdrojové datové pole a `item` je **alias** pro prvek pole, přes které se iteruje:
+Pro vykreslení seznamu založeného na hodnotách pole můžeme použít direktivu `v-for`. Zápis `v-for` vyžaduje speciální syntaxi ve formě `item in items`, kde `items` je zdrojové datové pole a `item` je **alias** pro prvek pole, přes které se iteruje:
 
 <div class="composition-api">
 
@@ -171,7 +171,7 @@ data() {
 </ul>
 ```
 
-Můžete také úvést druhý alias (klíč) pro název vlastnosti:
+Můžete také uvést druhý alias (klíč) pro název vlastnosti:
 
 ```vue-html
 <li v-for="(value, key) in myObject">
@@ -206,7 +206,7 @@ A ještě další pro její pořadí:
 <span v-for="n in 10">{{ n }}</span>
 ```
 
-Dejte pozor, že `n` začíná s úvodníh hodnotou `1` místo obvyklé `0`.
+Dejte pozor, že `n` začíná s úvodní hodnotou `1` místo obvyklé `0`.
 
 ## `v-for` nad `<template>` {#v-for-on-template}
 
@@ -252,12 +252,12 @@ Existují dva běžné případy, kdy to může být lákavé:
 
 - Při filtrování položek v seznamu (např. `v-for="user in users" v-if="user.isActive"`). V těchto případech nahraďte `users` novou computed proměnnou, která vrátí filtrovaný seznam (např. `activeUsers`).
 
-- Aby se zabránilo vykreslování seznamu, který by měl být v některých případech skrytý (např. `v-for="user in users" v-if="shouldShowUsers"`). Zde raději přesuňte `v-if` na mateřeský element (např. `ul`, `ol`).
+- Aby se zabránilo vykreslování seznamu, který by měl být v některých případech skrytý (např. `v-for="user in users" v-if="shouldShowUsers"`). Zde raději přesuňte `v-if` na mateřský element (např. `ul`, `ol`).
 :::
 
 ## Udržování stavu pomocí `key` {#maintaining-state-with-key}
 
-Když Vue aktualizuje seznam prvků vykreslených pomocí `v-for`, ve výchozím nastavení používá strategii „opravy na místě“. Pokud se pořadí datových položek změnilo, namísto přesování prvků DOM tak, aby odpovídaly pořadí položek, Vue každý prvek opraví na jeho místě a zajistí, aby odrážel to, co by se na daném místě mělo vykreslit.
+Když Vue aktualizuje seznam prvků vykreslených pomocí `v-for`, ve výchozím nastavení používá strategii „opravy na místě“. Pokud se pořadí datových položek změnilo, namísto přesouvání prvků DOM tak, aby odpovídaly pořadí položek, Vue každý prvek opraví na jeho místě a zajistí, aby odrážel to, co by se na daném místě mělo vykreslit.
 
 Tento výchozí režim je efektivní, ale **vhodný pouze tehdy, když výsledek vykreslení vašeho seznamu nezávisí na stavu podřízené komponenty nebo dočasném stavu DOM (např. vstupní hodnoty formulářů)**.
 

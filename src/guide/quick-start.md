@@ -24,7 +24,7 @@ import { VTCodeGroup, VTCodeGroupTab } from '@vue/theme'
 - Nainstalovaný [Node.js](https://nodejs.org/) ve verzi 18.3 nebo vyšší
   :::
 
-V této sekci si ukážeme jak vystavět základ Vue [Single Page aplikaci](/guide/extras/ways-of-using-vue#single-page-application-spa) na vašem lokálním počítači. Vytvořený projekt bude používat build setup založený na [Vite](https://vitejs.dev) a umožní nám použít Vue [Single-File komponenty](/guide/scaling-up/sfc) (SFCs).
+V této sekci si ukážeme, jak vystavět základ Vue [Single Page aplikaci](/guide/extras/ways-of-using-vue#single-page-application-spa) na vašem lokálním počítači. Vytvořený projekt bude používat build setup založený na [Vite](https://vitejs.dev) a umožní nám použít Vue [Single-File komponenty](/guide/scaling-up/sfc) (SFCs).
 
 Zkontrolujte, že máte nainstalovanou nejnovější verzi [Node.js](https://nodejs.org/) a váš aktuální pracovní adresář je ten, v němž chcete založit projekt. Spusťte ve vašem příkazovém řádku následující příkaz (bez znaku `$`):
 
@@ -181,7 +181,7 @@ Při použití Vue z CDN není v procesu žádná build fáze. Díky tomu je př
 
 ### Použití globálního buildu {#using-the-global-build}
 
-Výše uvedený odkaz vede na _globalní build_ Vue, kde jsou všechny API nejvyšší úrovně publikované jako vlastnosti globálního `Vue` objektu. Zde je kompletní příklad s použitím globálního buildu:
+Výše uvedený odkaz vede na _globální build_ Vue, kde jsou všechny API nejvyšší úrovně publikované jako vlastnosti globálního `Vue` objektu. Zde je kompletní příklad s použitím globálního buildu:
 
 <div class="options-api">
 
@@ -266,7 +266,7 @@ Ve zbytku dokumentace budeme primárně používat [ES modules](https://develope
 <div id="app">{{ message }}</div>
 
 <script type="module">
-  import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+  import { createApp,ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
 
   createApp({
     setup() {
@@ -296,7 +296,7 @@ Všimněte si, že používáme `<script type="module">` a importovaná CDN URL 
 
 ### Použití Import map {#enabling-import-maps}
 
-Ve výše uvedeníém příkladu importujeme z plné CDN URL, ale ve většině následující dokumentace uvidíte kód podobný tomuto:
+Ve výše uvedeném příkladu importujeme z plné CDN URL, ale ve většině následující dokumentace uvidíte kód podobný tomuto:
 
 ```js
 import { createApp } from 'vue'

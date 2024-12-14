@@ -188,7 +188,7 @@ Importy nejvyšší úrovně a proměnné deklarované v `<script setup>` jsou v
 :::tip 
 Ve zbytku průvodce budeme pro příklady kódu Composition API primárně používat syntaxi SFC + `<script setup>`, protože to je pro Vue vývojáře nejběžnější použití.
 
-Pokud SFC nepoužívate, pořád lze Composition API použít společně s možností [`setup()`](/api/composition-api-setup).
+Pokud SFC nepoužíváte, pořád lze Composition API použít společně s možností [`setup()`](/api/composition-api-setup).
 :::
 
 ### Proč používat refs? \*\* {#why-refs}
@@ -302,7 +302,7 @@ export default {
 
 <div class="composition-api">
 
-Refs mohou obsahovat hodnotu jakéhokoli typu, včetně hlubok vnořených objektů, polí a vestavěných JavaScipt datových struktur jako je `Map`.
+Refs mohou obsahovat hodnotu jakéhokoli typu, včetně hluboko vnořených objektů, polí a vestavěných JavaScipt datových struktur jako je `Map`.
 
 Ref svou hodnotu udělá hluboce reaktivní (deep reactivity). To znamená, že můžete očekávat detekci změn, i když změníte vnořené objekty nebo pole:
 
@@ -323,7 +323,7 @@ function mutateDeeply() {
 
 Jiné než primitivní hodnoty jsou převedeny na reaktivní proxy přes [`reactive()`](#reactive), o čemž mluvíme níže.
 
-Je také možné potlačit hlubokou reaktivitu pomocí [mělkých (shallow) refs](/api/reactivity-advanced#shallowref). U mělké reaktivity je reaktivně sledován pouze přístup na `.value`. Shallow refs mohou být použity pro optimalizaci výkonu díky potlačení náhladů na sledování velkých objektů nebo v případech, kdy je vnitřní stav pravován externí knihovnou.
+Je také možné potlačit hlubokou reaktivitu pomocí [mělkých (shallow) refs](/api/reactivity-advanced#shallowref). U mělké reaktivity je reaktivně sledován pouze přístup na `.value`. Shallow refs mohou být použity pro optimalizaci výkonu díky potlačení náhledů na sledování velkých objektů nebo v případech, kdy je vnitřní stav spravován externí knihovnou.
 
 Další informace:
 

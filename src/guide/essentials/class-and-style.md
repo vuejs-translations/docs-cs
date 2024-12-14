@@ -198,7 +198,7 @@ To však může být trochu nepřehledné, pokud máte podmíněných tříd ví
 
 Když použijete atribut `class` na komponentu s jedním root elementem, budou tyto třídy přidány do root elementu v komponentě a sloučeny s jakoukoli existující třídou, která se na něm již nachází.
 
-Například pokud máme komponentnu jménem `MyComponent` s následující šablonou:
+Například pokud máme komponentu jménem `MyComponent` s následující šablonou:
 
 ```vue-html
 <!-- šablona komponenty potomka -->

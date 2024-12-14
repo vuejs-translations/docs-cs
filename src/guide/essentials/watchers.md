@@ -128,7 +128,7 @@ watch(
   }
 )
 
-// pole více růzých zdrojů
+// pole více různých zdrojů
 watch([x, () => y.value], ([newX, newY]) => {
   console.log(`x is ${newX} and y is ${newY}`)
 })
@@ -277,7 +277,7 @@ watch(
 
 - Podporováno až od verze 3.4+
 
-Callback watcheru bude spuštěn kdykoli, když se změní sledovaný zdroj. Pokud ho po změně zdroje chcete spustit puze jednou, použijte nastavení `once: true`.
+Callback watcheru bude spuštěn kdykoli, když se změní sledovaný zdroj. Pokud ho po změně zdroje chcete spustit pouze jednou, použijte nastavení `once: true`.
 
 <div class="options-api">
 

@@ -91,7 +91,7 @@ export default {
 }
 ```
 
-Vemte ovšem na vědomí, že toto **nezajistí** reaktivitu implementace. Jak [udělat reaktivní implementaci](#working-with-reactivity) budeme probírat později.
+Vezměte ovšem na vědomí, že toto **nezajistí** reaktivitu implementace. Jak [udělat reaktivní implementaci](#working-with-reactivity) budeme probírat později.
 
 </div>
 

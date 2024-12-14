@@ -163,7 +163,7 @@ Někdy dostáváme zprávy o zranitelnostech týkajících se toho, jak je ve Vu
 
 2. Vývojář připojuje Vue k celé HTML stránce, která obsahuje na serveru vykreslený a&nbsp;uživatelem poskytovaný obsah. Jedná se zásadně o stejný problém jako v případě \#1, ale někdy mohou vývojáři takové připojení provést, aniž by si to uvědomili. To může vést k možným zranitelnostem, kdy útočník poskytuje HTML, které je bezpečné jako prostý HTML, ale nebezpečné jako Vue šablona. Nejlepší praxí je **nikdy nepřipojovat Vue k elementům, které mohou obsahovat na serveru vykreslený a&nbsp;uživatelem poskytovaný obsah**.
 
-## Osvěčené postupy {#best-practices}
+## Osvědčené postupy {#best-practices}
 
 Všeobecné pravidlo je, že pokud umožníte provádění neupraveného obsahu poskytnutého uživatelem (buď jako HTML, JavaScript nebo dokonce CSS), můžete se vystavit útokům. Tento návod ve skutečnosti platí bez ohledu na to, zda používáte Vue, jiný framework nebo dokonce žádný framework.
 
@@ -180,4 +180,4 @@ Zranitelnosti zabezpečení HTTP, jako je cross-site request forgery (CSRF/XSRF)
 
 ## Vykreslování na serveru (SSR) {#server-side-rendering-ssr}
 
-Při použití SSR existují některá další bezpečnostní rizika. Abyste se vyhnuli zranitelnostem, ujistěte se, že dodržujete osvěčené postupy uvedené v naší dokumentaci o [vykreslování na serveru](/guide/scaling-up/ssr).
+Při použití SSR existují některá další bezpečnostní rizika. Abyste se vyhnuli zranitelnostem, ujistěte se, že dodržujete osvědčené postupy uvedené v naší dokumentaci o [vykreslování na serveru](/guide/scaling-up/ssr).

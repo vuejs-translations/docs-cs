@@ -356,7 +356,7 @@ const alwaysSmall = computed({
 
 </div>
 
-## Osvěčené postupy {#best-practices}
+## Osvědčené postupy {#best-practices}
 
 ### Getter funkce by neměly mít vedlejší účinky {#getters-should-be-side-effect-free}
 

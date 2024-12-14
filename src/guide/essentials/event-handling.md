@@ -254,7 +254,7 @@ K vyřešení tohoto požadavku poskytuje Vue pro `v-on` **modifikátory událos
 Při použití modifikátorů záleží na pořadí, protože příslušný kód je ve stejném pořadí generován. Proto použití `@click.prevent.self` zabrání **výchozí akci kliknutí na element samotný i jeho potomky**, zatímco `@click.self.prevent` zabrání pouze výchozí akci kliknutí na samotný element.
 :::
 
-Modifikátory `.capture`, `.once` a `.passive` představují [možnosti natívní funkce `addEventListener`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#options):
+Modifikátory `.capture`, `.once` a `.passive` představují [možnosti nativní funkce `addEventListener`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#options):
 
 ```vue-html
 <!-- při přidávání event listeneru použít capture mód    -->

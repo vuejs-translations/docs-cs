@@ -8,7 +8,7 @@ Každá Vue aplikace začíná vytvořením nové **instance** pomocí funkce [`
 import { createApp } from 'vue'
 
 const app = createApp({
-  /* nastavení root kompomenty */
+  /* nastavení root komponenty */
 })
 ```
 
