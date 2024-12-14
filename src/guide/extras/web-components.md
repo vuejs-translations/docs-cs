@@ -213,13 +213,14 @@ Pokud chcete upravit, které soubory mají být v režimu custom elementu import
 
 ### Tipy pro knihovnu custom elementů Vue {#tips-for-a-vue-custom-elements-library}
 
-Při vytváření custom elementů s Vue jsou elementy závislé na běhovém prostředí Vue. Základní velikost je přibližně **16 kB** v závislosti na tom, kolik funkcí se používá. To znamená, že pokud dodáváte pouze jeden custom element, není ideální používat Vue - měli byste použít čistý JavaScript, [petite-vue](https://github.com/vuejs/petite-vue) nebo frameworky specializující se na malou runtime velikost. Základní velikost je více než ospravedlnitelná, pokud dodáváte kolekci custom elementů s komplexní logikou, protože Vue umožní napsat každou komponentu s mnohem menším množstvím kódu. Čím více elementů dodáváte společně, tím lepší je to kompromis.
+Při vytváření custom elementů s Vue jsou elementy závislé na běhovém prostředí Vue. Základní velikost je přibližně **16 kB** v závislosti na tom, kolik funkcí se používá. To znamená, že pokud dodáváte pouze jeden custom element, není ideální používat Vue - měli byste použít čistý JavaScript, [petite-vue](https://github.com/vuejs/petite-vue) nebo frameworky specializující se na malou runtime velikost. Základní velikost je více než ospravedlnitelná, pokud dodáváte kolekci custom elementů s komplexní logikou, protože Vue umožní napsat každou komponentu s&nbsp;mnohem menším množstvím kódu. Čím více elementů dodáváte společně, tím lepší je to kompromis.
 
 Pokud budou custom elementy použity v aplikaci, která Vue také používá, můžete se rozhodnout vyčlenit Vue z vytvořeného balíčku, aby elementy používaly stejnou kopii Vue z hostitelské aplikace.
 
 Je doporučeno exportovat jednotlivé konstruktory elementů, abyste uživatelům poskytli flexibilitu importovat je na vyžádání a registrovat je s požadovanými názvy tagů. Můžete také exportovat pohodlnou funkci pro automatickou registraci všech elementů. Zde je příklad vstupního bodu Vue knihovny custom elementů:
 
 ```js
+// elements.js
 import { defineCustomElement } from 'vue'
 import Foo from './MyFoo.ce.vue'
 import Bar from './MyBar.ce.vue'
@@ -236,30 +237,264 @@ export function register() {
 }
 ```
 
-Pokud máte mnoho komponent, můžete také využít funkce build nástroje, jako je [globální import pro Vite](https://vitejs.dev/guide/features.html#glob-import) nebo [`require.context` pro webpack](https://webpack.js.org/guides/dependency-management/#requirecontext), abyste načetli všechny komponenty z adresáře.
+Konzument může elementy použít ve Vue souboru:
+```vue
+<script setup>
+import { register } from 'path/to/elements.js'
+register()
+</script>
+<template>
+  <my-foo ... >
+    <my-bar ... ></my-bar>
+  </my-foo>
+</template>
+```
 
-### Web Components a TypeScript {#web-components-and-typescript}
+Nebo v jakémkoliv jiném frameworku, například s využitím JSX a custom názvy:
+```jsx
+import { MyFoo, MyBar } from 'path/to/elements.js'
+customElements.define('some-foo', MyFoo)
+customElements.define('some-bar', MyBar)
+export function MyComponent() {
+  return <>
+    <some-foo ... >
+      <some-bar ... ></some-bar>
+    </some-foo>
+  </>
+}
+```
 
-Pokud vyvíjíte aplikaci nebo knihovnu, můžete chtít [ověřovat typy](/guide/scaling-up/tooling.html#typescript) vašich Vue komponent, včetně těch, které jsou definovány jako custom elementy.
+### Na Vue založené Web Components a TypeScript {#web-components-and-typescript}
+
+Pokud píšete šablony Vue SFC komponent, můžete chtít [ověřovat typy](/guide/scaling-up/tooling.html#typescript) použitých Vue komponent, včetně těch, které jsou definovány jako custom elementy.
 
 Custom elementy jsou registrovány globálně pomocí nativních API, takže ve výchozím nastavení nemají při použití ve Vue šablonách odvozování typů. Abyste poskytli podporu typů pro Vue komponenty registrované jako custom elementy, můžeme zaregistrovat globální typy komponent pomocí rozhraní [`GlobalComponents`](https://github.com/vuejs/language-tools/wiki/Global-Component-Types) ve Vue šablonách a/nebo v&nbsp;[JSX](https://www.typescriptlang.org/docs/handbook/jsx.html#intrinsic-elements):
 
 ```typescript
 import { defineCustomElement } from 'vue'
 
-// Vue SFC
-import CounterSFC from './src/components/counter.ce.vue'
+// import Vue komponenty
+import SomeComponent from './src/components/SomeComponent.ce.vue'
 
-// převést komponentu na custom element
-export const Counter = defineCustomElement(CounterSFC)
+// transformovat Vue komponentu na třídu Custom Element
+export const SomeElement = defineCustomElement(SomeComponent)
 
-// zaregistrovat globální typy
+// nezapomeňte registrovat třídu elementu v browseru 
+customElements.define('some-element', SomeElement)
+
+// přidat nový typ elementu do Vue GlobalComponents
 declare module 'vue' {
-  export interface GlobalComponents {
-    Counter: typeof Counter
+  interface GlobalComponents {
+    // ujistěte se, že předáváte Vue typ komponenty
+    // (SomeComponent a nikoliv SomeElement)
+    // custom elementy vyžadují v názvu pomlčku (hyphen),
+    // použjite tedy jejich kebab-cased název
+    'some-element': typeof SomeComponent
   }
 }
 ```
+
+## Web Components a TypeScript {#non-vue-web-components-and-typescript}
+
+Toto je doporučený postup, jak umožnit kontrolu typů v SFC šablonách pro Custom elementy, které nejou vytvořeny pomocí Vue.
+
+> [!Info]
+> Jde o obecně platný způsob, jak to udělat, ale detaily se mohou se trochu lišit 
+> v závislosti na frameworku použitém pro vytvoření custom elementu.
+
+Předpokládejme, že máme definován custom element s nějakými JS atributy a událostmi, který je distribuován v knihovně nazvané `some-lib`:
+
+```ts
+// soubor: some-lib/src/SomeElement.ts
+
+// definice třídy s typovanými JS atributy
+export class SomeElement extends HTMLElement {
+  foo: number = 123
+  bar: string = 'blah'
+
+  lorem: boolean = false
+
+  // tato metoda nemá být vystavena do typů pro šablonu
+  someMethod() {
+    /* ... */
+  }
+
+  // ... implemetační detaily vynecháváme ...
+  // ... předpokládejme, že element vyvolává událost jménem "apple-fell"...
+}
+
+customElements.define('some-element', SomeElement)
+
+// Toto je seznam vlastností SomeElement, které budou vybrány pro typovou
+// kontrolu v šablonách frameworku (např. Vue SFC šablony). Jakékoliv jiné
+// vlastnosti nebudou vystaveny.
+export type SomeElementAttributes = 'foo' | 'bar'
+
+// Definice typů událostí, které SomeEvent vyvolává.
+export type SomeElementEvents = {
+  'apple-fell': AppleFellEvent
+}
+
+export class AppleFellEvent extends Event {
+  /* ... implemetační detaily vynecháváme ... */
+}
+```
+Implemetační detaily byly vynechány, ale důležité je, že máme dva druhy definic typů - pro vlastnosti (props) a pro události (emits).
+
+Vytvořme pomocnou funkci pro snadnou registraci definic typů custom elementů ve Vue:
+
+```ts
+// soubor: some-lib/src/DefineCustomElement.ts
+
+// Tuto pomocnou funkci můžeme znovupoužít pro každý prvek,
+// který potřebujeme definovat.
+type DefineCustomElement<
+  ElementType extends HTMLElement,
+  Events extends EventMap = {},
+  SelectedAttributes extends keyof ElementType = keyof ElementType
+> = new () => ElementType & {
+  // Použijte $props pro definici vlastností (props) vystavených pro kontrolu 
+  // typů v šabloně. Vue specificky čte jejich definice z typu `$props`. 
+  // Pamatujte, že kombinujeme props elementu s globálními HTML atrbuty 
+  // a speciálními vlastnostmi Vue.
+  /** @deprecated Nepoužívejte $props na Custom Element ref, 
+   *  toto je určeno pouze pro template prop typy */
+  $props: HTMLAttributes &
+    Partial<Pick<ElementType, SelectedAttributes>> &
+    PublicProps
+
+  // Použijte $emit pro definici typů událostí. Vue specificky čte jejich 
+  // definice z typu `$emit`. Pamatujte, že `$emit` očekává určitý formát, 
+  // který mapujeme na `Events`.
+  /** @deprecated Nepoužívejte $emit na Custom Element ref, 
+   *  toto je určeno pouze pro template prop typy */
+  $emit: VueEmit<Events>
+}
+
+type EventMap = {
+  [event: string]: Event
+}
+
+// Zde se mapuje EventMap na formát, který očekává Vue typ pro $emit.
+type VueEmit<T extends EventMap> = EmitFn<{
+  [K in keyof T]: (event: T[K]) => void
+}>
+```
+
+> [!Info]
+> Označili jsme `$props` a `$emit` jako deprecated, abychom při získání `ref`
+> na custom element nebyli v pokušení tyto vlastnosti použít. Slouží totiž
+> pouze k ověřování typů u&nbsp;custom elementů. Ve skutečnosti na instancích
+> těchto elementů neexistují.
+
+Prostřednictvím pomocné funkce nyní můžeme vybrat Javascriptové vlastnosti,
+které mají být vystaveny pro typovou kontrolu ve Vue šablonách:
+
+```ts
+// soubor: some-lib/src/SomeElement.vue.ts
+
+import {
+  SomeElement,
+  SomeElementAttributes,
+  SomeElementEvents
+} from './SomeElement.js'
+import type { Component } from 'vue'
+import type { DefineCustomElement } from './DefineCustomElement'
+
+// Přidat nový typ element k Vue typu GlobalComponents.
+declare module 'vue' {
+  interface GlobalComponents {
+    'some-element': DefineCustomElement<
+      SomeElement,
+      SomeElementAttributes,
+      SomeElementEvents
+    >
+  }
+}
+```
+
+Řekněme, že `some-lib` vytváří své zdrojové TypeScript soubory do adresáře `dist/` folder. Uživatel `some-lib` poté může importovat `SomeElement` a použít jej ve Vue SFC komponentě takto:
+
+```vue
+<script setup lang="ts">
+// toto vytvoří a registruje element v prohlížeči
+import 'some-lib/dist/SomeElement.js'
+
+// Uživatel TypeScriptu a Vue může dodatečně importovat definici typů
+// specifickou pro Vue (uživatelé jiných frameworků mohou importovat
+// jiné definice specifické pro jiné frameworky).
+import type {} from 'some-lib/dist/SomeElement.vue.js'
+
+import { useTemplateRef, onMounted } from 'vue'
+
+const el = useTemplateRef('el')
+
+onMounted(() => {
+  console.log(
+    el.value!.foo,
+    el.value!.bar,
+    el.value!.lorem,
+    el.value!.someMethod()
+  )
+
+  // Nepoužívejte tyto vlastnosti, které jsou `undefined`
+  // (IDE je rovnou zobrazí přeškrtnuté)
+  el.$props
+  el.$emit
+})
+</script>
+
+<template>
+  <!-- Nyní můžeme použít element s typovou kontrolou: -->
+  <some-element
+    ref="el"
+    :foo="456"
+    :blah="'hello'"
+    @apple-fell="
+      (event) => {
+        // Typ proměnné `event` je zde odvozen na `AppleFellEvent`
+      }
+    "
+  ></some-element>
+</template>
+```
+
+Pokud element typové definice nemá, mohou být typy vlastností a událostí definovány více ručním způsobem:
+
+```vue
+<script setup lang="ts">
+// řekněme, že `some-lib` je čistý JavaScript bez typových definic
+// a TypeScript nemůže typy sám odvodit:
+import { SomeElement } from 'some-lib'
+
+// Použijeme stejnou pomocnou funkci pro typy jako předtím.
+import { DefineCustomElement } from './DefineCustomElement'
+
+type SomeElementProps = { foo?: number; bar?: string }
+type SomeElementEvents = { 'apple-fell': AppleFellEvent }
+interface AppleFellEvent extends Event {
+  /* ... */
+}
+
+// Přidat nový typ elementu do Vue typu GlobalComponents.
+declare module 'vue' {
+  interface GlobalComponents {
+    'some-element': DefineCustomElement<
+      SomeElementProps,
+      SomeElementEvents
+    >
+  }
+}
+
+// ... stejně jako předtím použijte referenci na element ...
+</script>
+
+<template>
+  <!-- ... stejně jako předtím použijte element v šabloně ... -->
+</template>
+```
+
+Autoři custom elementů by neměli typové definice specifické pro jednotlivé frameworky automaticky exportovat v rámci svých knihoven. Například by je neměli zahrnovat do souboru `index.ts`, odkud se exportuje i zbytek knihovny. Jinak mohou uživatelé narazit na nečekané chyby při rozšiřování modulů. Uživatelé by si sami měli importovat definiční soubor typů specifický pro framework, který potřebují.
 
 ## Web Components vs. Vue komponenty {#web-components-vs-vue-components}
 
