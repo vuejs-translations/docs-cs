@@ -136,7 +136,7 @@ Název pochází ze stejného konceptu jako [`DocumentFragment`](https://develop
 
 Fragmenty se používají k podpoře komponent s více root elementy. I když se takové komponenty mohou jevit jako s více kořeny, v pozadí používají fragmentový uzel jako jediný kořen, jako rodiče „root“ elementů.
 
-Fragmenty jsou také použivány kompilátorem šablon jako způsob obalení více dynamických uzlů, například těch vytvořených pomocí `v-for` nebo `v-if`. To umožňuje předávat další informace algoritmu pro úpravu [VDOM](#virtual-dom). Většina toho je řešena interně, ale jedno místo, kde se s tím můžete setkat přímo, je použití atributu `key` na elementu `<template>` s `v-for`. V tomto scénáři je `key` přidán jako [vlastnost (prop)](#prop) do fragmentového VNode.
+Fragmenty jsou také používány kompilátorem šablon jako způsob obalení více dynamických uzlů, například těch vytvořených pomocí `v-for` nebo `v-if`. To umožňuje předávat další informace algoritmu pro úpravu [VDOM](#virtual-dom). Většina toho je řešena interně, ale jedno místo, kde se s tím můžete setkat přímo, je použití atributu `key` na elementu `<template>` s `v-for`. V tomto scénáři je `key` přidán jako [vlastnost (prop)](#prop) do fragmentového VNode.
 
 Fragmentové uzly jsou v současné době vykreslovány do DOM jako prázdné textové uzly, byť jde o implementační detail. Můžete však na tyto textové uzly narazit, pokud používáte `$el` nebo se pokoušíte procházet DOM pomocí vestavěných API prohlížeče.
 
@@ -300,7 +300,7 @@ Další podrobnosti naleznete zde:
 
 > Tento záznam se zabývá použitím `ref` pro reaktivitu. Pro atribut `ref` používaný v&nbsp;šablonách se podívejte na [template ref](#template-ref).
 
-`ref` je součástí systému reaktivty ve Vue. Jedná se o objekt s jedinou reaktivní vlastností, nazvanou `value`.
+`ref` je součástí systému reaktivity ve Vue. Jedná se o objekt s jedinou reaktivní vlastností, nazvanou `value`.
 
 Existuje několik různých typů `ref`. Například `ref()`, `shallowRef()`, `computed()` a&nbsp;`customRef()`. Funkce `isRef()` se používá k ověření, zda se jedná o ref, a&nbsp;`isReadonly()` lze použít ke kontrole, zda ref umožňuje přímé přiřazení do své hodnoty.
 
@@ -330,7 +330,7 @@ Scheduler také používá úlohy k provádění různých dalších interních 
 
 Termín *scoped slot* se používá k označení [slotu](#slot), který přijímá [vlastnosti (props)](#prop).
 
-Historicky mělo Vue mnohem větší rozlišení mezi scoped a non-scoped sloty. Do jisté míry mohly být považovány za dvě samostatné funkce, sjednocené za společnnou syntaxí v šabloně.
+Historicky mělo Vue mnohem větší rozlišení mezi scoped a non-scoped sloty. Do jisté míry mohly být považovány za dvě samostatné funkce, sjednocené za společnou syntaxí v šabloně.
 
 Ve Vue 3 bylo API slotů zjednodušeno tak, aby se všechny sloty chovaly jako scoped sloty. Nicméně, použití scoped a non-scoped slotů se často liší, takže termín stále slouží jako způsob odkazování na sloty s vlastnostmi.
 

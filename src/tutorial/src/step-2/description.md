@@ -6,7 +6,7 @@ To, co vidíte v editoru je Vue Single-File komponenta (SFC). SFC je znovupouži
 
 </div>
 
-Klíčová vlastnost Vue je **deklarativní vykreslování**: použitím šablonové (template) syntaxe, která rozšřiuje HTML, můžeme popsat, jak má HTML vypadat v závislosti na stavu JavaScript objektů. Když se stav změní, HTML se automaticky aktualizuje.
+Klíčová vlastnost Vue je **deklarativní vykreslování**: použitím šablonové (template) syntaxe, která rozšiřuje HTML, můžeme popsat, jak má HTML vypadat v závislosti na stavu JavaScript objektů. Když se stav změní, HTML se automaticky aktualizuje.
 
 <div class="composition-api">
 

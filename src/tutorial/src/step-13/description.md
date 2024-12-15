@@ -49,7 +49,7 @@ export default {
 
 </div>
 
-První parametr <span class="options-api">`this.$emit()`</span><span class="composition-api">`emit()`</span> je název události. Jakékoli další paremtry jsou předávány na event listener.
+První parametr <span class="options-api">`this.$emit()`</span><span class="composition-api">`emit()`</span> je název události. Jakékoli další parametry jsou předávány na event listener.
 
 Rodič může naslouchat událostem vysílaným z potomka pomocí `v-on` - zde handler obdrží další parametr z volání z potomka a nastaví jej do lokální proměnné:
 

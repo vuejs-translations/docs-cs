@@ -103,4 +103,4 @@ createApp({
 
 Computed proměnná sleduje další reaktivní stavy použité při jejím výpočtu jako své závislosti. Výsledek uloží do mezipaměti (cache) a&nbsp;automaticky jej aktualizuje, když se jeho závislosti změní.
 
-Nyní zkuste přidat computed proměnnou `filteredTodos` a doplňit její&nbsp;výpočetní logiku! Pokud je implementována správně, při zapnutém skrývání dokončených položek by mělo zaškrtnutí úkolu okamžitě příslušný úkol skrýt.
+Nyní zkuste přidat computed proměnnou `filteredTodos` a doplnit její&nbsp;výpočetní logiku! Pokud je implementována správně, při zapnutém skrývání dokončených položek by mělo zaškrtnutí úkolu okamžitě příslušný úkol skrýt.

@@ -40,4 +40,4 @@ Zde používáme sekci `watch` ke sledování změn vlastnosti `count`. Když se
 
 </div>
 
-Praktičtější ukázkou než logování do konzole bude načítání nových dat při změně ID. Kód, který máme k dispozici, načítá po připojení (mount) komponenty data úkolů z falešného API. K dispozici je také tlačítko, které zvyšuje ID úkolu, který by měl být načten. Zkuste implementovat watcher, který po kliknutí na tlačítko načte nový úkol.
+Praktičtější ukázkou, než logování do konzole bude načítání nových dat při změně ID. Kód, který máme k dispozici, načítá po připojení (mount) komponenty data úkolů z falešného API. K dispozici je také tlačítko, které zvyšuje ID úkolu, který by měl být načten. Zkuste implementovat watcher, který po kliknutí na tlačítko načte nový úkol.
