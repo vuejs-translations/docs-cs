@@ -133,7 +133,7 @@ Komponentu lze testovat dvěma způsoby:
 
 ## Testování komponent {#component-testing}
 
-V Vue aplikacích jsou komponenty hlavními stavebními bloky uživatelského rozhraní. Komponenty jsou tedy přirozenou jednotkou izolace při ověřování chování vaší aplikace. Z hlediska granularity lze testování komponent považovat za formu integračního testování, které se nachází někde mezi jednotkovým testováním a testováním aplikace jako celku. Doporučujeme, aby každá Vue komponenta měla vlastní soubor specifikace (spec file).
+Ve Vue aplikacích jsou komponenty hlavními stavebními bloky uživatelského rozhraní. Komponenty jsou tedy přirozenou jednotkou izolace při ověřování chování vaší aplikace. Z hlediska granularity lze testování komponent považovat za formu integračního testování, které se nachází někde mezi jednotkovým testováním a testováním aplikace jako celku. Doporučujeme, aby každá Vue komponenta měla vlastní soubor specifikace (spec file).
 
 Komponentové testy by měly odhalovat problémy související s vlastnostmi komponenty, událostmi, sloty, styly, třídami, lifecycle hooky a dalšími.
 

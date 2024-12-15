@@ -94,7 +94,7 @@ Pro aplikace používající Vue Router se silně doporučuje používat „lazy
 
 ### Stabilita vlastností (props) {#props-stability}
 
-V Vue se komponenta potomka aktualizuje pouze tehdy, když se změní alespoň jedna z&nbsp;jeho přijatých vlastností (props). Uvažte následující příklad:
+Ve Vue se komponenta potomka aktualizuje pouze tehdy, když se změní alespoň jedna z&nbsp;jeho přijatých vlastností (props). Uvažte následující příklad:
 
 ```vue-html
 <ListItem

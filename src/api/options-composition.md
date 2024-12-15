@@ -88,7 +88,7 @@ Deklaruje vlastnosti, které se mají implementovat do aktuální komponenty vyh
 
   Implementovaná vlastnost bude `undefined`, pokud nebyla poskytnuta odpovídající vlastnost ani výchozí hodnota.
 
-  Všimněte si, že vazby implemetovaných hodnot **nejsou reaktivní**. To je záměrné. Nicméně, pokud je vložená hodnota reaktivní objekt, vlastnosti tohoto objektu zůstávají reaktivní. Pro více informací se podívejte na [Práci s reaktivitou](/guide/components/provide-inject#working-with-reactivity).
+  Všimněte si, že vazby implementovaných hodnot **nejsou reaktivní**. To je záměrné. Nicméně, pokud je vložená hodnota reaktivní objekt, vlastnosti tohoto objektu zůstávají reaktivní. Pro více informací se podívejte na [Práci s reaktivitou](/guide/components/provide-inject#working-with-reactivity).
 
 - **Příklad**
 
@@ -188,7 +188,7 @@ Pole objektů s možnostmi (options), které se mají smíchat do aktuální kom
   Hooks pro mixins jsou volány v pořadí, v jakém jsou poskytnuty, a před hooks samotného komponentu.
 
   :::warning Už není doporučeno
-  V Vue 2 byly mixinové funkce hlavním mechanismem pro vytváření znovupoužitelných částí logiky komponenty. Ačkoli jsou mixinové funkce ve Vue 3 nadále podporovány, nyní jsou preferovaným přístupem pro znovupoužití kódu mezi komponentami [composable funkce pomocí Composition API](/guide/reusability/composables).
+  Ve Vue 2 byly mixinové funkce hlavním mechanismem pro vytváření znovupoužitelných částí logiky komponenty. Ačkoli jsou mixinové funkce ve Vue 3 nadále podporovány, nyní jsou preferovaným přístupem pro znovupoužití kódu mezi komponentami [composable funkce pomocí Composition API](/guide/reusability/composables).
   :::
 
   - **Příklad**

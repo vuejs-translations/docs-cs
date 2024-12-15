@@ -6,7 +6,7 @@ Považujeme Vue a Web Components především za doplňkové technologie. Vue m�
 
 ## Použití custom elementů ve Vue {#using-custom-elements-in-vue}
 
-Vue [dosahuje v testech Custom Elements Everywhere perfektního skóre 100%](https://custom-elements-everywhere.com/libraries/vue/results/results.html). Konzumace custom elementů uvnitř Vue aplikace funguje v podstatě stejně jako používání nativních HTML elementů s několika záležitostmi, na které je třeba pamatovat:
+Vue [dosahuje v testech Custom Elements Everywhere perfektního skóre 100 %](https://custom-elements-everywhere.com/libraries/vue/results/results.html). Konzumace custom elementů uvnitř Vue aplikace funguje v podstatě stejně jako používání nativních HTML elementů s několika záležitostmi, na které je třeba pamatovat:
 
 ### Přeskočení řešení komponent {#skipping-component-resolution}
 
@@ -296,7 +296,7 @@ declare module 'vue' {
 
 ## Web Components a TypeScript {#non-vue-web-components-and-typescript}
 
-Toto je doporučený postup, jak umožnit kontrolu typů v SFC šablonách pro Custom elementy, které nejou vytvořeny pomocí Vue.
+Toto je doporučený postup, jak umožnit kontrolu typů v SFC šablonách pro Custom elementy, které nejsou vytvořeny pomocí Vue.
 
 > [!Info]
 > Jde o obecně platný způsob, jak to udělat, ale detaily se mohou se trochu lišit 
@@ -319,7 +319,7 @@ export class SomeElement extends HTMLElement {
     /* ... */
   }
 
-  // ... implemetační detaily vynecháváme ...
+  // ... implementační detaily vynecháváme ...
   // ... předpokládejme, že element vyvolává událost jménem "apple-fell"...
 }
 
@@ -336,10 +336,10 @@ export type SomeElementEvents = {
 }
 
 export class AppleFellEvent extends Event {
-  /* ... implemetační detaily vynecháváme ... */
+  /* ... implementační detaily vynecháváme ... */
 }
 ```
-Implemetační detaily byly vynechány, ale důležité je, že máme dva druhy definic typů - pro vlastnosti (props) a pro události (emits).
+Implementační detaily byly vynechány, ale důležité je, že máme dva druhy definic typů - pro vlastnosti (props) a pro události (emits).
 
 Vytvořme pomocnou funkci pro snadnou registraci definic typů custom elementů ve Vue:
 
@@ -387,7 +387,7 @@ type VueEmit<T extends EventMap> = EmitFn<{
 > pouze k ověřování typů u&nbsp;custom elementů. Ve skutečnosti na instancích
 > těchto elementů neexistují.
 
-Prostřednictvím pomocné funkce nyní můžeme vybrat Javascriptové vlastnosti,
+Prostřednictvím pomocné funkce nyní můžeme vybrat JavaScriptové vlastnosti,
 které mají být vystaveny pro typovou kontrolu ve Vue šablonách:
 
 ```ts

@@ -1,6 +1,6 @@
 # Způsoby použití Vue {#ways-of-using-vue}
 
-Věříme, že pro web neexistuje „univerzální řešení“. Proto je Vue navrženo tak, aby bylo flexibilní a adoptovatelné postupně. V závislosti na vašich potřebých může být Vue použito různými způsoby, abyste dosáhli optimální rovnováhy mezi složitostí technologického stacku, zkušenostmi vývojáře a cílovým výkonem aplikace.
+Věříme, že pro web neexistuje „univerzální řešení“. Proto je Vue navrženo tak, aby bylo flexibilní a adoptovatelné postupně. V závislosti na vašich potřebných může být Vue použito různými způsoby, abyste dosáhli optimální rovnováhy mezi složitostí technologického stacku, zkušenostmi vývojáře a cílovým výkonem aplikace.
 
 ## Samostatný skript {#standalone-script}
 

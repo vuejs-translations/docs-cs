@@ -7,7 +7,7 @@ import AnimateWatcher from './demos/AnimateWatcher.vue'
 
 # Techniky animace {#animation-techniques}
 
-Vue poskytuje komponenty [`<Transition>`](/guide/built-ins/transition) a [`<TransitionGroup>`](/guide/built-ins/transition-group) pro zpracování vstupů/odchodů a přechodů v rámci seznamu. Na webu ovšem existuje mnoho dalších způsobů použití animací, dokonce i ve Vue aplkacích. Zde si představíme několik dalších technik.
+Vue poskytuje komponenty [`<Transition>`](/guide/built-ins/transition) a [`<TransitionGroup>`](/guide/built-ins/transition-group) pro zpracování vstupů/odchodů a přechodů v rámci seznamu. Na webu ovšem existuje mnoho dalších způsobů použití animací, dokonce i ve Vue aplikacích. Zde si představíme několik dalších technik.
 
 ## Animace založené na třídách {#class-based-animations}
 

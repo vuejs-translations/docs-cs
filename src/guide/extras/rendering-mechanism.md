@@ -10,7 +10,7 @@ Jak Vue převádí šablonu na skutečné DOM elementy? Jak Vue tyto uzly efekti
 
 O termínu „virtuální DOM“ jste již pravděpodobně slyšeli. Na něm je vykreslovací systém Vue založený.
 
-Virtuální DOM (VDOM) je programovací koncept, kde je ideální, neboli „virtuální“, reprezentace UI uchovávána v paměti a synchronizována s „reálným“ DOM. Tento koncept byl vyvinutý v rámci [Reactu](https://reactjs.org/) a byl s různými implementacemi převzat mnoha dalšími frameworky, včetně Vue.
+Virtuální DOM (VDOM) je programovací koncept, kde je ideální neboli „virtuální“ reprezentace UI uchovávána v paměti a synchronizována s „reálným“ DOM. Tento koncept byl vyvinutý v rámci [Reactu](https://reactjs.org/) a byl s různými implementacemi převzat mnoha dalšími frameworky, včetně Vue.
 
 Virtuální DOM je spíše vzor než konkrétní technologie, takže neexistuje jedna kanonická implementace. Můžeme si to ilustrovat na jednoduchém příkladu:
 
@@ -54,7 +54,7 @@ Vue šablony jsou kompilovány do funkcí pro vykreslování virtuálního DOM. 
 
 Proč tedy Vue primárně doporučuje šablony? Existuje několik důvodů:
 
-1. Šablony jsou blíže skutečnému HTML. To usnadňuje znovupoužití existujících HTML fragmentů, aplikaci osvěčených postupů pro přístupnost, stylování pomocí CSS a je to lepší pro porozumění a úpravy ze strany designérů.
+1. Šablony jsou blíže skutečnému HTML. To usnadňuje znovupoužití existujících HTML fragmentů, aplikaci osvědčených postupů pro přístupnost, stylování pomocí CSS a je to lepší pro porozumění a úpravy ze strany designérů.
 
 2. Šablony jsou snáze staticky analyzovatelné díky své deterministické syntaxi. To umožňuje kompilátoru Vue šablon provádět v době kompilace mnoho optimalizací, aby se zlepšil výkon virtuálního DOM (o čemž se budeme bavit níže).
 

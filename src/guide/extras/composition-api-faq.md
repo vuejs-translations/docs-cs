@@ -20,7 +20,7 @@ Composition API je sada API, která nám umožňuje vytvářet Vue komponenty po
 
 - [Dependency Injection](/api/composition-api-dependency-injection), tj. `provide()` a `inject()`, které nám umožňují využívat systém závislostí Vue při používání Reactivity API.
 
-Composition API je vestavěnou funkcí Vue 3 a [Vue 2.7](https://blog.vuejs.org/posts/vue-2-7-naruto.html). Pro starší verze Vue 2 použijte oficiálně udržovaný plugin [`@vue/composition-api`](https://github.com/vuejs/composition-api). V Vue 3 se primárně používá společně se syntaxí [`<script setup>`](/api/sfc-script-setup) v Single-File komponentách (SFC). Zde je základní příklad komponenty používající Composition API:
+Composition API je vestavěnou funkcí Vue 3 a [Vue 2.7](https://blog.vuejs.org/posts/vue-2-7-naruto.html). Pro starší verze Vue 2 použijte oficiálně udržovaný plugin [`@vue/composition-api`](https://github.com/vuejs/composition-api). Ve Vue 3 se primárně používá společně se syntaxí [`<script setup>`](/api/sfc-script-setup) v Single-File komponentách (SFC). Zde je základní příklad komponenty používající Composition API:
 
 ```vue
 <script setup>
@@ -55,7 +55,7 @@ Pokud máte zájem naučit se používat Vue s Composition API, můžete nastavi
 
 Hlavní výhodou Composition API je, že umožňuje čisté a efektivní opakování logiky ve formě [composable funkcí](/guide/reusability/composables). Řeší [všechny nevýhody mixins](/guide/reusability/composables#vs-mixins), primárního mechanismu znovupoužitelné logiky pro Options API.
 
-Schopnost Composition API opakovat logiku vedla k vzniku působobivých komunitních projektů, jako je [VueUse](https://vueuse.org/), neustále se rozšiřující sbírka composable utilit. Taktéž slouží jako čistý mechanismus pro snadné integrování stavových služeb nebo knihoven třetích stran do reaktivního systému Vue, například [neměnitelná data](/guide/extras/reactivity-in-depth#immutable-data), [stavové automaty](/guide/extras/reactivity-in-depth#state-machines) a&nbsp;[RxJS](/guide/extras/reactivity-in-depth#rxjs).
+Schopnost Composition API opakovat logiku vedla k vzniku působivých komunitních projektů, jako je [VueUse](https://vueuse.org/), neustále se rozšiřující sbírka composable utilit. Taktéž slouží jako čistý mechanismus pro snadné integrování stavových služeb nebo knihoven třetích stran do reaktivního systému Vue, například [neměnitelná data](/guide/extras/reactivity-in-depth#immutable-data), [stavové automaty](/guide/extras/reactivity-in-depth#state-machines) a&nbsp;[RxJS](/guide/extras/reactivity-in-depth#rxjs).
 
 ### Flexibilnější organizace kódu {#more-flexible-code-organization}
 

@@ -93,7 +93,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 ```
 
-Výše uvedené bude pro runtime vlastnosti přeloženo na ekvivalentní `default` vlastnosti. Navíc pomocná funkce `withDefaults` poskytuje typovou kontrolu pro výchozí hodnoty a&nbsp;zajistí, že vrácený typ `props` má odstraněny příznaky volitelosti pro ty vlastnosti, které mají výchozí hodnoty deklarované.
+Výše uvedené bude pro runtime vlastnosti přeloženo na ekvivalentní `default` vlastnosti. Navíc pomocná funkce `withDefaults` poskytuje typovou kontrolu pro výchozí hodnoty a&nbsp;zajistí, že vrácený typ `props` má odstraněny příznaky volitelnosti pro ty vlastnosti, které mají výchozí hodnoty deklarované.
 
 :::info
 Pamatujte, že výchozí hodnoty pro měnitelné (mutable) referenční typy (jako jsou pole či objekty) by měly být při použití `withDefaults` zabaleny do funkcí, aby se předešlo nechtěným změnám a vedlejším efektům zvnějšku. Použití funkce zajistí, že každá instance komponenty dostane svou vlastní kopii výchozí hodnoty. U reaktivního dekonstruování proměnných to potřeba **není**.
@@ -161,7 +161,7 @@ Možnost `props` se nejčastěji používá s Options API, takže podrobnější
 
 ## Typování emitovaných událostí komponenty {#typing-component-emits}
 
-Ve `<script setup>` může být funkce `emit` také typována pomocí buď runtíme deklarace NEBO deklarace na základě typu:
+Ve `<script setup>` může být funkce `emit` také typována pomocí buď runtime deklarace NEBO deklarace na základě typu:
 
 ```vue
 <script setup lang="ts">
@@ -441,7 +441,7 @@ import type { ComponentPublicInstance } from 'vue'
 const child = useTemplateRef<ComponentPublicInstance>('child')
 ```
 
-V případech, kdy je odkazována [generická komponenta](/guide/typescript/overview.html#generic-components), napřklad tato `MyGenericModal`:
+V případech, kdy je odkazována [generická komponenta](/guide/typescript/overview.html#generic-components), například tato `MyGenericModal`:
 
 ```vue
 <!-- MyGenericModal.vue -->

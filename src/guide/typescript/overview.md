@@ -4,7 +4,7 @@ outline: deep
 
 # Používání Vue s TypeScriptem {#using-vue-with-typescript}
 
-Typový systém jako TypeScript dokáže pomocí statické analýzy při buildu odhalit mnoho běžných chyb. Tím snižuje riziko runtime chyb v produkci a také nám umožňuje s větší jistotou refaktorovat kód ve velkých aplikacích. TypeScript také zlepšuje ergonomi pro vývojáře pomocí automatického doplňování na základě typů v IDE.
+Typový systém jako TypeScript dokáže pomocí statické analýzy při buildu odhalit mnoho běžných chyb. Tím snižuje riziko runtime chyb v produkci a také nám umožňuje s větší jistotou refaktorovat kód ve velkých aplikacích. TypeScript také zlepšuje ergonomii pro vývojáře pomocí automatického doplňování na základě typů v IDE.
 
 Vue je samo o sobě v TypeScriptu napsáno a poskytuje pro TypeScript plnou podporu. Všechny oficiální Vue balíčky obsahují zabalené deklarace typů, které by měly fungovat ihned po instalaci.
 

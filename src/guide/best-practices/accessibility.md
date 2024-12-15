@@ -1,6 +1,6 @@
 # Přístupnost {#accessibility}
 
-Přístupnost (accessibility) webu (také známá jako a11y) označuje praxi vytváření webových stránek, které mohou být používány kýmkoli - ať už se jedná o osobu s&nbsp;postižením, pomalým připojením, zastaralým nebo nefunkčním hardwarem nebo jednoduše o někoho v nevhodném prostředí. Například přidání titulků k videu pomůže jak uživatelům se sluchovým postižením, tak uživatelům, kteří se nacházejí v hlučném prostředí a nemohou svůj telefon slyšet. Stejně tak ujištšní se, že váš text nemá příliš nízký kontrast, pomůže jak uživatelům se zrakovým postižením, tak uživatelům, kteří se snaží svůj telefon používat na přímém slunci.
+Přístupnost (accessibility) webu (také známá jako a11y) označuje praxi vytváření webových stránek, které mohou být používány kýmkoli - ať už se jedná o osobu s&nbsp;postižením, pomalým připojením, zastaralým nebo nefunkčním hardwarem nebo jednoduše o někoho v nevhodném prostředí. Například přidání titulků k videu pomůže jak uživatelům se sluchovým postižením, tak uživatelům, kteří se nacházejí v hlučném prostředí a nemohou svůj telefon slyšet. Stejně tak ujištění se, že váš text nemá příliš nízký kontrast, pomůže jak uživatelům se zrakovým postižením, tak uživatelům, kteří se snaží svůj telefon používat na přímém slunci.
 
 Jste připraveni začít, ale nevíte přesně jak?
 

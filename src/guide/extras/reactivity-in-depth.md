@@ -202,7 +202,7 @@ Vlastně je to velmi podobné tomu, jak Vue komponenta udržuje synchronizaci sv
 
 <div class="options-api">
 
-API `ref()`, `computed()` a `watchEffect()` jsou součástí Composition API. Pokud jste dosud Vue používali pouze s Options API, zjistíte, že Composition API je blíže tomu, jak reaktivní systém Vue funguje uvnitř. Ve praxi je Options API v Vue 3 implementováno na vrstvě Composition API. Přístup k vlastnostem instance komponenty (`this`) spouští gettery / settery pro sledování reaktivity a volby jako `watch` a `computed` interně vyvolávají jejich ekvivalenty v Composition API.
+API `ref()`, `computed()` a `watchEffect()` jsou součástí Composition API. Pokud jste dosud Vue používali pouze s Options API, zjistíte, že Composition API je blíže tomu, jak reaktivní systém Vue funguje uvnitř. Ve praxi je Options API ve Vue 3 implementováno na vrstvě Composition API. Přístup k vlastnostem instance komponenty (`this`) spouští gettery / settery pro sledování reaktivity a volby jako `watch` a `computed` interně vyvolávají jejich ekvivalenty v Composition API.
 
 </div>
 

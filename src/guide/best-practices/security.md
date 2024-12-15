@@ -2,7 +2,7 @@
 
 ## Hlášení zranitelností {#reporting-vulnerabilities}
 
-Když je nahlášena zranitelnost (vulnerability), okamžitě se stává naším prvořadým zájmem a plnohodnotný člen týmu se na začně věnovat jejímu řešení. Pro nahlášení zranitelnosti nás prosím kontaktujte emailem na [security@vuejs.org](mailto:security@vuejs.org).
+Když je nahlášena zranitelnost (vulnerability), okamžitě se stává naším prvořadým zájmem a plnohodnotný člen týmu se na začne věnovat jejímu řešení. Pro nahlášení zranitelnosti nás prosím kontaktujte emailem na [security@vuejs.org](mailto:security@vuejs.org).
 
 I když je objevování nových zranitelností vzácné, doporučujeme vždy používat nejnovější verze Vue a jeho oficiálních doplňkových knihoven, abyste zajistili co nejvyšší úroveň zabezpečení vaší aplikace.
 
