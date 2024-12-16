@@ -435,7 +435,7 @@ Obvykle jsou dva případy, kdy vypadá lákavě vlastnost měnit:
 
 Pokud jsou objekty a pole předávány jako vlastnosti, komponenta potomka sice nemůže měnit binding na vlastnosti, ale **bude moci** měnit vnořené prvky objektu nebo pole. Je to proto, že v jazyce JavaScript se objekty a pole předávají pomocí odkazů (pass by reference) a pro Vue je nepřiměřeně nákladné takovým změnám zabránit.
 
-Hlavní nevýhodou takových změn je, že umožňují komponentám potomka ovlivňovat stav rodičů způsobem, který není pro komponentu rodiče zřejmý, což může v budoucnu ztížit uvažování o toku dat. V rámci osvědčených postupů byste se měli takovým změnám vyhnout, pokud nejsou komponenty rodiče a potomka už z definice úzce propojeny (tightly coupled). Ve většině případů by měl potomek [vyvolat událost](/guide/components/events), aby nechal změnu provést svého rodiče.
+Hlavní nevýhodou takových změn je, že umožňují komponentám potomka ovlivňovat stav rodičů způsobem, který není pro komponentu rodiče zřejmý, což může v budoucnu ztížit uvažování o toku dat. V rámci osvědčených postupů byste se měli takovým změnám vyhnout, pokud nejsou komponenty rodiče a potomka už z definice těsně provázané (tightly coupled). Ve většině případů by měl potomek [vyvolat událost](/guide/components/events), aby nechal změnu provést svého rodiče.
 
 ## Validace vlastností {#prop-validation}
 
