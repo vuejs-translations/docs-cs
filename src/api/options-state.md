@@ -394,7 +394,7 @@ Deklaruje vlastní události emitované komponentou.
 
   Validní funkce obdrží dodatečné parametry předané voláním `$emit` z komponenty. Například, pokud je zavoláno `this.$emit('foo', 1)`, odpovídající validační funkce pro `foo` obdrží parametr `1`. Validační funkce by měla vrátit boolean hodnotu, která indikuje, zda jsou parametry události platné.
 
-  Všimněte si, že volba `emits` ovlivňuje, které event listenery jsou považovány za event listenery komponenty a nikoli událostí nativního DOMu. Listenery pro deklarované události budou odebrány z objektu `$attrs` komponenty, takže nebudou předávány do root elementu komponenty. Pro více informací se podívejte na [Fallthrough atributy](/guide/components/attrs).
+  Všimněte si, že volba `emits` ovlivňuje, které event listenery jsou považovány za event listenery komponenty a nikoli událostí nativního DOMu. Listenery pro deklarované události budou odebrány z objektu `$attrs` komponenty, takže nebudou předávány do root elementu komponenty. Pro více informací se podívejte na [fallthrough atributy](/guide/components/attrs).
 
 - **Příklad**
 

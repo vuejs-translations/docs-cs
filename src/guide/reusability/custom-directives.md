@@ -267,7 +267,7 @@ app.directive('demo', (el, binding) => {
 Použití vlastních direktiv na komponenty není doporučeno. Pokud má komponenta více než jeden root element, může mít použití direktivy neočekávané výsledky.
 :::
 
-Při použití na komponenty se vlastní direktivy vždy vztahují na root element komponenty, podobně jako u [Fallthrough atributů](/guide/components/attrs).
+Při použití na komponenty se vlastní direktivy vždy vztahují na root element komponenty, podobně jako u [fallthrough atributů](/guide/components/attrs).
 
 ```vue-html
 <MyComponent v-demo="test" />
