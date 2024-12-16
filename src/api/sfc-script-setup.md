@@ -212,7 +212,7 @@ const emit = defineEmits<{
 
 ### Reaktivní destrukturování vlastností <sup class="vt-badge" data-text="3.5+" /> {#reactive-props-destructure}
 
-Ve Vue 3.5+ jsou proměnné dekonstruované z návratové hodnoty `defineProps` reaktivní. Vue překladač automaticky doplní `props.`, když kód ve stejném `<script setup>` bloku přistupuje na proměnné dekonstruované z `defineProps`:
+Ve Vue 3.5+ jsou proměnné destrukturované z návratové hodnoty `defineProps` reaktivní. Vue překladač automaticky doplní `props.`, když kód ve stejném `<script setup>` bloku přistupuje na proměnné destrukturované z `defineProps`:
 
 ```ts
 const { foo } = defineProps(['foo'])
@@ -265,7 +265,7 @@ const props = withDefaults(defineProps<Props>(), {
 Výše uvedené bude pro runtime vlastnosti přeloženo na ekvivalentní `default` vlastnosti. Navíc pomocná funkce `withDefaults` poskytuje typovou kontrolu pro výchozí hodnoty a&nbsp;zajistí, že vrácený typ `props` má odstraněny příznaky volitelnosti pro ty vlastnosti, které mají výchozí hodnoty deklarované.
 
 :::info
-Pamatujte, že výchozí hodnoty pro měnitelné (mutable) referenční typy (jako jsou pole či objekty) by měly být při použití `withDefaults` zabaleny do funkcí, aby se předešlo nechtěným změnám a vedlejším efektům zvnějšku. Použití funkce zajistí, že každá instance komponenty dostane svou vlastní kopii výchozí hodnoty. U reaktivního dekonstruování proměnných to potřeba **není**.
+Pamatujte, že výchozí hodnoty pro měnitelné (mutable) referenční typy (jako jsou pole či objekty) by měly být při použití `withDefaults` zabaleny do funkcí, aby se předešlo nechtěným změnám a vedlejším efektům zvnějšku. Použití funkce zajistí, že každá instance komponenty dostane svou vlastní kopii výchozí hodnoty. U reaktivního destrukturování proměnných to potřeba **není**.
 :::
 
 ## defineModel() {#definemodel}
