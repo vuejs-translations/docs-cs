@@ -64,7 +64,7 @@ onMounted(() => {
           target="_blank"
           class="accent-button"
         >
-          Contact {{ partnerConfig.partnerName }} for a tailored fit
+          Kontaktujte {{ partnerConfig.partnerName }} pro získání odborníka na míru
         </a>
       </div>
     </template>
