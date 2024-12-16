@@ -109,7 +109,7 @@ Může také být použito k vytvoření ref pro vlastnost na zdrojovém reaktiv
   const fooRef = ref(state.foo)
   ```
 
-  Výše uvedený odkaz **není** synchronizován s `state.foo`, protože `ref()` přijímá pouze prostou číselnou hodnotu.
+  Výše uvedený odkaz **není** synchronizován se `state.foo`, protože `ref()` přijímá pouze prostou číselnou hodnotu.
 
   `toRef()` je užitečné, když chcete předat odkaz na vlastnost do composable funkce:
 

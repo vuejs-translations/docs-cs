@@ -48,7 +48,7 @@ Vytvoří vlastní vykreslovač (custom renderer). Poskytnutím API pro vytvář
     parentNode(node: HostNode): HostElement | null
     nextSibling(node: HostNode): HostNode | null
 
-    // volitelné, specifikcé pro DOM
+    // volitelné, specifické pro DOM
     querySelector?(selector: string): HostElement | null
     setScopeId?(el: HostElement, id: string): void
     cloneNode?(node: HostNode): HostNode

@@ -223,7 +223,7 @@ Přijímá objekt (reaktivní nebo obyčejný) nebo [ref](#ref) a vrací readonl
     console.log(copy.count)
   })
 
-  // změna originalu spustí watchery sledující kopii
+  // změna originálu spustí watchery sledující kopii
   original.count++
   ```
 

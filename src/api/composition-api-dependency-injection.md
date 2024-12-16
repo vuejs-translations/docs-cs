@@ -64,7 +64,7 @@ Implementuje hodnotu poskytnutou komponentou předka nebo aplikací (pomocí `ap
 
 - **Podrobnosti**
 
-  První parametr je klíč pro implementaci (injection key). Vue se bude procházet hierarchií rodičovských komponent, aby našelo poskytovanou hodnotu s&nbsp;odpovídajícím klíčem. Pokud více komponent v hierarchii poskytuje stejný klíč, ten z&nbsp;nejbližší komponenty „překryje“ ty výše v řetězci. Pokud nebyla nalezena žádná hodnota s odpovídajícím klíčem, `inject()` vrátí `undefined`, pokud není poskytnuta výchozí hodnota.
+  První parametr je klíč pro implementaci (injection key). Vue se bude procházet hierarchií rodičovských komponent, aby našlo poskytovanou hodnotu s&nbsp;odpovídajícím klíčem. Pokud více komponent v hierarchii poskytuje stejný klíč, ten z&nbsp;nejbližší komponenty „překryje“ ty výše v řetězci. Pokud nebyla nalezena žádná hodnota s odpovídajícím klíčem, `inject()` vrátí `undefined`, pokud není poskytnuta výchozí hodnota.
 
   Druhý parametr je volitelný a jde o výchozí hodnotou, která se použije, pokud nebyla nalezena žádná odpovídající poskytnutá hodnota.
 

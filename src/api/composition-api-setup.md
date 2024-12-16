@@ -42,7 +42,7 @@ export default {
 
 Samotný `setup()` nemá přístup k instanci komponenty - `this` bude mít uvnitř `setup()` hodnotu `undefined`. Z Options API můžete přistupovat k hodnotám vystaveným Composition API, ale ne naopak.
 
-`setup()` by měl _synchronně_ vrátit objekt. Jediný případ, kdy může být použito `async setup()`, je když je komponenta potomkem komponenty [Suspense](../guide/built-ins/suspense).
+`setup()` by měl _synchronně_ vrátit objekt. Jediný případ, kdy může být použito `async setup()`, je, když je komponenta potomkem komponenty [Suspense](../guide/built-ins/suspense).
 
 ## Přístup k vlastnostem (props) {#accessing-props}
 
@@ -132,7 +132,7 @@ export default {
 }
 ```
 
-## Použití s funkcemi pro vykreselní{#usage-with-render-functions}
+## Použití s funkcemi pro vykreslení{#usage-with-render-functions}
 
 `setup` může také vrátit [funkci pro vykreslení](/guide/extras/render-function), která může přímo využívat reaktivní stav deklarovaný ve stejném rozsahu (scope):
 
@@ -168,4 +168,4 @@ export default {
 }
 ```
 
-Metoda `increment` bude pak dostupná v komponentně rodiče pomocí template ref.
+Metoda `increment` bude pak dostupná v komponentě rodiče pomocí template ref.

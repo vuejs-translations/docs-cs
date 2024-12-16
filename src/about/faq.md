@@ -40,7 +40,7 @@ Vue používají v různých kapacitách v produkci renomované organizace po ce
 
 ## Je Vue rychlé? {#is-vue-fast}
 
-Vue 3 je jedním z nejvýkonnějších mainstreamových frontend frameworků a snano zvládá většinu případů užití webových aplikací, bez nutnosti ručních optimalizací.
+Vue 3 je jedním z nejvýkonnějších mainstreamových frontend frameworků a snadno zvládá většinu případů užití webových aplikací, bez nutnosti ručních optimalizací.
 
 V zátěžových testech podle [js-framework-benchmark](https://krausest.github.io/js-framework-benchmark/current.html) Vue překonává React a Angular se slušným náskokem. Krok v tomto benchmarku drží i s některými z nejrychlejších produkčních non-virtual-DOM frameworků.
 
@@ -54,7 +54,7 @@ Když používáte build tool, mnoho API rozhraní Vue je [„tree-shakable“](
 
 Vue aplikace `Hello world`, která používá pouze absolutně minimální API, má s minifikací a brotli kompresí základní velikost pouze kolem **16 kb**. Skutečná velikost aplikace bude záviset na tom, kolik volitelných funkcí z frameworku použijete. V nepravděpodobném případě, kdy aplikace využívá každou jednotlivou funkci, kterou Vue poskytuje, je celková velikost runtime přibližně **27 kb**.
 
-Při používání Vue bez build toolu nejenže ztrácíme tree-shaking, ale také musíme prohlížeče přibalit kompilátor šablon. Tím se zvětší velikost na přibližně **41 kb**. Pokud tedy používáte Vue primárně pro progresivní vylepšení bez build fáze, zvažte použití [petite-vue](https://github.com/vuejs/petite-vue) (pouze **6kb**).
+Při používání Vue bez build toolu nejenže ztrácíme tree-shaking, ale také musíme prohlížeče přibalit kompilátor šablon. Tím se zvětší velikost na přibližně **41 kb**. Pokud tedy používáte Vue primárně pro progresivní vylepšení bez build fáze, zvažte použití [petite-vue](https://github.com/vuejs/petite-vue) (pouze **6 kb**).
 
 Některé frameworky, jako je Svelte, používají kompilační strategii, která produkuje extrémně lightweight výstup v situaci s jednou komponentou. [Náš výzkum](https://github.com/yyx990803/vue-svelte-size-analysis) však ukazuje, že rozdíl ve velikosti silně závisí na počtu komponent v aplikaci. Zatímco Vue má větší základní velikost, generuje méně kódu na jednu komponentu. Ve scénářích z reálného světa může tak být Vue aplikace velmi snadno menší.
 

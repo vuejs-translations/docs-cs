@@ -44,7 +44,7 @@ export default {
 }
 ```
 
-Funkce `provide()` přijímá dva parametry. První parametr se nazývá **injection key**, což může být string nebo `Symbol`. Injection key je použit v komponentně potomka k&nbsp;vyhledání hodnoty, která má být implementována. Jedna komponenta může volat `provide()` vícekrát s různými injection keys pro poskytnutí různých hodnot.
+Funkce `provide()` přijímá dva parametry. První parametr se nazývá **injection key**, což může být string nebo `Symbol`. Injection key je použit v komponentě potomka k&nbsp;vyhledání hodnoty, která má být implementována. Jedna komponenta může volat `provide()` vícekrát s různými injection keys pro poskytnutí různých hodnot.
 
 Druhý parametr je poskytovaná hodnota. Hodnota může být jakéhokoli typu vč. reaktivního stavu jako jsou refs:
 

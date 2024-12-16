@@ -16,7 +16,7 @@ Příklady chování, které přispívá k vytváření pozitivního prostředí
 
 Příklady nepřijatelného chování účastníků jsou například:
 
-- Používání jazyka či obrázků se sexuáním podtextem a nevítaná sexuální pozornost nebo návrhy
+- Používání jazyka či obrázků se sexuálním podtextem a nevítaná sexuální pozornost nebo návrhy
 - Trolling, urážlivé/hanlivé komentáře a osobní nebo politické útoky
 - Veřejné nebo soukromé obtěžování
 - Zveřejňování soukromých informací jiných osob, jako je fyzická nebo elektronická adresa, bez výslovného povolení

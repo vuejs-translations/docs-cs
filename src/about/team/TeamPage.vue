@@ -74,7 +74,7 @@ shuffleMembers(membersPartnerData as Member[])
     <TeamList :members="(membersPartnerData as Member[])">
       <template #title>Komunitní partneři</template>
       <template #lead>
-        Někteří členové Vue komuniti ji obohatili natolik,
+        Někteří členové Vue komunity ji obohatili natolik,
         že si zaslouží speciální zmínku. Rozvinuli jsme více osobní vztah
         s&nbsp;těmito klíčovými partnery a&nbsp;často s&nbsp;nimi koordinujeme chystanou
         funkcionalitu a&nbsp;novinky.

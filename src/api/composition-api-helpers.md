@@ -63,7 +63,7 @@ Funkce `useModel()` může být použita v non-SFC komponentách, např. uvnitř
 
 ## useTemplateRef() <sup class="vt-badge" data-text="3.5+" /> {#usetemplateref}
 
-Vrací `shallowRef`, jehož hodnota bude synchronizovaná s elementem či komponentnou uvnitř šablony s odpovídajícím `ref` atributem.
+Vrací `shallowRef`, jehož hodnota bude synchronizovaná s elementem či komponentou uvnitř šablony s odpovídajícím `ref` atributem.
 
 - **Typ**
 
@@ -120,7 +120,7 @@ Vrací `shallowRef`, jehož hodnota bude synchronizovaná s elementem či kompon
 
 - **Podrobnosti**
   
-  ID generované pomocí `useId()` je v rámci aplikace unikátní. Může být použito pro generování ID formuálřových prvků a atributů pro přístupnost (accessibility). Více volání na stejné komponentě vygeneruje různá ID, různé instance stejné komponenty volající `useId()` budou mít také různá ID.
+  ID generované pomocí `useId()` je v rámci aplikace unikátní. Může být použito pro generování ID formulářových prvků a atributů pro přístupnost (accessibility). Více volání na stejné komponentě vygeneruje různá ID, různé instance stejné komponenty volající `useId()` budou mít také různá ID.
 
   Pro ID generovaná pomocí `useId()` je také garantována stabilita mezi vykreslením na serveru a na klientovi, takže mohou být použita v SSR aplikacích, aniž by docházelo k&nbsp;chybám hydratace (hydration mismatches).
 

@@ -45,7 +45,7 @@ Příspěvek v podobě kódu není jedinou formou obohacení Vue komunity. I odp
 
 ### Pomozte třídit issues {#help-triage-issues}
 
-Třídění issues znamená shromážďování chybějících informací, reprodukci, ověření platnosti issue a prozkoumání příčiny problému.
+Třídění issues znamená shromažďování chybějících informací, reprodukci, ověření platnosti issue a prozkoumání příčiny problému.
 
 Každý den dostáváme do [našeho úložiště na GitHubu](https://github.com/vuejs) mnoho issues. Naše kapacita je ve srovnání s počtem uživatelů, které máme, omezená, takže samotné třídění může od týmu vyžadovat obrovské množství úsilí. Tím, že nám pomáháte issues řešit, nám pomáháte být efektivnější, což nám umožňuje trávit čas činnostmi s vyšší prioritou.
 
@@ -68,9 +68,9 @@ Kromě odpovídání na otázky a sdílení zdrojů na fóru a chatu existuje n�
 
 ### Překládejte dokumentaci {#translate-docs}
 
-Doufáme, že právě teď čtete tuto větu ve vašem primárním jazyce. Pokud ne, chtěli byste nám pomoct, aby to tak byo?
+Doufáme, že právě teď čtete tuto větu ve vašem primárním jazyce. Pokud ne, chtěli byste nám pomoct, aby to tak bylo?
 
-Podívejte se [Průvodce překladem](/translations/) pro více informací jak se můžete zapojit.
+Podívejte se [Průvodce překladem](/translations/) pro více informací, jak se můžete zapojit.
 
 ### Staňte se lídrem komunity {#become-a-community-leader}
 

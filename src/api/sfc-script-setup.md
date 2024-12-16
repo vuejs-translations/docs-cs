@@ -1,6 +1,6 @@
 # \<script setup> {#script-setup}
 
-`<script setup>` je alias pro pro použití Composition API uvnitř Single-file komponent (SFC). Pokud používáte jak SFC, tak Composition API, je to doporučená syntaxe. Oproti běžnému `<script>` poskytuje několik výhod:
+`<script setup>` je alias pro použití Composition API uvnitř Single-file komponent (SFC). Pokud používáte jak SFC, tak Composition API, je to doporučená syntaxe. Oproti běžnému `<script>` poskytuje několik výhod:
 
 - Stručnější zápis s menším množstvím boilerplate kódu
 - Možnost deklarovat vlastnosti (props) a emitované události (emits) čistě v&nbsp;TypeScriptu
@@ -200,7 +200,7 @@ const emit = defineEmits<{
 
 - `defineProps` nebo `defineEmits` mohou používat pouze BUĎ runtime deklaraci NEBO deklaraci na zákldě typu. Použití obojího zároveň povede k chybě při kompilaci.
 
-- Při použití deklarace typu je automaticky generována ekvivalentní runtime deklarace z&nbsp;analýzy statického kódu, aby se odstránila potřeba dvojité deklarace a zároveň zajistila správná funkčnost za běhu.
+- Při použití deklarace typu je automaticky generována ekvivalentní runtime deklarace z&nbsp;analýzy statického kódu, aby se odstranila potřeba dvojité deklarace a zároveň zajistila správná funkčnost za běhu.
 
   - V režimu vývoje (dev) překladač zkusí odvodit odpovídající ověření za běhu z typů. Například zde je `foo: String` odvozeno z typu `foo: string`. Pokud je typ odkazem na importovaný typ, odvozený výsledek bude `foo: null` (rovnocenný typu `any`), protože překladač nemá informace o externích souborech.
 
@@ -458,7 +458,7 @@ export default {
 </script>
 ```
 
-Podpora pro kombinaci `<script setup>` a `<script>` ve stejné komponentně je omezena na výše popsané scénáře. Konkrétně:
+Podpora pro kombinaci `<script setup>` a `<script>` ve stejné komponentě je omezena na výše popsané scénáře. Konkrétně:
 
 - **NEPOUŽÍVEJTE** samostatnou sekci `<script>` pro vlastnosti, které již lze definovat pomocí `<script setup>`, jako například `props` a `emits`.
 - Proměnné vytvořené uvnitř `<script setup>` nejsou přidány jako vlastnosti instance komponenty, a nelze k nim přistupovat pomocí Options API. Mísení API tímto způsobem je silně nedoporučováno.
@@ -483,7 +483,7 @@ Navíc platí, že výraz, na který se čeká, bude automaticky zkompilován ve
 
 ## Importy {#imports-statements}
 Importy ve Vue odpovídají [specifikaci ECMAScript modulů](https://nodejs.org/api/esm.html).
-Navíc můžete použít aliasy definované v nastavení vašeho build nástoje:
+Navíc můžete použít aliasy definované v nastavení vašeho build nástroje:
 ```vue
 <script setup>
 import { ref } from 'vue'

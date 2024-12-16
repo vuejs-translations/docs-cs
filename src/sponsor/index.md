@@ -56,7 +56,7 @@ Můžete se také zkusit přesvědčit svého zaměstnavatele, aby sponzoroval V
 - **Bronze (USD $100/mo)**:
   - Malé logo v `BACKERS.md` souboru `vuejs/core` a `vuejs/vue`.
 - **Generous Backer (USD $50/mo)**:
-  - Jméno uvedeno v `BACKERS.md` souboru `vuejs/core` a `vuejs/vue`, nad ostatními individuálními přispivateli.
+  - Jméno uvedeno v `BACKERS.md` souboru `vuejs/core` a `vuejs/vue`, nad ostatními individuálními přispěvateli.
 - **Individual Backer (USD $5/mo)**:
   - Jméno uvedeno v `BACKERS.md` souboru `vuejs/core` a `vuejs/vue`.
 

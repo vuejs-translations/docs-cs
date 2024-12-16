@@ -380,7 +380,7 @@ Přiřadí globální handler pro nezachycené chyby propagované z aplikace.
 
   Může zachytit chyby z následujících zdrojů:
 
-  - Vykreselení komponenty
+  - Vykreslení komponenty
   - Event handlery
   - Metody životního cyklu
   - Funkce `setup()`
@@ -562,7 +562,7 @@ Objekt, který může být použit k registraci globálních vlastností, ke kte
   app.config.globalProperties.msg = 'ahoj'
   ```
 
-Umožňí použití `msg` uvnitř kterékoli šablony a také na `this` libovolné instance komponenty:
+Umožní použití `msg` uvnitř kterékoli šablony a také na `this` libovolné instance komponenty:
 
   ```js
   export default {
@@ -639,7 +639,7 @@ Nastavení prefixu pro všechny ID generované přes [useId()](/api/composition-
   app.config.idPrefix = 'my-app'
   ```
   ```js
-  // v komponentně:
+  // v komponentě:
   const id1 = useId() // 'my-app:0'
   const id2 = useId() // 'my-app:1'
   ```

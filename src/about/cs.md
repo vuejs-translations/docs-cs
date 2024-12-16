@@ -2,7 +2,7 @@
 
 ## Obecné poznámky
 
-Tuto stránku, která je specifická pro českou verzi dokumentace, jsme se rozhodli založit proto, abychom vytvořili podklad pro udržení konzistence překladu do budoucna. Původní překlad dokončený na jaře 2024 je dílem jednoho člověka, ale je možné, že se v&nbsp;průběhu času přidají další přispivatelé. Bylo by dobré držet nějakou jednotnou linii a&nbsp;stejné výrazy překládat stále stejně.
+Tuto stránku, která je specifická pro českou verzi dokumentace, jsme se rozhodli založit proto, abychom vytvořili podklad pro udržení konzistence překladu do budoucna. Původní překlad dokončený na jaře 2024 je dílem jednoho člověka, ale je možné, že se v&nbsp;průběhu času přidají další přispěvatelé. Bylo by dobré držet nějakou jednotnou linii a&nbsp;stejné výrazy překládat stále stejně.
 
 Níže naleznete komentáře k původu vybraných překladů a důvody, které k nim vedly. Může to být jak reference, tak podklad pro případnou diskusi, že by se ten či onen termín měl napříč dokumentací změnit. Pokud budete takové návrhy mít, neváhejte [založit issue](https://github.com/vuejs-translations/docs-cs/issues) a začít diskusi.
 
@@ -78,7 +78,7 @@ Slovo _„lifecycle“_ sice jako _„životní cyklus“_ přeložíme snadno, 
 
 #### Provide / inject
 
-Další oříšek z cyklu vnitřního fungování Vue. Jde o způsob, jak posílat vlastnosti (props) do komponent potomků přes více mezičlánků. Aby se zabránilo negativnímu jevu, který překládáme jako _„drilling vlastností“_, kdy každá komponenta v řetězci musí deklrovat vlastnost jenom proto, aby ji mohla přeposlat dát, lze v nadřazené komponentě použít techniku **„poskytutí“** (`provide`) hodnoty, kterou lze v libovolném potomkovi **„implementovat“** (`inject`). 
+Další oříšek z cyklu vnitřního fungování Vue. Jde o způsob, jak posílat vlastnosti (props) do komponent potomků přes více mezičlánků. Aby se zabránilo negativnímu jevu, který překládáme jako _„drilling vlastností“_, kdy každá komponenta v řetězci musí deklarovat vlastnost jenom proto, aby ji mohla přeposlat dát, lze v nadřazené komponentě použít techniku **„poskytnutí“** (`provide`) hodnoty, kterou lze v libovolném potomkovi **„implementovat“** (`inject`). 
 
 Chtěli jsme se zejména vyhnout použití spíše nelogického českého slova _„injektovat“_, proto opis pomocí _„implementovat“_. Zároveň tam, kde se hovoří přímo o _„Provide / inject“_ mechanismu jako takovém, překlad nepoužíváme, aby nedocházelo k přílišnému zmatení.
 
@@ -90,7 +90,7 @@ Toto je možná nejvíc kontroverzní (ne)překlad v aktuální verzi dokumentac
 
 ## Slovník vybraných přeložených pojmů
 
-Zde sledujeme překlady pro (hlavně) technické pojmy, které se objevují na více místech v dokumentaci, za účelem zachovnání konzistence překladu. Zde uvedené hodnoty nejsou dogma, ale je to něco, od čeho se lze odrazit. Pokud budete někdy chtít pomoct s&nbsp;překladem, podívejte se prosím na tento seznam, zda už „závazný“ překlad neexistuje. Případně neváhejte doplnit chybějící nebo [navrhnout](https://github.com/vuejs-translations/docs-cs/issues) alternativy.
+Zde sledujeme překlady pro (hlavně) technické pojmy, které se objevují na více místech v dokumentaci, za účelem zachování konzistence překladu. Zde uvedené hodnoty nejsou dogma, ale je to něco, od čeho se lze odrazit. Pokud budete někdy chtít pomoct s&nbsp;překladem, podívejte se prosím na tento seznam, zda už „závazný“ překlad neexistuje. Případně neváhejte doplnit chybějící nebo [navrhnout](https://github.com/vuejs-translations/docs-cs/issues) alternativy.
 
 ### Varianty
 
@@ -144,8 +144,8 @@ Zde sledujeme překlady pro (hlavně) technické pojmy, které se objevují na v
 * 🟩 deep = vnořený (za předpokladu, že odpovídá kontext, např. „deep reactivity“)
 * 🟥 default export = default export
 * 🟩 destructure = destrukturovat
-* 🟥 developer experience = developer experiences (lze užít zkratku „DX“)
-* 🟥 development experience = development experiences (lze užít zkratku „DX“)
+* 🟥 developer experience = developer experience (lze užít zkratku „DX“)
+* 🟥 development experience = development experience (lze užít zkratku „DX“)
 * 🟩 details = podrobnosti
 * 🟨 directive = direktiva
 * 🟥 DOM = DOM
@@ -186,7 +186,7 @@ Zde sledujeme překlady pro (hlavně) technické pojmy, které se objevují na v
 * 🟥 injection key = injection key
 * 🟥 inline = inline
 * 🟨 inline styles = inline styly
-* 🟩 instance property = instanční promměná
+* 🟩 instance property = instanční proměnná
 * 🟩 invoke = zavolat (funkci)
 * 🟨 JavaScript state = stav JavaScript objektů
 * 🟥 kebab-case = kebab-case
@@ -261,7 +261,7 @@ Zde sledujeme překlady pro (hlavně) technické pojmy, které se objevují na v
 * 🟥 state management = state management
 * 🟥 stateful = stateful
 * 🟥 store = store
-* 🟥 string = string (výjíměčně „řetězec“ (obvykle je-li třeba skloňovat))
+* 🟥 string = string (výjiměčně „řetězec“ (obvykle je-li třeba skloňovat))
 * 🟨 string template = string-šablona
 * 🟩 syntactic sugar = alias pro
 * 🟥 tag = tag

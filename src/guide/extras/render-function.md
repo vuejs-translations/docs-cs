@@ -579,7 +579,7 @@ Předávání slotů jako funkcí umožňuje jejich „lazy“ volání v kompon
 
 ### Scoped sloty {#scoped-slots}
 
-Pro vykreslení scoped slotu v komponentě rodiče je slot předán potomkovi. Všimněte si, že slot má nyní parametr `text`. Slot bude zavolán v komponentně potomka a její data budou předány nahoru do rodiče.
+Pro vykreslení scoped slotu v komponentě rodiče je slot předán potomkovi. Všimněte si, že slot má nyní parametr `text`. Slot bude zavolán v komponentě potomka a její data budou předány nahoru do rodiče.
 
 ```js
 // komponenta rodiče

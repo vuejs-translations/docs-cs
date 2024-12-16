@@ -28,7 +28,7 @@ Vytváří virtuální DOM elementy (VNodes).
 
 - **Detaily**
 
-  První parametr může být buď řetězec (pro nativní elementy) nebo definice Vue komponenty. Druhý parametr jsou vlastosti (props), které mají být předány, a třetí parametr jsou potomci (children).
+  První parametr může být buď řetězec (pro nativní elementy) nebo definice Vue komponenty. Druhý parametr jsou vlastnosti (props), které mají být předány, a třetí parametr jsou potomci (children).
 
   Při vytváření VNode komponenty musí být potomci předány jako slotové funkce. Pokud komponenta očekává pouze výchozí slot, může být předána jediná slotová funkce. Jinak musí být sloty předány jako objekt slotových funkcí.
 
@@ -107,7 +107,7 @@ Sloučí více objektů props se speciálním zpracováním některých vlastnos
 
 - **Podrobnosti**
 
-  `mergeProps()` podporuje sloučení více objektů props s speciálním zpracováním následujících vlastností:
+  `mergeProps()` podporuje sloučení více objektů props se speciálním zpracováním následujících vlastností:
 
   - `class`
   - `style`
@@ -153,7 +153,7 @@ Klonuje VNode.
 
   Vrací klonovaný VNode, volitelně s dalšími props, které se sloučí s původním.
 
-  VNodes by měly být po vytvoření považovány za neměnné a neměli byste měnit vlastnoti existujícího VNode. Místo toho je klonujte s odlišnými / dalšími props.
+  VNodes by měly být po vytvoření považovány za neměnné a neměli byste měnit vlastnosti existujícího VNode. Místo toho je klonujte s odlišnými / dalšími props.
 
   VNodes mají speciální interní vlastnosti, takže jejich klonování není tak jednoduché jako použití JS spread operátoru. `cloneVNode()` se o většinu interní logiky postará.
 
@@ -321,4 +321,4 @@ Pro přidání vestavěných [`v-on` modifikátorů](/guide/essentials/event-han
   })
   ```
 
-- **Viz také:** [Průvodce - Funkce pro vykrelení - Modifikátory událostí](/guide/extras/render-function#event-modifiers)
+- **Viz také:** [Průvodce - Funkce pro vykreslení - Modifikátory událostí](/guide/extras/render-function#event-modifiers)

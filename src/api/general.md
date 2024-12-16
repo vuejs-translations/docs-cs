@@ -159,7 +159,7 @@ Pomocná funkce pro podporu typů při definování Vue komponenty s odvozován�
   )
   ```
 
-Hlavní použití tohoto způsou zápisu je s TypeScriptem (zejména s TSX), protože podporuje generics:
+Hlavní použití tohoto způsobu zápisu je s TypeScriptem (zejména s TSX), protože podporuje generics:
 
 ```tsx
 const Comp = defineComponent(

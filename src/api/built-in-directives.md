@@ -317,7 +317,7 @@ Dynamicky váže jeden nebo více atributů nebo vlastností (props) komponenty 
   <!-- binding vlastnosti, `prop` musí být deklarována v komponentě potomka -->
   <MyComponent :prop="someThing" />
 
-  <!-- předání props z rodiče, které jsou společné s komponentnou potomka -->
+  <!-- předání props z rodiče, které jsou společné s komponentou potomka -->
   <MyComponent v-bind="$props" />
 
   <!-- XLink -->

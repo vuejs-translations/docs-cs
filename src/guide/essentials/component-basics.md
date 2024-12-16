@@ -306,7 +306,7 @@ To je zatím vše, co o vlastnostech (props) potřebujete vědět. Poté, co si 
 
 Jak vyvíjíme naši komponentu `<BlogPost>`, některé funkce mohou vyžadovat zpětnou komunikaci do komponenty rodiče. Můžeme se například rozhodnout zahrnout funkci usnadnění pro zvětšení textu blogových příspěvků, zatímco zbytek stránky ponecháme ve výchozí velikosti.
 
-V komponentně rodiče můžeme tuto funkci podporovat přidáním <span class="options-api">proměnné `postFontSize` v možnosti `data`</span><span class="composition-api">ref hodnoty `postFontSize`</span>:
+V komponentě rodiče můžeme tuto funkci podporovat přidáním <span class="options-api">proměnné `postFontSize` v možnosti `data`</span><span class="composition-api">ref hodnoty `postFontSize`</span>:
 
 <div class="options-api">
 
@@ -358,7 +358,7 @@ Nyní pojďme přidat tlačítko do šablony `<BlogPost>` komponenty:
 </template>
 ```
 
-Tlačítko zatím nic nedělá – chceme kliknutím na tlačítko sdělit komponentně rodiče, že má zvětšit text všech příspěvků. K vyřešení tohoto problému poskytují komponenty vlastní systém událostí (events). Rodič se může rozhodnout poslouchat libovolnou událost na instanci komponenty potomka pomocí `v-on` nebo `@`, stejně jako bychom to dělali s nativní událostí DOM:
+Tlačítko zatím nic nedělá – chceme kliknutím na tlačítko sdělit komponentě rodiče, že má zvětšit text všech příspěvků. K vyřešení tohoto problému poskytují komponenty vlastní systém událostí (events). Rodič se může rozhodnout poslouchat libovolnou událost na instanci komponenty potomka pomocí `v-on` nebo `@`, stejně jako bychom to dělali s nativní událostí DOM:
 
 ```vue-html{3}
 <BlogPost

@@ -34,7 +34,7 @@ Vue nemá pevně daný release cyklus.
 
 - Major verze budou vždy oznámeny předem a projdou fází předběžné diskuse a alpha / beta pre-release fázemi.
 
-## Speciáílní případy sémantického verzování {#semantic-versioning-edge-cases}
+## Speciální případy sémantického verzování {#semantic-versioning-edge-cases}
 
 Vue verzování se řídí pravidly [Sémantického verzování](https://semver.org/) s několika speciálními případy.
 
@@ -70,7 +70,7 @@ Periodicky můžeme ukončit podporu funkcí, které mají v minor verzích nov�
 
 Nové funkce s výrazným dopadem na API a velké změny ve Vue projdou procesem **Request for Comments** (RFC). Proces RFC má za úkol poskytnout konzistentní a řízenou cestu pro zavádění nových funkcí do frameworku a poskytnout uživatelům příležitost zapojit se a nabídnout zpětnou vazbu během designové fáze.
 
-Všechny RFC jsou spravovány v [vuejs/rfcs](https://github.com/vuejs/rfcs) repozitáři na GitHubu.
+Všechny RFC jsou spravovány ve [vuejs/rfcs](https://github.com/vuejs/rfcs) repozitáři na GitHubu.
 
 ## Experimentální funkce {#experimental-features}
 

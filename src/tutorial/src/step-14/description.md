@@ -21,7 +21,7 @@ Kromě předávání dat prostřednictvím vlastností (props) může komponenta
 
 </div>
 
-V komponentně potomka může vykreslit obsah slotu z rodiče pomocí elementu `<slot>`:
+V komponentě potomka může vykreslit obsah slotu z rodiče pomocí elementu `<slot>`:
 
 <div class="sfc">
 

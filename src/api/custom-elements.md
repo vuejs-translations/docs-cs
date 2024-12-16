@@ -20,7 +20,7 @@ Tato metoda přijímá stejný parametr jako [`defineComponent`](#definecomponen
 
 - **Podrobnosti**
 
-  Kromě běžných vlastnstí komponenty podporuje `defineCustomElement()` také speciální vlastností `styles`, která by měla být polem vložených CSS řetězců, které poskytují CSS, které by mělo být vloženo do stínového root elementu.
+  Kromě běžných vlastností komponenty podporuje `defineCustomElement()` také speciální vlastností `styles`, která by měla být polem vložených CSS řetězců, které poskytují CSS, které by mělo být vloženo do stínového root elementu.
 
   Návratovou hodnotou je konstruktor custom elementu, který lze zaregistrovat pomocí [`customElements.define()`](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry/define).
 

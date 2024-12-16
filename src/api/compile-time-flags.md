@@ -8,7 +8,7 @@ outline: deep
 Compile-Time flags se uplatní pouze při použití Vue buildu pomocí `esm-bundler` (tj.&nbsp;`vue/dist/vue.esm-bundler.js`).
 :::
 
-Při použití Vue s build fází je možné konfigurovat několik příznaků (compile-time flags) umožňujích povolit / zakázat určité funkce. Výhodou jejich použití je, že funkce zakázané tímto způsobem lze odstranit z finálního balíčku pomocí tree-shakingu.
+Při použití Vue s build fází je možné konfigurovat několik příznaků (compile-time flags) umožňujících povolit / zakázat určité funkce. Výhodou jejich použití je, že funkce zakázané tímto způsobem lze odstranit z finálního balíčku pomocí tree-shakingu.
 
 Vue bude fungovat i tehdy, pokud tyto příznaky nejsou explicitně nakonfigurovány. Nicméně se doporučuje nakonfigurovat je vždy, aby bylo možné příslušné funkce správně odstranit, pokud to jde.
 

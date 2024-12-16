@@ -1,7 +1,7 @@
 # Vestavěné speciální elementy {#built-in-special-elements}
 
 :::info Nejsou to komponenty
-`<component>`, `<slot>` a `<template>` jsou komponentám-podobné funkce, jenž jsou součástí syntaxe šablon. Nejedná se o skutečné komponenty a jsou zpracovávány během kompilace šablony. Proto se obvykle v šablonách píší malými písmeny.
+`<component>`, `<slot>` a `<template>` jsou komponentám-podobné funkce, jež jsou součástí syntaxe šablon. Nejedná se o skutečné komponenty a jsou zpracovávány během kompilace šablony. Proto se obvykle v šablonách píší malými písmeny.
 :::
 
 ## `<component>` {#component}
@@ -154,7 +154,7 @@ Tag `<template>` se používá jako placeholder, když chceme použít vestavěn
 
   Pokud žádná z těchto direktiv přítomna není, bude vykreslen jako [nativní `<template>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template).
 
-  `<template>` s `v-for` může mít také atribut [`key`](/api/built-in-special-attributes#key). Všechny ostatní atributy a direktivy budou igorovány, protože nemají bez odpovídajícího prvku význam.
+  `<template>` s `v-for` může mít také atribut [`key`](/api/built-in-special-attributes#key). Všechny ostatní atributy a direktivy budou ignorovány, protože nemají bez odpovídajícího prvku význam.
 
   Single-file komponenty (SFC) používají [tag `<template>` nejvyšší úrovně](/api/sfc-spec#language-blocks) k obalení celé šablony. Tento způsob použití je oddělen od použití `<template>` popsaného výše. Tento tag nejvyšší úrovně není součástí samotné šablony a nepodporuje syntaxi šablony, jako jsou direktivy.
 
