@@ -266,7 +266,7 @@ Okamžitě spustí funkci a sleduje její závislosti. Funkci v případě změn
 
   Druhý parametr je nepovinný objekt možností (options), který lze použít k nastavení časování spouštění efektu nebo k ladění závislostí efektu.
 
-  Výchozí chování je spouštět watchery před vykreslením komponenty. Nastavením `flush: 'post'` se watcher odloží až po vykreslení komponenty. Více informací naleznete v [Časování provedení callback funkce](/guide/essentials/watchers#callback-flush-timing). Výjimečně může být nutné spustit watcher okamžitě při změně reaktivní závislosti, například pro zneplatnění mezipaměti. Toho lze dosáhnout pomocí `flush: 'sync'`. Toto nastavení by však mělo být používáno opatrně, protože může vést k problémům s výkonem a konzistencí dat, pokud se současně aktualizuje více vlastností.
+  Výchozí chování je spouštět watchery před vykreslením komponenty. Nastavením `flush: 'post'` se watcher odloží až po vykreslení komponenty. Více informací naleznete v [Časování provedení callback funkce](/guide/essentials/watchers#callback-flush-timing). Výjimečně může být nutné spustit watcher okamžitě při změně reaktivní závislosti, například pro zneplatnění mezipaměti (cache). Toho lze dosáhnout pomocí `flush: 'sync'`. Toto nastavení by však mělo být používáno opatrně, protože může vést k problémům s výkonem a konzistencí dat, pokud se současně aktualizuje více vlastností.
 
   Návratovou hodnotou je ovládací (handle) funkce, kterou lze zavolat k zastavení opětovného spuštění efektu.
 

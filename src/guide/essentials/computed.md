@@ -170,7 +170,7 @@ function calculateBooksMessage() {
 
 </div>
 
-Místo computed proměnné můžeme stejnou logiku definovat jako funkci. Pro konečný výsledek jsou oba přístupy skutečně naprosto stejné. Rozdíl je však v tom, že **computed proměnné se na základě jejich reaktivních závislostí ukládají do mezipaměti**. Computed proměnná se přehodnotí pouze tehdy, když se změní některé její reaktivní závislosti. To znamená, že pokud se `author.books` nezmění, vícenásobný přístup k hodnotě `publishedBooksMessage` okamžitě vrátí dříve vypočítaný výsledek, aniž by bylo nutné znovu spouštět getter funkci.
+Místo computed proměnné můžeme stejnou logiku definovat jako funkci. Pro konečný výsledek jsou oba přístupy skutečně naprosto stejné. Rozdíl je však v tom, že **computed proměnné se na základě jejich reaktivních závislostí ukládají do mezipaměti (cache)**. Computed proměnná se přehodnotí pouze tehdy, když se změní některé její reaktivní závislosti. To znamená, že pokud se `author.books` nezmění, vícenásobný přístup k hodnotě `publishedBooksMessage` okamžitě vrátí dříve vypočítaný výsledek, aniž by bylo nutné znovu spouštět getter funkci.
 
 To také znamená, že následující computed proměnná se neaktualizuje nikdy, protože `Date.now()` není reaktivní závislost:
 
