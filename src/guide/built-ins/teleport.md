@@ -8,7 +8,7 @@
 
 Někdy část šablony logicky patří ke komponentě, ale z vizuálního hlediska by měla být zobrazena jinde v DOM, možná dokonce mimo celou Vue aplikaci.
 
-Nejběžnějším příkladem je vytváření modálního okna přes celou obrazovku. Ideálně bychom chtěli, aby byl kód pro tlačítko zobrazení okna a pro modální okno samotné napsán uvnitř stejné SFC komponenty, protože obě části souvisí se stavem otevření / zavření modálního okna. Ale to znamená, že modální okno bude vykresleno spolu s&nbsp;tlačítkem, hluboce vnořeno v DOM hierarchii aplikace. To může přinést různé záludné problémy při pozicování modálního okna pomocí CSS.
+Nejběžnějším příkladem je vytváření modálního okna přes celou obrazovku. Ideálně bychom chtěli, aby byl kód pro tlačítko zobrazení okna a pro modální okno samotné napsán uvnitř stejné Single-File komponenty (SFC), protože obě části souvisí se stavem otevření / zavření modálního okna. Ale to znamená, že modální okno bude vykresleno spolu s&nbsp;tlačítkem, hluboce vnořeno v DOM hierarchii aplikace. To může přinést různé záludné problémy při pozicování modálního okna pomocí CSS.
 
 Představte si následující HTML strukturu:
 

@@ -417,7 +417,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
       ]
     },
     {
-      text: 'SFC komponenta',
+      text: 'Single-File komponenty (SFC)',
       items: [
         { text: 'Specifikace syntaxe SFC', link: '/api/sfc-spec' },
         { text: '<script setup>', link: '/api/sfc-script-setup' },

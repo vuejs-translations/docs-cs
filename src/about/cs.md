@@ -66,7 +66,7 @@ Slovo `option` je sice nejspíš každému v IT jasné, ale najít jeho uspokoji
 
 #### Vlastnosti (props)
 
-Pojem `props` **není** totožný s _„properties“_. Označuje _„vlastnosti“_, ale pouze ty, které se předávají dovnitř [SFC komponenty](https://vuejs.org/glossary/#single-file-component), která je speciálním způsobem deklaruje. 
+Pojem `props` **není** totožný s _„properties“_. Označuje _„vlastnosti“_, ale pouze ty, které se předávají dovnitř[Single-File komponenty (SFC)](https://vuejs.org/glossary/#single-file-component), která je speciálním způsobem deklaruje. 
 
 [Viz](/glossary/#prop)
 

@@ -62,7 +62,7 @@ Některé frameworky, jako je Svelte, používají kompilační strategii, kter�
 
 Ano. Navzdory běžné mylné představě, že Vue je vhodné pouze pro jednoduché případy užití, je Vue dokonale schopno zvládnout rozsáhlé aplikace:
 
-- [SFC komponenty](/guide/scaling-up/sfc) poskytují modulární model vývoje, který umožňuje tvořit různé části aplikace izolovaně.
+- [Single-File komponenty (SFC)](/guide/scaling-up/sfc) poskytují modulární model vývoje, který umožňuje tvořit různé části aplikace izolovaně.
 
 - [Composition API](/guide/reusability/composables) poskytuje prvotřídní integraci TypeScriptu a umožňuje čisté vzory pro organizaci, extrakci a znovupoužití složité logiky.
 
