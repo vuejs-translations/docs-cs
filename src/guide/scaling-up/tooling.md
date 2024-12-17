@@ -129,9 +129,9 @@ Hlavní článek: [Používání Vue s TypeScriptem](/guide/typescript/overview)
 
 Hlavní článek: [Průvodce testováním](/guide/scaling-up/testing).
 
-- [Cypress](https://www.cypress.io/) je doporučen pro E2E testy. Lze jej také použít pro component testing Vue SFC pomocí [Cypress Component Test Runner](https://docs.cypress.io/guides/component-testing/introduction).
+- [Cypress](https://www.cypress.io/) je doporučen pro E2E testy. Lze jej také použít pro testování Vue SFC komponent pomocí [Cypress Component Test Runner](https://docs.cypress.io/guides/component-testing/introduction).
 
-- [Vitest](https://vitest.dev/) je testovací nástroj vytvořený členy týmu Vue / Vite, který se zaměřuje na rychlost. Je speciálně navržen pro aplikace založené na Vite, aby poskytoval stejnou okamžitou zpětnou vazbu pro unit / component testing.
+- [Vitest](https://vitest.dev/) je testovací nástroj vytvořený členy týmu Vue / Vite, který se zaměřuje na rychlost. Je speciálně navržen pro aplikace založené na Vite, aby poskytoval stejnou okamžitou zpětnou vazbu pro unit testy / testování komponent.
 
 - [Jest](https://jestjs.io/) lze použít s Vite pomocí [vite-jest](https://github.com/sodatea/vite-jest). Nicméně, toto se doporučuje pouze v případě, že máte existující sady testů založené na Jest, které potřebujete migrovat do projektu založeného na Vite, protože Vitest poskytuje podobné funkcionality s mnohem efektivnější integrací.
 
