@@ -8,7 +8,7 @@ I když je objevování nových zranitelností vzácné, doporučujeme vždy pou
 
 ## Pravidlo č. 1: Nikdy nepoužívejte nedůvěryhodné šablony {#rule-no-1-never-use-non-trusted-templates}
 
-Nejdůležitějším bezpečnostním pravidlem při používání Vue je **nikdy nepoužívat nedůvěryhodný obsah jako šablonu vaší komponenty**. Tímto způsobem umožňujete libovolné provádění JavaScriptu ve vaší aplikaci - a co je horší, může to vést i k narušení serveru, pokud je kód spuštěn během vykreslování na serveru (SSR). Příklad takového použití:
+Nejdůležitějším bezpečnostním pravidlem při používání Vue je **nikdy nepoužívat nedůvěryhodný obsah jako šablonu vaší komponenty**. Tímto způsobem umožňujete libovolné provádění JavaScriptu ve vaší aplikaci. A co je horší, může to vést i k narušení serveru, pokud je kód spuštěn během vykreslování na serveru (SSR). Příklad takového použití:
 
 ```js
 Vue.createApp({

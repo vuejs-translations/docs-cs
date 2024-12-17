@@ -81,7 +81,7 @@ import MyComponent from './MyComponent.vue'
 </template>
 ```
 
-Představte si `MyComponent` jako proměnnou. Pokud jste používali JSX, je to podobný mentální model. Kebab-case ekvivalent `<my-component>` funguje v šabloně také - nicméně pro konzistenci je silně doporučeno používat komponenty s PascalCase názvem. To je také pomůže odlišit od nativních custom elementů.
+Představte si `MyComponent` jako proměnnou. Pokud jste používali JSX, je to podobný mentální model. Kebab-case ekvivalent `<my-component>` funguje v šabloně také, nicméně pro konzistenci je silně doporučeno používat komponenty s PascalCase názvem. To je také pomůže odlišit od nativních custom elementů.
 
 ### Dynamické komponenty {#dynamic-components}
 
@@ -272,7 +272,7 @@ Pamatujte, že výchozí hodnoty pro měnitelné (mutable) referenční typy (ja
 
 - Podporováno až od verze 3.4+
 
-Toto makro slouží k deklaraci obousměrného (two-way)  bindingu vlastnosti (prop), který může být konzumován pomocí `v-model` z komponenty rodiče. Příklad použití je také rozebrán v průvodci [Komponenta - Binding přes v-model](/guide/components/v-model).
+Toto makro slouží k deklaraci obousměrného (two-way)  bindingu vlastnosti (prop), který může být konzumován pomocí `v-model` z komponenty rodiče. Příklad použití je také rozebrán v průvodci [Komponenta – Binding přes v-model](/guide/components/v-model).
 
 Interně toto makro deklaruje vlastnost (prop) modelu a odpovídající událost (event) aktualizace hodnoty. Pokud je první parametr řetězecový literál, bude použit jako název vlastnosti; jinak se název vlastnosti nastaví na výchozí hodnotu `"modelValue"`. V obou případech můžete také předat další objekt, který může obsahovat možnosti (options) pro vlastnost a možnosti transformace ref pro hodnotu modelu.
 
@@ -362,7 +362,7 @@ const [modelValue, modifiers] = defineModel<string, 'trim' | 'uppercase'>()
 
 ## defineExpose() {#defineexpose}
 
-Komponenty používající `<script setup>` jsou **implicitně uzavřené** - tj. veřejná instance komponenty, která je získána pomocí template refs nebo `$parent` řetězců, **nevystavuje** žádné vazby deklarované uvnitř `<script setup>`.
+Komponenty používající `<script setup>` jsou **implicitně uzavřené** – tj. veřejná instance komponenty, která je získána pomocí template refs nebo `$parent` řetězců, **nevystavuje** žádné vazby deklarované uvnitř `<script setup>`.
 
 Pro explicitní exponování vlastností ve `<script setup>` komponenty použijte makro prohlížeče `defineExpose`:
 
@@ -478,7 +478,7 @@ const post = await fetch(`/api/post/1`).then((r) => r.json())
 Navíc platí, že výraz, na který se čeká, bude automaticky zkompilován ve formátu, jenž zachovává aktuální kontext komponenty po `await`.
 
 :::warning Poznámka
-`async setup()` musí být použit ve spojení se [`Suspense`](/guide/built-ins/suspense.html), což je v současné době stále ještě experimentální funkce. Plánujeme ji dokončit a zdokumentovat v budoucích verzích - ale pokud jste zvědaví už teď, můžete se podívat na její [testy](https://github.com/vuejs/core/blob/main/packages/runtime-core/__tests__/components/Suspense.spec.ts), abyste viděli, jak funguje.
+`async setup()` musí být použit ve spojení se [`Suspense`](/guide/built-ins/suspense.html), což je v současné době stále ještě experimentální funkce. Plánujeme ji dokončit a zdokumentovat v budoucích verzích, ale pokud jste zvědaví už teď, můžete se podívat na její [testy](https://github.com/vuejs/core/blob/main/packages/runtime-core/__tests__/components/Suspense.spec.ts), abyste viděli, jak funguje.
 :::
 
 ## Importy {#imports-statements}

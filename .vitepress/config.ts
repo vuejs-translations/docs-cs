@@ -547,19 +547,19 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/style-guide/'
         },
         {
-          text: 'A - Zásadní',
+          text: 'A – Zásadní',
           link: '/style-guide/rules-essential'
         },
         {
-          text: 'B - Silně doporučené',
+          text: 'B – Silně doporučené',
           link: '/style-guide/rules-strongly-recommended'
         },
         {
-          text: 'C - Doporučené',
+          text: 'C – Doporučené',
           link: '/style-guide/rules-recommended'
         },
         {
-          text: 'D - Používejte s rozvahou',
+          text: 'D – Používejte s rozvahou',
           link: '/style-guide/rules-use-with-caution'
         }
       ]
@@ -598,7 +598,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 
   lang: 'en-US',
   title: 'Vue.js',
-  description: 'Vue.js - Progresivní JavaScript Framework',
+  description: 'Vue.js – Progresivní JavaScript Framework',
   srcDir: 'src',
   srcExclude: ['tutorial/**/description.md'],
 
@@ -611,7 +611,7 @@ export default defineConfigWithTheme<ThemeConfig>({
       'meta',
       {
         property: 'og:description',
-        content: 'Vue.js - Progresivní JavaScript Framework'
+        content: 'Vue.js – Progresivní JavaScript Framework'
       }
     ],
     [

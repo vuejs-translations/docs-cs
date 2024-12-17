@@ -13,7 +13,7 @@ Tato část předpokládá základní znalost Composition API. Pokud jste se uč
 
 V kontextu Vue aplikací je „composable“ funkce, která maximálně využívá Vue Composition API k obalení a znovupoužití **stavové (stateful) logiky**.
 
-Při vytváření frontendových aplikací často potřebujeme znovupoužívat logiku pro běžné úkoly. Například můžeme potřebovat formátovat data na mnoha místech, takže pro to vytvoříme znovupoužitelnou funkci. Tato formátovací funkce zapouzdřuje **bezstavovou (stateless) logiku**: přijme nějaký vstup a okamžitě vrátí očekávaný výstup. Pro znovupoužití bezstavové logiky existuje mnoho knihoven - například [lodash](https://lodash.com/) a [date-fns](https://date-fns.org/), o kterých jste možná už slyšeli.
+Při vytváření frontendových aplikací často potřebujeme znovupoužívat logiku pro běžné úkoly. Například můžeme potřebovat formátovat data na mnoha místech, takže pro to vytvoříme znovupoužitelnou funkci. Tato formátovací funkce zapouzdřuje **bezstavovou (stateless) logiku**: přijme nějaký vstup a okamžitě vrátí očekávaný výstup. Pro znovupoužití bezstavové logiky existuje mnoho knihoven – například [lodash](https://lodash.com/) a [date-fns](https://date-fns.org/), o kterých jste možná už slyšeli.
 
 Naproti tomu stavová logika zahrnuje management stavu (state), který se v průběhu času mění. Jednoduchým příkladem může být sledování aktuální polohy myši na stránce. V reálných aplikacích by se mohlo jednat i o složitější logiku, jako jsou dotyková gesta nebo stav připojení k databázi.
 
@@ -187,7 +187,7 @@ const { data, error } = useFetch('...')
 
 ### Přijímání reaktivního stavu {#accepting-reactive-state}
 
-`useFetch()` přijímá jako vstup statický URL string - načtení tedy provede pouze jednou a poté je hotovo. Co když chceme, aby se načítání opakovalo, kdykoli se změní adresa URL? Toho můžeme dosáhnout tím, že do composable funkce předáme reaktivní stav a&nbsp;necháme composable vytvořit watchery, které budou provádět akce s použitím předaného stavu.
+`useFetch()` přijímá jako vstup statický URL string – načtení tedy provede pouze jednou a poté je hotovo. Co když chceme, aby se načítání opakovalo, kdykoli se změní adresa URL? Toho můžeme dosáhnout tím, že do composable funkce předáme reaktivní stav a&nbsp;necháme composable vytvořit watchery, které budou provádět akce s použitím předaného stavu.
 
 Například `useFetch()` by mělo být schopno akceptovat ref:
 

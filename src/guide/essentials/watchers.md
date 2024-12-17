@@ -223,7 +223,7 @@ watch(
 
 </div>
 
-Ve Vue 3.5+ může být hodnota `deep` také číslo indikující maximální hloubku prohledávání - např. do kolikáté úrovně má Vue procházet vnořené vlastnosti objektu.
+Ve Vue 3.5+ může být hodnota `deep` také číslo indikující maximální hloubku prohledávání – např. do kolikáté úrovně má Vue procházet vnořené vlastnosti objektu.
 
 :::warning Používejte s rozvahou
 Deep watcher vyžaduje procházení všech vnořených vlastností ve sledovaném objektu, což může být výpočetně náročné, pokud je použito na velkých datových strukturách. Používejte jej pouze v případě potřeby a dávejte pozor na důsledky pro výkon aplikace.
@@ -231,7 +231,7 @@ Deep watcher vyžaduje procházení všech vnořených vlastností ve sledované
 
 ## Eager Watchers {#eager-watchers}
 
-Výsledek `watch` je ve výchozím nastavení „lazy“: callback funkce není spuštěna, dokud se sledovaný zdroj nezmění. V některých případech však můžeme chtít, aby byla stejná logika callback funkce spouštěna v „eager“ módu - například můžeme chtít načíst některá počáteční data a poté načíst data znovu, kdykoli se změní relevantní stav.
+Výsledek `watch` je ve výchozím nastavení „lazy“: callback funkce není spuštěna, dokud se sledovaný zdroj nezmění. V některých případech však můžeme chtít, aby byla stejná logika callback funkce spouštěna v „eager“ módu – například můžeme chtít načíst některá počáteční data a poté načíst data znovu, kdykoli se změní relevantní stav.
 
 <div class="options-api">
 

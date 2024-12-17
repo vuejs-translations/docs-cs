@@ -152,7 +152,7 @@ export default {
 
 </div>
 
-Tato direktiva je užitečnější než atribut `autofocus`, protože funguje nejen při načítání stránky - funguje i tehdy, když je prvek vkládán dynamicky pomocí Vue!
+Tato direktiva je užitečnější než atribut `autofocus`, protože funguje nejen při načítání stránky – funguje i tehdy, když je prvek vkládán dynamicky pomocí Vue!
 
 Pokud je to však možné, je doporučeno dávat přednost deklarativnímu použití šablon pomocí vestavěných direktiv, jako je `v-bind`, protože jsou efektivnější a šetrnější k&nbsp;vykreslování na serveru.
 

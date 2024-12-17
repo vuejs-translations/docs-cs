@@ -68,7 +68,7 @@ Do souboru `*.vue` můžete navíc přidat další vlastní bloky pro potřeby k
 - [vite-plugin-vue-gql: `<gql>`](https://github.com/wheatjs/vite-plugin-vue-gql)
 - [vue-i18n: `<i18n>`](https://github.com/intlify/bundle-tools/tree/main/packages/unplugin-vue-i18n#i18n-custom-block)
 
-Zpracování vlastních bloků závisí na nástrojích - pokud chcete vytvořit vlastní integrace, podívejte se pro další informace na sekci [Nástroje pro integraci vlastních SFC bloků](/guide/scaling-up/tooling#sfc-custom-block-integrations).
+Zpracování vlastních bloků závisí na nástrojích. Pokud chcete vytvořit vlastní integrace, podívejte se pro další informace na sekci [Nástroje pro integraci vlastních SFC bloků](/guide/scaling-up/tooling#sfc-custom-block-integrations).
 
 ## Automatické odvození názvu {#automatic-name-inference}
 
@@ -88,7 +88,7 @@ Bloky mohou pomocí atributu `lang` deklarovat programovací jazyk, v němž má
 </script>
 ```
 
-`lang` lze použít na jakýkoli blok - například můžeme použít `<style>` se [Sass](https://sass-lang.com/) a&nbsp;`<template>` + [Pug](https://pugjs.org/api/getting-started.html):
+`lang` lze použít na jakýkoli blok – například můžeme použít `<style>` se [Sass](https://sass-lang.com/) a&nbsp;`<template>` + [Pug](https://pugjs.org/api/getting-started.html):
 
 ```vue-html
 <template lang="pug">

@@ -33,8 +33,8 @@
   ```
 
 - **Viz také:**
-  - [Průvodce - Snížení reaktivního zatížení pro velké neměnné struktury](/guide/best-practices/performance#reduce-reactivity-overhead-for-large-immutable-structures)
-  - [Průvodce - Integrace s externími systémy pro správu stavu](/guide/extras/reactivity-in-depth#integration-with-external-state-systems)
+  - [Průvodce – Snížení reaktivního zatížení pro velké neměnné struktury](/guide/best-practices/performance#reduce-reactivity-overhead-for-large-immutable-structures)
+  - [Průvodce – Integrace s externími systémy pro správu stavu](/guide/extras/reactivity-in-depth#integration-with-external-state-systems)
 
 ## triggerRef() {#triggerref}
 
@@ -152,7 +152,7 @@ Vytvoří upravenou referenci s explicitní kontrolou sledování závislostí a
 
 - **Podrobnosti**
 
-  Na rozdíl od `reactive()` zde není hluboká konverze: reaktivní jsou pouze vlastnosti na nejvyšší úrovni mělce reaktivního objektu. Hodnoty vlastností jsou uloženy a&nbsp;vystaveny tak, jak jsou - to také znamená, že vlastnosti s hodnotami ref **nebudou** automaticky rozbaleny.
+  Na rozdíl od `reactive()` zde není hluboká konverze: reaktivní jsou pouze vlastnosti na nejvyšší úrovni mělce reaktivního objektu. Hodnoty vlastností jsou uloženy a&nbsp;vystaveny tak, jak jsou. To také znamená, že vlastnosti s hodnotami ref **nebudou** automaticky rozbaleny.
 
   :::warning Používejte s rozvahou
   Měl byste používat mělké datové struktury pouze pro stav na kořenové úrovni komponenty. Vyhněte se vnořování do hluboké reaktivní struktury, protože to vytváří strom s nekonzistentním chováním reaktivity, což může být obtížné pochopit a ladit.
@@ -190,7 +190,7 @@ Vytvoří upravenou referenci s explicitní kontrolou sledování závislostí a
 
 - **Detaily**
 
-  Na rozdíl od `readonly()` zde není hluboká konverze: pouze vlastnosti na nejvyšší úrovni jsou nastaveny jako pouze pro čtení. Hodnoty vlastností jsou uloženy a&nbsp;vystaveny tak, jak jsou - to znamená, že vlastnosti s ref hodnotami nebudou automaticky rozbaleny.
+  Na rozdíl od `readonly()` zde není hluboká konverze: pouze vlastnosti na nejvyšší úrovni jsou nastaveny jako pouze pro čtení. Hodnoty vlastností jsou uloženy a&nbsp;vystaveny tak, jak jsou. To znamená, že vlastnosti s ref hodnotami nebudou automaticky rozbaleny.
 
   :::warning Používejte s rozvahou
   Měl byste používat mělké datové struktury pouze pro stav na kořenové úrovni komponenty. Vyhněte se vnořování do hluboké reaktivní struktury, protože to vytváří strom s nekonzistentním chováním reaktivity, což může být obtížné pochopit a ladit.
@@ -269,7 +269,7 @@ Označuje objekt tak, aby nikdy nebyl převeden na proxy. Vrací samotný (raw) 
 
   - Přeskočení proxy konverze může znamenat vylepšení výkonu při vykreslování velkých seznamů s neměnnými zdroji dat.
 
-  Jsou považovány za pokročilé, protože možnost opt-outu z výchozího chování platí pouze na nejvyšší úrovni objektu, takže pokud nastavíte vnořený, neoznačený a&nbsp;neupravený objekt do reaktivního objektu, a poté na něj znovu přistoupíte, dostanete zpět proxy verzi. To může vést k **rizikům identity** - tj. provádění operace, která se spoléhá na identitu objektu, ale používá jak původní, tak proxy verzi stejného objektu:
+  Jsou považovány za pokročilé, protože možnost opt-outu z výchozího chování platí pouze na nejvyšší úrovni objektu, takže pokud nastavíte vnořený, neoznačený a&nbsp;neupravený objekt do reaktivního objektu, a poté na něj znovu přistoupíte, dostanete zpět proxy verzi. To může vést k **rizikům identity** – tj. provádění operace, která se spoléhá na identitu objektu, ale používá jak původní, tak proxy verzi stejného objektu:
 
   ```js
   const foo = markRaw({

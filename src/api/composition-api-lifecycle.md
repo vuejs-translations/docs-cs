@@ -1,7 +1,7 @@
 # Composition API: Lifecycle hooks {#composition-api-lifecycle-hooks}
 
 :::info Poznámka k použití
-Všechny API funkce uvedené na této stránce musí být volány synchronně v `setup()` fázi komponenty. Pro více informací se podívejte na [Průvodce - Lifecycle hooks](/guide/essentials/lifecycle).
+Všechny API funkce uvedené na této stránce musí být volány synchronně v `setup()` fázi komponenty. Pro více informací se podívejte na [Průvodce – Lifecycle hooks](/guide/essentials/lifecycle).
 :::
 
 ## onMounted() {#onmounted}
@@ -65,7 +65,7 @@ Registruje callback, který se volá poté, co komponenta aktualizuje svůj DOM 
   **Tento hook není volán během vykreslování na serveru (SSR).**
 
   :::warning Varování
-  V hooku `updated` neměňte stav komponenty - to pravděpodobně povede k nekonečné smyčce aktualizací!
+  V hooku `updated` neměňte stav komponenty, jinak to pravděpodobně povede k nekonečné smyčce aktualizací!
   :::
 
 - **Příklad**
@@ -285,7 +285,7 @@ Registruje callback, který se zavolá poté, co je instance komponenty vložena
   function onActivated(callback: () => void): void
   ```
 
-- **Viz také:** [Průvodce - Životní cyklus cached instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
+- **Viz také:** [Průvodce – Životní cyklus cached instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
 
 ## onDeactivated() {#ondeactivated}
 
@@ -299,7 +299,7 @@ Registruje callback, který se zavolá poté, co je instance komponenty odebrán
   function onDeactivated(callback: () => void): void
   ```
 
-- **Viz také:** [Průvodce - Životní cyklus cached instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
+- **Viz také:** [Průvodce – Životní cyklus cached instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
 
 ## onServerPrefetch() <sup class="vt-badge" data-text="Pouze SSR" /> {#onserverprefetch}
 

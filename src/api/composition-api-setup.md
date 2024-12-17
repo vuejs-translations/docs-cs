@@ -40,7 +40,7 @@ export default {
 
 [refs](/api/reactivity-core#ref) vrácené ze `setup` jsou při přístupu ze šablony [automaticky rozbaleny](/guide/essentials/reactivity-fundamentals#deep-reactivity), takže nemusíte pro přístup k hodnotám používat `.value`. Stejným způsobem jsou rozbaleny při přístupu přes `this`.
 
-Samotný `setup()` nemá přístup k instanci komponenty - `this` bude mít uvnitř `setup()` hodnotu `undefined`. Z Options API můžete přistupovat k hodnotám vystaveným Composition API, ale ne naopak.
+Samotný `setup()` nemá přístup k instanci komponenty – `this` bude mít uvnitř `setup()` hodnotu `undefined`. Z Options API můžete přistupovat k hodnotám vystaveným Composition API, ale ne naopak.
 
 `setup()` by měl _synchronně_ vrátit objekt. Jediný případ, kdy může být použito `async setup()`, je, když je komponenta potomkem komponenty [Suspense](../guide/built-ins/suspense).
 

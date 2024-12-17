@@ -125,7 +125,7 @@ Poskytuje animované přechodové (transition) efekty pro **jeden** element nebo
   </Transition>
   ```
 
-- **Viz také:** [Průvodce - Transition](/guide/built-ins/transition)
+- **Viz také:** [Průvodce – Transition](/guide/built-ins/transition)
 
 ## `<TransitionGroup>` {#transitiongroup}
 
@@ -171,7 +171,7 @@ Poskytuje přechodové efekty pro **více** elementů nebo komponent v seznamu.
   </TransitionGroup>
   ```
 
-- **Viz také:** [Průvodce - TransitionGroup](/guide/built-ins/transition-group)
+- **Viz také:** [Průvodce – TransitionGroup](/guide/built-ins/transition-group)
 
 ## `<KeepAlive>` {#keepalive}
 
@@ -264,7 +264,7 @@ Ukládá stav dynamicky přepínatelných komponent obalených uvnitř do cache.
   </KeepAlive>
   ```
 
-- **Viz také:** [Průvodce - KeepAlive](/guide/built-ins/keep-alive)
+- **Viz také:** [Průvodce – KeepAlive](/guide/built-ins/keep-alive)
 
 ## `<Teleport>` {#teleport}
 
@@ -320,7 +320,7 @@ Vykresluje obsah svého slotu na jiné části DOM.
   <div id="late-div"></div>
   ```
 
-- **Viz také:** [Průvodce - Teleport](/guide/built-ins/teleport)
+- **Viz také:** [Průvodce – Teleport](/guide/built-ins/teleport)
 
 ## `<Suspense>` <sup class="vt-badge experimental" /> {#suspense}
 
@@ -349,4 +349,4 @@ Používá se pro orchestraci vnořených asynchronních závislostí ve stromu 
 
   Nastavením komponenty Suspense na `suspensible` budou všechny asynchronní závislosti obsluhovány nadřazenou Suspense. Podívejte se na [detaily implementace](https://github.com/vuejs/core/pull/6736).
 
-- **Viz také:** [Průvodce - Suspense](/guide/built-ins/suspense)
+- **Viz také:** [Průvodce – Suspense](/guide/built-ins/suspense)

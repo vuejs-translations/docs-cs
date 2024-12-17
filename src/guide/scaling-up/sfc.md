@@ -78,7 +78,7 @@ Navzdory dosud řečenému si uvědomujeme, že existují i případy užití, k
 
 ## Jak to funguje {#how-it-works}
 
-Vue SFC je specifický formát souboru pro framework a musí být předkompilován pomocí [@vue/compiler-sfc](https://github.com/vuejs/core/tree/main/packages/compiler-sfc) do standardního JavaScriptu a CSS. Kompilovaná SFC je standardní JavaScriptový (ES) modul - což znamená, že s odpovídajícím nastavením buildu můžete SFC importovat jako modul:
+Vue SFC je specifický formát souboru pro framework a musí být předkompilován pomocí [@vue/compiler-sfc](https://github.com/vuejs/core/tree/main/packages/compiler-sfc) do standardního JavaScriptu a CSS. Kompilovaná SFC je standardní JavaScriptový (ES) modul, což znamená, že s odpovídajícím nastavením buildu můžete SFC importovat jako modul:
 
 ```js
 import MyComponent from './MyComponent.vue'

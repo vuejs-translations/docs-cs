@@ -77,7 +77,7 @@ onMounted(load)
   <section v-else id="special-sponsor">
     <span>
       <a href="/sponsor/#tier-benefits">
-        Pozice speciálního sponzora je nyní volná - požádejte o ni
+        Pozice speciálního sponzora je nyní volná – požádejte o ni
       </a>
     </span>
   </section>

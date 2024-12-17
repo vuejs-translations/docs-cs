@@ -193,7 +193,7 @@ export default /*#__PURE__*/ defineComponent(/* ... */)
 
 Toto není nutné, pokud používáte Vite, protože Rollup (základní produkční bundler používaný Vite) je dostatečně chytrý na to, aby určil, že `defineComponent()` je ve skutečnosti bez vedlejších efektů i bez potřeby ručních anotací.
 
-- **Viz také:** [Průvodce - Používání Vue s TypeScriptem](/guide/typescript/overview#general-usage-notes)
+- **Viz také:** [Průvodce – Používání Vue s TypeScriptem](/guide/typescript/overview#general-usage-notes)
 
 ## defineAsyncComponent() {#defineasynccomponent}
 
@@ -225,4 +225,4 @@ Definuje asynchronní komponentu, která se načítá „lazy“ až při jejím
   }
   ```
 
-- **Viz také:** [Průvodce - Asynchronní komponenty](/guide/components/async)
+- **Viz také:** [Průvodce – Asynchronní komponenty](/guide/components/async)

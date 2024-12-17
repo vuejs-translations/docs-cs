@@ -104,7 +104,7 @@ Ukázky kódu zde a níže mají za úkol vysvětlit základní koncepty co nejj
 
 Toto vysvětluje několik [omezení reaktivních objektů](/guide/essentials/reactivity-fundamentals#limitations-of-reactive), o kterých jsme mluvili v kapitole základů:
 
-- Když přiřadíte nebo destruujete vlastnost reaktivního objektu do místní proměnné, přístup nebo přiřazení k této proměnné není reaktivní, protože již nevyvolává get / set proxy traps na zdrojovém objektu. Toto „odpojení“ však ovlivňuje pouze vazbu proměnné - pokud proměnná odkazuje na neprimitivní hodnotu, jako je objekt, změna objektu reaktivní pořád bude.
+- Když přiřadíte nebo destruujete vlastnost reaktivního objektu do místní proměnné, přístup nebo přiřazení k této proměnné není reaktivní, protože již nevyvolává get / set proxy traps na zdrojovém objektu. Toto „odpojení“ však ovlivňuje pouze vazbu proměnné. Pokud proměnná odkazuje na neprimitivní hodnotu, jako je objekt, změna objektu reaktivní pořád bude.
 
 - Vrácená proxy z `reactive()`, i když se chová stejně jako originál, má odlišnou identitu, pokud ji porovnáme s původním objektem pomocí operátoru `===`.
 
@@ -198,7 +198,7 @@ watchEffect(() => {
 count.value++
 ```
 
-Vlastně je to velmi podobné tomu, jak Vue komponenta udržuje synchronizaci svého stavu s DOM - každá instance komponenty vytváří reaktivní efekt pro vykreslování a&nbsp;aktualizaci DOM. Samozřejmě, Vue komponenty používají mnohem efektivnější způsoby aktualizace DOM než `innerHTML`. O nich se mluví v [Mechanismu vykreslování](./rendering-mechanism).
+Vlastně je to velmi podobné tomu, jak Vue komponenta udržuje synchronizaci svého stavu s DOM. Každá instance komponenty vytváří reaktivní efekt pro vykreslování a&nbsp;aktualizaci DOM. Samozřejmě, Vue komponenty používají mnohem efektivnější způsoby aktualizace DOM než `innerHTML`. O nich se mluví v [Mechanismu vykreslování](./rendering-mechanism).
 
 <div class="options-api">
 
@@ -210,7 +210,7 @@ API `ref()`, `computed()` a `watchEffect()` jsou součástí Composition API. Po
 
 Reaktivní systém Vue je převážně runtime-based: sledování a spouštění se provádí přímo v prohlížeči během spouštění kódu. Výhodou runtime reaktivity je, že může fungovat bez build fáze a je zde méně okrajových případů. Na druhou stranu je omezena syntaxí JavaScriptu, což vede k potřebě kontejnerů pro hodnoty jako jsou Vue refs.
 
-Některé frameworky, například [Svelte](https://svelte.dev/), se rozhodly tyto omezení překonat implementací reaktivity během kompilace. Analyzují a transformují kód, aby reaktivitu simulovaly. Kompilační krok umožňuje frameworku změnit sémantiku samotného JavaScriptu - například implicitně vkládá kód, který provádí analýzu závislostí a spouštění efektů při přístupu k lokálně definovaným proměnným. Nevýhodou je, že takové transformace vyžadují build fázi a změna sémantiky JavaScriptu v podstatě vytváří jazyk, který vypadá jako JavaScript, ale kompiluje se do něčeho jiného.
+Některé frameworky, například [Svelte](https://svelte.dev/), se rozhodly tyto omezení překonat implementací reaktivity během kompilace. Analyzují a transformují kód, aby reaktivitu simulovaly. Kompilační krok umožňuje frameworku změnit sémantiku samotného JavaScriptu. Například implicitně vkládá kód, který provádí analýzu závislostí a spouštění efektů při přístupu k lokálně definovaným proměnným. Nevýhodou je, že takové transformace vyžadují build fázi a změna sémantiky JavaScriptu v podstatě vytváří jazyk, který vypadá jako JavaScript, ale kompiluje se do něčeho jiného.
 
 Tým Vue tuto cestu zkoumal pomocí experimentální funkce nazvané [transformace reaktivity](/guide/extras/reactivity-transform), ale nakonec jsme se rozhodli, že by to pro projekt nebylo vhodné z důvodů uvedených [zde](https://github.com/vuejs/rfcs/discussions/369#discussioncomment-5059028).
 
@@ -344,7 +344,7 @@ Možnosti `onTrack` a `onTrigger` watcheru fungují pouze v režimu vývoje.
 
 Reaktivní systém Vue funguje tak, že převádí běžné JavaScriptové objekty na hluboce reaktivní proxy. Hluboká konverze může být zbytečná a někdy i nežádoucí při integraci s&nbsp;externími systémy pro správu stavu (např. pokud i externí řešení používá Proxies).
 
-Obecná myšlenka integrace reaktivního systému Vue s externím řešením pro správu stavu je uchovávat externí stav v [`shallowRef`](/api/reactivity-advanced#shallowref). „Mělký“ ref je reaktivní pouze tehdy, když se přistupuje k jeho vlastnosti `.value` - vnitřní hodnota zůstává nedotčena. Při změně externího stavu nahraďte hodnotu ref, aby se spustily aktualizace.
+Obecná myšlenka integrace reaktivního systému Vue s externím řešením pro správu stavu je uchovávat externí stav v [`shallowRef`](/api/reactivity-advanced#shallowref). „Mělký“ ref je reaktivní pouze tehdy, když se přistupuje k jeho vlastnosti `.value` – vnitřní hodnota zůstává nedotčena. Při změně externího stavu nahraďte hodnotu ref, aby se spustily aktualizace.
 
 ### Neměnná data {#immutable-data}
 
@@ -426,7 +426,7 @@ count() // přístup k hodnotě
 setCount(1) // aktualizace hodnoty
 ```
 
-Všimněte si, jak může být signál `count` předán bez setteru. Tím se zajistí, že stav nemůže být nikdy měněn, pokud není setter explicitně vystaven. Zda tato záruka bezpečnosti ospravedlňuje více složitou syntaxi, může být závislé na požadavcích projektu a osobních preferencích - ale pokud tento styl API preferujete, můžete ho ve Vue snadno replikovat:
+Všimněte si, jak může být signál `count` předán bez setteru. Tím se zajistí, že stav nemůže být nikdy měněn, pokud není setter explicitně vystaven. Zda tato záruka bezpečnosti ospravedlňuje více složitou syntaxi, může být závislé na požadavcích projektu a osobních preferencích. Pokud však tento styl API preferujete, můžete ho ve Vue snadno replikovat:
 
 ```js
 import { shallowRef, triggerRef } from 'vue'

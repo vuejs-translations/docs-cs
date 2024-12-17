@@ -93,7 +93,7 @@ Vytváří virtuální DOM elementy (VNodes).
   })
   ```
 
-- **Viz také:** [Průvodce - Funkce pro vykreslení - Vytváření VNodes](/guide/extras/render-function#creating-vnodes)
+- **Viz také:** [Průvodce – Funkce pro vykreslení – Vytváření VNodes](/guide/extras/render-function#creating-vnodes)
 
 ## mergeProps() {#mergeprops}
 
@@ -111,7 +111,7 @@ Sloučí více objektů props se speciálním zpracováním některých vlastnos
 
   - `class`
   - `style`
-  - `onXxx` event listenery - více posluchačů se stejným názvem bude sloučeno do pole.
+  - `onXxx` event listenery – více posluchačů se stejným názvem bude sloučeno do pole.
 
   Pokud nepotřebujete sloučení a chcete jednoduché přepisy, můžete místo toho použít nativní JS spread operátor.
 
@@ -228,7 +228,7 @@ Pro ruční vyhledání registrované komponenty podle jména.
 
   </div>
 
-- **Viz také:** [Průvodce - Funkce pro vykreslení - Komponenty](/guide/extras/render-function#components)
+- **Viz také:** [Průvodce – Funkce pro vykreslení - Komponenty](/guide/extras/render-function#components)
 
 ## resolveDirective() {#resolvedirective}
 
@@ -248,7 +248,7 @@ Pro ruční vyhledání registrované direktivy podle jména.
 
   Pokud direktiva není nalezena, bude vygenerováno runtime varování a funkce vrátí `undefined`.
 
-- **Viz také:** [Průvodce - Funkce pro vykreslení - Vlastní direktivy](/guide/extras/render-function#custom-directives)
+- **Viz také:** [Průvodce – Funkce pro vykreslení - Vlastní direktivy](/guide/extras/render-function#custom-directives)
 
 ## withDirectives() {#withdirectives}
 
@@ -296,7 +296,7 @@ Pro přidání vlastních direktiv do VNode.
   ])
   ```
 
-- **Viz také:** [Průvodce - Funkce pro vykreslení - Vlastní direktivy](/guide/extras/render-function#custom-directives)
+- **Viz také:** [Průvodce – Funkce pro vykreslení - Vlastní direktivy](/guide/extras/render-function#custom-directives)
 
 ## withModifiers() {#withmodifiers}
 
@@ -321,4 +321,4 @@ Pro přidání vestavěných [`v-on` modifikátorů](/guide/essentials/event-han
   })
   ```
 
-- **Viz také:** [Průvodce - Funkce pro vykreslení - Modifikátory událostí](/guide/extras/render-function#event-modifiers)
+- **Viz také:** [Průvodce – Funkce pro vykreslení - Modifikátory událostí](/guide/extras/render-function#event-modifiers)

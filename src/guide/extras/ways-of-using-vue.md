@@ -4,7 +4,7 @@ Věříme, že pro web neexistuje „univerzální řešení“. Proto je Vue na
 
 ## Samostatný skript {#standalone-script}
 
-Vue může být použito jako samostatný skript soubor - není vyžadována žádná build fáze! Pokud již máte backendový framework, který vykresluje většinu HTML, nebo pokud vaše frontendová logika není dostatečně složitá na to, aby build fázi opravňovala, je to nejjednodušší způsob, jak do vašeho stacku Vue integrovat. V takových případech můžete Vue považovat za deklarativní náhradu jQuery.
+Vue může být použito jako samostatný skript soubor – není vyžadována žádná build fáze! Pokud již máte backendový framework, který vykresluje většinu HTML, nebo pokud vaše frontendová logika není dostatečně složitá na to, aby build fázi opravňovala, je to nejjednodušší způsob, jak do vašeho stacku Vue integrovat. V takových případech můžete Vue považovat za deklarativní náhradu jQuery.
 
 Vue také poskytuje alternativní distribuci nazvanou [petite-vue](https://github.com/vuejs/petite-vue), která je speciálně optimalizována pro postupné vylepšování existujícího HTML. Má menší soubor funkcí, ale je extrémně odlehčená a používá implementaci, která je v případech užití bez build fáze efektivnější.
 
@@ -25,7 +25,7 @@ Vue poskytuje core knihovny a [komplexní podpůrné nástroje](/guide/scaling-u
 - Integrace s TypeScriptem
 - Pomůcek pro testování
 
-SPA obvykle vyžadují, aby backend poskytoval API endpointy - ale můžete také spojit Vue s řešeními jako [Inertia.js](https://inertiajs.com), abyste získali výhody SPA a zároveň zachovali model vývoje zaměřený na server (server-centric).
+SPA obvykle vyžadují, aby backend poskytoval API endpointy, ale můžete také spojit Vue s řešeními jako [Inertia.js](https://inertiajs.com), abyste získali výhody SPA a zároveň zachovali model vývoje zaměřený na server (server-centric).
 
 ## Fullstack / SSR {#fullstack-ssr}
 
@@ -43,7 +43,7 @@ Existují dvě varianty SSG: single-page a multi-page. Oba typy předem vykreslu
 
 - Počáteční načtení stránky single-page SSG hydratuje stránku do SPA. To vyžaduje vyšší počáteční zatížení JS a náklady na hydrataci, ale následné navigace budou rychlejší, protože je třeba obsah stránky pouze částečně aktualizovat místo načítání celé stránky znovu.
 
-- Multi-page SSG načítá novou stránku při každé navigaci. Výhodou je, že může odeslat minimální množství JS - nebo dokonce žádný, pokud stránka žádnou interakci nevyžaduje! Některé vícestránkové SSG frameworky, jako například [Astro](https://astro.build/), také podporují „částečné hydratace“ - což vám umožní používat Vue komponenty k&nbsp;vytváření interaktivních „ostrovů“ uvnitř statického HTML.
+- Multi-page SSG načítá novou stránku při každé navigaci. Výhodou je, že může odeslat minimální množství JS nebo dokonce žádný, pokud stránka žádnou interakci nevyžaduje! Některé vícestránkové SSG frameworky, jako například [Astro](https://astro.build/), také podporují „částečné hydratace“ - což vám umožní používat Vue komponenty k&nbsp;vytváření interaktivních „ostrovů“ uvnitř statického HTML.
 
 Jednostránkové SSG je vhodnější, pokud očekáváte složitou interaktivitu, dlouhotrvající session nebo trvalé prvky/stavy při navigaci. V opačném případě bude lepší volbou vícestránkové SSG.
 

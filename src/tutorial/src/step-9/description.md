@@ -2,7 +2,7 @@
 
 Zatím za nás Vue vyřizovalo všechny aktualizace DOM díky reaktivitě a&nbsp;deklarativnímu vykreslování. Nevyhnutelně však nastanou případy, kdy potřebujeme s DOM pracovat manuálně.
 
-Můžeme si vyžádat **template ref** - tj. referenci na element v šabloně - pomocí <a target="_blank" href="/api/built-in-special-attributes.html#ref">speciálního atributu `ref`</a>:
+Můžeme si vyžádat **template ref** – tj. referenci na element v šabloně – pomocí <a target="_blank" href="/api/built-in-special-attributes.html#ref">speciálního atributu `ref`</a>:
 
 ```vue-html
 <p ref="pElementRef">Ahoj</p>
@@ -95,6 +95,6 @@ createApp({
 </div>
 </div>
 
-Tomuto se říká **lifecycle hook** - umožňuje zaregistrovat callback funkce, které budou zavolány v určitých okamžicích životního cyklu komponenty. Existují i další jako jsou <span class="options-api">`created` a `updated`</span><span class="composition-api">`onUpdated` a `onUnmounted`</span>. Podívejte se&nbsp;na <a target="_blank" href="/guide/essentials/lifecycle.html#lifecycle-diagram">Diagram životního cyklu</a> pro další podrobnosti.
+Tomuto se říká **lifecycle hook** – umožňuje zaregistrovat callback funkce, které budou zavolány v určitých okamžicích životního cyklu komponenty. Existují i další jako jsou <span class="options-api">`created` a `updated`</span><span class="composition-api">`onUpdated` a `onUnmounted`</span>. Podívejte se&nbsp;na <a target="_blank" href="/guide/essentials/lifecycle.html#lifecycle-diagram">Diagram životního cyklu</a> pro další podrobnosti.
 
 Nyní zkuste přidat <span class="options-api"> `mounted`</span><span class="composition-api"> `onMounted`</span> hook, přistoupit k `<p>` pomocí <span class="options-api">`this.$refs.pElementRef`</span><span class="composition-api">`pElementRef.value`</span> a provést nad ním nějakou operaci přímo v&nbsp;rámci DOM (např. změnit jeho `textContent`).

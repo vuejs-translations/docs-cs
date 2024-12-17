@@ -21,9 +21,9 @@ export default {
       author: {
         name: 'Jan Novák',
         books: [
-          'Vue 2 - Pokročilý průvodce',
-          'Vue 3 - Základní průvodce',
-          'Vue 4 - Tajemství'
+          'Vue 2 – Pokročilý průvodce',
+          'Vue 3 – Základní průvodce',
+          'Vue 4 – Tajemství'
         ]
       }
     }
@@ -38,9 +38,9 @@ export default {
 const author = reactive({
   name: 'Jan Novák',
   books: [
-    'Vue 2 - Pokročilý průvodce',
-    'Vue 3 - Základní průvodce',
-    'Vue 4 - Tajemství'
+    'Vue 2 – Pokročilý průvodce',
+    'Vue 3 – Základní průvodce',
+    'Vue 4 – Tajemství'
   ]
 })
 ```
@@ -67,9 +67,9 @@ export default {
       author: {
         name: 'Jan Novák',
         books: [
-          'Vue 2 - Pokročilý průvodce',
-          'Vue 3 - Základní průvodce',
-          'Vue 4 - Tajemství'
+          'Vue 2 – Pokročilý průvodce',
+          'Vue 3 – Základní průvodce',
+          'Vue 4 – Tajemství'
         ]
       }
     }
@@ -110,9 +110,9 @@ import { reactive, computed } from 'vue'
 const author = reactive({
   name: 'Jan Novák',
   books: [
-    'Vue 2 - Pokročilý průvodce',
-    'Vue 3 - Základní průvodce',
-    'Vue 4 - Tajemství'
+    'Vue 2 – Pokročilý průvodce',
+    'Vue 3 – Základní průvodce',
+    'Vue 4 – Tajemství'
   ]
 })
 

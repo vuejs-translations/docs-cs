@@ -87,9 +87,9 @@ Vrací `shallowRef`, jehož hodnota bude synchronizovaná s elementem či kompon
   ```
 
 - **Viz také:**
-  - [Průvodce - Template Refs](/guide/essentials/template-refs)
-  - [Průvodce - Typování template refs](/guide/typescript/composition-api#typing-template-refs) <sup class="vt-badge ts" />
-  - [Průvodce - Typování template refs komponenty](/guide/typescript/composition-api#typing-component-template-refs) <sup class="vt-badge ts" />
+  - [Průvodce – Template Refs](/guide/essentials/template-refs)
+  - [Průvodce – Typování template refs](/guide/typescript/composition-api#typing-template-refs) <sup class="vt-badge ts" />
+  - [Průvodce – Typování template refs komponenty](/guide/typescript/composition-api#typing-component-template-refs) <sup class="vt-badge ts" />
 
 ## useId() <sup class="vt-badge" data-text="3.5+" /> {#useid}
 

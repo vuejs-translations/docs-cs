@@ -86,7 +86,7 @@ Chtěli jsme se zejména vyhnout použití spíše nelogického českého slova 
 
 #### Binding
 
-Toto je možná nejvíc kontroverzní (ne)překlad v aktuální verzi dokumentace. Myšlena je vždy _„vazba“_ - například proměnné na hodnotu uživatelského vstupu z formuláře nebo vlastnosti komponenty na dynamickou hodnotu. Přišlo nám, že zachováním nepřeloženého pojmu bude zjevnější např. u nadpisů kapitol příručky (_„Binding dat z&nbsp;formulářů“_ vs. _„Vazba dat s formulářů“_), ale pravdou je i to, že v běžném textu slovo „binding“ často působí nepatřičně. O této záležitosti budeme ještě přemýšlet.
+Toto je možná nejvíc kontroverzní (ne)překlad v aktuální verzi dokumentace. Myšlena je vždy _„vazba“_ – například proměnné na hodnotu uživatelského vstupu z formuláře nebo vlastnosti komponenty na dynamickou hodnotu. Přišlo nám, že zachováním nepřeloženého pojmu bude zjevnější např. u nadpisů kapitol příručky (_„Binding dat z&nbsp;formulářů“_ vs. _„Vazba dat s formulářů“_), ale pravdou je i to, že v běžném textu slovo „binding“ často působí nepatřičně. O této záležitosti budeme ještě přemýšlet.
 
 ## Slovník vybraných přeložených pojmů
 
@@ -231,7 +231,7 @@ Zde sledujeme překlady pro (hlavně) technické pojmy, které se objevují na v
 * 🟩 reactivity = reaktivita
 * 🟨 Reactivity API = Reaktivní API
 * 🟩 reactivity system = systém reaktivity
-* 🟥 read-only - read-only
+* 🟥 read-only = read-only
 * 🟥 ref = ref
 * 🟨 refactoring = refaktoring
 * 🟩 release = verze

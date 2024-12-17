@@ -213,7 +213,7 @@ Pokud chcete upravit, které soubory mají být v režimu custom elementu import
 
 ### Tipy pro knihovnu custom elementů Vue {#tips-for-a-vue-custom-elements-library}
 
-Při vytváření custom elementů s Vue jsou elementy závislé na běhovém prostředí Vue. Základní velikost je přibližně **16 kB** v závislosti na tom, kolik funkcí se používá. To znamená, že pokud dodáváte pouze jeden custom element, není ideální používat Vue - měli byste použít čistý JavaScript, [petite-vue](https://github.com/vuejs/petite-vue) nebo frameworky specializující se na malou runtime velikost. Základní velikost je více než ospravedlnitelná, pokud dodáváte kolekci custom elementů s komplexní logikou, protože Vue umožní napsat každou komponentu s&nbsp;mnohem menším množstvím kódu. Čím více elementů dodáváte společně, tím lepší je to kompromis.
+Při vytváření custom elementů s Vue jsou elementy závislé na běhovém prostředí Vue. Základní velikost je přibližně **16 kB** v závislosti na tom, kolik funkcí se používá. To znamená, že pokud dodáváte pouze jeden custom element, není ideální používat Vue – měli byste použít čistý JavaScript, [petite-vue](https://github.com/vuejs/petite-vue) nebo frameworky specializující se na malou runtime velikost. Základní velikost je více než ospravedlnitelná, pokud dodáváte kolekci custom elementů s komplexní logikou, protože Vue umožní napsat každou komponentu s&nbsp;mnohem menším množstvím kódu. Čím více elementů dodáváte společně, tím lepší je to kompromis.
 
 Pokud budou custom elementy použity v aplikaci, která Vue také používá, můžete se rozhodnout vyčlenit Vue z vytvořeného balíčku, aby elementy používaly stejnou kopii Vue z hostitelské aplikace.
 
@@ -512,7 +512,7 @@ Model Vue komponent je navržen s ohledem na tyto potřeby jako koherentní syst
 
 S týmem kompetentních SW inženýrů byste pravděpodobně mohli postavit ekvivalent na základě nativních custom elementů - to ale také znamená, že přebíráte dlouhodobou údržbu interního frameworku a ztrácíte výhody ekosystému a komunity vyzrálého frameworku, jako je Vue.
 
-Existují také frameworky postavené na základě custom elementů jako základu jejich modelu komponent, ale všechny nevyhnutelně musí představit svá vlastní řešení pro výše uvedené problémy. Používání těchto frameworků znamená přijetí jejich technických rozhodnutí o tom, jak tyto problémy řešit - což, navzdory tomu, co se může tvrdit, automaticky nechrání před potenciálními budoucími změnami.
+Existují také frameworky postavené na základě custom elementů jako základu jejich modelu komponent, ale všechny nevyhnutelně musí představit svá vlastní řešení pro výše uvedené problémy. Používání těchto frameworků znamená přijetí jejich technických rozhodnutí o tom, jak tyto problémy řešit. Což, navzdory tomu, co se může tvrdit, automaticky nechrání před potenciálními budoucími změnami.
 
 Existují také oblasti, kde vnímáme custom elementy jako omezující:
 
@@ -520,4 +520,4 @@ Existují také oblasti, kde vnímáme custom elementy jako omezující:
 
 - V současné době je nutné vložit CSS do JavaScriptu, aby bylo možné dodávat custom elementy s ohraničeným shadow DOM a implementovat je do shadow rootů za běhu. To také vede k duplikovaným stylům v markupu v případě SSR scénářů. V této oblasti se pracuje na [platformních funkcích](https://github.com/whatwg/html/pull/4898/), ale zatím nejsou všeobecně podporovány a stále existují obavy ohledně výkonu v produkčním prostředí / SSR. Mezitím Vue SFC poskytuje [mechanismy pro ohraničení CSS](/api/sfc-css-features), které umožňují extrahování stylů do běžných CSS souborů.
 
-Vue vždy bude držet krok s nejnovějšími standardy na webové platformě a rádi využijeme to, co platforma poskytuje, pokud to usnadní naši práci. Nicméně, naším cílem je poskytovat řešení, která fungují dobře a fungují dnes. To znamená, že musíme nové funkce platformy začlenit s kritickým přístupem - a to zahrnuje vyplňování mezer, kde standardy stále selhávají.
+Vue vždy bude držet krok s nejnovějšími standardy na webové platformě a rádi využijeme to, co platforma poskytuje, pokud to usnadní naši práci. Nicméně, naším cílem je poskytovat řešení, která fungují dobře a fungují dnes. To znamená, že musíme nové funkce platformy začlenit s kritickým přístupem – a to zahrnuje vyplňování mezer, kde standardy stále selhávají.

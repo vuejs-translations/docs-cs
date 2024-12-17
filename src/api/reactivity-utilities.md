@@ -123,7 +123,7 @@ Může také být použito k vytvoření ref pro vlastnost na zdrojovém reaktiv
   // composable funkce
   useSomeFeature(toRef(props, 'foo'))
 
-  // getter syntaxe - doporučeno od verze 3.3+
+  // getter syntaxe – doporučeno od verze 3.3+
   useSomeFeature(toRef(() => props.foo))
   </script>
   ```

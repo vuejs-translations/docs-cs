@@ -87,10 +87,10 @@ Výše uvedený příklad ukazuje dva klíčové principy Vue:
 
 - **Reaktivita**: Vue automaticky sleduje změny stavu JavaScript proměnných a efektivně aktualizuje DOM zobrazené stránky, když dojde ke změně.
 
-Pokud k tomu už teď máte otázky - žádný strach. Ve zbytku dokumentace pokryjeme každý jednotlivý detail. Prozatím prosím pokračujte ve čtení, ať získáte obecné povědomí o tom, co Vue nabízí.
+Pokud k tomu už teď máte otázky, žádný strach. Ve zbytku dokumentace pokryjeme každý jednotlivý detail. Prozatím prosím pokračujte ve čtení, ať získáte obecné povědomí o tom, co Vue nabízí.
 
 :::tip Předpoklady
-Zbytek dokumentace předpokládá základní znalost HTML, CSS a JavaScriptu. Pokud je pro vás frontend vývoj úplnou novinkou, není možná nejlepší nápad vrhnout se jako první rovnou na framework - raději se napřed trochu seznamte se základy a teprve poté se vraťte zpět! Úroveň svých znalostí si můžete vyzkoušet na těchto [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript), [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML) a [CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps) přehledech. Předchozí zkušenost s jinými frameworky pomůže, ale není nezbytná.
+Zbytek dokumentace předpokládá základní znalost HTML, CSS a JavaScriptu. Pokud je pro vás frontend vývoj úplnou novinkou, není možná nejlepší nápad vrhnout se jako první rovnou na framework. Raději se napřed trochu seznamte se základy a teprve poté se vraťte zpět! Úroveň svých znalostí si můžete vyzkoušet na těchto [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript), [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML) a [CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps) přehledech. Předchozí zkušenost s jinými frameworky pomůže, ale není nezbytná.
 :::
 
 ## Progresivní framework {#the-progressive-framework}
@@ -159,7 +159,7 @@ button {
 
 </div>
 
-SFC je určující vlastnost Vue a je to doporučený postup, jak tvořit Vue komponenty, **pokud** vaše použití zahrnuje build fázi. Více o tématu [jak a proč na SFC](/guide/scaling-up/sfc) najdete v&nbsp;příslušné kapitole - prozatím je potřeba vědět, že Vue za vás zvládne veškeré nastavení build nástrojů.
+SFC je určující vlastnost Vue a je to doporučený postup, jak tvořit Vue komponenty, **pokud** vaše použití zahrnuje build fázi. Více o tématu [jak a proč na SFC](/guide/scaling-up/sfc) najdete v&nbsp;příslušné kapitole. Prozatím je potřeba vědět, že Vue za vás zvládne veškeré nastavení build nástrojů.
 
 ## API styly {#api-styles}
 
@@ -263,7 +263,7 @@ Podívejte se na [FAQ - často kladené dotazy](/about/faq).
 
 ## Vyberte si další cestu {#pick-your-learning-path}
 
-Různí vývojáři mají různé způsoby učení. Vyberte si způsob, který vyhovuje vašim preferencím - ačkoli, pokud je to možné, doporučujeme postupně projít všechen obsah!
+Různí vývojáři mají různé způsoby učení. Vyberte si způsob, který vyhovuje vašim preferencím. Ačkoli, pokud je to možné, doporučujeme postupně projít všechen obsah!
 
 <div class="vt-box-container next-steps">
   <a class="vt-box" href="/tutorial/">

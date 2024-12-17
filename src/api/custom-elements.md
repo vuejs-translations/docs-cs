@@ -39,7 +39,7 @@ Tato metoda přijímá stejný parametr jako [`defineComponent`](#definecomponen
 
 - **Viz také:**
 
-  - [Průvodce - Vytváření custom elementů s Vue](/guide/extras/web-components#building-custom-elements-with-vue)
+  - [Průvodce – Vytváření custom elementů s Vue](/guide/extras/web-components#building-custom-elements-with-vue)
 
   - Také si všimněte, že `defineCustomElement()` vyžaduje [speciální konfiguraci](/guide/extras/web-components#sfc-as-custom-element), pokud se používá se Single-File komponentami (SFC).
 

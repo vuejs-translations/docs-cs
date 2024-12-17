@@ -35,7 +35,7 @@ Speciální atribut `key` se používá především jako nápověda pro virtuá
 
   Když se změní `text`, `<span>` bude vždy nahrazen místo pouhé úpravy, takže se přechod spustí.
 
-- **Viz také:** [Průvodce - Vykreslování seznamu - Udržování stavu pomocí `key`](/guide/essentials/list#maintaining-state-with-key)
+- **Viz také:** [Průvodce – Vykreslování seznamu – Udržování stavu pomocí `key`](/guide/essentials/list#maintaining-state-with-key)
 
 ## ref {#ref}
 
@@ -81,9 +81,9 @@ Určuje [Template ref](/guide/essentials/template-refs).
   `this.$refs` také není reaktivní, proto byste se neměli pokoušet tento objekt použít v&nbsp;šablonách pro data-binding.
 
 - **Viz také:**
-  - [Průvodce - Template Refs](/guide/essentials/template-refs)
-  - [Průvodce - Typování template refs](/guide/typescript/composition-api#typing-template-refs) <sup class="vt-badge ts" />
-  - [Průvodce - Typování template refs komponenty](/guide/typescript/composition-api#typing-component-template-refs) <sup class="vt-badge ts" />
+  - [Průvodce – Template Refs](/guide/essentials/template-refs)
+  - [Průvodce – Typování template refs](/guide/typescript/composition-api#typing-template-refs) <sup class="vt-badge ts" />
+  - [Průvodce – Typování template refs komponenty](/guide/typescript/composition-api#typing-component-template-refs) <sup class="vt-badge ts" />
 
 ## is {#is}
 
@@ -107,5 +107,5 @@ Používá se pro binding [dynamických komponent](/guide/essentials/component-b
 
 - **Viz také:**
 
-  - [Vestavěné speciální elementy - `<component>`](/api/built-in-special-elements#component)
+  - [Vestavěné speciální elementy – `<component>`](/api/built-in-special-elements#component)
   - [Dynamické komponenty](/guide/essentials/component-basics#dynamic-components)

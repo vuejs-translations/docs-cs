@@ -137,7 +137,7 @@ Objekt představující [sloty (slots)](/guide/components/slots), které předal
 
   Pokud je to [scoped slot](/guide/components/slots#scoped-slots), jsou parametry předané do slotových funkcí dostupné jako slot props.
 
-- **Viz také:** [Funkce pro vykreslení - Vykreslování slotů](/guide/extras/render-function#rendering-slots)
+- **Viz také:** [Funkce pro vykreslení – Vykreslování slotů](/guide/extras/render-function#rendering-slots)
 
 ## $refs {#refs}
 
@@ -154,7 +154,7 @@ Objekt DOM elementů a instancí komponent, registrovaných pomocí [template re
 - **Viz také:**
 
   - [Template refs](/guide/essentials/template-refs)
-  - [Vestavěné speciální atributy - ref](./built-in-special-attributes.md#ref)
+  - [Vestavěné speciální atributy – ref](./built-in-special-attributes.md#ref)
 
 ## $attrs {#attrs}
 
@@ -258,8 +258,8 @@ Imperativní API pro vytváření watcherů.
   ```
 
 - **Viz také:**
-  - [Options - `watch`](/api/options-state#watch)
-  - [Průvodce - Watchers](/guide/essentials/watchers)
+  - [Options – `watch`](/api/options-state#watch)
+  - [Průvodce – Watchers](/guide/essentials/watchers)
 
 ## $emit() {#emit}
 
@@ -289,7 +289,7 @@ Spustí vlastní událost na aktuální instanci. Jakékoli další parametry bu
 - **Viz také:**
 
   - [Události komponent (Events)](/guide/components/events)
-  - [Options - `emits`](./options-state#emits)
+  - [Options – `emits`](./options-state#emits)
 
 ## $forceUpdate() {#forceupdate}
 

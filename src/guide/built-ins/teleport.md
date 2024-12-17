@@ -155,7 +155,7 @@ Cíl teleportace `to` už musí být v DOM, když je komponenta `<Teleport>` př
 
 ## Použití s komponentami {#using-with-components}
 
-`<Teleport>` upravuje pouze vykreslenou strukturu DOM - neovlivňuje logickou hierarchii komponent. To znamená, že pokud `<Teleport>` obsahuje komponentu, tato komponenta zůstane logickým potomkem rodičovské komponenty obsahující `<Teleport>`. Předávání vlastností (props) a emitování událostí (emits) bude fungovat stále stejným způsobem.
+`<Teleport>` upravuje pouze vykreslenou strukturu DOM. Neovlivňuje logickou hierarchii komponent. To znamená, že pokud `<Teleport>` obsahuje komponentu, tato komponenta zůstane logickým potomkem rodičovské komponenty obsahující `<Teleport>`. Předávání vlastností (props) a emitování událostí (emits) bude fungovat stále stejným způsobem.
 
 To také znamená, že `inject` z rodičovské komponenty funguje podle očekávání a že komponenta potomka bude pod komponentu rodiče vnořena i ve Vue Devtools, místo aby byla umístěna tam, kam se přesunul výsledný obsah.
 
@@ -205,7 +205,7 @@ Ve Vue 3.5+ můžeme použít vlastnost  `defer` pro odložení vyhodnocení cí
 <div id="late-div"></div>
 ```
 
-Pamatujte, že cílový element musí být vykreslen v stejném mount / update cyklu jako Teleport - např. pokud je `<div>` vykreslen pouze o vteřinu později, Teleport stejně ohlásí chybu. Odložení funguje stejně jako lifecycle hook `mounted`.
+Pamatujte, že cílový element musí být vykreslen v stejném mount / update cyklu jako Teleport – např. pokud je `<div>` vykreslen pouze o vteřinu později, Teleport stejně ohlásí chybu. Odložení funguje stejně jako lifecycle hook `mounted`.
 
 ---
 

@@ -111,7 +111,7 @@ Vlastnost `message` bude zpřístupněna v šabloně. Tímto způsobem můžeme 
 
 </div>
 
-Obsah uvnitř „mustache“ není omezen jen na identifikátory nebo cesty - lze použít jakýkoli platný JavaScript výraz:
+Obsah uvnitř „mustache“ není omezen jen na identifikátory nebo cesty, lze použít jakýkoli platný JavaScript výraz:
 
 ```vue-html
 <h1>{{ message.split('').reverse().join('') }}</h1>

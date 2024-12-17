@@ -43,7 +43,7 @@
 
   Většina dalších SSR API na této stránce volitelný objekt kontextu přijímá také. Objekt kontextu je  v kódu komponenty přístupný přes pomocnou composable [useSSRContext](#usessrcontext).
 
-- **Viz také:** [Průvodce - Vykreslování na serveru (SSR)](/guide/scaling-up/ssr)
+- **Viz také:** [Průvodce – Vykreslování na serveru (SSR)](/guide/scaling-up/ssr)
 
 ## renderToNodeStream() {#rendertonodestream}
 

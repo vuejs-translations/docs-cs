@@ -1,7 +1,7 @@
 # Options API: Lifecycle hooks {#options-lifecycle}
 
 :::info Viz také
-Pro sdílené použití Lifecycle hooks se podívejte na [Průvodce - Lifecycle hooks](/guide/essentials/lifecycle)
+Pro sdílené použití Lifecycle hooks se podívejte na [Průvodce – Lifecycle hooks](/guide/essentials/lifecycle)
 :::
 
 ## beforeCreate {#beforecreate}
@@ -121,7 +121,7 @@ Voláno poté, co komponenta aktualizovala svůj DOM strom kvůli změně reakti
   **Tento hook není volán během vykreslování na serveru (SSR).**
 
   :::warning Varování
-  V hooku `updated` neměňte stav komponenty - to pravděpodobně povede k nekonečné smyčce aktualizací!
+  V hooku `updated` neměňte stav komponenty, jinak to pravděpodobně povede k nekonečné smyčce aktualizací!
   :::
 
 ## beforeUnmount {#beforeunmount}
@@ -278,7 +278,7 @@ Voláno poté, co je instance komponenty vložena do DOM coby součást stromu u
   }
   ```
 
-- **Viz také:** [Průvodce - Životní cyklus cached instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
+- **Viz také:** [Průvodce – Životní cyklus cached instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
 
 ## deactivated {#deactivated}
 
@@ -294,7 +294,7 @@ Voláno poté, co je instance komponenty odebrána z DOM coby součást stromu u
   }
   ```
 
-- **Viz také:** [Průvodce - Životní cyklus cached instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
+- **Viz také:** [Průvodce – Životní cyklus cached instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
 
 ## serverPrefetch <sup class="vt-badge" data-text="Pouze SSR" /> {#serverprefetch}
 

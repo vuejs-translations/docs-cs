@@ -24,7 +24,7 @@ Přijímá vnitřní hodnotu a vrací reaktivní a měnitelný objekt ref s jedi
 
 - **Podrobnosti**
 
-  Objekt ref je měnitelný - tj. můžete do `.value` přiřadit nové hodnoty. Je také reaktivní - tj. všechny operace čtení `.value` jsou sledovány a operace zápisu spustí příslušné efekty.
+  Objekt ref je měnitelný - tj. můžete do `.value` přiřadit nové hodnoty. Je také reaktivní – tj. všechny operace čtení `.value` jsou sledovány a operace zápisu spustí příslušné efekty.
 
   Pokud je jako hodnota ref přiřazen objekt, objekt je hluboce (deep) reaktivní pomocí [reactive()](#reactive). To také znamená, že pokud objekt obsahuje vnořené ref, budou hluboce rozbaleny.
 
@@ -41,8 +41,8 @@ Přijímá vnitřní hodnotu a vrací reaktivní a měnitelný objekt ref s jedi
   ```
 
 - **Viz také**
-  - [Průvodce - Základy reaktivity - `ref()`](/guide/essentials/reactivity-fundamentals#ref)
-  - [Průvodce - Typování `ref()`](/guide/typescript/composition-api#typing-ref) <sup class="vt-badge ts" />
+  - [Průvodce – Základy reaktivity – `ref()`](/guide/essentials/reactivity-fundamentals#ref)
+  - [Průvodce – Typování `ref()`](/guide/typescript/composition-api#typing-ref) <sup class="vt-badge ts" />
 
 
 ## computed() {#computed}
@@ -111,10 +111,10 @@ Přijímá [getter funkci](https://developer.mozilla.org/en-US/docs/Web/JavaScri
   ```
 
 - **Viz také:**
-  - [Průvodce - Computed proměnné](/guide/essentials/computed)
-  - [Průvodce - Ladění computed proměnných](/guide/extras/reactivity-in-depth#computed-debugging)
-  - [Průvodce - Typování `computed()`](/guide/typescript/composition-api#typing-computed) <sup class="vt-badge ts" />
-  - [Průvodce - Výkon - Stabilita computed proměnných](/guide/best-practices/performance#computed-stability)
+  - [Průvodce – Computed proměnné](/guide/essentials/computed)
+  - [Průvodce – Ladění computed proměnných](/guide/extras/reactivity-in-depth#computed-debugging)
+  - [Průvodce – Typování `computed()`](/guide/typescript/composition-api#typing-computed) <sup class="vt-badge ts" />
+  - [Průvodce – Výkon – Stabilita computed proměnných](/guide/best-practices/performance#computed-stability)
 
 ## reactive() {#reactive}
 
@@ -190,8 +190,8 @@ Vrátí reaktivní proxy objektu.
   ```
 
 - **Viz také:**
-  - [Průvodce - Základy reaktivity](/guide/essentials/reactivity-fundamentals)
-  - [Průvodce - Typování `reactive()`](/guide/typescript/composition-api#typing-reactive) <sup class="vt-badge ts" />
+  - [Průvodce – Základy reaktivity](/guide/essentials/reactivity-fundamentals)
+  - [Průvodce – Typování `reactive()`](/guide/typescript/composition-api#typing-reactive) <sup class="vt-badge ts" />
 
 ## readonly() {#readonly}
 
@@ -349,8 +349,8 @@ Okamžitě spustí funkci a sleduje její závislosti. Funkci v případě změn
   ```
 
 - **Viz také**:
-  - [Průvodce - Watchers](/guide/essentials/watchers#watcheffect)
-  - [Průvodce - Ladění watcherů](/guide/extras/reactivity-in-depth#watcher-debugging)
+  - [Průvodce – Watchers](/guide/essentials/watchers#watcheffect)
+  - [Průvodce – Ladění watcherů](/guide/extras/reactivity-in-depth#watcher-debugging)
 
 ## watchPostEffect() {#watchposteffect}
 
@@ -558,8 +558,8 @@ Sleduje jeden nebo více reaktivních datových zdrojů a vyvolá callback, kdy�
 
 - **Viz také**:
 
-  - [Průvodce - Watchers](/guide/essentials/watchers)
-  - [Průvodce - Ladění watcherů](/guide/extras/reactivity-in-depth#watcher-debugging)
+  - [Průvodce – Watchers](/guide/essentials/watchers)
+  - [Průvodce – Ladění watcherů](/guide/extras/reactivity-in-depth#watcher-debugging)
 
 ## onWatcherCleanup() <sup class="vt-badge" data-text="3.5+" /> {#onwatchercleanup}
 

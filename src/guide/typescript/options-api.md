@@ -30,7 +30,7 @@ export default defineComponent({
 })
 ```
 
-Za běhu však `props` podporují pro typ vlastnosti pouze použití konstruktorových funkcí - není možné specifikovat složité typy, jako jsou objekty s vnořenými vlastnostmi nebo signatury volání funkcí.
+Za běhu však `props` podporují pro typ vlastnosti pouze použití konstruktorových funkcí. Není možné specifikovat složité typy, jako jsou objekty s vnořenými vlastnostmi nebo signatury volání funkcí.
 
 Pro anotaci složitých typů vlastností můžeme použít utility třídu `PropType`:
 
@@ -67,7 +67,7 @@ export default defineComponent({
 
 ### Omezení {#caveats}
 
-Pokud máte verzi TypeScriptu nižší než `4.7`, musíte být opatrní při používání funkčních hodnot pro volby vlastností `validator` a `default` - ujistěte se, že používáte arrow funkce:
+Pokud máte verzi TypeScriptu nižší než `4.7`, musíte být opatrní při používání funkčních hodnot pro volby vlastností `validator` a `default` – ujistěte se, že používáte arrow funkce:
 
 ```ts
 import { defineComponent } from 'vue'
@@ -285,7 +285,7 @@ declare module 'vue' {
 }
 ```
 
-Nyní bude možnost `beforeRouteEnter` správně typována. Berte na vědomí, že se jedná pouze o příklad - dobře typované knihovny jako `vue-router` by měly tato obohacení ve vlastních definicích typů provádět automaticky.
+Nyní bude možnost `beforeRouteEnter` správně typována. Berte na vědomí, že se jedná pouze o příklad. Dobře typované knihovny jako `vue-router` by měly tato obohacení ve vlastních definicích typů provádět automaticky.
 
 Umístění tohoto obohacení podléhá [stejným omezením](#type-augmentation-placement) jako obohacování globálních vlastností.
 

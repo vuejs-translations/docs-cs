@@ -102,9 +102,9 @@ Rozdíl je v tom, že prvek s `v-show` bude vždy vykreslen a zůstane v DOM; `v
 
 `v-if` je „skutečné“ podmíněné vykreslování, protože zajišťuje, že event listenery a&nbsp;vnořené komponenty uvnitř podmíněného bloku budou správně zničeny a znovu vytvořeny během přepínání.
 
-`v-if` je také „**lazy**“: pokud je podmínka při počátečním vykreslení nepravdivá, neudělá nic - podmíněný blok se nevykreslí, dokud se podmínka poprvé nestane pravdivou.
+`v-if` je také „**lazy**“: pokud je podmínka při počátečním vykreslení nepravdivá, neudělá nic – podmíněný blok se nevykreslí, dokud se podmínka poprvé nestane pravdivou.
 
-Ve srovnání s tím je `v-show` je mnohem jednodušší - prvek je vždy vykreslen bez ohledu na počáteční podmínku, s přepínáním založeným na CSS.
+Ve srovnání s tím je `v-show` je mnohem jednodušší – prvek je vždy vykreslen bez ohledu na počáteční podmínku, s přepínáním založeným na CSS.
 
 Obecně řečeno, `v-if` má vyšší náklady na přepínání, zatímco `v-show` má vyšší počáteční náklady na vykreslování. Takže upřednostněte `v-show`, pokud potřebujete něco přepínat velmi často, a použijte `v-if`, pokud je nepravděpodobné, že se podmínka za běhu změní.
 

@@ -250,7 +250,7 @@ Pokud chcete, určitě můžete tato spojovací slova zahrnout do názvů kompon
 
 ---
 
-  **Poznámka - Čeština**
+  **Poznámka – Čeština**
   
   Výše uvedený text platí spíše pro anglický jazyk. V češtině sice také říkáme _Káva s&nbsp;mlékem_, ale vystačíme si s _Polévka dne_ a _Návštěvník muzea_ i bez spojovacích slov.
 
@@ -418,7 +418,7 @@ NEBO
 **Názvy komponent v JS/[JSX](/guide/extras/render-function#jsx-tsx) by měly být vždy PascalCase, přestože mohou být kebab-case uvnitř řetězců pro jednodušší aplikace, které používají pouze globální registraci komponent skrz `app.component`.**
 
 ::: details Podrobné vysvětlení
-V JavaScriptu je PascalCase konvencí pro třídy a prototype konstruktory - v podstatě pro cokoli, co může mít odlišné instance. Vue komponenty mají také instance, takže dává smysl rovněž používat PascalCase. Další výhodou je, že používání PascalCase v rámci JSX (a šablon) umožňuje čtenářům kódu snadněji rozlišovat mezi komponentami a HTML elementy.
+V JavaScriptu je PascalCase konvencí pro třídy a prototype konstruktory – v podstatě pro cokoli, co může mít odlišné instance. Vue komponenty mají také instance, takže dává smysl rovněž používat PascalCase. Další výhodou je, že používání PascalCase v rámci JSX (a šablon) umožňuje čtenářům kódu snadněji rozlišovat mezi komponentami a HTML elementy.
 
 Nicméně pro aplikace, které používají **pouze** globální definice komponent přes `app.component`, doporučujeme místo toho kebab-case. Důvody jsou:
 
@@ -569,7 +569,7 @@ const props = defineProps({
 </div>
 
 ```vue-html
-// pro SFC - ujistěte se, že je použití malých a velkých písmen 
+// pro SFC – ujistěte se, že je použití malých a velkých písmen 
 // konzistentní napříč projektem můžete použít kteroukoli konvenci, 
 // ale nedoporučujeme míchat oba dva různé styly
 <WelcomeMessage greeting-text="hi"/>

@@ -365,14 +365,14 @@ Můžeme naučit prohlížeč, kde najde `vue` import s využitím [Import Maps]
 
 </div>
 
-Do import mapy můžete přidat i záznamy pro další závislosti - ujistěte se ale, že ukazují na ES modules verzi knihovny, kterou chcete použít.
+Do import mapy můžete přidat i záznamy pro další závislosti. Ujistěte se ale, že ukazují na ES modules verzi knihovny, kterou chcete použít.
 
 :::tip Podpora Import Maps v prohlížečích
 Import Maps jsou relativně nová funkcionalita prohlížečů. Ujistěte se že používáte prohlížeč, který je [podporuje](https://caniuse.com/import-maps). Zejména pozor, že jsou podporovány až od Safari 16.4+.
 :::
 
 :::warning Poznámka k produkčnímu použití
-Dosavadní příklady jsou používány při development buildech Vue - pokud chcete Vue z&nbsp;CDN používat i v produkci, konzultujte s [Průvodcem nasazením do produkce](/guide/best-practices/production-deployment#without-build-tools).
+Dosavadní příklady jsou používány při development buildech Vue. Pokud chcete Vue z&nbsp;CDN používat i v produkci, konzultujte s [Průvodcem nasazením do produkce](/guide/best-practices/production-deployment#without-build-tools).
 
 I když lze Vue používat i bez build fáze, alternativou je zvážit využití [`vuejs/petite-vue`](https://github.com/vuejs/petite-vue), které může lépe vyhovovat tam, kde by bylo možné sáhnout po [`jquery/jquery`](https://github.com/jquery/jquery) (v&nbsp;minulosti) nebo [`alpinejs/alpine`](https://github.com/alpinejs/alpine) (v současnosti).
 :::

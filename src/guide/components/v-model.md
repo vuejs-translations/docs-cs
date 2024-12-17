@@ -487,7 +487,7 @@ export default {
 </template>
 ```
 
-Všimněte si, že vlastnost `modelModifiers` komponenty obsahuje `capitalize` a jeho hodnota je `true` - protože tak byla nastavena pomocí `v-model` bindingu `v-model.capitalize="myText"`.
+Všimněte si, že vlastnost `modelModifiers` komponenty obsahuje `capitalize` a jeho hodnota je `true` – protože tak byla nastavena pomocí `v-model` bindingu `v-model.capitalize="myText"`.
 
 Teď když máme naši vlastnost nastavenou, můžeme kontrolovat klíče `modelModifiers` a&nbsp;napsat handler, který změní emitovanou hodnotu. V kódu níže převedeme řetězec na velká písmena kdykoli, když `<input />` element vyvolá událost `input`.
 

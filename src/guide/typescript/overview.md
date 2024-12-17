@@ -40,7 +40,7 @@ Projekty vytvořené pomocí `create-vue` obsahují přednastavený `tsconfig.js
 
 Při ruční konfiguraci `tsconfig.json` jsou zvlášť zajímavé některé možnosti:
 
-- [`compilerOptions.isolatedModules`](https://www.typescriptlang.org/tsconfig#isolatedModules) je nastaveno na `true`, protože Vite pro transpilaci TypeScriptu používá [esbuild](https://esbuild.github.io/) a je omezen na transpilaci jednoho souboru. [`compilerOptions.verbatimModuleSyntax`](https://www.typescriptlang.org/tsconfig#verbatimModuleSyntax) je [nadmnožina `isolatedModules`](https://github.com/microsoft/TypeScript/issues/53601) a je to také dobrá volba - používá ji [`@vue/tsconfig`](https://github.com/vuejs/tsconfig).
+- [`compilerOptions.isolatedModules`](https://www.typescriptlang.org/tsconfig#isolatedModules) je nastaveno na `true`, protože Vite pro transpilaci TypeScriptu používá [esbuild](https://esbuild.github.io/) a je omezen na transpilaci jednoho souboru. [`compilerOptions.verbatimModuleSyntax`](https://www.typescriptlang.org/tsconfig#verbatimModuleSyntax) je [nadmnožina `isolatedModules`](https://github.com/microsoft/TypeScript/issues/53601) a je to také dobrá volba – používá ji [`@vue/tsconfig`](https://github.com/vuejs/tsconfig).
 
 - Pokud používáte Options API, musíte nastavit [`compilerOptions.strict`](https://www.typescriptlang.org/tsconfig#strict) na `true` (nebo alespoň povolit [`compilerOptions.noImplicitThis`](https://www.typescriptlang.org/tsconfig#noImplicitThis), což je součástí volby `strict`), abyste mohli využít typovou kontrolu `this` v možnostech (options) komponenty. Jinak bude `this` považováno za `any`.
 

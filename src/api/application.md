@@ -35,7 +35,7 @@ Vytvoří instanci aplikace.
   const app = createApp(App)
   ```
 
-- **Viz také:** [Průvodce - Vytvoření Vue aplikace](/guide/essentials/application)
+- **Viz také:** [Průvodce – Vytvoření Vue aplikace](/guide/essentials/application)
 
 ## createSSRApp() {#createssrapp}
 
@@ -342,7 +342,7 @@ Poskytuje verzi Vue, se kterou byla aplikace vytvořena. To se hodí uvnitř [pl
   }
   ```
 
-- **Viz také:** [Globální API - version](/api/general#version)
+- **Viz také:** [Globální API – version](/api/general#version)
 
 ## app.config {#app-config}
 
@@ -440,7 +440,7 @@ Nastavte tuto vlastnost na `true`, abyste povolili sledování výkonu inicializ
 
 - **Typ:** `boolean`
 
-- **Viz také:** [Průvodce - Výkon](/guide/best-practices/performance)
+- **Viz také:** [Průvodce – Výkon](/guide/best-practices/performance)
 
 ## app.config.compilerOptions {#app-config-compileroptions}
 
@@ -464,7 +464,7 @@ Definuje ověřovací metodu pro rozpoznání custom nativních prvků.
 
   Metoda by měla vrátit `true`, pokud má být nějaký tag považován za nativní element. Odpovídající tag bude Vue vykreslovat nativně, místo aby se pokoušelo jej zpracovat jako Vue komponentu.
 
-  Nativní HTML a SVG tagy není třeba v této funkci řešit - Vue parser je rozpozná automaticky.
+  Nativní HTML a SVG tagy není třeba v této funkci řešit. Vue parser je rozpozná automaticky.
 
 - **Příklad**
 
@@ -572,7 +572,7 @@ Umožní použití `msg` uvnitř kterékoli šablony a také na `this` libovoln�
   }
   ```
 
-- **Viz také:** [Průvodce - Obohacování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
+- **Viz také:** [Průvodce – Obohacování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties) <sup class="vt-badge ts" />
 
 ## app.config.optionMergeStrategies {#app-config-optionmergestrategies}
 
@@ -623,7 +623,7 @@ Objekt pro definici strategií pro slučování custom vlastností komponenty.
   // vypíše 'Ahoj Vue'
   ```
 
-- **Viz také:** [Instance komponenty - `$options`](/api/component-instance#options)
+- **Viz také:** [Instance komponenty – `$options`](/api/component-instance#options)
 
 ## app.config.idPrefix <sup class="vt-badge" data-text="3.5+" /> {#app-config-idprefix}
 

@@ -39,7 +39,7 @@ Před použitím SSR pro vaši aplikaci byste se měli zeptat, zda ji skutečně
 
 ### SSR vs. SSG {#ssr-vs-ssg}
 
-**Statické generování stránek (SSG)**, také nazývané pre-rendering, je další populární technika pro vytváření rychlých webových stránek. Pokud jsou data nutná pro vykreslení stránky pro každého uživatele stejná, můžeme stránku místo vykreslování pokaždé, když přijde požadavek, vykreslit pouze jednou - předem, během build fáze. Předvykreslené stránky jsou generovány a poskytovány jako statické HTML soubory.
+**Statické generování stránek (SSG)**, také nazývané pre-rendering, je další populární technika pro vytváření rychlých webových stránek. Pokud jsou data nutná pro vykreslení stránky pro každého uživatele stejná, můžeme stránku místo vykreslování pokaždé, když přijde požadavek, vykreslit pouze jednou – předem, během build fáze. Předvykreslené stránky jsou generovány a poskytovány jako statické HTML soubory.
 
 SSG zachovává stejné výkonnostní charakteristiky jako aplikace s vykreslováním na serveru: při načítání obsahu poskytuje skvělý výkon. Zároveň je levnější a snazší na nasazení než aplikace s vykreslováním na serveru, protože výstupem jsou statické HTML a assety. Klíčovým slovem zde je **statický**: SSG lze použít pouze na stránky, které poskytují statická data, tj. data, která jsou známa při sestavení a mezi dvěma requesty se nezmění. Při každé změně dat je potřeba nové nasazení.
 
@@ -154,7 +154,7 @@ app.mount('#app')
 
 ### Struktura kódu {#code-structure}
 
-Všimněte si, že jsme znovu použili stejnou implementaci aplikace jako na serveru. Teď musíme začít přemýšlet o struktuře kódu v SSR aplikaci - jak sdílet stejný kód aplikace mezi serverem a klientem?
+Všimněte si, že jsme znovu použili stejnou implementaci aplikace jako na serveru. Teď musíme začít přemýšlet o struktuře kódu v SSR aplikaci – jak sdílet stejný kód aplikace mezi serverem a klientem?
 
 Zde ukážeme nejjednodušší možnou konfiguraci. Nejprve rozdělme logiku vytváření aplikace do samostatného souboru `app.js`:
 
@@ -170,7 +170,7 @@ export function createApp() {
 }
 ```
 
-Tento soubor a jeho závislosti jsou sdíleny mezi serverem a klientem - nazýváme je **univerzální kód**. Při psaní univerzálního kódu je třeba věnovat pozornost několika věcem, o kterých budeme [diskutovat níže](#writing-ssr-friendly-code).
+Tento soubor a jeho závislosti jsou sdíleny mezi serverem a klientem – nazýváme je **univerzální kód**. Při psaní univerzálního kódu je třeba věnovat pozornost několika věcem, o kterých budeme [diskutovat níže](#writing-ssr-friendly-code).
 
 Náš vstup na klientovi importuje univerzální kód, vytváří aplikaci a provádí připojení:
 
@@ -261,13 +261,13 @@ Vezměte na vědomí, že pokud knihovna třetí strany není pro univerzální 
 
 V kapitole o správě stavu jsme představili [jednoduchý vzor správy stavu pomocí Reactivity API](state-management#simple-state-management-with-reactivity-api). V kontextu SSR vyžaduje tento vzor některé dodatečné úpravy.
 
-Vzor deklaruje sdílený stav ve hlavním scope JavaScriptového modulu. To z nich dělá **singletony** - tj. existuje pouze jedna instance reaktivního objektu po celou dobu životnosti naší aplikace. V čistě klientské aplikaci Vue to funguje správně, protože moduly v naší aplikaci jsou pro každou návštěvu stránky v prohlížeči znovu inicializovány.
+Vzor deklaruje sdílený stav ve hlavním scope JavaScriptového modulu. To z nich dělá **singletony** – tj. existuje pouze jedna instance reaktivního objektu po celou dobu životnosti naší aplikace. V čistě klientské aplikaci Vue to funguje správně, protože moduly v naší aplikaci jsou pro každou návštěvu stránky v prohlížeči znovu inicializovány.
 
 Ovšem v kontextu SSR jsou moduly aplikace na serveru obvykle inicializovány pouze jednou při spuštění serveru. Stejné instance modulů budou při více požadavcích na server použity znovu, stejně jako naše singleton stavové objekty. Pokud měníme sdílený singleton stav s daty specifickými pro jednoho uživatele, může se nechtěně prosadit do požadavku od jiného uživatele. Toto nazýváme **cross-request state pollution**.
 
 Technicky je možné při každém požadavku znovu inicializovat všechny moduly JavaScriptu, stejně jako v prohlížečích. Jenže inicializace JavaScriptových modulů může být nákladná, takže by to výrazně ovlivnilo výkon serveru.
 
-Doporučeným řešením je při každém požadavku vytvořit novou instanci celé aplikace - včetně routeru a globálních úložišť. Poté místo přímého importu poskytneme sdílený stav pomocí [provide na úrovni aplikace](/guide/components/provide-inject#app-level-provide) a vkládáme jej do komponent, které ho potřebují:
+Doporučeným řešením je při každém požadavku vytvořit novou instanci celé aplikace – včetně routeru a globálních úložišť. Poté místo přímého importu poskytneme sdílený stav pomocí [provide na úrovni aplikace](/guide/components/provide-inject#app-level-provide) a vkládáme jej do komponent, které ho potřebují:
 
 ```js
 // app.js (sdílený mezi serverem a klientem)
@@ -306,7 +306,7 @@ Pokud struktura DOM předvykresleného HTML neodpovídá očekávanému výstupu
    <p></p>
    ```
 
-2. Data použitá během vykreslování obsahují náhodně generované hodnoty. Protože stejná aplikace poběží dvakrát - jednou na serveru a jednou na klientovi - není zaručeno, že náhodné budou mezi oběma běhy stejné. Existují dvě možnosti, jak se nesouladům způsobeným náhodnými hodnotami vyhnout:
+2. Data použitá během vykreslování obsahují náhodně generované hodnoty. Protože stejná aplikace poběží dvakrát – jednou na serveru a jednou na klientovi, není zaručeno, že náhodné budou mezi oběma běhy stejné. Existují dvě možnosti, jak se nesouladům způsobeným náhodnými hodnotami vyhnout:
 
    1. Pro vykreslení části, která závisí na náhodných hodnotách, pouze na klientovi, použijte `v-if` + `onMounted`. Váš framework může mít také vestavěné funkce, které to usnadní, například komponenta `<ClientOnly>` ve VitePress.
 
@@ -358,7 +358,7 @@ console.log(ctx.teleports) // { '#teleported': 'teleportovany obsah' }
 Značky pro teleportaci musíte vložit na správné místo ve vašem finálním HTML stránky, podobně jako musíte vložit hlavní markup aplikace.
 
 :::tip
-Při použití Teleportace a SSR se vyhněte cílení na `body` - obvykle bude `<body>` obsahovat jiný serverem vykreslený obsah, což znemožňuje Teleportům správně určit výchozí umístění pro hydrataci.
+Při použití Teleportace a SSR se vyhněte cílení na `body` – obvykle bude `<body>` obsahovat jiný serverem vykreslený obsah, což znemožňuje Teleportům správně určit výchozí umístění pro hydrataci.
 
 Místo toho upřednostněte samostatný kontejner, např. `<div id="teleported"></div>`, který obsahuje pouze teleportovaný obsah.
 :::

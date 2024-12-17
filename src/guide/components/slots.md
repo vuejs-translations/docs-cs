@@ -350,7 +350,7 @@ Jak už bylo rozebíráno v oddílu [rozsah vykreslování](#render-scope), obsa
 
 V některých případech by však mohlo být užitečné, kdyby obsah slotu mohl využívat data ze scope rodiče i potomka. Abychom toho dosáhli, potřebujeme způsob, jak může komponenta potomka předat svá data do slotu při jeho vykreslování.
 
-Vlastně můžeme udělat přesně to - můžeme předávat atributy do výstupu slotu stejně jako se předávají vlastnosti komponentě:
+Vlastně můžeme udělat přesně to. Můžeme předávat atributy do výstupu slotu stejně jako se předávají vlastnosti komponentě:
 
 ```vue-html
 <!-- <MyComponent> template -->
@@ -439,7 +439,7 @@ Předávání vlastností do pojmenovaného slotu:
 <slot name="header" message="ahoj"></slot>
 ```
 
-Pamatujte si, že atribut `name` pojmenovaného slotu nebude jako vlastnost zahrnut, protože jde o vyhrazené klíčové slovo - takže výsledný objekt `headerProps` bude `{ message: 'ahoj' }`.
+Pamatujte si, že atribut `name` pojmenovaného slotu nebude jako vlastnost zahrnut, protože jde o vyhrazené klíčové slovo, takže výsledný objekt `headerProps` bude `{ message: 'ahoj' }`.
 
 Pokud kombinujete pojmenované sloty s výchozím scoped slotem, musíte pro výchozí slot použít explicitní tag `<template>`. Pokus umístit direktivu `v-slot` přímo na komponentu způsobí kompilační chybu. Tím se Vue brání nejasnostem ohledně scope pro vlastnosti výchozího slotu. Například:
 
@@ -477,7 +477,7 @@ Použití explicitního tagu `<template>` pro výchozí slot pomáhá ujasnit si
 </MyComponent>
 ```
 
-### Příklad - Fancy List {#fancy-list-example}
+### Příklad – Fancy List {#fancy-list-example}
 
 Možná se ptáte, jaké by byl pro scoped sloty vhodné využití. Zde je příklad: představte si komponentu `<FancyList>`, která vykresluje seznam položek – může zapouzdřit logiku pro načítání vzdálených dat, používat data k zobrazení seznamu nebo dokonce pokročilé funkce, jako je stránkování nebo nekonečný scrolling. Chceme však, aby byla flexibilní ohledně toho, jak vypadá každá položka, a ponechat styl každé položky na komponentě rodiče, která ji implementuje. Požadované použití tedy může vypadat takto:
 

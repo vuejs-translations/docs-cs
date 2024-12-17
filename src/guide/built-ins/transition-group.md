@@ -74,7 +74,7 @@ aby bylo možné správně vypočítat pohybové animace */
 }
 ```
 
-Teď to vypadá mnohem lépe - dokonce se plynule animuje, když je celý seznam zamíchán:
+Teď to vypadá mnohem lépe. Dokonce se plynule animuje, když je celý seznam zamíchán:
 
 <ListMove />
 

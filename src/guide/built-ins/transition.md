@@ -532,7 +532,7 @@ Kromě přepínání pomocí `v-if` / `v-show` můžeme mezi dvěma elementy tak
 
 V předchozím příkladu byly vstupující a odcházející prvky animovány současně a museli jsme je nastavit na `position: absolute`, abychom se vyhnuli problému s layoutem, když jsou v DOM přítomny oba prvky.
 
-To však v některých případech není možné nebo to jednoduše není požadované chování. Můžeme chtít, aby odcházející prvek byl nejprve animován pryč a vstupující prvek byl vložen až **po** dokončení animace odcházejícího prvku. Manuální orchestrace takových animací by byla velmi složitá - naštěstí můžeme toto chování povolit předáním vlastnosti (prop) `mode` do `<Transition>`:
+To však v některých případech není možné nebo to jednoduše není požadované chování. Můžeme chtít, aby odcházející prvek byl nejprve animován pryč a vstupující prvek byl vložen až **po** dokončení animace odcházejícího prvku. Manuální orchestrace takových animací by byla velmi složitá. Naštěstí můžeme toto chování povolit předáním vlastnosti (prop) `mode` do `<Transition>`:
 
 ```vue-html
 <Transition mode="out-in">

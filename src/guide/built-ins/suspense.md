@@ -101,7 +101,7 @@ Tyto události lze použít například k zobrazení indikátoru načítání p�
 
 ## Obsluha chyb {#error-handling}
 
-`<Suspense>` momentálně obsluhu chyb sama o sobě nenabízí - nicméně můžete použít možnost [`errorCaptured`](/api/options-lifecycle#errorcaptured) nebo [`onErrorCaptured()`](/api/composition-api-lifecycle#onerrorcaptured) hook k zachycení a zpracování asynchronních chyb v komponentě nadřazené `<Suspense>`.
+`<Suspense>` momentálně obsluhu chyb sama o sobě nenabízí, nicméně můžete použít možnost [`errorCaptured`](/api/options-lifecycle#errorcaptured) nebo [`onErrorCaptured()`](/api/composition-api-lifecycle#onerrorcaptured) hook k zachycení a zpracování asynchronních chyb v komponentě nadřazené `<Suspense>`.
 
 ## Kombinace s ostatními komponentami {#combining-with-other-components}
 

@@ -10,7 +10,7 @@ Je to velmi podobné tomu, jak vnořujeme nativní HTML elementy, ale Vue implem
 
 ## Definice komponenty {#defining-a-component}
 
-Při použití build fáze obvykle definujeme každou Vue komponentu ve vyhrazeném souboru pomocí přípony `.vue` - známém jako [Single-File komponenta](/guide/scaling-up/sfc) (zkráceně SFC):
+Při použití build fáze obvykle definujeme každou Vue komponentu ve vyhrazeném souboru pomocí přípony `.vue` – známém jako [Single-File komponenta](/guide/scaling-up/sfc) (zkráceně SFC):
 
 <div class="options-api">
 
@@ -484,7 +484,7 @@ Toho lze dosáhnout použitím speciálního Vue elementu `<slot>`:
 </style>
 ```
 
-Jak vidíte výše, používáme `<slot>` jako zástupný symbol v místě, kde chceme umístit obsah - a to je vše. Máme hotovo!
+Jak vidíte výše, používáme `<slot>` jako zástupný symbol v místě, kde chceme umístit obsah – a to je vše. Máme hotovo!
 
 <div class="options-api">
 

@@ -89,7 +89,7 @@ const __temp = useMouse(),
 console.log(x.value, y.value)
 ```
 
-Zapamatujte si, že pokud `x` již je ref, `toRef(__temp, 'x')` ho jednoduše vrátí tak, jak je, a&nbsp;žádný další ref nebude vytvořen. Pokud destrukturovaná hodnota není ref (např. funkce), stále to funguje - hodnota bude obalena v ref, aby zbytek kódu fungoval, jak se očekává.
+Zapamatujte si, že pokud `x` již je ref, `toRef(__temp, 'x')` ho jednoduše vrátí tak, jak je, a&nbsp;žádný další ref nebude vytvořen. Pokud destrukturovaná hodnota není ref (např. funkce), stále to funguje – hodnota bude obalena v ref, aby zbytek kódu fungoval, jak se očekává.
 
 Destrukturovaní s `$()` funguje jak na reaktivních objektech, tak na obyčejných objektech obsahujících refs.
 
@@ -231,7 +231,7 @@ return {
 
 Abychom zachovali reaktivitu, měli bychom vracet skutečné refs, ne aktuální hodnotu v&nbsp;době návratu.
 
-Opět můžeme k opravě použít `$$()`. V tomto případě lze `$$()` použít přímo na vráceném objektu - jakýkoli odkaz na reaktivní proměnné uvnitř volání `$$()` si zachová odkaz na jejich podkladové refs:
+Opět můžeme k opravě použít `$$()`. V tomto případě lze `$$()` použít přímo na vráceném objektu. Jakýkoli odkaz na reaktivní proměnné uvnitř volání `$$()` si zachová odkaz na jejich podkladové refs:
 
 ```ts
 function useMouse() {
@@ -271,7 +271,7 @@ setup(props) {
 
 Vue poskytuje typy pro tyto makra (dostupné globálně) a všechny typy budou fungovat správně. Nejsou zde žádné neslučitelnosti se standardními sémantikami TypeScriptu, takže syntaxe bude fungovat se všemi existujícími nástroji.
 
-To také znamená, že makra mohou fungovat v jakémkoli souboru, kde jsou povoleny platné JS / TS - nejen uvnitř Vue SFC.
+To také znamená, že makra mohou fungovat v jakémkoli souboru, kde jsou povoleny platné JS / TS, nejen uvnitř Vue SFC.
 
 Protože makra jsou dostupná globálně, jejich typy musí být explicitně odkazovány (např. v souboru `env.d.ts`):
 

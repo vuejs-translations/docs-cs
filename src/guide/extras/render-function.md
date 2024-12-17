@@ -26,7 +26,7 @@ const vnode = h(
 )
 ```
 
-`h()` je zkratka pro **hyperscript** - což znamená „JavaScript, který produkuje HTML (hypertext markup language)“. Tento název je dědictvím konvencí sdílených mnoha implementacemi virtuálního DOM. Popisnější název by mohl být `createVNode()`, ale kratší název pomáhá, když tuto funkci musíte v rámci funkce pro vykreslení volat mnohokrát.
+`h()` je zkratka pro **hyperscript** – což znamená „JavaScript, který produkuje HTML (hypertext markup language)“. Tento název je dědictvím konvencí sdílených mnoha implementacemi virtuálního DOM. Popisnější název by mohl být `createVNode()`, ale kratší název pomáhá, když tuto funkci musíte v rámci funkce pro vykreslení volat mnohokrát.
 
 Funkce `h()` je navržena tak, aby byla velmi flexibilní:
 
@@ -196,7 +196,7 @@ Všechny VNodes ve stromu komponent musí být jedinečné. To znamená, že ná
 function render() {
   const p = h('p', 'ahoj')
   return h('div', [
-    // Oops - duplicitní VNodes!
+    // Oops – duplicitní VNodes!
     p,
     p
   ])
@@ -425,7 +425,7 @@ h('div', {
 
 ### Komponenty {#components}
 
-K vytvoření VNode pro komponentu by měl být první parametr předaný do `h()` definice komponenty. To znamená, že při použití funkcí pro vykreslení není nutné komponenty registrovat - můžete je použít přímo:
+K vytvoření VNode pro komponentu by měl být první parametr předaný do `h()` definice komponenty. To znamená, že při použití funkcí pro vykreslení není nutné komponenty registrovat a můžete je použít přímo:
 
 ```js
 import Foo from './Foo.vue'
@@ -645,7 +645,7 @@ export default {
 
 ### `v-model` {#v-model}
 
-Direktiva `v-model` je při kompilaci šablony rozšířena na vlastnosti `modelValue` a&nbsp;`onUpdate:modelValue` - tyto vlastnosti (props) musíme poskytnout sami:
+Direktiva `v-model` je při kompilaci šablony rozšířena na vlastnosti `modelValue` a&nbsp;`onUpdate:modelValue` – tyto vlastnosti (props) musíme poskytnout sami:
 
 <div class="composition-api">
 

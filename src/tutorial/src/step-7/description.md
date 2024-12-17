@@ -52,4 +52,4 @@ Existují dva způsoby, jak list aktualizovat:
 
 Zde máme jednoduchý seznam úkolů – zkuste implementovat logiku funkcí `addTodo()` a `removeTodo()` tak, aby to fungovalo!
 
-Více detailů o `v-for`: <a target="_blank" href="/guide/essentials/list.html">Průvodce - Vykreslování seznamu</a>
+Více detailů o `v-for`: <a target="_blank" href="/guide/essentials/list.html">Průvodce – Vykreslování seznamu</a>

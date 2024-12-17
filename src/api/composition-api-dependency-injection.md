@@ -14,7 +14,7 @@ Poskytuje hodnotu, která může být implementována komponentami potomka.
 
   `provide()` přijímá dva parametry: klíč (injection key), kterým může být řetězec nebo symbol, a hodnotu, která má být implementována.
 
-  Při použití TypeScriptu může být klíč symbolem přetypovaným jako `InjectionKey` - typem poskytovaným Vue, který rozšiřuje `Symbol` a který lze použít k synchronizaci typu hodnoty mezi `provide()` a `inject()`.
+  Při použití TypeScriptu může být klíč symbolem přetypovaným jako `InjectionKey` – typem poskytovaným Vue, který rozšiřuje `Symbol` a který lze použít k synchronizaci typu hodnoty mezi `provide()` a `inject()`.
 
   Podobně jako u API pro registraci lifecycle hooks musí být `provide()` voláno synchronně během `setup()` fáze komponenty.
 
@@ -38,8 +38,8 @@ Poskytuje hodnotu, která může být implementována komponentami potomka.
   ```
 
 - **Viz také**:
-  - [Průvodce - Provide / Inject](/guide/components/provide-inject)
-  - [Průvodce - Typování provide / inject](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
+  - [Průvodce – Provide / Inject](/guide/components/provide-inject)
+  - [Průvodce – Typování provide / inject](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
 
 ## inject() {#inject}
 
@@ -72,7 +72,7 @@ Implementuje hodnotu poskytnutou komponentou předka nebo aplikací (pomocí `ap
 
   Podobně jako u API pro registraci lifecycle hooks, musí být `inject()` voláno synchronně během `setup()` fáze komponenty.
 
-  Při použití TypeScriptu může být klíč typu `InjectionKey` - typu poskytovaného Vue, který rozšiřuje `Symbol` a který lze použít k synchronizaci typu hodnoty mezi `provide()` a `inject()`.
+  Při použití TypeScriptu může být klíč typu `InjectionKey` – typu poskytovaného Vue, který rozšiřuje `Symbol` a který lze použít k synchronizaci typu hodnoty mezi `provide()` a `inject()`.
 
 - **Příklad**
 
@@ -104,8 +104,8 @@ Implementuje hodnotu poskytnutou komponentou předka nebo aplikací (pomocí `ap
   ```
 
 - **Viz také**:
-  - [Průvodce - Provide / Inject](/guide/components/provide-inject)
-  - [Průvodce - Typování provide / inject](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
+  - [Průvodce – Provide / Inject](/guide/components/provide-inject)
+  - [Průvodce – Typování provide / inject](/guide/typescript/composition-api#typing-provide-inject) <sup class="vt-badge ts" />
 
 
 ## hasInjectionContext() {#has-injection-context}

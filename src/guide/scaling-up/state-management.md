@@ -52,9 +52,9 @@ export default {
 
 Je to samostatná jednotka s následujícími částmi:
 
-- **Stav** - zdroj pravdy, který naši aplikaci řídí;
-- **Zobrazení** - deklarativní mapování **stavu**;
-- **Akce** - možné způsoby, jak se stav může změnit v reakci na uživatelské vstupy ze **zobrazení**.
+- **Stav** – zdroj pravdy, který naši aplikaci řídí;
+- **Zobrazení** – deklarativní mapování **stavu**;
+- **Akce** – možné způsoby, jak se stav může změnit v reakci na uživatelské vstupy ze **zobrazení**.
 
 Toto je jednoduché zobrazení konceptu „jednosměrného toku dat“:
 
@@ -151,7 +151,7 @@ export default {
 
 </div>
 
-Kdykoli je nyní objekt `store` změněn, obě komponenty `<ComponentA>` a `<ComponentB>` automaticky aktualizují svá zobrazení - máme jediný zdroj pravdy.
+Kdykoli je nyní objekt `store` změněn, obě komponenty `<ComponentA>` a `<ComponentB>` automaticky aktualizují svá zobrazení – máme jediný zdroj pravdy.
 
 Ovšem to také znamená, že jakákoli komponenta, která `store` importuje, ho může libovolně měnit:
 
@@ -197,7 +197,7 @@ export const store = reactive({
 </div>
 
 :::tip
-Všimněte si, že click handler používá `store.increment()` s kulatými závorkami - je to nutné pro volání metody s odpovídajícím kontextem `this`, protože to není metoda komponenty.
+Všimněte si, že click handler používá `store.increment()` s kulatými závorkami. Je to nutné pro volání metody s odpovídajícím kontextem `this`, protože to není metoda komponenty.
 :::
 
 I když zde jako úložiště používáme jediný reaktivní objekt, můžete také sdílet reaktivní stav vytvořený pomocí jiných funkcí [Reactivity API](/api/reactivity-core) jako `ref()` nebo `computed()`, nebo dokonce vrátit globální stav z [composable](/guide/reusability/composables):

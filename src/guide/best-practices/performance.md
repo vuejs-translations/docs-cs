@@ -37,7 +37,7 @@ Pro profilování výkonu během lokálního vývoje:
 
 ## Optimalizace načítání stránky {#page-load-optimizations}
 
-Existuje mnoho faktorů pro optimalizaci výkonu načítání stránky nezávislých na frameworku - podívejte se do [tohoto průvodce web.dev](https://web.dev/fast/) pro komplexní přehled. Zde se budeme zaměřovat především na techniky specifické pro Vue.
+Existuje mnoho faktorů pro optimalizaci výkonu načítání stránky nezávislých na frameworku. Podívejte se do [tohoto průvodce web.dev](https://web.dev/fast/) pro komplexní přehled. Zde se budeme zaměřovat především na techniky specifické pro Vue.
 
 ### Výběr správné architektury {#choosing-the-right-architecture}
 

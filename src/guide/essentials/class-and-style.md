@@ -255,7 +255,7 @@ O dědičnosti atributů v komponentách se můžete dozvědět více v sekci [F
 
 ### Binding na objekty {#binding-to-objects-1}
 
-`:style` podporuje binding na hodnoty JavaScript objektů - v souladu s [atributem HTML elementu `style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style):
+`:style` podporuje binding na hodnoty JavaScript objektů – v souladu s [atributem HTML elementu `style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style):
 
 <div class="composition-api">
 

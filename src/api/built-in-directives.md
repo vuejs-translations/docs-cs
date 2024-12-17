@@ -18,7 +18,7 @@ Aktualizuje textový obsah elementu.
   <span>{{msg}}</span>
   ```
 
-- **Viz také:** [Syntaxe šablon - Interpolace textu](/guide/essentials/template-syntax#text-interpolation)
+- **Viz také:** [Syntaxe šablon – Interpolace textu](/guide/essentials/template-syntax#text-interpolation)
 
 ## v-html {#v-html}
 
@@ -28,7 +28,7 @@ Aktualizuje [innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element
 
 - **Podrobnosti**
 
-  Obsah `v-html` je vložen jako prosté HTML - syntaxe Vue šablony nebude zpracována. Pokud se snažíte sestavit šablony pomocí `v-html`, zkuste raději řešení přehodnotit a použít komponenty.
+  Obsah `v-html` je vložen jako prosté HTML a syntaxe Vue šablony nebude zpracována. Pokud se snažíte sestavit šablony pomocí `v-html`, zkuste raději řešení přehodnotit a použít komponenty.
 
   ::: warning Bezpečnostní poznámka
   Dynamické vykreslování libovolného HTML na vašem webu může být velmi nebezpečné, protože může snadno vést k [XSS útokům](https://en.wikipedia.org/wiki/Cross-site_scripting). Používejte `v-html` pouze na důvěryhodný obsah a **nikdy** na obsah poskytovaný uživatelem.
@@ -42,7 +42,7 @@ Aktualizuje [innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element
   <div v-html="html"></div>
   ```
 
-- **Viz také:** [Syntaxe šablon - HTML kód](/guide/essentials/template-syntax#raw-html)
+- **Viz také:** [Syntaxe šablon – HTML kód](/guide/essentials/template-syntax#raw-html)
 
 ## v-show {#v-show}
 
@@ -70,7 +70,7 @@ Podmíněné vykreslování elementu nebo fragmentu šablony na základě pravdi
 
   Tato direktiva spouští přechody, když se změní její podmínka.
 
-  Pokud jsou použity společně, `v-if` má vyšší prioritu než `v-for`. Nedoporučujeme používat tyto dvě direktivy společně na jednom elementu - pro podrobnosti se podívejte na [průvodce vykreslováním seznamu](/guide/essentials/list#v-for-with-v-if).
+  Pokud jsou použity společně, `v-if` má vyšší prioritu než `v-for`. Nedoporučujeme používat tyto dvě direktivy společně na jednom elementu. Pro podrobnosti se podívejte na [průvodce vykreslováním seznamu](/guide/essentials/list#v-for-with-v-if).
 
 - **Viz také:** [Podmíněné vykreslování - v-if](/guide/essentials/conditional#v-if)
 
@@ -179,16 +179,16 @@ Připojí k elementu event listener.
 
 - **Modifikátory**
 
-  - `.stop` - zavolá `event.stopPropagation()`.
-  - `.prevent` - zavolá `event.preventDefault()`.
-  - `.capture` - přidá event listener v režimu zachycení (capture mode).
-  - `.self` - spustí handler pouze pokud byla událost vyvolána z tohoto elementu.
-  - `.{keyAlias}` - spustí handler pouze pro určité klávesy.
-  - `.once` - spustí handler maximálně jednou.
-  - `.left` - spustí handler pouze pro události levého tlačítka myši.
-  - `.right` - spustí handler pouze pro události pravého tlačítka myši.
-  - `.middle` - spustí handler pouze pro události středního tlačítka myši.
-  - `.passive` - připojí DOM událost s `{ passive: true }`.
+  - `.stop` – zavolá `event.stopPropagation()`.
+  - `.prevent` – zavolá `event.preventDefault()`.
+  - `.capture` – přidá event listener v režimu zachycení (capture mode).
+  - `.self` – spustí handler pouze pokud byla událost vyvolána z tohoto elementu.
+  - `.{keyAlias}` – spustí handler pouze pro určité klávesy.
+  - `.once` – spustí handler maximálně jednou.
+  - `.left` – spustí handler pouze pro události levého tlačítka myši.
+  - `.right` – spustí handler pouze pro události pravého tlačítka myši.
+  - `.middle` – spustí handler pouze pro události středního tlačítka myši.
+  - `.passive` – připojí DOM událost s `{ passive: true }`.
 
 - **Podrobnosti**
 
@@ -251,7 +251,7 @@ Připojí k elementu event listener.
 
 - **Viz také:**
   - [Obsluha událostí](/guide/essentials/event-handling)
-  - [Základy komponent - Naslouchání událostem](/guide/essentials/component-basics#listening-to-events)
+  - [Základy komponent – Naslouchání událostem](/guide/essentials/component-basics#listening-to-events)
 
 ## v-bind {#v-bind}
 
@@ -267,9 +267,9 @@ Dynamicky váže jeden nebo více atributů nebo vlastností (props) komponenty 
 
 - **Modifikátory**
 
-  - `.camel` - převede název atributu z kebab-case na camelCase.
-  - `.prop` - vynutí binding jako vlastnost (prop) DOM (3.2+).
-  - `.attr` - vynutí binding jako atribut DOM (3.2+).
+  - `.camel` – převede název atributu z kebab-case na camelCase.
+  - `.prop` – vynutí binding jako vlastnost (prop) DOM (3.2+).
+  - `.attr` – vynutí binding jako atribut DOM (3.2+).
 
 - **Použití**
 
@@ -418,7 +418,7 @@ Určuje pojmenované sloty nebo scoped sloty, které očekávají předání vla
   ```
 
 - **Viz také:**
-  - [Komponenty - Sloty (Slots)](/guide/components/slots)
+  - [Komponenty – Sloty (Slots)](/guide/components/slots)
 
 ## v-pre {#v-pre}
 
@@ -465,7 +465,7 @@ Vykreslit element nebo komponentu pouze jednou a přeskočit budoucí aktualizac
   Od verze 3.2 si můžete také část šablony „zapamatovat“ (memoize) s podmínkami neplatnosti pomocí [`v-memo`](#v-memo).
 
 - **Viz také:**
-  - [Syntaxe šablon - Interpolace textu](/guide/essentials/template-syntax#text-interpolation)
+  - [Syntaxe šablon – Interpolace textu](/guide/essentials/template-syntax#text-interpolation)
   - [v-memo](#v-memo)
 
 ## v-memo {#v-memo}

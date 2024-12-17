@@ -570,9 +570,9 @@ Další podrobnosti:
 
 - Neuvedená nepovinná vlastnost kromě `Boolean` bude mít hodnotu `undefined`.
 
-- Neuvedená `Boolean` vlastnost bude převedena na hodnotu `false`. To můžete změnit nastavením `default` - tj.: `default: undefined`, aby se chovala jako ne-Boolean vlastnost.
+- Neuvedená `Boolean` vlastnost bude převedena na hodnotu `false`. To můžete změnit nastavením `default` – tj.: `default: undefined`, aby se chovala jako ne-Boolean vlastnost.
 
-- Pokud je zadána `default` hodnota, bude použita, pokud je předávaná hodnota vlastnosti `undefined` - to se týká jak případů, kdy vlastnost chybí, tak těch, kdy je předána explicitní hodnota `undefined`.
+- Pokud je zadána `default` hodnota, bude použita, pokud je předávaná hodnota vlastnosti `undefined` – to se týká jak případů, kdy vlastnost chybí, tak těch, kdy je předána explicitní hodnota `undefined`.
 
 Pokud validace vlastnosti selže, zobrazí Vue varování do konzole (pokud je aplikace sestavena v development módu).
 
@@ -707,7 +707,7 @@ Lze komponentu použít i tímto způsobem:
 <MyComponent />
 ```
 
-Když je vlastnost deklarována, aby umožnila více typů, budou uplatněna rovněž pravidla přetypování pro `Boolean`. Ovšem je tu krajní případ, kdy jsou povoleny jak `String`, tak `Boolean` - pravidlo přetypování na Boolean bude uplatněno pouze pokud se Boolean objeví před String:
+Když je vlastnost deklarována, aby umožnila více typů, budou uplatněna rovněž pravidla přetypování pro `Boolean`. Ovšem je tu krajní případ, kdy jsou povoleny jak `String`, tak `Boolean` – pravidlo přetypování na Boolean bude uplatněno pouze pokud se Boolean objeví před String:
 
 <div class="composition-api">
 

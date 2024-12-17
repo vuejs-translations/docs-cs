@@ -6,7 +6,7 @@ import { VTCodeGroup, VTCodeGroupTab } from '@vue/theme'
 
 ## Vyzkoušejte si to online {#try-it-online}
 
-Abyste si mohli vyzkoušet Vue SFC, nemusíte na svém počítači nic instalovat - existují online „hřiště“, která vám to umožní přímo ve webovém prohlížeči:
+Abyste si mohli vyzkoušet Vue SFC, nemusíte na svém počítači nic instalovat. Existují online „hřiště“, která vám to umožní přímo ve webovém prohlížeči:
 
 - [Vue SFC Playground](https://play.vuejs.org)
   - Vždy nasazeno z nejnovějšího commitu

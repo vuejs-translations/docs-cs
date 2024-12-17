@@ -30,7 +30,7 @@ Používá se k anotaci vlastnosti (prop) s pokročilejšími typy při použit�
   }
   ```
 
-- **Viz také:** [Průvodce - Typování vlastností komponenty](/guide/typescript/options-api#typing-component-props)
+- **Viz také:** [Průvodce – Typování vlastností komponenty](/guide/typescript/options-api#typing-component-props)
 
 ## MaybeRef\<T> {#mayberef}
 
@@ -40,7 +40,7 @@ Alias pro `T | Ref<T>`. Užitečné pro anotaci vstupních parametrů v [Composa
 
 ## ExtractPropTypes\<T> {#extractproptypes}
 
-Extrahuje typy vlastností (props) z objektu s runtime props. Extrahované typy jsou interně orientované - tj. vyřešené vlastnosti přijaté komponentou. To znamená, že vlastnosti typu boolean a vlastnosti s výchozími hodnotami jsou vždy definovány, i když nejsou povinné.
+Extrahuje typy vlastností (props) z objektu s runtime props. Extrahované typy jsou interně orientované – tj. vyřešené vlastnosti přijaté komponentou. To znamená, že vlastnosti typu boolean a vlastnosti s výchozími hodnotami jsou vždy definovány, i když nejsou povinné.
 
 Pro extrakci veřejně orientovaných vlastností, tj. vlastností, které může předat rodič, použijte [`ExtractPublicPropTypes`](#extractpublicproptypes).
 
@@ -121,7 +121,7 @@ Používá se k obohacení typu instance komponenty pro podporu custom globáln�
   Obohacení musí být umístěno v souboru modulu `.ts` nebo `.d.ts`. Pro více informací se podívejte na [obohacování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties).
   :::
 
-- **Viz také:** [Průvodce - Obohacování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties)
+- **Viz také:** [Průvodce – Obohacování globálních vlastností](/guide/typescript/options-api#augmenting-global-properties)
 
 ## ComponentCustomOptions {#componentcustomoptions}
 

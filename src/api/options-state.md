@@ -126,8 +126,8 @@ type PropType<T> = { new (): T } | { new (): T }[]
   ```
 
 - **Viz také:**
-  - [Průvodce - Vlastnosti (Props)](/guide/components/props)
-  - [Průvodce - Typování vlastností komponenty](/guide/typescript/options-api#typing-component-props) <sup class="vt-badge ts" />
+  - [Průvodce – Vlastnosti (Props)](/guide/components/props)
+  - [Průvodce – Typování vlastností komponenty](/guide/typescript/options-api#typing-component-props) <sup class="vt-badge ts" />
 
 ## computed {#computed}
 
@@ -204,8 +204,8 @@ Deklaruje computed proměnné, které mají být vystaveny na instanci komponent
   ```
 
 - **Viz také:**
-  - [Průvodce - Computed proměnné](/guide/essentials/computed)
-  - [Průvodce - Typování computed proměnných](/guide/typescript/options-api#typing-computed-properties) <sup class="vt-badge ts" />
+  - [Průvodce – Computed proměnné](/guide/essentials/computed)
+  - [Průvodce – Typování computed proměnných](/guide/typescript/options-api#typing-computed-properties) <sup class="vt-badge ts" />
 
 ## methods {#methods}
 
@@ -285,7 +285,7 @@ Deklarujte callbacky pro sledování změn dat.
 
 Možnost `watch` očekává objekt, kde klíče jsou vlastnosti reaktivní instance komponenty, které se mají sledovat (například vlastnosti deklarované pomocí `data` nebo `computed`) - a hodnoty jsou odpovídající callbacky. Callback obdrží novou a starou hodnotu sledovaného zdroje.
 
-Kromě vlastnosti na kořenové úrovni může být klíč také jednoduchá tečkou oddělená cesta, například `a.b.c`. Všimněte si, že toto použití **nepodporuje** složité výrazy - podporovány jsou pouze tečkou oddělené cesty. Pokud potřebujete sledovat složité zdroje dat, použijte imperativní [`$watch()`](/api/component-instance#watch) API.
+Kromě vlastnosti na kořenové úrovni může být klíč také jednoduchá tečkou oddělená cesta, například `a.b.c`. Všimněte si, že toto použití **nepodporuje** složité výrazy, podporovány jsou pouze tečkou oddělené cesty. Pokud potřebujete sledovat složité zdroje dat, použijte imperativní [`$watch()`](/api/component-instance#watch) API.
 
 Hodnota může být také řetězec s názvem metody (deklarované pomocí `methods`) nebo objekt obsahující další možnosti (options). Při použití objektové syntaxe by měl být calback deklarován v poli `handler`. Další možnosti zahrnují:
 
@@ -431,8 +431,8 @@ Deklaruje vlastní události emitované komponentou.
   ```
 
 - **Viz také:**
-  - [Průvodce - Fallthrough atributy](/guide/components/attrs)
-  - [Průvodce - Typování emitovaných událostí komponenty](/guide/typescript/options-api#typing-component-emits) <sup class="vt-badge ts" />
+  - [Průvodce – Fallthrough atributy](/guide/components/attrs)
+  - [Průvodce – Typování emitovaných událostí komponenty](/guide/typescript/options-api#typing-component-emits) <sup class="vt-badge ts" />
 
 ## expose {#expose}
 
@@ -452,7 +452,7 @@ Deklaruje veřejné vlastnosti, ke kterým má komponenta rodiče přístu, kdy�
 
   Možnost `expose` očekává seznam názvů vlastností jako řetězců. Když je volba `expose` použita, budou na veřejné instanci komponenty vystaveny pouze explicitně uvedené vlastnosti.
 
-  `expose` ovlivňuje pouze uživatelem definované vlastnosti - neodfiltruje vestavěné vlastnosti instance komponenty.
+  `expose` ovlivňuje pouze uživatelem definované vlastnosti, neodfiltruje vestavěné vlastnosti instance komponenty.
 
 - **Příklad**
 

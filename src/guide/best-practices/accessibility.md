@@ -1,6 +1,6 @@
 # Přístupnost {#accessibility}
 
-Přístupnost (accessibility) webu (také známá jako a11y) označuje praxi vytváření webových stránek, které mohou být používány kýmkoli - ať už se jedná o osobu s&nbsp;postižením, pomalým připojením, zastaralým nebo nefunkčním hardwarem nebo jednoduše o někoho v nevhodném prostředí. Například přidání titulků k videu pomůže jak uživatelům se sluchovým postižením, tak uživatelům, kteří se nacházejí v hlučném prostředí a nemohou svůj telefon slyšet. Stejně tak ujištění se, že váš text nemá příliš nízký kontrast, pomůže jak uživatelům se zrakovým postižením, tak uživatelům, kteří se snaží svůj telefon používat na přímém slunci.
+Přístupnost (accessibility) webu (také známá jako a11y) označuje praxi vytváření webových stránek, které mohou být používány kýmkoli, ať už se jedná o osobu s&nbsp;postižením, pomalým připojením, zastaralým nebo nefunkčním hardwarem nebo jednoduše o někoho v nevhodném prostředí. Například přidání titulků k videu pomůže jak uživatelům se sluchovým postižením, tak uživatelům, kteří se nacházejí v hlučném prostředí a nemohou svůj telefon slyšet. Stejně tak ujištění se, že váš text nemá příliš nízký kontrast, pomůže jak uživatelům se zrakovým postižením, tak uživatelům, kteří se snaží svůj telefon používat na přímém slunci.
 
 Jste připraveni začít, ale nevíte přesně jak?
 
@@ -438,7 +438,7 @@ World Wide Web Consortium (W3C) Web Accessibility Initiative (WAI) vyvíjí stan
 - [Pokyny pro přístupnost nástrojů pro tvorbu (ATAG)](https://www.w3.org/WAI/standards-guidelines/atag/)
   - nástroje pro tvorbu
 - [Pokyny pro přístupnost webového obsahu (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/)
-  - webový obsah - používáno vývojáři, nástroji pro tvorbu a nástroji pro hodnocení přístupnosti
+  - webový obsah – používáno vývojáři, nástroji pro tvorbu a nástroji pro hodnocení přístupnosti
 
 ### Směrnice pro přístupnost webového obsahu (WCAG) {#web-content-accessibility-guidelines-wcag}
 
@@ -505,10 +505,10 @@ Světová zdravotnická organizace odhaduje, že 15 % světové populace má ně
 
 Existuje široká škála postižení, která lze hrubě rozdělit do čtyř kategorií:
 
-- _[Vizuální](https://webaim.org/articles/visual/)_ - Tito uživatelé mohou využít čteček obrazovky, zvětšování obrazovky, ovládání kontrastu obrazovky nebo braillova displeje.
-- _[Sluchová](https://webaim.org/articles/auditory/)_ - Tito uživatelé mohou využít titulky, přepisy nebo videa ve znakové řeči.
-- _[Motorická](https://webaim.org/articles/motor/)_ - Tito uživatelé mohou využít řadu [asistenčních technologií pro motorické postižení](https://webaim.org/articles/motor/assistive): softwaru pro rozpoznávání hlasu, sledování očí, přístupu pomocí jednoho tlačítka, hlavového ovladače, přepínacího ovladače _‚sip and puff‘_, přizpůsobeného trackballu, adaptivní klávesnice nebo jiných asistenčních technologií.
-- _[Kognitivní](https://webaim.org/articles/cognitive/)_ - Tito uživatelé mohou využít doplňková média, strukturální organizaci obsahu, jasné a jednoduché psaní.
+- _[Vizuální](https://webaim.org/articles/visual/)_ – Tito uživatelé mohou využít čteček obrazovky, zvětšování obrazovky, ovládání kontrastu obrazovky nebo braillova displeje.
+- _[Sluchová](https://webaim.org/articles/auditory/)_ – Tito uživatelé mohou využít titulky, přepisy nebo videa ve znakové řeči.
+- _[Motorická](https://webaim.org/articles/motor/)_ – Tito uživatelé mohou využít řadu [asistenčních technologií pro motorické postižení](https://webaim.org/articles/motor/assistive): softwaru pro rozpoznávání hlasu, sledování očí, přístupu pomocí jednoho tlačítka, hlavového ovladače, přepínacího ovladače _‚sip and puff‘_, přizpůsobeného trackballu, adaptivní klávesnice nebo jiných asistenčních technologií.
+- _[Kognitivní](https://webaim.org/articles/cognitive/)_ – Tito uživatelé mohou využít doplňková média, strukturální organizaci obsahu, jasné a jednoduché psaní.
 
 Podívejte se na následující odkazy od WebAim, abyste uživatelům lépe porozuměli:
 

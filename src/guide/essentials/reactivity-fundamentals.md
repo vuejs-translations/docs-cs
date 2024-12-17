@@ -183,7 +183,7 @@ function increment() {
 
 [Vyzkoušejte si to](https://play.vuejs.org/#eNo9jUEKgzAQRa8yZKMiaNcllvYe2dgwQqiZhDhxE3L3jrW4/DPvv1/UK8Zhz6juSm82uciwIef4MOR8DImhQMIFKiwpeGgEbQwZsoE2BhsyMUwH0d66475ksuwCgSOb0CNx20ExBCc77POase8NVUN6PBdlSwKjj+vMKAlAvzOzWJ52dfYzGXXpjPoBAKX856uopDGeFfnq8XKp+gWq4FAi)
 
-Importy nejvyšší úrovně a proměnné deklarované v `<script setup>` jsou v šabloně stejné komponenty použitelné automaticky. Přemýšlejte o šablonách jako o JavaScript funkcích deklarovaných ve stejném scope - přirozeně mají přístup ke všemu, co je kolem ní deklarováno.
+Importy nejvyšší úrovně a proměnné deklarované v `<script setup>` jsou v šabloně stejné komponenty použitelné automaticky. Přemýšlejte o šablonách jako o JavaScript funkcích deklarovaných ve stejném scope – přirozeně mají přístup ke všemu, co je kolem ní deklarováno.
 
 :::tip 
 Ve zbytku průvodce budeme pro příklady kódu Composition API primárně používat syntaxi SFC + `<script setup>`, protože to je pro Vue vývojáře nejběžnější použití.
