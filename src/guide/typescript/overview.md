@@ -111,7 +111,7 @@ export default defineComponent({
 
 Viz také:
 
-- [Poznámka k webpack Treeshaking](/api/general#note-on-webpack-treeshaking)
+- [Poznámka k webpack tree-shakingu](/api/general#note-on-webpack-treeshaking)
 - [Testování typů pro `defineComponent`](https://github.com/vuejs/core/blob/main/packages-private/dts-test/defineComponent.test-d.tsx)
 
 :::tip

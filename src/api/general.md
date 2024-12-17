@@ -181,11 +181,11 @@ const Comp = defineComponent(
 
 V budoucnu plánujeme poskytnout Babel plugin, který runtime vlastnosti automaticky odvodí a&nbsp;implementuje (stejně jako u `defineProps` ve SFC), takže deklarace runtime vlastností budou moct být vynechány.
 
-### Poznámka k webpack Treeshaking {#note-on-webpack-treeshaking}
+### Poznámka k webpack tree-shakingu {#note-on-webpack-treeshaking}
 
 Protože `defineComponent()` je volání funkce, může se zdát, že by mohla mít vedlejší efekty pro některé build nástroje, například webpack. To zabrání odstranění komponenty z výsledného balíčku, i když komponenta není nikdy použita.
 
-Abychom nástroji webpack řekli, že toto volání funkce je pro odstranění nepoužitých částí kódu (treeshaking) bezpečné, můžete před voláním funkce přidat komentář `/*#__PURE__*/`:
+Abychom nástroji webpack řekli, že toto volání funkce je pro odstranění nepoužitých částí kódu (tree-shaking) bezpečné, můžete před voláním funkce přidat komentář `/*#__PURE__*/`:
 
 ```js
 export default /*#__PURE__*/ defineComponent(/* ... */)

@@ -275,6 +275,7 @@ Zde sledujeme překlady pro (hlavně) technické pojmy, které se objevují na v
 * 🟩 top level _*sth*_ = _*něco*_ nejvyšší úrovně / globální _*něco*_  (pokud to odpovídá kontextu)
 * 🟥 transition = transition
 * 🟩 tree = strom
+* 🟥 tree-shaking = tree-shaking
 * 🟩 trigger (v.) = vyvolat
 * 🟨 type = typ
 * 🟩 type inference = odvozování typů
