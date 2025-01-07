@@ -123,12 +123,12 @@ Registruje globální komponentu, pokud je zadán jak název, tak definice kompo
   const app = createApp({})
 
   // zaregistrovat objekt vlastností
-  app.component('my-component', {
+  app.component('MyComponent', {
     /* ... */
   })
 
   // získat již registrovanou komponentu
-  const MyComponent = app.component('my-component')
+  const MyComponent = app.component('MyComponent')
   ```
 
 - **Viz také** [Registrace komponent](/guide/components/registration)
@@ -156,17 +156,17 @@ Registruje globální vlastní direktivu, pokud je zadán jak název, tak defini
   })
 
   // zaregistrovat direktivu (objektová notace)
-  app.directive('my-directive', {
+  app.directive('MyDirective', {
     /* vlastní hooks direktivy */
   })
 
   // zaregistrovat direktivu (zkrácená funkční notace)
-  app.directive('my-directive', () => {
+  app.directive('MyDirective', () => {
     /* ... */
   })
 
   // získat již registrovanou direktivu
-  const myDirective = app.directive('my-directive')
+  const myDirective = app.directive('MyDirective')
   ```
 
 - **Viz také** [Vlastní direktivy](/guide/reusability/custom-directives)
@@ -636,12 +636,12 @@ Nastavení prefixu pro všechny ID generované přes [useId()](/api/composition-
 - **Příklad**
 
   ```js
-  app.config.idPrefix = 'my-app'
+  app.config.idPrefix = 'MyApp'
   ```
   ```js
   // v komponentě:
-  const id1 = useId() // 'my-app:0'
-  const id2 = useId() // 'my-app:1'
+  const id1 = useId() // 'MyApp:0'
+  const id2 = useId() // 'MyApp:1'
   ```
 
 ## app.config.throwUnhandledErrorInProduction <sup class="vt-badge" data-text="3.5+" /> {#app-config-throwunhandlederrorinproduction}
