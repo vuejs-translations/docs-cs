@@ -42,7 +42,7 @@ Root DOM element, který instance komponenty spravuje.
 
   ```ts
   interface ComponentPublicInstance {
-    $el: Node | undefined
+    $el: any
   }
   ```
 
