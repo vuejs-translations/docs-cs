@@ -721,6 +721,21 @@ export default {
 }
 ```
 
+nebo (ve verzi >= 3.5)
+
+```js
+import { h, useTemplateRef } from 'vue'
+
+export default {
+  setup() {
+    const divEl = useTemplateRef('my-div')
+
+    // <div ref="divEl">
+    return () => h('div', { ref: 'my-div' })
+  }
+}
+```
+
 </div>
 <div class="options-api">
 
