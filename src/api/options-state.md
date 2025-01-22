@@ -93,7 +93,7 @@ type PropType<T> = { new (): T } | { new (): T }[]
 
   - **`required`**: Určuje, zda je vlastnost povinná. Ve vývojovém prostředí bude vyvoláno varování v konzoli, pokud je tato hodnota pravdivá a vlastnost není předána.
 
-  - **`validator`**: Vlastní validační funkce, která přijímá hodnotu vlastnosti jako jediný parametr. Ve vývojovém režimu bude vyvoláno varování v konzoli, pokud tato funkce vrátí hodnotu, která je nepravdivá (tj. validace selže).
+  - **`validator`**: Vlastní validační funkce, která přijímá hodnotu vlastnosti a props objekt `rawProps`. Ve vývojovém režimu bude vyvoláno varování v konzoli, pokud tato funkce vrátí hodnotu, která je nepravdivá (tj. validace selže).
 
 - **Příklad**
 
