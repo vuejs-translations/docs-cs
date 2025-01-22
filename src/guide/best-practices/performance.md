@@ -10,7 +10,7 @@ Vue je navrženo tak, aby bylo dostatečně výkonné pro většinu běžných p
 
 Nejprve se podívejme na dva hlavní aspekty webového výkonu:
 
-- **Výkon načítání stránky** (Page Load): jak rychle aplikace zobrazí obsah a stane se interaktivní při první návštěvě. To se obvykle měří pomocí web vital metrik jako [Largest Contentful Paint (LCP)](https://web.dev/lcp/) a [First Input Delay (FID)](https://web.dev/fid/).
+- **Výkon načítání stránky** (Page Load): jak rychle aplikace zobrazí obsah a stane se interaktivní při první návštěvě. To se obvykle měří pomocí web vital metrik jako [Largest Contentful Paint (LCP)](https://web.dev/lcp/) a [Interaction to Next Paint](https://web.dev/articles/inp).
 
 - **Výkon aktualizace** (Update): jak rychle se aplikace aktualizuje v reakci na uživatelský vstup. Například jak rychle se aktualizuje seznam, když uživatel píše do vyhledávacího pole, nebo jak rychle se stránka přepíná, když uživatel klikne na navigační odkaz v&nbsp;Single-Page aplikaci (SPA).
 
