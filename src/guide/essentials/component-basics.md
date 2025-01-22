@@ -468,7 +468,7 @@ Stala se chyba.
 
 Toho lze dosáhnout použitím speciálního Vue elementu `<slot>`:
 
-```vue{4}
+```vue{5}
 <!-- AlertBox.vue -->
 <template>
   <div class="alert-box">
