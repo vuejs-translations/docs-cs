@@ -215,6 +215,13 @@ Voláno, když byla zachycena chyba propagující se z komponenty potomka.
 
   - Hook `errorCaptured` může vrátit `false`, aby zabránil propagaci chyby dále. To v&nbsp;podstatě znamená _„tato chyba byla zpracována a měla by být ignorována“_. Pro tuto chybu to zabrání volání dalších `errorCaptured` hooks nebo `app.config.errorHandler`.
 
+    **Upozornění pro práci se zachytáváním chyb**
+  
+  - V komponentách s asynchronní funkcí `setup()` (obsahujícími top-level `await`) se Vue **vždy** pokusí vykreslit šablonu komponenty, i když `setup()` vyvolá výjimku. To pravděpodobně způsobí další chyby, protože během vykreslování se šablona komponenty může pokusit o přístup k neexistujícím vlastnostem kontextu `setup()`, jehož inicializace selhala. Při zachytávání chyb v takových komponentách buďte připraveni ošetřit jak chyby z neúspěšného asynchronního `setup()` (ty budou vždy na prvním místě), tak z neúspěšného procesu vykreslování. 
+
+  - <sup class="vt-badge" data-text="Pouze SSR"></sup>
+  Nahrazení chybné komponenty potomka v komponentě rodiče hluboko uvnitř `<Suspense>` způsobí v SSR nesoulady hydratace (hydration mismatches). Místo toho zkuste oddělit logiku, která může případně z vnitřního `setup()` vyvolat výjimku, do samostatné funkce a spustit ji v `setup()` komponenty rodiče, kde můžete spuštění procesu bezpečně ošetřit pomocí `try/catch` a v případě potřeby provést náhradní akci před vlastním vykreslením komponenty potomka.
+
 ## renderTracked <sup class="vt-badge dev-only" /> {#rendertracked}
 
 Voláno, když je reaktivní závislost sledována vykreslovacím efektem komponenty.

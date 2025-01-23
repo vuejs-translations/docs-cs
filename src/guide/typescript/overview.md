@@ -51,7 +51,7 @@ Při ruční konfiguraci `tsconfig.json` jsou zvlášť zajímavé některé mo�
 Viz také:
 
 - [Oficiální dokumentace k volbám TypeScript překladače](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
-- [Poznámky k překladu TypeScriptu v esbuild](https://esbuild.github.io/content-types/#typescript-caveats)
+- [Poznámky k omezení překladu TypeScriptu v esbuild](https://esbuild.github.io/content-types/#typescript-caveats)
 
 ### Poznámka k Vue CLI a `ts-loader` {#note-on-vue-cli-and-ts-loader}
 

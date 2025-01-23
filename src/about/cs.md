@@ -125,6 +125,7 @@ Zde sledujeme překlady pro (hlavně) technické pojmy, které se objevují na v
 * 🟥 cache = cache
 * 🟥 callback = callback
 * 🟨 callback function = callback funkce
+* 🟩 caveats = omezení
 * 🟩 check out = podívejte se na
 * 🟩 child = potomek
 * 🟩 child component = komponenta potomka

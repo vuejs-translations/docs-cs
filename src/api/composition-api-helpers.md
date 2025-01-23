@@ -122,6 +122,6 @@ Vrací `shallowRef`, jehož hodnota bude synchronizovaná s elementem či kompon
   
   ID generované pomocí `useId()` je v rámci aplikace unikátní. Může být použito pro generování ID formulářových prvků a atributů pro přístupnost (accessibility). Více volání na stejné komponentě vygeneruje různá ID, různé instance stejné komponenty volající `useId()` budou mít také různá ID.
 
-  Pro ID generovaná pomocí `useId()` je také garantována stabilita mezi vykreslením na serveru a na klientovi, takže mohou být použita v SSR aplikacích, aniž by docházelo k&nbsp;chybám hydratace (hydration mismatches).
+  Pro ID generovaná pomocí `useId()` je také garantována stabilita mezi vykreslením na serveru a na klientovi, takže mohou být použita v SSR aplikacích, aniž by docházelo k&nbsp;nesouladům hydratace (hydration mismatches).
 
   Pokud máte na jedné stránce více instancí Vue, můžete se vyhnout konfliktům mezi ID přidáním prefixu každé aplikaci pomocí [`app.config.idPrefix`](/api/application#app-config-idprefix).
