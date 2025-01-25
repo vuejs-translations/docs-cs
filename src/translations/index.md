@@ -24,6 +24,7 @@ aside: false
 
 - [العربية / Arabština](https://ar.vuejs.org/) [[zdrojové kódy](https://github.com/vuejs-translations/docs-ar)]
 - [Español / Španělština](https://vue3-spanish-docs.netlify.app/) [[zdrojové kódy](https://github.com/icarusgk/vuejs-spanish-docs)]
+- [Deutsch / Němčina](https://de-vue-docs.netlify.app/) [[zdrojové kódy](https://github.com/vuejs-translations/docs-de)]
 
 ## Začít nový překlad {#starting-a-new-translation}
 
