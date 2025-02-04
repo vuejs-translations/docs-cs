@@ -11,7 +11,7 @@ Registruje callback, který se volá po připojení komponenty.
 - **Typ**
 
   ```ts
-  function onMounted(callback: () => void): void
+  function onMounted(callback: () => void, target?: ComponentInternalInstance | null): void
   ```
 
 - **Detaily**
@@ -53,7 +53,7 @@ Registruje callback, který se volá poté, co komponenta aktualizuje svůj DOM 
 - **Typ**
 
   ```ts
-  function onUpdated(callback: () => void): void
+  function onUpdated(callback: () => void, target?: ComponentInternalInstance | null): void
   ```
 
 - **Detaily**
@@ -96,7 +96,7 @@ Registruje callback, který se zavolá po odstranění komponenty.
 - **Typ**
 
   ```ts
-  function onUnmounted(callback: () => void): void
+  function onUnmounted(callback: () => void, target?: ComponentInternalInstance | null): void
   ```
 
 - **Detaily**
@@ -135,7 +135,7 @@ Registruje callback, který se zavolá před tím, než se má komponenta připo
 - **Typ**
 
   ```ts
-  function onBeforeMount(callback: () => void): void
+  function onBeforeMount(callback: () => void, target?: ComponentInternalInstance | null): void
   ```
 
 - **Detaily**
@@ -151,7 +151,7 @@ Registruje callback, který se zavolá před tím, než se komponenta chystá ak
 - **Typ**
 
   ```ts
-  function onBeforeUpdate(callback: () => void): void
+  function onBeforeUpdate(callback: () => void, target?: ComponentInternalInstance | null): void
   ```
 
 - **Podrobnosti**
@@ -167,7 +167,7 @@ Registruje hook, který se má volat před odstraněním instance komponenty.
 - **Typ**
 
   ```ts
-  function onBeforeUnmount(callback: () => void): void
+  function onBeforeUnmount(callback: () => void, target?: ComponentInternalInstance | null): void
   ```
 
 - **Podrobnosti**
@@ -282,7 +282,7 @@ Registruje callback, který se zavolá poté, co je instance komponenty vložena
 - **Typ**
 
   ```ts
-  function onActivated(callback: () => void): void
+  function onActivated(callback: () => void, target?: ComponentInternalInstance | null): void
   ```
 
 - **Viz také:** [Průvodce – Životní cyklus cached instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
@@ -296,7 +296,7 @@ Registruje callback, který se zavolá poté, co je instance komponenty odebrán
 - **Typ**
 
   ```ts
-  function onDeactivated(callback: () => void): void
+  function onDeactivated(callback: () => void, target?: ComponentInternalInstance | null): void
   ```
 
 - **Viz také:** [Průvodce – Životní cyklus cached instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
