@@ -13,6 +13,7 @@ Podívejte se na [Průvodce plánováním a správou přístupnosti webu](https:
 Obvykle se to dělá na začátku souboru `App.vue`, protože to bude první focusable prvek na všech vašich stránkách:
 
 ```vue-html
+<span ref="backToTop" tabindex="-1" />
 <ul class="skip-links">
   <li>
     <a href="#main" ref="skipLink" class="skip-link">Přejít na hlavní obsah</a>
@@ -23,6 +24,9 @@ Obvykle se to dělá na začátku souboru `App.vue`, protože to bude první foc
 Chcete-li odkaz skrýt, pokud na něm není focus, můžete přidat následující styl:
 
 ```css
+.skip-links {
+  list-style: none;
+}
 .skip-link {
   white-space: nowrap;
   margin: 1em auto;
@@ -40,7 +44,7 @@ Chcete-li odkaz skrýt, pokud na něm není focus, můžete přidat následujíc
 }
 ```
 
-Jakmile uživatel změní cestu, vraťte focus zpět na odkaz pro přeskočení na obsah. Toho lze dosáhnout voláním funkce `focus()` na prvku v rámci template ref (pokud používáte `vue-router`):
+Jakmile uživatel změní cestu, vraťte focus zpět na začátek stránky, těsně před odkaz pro přeskočení na obsah. Toho lze dosáhnout voláním funkce `focus()` na template ref `backToTop` (pokud používáte `vue-router`):
 
 <div class="options-api">
 
@@ -49,7 +53,7 @@ Jakmile uživatel změní cestu, vraťte focus zpět na odkaz pro přeskočení 
 export default {
   watch: {
     $route() {
-      this.$refs.skipLink.focus()
+      this.$refs.backToTop.focus()
     }
   }
 }
@@ -65,12 +69,12 @@ import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
-const skipLink = ref()
+const backToTop = ref()
 
 watch(
   () => route.path,
   () => {
-    skipLink.value.focus()
+    backToTop.value.focus()
   }
 )
 </script>
