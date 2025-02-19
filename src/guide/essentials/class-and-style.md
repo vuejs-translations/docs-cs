@@ -323,6 +323,18 @@ data() {
 
 Binding objektovým stylem se opět často používá ve spojení s computed proměnnými, které vracejí objekty.
 
+Stejně jako `:class` koexistuje i dynamická direktiva `:style` s běžným statickým zápisem atributu. Šablona:
+
+```vue-html
+<h1 style="color: red" :style="'font-size: 1em'">Ahoj</h1>
+```
+
+Se vykreslí jako:
+
+```vue-html
+<h1 style="color: red; font-size: 1em;">Ahoj</h1>
+```
+
 ### Binding na pole {#binding-to-arrays-1}
 
 Můžeme provést binding `:style` na pole více stylových objektů. Tyto objekty budou sloučeny a použity na stejný element:
