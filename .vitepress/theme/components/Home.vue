@@ -69,7 +69,6 @@ onMounted(load)
             :src="`${base}/images/${img}`"
             :alt="name"
           />
-          <img :src="`${base}/images/${img}`" :alt="name" />
         </a>
       <span>{{ description }}</span>
     </template>
