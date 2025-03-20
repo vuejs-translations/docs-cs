@@ -32,7 +32,7 @@ const description = computed(() => {
 
     <div class="action">
       <VTLink class="action-link" :href="provider.seeMoreUrl" no-icon>
-        Prohlédněte si další tvorbu od {{ provider.name }}
+        Podívejte se na další šablony od {{ provider.name }}
       </VTLink>
     </div>
   </section>

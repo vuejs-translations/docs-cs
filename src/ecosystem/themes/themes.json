@@ -1,5 +1,26 @@
 [
   {
+    "name": "Nuxt UI",
+    "description": "[Nuxt UI](https://ui.nuxt.com) je bezplatná open-source knihovna prvků uživatelského rozhraní pro Vue.js. Využívá Tailwind CSS a zahrnuje řadu komponent a nástrojů, které lze použít k rychlému vytváření moderních a responzivních aplikací.",
+    "seeMoreUrl": "https://ui.nuxt.com/pro",
+    "products": [
+      {
+        "name": "UI Pro Components",
+        "price": 199,
+        "description": "Prémiové komponenty, composables a Vue utility založené na Nuxt UI.",
+        "url": "https://ui.nuxt.com/pro",
+        "image": "https://res.cloudinary.com/nuxt/image/upload/v1742036103/nuxt-ui/nuxt-ui-pro-og-image_vzvwge.png"
+      },
+      {
+        "name": "Dashboard",
+        "price": 199,
+        "description": "Vue Dashboard Template vytvořený pomocí Nuxt UI Pro.",
+        "url": "https://vue-dashboard-template.nuxt.dev",
+        "image": "https://res.cloudinary.com/nuxt/image/upload/v1742036101/nuxt-ui/nuxt-ui-dashboard-social-card_kpeysq.png"
+      }
+    ]
+  },
+  {
     "name": "Creative Tim",
     "description": "S níže uvedenými příklady vytvořenými našimi partnery z [Creative Tim](https://creative-tim.com?affiliate_id=116187) můžete vidět, jak se tvoří skutečná aplikace, technologický stack za nimi a&nbsp;jak se v reálném světě uplatňuje většina konceptů, které jste se naučili.",
     "seeMoreUrl": "https://www.creative-tim.com/bootstrap-themes/vuejs-themes?affiliate_id=116187",
