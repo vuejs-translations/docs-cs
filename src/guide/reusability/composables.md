@@ -316,7 +316,7 @@ Tato omezení jsou důležitá, protože se jedná o kontexty, ve kterých je Vu
 
 ## Extrakce composables pro organizaci kódu {#extracting-composables-for-code-organization}
 
-Composables lze extrahovat nejen pro opakované použití, ale také pro organizaci kódu. Jak složitost komponent poroste, můžete skončit s takovými, které jsou příliš velké na to, abyste se v nich mohli orientovat a uvažovat o nich. Composition API vám poskytuje plnou flexibilitu při organizaci kódu komponent do menších funkcí na základě logických domén:
+Composables lze extrahovat nejen pro opakované použití, ale také pro lepší organizaci kódu. Jak složitost vašich projektů poroste, můžete skončit s komponentami, které jsou příliš velké na to, abyste se v nich mohli orientovat a uvažovat o nich. Composition API vám poskytuje plnou flexibilitu při organizaci kódu do menších funkcí na základě logických domén:
 
 ```vue
 <script setup>
