@@ -330,7 +330,7 @@ Naopak vlastnosti jako `height` nebo `margin` vyvolají změnu CSS layoutu, tak�
 
 Pomocí JavaScriptu se můžete k procesu přechodu připojit pomocí naslouchání událostem na komponentě `<Transition>`:
 
-```html
+```vue-html
 <Transition
   @before-enter="onBeforeEnter"
   @enter="onEnter"
