@@ -706,22 +706,7 @@ Pokud je direktiva registrována pod názvem a nelze ji importovat přímo, lze 
 
 <div class="composition-api">
 
-S Composition API jsou template refs vytvářeny předáním samotného `ref()` jako vlastnosti VNode:
-
-```js
-import { h, ref } from 'vue'
-
-export default {
-  setup() {
-    const divEl = ref()
-
-    // <div ref="divEl">
-    return () => h('div', { ref: divEl })
-  }
-}
-```
-
-nebo (ve verzi >= 3.5)
+S Composition API jsou při použití [`useTemplateRef()`](/api/composition-api-helpers#usetemplateref) <sup class="vt-badge" data-text="3.5+" /> template refs vytvářeny předáním vlastnosti typu string do VNode:
 
 ```js
 import { h, useTemplateRef } from 'vue'
@@ -730,12 +715,31 @@ export default {
   setup() {
     const divEl = useTemplateRef('my-div')
 
-    // <div ref="divEl">
+    // <div ref="my-div">
     return () => h('div', { ref: 'my-div' })
   }
 }
 ```
 
+<details>
+<summary>Použití před verzí 3.5</summary>
+
+Ve verzích před 3.5, kde `useTemplateRef()` ještě není dostupné, jsou template refs vytvářeny předáním samotného `ref()` jako vlastnosti VNode:
+
+```js
+import { h, ref  } from 'vue'
+
+export default {
+  setup() {
+    const divEl = ref()
+
+    // <div ref="divEl">
+    return () => h('div', { ref: 'divEl' })
+  }
+}
+```
+
+</details>
 </div>
 <div class="options-api">
 
