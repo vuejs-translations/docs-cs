@@ -205,7 +205,7 @@ export default {
 
 </div>
 
-## `v-model` parametry {#v-model-arguments}
+## Parametry `v-model` {#v-model-arguments}
 
 `v-model` na komponentě může také přijmout parametr:
 
