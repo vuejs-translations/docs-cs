@@ -277,7 +277,7 @@ export default {
   computed: {
     // Tato computed proměnná vrátí hodnotu `count`, pokud je menší nebo rovno 3.
     // Když je `count` >=4, bude vrácena poslední hodnota splňující podmínku.
-    alwaysSmall(previous) {
+    alwaysSmall(_, previous) {
       if (this.count <= 3) {
         return this.count
       }
