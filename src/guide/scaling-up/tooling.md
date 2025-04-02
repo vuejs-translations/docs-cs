@@ -113,7 +113,7 @@ Rozšíření prohlížeče Vue devtools vám umožňuje prozkoumat strom kompon
 ![Screenshot z devtools](./images/devtools.png)
 
 - [Dokumentace](https://devtools.vuejs.org/)
-- [Rozšíření pro Chrome](https://chromewebstore.google.com/detail/vuejs-devtools-beta/ljjemllljcmogpfapbkkighbhhppjdbg)
+- [Rozšíření pro Chrome](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
 - [Vite Plugin](https://devtools.vuejs.org/guide/vite-plugin)
 - [Samostatná aplikace Electron](https://devtools.vuejs.org/guide/standalone)
 
