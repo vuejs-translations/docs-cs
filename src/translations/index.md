@@ -19,13 +19,13 @@ aside: false
 - [Русский / Ruština](https://ru.vuejs.org/) [[zdrojové kódy](https://github.com/vuejs-translations/docs-ru)]
 - [Čeština](https://cs.vuejs.org/) [[zdrojové kódy](https://github.com/vuejs-translations/docs-cs)]
 - [繁體中文 / Čínština (tradiční)](https://zh-hk.vuejs.org/) [[zdrojové kódy](https://github.com/vuejs-translations/docs-zh-hk)]
+- [Polski / Polština](https://pl.vuejs.org/) [[zdrojové kódy](https://github.com/vuejs-translations/docs-pl)]
 
 ## Probíhající překlady {#work-in-progress-languages}
 
 - [العربية / Arabština](https://ar.vuejs.org/) [[zdrojové kódy](https://github.com/vuejs-translations/docs-ar)]
 - [Español / Španělština](https://vue3-spanish-docs.netlify.app/) [[zdrojové kódy](https://github.com/icarusgk/vuejs-spanish-docs)]
 - [Deutsch / Němčina](https://de.vuejs.org/) [[zdrojové kódy](https://github.com/vuejs-translations/docs-de)]
-- [Polski / Polština](https://pl.vuejs.org/) [[zdrojové kódy](https://github.com/vuejs-translations/docs-pl)]
 
 ## Začít nový překlad {#starting-a-new-translation}
 
