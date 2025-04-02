@@ -298,9 +298,9 @@ declare module 'vue' {
 
 Toto je doporučený postup, jak umožnit kontrolu typů v SFC šablonách pro Custom elementy, které nejsou vytvořeny pomocí Vue.
 
-> [!Info]
-> Jde o obecně platný způsob, jak to udělat, ale detaily se mohou se trochu lišit 
-> v závislosti na frameworku použitém pro vytvoření custom elementu.
+:::tip Info
+Jde o obecně platný způsob, jak to udělat, ale detaily se mohou se trochu lišit v závislosti na frameworku použitém pro vytvoření custom elementu.
+:::
 
 Předpokládejme, že máme definován custom element s nějakými JS atributy a událostmi, který je distribuován v knihovně nazvané `some-lib`:
 
@@ -381,11 +381,9 @@ type VueEmit<T extends EventMap> = EmitFn<{
 }>
 ```
 
-> [!Info]
-> Označili jsme `$props` a `$emit` jako deprecated, abychom při získání `ref`
-> na custom element nebyli v pokušení tyto vlastnosti použít. Slouží totiž
-> pouze k ověřování typů u&nbsp;custom elementů. Ve skutečnosti na instancích
-> těchto elementů neexistují.
+:::tip Info
+Označili jsme `$props` a `$emit` jako deprecated, abychom při získání `ref` na custom element nebyli v pokušení tyto vlastnosti použít. Slouží totiž pouze k ověřování typů u&nbsp;custom elementů. Ve skutečnosti na instancích těchto elementů neexistují.
+:::
 
 Prostřednictvím pomocné funkce nyní můžeme vybrat JavaScriptové vlastnosti,
 které mají být vystaveny pro typovou kontrolu ve Vue šablonách:
