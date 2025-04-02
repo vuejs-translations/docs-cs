@@ -157,10 +157,16 @@ Termín *hoisting* se používá k označení spuštění části kódu předtí
 
 JavaScript používá hoisting pro některé konstrukce, jako jsou `var`, `import` a deklarace funkcí.
 
-V kontextu Vue aplikace používá kompilátor šablon  *statický hoisting* pro zlepšení výkonu. Při převodu šablony na vykreslovací funkci mohou být VNodes, které odpovídají statickému obsahu, vytvořeny jednou a poté znovu použity. Tyto statické VNodes jsou popsány jako hoisted, protože jsou vytvořeny mimo vykreslovací funkci, před jejím spuštěním. Podobná forma hoistingu se aplikuje na statické objekty nebo pole, které jsou generovány kompilátorem šablon.
+V kontextu Vue aplikace používá kompilátor šablon *hoisting* pro zlepšení výkonu. Když probíhá kompilace komponenty, statické hodnoty jsou přesunuty pryč z jejího scope. Tyto statické hodnoty nazýváme *hoisted*, protože jsou vytvořeny mimo komponentu.
+
+## Statický caching {#cache-static}
+
+Termín *cache* se používá pro označení dočasného úložiště dat, ke kterým se často přistupuje, z důvodu optimalizace výkonu.
+
+Vue kompilátor identifikuje statické VNodes, během úvodního vykreslení je umístí do cache a při každém překreslení použije stejné VNodes znovu.
 
 Další podrobnosti naleznete zde:
-- [Průvodce – Mechanismus vykreslování - Statický hoisting](/guide/extras/rendering-mechanism.html#static-hoisting)
+- [Průvodce – Mechanismus vykreslování - Statický caching](/guide/extras/rendering-mechanism.html#cache-static)
 
 ## In-DOM šablona {#in-dom-template}
 
