@@ -123,6 +123,8 @@ const message = inject('message')
 </script>
 ```
 
+Pokud více komponent v hierarchii rodičů poskytuje hodnoty se stejným klíčem, `inject` bude vyhodnoceno na hodnotu z komponenty nejblíže té cílové.
+
 Pokud je poskytovaná hodnota ref, bude jako ref implementována a **nebude** automaticky rozbalena. To umožňuje komponentě, která implementuje, zachovat reaktivitu spojení s&nbsp;komponentou, která data poskytuje.
 
 [Kompletní provide/inject příklad vč. reaktivity](https://play.vuejs.org/#eNqFUUFugzAQ/MrKF1IpxfeIVKp66Kk/8MWFDXYFtmUbpArx967BhURRU9/WOzO7MzuxV+fKcUB2YlWovXYRAsbBvQije2d9hAk8Xo7gvB11gzDDxdseCuIUG+ZN6a7JjZIvVRIlgDCcw+d3pmvTglz1okJ499I0C3qB1dJQT9YRooVaSdNiACWdQ5OICj2WwtTWhAg9hiBbhHNSOxQKu84WT8LkNQ9FBhTHXyg1K75aJHNUROxdJyNSBVBp44YI43NvG+zOgmWWYGt7dcipqPhGZEe2ef07wN3lltD+lWN6tNkV/37+rdKjK2rzhRTt7f3u41xhe37/xJZGAL2PLECXa9NKdD/a6QTTtGnP88LgiXJtYv4BaLHhvg==)
