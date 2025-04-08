@@ -19,12 +19,12 @@ V produkčním prostředí bude třetí parametr (`info`) zkrácený kód místo
 - [`onErrorCaptured`](/api/composition-api-lifecycle#onerrorcaptured) (Composition API)
 - [`errorCaptured`](/api/options-lifecycle#errorcaptured) (Options API)
 
-Následující tabulka mapuje kódy na jejich původní plné informační texty.
+Následující tabulka mapuje kódy na jejich původní plné informační texty. Oproti [orignálu](https://vuejs.org/error-reference/#runtime-errors) přidáváme navíc sloupec s orientačním českým překladem.
 
 <ErrorsTable kind="runtime" :errors="data.runtime" :highlight="highlight" />
 
 ## Chyby překladače {#compiler-errors}
 
-Následující tabulka poskytuje mapování kódů chyb překladače v produkci na jejich původní texty.
+Následující tabulka poskytuje mapování kódů chyb překladače v produkci na jejich původní texty. Oproti [orignálu](https://vuejs.org/error-reference/#compiler-errors) přidáváme navíc sloupec s orientačním českým překladem.
 
 <ErrorsTable kind="compiler" :errors="data.compiler" :highlight="highlight" />
