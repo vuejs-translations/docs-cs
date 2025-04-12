@@ -111,109 +111,6 @@ Viz také: [Typování Template Refs](/guide/typescript/composition-api#typing-t
 
 </div>
 
-## Refs uvnitř `v-for` {#refs-inside-v-for}
-
-> Podporováno až od verze 3.5+
-
-<div class="composition-api">
-
-Když je `ref` použitý uvnitř `v-for`, odpovídající ref by měl obsahovat prázdné pole, které bude po připojení komponenty naplněno příslušnými elementy:
-
-```vue
-<script setup>
-import { ref, useTemplateRef, onMounted } from 'vue'
-const list = ref([
-  /* ... */
-])
-const itemRefs = useTemplateRef('items')
-onMounted(() => console.log(itemRefs.value))
-</script>
-<template>
-  <ul>
-    <li v-for="item in list" ref="items">
-      {{ item }}
-    </li>
-  </ul>
-</template>
-```
-
-[Vyzkoušejte si to](https://play.vuejs.org/#eNp9UsluwjAQ/ZWRLwQpDepyQoDUIg6t1EWUW91DFAZq6tiWF4oU5d87dtgqVRyyzLw3b+aN3bB7Y4ptQDZkI1dZYTw49MFMuBK10dZDAxZXOQSHC6yNLD3OY6zVsw7K4xJaWFldQ49UelxxVWnlPEhBr3GszT6uc7jJ4fazf4KFx5p0HFH+Kme9CLle4h6bZFkfxhNouAIoJVqfHQSKbSkDFnVpMhEpovC481NNVcr3SaWlZzTovJErCqgydaMIYBRk+tKfFLC9Wmk75iyqg1DJBWfRxT7pONvTAZom2YC23QsMpOg0B0l0NDh2YjnzjpyvxLrYOK1o3ckLZ5WujSBHr8YL2gxnw85lxEop9c9TynkbMD/kqy+svv/Jb9wu5jh7s+jQbpGzI+ZLu0byEuHZ+wvt6Ays9TJIYl8A5+i0DHHGjvYQ1JLGPuOlaR/TpRFqvXCzHR2BO5iKg0Zmm/ic0W2ZXrB+Gve2uEt1dJKs/QXbwePE)
-
-<details>
-<summary>Použití před verzí 3.5</summary>
-
-Ve verzích před 3.5, kde `useTemplateRef()` ještě není dostupné, musíme deklarovat ref s&nbsp;názvem, který odpovídá hodnotě atributu `ref` v šabloně. Ref by měl obsahovat hodnotu typu pole:
-
-```vue
-<script setup>
-import { ref, onMounted } from 'vue'
-
-const list = ref([
-  /* ... */
-])
-
-const itemRefs = ref([])
-
-onMounted(() => console.log(itemRefs.value))
-</script>
-
-<template>
-  <ul>
-    <li v-for="item in list" ref="itemRefs">
-      {{ item }}
-    </li>
-  </ul>
-</template>
-```
-
-</details>
-
-</div>
-<div class="options-api">
-
-Když je `ref` použitý uvnitř `v-for`, výsledná ref hodnota bude pole obsahující příslušné elementy:
-
-```vue
-<script>
-export default {
-  data() {
-    return {
-      list: [
-        /* ... */
-      ]
-    }
-  },
-  mounted() {
-    console.log(this.$refs.items)
-  }
-}
-</script>
-
-<template>
-  <ul>
-    <li v-for="item in list" ref="items">
-      {{ item }}
-    </li>
-  </ul>
-</template>
-```
-
-[Vyzkoušejte si to](https://play.vuejs.org/#eNpFjk0KwjAQha/yCC4Uaou6kyp4DuOi2KkGYhKSiQildzdNa4WQmTc/37xeXJwr35HEUdTh7pXjszT0cdYzWuqaqBm9NEDbcLPeTDngiaM3PwVoFfiI667AvsDhNpWHMQzF+L9sNEztH3C3JlhNpbaPNT9VKFeeulAqplfY5D1p0qurxVQSqel0w5QUUEedY8q0wnvbWX+SYgRAmWxIiuSzm4tBinkc6HvkuSE7TIBKq4lZZWhdLZfE8AWp4l3T)
-
-</div>
-
-Je třeba poznamenat, že ref pole **nezaručuje** stejné pořadí jako zdrojové pole.
-
-## Funkční refs {#function-refs}
-
-Namísto klíče typu string může být atribut `ref` svázán i s funkcí, která bude volána při každé aktualizaci komponenty a poskytne vám plnou flexibilitu, kam uložit odkaz na element. Funkce obdrží odkaz na element jako první parametr:
-
-```vue-html
-<input :ref="(el) => { /* přiřadit `el` do proměnné nebo ref */ }">
-```
-
-Všimněte si, že používáme dynamický binding `:ref`, takže můžeme předat přímo funkci místo názvu ref v podobě string. Když je prvek odpojen, parametr bude `null`. Místo inline funkce můžete samozřejmě použít metodu.
-
 ## Ref na komponentě {#ref-on-component}
 
 > Tato sekce předpokládá znalost [základů komponent](/guide/essentials/component-basics). Klidně ji teď přeskočte a vraťte se později.
@@ -337,3 +234,107 @@ export default {
 Ve výše uvedeném příkladu bude mít rodič odkazující na tuto komponentu prostřednictvím template ref přístup pouze na `publicData` a `publicMethod`.
 
 </div>
+
+
+## Refs uvnitř `v-for` {#refs-inside-v-for}
+
+> Podporováno až od verze 3.5+
+
+<div class="composition-api">
+
+Když je `ref` použitý uvnitř `v-for`, odpovídající ref by měl obsahovat prázdné pole, které bude po připojení komponenty naplněno příslušnými elementy:
+
+```vue
+<script setup>
+import { ref, useTemplateRef, onMounted } from 'vue'
+const list = ref([
+  /* ... */
+])
+const itemRefs = useTemplateRef('items')
+onMounted(() => console.log(itemRefs.value))
+</script>
+<template>
+  <ul>
+    <li v-for="item in list" ref="items">
+      {{ item }}
+    </li>
+  </ul>
+</template>
+```
+
+[Vyzkoušejte si to](https://play.vuejs.org/#eNp9UsluwjAQ/ZWRLwQpDepyQoDUIg6t1EWUW91DFAZq6tiWF4oU5d87dtgqVRyyzLw3b+aN3bB7Y4ptQDZkI1dZYTw49MFMuBK10dZDAxZXOQSHC6yNLD3OY6zVsw7K4xJaWFldQ49UelxxVWnlPEhBr3GszT6uc7jJ4fazf4KFx5p0HFH+Kme9CLle4h6bZFkfxhNouAIoJVqfHQSKbSkDFnVpMhEpovC481NNVcr3SaWlZzTovJErCqgydaMIYBRk+tKfFLC9Wmk75iyqg1DJBWfRxT7pONvTAZom2YC23QsMpOg0B0l0NDh2YjnzjpyvxLrYOK1o3ckLZ5WujSBHr8YL2gxnw85lxEop9c9TynkbMD/kqy+svv/Jb9wu5jh7s+jQbpGzI+ZLu0byEuHZ+wvt6Ays9TJIYl8A5+i0DHHGjvYQ1JLGPuOlaR/TpRFqvXCzHR2BO5iKg0Zmm/ic0W2ZXrB+Gve2uEt1dJKs/QXbwePE)
+
+<details>
+<summary>Použití před verzí 3.5</summary>
+
+Ve verzích před 3.5, kde `useTemplateRef()` ještě není dostupné, musíme deklarovat ref s&nbsp;názvem, který odpovídá hodnotě atributu `ref` v šabloně. Ref by měl obsahovat hodnotu typu pole:
+
+```vue
+<script setup>
+import { ref, onMounted } from 'vue'
+
+const list = ref([
+  /* ... */
+])
+
+const itemRefs = ref([])
+
+onMounted(() => console.log(itemRefs.value))
+</script>
+
+<template>
+  <ul>
+    <li v-for="item in list" ref="itemRefs">
+      {{ item }}
+    </li>
+  </ul>
+</template>
+```
+
+</details>
+
+</div>
+<div class="options-api">
+
+Když je `ref` použitý uvnitř `v-for`, výsledná ref hodnota bude pole obsahující příslušné elementy:
+
+```vue
+<script>
+export default {
+  data() {
+    return {
+      list: [
+        /* ... */
+      ]
+    }
+  },
+  mounted() {
+    console.log(this.$refs.items)
+  }
+}
+</script>
+
+<template>
+  <ul>
+    <li v-for="item in list" ref="items">
+      {{ item }}
+    </li>
+  </ul>
+</template>
+```
+
+[Vyzkoušejte si to](https://play.vuejs.org/#eNpFjk0KwjAQha/yCC4Uaou6kyp4DuOi2KkGYhKSiQildzdNa4WQmTc/37xeXJwr35HEUdTh7pXjszT0cdYzWuqaqBm9NEDbcLPeTDngiaM3PwVoFfiI667AvsDhNpWHMQzF+L9sNEztH3C3JlhNpbaPNT9VKFeeulAqplfY5D1p0qurxVQSqel0w5QUUEedY8q0wnvbWX+SYgRAmWxIiuSzm4tBinkc6HvkuSE7TIBKq4lZZWhdLZfE8AWp4l3T)
+
+</div>
+
+Je třeba poznamenat, že ref pole **nezaručuje** stejné pořadí jako zdrojové pole.
+
+## Funkční refs {#function-refs}
+
+Namísto klíče typu string může být atribut `ref` svázán i s funkcí, která bude volána při každé aktualizaci komponenty a poskytne vám plnou flexibilitu, kam uložit odkaz na element. Funkce obdrží odkaz na element jako první parametr:
+
+```vue-html
+<input :ref="(el) => { /* přiřadit `el` do proměnné nebo ref */ }">
+```
+
+Všimněte si, že používáme dynamický binding `:ref`, takže můžeme předat přímo funkci místo názvu ref v podobě string. Když je prvek odpojen, parametr bude `null`. Místo inline funkce můžete samozřejmě použít metodu.
