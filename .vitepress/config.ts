@@ -860,9 +860,9 @@ export default defineConfigWithTheme<ThemeConfig>({
         customLLMsTxtTemplate: `\
 # Vue.js
 
-Vue.js - The Progressive JavaScript Framework
+Vue.js - Progresivní JavaScript Framework
 
-## Table of Contents
+## Obsah
 
 {toc}`
       }) as Plugin
