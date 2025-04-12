@@ -522,6 +522,18 @@ defineProps<{
 </script>
 ```
 
+Pokud typ nemůže být odvozen, lze použít direktivu `@vue-generic` pro explicitní předání typů:
+
+```vue
+<template>
+  <!-- @vue-generic {import('@/api').Actor} -->
+  <ApiSelect v-model="peopleIds" endpoint="/api/actors" id-prop="actorId" />
+
+  <!-- @vue-generic {import('@/api').Genre} -->
+  <ApiSelect v-model="genreIds" endpoint="/api/genres" id-prop="genreId" />
+</template>
+```
+
 Pokud chcete použít odkaz na generickou komponentu uvnitř `ref`, musíte použít knihovnu [`vue-component-type-helpers`](https://www.npmjs.com/package/vue-component-type-helpers), protože `InstanceType` nebude fungovat.
 
 ```vue
