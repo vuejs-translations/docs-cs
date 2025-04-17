@@ -53,7 +53,7 @@ Tým Vue také spravuje statický generátor webu s názvem [VitePress](https://
 
 I když je Vue primárně navrženo pro tvorbu webových aplikací, neznamená to, že je omezeno pouze na prohlížeč. Můžete:
 
-- Vytvářet desktopové aplikace s [Electron](https://www.electronjs.org/)
+- Vytvářet desktopové aplikace s [Electron](https://www.electronjs.org/) nebo [Wails](https://wails.io)
 - Vytvářet mobilní aplikace s [Ionic Vue](https://ionicframework.com/docs/vue/overview)
 - Vytvářet desktopové a mobilní aplikace ze stejného kódu s [Quasar](https://quasar.dev/) nebo [Tauri](https://tauri.app)
 - Vytvářet WebGL 3D animace pomocí [TresJS](https://tresjs.org/)
