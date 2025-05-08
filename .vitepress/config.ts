@@ -497,10 +497,6 @@ export const sidebar: ThemeConfig['sidebar'] = {
         {
           text: 'Seznam s přechody',
           link: '/examples/#list-transition'
-        },
-        {
-          text: 'TodoMVC',
-          link: '/examples/#todomvc'
         }
       ]
     },

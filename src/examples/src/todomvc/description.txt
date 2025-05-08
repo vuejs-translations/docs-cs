@@ -1,2 +1,0 @@
-Implementace TodoMVC plně odpovídající specifikaci
-https://todomvc.com/
