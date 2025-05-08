@@ -20,9 +20,9 @@ Pokud plánujete migrovat existující Vue 2 aplikaci na Vue 3, využijte [prův
 
 ## Je stále podporováno Vue 2? {#is-vue-2-still-supported}
 
-Vue 2.7, která byla vydána v červenci 2022, je poslední minor release Vue 2. Vue 2 nyní vstoupilo do režimu údržby: již nebude získávat nové funkce, ale bude i nadále dostávat opravy kritických chyb a bezpečnostní aktualizace po dobu 18 měsíců od data vydání 2.7. To znamená, že **Vue 2 dosáhne konce životnosti 31. prosince 2023**.
+Vue 2.7, která byla vydána v červenci 2022, je poslední minor release Vue 2. Vue 2 tím vstoupilo do režimu údržby: již nezískávalo nové funkce, ale opravy kritických chyb a&nbsp;bezpečnostní aktualizace vycházely ještě po dobu 18 měsíců od data vydání 2.7. To&nbsp;znamená, že **Vue 2 dosáhlo konce životnosti (EOL) 31. prosince 2023**.
 
-Věříme, že to poskytne dostatek času k migraci na Vue 3 většině ekosystému. Chápeme však také, že mohou existovat týmy nebo projekty, které v tomto časovém rámci upgradovat nemohou, a přitom stále potřebují plnit požadavky na zabezpečení a potřeby svých klientů. Spolupracujeme s odborníky v oboru, abychom pro takové týmy poskytli rozšířenou podporu pro Vue 2 – pokud váš tým očekává, že bude Vue 2 používat i po konci roku 2023, plánujte dopředu a zjistěte si více o [Vue 2 Extended LTS]( https://v2.vuejs.org/lts/).
+Věříme, že to poskytlo dostatek času k migraci na Vue 3 většině ekosystému. Chápeme však také, že mohou existovat týmy nebo projekty, které v tomto časovém rámci upgradovat nemohly, a přitom stále potřebují plnit požadavky na zabezpečení a potřeby svých klientů. Spolupracujeme s odborníky v oboru, abychom pro takové týmy poskytli rozšířenou podporu pro Vue 2 – pokud váš tým používá Vue 2 i po konci roku 2023, plánujte dopředu a zjistěte si více o [Vue 2 Extended LTS]( https://v2.vuejs.org/lts/).
 
 ## Jakou používá Vue licenci? {#what-license-does-vue-use}
 
