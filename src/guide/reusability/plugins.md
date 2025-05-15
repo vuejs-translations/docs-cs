@@ -97,7 +97,7 @@ Globální vlastnosti používejte jen zřídka. Pokud se v aplikaci používá 
 
 ### Provide / Inject spolu s pluginy {#provide-inject-with-plugins}
 
-Pluginy nám také umožňují použít `inject` k poskytování funkce nebo parametru uživatelům pluginu. Například můžeme aplikaci umožnit přístup k parametru `options`, aby mohla používat objekt s překlady.
+Pluginy nám také umožňují použít `provide` k poskytování přístupu k funkci nebo parametru uživatelům pluginu. Například můžeme aplikaci umožnit přístup k parametru `options`, aby mohla používat objekt s překlady.
 
 ```js{10}
 // plugins/i18n.js
