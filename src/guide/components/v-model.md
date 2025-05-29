@@ -1,5 +1,13 @@
 # Binding přes v-model {#component-v-model}
 
+<ScrimbaLink href="https://scrimba.com/links/vue-component-v-model" title="Lekce zdarma o v-model ve Vue.js komponentách" type="scrimba">
+  Podívejte se na interaktivní video lekci na platformě Scrimba
+</ScrimbaLink>
+
+<ScrimbaLink href="https://scrimba.com/links/vue-component-v-model" title="Free Vue.js Component v-model Lesson" type="scrimba">
+  Watch an interactive video lesson on Scrimba
+</ScrimbaLink>
+
 ## Základní použití {#basic-usage}
 
 Direktivu `v-model` lze použít pro implementaci obousměrného (two-way) bindingu.

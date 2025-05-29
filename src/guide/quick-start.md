@@ -16,6 +16,8 @@ import { VTCodeGroup, VTCodeGroupTab } from '@vue/theme'
 
 - Pokud už ovládáte Node.js a koncept build nástrojů, můžete si kompletní build vyzkoušet jen ve vašem prohlížeči na [StackBlitz](https://vite.new/vue).
 
+- Chcete-li návod na doporučené ideální nastavení, podívejte se tento interaktivní [Scrimba](http://scrimba.com/links/vue-quickstart) tutoriál, který vám ukáže jak spustit, upravit a publikovat vaši první Vue aplikaci.
+
 ## Vytvoření Vue aplikace {#creating-a-vue-application}
 
 :::tip Předpoklady

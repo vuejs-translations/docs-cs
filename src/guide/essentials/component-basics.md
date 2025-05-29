@@ -1,5 +1,9 @@
 # Základy komponent {#components-basics}
 
+<ScrimbaLink href="https://scrimba.com/links/vue-component-basics" title="Lekce zdarma o základech Vue.js komponent" type="scrimba">
+  Podívejte se na interaktivní video lekci na platformě Scrimba
+</ScrimbaLink>
+
 Komponenty nám umožňují rozdělit UI na nezávislé a znovupoužitelné části a přemýšlet o každé části samostatně. Je běžné, že je aplikace organizována do stromu vnořených komponent:
 
 ![Strom komponent](./images/components.png)

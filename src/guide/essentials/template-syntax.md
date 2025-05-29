@@ -1,5 +1,9 @@
 # Syntaxe šablon {#template-syntax}
 
+<ScrimbaLink href="https://scrimba.com/links/vue-template-syntax" title="Lekce zdarma o syntaxi Vue.js šablon" type="scrimba">
+  Podívejte se na interaktivní video lekci na platformě Scrimba
+</ScrimbaLink>
+
 Vue používá pro šablony (templates) syntaxi založenou na HTML. Ta vám umožňuje deklarativně propojit vykreslený DOM s daty instance komponenty v pozadí. Všechny Vue šablony jsou syntakticky platný HTML kód, který může být analyzován prohlížeči a&nbsp;HTML parsery odpovídajícími specifikaci.
 
 Vue šablony interně kompiluje do vysoce optimalizovaného JavaScript kódu. Ve chvíli, kdy se změní stav aplikace, dokáže Vue v kombinaci se systémem reaktivity inteligentně zjistit minimální počet komponent k opětovnému vykreslení a použít minimální množství DOM manipulací.
