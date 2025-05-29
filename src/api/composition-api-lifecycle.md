@@ -210,7 +210,7 @@ Registruje callback, který se má volat, když je zachycena chyba propagující
   V produkčním prostředí bude třetí parametr (`info`) zkrácený kód místo kompletního řetězce s informací. Na mapování kódů na texty se můžete podívat do [Reference chybových kódů v produkci](/error-reference/#runtime-errors).
   :::
 
-  Pro zobrazení stavu chyby uživateli můžete upravit stav komponenty v&nbsp;`errorCaptured()`. Je však důležité, aby stav chyby nevykresloval původní obsah, který způsobil chybu; jinak bude komponenta vržena do nekonečné smyčky vykreslování.
+  Pro zobrazení stavu chyby uživateli můžete upravit stav komponenty v&nbsp;`onErrorCaptured()`. Je však důležité, aby stav chyby nevykresloval původní obsah, který způsobil chybu; jinak bude komponenta vržena do nekonečné smyčky vykreslování.
 
   Hook může vrátit `false`, aby zastavil další propagaci chyby. Podrobnosti o propagaci chyb naleznete níže.
 
