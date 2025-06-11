@@ -263,7 +263,13 @@ Když teď zadáte `this.fullName = 'Jan Novák'`, zavolá se setter a `this.fir
 
 - Podporováno až od verze 3.4+
 
+<p class="options-api">
+V případě, že to potřebujete, můžete získat předchozí hodnotu computed proměnné v&nbsp;podobě druhého parametru getter funkce:
+</p>
+
+<p class="composition-api">
 V případě, že to potřebujete, můžete získat předchozí hodnotu computed proměnné v&nbsp;podobě prvního parametru getter funkce:
+</p>
 
 <div class="options-api">
 
@@ -319,7 +325,7 @@ export default {
   },
   computed: {
     alwaysSmall: {
-      get(previous) {
+      get(_, previous) {
         if (this.count <= 3) {
           return this.count
         }
