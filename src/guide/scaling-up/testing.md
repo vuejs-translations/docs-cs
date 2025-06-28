@@ -62,8 +62,7 @@ Obecně platí, že jednotkové testy odhalí problémy s business logikou a log
 
 Vezměme si například tuto funkci `increment`:
 
-```js
-// helpers.js
+```js [helpers.js]
 export function increment(current, max = 10) {
   if (current < max) {
     return current + 1
@@ -76,8 +75,7 @@ Protože je velmi samostatná, bude snadné zavolat funkci `increment` a ověři
 
 Pokud některé z těchto tvrzení selže, je zřejmé, že problém je obsažen v funkci `increment`.
 
-```js{4-16}
-// helpers.spec.js
+```js{4-16} [helpers.spec.js]
 import { increment } from './helpers'
 
 describe('increment', () => {
@@ -150,10 +148,9 @@ V následujícím příkladu ukazujeme komponentu Stepper, která obsahuje DOM e
 
 Nevíme nic o implementaci komponenty Stepper, pouze že „vstup“ je vlastnosti `max` a&nbsp;„výstup“ je stav DOM, jak ho uvidí uživatel.
 
-<VTCodeGroup>
-  <VTCodeGroupTab label="Vue Test Utils">
+::: code-group
 
-```js
+```js [Vue Test Utils]
 const valueSelector = '[data-testid=stepper-value]'
 const buttonSelector = '[data-testid=increment]'
 
@@ -170,10 +167,7 @@ await wrapper.find(buttonSelector).trigger('click')
 expect(wrapper.find(valueSelector).text()).toContain('1')
 ```
 
-  </VTCodeGroupTab>
-  <VTCodeGroupTab label="Cypress">
-
-```js
+```js [Cypress]
 const valueSelector = '[data-testid=stepper-value]'
 const buttonSelector = '[data-testid=increment]'
 
@@ -192,10 +186,7 @@ cy.get(valueSelector)
   .should('contain.text', '1')
 ```
 
-  </VTCodeGroupTab>
-  <VTCodeGroupTab label="Testing Library">
-
-```js
+```js [Testing Library]
 const { getByText } = render(Stepper, {
   props: {
     max: 1
@@ -214,8 +205,8 @@ getByText('1')
 await fireEvent.click(button)
 ```
 
-  </VTCodeGroupTab>
-</VTCodeGroup>
+:::
+
 
 **NEDĚLEJTE**
 
@@ -321,8 +312,7 @@ V projektu založeném na Vite spusťte:
 
 Poté aktualizujte konfiguraci Vite a přidejte sekci `test`:
 
-```js{6-12}
-// vite.config.js
+```js{6-12} [vite.config.js]
 import { defineConfig } from 'vite'
 
 export default defineConfig({
@@ -340,9 +330,7 @@ export default defineConfig({
 :::tip
 Pokud používáte TypeScript, přidejte `vitest/globals` do pole `types` ve vašem `tsconfig.json`.
 
-```json
-// tsconfig.json
-
+```json [tsconfig.json]
 {
   "compilerOptions": {
     "types": ["vitest/globals"]
@@ -354,8 +342,7 @@ Pokud používáte TypeScript, přidejte `vitest/globals` do pole `types` ve va�
 
 Poté ve vašem projektu vytvořte soubor končící na `*.test.js`. Všechny testovací soubory můžete umístit do složky `test` ve složce projektu nebo do složek `test` vedle vašich zdrojových souborů. Vitest je automaticky vyhledá pomocí konvence pro pojmenování souborů.
 
-```js
-// MyComponent.test.js
+```js [MyComponent.test.js]
 import { render } from '@testing-library/vue'
 import MyComponent from './MyComponent.vue'
 
@@ -373,7 +360,7 @@ test('mělo by fungovat', () => {
 
 Nakonec aktualizujte `package.json` přidáním skriptu pro testování a spusťte ho:
 
-```json{4}
+```json{4} [package.json]
 {
   // ...
   "scripts": {
@@ -399,8 +386,7 @@ Composable závisí na instanci hostitelské komponenty, pokud používá násle
 
 Pokud composable funkce pouze používá Reactivity API, může být testována přímo voláním a ověřením jejího vráceného stavu / vrácených metod:
 
-```js
-// counter.js
+```js [counter.js]
 import { ref } from 'vue'
 
 export function useCounter() {
@@ -414,8 +400,7 @@ export function useCounter() {
 }
 ```
 
-```js
-// counter.test.js
+```js [counter.test.js]
 import { useCounter } from './counter.js'
 
 test('useCounter', () => {
@@ -429,8 +414,7 @@ test('useCounter', () => {
 
 Composable funkce, která závisí na Lifecycle Hooks nebo Provide / Inject, musí být obalena v hostitelské komponentě, aby byla testovatelná. Můžeme vytvořit pomocnou funkci následujícím způsobem:
 
-```js
-// test-utils.js
+```js [test-utils.js]
 import { createApp } from 'vue'
 
 export function withSetup(composable) {
@@ -449,7 +433,7 @@ export function withSetup(composable) {
 }
 ```
 
-```js
+```js [foo.test.js]
 import { withSetup } from './test-utils'
 import { useFoo } from './foo'
 

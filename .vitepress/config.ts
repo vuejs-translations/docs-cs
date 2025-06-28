@@ -1,10 +1,11 @@
 import fs from 'fs'
 import path from 'path'
-import { defineConfigWithTheme, type HeadConfig } from 'vitepress'
+import { defineConfigWithTheme, type HeadConfig, type Plugin } from 'vitepress'
 import type { Config as ThemeConfig } from '@vue/theme'
 import baseConfig from '@vue/theme/config'
 import { headerPlugin } from './headerMdPlugin'
 // import { textAdPlugin } from './textAdMdPlugin'
+import { groupIconMdPlugin,groupIconVitePlugin } from 'vitepress-plugin-group-icons'
 
 const nav: ThemeConfig['nav'] = [
   {
@@ -809,6 +810,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     theme: 'github-dark',
     config(md) {
       md.use(headerPlugin)
+        .use(groupIconMdPlugin)
       // .use(textAdPlugin)
     }
   },
@@ -837,6 +839,14 @@ export default defineConfigWithTheme<ThemeConfig>({
     },
     json: {
       stringify: true
-    }
+    },
+    plugins: [
+      groupIconVitePlugin({
+        customIcon: {
+          cypress: 'vscode-icons:file-type-cypress',
+          'testing library': 'logos:testing-library'
+        }
+      }) as Plugin
+    ]
   }
 })

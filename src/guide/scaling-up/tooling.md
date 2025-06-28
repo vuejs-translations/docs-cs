@@ -25,40 +25,29 @@ Tato online hřiště je rovněž doporučeno používat pro tvorbu reprodukcí 
 
 Pro zahájení práce s Vite + Vue jednoduše spusťte:
 
-<VTCodeGroup>
-  <VTCodeGroupTab label="npm">
+::: code-group
 
-  ```sh
-  $ npm create vue@latest
-  ```
+```sh [npm]
+$ npm create vue@latest
+```
 
-  </VTCodeGroupTab>
-  <VTCodeGroupTab label="pnpm">
-
-  ```sh
-  $ pnpm create vue@latest
-  ```
-
-  </VTCodeGroupTab>
-  <VTCodeGroupTab label="yarn">
-
-  ```sh
-  # pro Yarn v2+
-  $ yarn create vue@latest
+```sh [pnpm]
+$ pnpm create vue@latest
+```
   
-  # pro Yarn ^v4.11
-  $ yarn dlx create-vue@latest
-  ```
+```sh [yarn]
+# pro Yarn Modern (v2+)
+$ yarn create vue@latest
 
-  </VTCodeGroupTab>
-  <VTCodeGroupTab label="bun">
+# pro Yarn ^v4.11
+$ yarn dlx create-vue@latest
+```
+  
+```sh [bun]
+$ bun create vue@latest
+```
 
-  ```sh
-  $ bun create vue@latest
-  ```
-
-  </VTCodeGroupTab>
-</VTCodeGroup>
+:::
 
 Tento příkaz nainstaluje a spustí [create-vue](https://github.com/vuejs/create-vue), oficiální nástroj pro sestavení Vue projektů.
 

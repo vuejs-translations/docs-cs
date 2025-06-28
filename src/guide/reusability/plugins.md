@@ -40,8 +40,7 @@ Abychom lépe pochopili, jak vlastní Vue.js pluginy vytvářet, vytvoříme vel
 
 Začněme nastavením objektu pluginu. Doporučujeme jej vytvořit v samostatném souboru a exportovat ho, jak je uvedeno níže, aby byla logika uzavřená a oddělená.
 
-```js
-// plugins/i18n.js
+```js [plugins/i18n.js]
 export default {
   install: (app, options) => {
     // kód pluginu bude zde
@@ -57,8 +56,7 @@ Chceme vytvořit překladovou funkci. Tato funkce obdrží string `key` s tečko
 
 Protože by tato funkce měla být dostupná globálně ve všech šablonách, vytvoříme ji tak, že ji v našem pluginu připojíme k `app.config.globalProperties`:
 
-```js{4-11}
-// plugins/i18n.js
+```js{4-11} [plugins/i18n.js]
 export default {
   install: (app, options) => {
     // vložit globálně dostupnou funkci `$translate()`
@@ -99,8 +97,7 @@ Globální vlastnosti používejte jen zřídka. Pokud se v aplikaci používá 
 
 Pluginy nám také umožňují použít `provide` k poskytování přístupu k funkci nebo parametru uživatelům pluginu. Například můžeme aplikaci umožnit přístup k parametru `options`, aby mohla používat objekt s překlady.
 
-```js{10}
-// plugins/i18n.js
+```js{10} [plugins/i18n.js]
 export default {
   install: (app, options) => {
     app.provide('i18n', options)

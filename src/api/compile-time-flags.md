@@ -40,8 +40,7 @@ Podívejte se na [Průvodce konfigurací](#configuration-guides), jak je nastavi
 
 `@vitejs/plugin-vue` pro tyto příznaky automaticky poskytuje výchozí hodnoty. Pro změnu výchozích hodnot použijte Vite konfigurační možnost `define`  ([dokumentace](https://vitejs.dev/config/shared-options.html#define)):
 
-```js
-// vite.config.js
+```js [vite.config.js]
 import { defineConfig } from 'vite'
 
 export default defineConfig({
@@ -56,8 +55,7 @@ export default defineConfig({
 
 `@vue/cli-service` automaticky poskytuje výchozí hodnoty pro některé z těchto příznaků. Pro konfiguraci / změnu hodnot:
 
-```js
-// vue.config.js
+```js [vite.config.js]
 module.exports = {
   chainWebpack: (config) => {
     config.plugin('define').tap((definitions) => {
@@ -76,8 +74,7 @@ module.exports = {
 
 Příznaky by měly být definovány pomocí webpack [DefinePlugin](https://webpack.js.org/plugins/define-plugin/):
 
-```js
-// webpack.config.js
+```js [webpack.config.js]
 module.exports = {
   // ...
   plugins: [
@@ -94,8 +91,7 @@ module.exports = {
 
 Příznaky by měly být definovány pomocí [@rollup/plugin-replace](https://github.com/rollup/plugins/tree/master/packages/replace):
 
-```js
-// rollup.config.js
+```js [rollup.config.js]
 import replace from '@rollup/plugin-replace'
 
 export default {

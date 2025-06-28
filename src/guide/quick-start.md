@@ -30,43 +30,31 @@ V této sekci si ukážeme, jak vystavět základ Vue [Single Page aplikaci](/gu
 
 Zkontrolujte, že máte nainstalovanou nejnovější verzi [Node.js](https://nodejs.org/) a váš aktuální pracovní adresář je ten, v němž chcete založit projekt. Spusťte ve vašem příkazovém řádku následující příkaz (bez znaku `$`):
 
-<VTCodeGroup>
-  <VTCodeGroupTab label="npm">
+::: code-group
 
-  ```sh
-  $ npm create vue@latest
-  ```
+```sh [npm]
+$ npm create vue@latest
+```
 
-  </VTCodeGroupTab>
-  <VTCodeGroupTab label="pnpm">
-  
-  ```sh
-  $ pnpm create vue@latest
-  ```
+```sh [pnpm]
+$ pnpm create vue@latest
+```
 
-  </VTCodeGroupTab>
-  <VTCodeGroupTab label="yarn">
-  
-  ```sh
-  # pro Yarn (v1+)
-  $ yarn create vue
+```sh [yarn]
+# pro Yarn (v1+)
+$ yarn create vue
 
-  # pro Yarn (v2+)
-  $ yarn create vue@latest
-  
-  # pro Yarn ^v4.11
-  $ yarn dlx create-vue@latest
-  ```
+# pro Yarn Modern (v2+)
+$ yarn create vue@latest
 
-  </VTCodeGroupTab>
-  <VTCodeGroupTab label="bun">
-  
-  ```sh
-  $ bun create vue@latest
-  ```
+# pro Yarn ^v4.11
+$ yarn dlx create-vue@latest
+```
 
-  </VTCodeGroupTab>
-</VTCodeGroup>
+```sh [bun]
+$ bun create vue@latest
+```
+:::
 
 Tento příkaz nainstaluje a spustí [create-vue](https://github.com/vuejs/create-vue), oficiální nástroj Vue pro přípravu základů nové aplikace. Objeví se vstup s několika možnostmi nastavení jako je TypeScript a&nbsp;podpora testování:
 

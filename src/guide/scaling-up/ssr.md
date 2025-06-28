@@ -174,8 +174,7 @@ Tento soubor a jeho závislosti jsou sdíleny mezi serverem a klientem – nazý
 
 Náš vstup na klientovi importuje univerzální kód, vytváří aplikaci a provádí připojení:
 
-```js
-// client.js
+```js [client.js]
 import { createApp } from './app.js'
 
 createApp().mount('#app')
@@ -183,8 +182,8 @@ createApp().mount('#app')
 
 A server používá stejnou logiku vytváření aplikaci v handleru požadavku:
 
-```js{2,5}
-// server.js (nedůležitý kód je vynechán)
+```js{2,5} [server.js]
+// (nedůležitý kód je vynechán)
 import { createApp } from './app.js'
 
 server.get('/', (req, res) => {
