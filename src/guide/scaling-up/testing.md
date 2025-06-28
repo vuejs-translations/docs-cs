@@ -75,7 +75,7 @@ Protože je velmi samostatná, bude snadné zavolat funkci `increment` a ověři
 
 Pokud některé z těchto tvrzení selže, je zřejmé, že problém je obsažen v funkci `increment`.
 
-```js{4-16} [helpers.spec.js]
+```js{3-15} [helpers.spec.js]
 import { increment } from './helpers'
 
 describe('increment', () => {
@@ -312,7 +312,7 @@ V projektu založeném na Vite spusťte:
 
 Poté aktualizujte konfiguraci Vite a přidejte sekci `test`:
 
-```js{6-12} [vite.config.js]
+```js{5-11} [vite.config.js]
 import { defineConfig } from 'vite'
 
 export default defineConfig({
