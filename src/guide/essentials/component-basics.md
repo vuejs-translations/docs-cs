@@ -188,8 +188,7 @@ Props jsou vlastní atributy, které můžete na komponentě zaregistrovat. Abyc
 
 <div class="options-api">
 
-```vue
-<!-- BlogPost.vue -->
+```vue [BlogPost.vue]
 <script>
 export default {
   props: ['titulek']
@@ -206,8 +205,7 @@ Když je hodnota předána pomocí prop atributu, stane se vlastností této ins
 </div>
 <div class="composition-api">
 
-```vue
-<!-- BlogPost.vue -->
+```vue [BlogPost.vue]
 <script setup>
 defineProps(['titulek'])
 </script>
@@ -352,8 +350,8 @@ Která může být použita v šabloně k ovládání velikosti písma všech bl
 
 Nyní pojďme přidat tlačítko do šablony `<BlogPost>` komponenty:
 
-```vue{5}
-<!-- BlogPost.vue, s vynecháním <script> -->
+```vue{5} [BlogPost.vue]
+<!-- sekce <script> vynechána -->
 <template>
   <div class="blog-post">
     <h4>{{ titulek }}</h4>
@@ -373,8 +371,8 @@ Tlačítko zatím nic nedělá – chceme kliknutím na tlačítko sdělit kompo
 
 Potom může komponenta potomka vyvolat událost sama na sobě voláním vestavěné metody [**`$emit`**](/api/component-instance#emit) a předáním názvu události:
 
-```vue{5}
-<!-- BlogPost.vue, s vynecháním <script> -->
+```vue{5} [BlogPost.vue]
+<!-- sekce <script> vynechána -->
 <template>
   <div class="blog-post">
     <h4>{{ titulek }}</h4>
@@ -400,8 +398,7 @@ Vysílané (emit) události můžeme nepovinně deklarovat s pomocí <span class
 
 <div class="options-api">
 
-```vue{5}
-<!-- BlogPost.vue -->
+```vue{4} [BlogPost.vue]
 <script>
 export default {
   props: ['titulek'],
@@ -413,8 +410,7 @@ export default {
 </div>
 <div class="composition-api">
 
-```vue{4}
-<!-- BlogPost.vue -->
+```vue{3} [BlogPost.vue]
 <script setup>
 defineProps(['titulek'])
 defineEmits(['zvetsit-text'])
@@ -472,8 +468,7 @@ Stala se chyba.
 
 Toho lze dosáhnout použitím speciálního Vue elementu `<slot>`:
 
-```vue{5}
-<!-- AlertBox.vue -->
+```vue{4} [AlertBox.vue]
 <template>
   <div class="alert-box">
     <strong>Toto je chyba pro testovací účely</strong>

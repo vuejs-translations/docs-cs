@@ -12,8 +12,7 @@ Direktivu `v-model` lze použít pro implementaci obousměrného (two-way) bindi
 
 Od verze Vue 3.4 je doporučený postup použití makra [`defineModel()`](/api/sfc-script-setup#definemodel):
 
-```vue
-<!-- Child.vue -->
+```vue [Child.vue]
 <script setup>
 const model = defineModel()
 
@@ -30,8 +29,7 @@ function update() {
 
 Komponenta rodiče pak může provést binding hodnoty pomocí `v-model`:
 
-```vue-html
-<!-- Parent.vue -->
+```vue-html [Parent.vue]
 <Child v-model="countModel" />
 ```
 
@@ -63,8 +61,7 @@ const model = defineModel()
 
 Takto se implementovala komponenta potomka se stejnou funkcionalitou před verzí 3.4:
 
-```vue
-<!-- Child.vue -->
+```vue [Child.vue]
 <script setup>
 const props = defineProps(['modelValue'])
 const emit = defineEmits(['update:modelValue'])
@@ -80,8 +77,7 @@ const emit = defineEmits(['update:modelValue'])
 
 Poté se `v-model="foo"` v komponentě rodiče zkompiluje jako:
 
-```vue-html
-<!-- Parent.vue -->
+```vue-html [Parent.vue]
 <Child
   :modelValue="foo"
   @update:modelValue="$event => (foo = $event)"
@@ -103,20 +99,18 @@ const model = defineModel({ default: 0 })
 :::warning VAROVÁNÍ
 Pokud pro vlastnost `defineModel` použijete `default` a neposkytnete v komponentě rodiče žádnou hodnotu, může to způsobit de-synchronizaci mezi rodičem a potomkem. V&nbsp;příkladu níže je `myRef` v rodiči `undefined`, zatímco `model` v potomkovi je `1`:
 
-**Komponenta potomka:**
-
-```js
+```vue [Child.vue]
 const model = defineModel({ default: 1 })
 ```
 
-**Komponenta rodiče:**
-
-```js
+```vue-html [Parent.vue]
+<script setup>
 const myRef = ref()
-```
+</script>
 
-```html
-<Child v-model="myRef"></Child>
+<template>
+  <Child v-model="myRef"></Child>
+</template>
 ```
 
 :::
@@ -156,8 +150,7 @@ Aby to však mohlo fungovat, musí komponenta `<CustomInput>` udělat dvě věci
 
 Zde to vidíte v praxi:
 
-```vue
-<!-- CustomInput.vue -->
+```vue [CustomInput.vue]
 <script>
 export default {
   props: ['modelValue'],
@@ -183,8 +176,7 @@ Na této komponentě by nyní měl `v-model` perfektně fungovat:
 
 Dalším způsobem implementace `v-model` v rámci této komponenty je použití zapisovatelné `computed` proměnné s getterem a setterem. Metoda `get` by měla vracet vlastnost `modelValue` a metoda `set` by měla vyvolat odpovídající událost:
 
-```vue
-<!-- CustomInput.vue -->
+```vue [CustomInput.vue]
 <script>
 export default {
   props: ['modelValue'],
@@ -221,8 +213,7 @@ export default {
 
 V komponentě potomka můžeme takový parametr podporovat předáním řetězce do  `defineModel()`
 
-```vue
-<!-- MyComponent.vue -->
+```vue [MyComponent.vue]
 <script setup>
 const title = defineModel('title')
 </script>
@@ -243,8 +234,7 @@ const title = defineModel('title', { required: true })
 <details>
 <summary>Použití před verzí 3.4</summary>
 
-```vue
-<!-- MyComponent.vue -->
+```vue [MyComponent.vue]
 <script setup>
 defineProps({
   title: {
@@ -271,8 +261,7 @@ defineEmits(['update:title'])
 
 V tomto případě místo výchozí vlastnosti `modelValue` a události `update:modelValue` může komponenta potomka očekávat vlastnost  `title` a emitovat událost `update:title` pro aktualizaci hodnoty v rodiči:
 
-```vue
-<!-- MyComponent.vue -->
+```vue [MyComponent.vue]
 <script>
 export default {
   props: ['title'],
@@ -412,7 +401,7 @@ console.log(modifiers) // { capitalize: true }
 
 Pro podmíněné nastavení, jak by měla být hodnota na základě modifikátorů čtena / zapisována, můžeme do `defineModel()` předat možnosti `get` a `set`. Tyto dvě nastavení získají hodnotu při čtení / zápisu příslušné ref hodnoty a měly by vrátit transformovanou hodnotu. Takto můžeme použít `set` pro implementaci modifikátoru `capitalize`:
 
-```vue{6-8}
+```vue{4-6}
 <script setup>
 const [model, modifiers] = defineModel({
   set(value) {

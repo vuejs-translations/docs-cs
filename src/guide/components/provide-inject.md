@@ -298,7 +298,7 @@ provide('read-only-count', readonly(count))
 
 Aby byla implementace reaktivně propojena se komponentou poskytovatele, musíme poskytovat computed proměnnou pomocí funkce [computed()](/api/reactivity-core#computed):
 
-```js{10}
+```js{12}
 import { computed } from 'vue'
 
 export default {
@@ -328,8 +328,7 @@ Dosud jsme v příkladech používali injection kyes typu string. Pokud pracujet
 
 Je doporučeno exportovat použité symboly do vyhrazeného souboru:
 
-```js
-// keys.js
+```js [keys.js]
 export const myInjectionKey = Symbol()
 ```
 

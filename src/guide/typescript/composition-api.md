@@ -418,8 +418,7 @@ V případech, kdy automatické odvození není možné (například při použi
 
 Pro získání typu instance importované komponenty musíme nejprve získat jeho typ pomocí `typeof` a&nbsp;poté použít vestavěnou utilitu `InstanceType` v TypeScriptu k extrakci jeho instančního typu:
 
-```vue{5}
-<!-- App.vue -->
+```vue{6,7} [App.vue]
 <script setup lang="ts">
 import { useTemplateRef } from 'vue'
 import Foo from './Foo.vue'
@@ -447,8 +446,7 @@ const child = useTemplateRef<ComponentPublicInstance>('child')
 
 V případech, kdy je odkazována [generická komponenta](/guide/typescript/overview.html#generic-components), například tato `MyGenericModal`:
 
-```vue
-<!-- MyGenericModal.vue -->
+```vue [MyGenericModal.vue]
 <script setup lang="ts" generic="ContentType extends string | number">
 import { ref } from 'vue'
 
@@ -464,8 +462,7 @@ defineExpose({
 
 Musí být referencována s použitím `ComponentExposed` z knihovny [`vue-component-type-helpers`](https://www.npmjs.com/package/vue-component-type-helpers), protože `InstanceType` nebude fungovat.
 
-```vue
-<!-- App.vue -->
+```vue [App.vue]
 <script setup lang="ts">
 import { useTemplateRef } from 'vue'
 import MyGenericModal from './MyGenericModal.vue'

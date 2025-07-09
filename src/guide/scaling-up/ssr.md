@@ -158,8 +158,8 @@ Všimněte si, že jsme znovu použili stejnou implementaci aplikace jako na ser
 
 Zde ukážeme nejjednodušší možnou konfiguraci. Nejprve rozdělme logiku vytváření aplikace do samostatného souboru `app.js`:
 
-```js
-// app.js (sdílený mezi serverem a klientem)
+```js [app.js]
+// (sdíleno mezi serverem a klientem)
 import { createSSRApp } from 'vue'
 
 export function createApp() {
@@ -268,8 +268,8 @@ Technicky je možné při každém požadavku znovu inicializovat všechny modul
 
 Doporučeným řešením je při každém požadavku vytvořit novou instanci celé aplikace – včetně routeru a globálních úložišť. Poté místo přímého importu poskytneme sdílený stav pomocí [provide na úrovni aplikace](/guide/components/provide-inject#app-level-provide) a vkládáme jej do komponent, které ho potřebují:
 
-```js
-// app.js (sdílený mezi serverem a klientem)
+```js [app.js]
+// (sdíleno mezi serverem a klientem)
 import { createSSRApp } from 'vue'
 import { createStore } from './store.js'
 

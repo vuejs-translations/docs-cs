@@ -5,8 +5,7 @@ Komponenta potomka přijímá vstup z rodiče přes vlastnosti (**props**). Nejp
 <div class="composition-api">
 <div class="sfc">
 
-```vue
-<!-- ChildComp.vue -->
+```vue [ChildComp.vue]
 <script setup>
 const props = defineProps({
   msg: String

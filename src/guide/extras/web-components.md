@@ -43,8 +43,7 @@ export default {
 
 #### Příklad konfigurace Vue CLI {#example-vue-cli-config}
 
-```js
-// vue.config.js
+```js [vue.config.js]
 module.exports = {
   chainWebpack: (config) => {
     config.module
@@ -218,8 +217,7 @@ Pokud budou custom elementy použity v aplikaci, která Vue také používá, m�
 
 Je doporučeno exportovat jednotlivé konstruktory elementů, abyste uživatelům poskytli flexibilitu importovat je na vyžádání a registrovat je s požadovanými názvy tagů. Můžete také exportovat pohodlnou funkci pro automatickou registraci všech elementů. Zde je příklad vstupního bodu Vue knihovny custom elementů:
 
-```js
-// elements.js
+```js [elements.js]
 import { defineCustomElement } from 'vue'
 import Foo from './MyFoo.ce.vue'
 import Bar from './MyBar.ce.vue'
@@ -303,9 +301,7 @@ Jde o obecně platný způsob, jak to udělat, ale detaily se mohou se trochu li
 
 Předpokládejme, že máme definován custom element s nějakými JS atributy a událostmi, který je distribuován v knihovně nazvané `some-lib`:
 
-```ts
-// soubor: some-lib/src/SomeElement.ts
-
+```ts [some-lib/src/SomeElement.ts]
 // definice třídy s typovanými JS atributy
 export class SomeElement extends HTMLElement {
   foo: number = 123
@@ -342,9 +338,7 @@ Implementační detaily byly vynechány, ale důležité je, že máme dva druhy
 
 Vytvořme pomocnou funkci pro snadnou registraci definic typů custom elementů ve Vue:
 
-```ts
-// soubor: some-lib/src/DefineCustomElement.ts
-
+```ts [some-lib/src/DefineCustomElement.ts]
 // Tuto pomocnou funkci můžeme znovupoužít pro každý prvek,
 // který potřebujeme definovat.
 type DefineCustomElement<
@@ -387,9 +381,7 @@ Označili jsme `$props` a `$emit` jako deprecated, abychom při získání `ref`
 Prostřednictvím pomocné funkce nyní můžeme vybrat JavaScriptové vlastnosti,
 které mají být vystaveny pro typovou kontrolu ve Vue šablonách:
 
-```ts
-// soubor: some-lib/src/SomeElement.vue.ts
-
+```ts [some-lib/src/DefineCustomElement.ts]
 import {
   SomeElement,
   SomeElementAttributes,
@@ -412,7 +404,7 @@ declare module 'vue' {
 
 Řekněme, že `some-lib` vytváří své zdrojové TypeScript soubory do adresáře `dist/` folder. Uživatel `some-lib` poté může importovat `SomeElement` a použít jej ve Vue SFC komponentě takto:
 
-```vue
+```vue [SomeElementImpl.vue]
 <script setup lang="ts">
 // toto vytvoří a registruje element v prohlížeči
 import 'some-lib/dist/SomeElement.js'
@@ -458,7 +450,7 @@ onMounted(() => {
 
 Pokud element typové definice nemá, mohou být typy vlastností a událostí definovány více ručním způsobem:
 
-```vue
+```vue [SomeElementImpl.vue]
 <script setup lang="ts">
 // řekněme, že `some-lib` je čistý JavaScript bez typových definic
 // a TypeScript nemůže typy sám odvodit:

@@ -301,16 +301,20 @@ function inc() {
 :::warning VAROVÁNÍ
 Pokud pro vlastnost `defineModel` použijete `default` a neposkytnete v komponentě rodiče žádnou hodnotu, může to způsobit de-synchronizaci mezi rodičem a potomkem. V&nbsp;příkladu níže je `myRef` v rodiči `undefined`, zatímco `model` v potomkovi je `1`:
 
-```js
-// komponenta potomka:
+```vue [Child.vue]
+<script setup>
 const model = defineModel({ default: 1 })
-
-// komponenta rodiče:
-const myRef = ref()
+</script>
 ```
 
-```html
-<Child v-model="myRef"></Child>
+```vue [Parent.vue]
+<script setup>
+const myRef = ref()
+</script>
+
+<template>
+  <Child v-model="myRef"></Child>
+</template>
 ```
 
 :::

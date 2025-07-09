@@ -469,8 +469,7 @@ Zde je ukázka použití knihovny [GSAP](https://gsap.com/) k provedení animac�
 
 Přechody mohou být znovupoužity pomocí systému Vue komponent. Pro vytvoření znovupoužiteného přechodu můžeme vytvořit komponentu, která obaluje komponentu `<Transition>` a předává obsah slotu:
 
-```vue{5}
-<!-- MyTransition.vue -->
+```vue{6} [MyTransition.vue]
 <script>
 // Logika JavaScriptových metod...
 </script>
