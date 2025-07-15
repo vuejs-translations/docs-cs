@@ -61,6 +61,10 @@ Funkce `useModel()` může být použita v non-SFC komponentách, např. uvnitř
   }
   ```
 
+- **Podrobnosti**
+
+Funkce `useModel()` může být použita v non-SFC komponentách, například když používáte obyčejné `setup()`. Jako první argument očekává objekt `props` a jako druhý název modelu. Volitelný třetí argument může být použit pro deklaraci vlastního getteru a&nbsp;setteru pro výsledný ref modelu. Pamatujte, že na rozdíl od `defineModel()` jste za deklaraci vlastností (props) a událostí (emits) zodpovědní vy sami.
+
 ## useTemplateRef() <sup class="vt-badge" data-text="3.5+" /> {#usetemplateref}
 
 Vrací `shallowRef`, jehož hodnota bude synchronizovaná s elementem či komponentou uvnitř šablony s odpovídajícím `ref` atributem.
@@ -76,11 +80,14 @@ Vrací `shallowRef`, jehož hodnota bude synchronizovaná s elementem či kompon
   ```vue
   <script setup>
   import { useTemplateRef, onMounted } from 'vue'
+
   const inputRef = useTemplateRef('input')
+
   onMounted(() => {
     inputRef.value.focus()
   })
   </script>
+  
   <template>
     <input ref="input" />
   </template>
