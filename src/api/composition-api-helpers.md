@@ -87,7 +87,7 @@ Vrací `shallowRef`, jehož hodnota bude synchronizovaná s elementem či kompon
     inputRef.value.focus()
   })
   </script>
-  
+
   <template>
     <input ref="input" />
   </template>
@@ -132,3 +132,7 @@ Vrací `shallowRef`, jehož hodnota bude synchronizovaná s elementem či kompon
   Pro ID generovaná pomocí `useId()` je také garantována stabilita mezi vykreslením na serveru a na klientovi, takže mohou být použita v SSR aplikacích, aniž by docházelo k&nbsp;nesouladům hydratace (hydration mismatches).
 
   Pokud máte na jedné stránce více instancí Vue, můžete se vyhnout konfliktům mezi ID přidáním prefixu každé aplikaci pomocí [`app.config.idPrefix`](/api/application#app-config-idprefix).
+
+  :::warning Pozor
+  `useId()` by nemělo být voláno uvnitř `computed()`, protože to může způsobit konflikty mezi instancemi. ID místo toho deklarujte mimo `computed()` a v rámci callbacku na něj pouze odkazujte.
+  :::
