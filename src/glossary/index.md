@@ -134,7 +134,7 @@ Termín *Fragment* se odkazuje na speciální typ [VNode](#vnode), který se pou
 
 Název pochází ze stejného konceptu jako [`DocumentFragment`](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment) v nativním DOM API.
 
-Fragmenty se používají k podpoře komponent s více root elementy. I když se takové komponenty mohou jevit jako s více kořeny, v pozadí používají fragmentový uzel jako jediný kořen, jako rodiče „root“ elementů.
+Fragmenty se používají k podpoře komponent s více root elementy. I když se takové komponenty mohou jevit jako s více kořeny, v pozadí používají jako jediný kořen fragmentový uzel, který je rodičem všech „root“ elementů.
 
 Fragmenty jsou také používány kompilátorem šablon jako způsob obalení více dynamických uzlů, například těch vytvořených pomocí `v-for` nebo `v-if`. To umožňuje předávat další informace algoritmu pro úpravu [VDOM](#virtual-dom). Většina toho je řešena interně, ale jedno místo, kde se s tím můžete setkat přímo, je použití atributu `key` na elementu `<template>` s `v-for`. V tomto scénáři je `key` přidán jako [vlastnost (prop)](#prop) do fragmentového VNode.
 

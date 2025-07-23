@@ -89,7 +89,7 @@ Při úvodním vykreslení `<Suspense>` zobrazí obsah svého výchozího (defau
 
 Pokud se během úvodního vykreslení na žádné asynchronní závislosti nenarazí, `<Suspense>` přejde rovnou do stavu vyřešeno.
 
-Jakmile je ve stavu vyřešeno, `<Suspense>` se vrátí do čekajícího (pending) stavu pouze tehdy, pokud je nahrazen kořenový element `#default` slotu. Nové asynchronní závislosti vnořené hlouběji do stromu **nezpůsobí**, že se `<Suspense>` vrátí do čekajícího stavu.
+Jakmile je ve stavu vyřešeno, `<Suspense>` se vrátí do čekajícího (pending) stavu pouze tehdy, pokud je nahrazen root element `#default` slotu. Nové asynchronní závislosti vnořené hlouběji do stromu **nezpůsobí**, že se `<Suspense>` vrátí do čekajícího stavu.
 
 Když dojde k aktualizaci, záložní (fallback) obsah se nezobrazí okamžitě. Místo toho `<Suspense>` zobrazí předchozí obsah `#default` slotu, zatímco čeká na vyřešení nového obsahu a jeho asynchronních závislostí. Toto chování lze konfigurovat pomocí vlastnosti `timeout`: `<Suspense>` se na záložní obsah přepne, pokud vykreslení nového výchozího obsahu trvá déle než `timeout` milisekund. Hodnota `timeout: 0` způsobí, že se záložní obsah zobrazí okamžitě po nahrazení výchozího obsahu.
 

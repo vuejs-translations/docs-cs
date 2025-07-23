@@ -419,7 +419,7 @@ defineEmits(['zvetsit-text'])
 
 </div>
 
-To dokumentuje všechny události, které komponenta vysílá, a volitelně [je validuje](/guide/components/events#events-validation). Také to Vue umožňuje vyhnout se jejich implicitnímu použití jako nativních event listenerů na kořenovém prvku komponenty potomka.
+To dokumentuje všechny události, které komponenta vysílá, a volitelně [je validuje](/guide/components/events#events-validation). Také to Vue umožňuje vyhnout se jejich implicitnímu použití jako nativních event listenerů na root elementu komponenty potomka.
 
 <div class="composition-api">
 
