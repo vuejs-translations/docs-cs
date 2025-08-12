@@ -6,7 +6,7 @@ Věříme, že pro web neexistuje „univerzální řešení“. Proto je Vue na
 
 Vue může být použito jako samostatný skript soubor – není vyžadována žádná build fáze! Pokud již máte backendový framework, který vykresluje většinu HTML, nebo pokud vaše frontendová logika není dostatečně složitá na to, aby build fázi opravňovala, je to nejjednodušší způsob, jak do vašeho stacku Vue integrovat. V takových případech můžete Vue považovat za deklarativní náhradu jQuery.
 
-Vue také poskytuje alternativní distribuci nazvanou [petite-vue](https://github.com/vuejs/petite-vue), která je speciálně optimalizována pro postupné vylepšování existujícího HTML. Má menší soubor funkcí, ale je extrémně odlehčená a používá implementaci, která je v případech užití bez build fáze efektivnější.
+Dříve jsme také poskytovali alternativní distribuci nazvanou [petite-vue](https://github.com/vuejs/petite-vue), která byla speciálně optimalizována pro postupné vylepšování existujícího HTML. Projekt už však není aktivně udržován, poslední publikovaná verze stála na Vue 3.2.27.
 
 ## Vložené webové komponenty {#embedded-web-components}
 
