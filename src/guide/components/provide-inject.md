@@ -324,7 +324,7 @@ Funkce `computed()` se typicky používá v komponentách psaných v Composition
 
 ## Práce s klíči typu Symbol {#working-with-symbol-keys}
 
-Dosud jsme v příkladech používali injection kyes typu string. Pokud pracujete v rozsáhlé aplikaci s mnoha poskytovateli závislostí nebo vytváříte komponenty, které budou používat i další vývojáři, je nejlepší používat injection kyes typu Symbol, abyste se vyhnuli případným kolizím.
+Dosud jsme v příkladech používali injection kyes typu string. Pokud pracujete v rozsáhlé aplikaci s mnoha poskytovateli závislostí nebo vytváříte komponenty, které budou používat i další vývojáři, je nejlepší používat injection kyes typu [Symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol), abyste se vyhnuli případným kolizím.
 
 Je doporučeno exportovat použité symboly do vyhrazeného souboru:
 
