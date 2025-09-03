@@ -218,6 +218,7 @@ Pokud budou custom elementy použity v aplikaci, která Vue také používá, m�
 Je doporučeno exportovat jednotlivé konstruktory elementů, abyste uživatelům poskytli flexibilitu importovat je na vyžádání a registrovat je s požadovanými názvy tagů. Můžete také exportovat pohodlnou funkci pro automatickou registraci všech elementů. Zde je příklad vstupního bodu Vue knihovny custom elementů:
 
 ```js [elements.js]
+
 import { defineCustomElement } from 'vue'
 import Foo from './MyFoo.ce.vue'
 import Bar from './MyBar.ce.vue'
@@ -235,11 +236,13 @@ export function register() {
 ```
 
 Konzument může elementy použít ve Vue souboru:
+
 ```vue
 <script setup>
 import { register } from 'path/to/elements.js'
 register()
 </script>
+
 <template>
   <my-foo ... >
     <my-bar ... ></my-bar>
@@ -248,10 +251,13 @@ register()
 ```
 
 Nebo v jakémkoliv jiném frameworku, například s využitím JSX a custom názvy:
+
 ```jsx
 import { MyFoo, MyBar } from 'path/to/elements.js'
+
 customElements.define('some-foo', MyFoo)
 customElements.define('some-bar', MyBar)
+
 export function MyComponent() {
   return <>
     <some-foo ... >
@@ -265,7 +271,9 @@ export function MyComponent() {
 
 Pokud píšete šablony Vue SFC komponent, můžete chtít [ověřovat typy](/guide/scaling-up/tooling.html#typescript) použitých Vue komponent, včetně těch, které jsou definovány jako custom elementy.
 
-Custom elementy jsou registrovány globálně pomocí nativních API, takže ve výchozím nastavení nemají při použití ve Vue šablonách odvozování typů. Abyste poskytli podporu typů pro Vue komponenty registrované jako custom elementy, můžeme zaregistrovat globální typy komponent pomocí rozhraní [`GlobalComponents`](https://github.com/vuejs/language-tools/wiki/Global-Component-Types) ve Vue šablonách a/nebo v&nbsp;[JSX](https://www.typescriptlang.org/docs/handbook/jsx.html#intrinsic-elements):
+Custom elementy jsou registrovány globálně pomocí nativních API prohlížečů, takže ve výchozím nastavení nemají při použití ve Vue šablonách odvozování typů. Abychom poskytli typovou podporu pro Vue komponenty registrované jako custom elementy, můžeme zaregistrovat globální typování komponent pomocí [rozhraní `GlobalComponents`](https://github.com/vuejs/language-tools/wiki/Global-Component-Types) pro typovou kontrolu ve Vue šablonách (uživatelé JSX mohou místo toho obohatit typ [JSX.IntrinsicElements](https://www.typescriptlang.org/docs/handbook/jsx.html#intrinsic-elements), což si zde neukazujeme).
+
+Takto je možné definovat typ pro custom element vytvořený pomocí Vue:
 
 ```typescript
 import { defineCustomElement } from 'vue'
@@ -293,7 +301,7 @@ declare module 'vue' {
 
 ## Web Components a TypeScript {#non-vue-web-components-and-typescript}
 
-Toto je doporučený postup, jak umožnit kontrolu typů v SFC šablonách pro Custom elementy, které nejsou vytvořeny pomocí Vue.
+Toto je doporučený postup, jak umožnit typovou kontrolu v SFC šablonách pro Custom elementy, které nejsou vytvořeny pomocí Vue.
 
 :::tip Info
 Jde o obecně platný způsob, jak to udělat, ale detaily se mohou se trochu lišit v závislosti na frameworku použitém pro vytvoření custom elementu.
@@ -346,8 +354,8 @@ type DefineCustomElement<
   Events extends EventMap = {},
   SelectedAttributes extends keyof ElementType = keyof ElementType
 > = new () => ElementType & {
-  // Použijte $props pro definici vlastností (props) vystavených pro kontrolu 
-  // typů v šabloně. Vue specificky čte jejich definice z typu `$props`. 
+  // Použijte $props pro definici vlastností (props) vystavených pro typovou 
+  // kontrolu v šabloně. Vue specificky čte jejich definice z typu `$props`. 
   // Pamatujte, že kombinujeme props elementu s globálními HTML atrbuty 
   // a speciálními vlastnostmi Vue.
   /** @deprecated Nepoužívejte $props na Custom Element ref, 
@@ -375,11 +383,10 @@ type VueEmit<T extends EventMap> = EmitFn<{
 ```
 
 :::tip Info
-Označili jsme `$props` a `$emit` jako deprecated, abychom při získání `ref` na custom element nebyli v pokušení tyto vlastnosti použít. Slouží totiž pouze k ověřování typů u&nbsp;custom elementů. Ve skutečnosti na instancích těchto elementů neexistují.
+Označili jsme `$props` a `$emit` jako deprecated, abychom při získání `ref` na custom element nebyli v pokušení tyto vlastnosti použít. Slouží totiž pouze k typové kontrole u&nbsp;custom elementů. Ve skutečnosti na instancích těchto elementů neexistují.
 :::
 
-Prostřednictvím pomocné funkce nyní můžeme vybrat JavaScriptové vlastnosti,
-které mají být vystaveny pro typovou kontrolu ve Vue šablonách:
+Prostřednictvím pomocné funkce nyní můžeme vybrat JavaScriptové vlastnosti, které mají být vystaveny pro typovou kontrolu ve Vue šablonách:
 
 ```ts [some-lib/src/DefineCustomElement.ts]
 import {
