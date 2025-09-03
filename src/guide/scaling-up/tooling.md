@@ -110,7 +110,7 @@ Rozšíření prohlížeče Vue devtools vám umožňuje prozkoumat strom kompon
 
 Hlavní článek: [Používání Vue s TypeScriptem](/guide/typescript/overview).
 
-- [Rozšíření Vue - Official](https://github.com/vuejs/language-tools) poskytuje typovou pro SFC pomocí bloků `<script lang="ts">`, včetně výrazů šablony a ověřování vlastností (props) mezi komponentami.
+- [Rozšíření Vue - Official](https://github.com/vuejs/language-tools) poskytuje typovou kontrolu pro SFC pomocí bloků `<script lang="ts">`, včetně výrazů šablony a ověřování vlastností (props) mezi komponentami.
 
 - Použijte [`vue-tsc`](https://github.com/vuejs/language-tools/tree/master/packages/tsc) pro provádění stejné typové kontroly z příkazového řádku nebo pro generování souborů `d.ts` pro SFC.
 

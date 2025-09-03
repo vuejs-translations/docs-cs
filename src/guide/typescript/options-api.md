@@ -292,3 +292,7 @@ Umístění tohoto obohacení podléhá [stejným omezením](#type-augmentation-
 Viz také:
 
 - [Jednotkové TypeScript testy pro `component type extensions`](https://github.com/vuejs/core/blob/main/packages-private/dts-test/componentTypeExtensions.test-d.tsx)
+
+## Typování globálních vlastních direktiv {#typing-global-custom-directives}
+
+Podívejte se na: [Typování globálních vlastních direktiv](/guide/typescript/composition-api#typing-global-custom-directives) <sup class="vt-badge ts" />

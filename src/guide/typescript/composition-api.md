@@ -468,7 +468,8 @@ import { useTemplateRef } from 'vue'
 import MyGenericModal from './MyGenericModal.vue'
 import type { ComponentExposed } from 'vue-component-type-helpers'
 
-const modal = useTemplateRef<ComponentExposed<typeof MyGenericModal>>('modal')
+const modal =
+  useTemplateRef<ComponentExposed<typeof MyGenericModal>>('modal')
 
 const openModal = () => {
   modal.value?.open('nova-hodnota')
@@ -477,3 +478,41 @@ const openModal = () => {
 ```
 
 Obecně můžete počítat s tím, že ve `@vue/language-tools` 2.1+ mohou být typy statických template refs odvozovány automaticky a výše uvedené je potřeba pouze v okrajových případech.
+
+## Typování globálních vlastních direktiv {#typing-global-custom-directives}
+
+Pro nastavení typové nápovědy a kontroly u globálních vlastních direktiv deklarovaných pomocí `app.directive()` můžete rozšířit rozhraní `ComponentCustomProperties`:
+
+```ts [src/directives/highlight.ts]
+import type { Directive } from 'vue'
+
+export type HighlightDirective = Directive<HTMLElement, string>
+
+declare module 'vue' {
+  export interface ComponentCustomProperties {
+    // prefix "v" (v-highlight)
+    vHighlight: HighlightDirective
+  }
+}
+
+export default {
+  mounted: (el, binding) => {
+    el.style.backgroundColor = binding.value
+  }
+} satisfies HighlightDirective
+```
+
+```ts [main.ts]
+import highlight from './directives/highlight'
+// ...další kód
+const app = createApp(App)
+app.directive('highlight', highlight)
+```
+
+Použití v komponentě:
+
+```vue [App.vue]
+<template>
+  <p v-highlight="'blue'">Tato věta je důležitá!</p>
+</template>
+```

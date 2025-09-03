@@ -18,7 +18,7 @@ Při použití Vite-based nastavení jsou vývojový (dev) server a bundler tran
 
 - Během vývoje doporučujeme pro okamžitou zpětnou vazbu ohledně typových chyb spoléhat na dobře nastavené [IDE](#ide-support).
 
-- Pokud používáte SFC, použijte pro kontrolu typů a generování deklarací typů z&nbsp;příkazové řádky nástroj [`vue-tsc`](https://github.com/vuejs/language-tools/tree/master/packages/tsc). `vue-tsc` je wrapper okolo `tsc`, vlastního příkazového rozhraní TypeScriptu. Pracuje podobně jako `tsc` s tím rozdílem, že  kromě souborů TypeScriptu podporuje i Vue SFC. Můžete spustit `vue-tsc` v režimu sledování (watch mode) paralelně s Vite dev serverem nebo použít Vite plugin jako [vite-plugin-checker](https://vite-plugin-checker.netlify.app/), který kontroluje v samostatném pracovním vlákně.
+- Pokud používáte SFC, použijte pro typovou kontrolu a generování deklarací typů z&nbsp;příkazové řádky nástroj [`vue-tsc`](https://github.com/vuejs/language-tools/tree/master/packages/tsc). `vue-tsc` je wrapper okolo `tsc`, vlastního příkazového rozhraní TypeScriptu. Pracuje podobně jako `tsc` s tím rozdílem, že  kromě souborů TypeScriptu podporuje i Vue SFC. Můžete spustit `vue-tsc` v režimu sledování (watch mode) paralelně s Vite dev serverem nebo použít Vite plugin jako [vite-plugin-checker](https://vite-plugin-checker.netlify.app/), který kontroluje v samostatném pracovním vlákně.
 
 - Vue CLI podporu pro TypeScript také poskytuje, ale již není doporučován. Viz [poznámky níže](#note-on-vue-cli-and-ts-loader).
 
@@ -120,7 +120,7 @@ Viz také:
 
 ### Použití v Single-file komponentách (SFC){#usage-in-single-file-components}
 
-Pro použití TypeScriptu v SFC přidejte atribut `lang="ts"` do tagu `<script>`. Když je zadáno `lang="ts"`, přísnějšímu ověřování typů podléhají i všechny výrazy v šabloně.
+Pro použití TypeScriptu v SFC přidejte atribut `lang="ts"` do tagu `<script>`. Když je zadáno `lang="ts"`, přísnější typové kontrole podléhají i všechny výrazy v šabloně.
 
 ```vue
 <script lang="ts">
@@ -136,7 +136,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <!-- povolené ověřování typů a automatické dokončování -->
+  <!-- povolená typová kontrola a automatické dokončování -->
   {{ count.toFixed(2) }}
 </template>
 ```

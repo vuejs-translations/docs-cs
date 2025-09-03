@@ -162,6 +162,7 @@ Zde sledujeme překlady pro (hlavně) technické pojmy, které se objevují na v
 * 🟩 execution = vykonávání
 * 🟩 expose (v.) = vystavit
 * 🟩 expression = výraz
+* 🟩 extend = rozšířit
 * 🟩 factory function = tovární metoda
 * 🟥 fallback = fallback
 * 🟩 feature = funkce
@@ -279,6 +280,8 @@ Zde sledujeme překlady pro (hlavně) technické pojmy, které se objevují na v
 * 🟥 tree-shaking = tree-shaking
 * 🟩 trigger (v.) = vyvolat
 * 🟨 type = typ
+* 🟩 type checking = kontrola typů
+* 🟩 type hint = typová nápověda
 * 🟩 type inference = odvozování typů
 * 🟨 type literal = typový literál
 * 🟩 under the hood = interně

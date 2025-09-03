@@ -35,7 +35,7 @@ Toto je výchozí pořadí, které doporučujeme pro možnosti nastavení kompon
    - `mixins`
    - `provide`/`inject`
 
-5. **Interface** (rozhranní komponenty)
+5. **Interface** (rozhraní komponenty)
 
    - `inheritAttrs`
    - `props`
