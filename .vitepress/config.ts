@@ -49,6 +49,7 @@ const nav: ThemeConfig['nav'] = [
           { text: 'Vývojáři', link: '/developers/' },
           { text: 'Šablony', link: '/ecosystem/themes' },
           { text: 'UI komponenty', link: 'https://ui-libs.vercel.app/' },
+          { text: 'Kolekce pluginů', link: 'https://www.vue-plugins.org/' },
           {
             text: 'Certifikace',
             link: 'https://certificates.dev/vuejs/?ref=vuejs-nav'
