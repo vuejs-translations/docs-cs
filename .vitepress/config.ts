@@ -53,7 +53,6 @@ const nav: ThemeConfig['nav'] = [
         text: 'Zdroje',
         items: [
           { text: 'Partneři', link: '/partners/' },
-          { text: 'Vývojáři', link: '/developers/' },
           { text: 'Šablony', link: '/ecosystem/themes' },
           { text: 'UI komponenty', link: 'https://ui-libs.vercel.app/' },
           { text: 'Kolekce pluginů', link: 'https://www.vue-plugins.org/' },
