@@ -8,7 +8,7 @@ Aktualizuje textový obsah elementu.
 
 - **Podrobnosti**
 
-  `v-text` funguje tak, že elementu nastavuje vlastnost [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent), což přepíše jakýkoli existující obsah uvnitř elementu. Pokud potřebujete aktualizovat část `textContent`, měli byste místo toho použít [„mustache“ interpolaci](/guide/essentials/template-syntax#text-interpolation).
+  `v-text` funguje tak, že elementu nastavuje vlastnost [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent), což přepíše jakýkoli existující obsah uvnitř elementu. Pokud potřebujete aktualizovat jen část `textContent`, měli byste místo toho použít [„mustache“ interpolaci](/guide/essentials/template-syntax#text-interpolation) (např. tímto způsobem: <span v-pre>`<span>Toto zachovat a aktualizovat pouze {{dynamickaCast}}</span>`</span>).
 
 - **Příklad**
 
