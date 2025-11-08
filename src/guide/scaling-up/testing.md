@@ -254,7 +254,7 @@ End-to-end testy neimportují žádný kód vaší Vue aplikace, nýbrž se zcel
 
 End-to-end testy ověřují mnoho vrstev vaší aplikace. Mohou cílit buď na vaši lokálně vytvořenou aplikaci, nebo dokonce na živé prostředí pro nasazení. Testování proti prostředí pro nasazení nezahrnuje pouze váš frontendový kód a statický server, ale také všechny související backendové služby a infrastrukturu.
 
-> Čím více se vaše testy podobají tomu, jak se váš software používá, tím více jistoty vám mohou dát. - [Kent C. Dodds](https://twitter.com/kentcdodds/status/977018512689455106) - Autor Testing Library
+> Čím více se vaše testy podobají tomu, jak se váš software používá, tím více jistoty vám mohou dát. - [Kent C. Dodds](https://x.com/kentcdodds/status/977018512689455106) - Autor Testing Library
 
 Testováním, jak akce uživatele ovlivňují vaši aplikaci, jsou E2E testy často klíčem k větší jistotě, zda aplikace funguje správně nebo ne.
 

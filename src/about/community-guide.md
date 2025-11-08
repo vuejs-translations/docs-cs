@@ -16,7 +16,7 @@ Náš [Kodex chování](/about/coc) je průvodcem, který usnadní obohacení n�
 
 ### Buďte v kontaktu {#stay-in-the-know}
 
-- Sledujte náš [oficiální Twitter účet](https://twitter.com/vuejs).
+- Sledujte náš [oficiální Twitter účet](https://x.com/vuejs).
 - Sledujte naše [členy týmu](./team) on Twitteru nebo GitHubu.
 - Sledujte naše [RFC diskuse](https://github.com/vuejs/rfcs).
 - Odebírejte náš [oficiální blog](https://blog.vuejs.org/).
@@ -28,7 +28,7 @@ Náš [Kodex chování](/about/coc) je průvodcem, který usnadní obohacení n�
 - [DEV komunita](https://dev.to/t/vue): Sdílejte a diskutujte o tématech souvisejících s Vue na Dev.to.
 - [Meetups](https://events.vuejs.org/meetups): Chcete najít místní Vue nadšence, jako jste vy? Máte zájem stát se lídrem komunity? Pomoc a podporu, kterou potřebujete, máme přímo zde!
 - [GitHub](https://github.com/vuejs): Máte-li chybu, kterou chcete nahlásit, nebo funkci, kterou byste potřebovali, jsou zde GitHub Issues. Respektujte prosím pravidla uvedená v šabloně pro issue každého úložiště.
-- [Twitter komunita (neoficiální)](https://twitter.com/i/communities/1516368750634840064): Twitter komunita, kde se můžete setkat s dalšími Vue nadšenci, získat pomoc nebo si o Vue jen popovídat.
+- [Twitter komunita (neoficiální)](https://x.com/i/communities/1516368750634840064): Twitter komunita, kde se můžete setkat s dalšími Vue nadšenci, získat pomoc nebo si o Vue jen popovídat.
 
 ### Prozkoumejte ekosystém {#explore-the-ecosystem}
 
@@ -80,4 +80,4 @@ Je toho hodně, co můžete udělat, abyste pomohli Vue růst ve vaší komunit�
 - **Zorganizujte místní setkání.** Pokud ve vašem okolí ještě Vue setkaní není, můžete uspořádat své vlastní! Použijte [zdroje na events.vuejs.org](https://events.vuejs.org/resources/#getting-started), které vám pomohou uspět!
 - **Pomozte organizátorům setkání.** Při pořádání akce není nikdy příliš mnoho pomoci, proto nabídněte svou pomoc místním organizátorům, aby byla každá akce úspěšná.
 
-Pokud máte dotazy, jak se můžete více zapojit do místní Vue komunity, obraťte se na [@vuejs_events](https://www.twitter.com/vuejs_events) na Twitteru!
+Pokud máte dotazy, jak se můžete více zapojit do místní Vue komunity, obraťte se na [@vuejs_events](https://www.x.com/vuejs_events) na Twitteru!

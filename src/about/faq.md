@@ -2,7 +2,7 @@
 
 ## Kdo spravuje Vue? {#who-maintains-vue}
 
-Vue je nezávislý projekt řízený komunitou. Byl vytvořen [Evanem You](https://twitter.com/youyuxi) v roce 2014 jako osobní vedlejší projekt. Dnes je Vue aktivně spravován [týmem jak zaměstnanců, tak dobrovolníků z celého světa](/about/team), kde Evan působí jako vedoucí projektu. Více informací o&nbsp;příběhu Vue najdete v tomto [dokumentárním filmu](https://www.youtube.com/watch?v=OrxmtDw4pVI).
+Vue je nezávislý projekt řízený komunitou. Byl vytvořen [Evanem You](https://x.com/youyuxi) v roce 2014 jako osobní vedlejší projekt. Dnes je Vue aktivně spravován [týmem jak zaměstnanců, tak dobrovolníků z celého světa](/about/team), kde Evan působí jako vedoucí projektu. Více informací o&nbsp;příběhu Vue najdete v tomto [dokumentárním filmu](https://www.youtube.com/watch?v=OrxmtDw4pVI).
 
 Vývoj Vue je převážně financován ze sponzorských darů a od roku 2016 jsme finančně udržitelní. Pokud vy nebo váš podnik z Vue těžíte, zvažte [sponzorství](/sponsor/) pro podporu dalšího vývoje Vue!
 

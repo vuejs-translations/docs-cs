@@ -42,7 +42,7 @@ Můžete se také zkusit přesvědčit svého zaměstnavatele, aby sponzoroval V
 - **Global Special Sponsor**:
   - Pouze **jeden** celosvětový sponzor<span v-if="!data?.special">. Aktuálně volné. [Spojte se s námi!](mailto:sponsor@vuejs.org?subject=Vue.js%20special%20sponsor%20inquiry)</span><span v-else> (aktuálně obsazeno).</span>
   - (Exkluzivně) **"Above the fold"** umístění loga na úvodní stránce [vuejs.org](/).
-  - (Exkluzivně) Mimořádný příspěvek a pravidelná sdílení informací o&nbsp;nově vydaných produktech přes [officiální Vue's účet na síti X](https://twitter.com/vuejs) (320 tisíc sledujících).
+  - (Exkluzivně) Mimořádný příspěvek a pravidelná sdílení informací o&nbsp;nově vydaných produktech přes [officiální Vue's účet na síti X](https://x.com/vuejs) (320 tisíc sledujících).
   - Nejvýraznější umístění loga ze všech ostatních sponzorů.
 - **Platinum (USD $2,000/mo)**:
   - Prominentní umístění loga na úvodní stránce [vuejs.org](/).
