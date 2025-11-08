@@ -10,7 +10,7 @@ Jak Vue převádí šablonu na skutečné DOM elementy? Jak Vue tyto uzly efekti
 
 O termínu „virtuální DOM“ jste již pravděpodobně slyšeli. Na něm je vykreslovací systém Vue založený.
 
-Virtuální DOM (VDOM) je programovací koncept, kde je ideální neboli „virtuální“ reprezentace UI uchovávána v paměti a synchronizována s „reálným“ DOM. Tento koncept byl vyvinutý v rámci [Reactu](https://reactjs.org/) a byl s různými implementacemi převzat mnoha dalšími frameworky, včetně Vue.
+Virtuální DOM (VDOM) je programovací koncept, kde je ideální neboli „virtuální“ reprezentace UI uchovávána v paměti a synchronizována s „reálným“ DOM. Tento koncept byl vyvinutý v rámci [Reactu](https://react.dev/) a byl s různými implementacemi převzat mnoha dalšími frameworky, včetně Vue.
 
 Virtuální DOM je spíše vzor než konkrétní technologie, takže neexistuje jedna kanonická implementace. Můžeme si to ilustrovat na jednoduchém příkladu:
 
