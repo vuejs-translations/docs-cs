@@ -120,7 +120,7 @@ export default {
 ```js{5,10}
 export default {
   setup(props, { expose }) {
-    // udělat instanci "uzavřenou" -
+    // udělat instanci „uzavřenou“ -
     // tj. do rodiče nevystavit nic
     expose()
 

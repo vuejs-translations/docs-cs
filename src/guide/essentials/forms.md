@@ -381,13 +381,13 @@ export default {
 Pro volby elementů `<radio>`, `<checkbox>` a `<select>` jsou hodnoty vázané přes `v-model` binding většinou statický string (nebo v případě checkboxu boolean):
 
 ```vue-html
-<!-- `picked` je po výběru string "a" -->
+<!-- `picked` je po výběru string „a“ -->
 <input type="radio" v-model="picked" value="a" />
 
 <!-- `toggle` je buďto true nebo false -->
 <input type="checkbox" v-model="toggle" />
 
-<!-- `selected` je string "abc", pokud je vybrána první volba -->
+<!-- `selected` je string „abc“, pokud je vybrána první volba -->
 <select v-model="selected">
   <option value="abc">ABC</option>
 </select>

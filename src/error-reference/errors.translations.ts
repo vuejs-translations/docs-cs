@@ -80,10 +80,10 @@ export const translatedCompilerErrors = [
  { code: '44', translation: 'Direktivu v-model nelze použít na vlastnost (prop), protože do lokálních vlastností nelze zapisovat. Použijte místo toho v-bind v kombinaci s v-on listenerem, který emituje událost update:x.' }, // v-model cannot be used on a prop, because local prop bindings are not writable. Use a v-bind binding combined with a v-on listener that emits update:x event instead.	
  { code: '45', translation: 'Chyba při parsování JavaScript výrazu.' }, // Error parsing JavaScript expression:	
  { code: '46', translation: 'Komponenta <KeepAlive> očekává právě jednu komponentu potomka.' }, // <KeepAlive> expects exactly one child component.	
- { code: '47', translation: 'Možnost "prefixIdentifiers" není v\xa0tomto buildu kompilátoru podporována.' }, // "prefixIdentifiers" option is not supported in this build of compiler.	
+ { code: '47', translation: 'Možnost „prefixIdentifiers“ není v\xa0tomto buildu kompilátoru podporována.' }, // "prefixIdentifiers" option is not supported in this build of compiler.	
  { code: '48', translation: 'Mód pro ES moduly není v tomto buildu kompilátoru podporován.' }, // ES module mode is not supported in this build of compiler.	
- { code: '49', translation: 'Možnost "cacheHandlers" je podporována pouze, pokud je zapnuta možnost "prefixIdentifiers".' }, // "cacheHandlers" option is only supported when the "prefixIdentifiers" option is enabled.	
- { code: '50', translation: 'Možnost "scopeId" je podporována pouze v módu (ES) modulů.' }, // "scopeId" option is only supported in module mode.	
+ { code: '49', translation: 'Možnost „cacheHandlers“ je podporována pouze, pokud je zapnuta možnost „prefixIdentifiers“.' }, // "cacheHandlers" option is only supported when the "prefixIdentifiers" option is enabled.	
+ { code: '50', translation: 'Možnost „scopeId“ je podporována pouze v módu (ES) modulů.' }, // "scopeId" option is only supported in module mode.	
  { code: '51', translation: 'Hooky @vnode-* už nejsou v\xa0šablonách podporovány. Použijte místo toho prefix vue:*. Např.:\xa0@vnode-mounted by se mělo změnit na @vue:mounted. Podpora\xa0@vnode-* hooků byla odstraněna ve verzi 3.4.' }, // @vnode-* hooks in templates are no longer supported. Use the vue: prefix instead. For example, @vnode-mounted should be changed to @vue:mounted. @vnode-* hooks support has been removed in 3.4.	
  { code: '52', translation: 'Direktiva v-bind se zkráceným zápisem stejného jména umožňuje pouze statické hodnoty.' }, // v-bind with same-name shorthand only allows static argument.	
  { code: '53', translation: 'Direktiva v-html postrádá hodnotu.' }, // v-html is missing expression.	

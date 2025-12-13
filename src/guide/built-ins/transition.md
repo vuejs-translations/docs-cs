@@ -292,7 +292,7 @@ Přestože jsou přechodové třídy použity pouze na přímém potomkovi uvnit
 Můžeme dokonce přidat zpoždění přechodu na vnořený prvek při vstupu, což vytvoří posunutou (staggered) animaci vstupu:
 
 ```css{3}
-/* zpoždění vstupu vnořeného prvku pro "staggered" efekt */
+/* zpoždění vstupu vnořeného prvku pro „staggered“ efekt */
 .nested-enter-active .inner {
   transition-delay: 0.25s;
 }

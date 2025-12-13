@@ -490,7 +490,7 @@ export type HighlightDirective = Directive<HTMLElement, string>
 
 declare module 'vue' {
   export interface ComponentCustomProperties {
-    // prefix "v" (v-highlight)
+    // prefix „v“ (v-highlight)
     vHighlight: HighlightDirective
   }
 }

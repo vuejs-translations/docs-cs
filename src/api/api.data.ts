@@ -24,7 +24,7 @@ export interface APIGroup {
 // Deklarace typu pro vyhodnocené API skupiny
 export declare const data: APIGroup[]
 
-// Utility funkce pro vygenerování "slug" odkazu z řetězce (používaná pro odkazy (#anchors) na stránce)
+// Utility funkce pro vygenerování „slug“ odkazu z řetězce (používaná pro odkazy (#anchors) na stránce)
 function slugify(text: string): string {
   return (
     text

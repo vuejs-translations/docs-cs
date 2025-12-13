@@ -9,7 +9,7 @@ const { x, y } = useMouse()
 Tato část předpokládá základní znalost Composition API. Pokud jste se učili Vue pouze s&nbsp;Options API, můžete nastavit předvolbu API na Composition API (pomocí přepínače v&nbsp;horní části levého postranního panelu) a znovu si přečíst kapitoly [Základy reaktivity](/guide/essentials/reactivity-fundamentals) a&nbsp;[Lifecycle Hooks](/guide/essentials/lifecycle).
 :::
 
-## Co je to "Composable"? {#what-is-a-composable}
+## Co je to „Composable“? {#what-is-a-composable}
 
 V kontextu Vue aplikací je „composable“ funkce, která maximálně využívá Vue Composition API k obalení a znovupoužití **stavové (stateful) logiky**.
 
@@ -243,7 +243,7 @@ Zde je [aktualizovaná verze `useFetch()`](https://play.vuejs.org/#eNp9Vdtu20YQ/
 
 ### Naming {#naming}
 
-Composable funkce se podle konvence pojmenovávají camelCase jmény, která začínají na "use".
+Composable funkce se podle konvence pojmenovávají camelCase jmény, která začínají na „use“.
 
 ### Vstupní parametry {#input-arguments}
 

@@ -277,23 +277,23 @@ Toto makro slouží k deklaraci obousměrného (two-way)  bindingu vlastnosti (p
 Interně toto makro deklaruje vlastnost (prop) modelu a odpovídající událost (event) aktualizace hodnoty. Pokud je první parametr řetězecový literál, bude použit jako název vlastnosti; jinak se název vlastnosti nastaví na výchozí hodnotu `"modelValue"`. V obou případech můžete také předat další objekt, který může obsahovat možnosti (options) pro vlastnost a možnosti transformace ref pro hodnotu modelu.
 
 ```js
-// deklaruje prop "modelValue", která je konzumována 
+// deklaruje prop „modelValue“, která je konzumována 
 // komponentou rodiče pomocí v-model
 const model = defineModel()
-// NEBO: deklaruje prop "modelValue" s možnostmi
+// NEBO: deklaruje prop „modelValue“ s možnostmi
 const model = defineModel({ type: String })
 
-// vyvolá událost "update:modelValue" při změně
+// vyvolá událost „update:modelValue“ při změně
 model.value = 'hello'
 
-// deklaruje prop "count", která je konzumována 
+// deklaruje prop „count“, která je konzumována 
 // komponentou rodiče pomocí v-model:count
 const count = defineModel('count')
-// NEBO: deklaruje prop "count" s možnostmi
+// NEBO: deklaruje prop „count“ s možnostmi
 const count = defineModel('count', { type: Number, default: 0 })
 
 function inc() {
-  // při změně vyvolá událost "update:count"
+  // při změně vyvolá událost „update:count“
   count.value++
 }
 ```

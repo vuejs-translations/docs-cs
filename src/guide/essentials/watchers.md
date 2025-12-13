@@ -245,7 +245,7 @@ export default {
       handler(newQuestion) {
         // toto bude spuštěno ihned po vytvoření instance komponenty
       },
-      // vynutí "eager" spuštění callback funkce
+      // vynutí „eager“ spuštění callback funkce
       immediate: true
     }
   }
