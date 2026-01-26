@@ -117,7 +117,7 @@ Nyní by už váš první Vue projekt měl běžet! Všimněte si, že ukázkov�
 
 - Doporučené vývojové prostředí (IDE) je [Visual Studio Code](https://code.visualstudio.com/) + [rozšíření Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar). Pokud používáte jiný editor, zkontrolujte [sekci podpory v IDE](/guide/scaling-up/tooling#ide-support).
 - Více o vývojových nástrojích vč. integrace s frameworky pro backend, je řešeno v&nbsp;sekci [Nástroje](/guide/scaling-up/tooling).
-- Pokud se chcete dozvědět víc o build nástroji Vite v pozadí, podívejte se na [dokumentaci pro Vite](https://vitejs.dev).
+- Pokud se chcete dozvědět víc o build nástroji Vite v pozadí, podívejte se na [dokumentaci pro Vite](https://vite.dev).
 - Pokud si vyberete použití TypeScriptu, podívejte se na [průvodce použitím TypeScriptu](typescript/overview).
 
 Jakmile budete připraveni nasadit vaši aplikaci do produkce, spusťte následující:
