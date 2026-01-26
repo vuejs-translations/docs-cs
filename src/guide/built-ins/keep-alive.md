@@ -79,7 +79,7 @@ Od verze 3.2.34 odvodí Single-File komponenta (SFC) používající `<script se
 
 ## Maximální počet cached instancí {#max-cached-instances}
 
-Můžeme omezit maximální počet instancí komponent, které lze uložit do cache pomocí vlastnosti `max`. Když je zadáno `max`, `<KeepAlive>` se chová jako [LRU cache](<https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)>): pokud by měl počet instancí uložených v cache překročit zadaný maximální počet, bude nejdéle nepoužívaná instance v cache zničena, aby se pro novou uvolnilo místo.
+Můžeme omezit maximální počet instancí komponent, které lze uložit do cache pomocí vlastnosti `max`. Když je zadáno `max`, `<KeepAlive>` se chová jako [LRU cache](<https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_Recently_Used_(LRU)>): pokud by měl počet instancí uložených v cache překročit zadaný maximální počet, bude nejdéle nepoužívaná instance v cache zničena, aby se pro novou uvolnilo místo.
 
 ```vue-html
 <KeepAlive :max="10">
