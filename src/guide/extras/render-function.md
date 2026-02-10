@@ -216,6 +216,33 @@ function render() {
 }
 ```
 
+### Použití VNodes uvnitř `<template>`
+
+```vue
+<script setup>
+import { h } from 'vue'
+
+const vnode = h('button', ['Ahoj'])
+</script>
+
+<template>
+  <!-- Pomocí <component /> -->
+  <component :is="vnode">Ahoj</component>
+
+  <!-- Nebo přímo jako HTML element -->
+  <vnode />
+  <vnode>Ahoj</vnode>
+</template>
+```
+
+Pokud byl VNode objekt deklarován v rámci `setup()` funkce, můžete jej použít pro vykreslení jako běžnou komponentu.
+
+:::warning
+VNode reprezentuje již vykreslený výstup, nikoli definici komponenty. Použití VNode v `<template>` nevytvoří novou instanci komponenty a VNode bude vykreslen právě tak, jak byl vytvořen.
+
+S tímto postupem byste měli zacházet opatrně a není náhradou za běžné komponenty.
+:::
+
 ## JSX / TSX {#jsx-tsx}
 
 [JSX](https://facebook.github.io/jsx/) je XML-like rozšíření pro JavaScript, které nám umožňuje psát kód takto:
