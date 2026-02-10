@@ -109,7 +109,7 @@ app.directive('highlight', {
 })
 ```
 
-Pomocí rozšíření (extending) rozhraní `ComponentCustomProperties` poskytovaného v rámci `vue` je možné globální vlastní direktivy typovat.
+Pomocí rozšíření (extending) rozhraní `GlobalDirectives` poskytovaného v rámci `vue` je možné globální vlastní direktivy typovat.
 
 Více detailů: [Typování globálních vlastních direktiv](/guide/typescript/composition-api#typing-global-custom-directives) <sup class="vt-badge ts" />
 

@@ -481,7 +481,7 @@ Obecně můžete počítat s tím, že ve `@vue/language-tools` 2.1+ mohou být 
 
 ## Typování globálních vlastních direktiv {#typing-global-custom-directives}
 
-Pro nastavení typové nápovědy a kontroly u globálních vlastních direktiv deklarovaných pomocí `app.directive()` můžete rozšířit rozhraní `ComponentCustomProperties`:
+Pro nastavení typové nápovědy a kontroly u globálních vlastních direktiv deklarovaných pomocí `app.directive()` můžete rozšířit rozhraní `GlobalDirectives`:
 
 ```ts [src/directives/highlight.ts]
 import type { Directive } from 'vue'
@@ -489,7 +489,7 @@ import type { Directive } from 'vue'
 export type HighlightDirective = Directive<HTMLElement, string>
 
 declare module 'vue' {
-  export interface ComponentCustomProperties {
+  export interface GlobalDirectives {
     // prefix „v“ (v-highlight)
     vHighlight: HighlightDirective
   }
