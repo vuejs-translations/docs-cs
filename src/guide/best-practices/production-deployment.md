@@ -32,8 +32,8 @@ Pokud používáte vlastní nastavení, ujistěte se, že:
 
 Další odkazy:
 
-- [Průvodce produkčním sestavením s Vite](https://vitejs.dev/guide/build.html)
-- [Průvodce nasazením s Vite](https://vitejs.dev/guide/static-deploy.html)
+- [Průvodce produkčním sestavením s Vite](https://vite.dev/guide/build.html)
+- [Průvodce nasazením s Vite](https://vite.dev/guide/static-deploy.html)
 - [Průvodce nasazením s Vue CLI](https://cli.vuejs.org/guide/deployment.html)
 
 ## Sledování běhových chyb {#tracking-runtime-errors}

@@ -123,7 +123,7 @@ Komponentu lze testovat dvěma způsoby:
 
 - [Vitest](https://vitest.dev/)
 
-  Jelikož oficiální nastavení vytvořené pomocí `create-vue` je založeno na [Vite](https://vitejs.dev/), doporučujeme použít unit test framework, který může přímo využít stejnou konfiguraci a transformační pipeline z Vite. [Vitest](https://vitest.dev/) je unit test framework navržený speciálně pro tento účel, vytvořený a udržovaný členy týmu Vue / Vite. Snadno se integruje s&nbsp;projekty založenými na Vite a je velmi rychlý.
+  Jelikož oficiální nastavení vytvořené pomocí `create-vue` je založeno na [Vite](https://vite.dev/), doporučujeme použít unit test framework, který může přímo využít stejnou konfiguraci a transformační pipeline z Vite. [Vitest](https://vitest.dev/) je unit test framework navržený speciálně pro tento účel, vytvořený a udržovaný členy týmu Vue / Vite. Snadno se integruje s&nbsp;projekty založenými na Vite a je velmi rychlý.
 
 ### Další možnosti {#other-options}
 

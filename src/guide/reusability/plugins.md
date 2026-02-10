@@ -135,4 +135,4 @@ export default {
 
 ### Balíček pro NPM
 
-Pokud chcete svůj plugin sestavit a publikovat pro použití ostatním, podívejte se na [sekci Library Mode v dokumentaci pro Vite](https://vitejs.dev/guide/build.html#library-mode).
+Pokud chcete svůj plugin sestavit a publikovat pro použití ostatním, podívejte se na [sekci Library Mode v dokumentaci pro Vite](https://vite.dev/guide/build.html#library-mode).

@@ -21,7 +21,7 @@ Tato online hřiště je rovněž doporučeno používat pro tvorbu reprodukcí 
 
 ### Vite {#vite}
 
-[Vite](https://vitejs.dev/) je odlehčený a rychlý build nástroj s prvotřídní podporou pro Vue SFC. Je vytvořen Evanem You, který je také autorem Vue!
+[Vite](https://vite.dev/) je odlehčený a rychlý build nástroj s prvotřídní podporou pro Vue SFC. Je vytvořen Evanem You, který je také autorem Vue!
 
 Pro zahájení práce s Vite + Vue jednoduše spusťte:
 
@@ -51,7 +51,7 @@ $ bun create vue@latest
 
 Tento příkaz nainstaluje a spustí [create-vue](https://github.com/vuejs/create-vue), oficiální nástroj pro sestavení Vue projektů.
 
-- Chcete-li se o Vite dozvědět víc, podívejte se do [Vite dokumentace](https://vitejs.dev).
+- Chcete-li se o Vite dozvědět víc, podívejte se do [Vite dokumentace](https://vite.dev/).
 - Chcete-li ve Vite projektu nakonfigurovat chování specifické pro Vue, například předávání možností (options) překladači Vue, podívejte se do dokumentace pro [@vitejs/plugin-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#readme).
 
 Obě výše zmíněná online hřiště také podporují stahování souborů ve formě Vite projektu.

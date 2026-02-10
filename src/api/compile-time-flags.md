@@ -38,7 +38,7 @@ Podívejte se na [Průvodce konfigurací](#configuration-guides), jak je nastavi
 
 ### Vite {#vite}
 
-`@vitejs/plugin-vue` pro tyto příznaky automaticky poskytuje výchozí hodnoty. Pro změnu výchozích hodnot použijte Vite konfigurační možnost `define`  ([dokumentace](https://vitejs.dev/config/shared-options.html#define)):
+`@vitejs/plugin-vue` pro tyto příznaky automaticky poskytuje výchozí hodnoty. Pro změnu výchozích hodnot použijte Vite konfigurační možnost `define`  ([dokumentace](https://vite.dev/config/shared-options.html#define)):
 
 ```js [vite.config.js]
 import { defineConfig } from 'vite'

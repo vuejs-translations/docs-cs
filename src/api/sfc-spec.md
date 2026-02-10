@@ -105,7 +105,7 @@ p {{ msg }}
 
 Dejte pozor, že integrace s různými pre-procesory se může lišit podle zvolené sady softwarových nástrojů. Pro příklady se podívejte do příslušné dokumentace:
 
-- [Vite](https://vitejs.dev/guide/features.html#css-pre-processors)
+- [Vite](https://vite.dev/guide/features.html#css-pre-processors)
 - [Vue CLI](https://cli.vuejs.org/guide/css.html#pre-processors)
 - [webpack + vue-loader](https://vue-loader.vuejs.org/guide/pre-processors.html#using-pre-processors)
 

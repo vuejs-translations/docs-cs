@@ -215,7 +215,7 @@ Runtime API používané k získání kontextového objektu předaného do `rend
   import { useSSRContext } from 'vue'
 
   // ujistěte se, že funkci voláte pouze během SSR
-  // https://vitejs.dev/guide/ssr.html#conditional-logic
+  // https://vite.dev/guide/ssr.html#conditional-logic
   if (import.meta.env.SSR) {
     const ctx = useSSRContext()
     // ...připojit do kontextu vlastnosti

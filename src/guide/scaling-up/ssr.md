@@ -228,7 +228,7 @@ Kompletní implementace by byla poměrně složitá a závisela by na souboru bu
 
 ### Vite SSR {#vite-ssr}
 
-Vite poskytuje vestavěnou [podporu pro Vue server-side rendering](https://vitejs.dev/guide/ssr.html), ale je záměrně nízkoúrovňový. Pokud chcete použít přímo Vite, podívejte se na [vite-plugin-ssr](https://vite-plugin-ssr.com/), komunitní plugin, který pro vás abstrahuje mnoho obtížných detailů.
+Vite poskytuje vestavěnou [podporu pro Vue server-side rendering](https://vite.dev/guide/ssr.html), ale je záměrně nízkoúrovňový. Pokud chcete použít přímo Vite, podívejte se na [vite-plugin-ssr](https://vite-plugin-ssr.com/), komunitní plugin, který pro vás abstrahuje mnoho obtížných detailů.
 
 Můžete také najít [příklad](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue) projektu Vue + Vite SSR s manuálním nastavením, který může sloužit jako základ pro další práci. Vezměte však na vědomí, že toto je doporučeno pouze pokud máte zkušenosti se SSR / build nástroji a opravdu chcete mít úplnou kontrolu nad vyšší úrovní architektury.
 

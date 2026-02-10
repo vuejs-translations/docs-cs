@@ -30,7 +30,7 @@ Pokud ve vašich aplikacích chcete používat HTML-mód bez build fáze, ujist�
 import { ... } from 'vue/dist/vue.esm-bundler.js'
 ```
 
- nebo nastavíte build tool, aby odpovídajícím způsobem vyhodnocoval import z `vue`. Ukázková konfigurace pro [Vite](https://vitejs.dev/) je zde:
+ nebo nastavíte build tool, aby odpovídajícím způsobem vyhodnocoval import z `vue`. Ukázková konfigurace pro [Vite](https://vite.dev/) je zde:
 
 ```js [vite.config.js]
 export default {

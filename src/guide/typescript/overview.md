@@ -10,7 +10,7 @@ Vue je samo o sobě v TypeScriptu napsáno a poskytuje pro TypeScript plnou podp
 
 ## Nastavení projektu {#project-setup}
 
-Oficiální nástroj pro vytváření projektových šablon [`create-vue`](https://github.com/vuejs/create-vue) nabízí možnost vytvořit Vue projekt připravený pro TypeScript s podporou [Vite](https://vitejs.dev/).
+Oficiální nástroj pro vytváření projektových šablon [`create-vue`](https://github.com/vuejs/create-vue) nabízí možnost vytvořit Vue projekt připravený pro TypeScript s podporou [Vite](https://vite.dev/).
 
 ### Přehled {#overview}
 

@@ -26,7 +26,7 @@ import { VTCodeGroup, VTCodeGroupTab } from '@vue/theme'
 - Nainstalovaný [Node.js](https://nodejs.org/) ve verzi `^20.19.0 || >=22.12.0`
   :::
 
-V této sekci si ukážeme, jak vystavět základ Vue [Single Page aplikaci](/guide/extras/ways-of-using-vue#single-page-application-spa) na vašem lokálním počítači. Vytvořený projekt bude používat build setup založený na [Vite](https://vitejs.dev) a umožní nám použít Vue [Single-File komponenty](/guide/scaling-up/sfc) (SFCs).
+V této sekci si ukážeme, jak vystavět základ Vue [Single Page aplikaci](/guide/extras/ways-of-using-vue#single-page-application-spa) na vašem lokálním počítači. Vytvořený projekt bude používat build setup založený na [Vite](https://vite.dev/) a umožní nám použít Vue [Single-File komponenty](/guide/scaling-up/sfc) (SFCs).
 
 Zkontrolujte, že máte nainstalovanou nejnovější verzi [Node.js](https://nodejs.org/) a váš aktuální pracovní adresář je ten, v němž chcete založit projekt. Spusťte ve vašem příkazovém řádku následující příkaz (bez znaku `$`):
 
@@ -117,7 +117,7 @@ Nyní by už váš první Vue projekt měl běžet! Všimněte si, že ukázkov�
 
 - Doporučené vývojové prostředí (IDE) je [Visual Studio Code](https://code.visualstudio.com/) + [rozšíření Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar). Pokud používáte jiný editor, zkontrolujte [sekci podpory v IDE](/guide/scaling-up/tooling#ide-support).
 - Více o vývojových nástrojích vč. integrace s frameworky pro backend, je řešeno v&nbsp;sekci [Nástroje](/guide/scaling-up/tooling).
-- Pokud se chcete dozvědět víc o build nástroji Vite v pozadí, podívejte se na [dokumentaci pro Vite](https://vite.dev).
+- Pokud se chcete dozvědět víc o build nástroji Vite v pozadí, podívejte se na [dokumentaci pro Vite](https://vite.dev/).
 - Pokud si vyberete použití TypeScriptu, podívejte se na [průvodce použitím TypeScriptu](typescript/overview).
 
 Jakmile budete připraveni nasadit vaši aplikaci do produkce, spusťte následující:

@@ -94,7 +94,7 @@ Tagy `<style>` uvnitř SFC jsou během vývoje obvykle implementovány jako nati
 
 S SFC si můžete hrát a prozkoumat, jak jsou kompilovány, na našem [Hřišti](https://play.vuejs.org/).
 
-V reálných projektech obvykle integrujeme kompilátor SFC s build nástrojem, jako je [Vite](https://vitejs.dev/) nebo [Vue CLI](http://cli.vuejs.org/) (který je založen na [webpack](https://webpack.js.org/)), a Vue poskytuje oficiální nástroje pro vytvoření základní struktury SFC, abyste mohli začít co nejdříve. Podrobnosti najdete v&nbsp;sekci [Nástroje pro SFC](/guide/scaling-up/tooling).
+V reálných projektech obvykle integrujeme kompilátor SFC s build nástrojem, jako je [Vite](https://vite.dev/) nebo [Vue CLI](http://cli.vuejs.org/) (který je založen na [webpack](https://webpack.js.org/)), a Vue poskytuje oficiální nástroje pro vytvoření základní struktury SFC, abyste mohli začít co nejdříve. Podrobnosti najdete v&nbsp;sekci [Nástroje pro SFC](/guide/scaling-up/tooling).
 
 ## Jak je to s oddělením zájmů? {#what-about-separation-of-concerns}
 
