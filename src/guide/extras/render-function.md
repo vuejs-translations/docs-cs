@@ -226,7 +226,7 @@ const vnode = h('button', ['Ahoj'])
 </script>
 
 <template>
-  <!-- Pomocí <component /> -->
+  <!-- Prostřednictvím vestavěné <component /> -->
   <component :is="vnode">Ahoj</component>
 
   <!-- Nebo přímo jako HTML element -->
@@ -238,7 +238,7 @@ const vnode = h('button', ['Ahoj'])
 Pokud byl VNode objekt deklarován v rámci `setup()` funkce, můžete jej použít pro vykreslení jako běžnou komponentu.
 
 :::warning
-VNode reprezentuje již vykreslený výstup, nikoli definici komponenty. Použití VNode v `<template>` nevytvoří novou instanci komponenty a VNode bude vykreslen právě tak, jak byl vytvořen.
+VNode reprezentuje již vykreslený výstup, nikoli definici komponenty. Použití VNode v&nbsp;`<template>` nevytvoří novou instanci komponenty a VNode bude vykreslen právě tak, jak byl vytvořen.
 
 S tímto postupem byste měli zacházet opatrně a není náhradou za běžné komponenty.
 :::

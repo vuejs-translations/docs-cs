@@ -402,7 +402,7 @@ Přiřadí globální handler pro nezachycené chyby propagované z aplikace.
 
 - **Výchozí chování**
 
-  Handler standardně ve vývojovém prostředí chyby vyhazuje dále (re-throw), zatímco v produkci chybu pouze zaloguje. Změnu chování můžete nakonfigurovat pomocí vlastnosti [throwUnhandledErrorInProduction](#app-config-throwunhandlederrorinproduction).
+  Handler standardně ve vývojovém prostředí chyby vyhazuje dále (re-throw), zatímco v&nbsp;produkci chybu pouze zaloguje. Změnu chování můžete nakonfigurovat pomocí vlastnosti [throwUnhandledErrorInProduction](#app-config-throwunhandlederrorinproduction).
 
 ## app.config.warnHandler {#app-config-warnhandler}
 
