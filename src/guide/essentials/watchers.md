@@ -484,7 +484,7 @@ export default {
 
 </div>
 
-To funguje i ve verzích před Vue 3.5. Navíc je `onCleanup` předaná jako parametr funkce navázaná na instanci watcheru, takže nepodléhá omezení pouze na synchronní volání jako `onWatcherCleanup`.
+Hodnota `onCleanup` předaná jako parametr funkce je navázaná na instanci watcheru, takže nepodléhá omezení pouze na synchronní volání jako `onWatcherCleanup`.
 
 ## Časování provedení callback funkce {#callback-flush-timing}
 
