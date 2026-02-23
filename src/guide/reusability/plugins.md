@@ -133,6 +133,6 @@ export default {
 
 </div>
 
-### Balíček pro NPM
+### Balíček pro NPM {#bundle-for-npm}
 
 Pokud chcete svůj plugin sestavit a publikovat pro použití ostatním, podívejte se na [sekci Library Mode v dokumentaci pro Vite](https://vite.dev/guide/build.html#library-mode).
