@@ -627,7 +627,7 @@ unwatch()
 
 Sledovače deklarované synchronně v rámci `setup()` nebo `<script setup>` jsou vázány na instanci komponenty, do které patří, a budou automaticky zastaveny, když je komponenta odpojena. Ve většině případů se nemusíte o jejich zastavení sami starat.
 
-Klíčem je zde to, že watcher musí být vytvořen **synchronně**: pokud je watcher vytvořen v asynchronní callback funkci, nebude vázán na komponentu a musí být zastaven ručně, aby se zabránilo únikům paměti (memory leaks). Zde je příklad:
+Klíčem je zde to, že watcher musí být vytvořen **synchronně**: pokud je watcher vytvořen v asynchronní callback funkci, nebude vázán na komponentu a musí být zastaven ručně, aby se zabránilo neuvolňování paměti (memory leaks). Zde je příklad:
 
 ```vue
 <script setup>

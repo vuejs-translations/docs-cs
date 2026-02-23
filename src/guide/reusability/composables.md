@@ -303,7 +303,7 @@ Tato omezení jsou důležitá, protože se jedná o kontexty, ve kterých je Vu
 
 1. Registrovat lifecycle hooks.
 
-2. Nalinkovat computed proměnné a watchery, aby je při odstraňování (unmount) instance šlo zlikvidovat pro prevenci úniků paměti (memory leaks).
+2. Nalinkovat watchery, aby je při odstraňování (unmount) instance šlo zlikvidovat pro prevenci neuvolňování paměti (memory leaks).
 
 :::tip
 `<script setup>` je jediné místo, kde můžete composables volat **po** použití příkazu `await`. Překladač za vás po asynchronní operaci automaticky obnoví kontext aktivní instance.
