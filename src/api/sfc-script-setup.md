@@ -198,11 +198,12 @@ const emit = defineEmits<{
 }>()
 ```
 
-- `defineProps` nebo `defineEmits` mohou používat pouze BUĎ runtime deklaraci NEBO deklaraci na zákldě typu. Použití obojího zároveň povede k chybě při kompilaci.
+- `defineProps` nebo `defineEmits` mohou používat pouze **BUĎ** runtime deklaraci **NEBO** deklaraci na základě typu. Použití obojího zároveň povede k chybě při kompilaci.
 
 - Při použití deklarace typu je automaticky generována ekvivalentní runtime deklarace z&nbsp;analýzy statického kódu, aby se odstranila potřeba dvojité deklarace a zároveň zajistila správná funkčnost za běhu.
 
-  - V režimu vývoje (dev) překladač zkusí odvodit odpovídající ověření za běhu z typů. Například zde je `foo: String` odvozeno z typu `foo: string`. Pokud je typ odkazem na importovaný typ, odvozený výsledek bude `foo: null` (rovnocenný typu `any`), protože překladač nemá informace o externích souborech.
+  - V režimu vývoje (dev) překladač zkusí odvodit odpovídající validaci za běhu z deklarovaných typů. Například zde je `foo: String` odvozeno z typu `foo: string`. 
+  Pokud je TypeScript nainstalován jako _peer dependency_ Vue, budou vyhodnoceny také importované typy.
 
   - V režimu produkce překladač vygeneruje deklaraci ve formátu pole, aby se snížila velikost balíčku (props zde budou zkompilovány do `['foo', 'bar']`)
 

@@ -54,7 +54,7 @@ const props = defineProps<Props>()
 </script>
 ```
 
-To funguje i tehdy, pokud je `Props` importováno z externího zdroje. Tato funkce vyžaduje, aby TypeScript byl závislostí na úrovni vrstvy (peer dependency) Vue.
+To funguje i tehdy, pokud je `Props` importováno z jiného souboru jako je relativní import, path alias (např. `@/types`) nebo externí závislost (např. `node_modules`). Tato funkce vyžaduje, aby TypeScript byl závislostí Vue na úrovni vrstvy (_peer dependency_).
 
 ```vue
 <script setup lang="ts">
