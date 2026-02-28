@@ -100,7 +100,7 @@ Vrací `shallowRef`, jehož hodnota bude synchronizovaná s elementem či kompon
 
 ## useId() <sup class="vt-badge" data-text="3.5+" /> {#useid}
 
-`useId()` je API, které je možné použití pro generování unikátních ID v aktuální aplikaci.
+`useId()` je API, které je možné použít pro generování unikátních ID v aktuální aplikaci.
 
 - **Typ**
 

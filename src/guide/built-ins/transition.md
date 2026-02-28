@@ -90,7 +90,7 @@ Existuje šest tříd aplikovaných pro přechody vstupu / výstupu.
 
 3. `v-enter-to`: Koncový stav pro vstup. Je přidána jeden snímek po vložení prvku (ve&nbsp;stejný okamžik, kdy je odstraněno `v-enter-from`) a odstraněna po dokončení přechodu/animace.
 
-4. `v-leave-from`: Počáteční stav pro odchod. Je přidána okamžitě po spuštění odchodového přechodu a odstraněna po jednom snímání.
+4. `v-leave-from`: Počáteční stav pro odchod. Je přidána okamžitě po spuštění odchodového přechodu a odstraněna po jednom snímku.
 
 5. `v-leave-active`: Aktivní stav pro odchod. Používá se během celé fáze odchodu. Je přidána okamžitě po spuštění odchodového přechodu a odstraněna po dokončení přechodu/animace. Tato třída může být použita k definování trvání, zpoždění a křivky pro odchodový přechod.
 

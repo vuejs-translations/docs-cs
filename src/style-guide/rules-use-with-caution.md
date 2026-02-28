@@ -52,7 +52,7 @@ button {
 
 </div>
 
-## Impliitní komunikace rodič-potomek {#implicit-parent-child-communication}
+## Implicitní komunikace rodič-potomek {#implicit-parent-child-communication}
 
 **Vlastnosti (props) a události (events) by měly být v komunikaci rodič-potomek mezi komponentami upřednostňovány před `this.$parent` nebo změnami vlastností.**
 

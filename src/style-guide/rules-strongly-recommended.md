@@ -321,7 +321,7 @@ components/
 
 ## Self-closing komponenty {#self-closing-components}
 
-**Komponenty, kter nemají žádný obsah, by měly být zapsány jako nepárové (self-closing) v [Single-File komponentách (SFC)](/guide/scaling-up/sfc), string-šablonách, a [JSX](/guide/extras/render-function#jsx-tsx) - nikdy však v in-DOM šablonách.**
+**Komponenty, které nemají žádný obsah, by měly být zapsány jako nepárové (self-closing) v [Single-File komponentách (SFC)](/guide/scaling-up/sfc), string-šablonách, a [JSX](/guide/extras/render-function#jsx-tsx) - nikdy však v in-DOM šablonách.**
 
 Komponenty zapsané jako nepárový (self-closing) tag sdělují nejen, že nemají žádný obsah, ale ani **nemají** žádný obsah mít. Je to rozdíl mezi prázdnou stránkou v knize a stránkou označenou _„Tato stránka byla záměrně ponechána prázdná“_. Váš kód je také bez zbytečného uzavíracího tagu čistší.
 
@@ -586,7 +586,7 @@ const props = defineProps({
 
 ## Elementy s více atributy {#multi-attribute-elements}
 
-**Elementy s více atributy by měly měly být roztaženy na více řádků, s jedním atributem na řádek.**
+**Elementy s více atributy by měly být roztaženy na více řádků, s jedním atributem na řádek.**
 
 V JavaScriptu je dělení objektů s více vlastnostmi na více řádků obecně považováno za dobrou praxi, protože je mnohem snáz čitelné. Naše šablony a [JSX](/guide/extras/render-function#jsx-tsx) si zaslouží stejnou úvahu.
 

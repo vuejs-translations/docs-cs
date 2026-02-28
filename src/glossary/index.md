@@ -69,7 +69,7 @@ Termín *composable* popisuje běžně používaný vzor ve Vue. Není to samost
 * Composable je funkce.
 * Composable funkce slouží k zapouzdření a znovupoužití stavové logiky.
 * Název funkce obvykle začíná `use`, aby ostatní vývojáři věděli, že se jedná o&nbsp;composable funkci.
-* Očekává se, že funkce bude volána během synchronního zpracování funkce `setup()` v komponentě (nebo ekvivalentně během vykonávání bloku `<script setup>`). Tím je volání composable svázáno s aktuálním kontextem komponenty, například běhen volání funkcí `provide()`, `inject()` nebo `onMounted()`.
+* Očekává se, že funkce bude volána během synchronního zpracování funkce `setup()` v komponentě (nebo ekvivalentně během vykonávání bloku `<script setup>`). Tím je volání composable svázáno s aktuálním kontextem komponenty, například během volání funkcí `provide()`, `inject()` nebo `onMounted()`.
 * Composable obvykle vrací běžný, nikoli reaktivní objekt. Tento objekt obvykle obsahuje refs a funkce a očekává se, že bude destrukturován v kódu, který composable spustil.
 
 Stejně jako u mnoha vzorů může být někdy rozpor ohledně toho, zda konkrétní kód daný vzor splňuje. Ne všechny JavaScript utility funkce jsou composables. Pokud funkce nepoužívá Composition API, pravděpodobně se o composable nejedná. Pokud neočekává, že bude volána během synchronního vykonávání funkce `setup()`, pravděpodobně se o composable nejedná. Composables jsou specificky používány k&nbsp;zapouzdření stavové logiky, nejedná se jen o konvenci pro pojmenování funkcí.
@@ -361,7 +361,7 @@ Termín se často používá, když mluvíme o vykreslování nebo computed prom
 
 ## Single-File komponenta (SFC){#single-file-component}
 
-Termín *Single-File komponenta* (*Single-File Component*), nebo SFC, se vztahuje na formát souboru `.vue`, který sepro Vue komponenty běžně používá.
+Termín *Single-File komponenta* (*Single-File Component*), nebo SFC, se vztahuje na formát souboru `.vue`, který se pro Vue komponenty běžně používá.
 
 Viz také:
 - [Průvodce – Single-File komponenty (SFC)](/guide/scaling-up/sfc.html)

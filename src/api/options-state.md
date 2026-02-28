@@ -287,7 +287,7 @@ Možnost `watch` očekává objekt, kde klíče jsou vlastnosti reaktivní insta
 
 Kromě vlastnosti na kořenové úrovni může být klíč také jednoduchá tečkou oddělená cesta, například `a.b.c`. Všimněte si, že toto použití **nepodporuje** složité výrazy, podporovány jsou pouze tečkou oddělené cesty. Pokud potřebujete sledovat složité zdroje dat, použijte imperativní [`$watch()`](/api/component-instance#watch) API.
 
-Hodnota může být také řetězec s názvem metody (deklarované pomocí `methods`) nebo objekt obsahující další možnosti (options). Při použití objektové syntaxe by měl být calback deklarován v poli `handler`. Další možnosti zahrnují:
+Hodnota může být také řetězec s názvem metody (deklarované pomocí `methods`) nebo objekt obsahující další možnosti (options). Při použití objektové syntaxe by měl být callback deklarován v poli `handler`. Další možnosti zahrnují:
 
 - **`immediate`**: spustit callback při okamžitě vytvoření watcheru. Stará hodnota bude při prvním volání `undefined`.
 - **`deep`**: vynutit hluboký (deep) průchod zdrojem, pokud je to objekt, aby se callback spustil při vnořených změnách. Viz [Deep Watchers](/guide/essentials/watchers#deep-watchers).

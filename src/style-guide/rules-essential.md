@@ -216,7 +216,7 @@ Podle našich zkušeností je lepší _vždy_ přidat jedinečný klíč, abyste
 
 ## Vyvarujte se `v-if` dohromady s `v-for` {#avoid-v-if-with-v-for}
 
-**Nikdy nepoužívejte `v-if` ma stejný element jako `v-for`.**
+**Nikdy nepoužívejte `v-if` na stejný element jako `v-for`.**
 
 Existují dva běžné případy, kdy to může být lákavé:
 
@@ -225,7 +225,7 @@ Existují dva běžné případy, kdy to může být lákavé:
 - Aby se zabránilo vykreslování seznamu, který by měl být v některých případech skrytý (např. `v-for="user in users" v-if="shouldShowUsers"`). Zde raději přesuňte `v-if` na mateřský element (např. `ul`, `ol`).
 
 ::: details Podrobné vysvětlení
-Když Vue zpracovává direktivy, `v-if` má vyšší priorotu než `v-for`. V této šabloně tedy:
+Když Vue zpracovává direktivy, `v-if` má vyšší prioritu než `v-for`. V této šabloně tedy:
 
 ```vue-html
 <ul>
@@ -335,7 +335,7 @@ Nebo můžete použít tag `<template>` s `v-for`, kterým obalíte `<li>` eleme
 
 ## Používejte omezené stylování komponent {#use-component-scoped-styling}
 
-V aplikacích mohou být styly na nejvyšší úrovni komponenty `App` a v komponentách pro&nbsp;layout globální, ale všechy ostatní komponenty by měly mít styly vždy omezené (scoped).
+V aplikacích mohou být styly na nejvyšší úrovni komponenty `App` a v komponentách pro&nbsp;layout globální, ale všechny ostatní komponenty by měly mít styly vždy omezené (scoped).
 
 To platí pouze pro [Single-File komponenty (SFC)](/guide/scaling-up/sfc). _Není_ nezbytné používat [atribut `scoped`](https://vue-loader.vuejs.org/guide/scoped-css.html). Omezení lze zajistit pomocí [CSS modulů](https://vue-loader.vuejs.org/guide/css-modules.html), a class-based strategie jako je [BEM](http://getbem.com/), či jiné knihovny/konvence.
 

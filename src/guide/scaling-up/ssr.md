@@ -47,7 +47,7 @@ Pokud zkoumáte SSR pouze kvůli zlepšení SEO několika marketingových strán
 
 ## Základní tutoriál {#basic-tutorial}
 
-### Rendrování aplikace {#rendering-an-app}
+### Renderování aplikace {#rendering-an-app}
 
 Podívejme se na nejjednodušší příklad použití Vue SSR.
 

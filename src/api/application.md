@@ -280,7 +280,7 @@ export default {
 
 - **Viz také:**
   - [Provide / Inject](/guide/components/provide-inject)
-  - [Provide na úprvni aplikace](/guide/components/provide-inject#app-level-provide)
+  - [Provide na úrovni aplikace](/guide/components/provide-inject#app-level-provide)
   - [app.runWithContext()](#app-runwithcontext)
 
 ## app.runWithContext() {#app-runwithcontext}

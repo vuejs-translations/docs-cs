@@ -61,7 +61,7 @@ Listener `click` bude přidán do root elementu `<MyButton>`, tj. do nativního 
 Pokud komponenta ve svém root elementu vykresluje jinou komponentu, například pokud jsme upravili `<MyButton>` tak, aby jako svůj root vykreslovala `<BaseButton>`:
 
 ```vue-html
-<!-- šalona <MyButton/>, která jednoduše vykreslí jinou komponentu -->
+<!-- šablona <MyButton/>, která jednoduše vykreslí jinou komponentu -->
 <BaseButton />
 ```
 

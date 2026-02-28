@@ -108,4 +108,4 @@ Uvnitř funkce můžeme aktualizovat stav komponenty pomocí změn příslušný
 
 Event handlery mohou také používat inline výrazy a mohou zjednodušit běžné úkoly pomocí modifikátorů. Tyto detaily pokrývá <a target="_blank" href="/guide/essentials/event-handling.html">průvodce Obsluha událostí</a>.
 
-Teď zkuste <span class="options-api">metodu</span><span class="composition-api">funkci</span> `increment` sami implementovat a provést binding na tlačítko s využítím `v-on`.
+Teď zkuste <span class="options-api">metodu</span><span class="composition-api">funkci</span> `increment` sami implementovat a provést binding na tlačítko s využitím `v-on`.

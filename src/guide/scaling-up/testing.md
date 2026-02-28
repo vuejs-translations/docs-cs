@@ -260,7 +260,7 @@ Testováním, jak akce uživatele ovlivňují vaši aplikaci, jsou E2E testy ča
 
 ### Výběr řešení pro E2E testování  {#choosing-an-e2e-testing-solution}
 
-Ačoliv end-to-end (E2E) testování na webu získalo negativní pověst kvůli nespolehlivým (nestabilním) testům a zpomalení vývojových procesů, moderní nástroje pro E2E testování udělaly pokrok směrem k vytváření spolehlivějších, interaktivnějších a&nbsp;užitečnějších testů. Následující sekce dávají pár rad, na co při výběru E2E testovacího frameworku pro vaši aplikaci myslet.
+Ačkoliv end-to-end (E2E) testování na webu získalo negativní pověst kvůli nespolehlivým (nestabilním) testům a zpomalení vývojových procesů, moderní nástroje pro E2E testování udělaly pokrok směrem k vytváření spolehlivějších, interaktivnějších a&nbsp;užitečnějších testů. Následující sekce dávají pár rad, na co při výběru E2E testovacího frameworku pro vaši aplikaci myslet.
 
 #### Testování napříč prohlížeči {#cross-browser-testing}
 

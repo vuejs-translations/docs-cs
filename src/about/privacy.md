@@ -2,7 +2,7 @@
 
 > Účinné od: 3. května 2024
 
-Tato zásady ochrany osobních údajů popisují postupy organizace Vue.js („Vue“, „my“, „nás“ nebo „naše“) při zacházení s vašimi údaji v souvislosti s touto webovou stránkou (https://vuejs.org), našimi dalšími webovými stránkami souvisejícími s open source tématy („Webové stránky“) a jakýmkoli obsahem, související dokumentací, informacemi a&nbsp;službami (např. návody, nástroje pro podporu developer workflow, přístup k zdrojům atd.), které jsou vám k dispozici na této webové stránce (společně „Služby“). Tyto zásady ochrany osobních údajů popisují osobní informace, které zpracováváme za účelem podpory našich Služeb.
+Tyto zásady ochrany osobních údajů popisují postupy organizace Vue.js („Vue“, „my“, „nás“ nebo „naše“) při zacházení s vašimi údaji v souvislosti s touto webovou stránkou (https://vuejs.org), našimi dalšími webovými stránkami souvisejícími s open source tématy („Webové stránky“) a jakýmkoli obsahem, související dokumentací, informacemi a&nbsp;službami (např. návody, nástroje pro podporu developer workflow, přístup k zdrojům atd.), které jsou vám k dispozici na této webové stránce (společně „Služby“). Tyto zásady ochrany osobních údajů popisují osobní informace, které zpracováváme za účelem podpory našich Služeb.
 
 Pro upřesnění doplňujeme, že tyto zásady ochrany osobních údajů se nevztahují na žádné:
 

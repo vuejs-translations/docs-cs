@@ -19,9 +19,9 @@ Nesmírné množství úsilí potřebné k udržování tak velkého ekosystému
 
 ## Jak sponzorovat {#how-to-sponsor}
 
-Sponzoring je možný přes [GitHub Sponsors](https://github.com/sponsors/yyx990803) nebo [OpenCollective](https://opencollective.com/vuejs). Faktur mohou být získány přes platební systém GitHubu. Přijímáme jak pravidelné měsíční příspěvky, tak jednorázové dotace. Pravidelní sponzoři mají nárok na umístění loga podle pravidel pro jednotlivé [Stupně sponzoringu](#tier-benefits).
+Sponzoring je možný přes [GitHub Sponsors](https://github.com/sponsors/yyx990803) nebo [OpenCollective](https://opencollective.com/vuejs). Faktury mohou být získány přes platební systém GitHubu. Přijímáme jak pravidelné měsíční příspěvky, tak jednorázové dotace. Pravidelní sponzoři mají nárok na umístění loga podle pravidel pro jednotlivé [Stupně sponzoringu](#tier-benefits).
 
-Pokud máte ke dotazy ke stupňům, k logistice plateb nebo k otázkám osobních údajů, prosím napište na [sponsor@vuejs.org](mailto:sponsor@vuejs.org?subject=Vue.js%20sponsorship%20inquiry).
+Pokud máte dotazy ke stupňům, k logistice plateb nebo k otázkám osobních údajů, prosím napište na [sponsor@vuejs.org](mailto:sponsor@vuejs.org?subject=Vue.js%20sponsorship%20inquiry).
 
 ## Sponsoring Vue pro firmy {#sponsoring-vue-as-a-business}
 
@@ -46,7 +46,7 @@ Můžete se také zkusit přesvědčit svého zaměstnavatele, aby sponzoroval V
   - Nejvýraznější umístění loga ze všech ostatních sponzorů.
 - **Platinum (USD $2,000/mo)**:
   - Prominentní umístění loga na úvodní stránce [vuejs.org](/).
-  - Prominentní umístění loga na postranním panelu všech všech obsahových stránek.
+  - Prominentní umístění loga na postranním panelu všech obsahových stránek.
   - Prominentní umístění loga v README [`vuejs/core`](https://github.com/vuejs/core) a [`vuejs/vue`](https://github.com/vuejs/core).
 - **Gold (USD $500/mo)**:
   - Velké logo na úvodní stránce [vuejs.org](/).

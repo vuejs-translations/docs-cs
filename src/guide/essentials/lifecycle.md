@@ -31,7 +31,7 @@ export default {
 
 </div>
 
-Existují další hooks, které budu volány v různých fázích životního cyklu instance komponenty. Nejčastěji používané jsou <span class="composition-api">[`onMounted`](/api/composition-api-lifecycle#onmounted), [`onUpdated`](/api/composition-api-lifecycle#onupdated) a [`onUnmounted`](/api/composition-api-lifecycle#onunmounted).</span><span class="options-api">[`mounted`](/api/options-lifecycle#mounted), [`updated`](/api/options-lifecycle#updated) a [`unmounted`](/api/options-lifecycle#unmounted).</span>
+Existují další hooks, které budou volány v různých fázích životního cyklu instance komponenty. Nejčastěji používané jsou <span class="composition-api">[`onMounted`](/api/composition-api-lifecycle#onmounted), [`onUpdated`](/api/composition-api-lifecycle#onupdated) a [`onUnmounted`](/api/composition-api-lifecycle#onunmounted).</span><span class="options-api">[`mounted`](/api/options-lifecycle#mounted), [`updated`](/api/options-lifecycle#updated) a [`unmounted`](/api/options-lifecycle#unmounted).</span>
 
 <div class="options-api">
 

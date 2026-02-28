@@ -205,7 +205,7 @@ Pro předání pojmenovaného slotu musíme použít prvek `<template>` s direkt
 </BaseLayout>
 ```
 
-`v-slot` má učený zkrácený zápis `#`, takže `<template v-slot:header>` může být zkráceno jen na `<template #header>`. Představte si to jako pokyn _„vykreslit tento fragment šablony do slotu 'header' komponenty potomka“_.
+`v-slot` má určený zkrácený zápis `#`, takže `<template v-slot:header>` může být zkráceno jen na `<template #header>`. Představte si to jako pokyn _„vykreslit tento fragment šablony do slotu 'header' komponenty potomka“_.
 
 ![named slots diagram](./images/named-slots.png)
 
@@ -248,7 +248,7 @@ Pokud komponenta akceptuje výchozí slot i pojmenované sloty, jsou všechny el
 </BaseLayout>
 ```
 
-Nyní bude všechno uvnitř `<template>` elementů bude předáno do odpovídajících slotů. Cílové vykreslené HTML bude:
+Nyní bude všechno uvnitř `<template>` elementů předáno do odpovídajících slotů. Cílové vykreslené HTML bude:
 
 ```html
 <div class="container">
@@ -466,7 +466,7 @@ Použití explicitního tagu `<template>` pro výchozí slot pomáhá ujasnit si
 
 ```vue-html
 <MyComponent>
-  <!-- použitího explicitního výchozího slotu -->
+  <!-- použití explicitního výchozího slotu -->
   <template #default="{ message }">
     <p>{{ message }}</p>
   </template>

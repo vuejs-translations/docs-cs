@@ -94,7 +94,7 @@ Upozorňujeme, že k ref můžete přistupovat pouze **po připojení komponenty
 
 <div class="composition-api">
 
-Pokud se pokoušíte na template ref apikovat watcher, nezapomeňte vzít v úvahu případ, kdy má ref hodnotu `null`:
+Pokud se pokoušíte na template ref aplikovat watcher, nezapomeňte vzít v úvahu případ, kdy má ref hodnotu `null`:
 
 ```js
 watchEffect(() => {

@@ -111,7 +111,7 @@ Navzdory flexibilitě jsou základní znalosti o fungování Vue sdílené např
 
 ## Single-File komponenty {#single-file-components}
 
-Ve většině Vue projektů s build fází používáme Vue komponenty v souborovém formátu á la HTML nazývaném **Single-File Component** (také známé jako `*.vue` soubory, zkráceně **SFC**). Vue SFC, jak název napovídá, obaluje do jednoho souboru logiku (JavaScript), šablonu (HTML) a styly (CSS). Zde je přechozí příklad přepsaný do SFC formátu:
+Ve většině Vue projektů s build fází používáme Vue komponenty v souborovém formátu á la HTML nazývaném **Single-File Component** (také známé jako `*.vue` soubory, zkráceně **SFC**). Vue SFC, jak název napovídá, obaluje do jednoho souboru logiku (JavaScript), šablonu (HTML) a styly (CSS). Zde je předchozí příklad přepsaný do SFC formátu:
 
 <div class="options-api">
 

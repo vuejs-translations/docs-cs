@@ -180,7 +180,7 @@ Uvnitř binding výrazu je možné volat funkci vystavenou v komponentě:
 Funkce volané uvnitř binding výrazů budou volány při každé aktualizaci komponenty, takže by **neměly mít** žádné vedlejší účinky, jako je změna dat nebo spouštění asynchronních operací.
 :::
 
-### Omezení globální přístup {#restricted-globals-access}
+### Omezený globální přístup {#restricted-globals-access}
 
 Výrazy v šablonách jsou sandboxovány a mají přístup pouze k [omezenému seznamu globálních objektů](https://github.com/vuejs/core/blob/main/packages/shared/src/globalsAllowList.ts#L3). Seznam vystavuje běžně používané vestavěné globální objekty, jako jsou `Math` a `Date`.
 

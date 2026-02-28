@@ -225,7 +225,7 @@ Reaktivní systém je podrobněji diskutován v sekci [Reaktivita podrobně](/gu
 
 ## Deklarace funkcí \* {#declaring-methods}
 
-<VueSchoolLink href="https://vueschool.io/lessons/methods-in-vue-3" title="Lekce o Vue.js funkcí zdarma"/>
+<VueSchoolLink href="https://vueschool.io/lessons/methods-in-vue-3" title="Lekce o Vue.js funkcích zdarma"/>
 
 Pro přidání funkcí do instance komponenty používáme vlastnost `methods`. Měl by to být objekt obsahující zamýšlené funkce:
 

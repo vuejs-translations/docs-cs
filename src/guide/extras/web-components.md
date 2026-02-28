@@ -145,7 +145,7 @@ A při použití custom elementu:
 <my-element selected index="1"></my-element>
 ```
 
-Uvnitř komponenty bude `selected` přetypováno na `true` (boolean) and `index` na `1` (number).
+Uvnitř komponenty bude `selected` přetypováno na `true` (boolean) a `index` na `1` (number).
 
 #### Události (events) {#events}
 
@@ -153,7 +153,7 @@ Události emitované pomocí `this.$emit` nebo `setup emit` jsou odesílány jak
 
 #### Sloty (slots) {#slots}
 
-Uvnitř komponenty lze sloty vykreslovat pomocí elementu `<slot/>` jako obvykle. Ovšem při konzumaci výsledného elementu je přijímána pouze [syntaxi nativních slotů](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots):
+Uvnitř komponenty lze sloty vykreslovat pomocí elementu `<slot/>` jako obvykle. Ovšem při konzumaci výsledného elementu je přijímána pouze [syntaxe nativních slotů](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots):
 
 - [Scoped sloty](/guide/components/slots#scoped-slots) nejsou podporovány.
 
@@ -304,7 +304,7 @@ declare module 'vue' {
 Toto je doporučený postup, jak umožnit typovou kontrolu v SFC šablonách pro Custom elementy, které nejsou vytvořeny pomocí Vue.
 
 :::tip Info
-Jde o obecně platný způsob, jak to udělat, ale detaily se mohou se trochu lišit v závislosti na frameworku použitém pro vytvoření custom elementu.
+Jde o obecně platný způsob, jak to udělat, ale detaily se mohou trochu lišit v závislosti na frameworku použitém pro vytvoření custom elementu.
 :::
 
 Předpokládejme, že máme definován custom element s nějakými JS atributy a událostmi, který je distribuován v knihovně nazvané `some-lib`:

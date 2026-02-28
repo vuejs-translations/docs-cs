@@ -318,13 +318,13 @@ export default {
 
 [Kompletní provide/inject příklad vč. reaktivity](https://play.vuejs.org/#eNqNUctqwzAQ/JVFFyeQxnfjBEoPPfULqh6EtYlV9EKWTcH43ytZtmPTQA0CsdqZ2dlRT16tPXctkoKUTeWE9VeqhbLGeXirheRwc0ZBds7HKkKzBdBDZZRtPXIYJlzqU40/I4LjjbUyIKmGEWw0at8UgZrUh1PscObZ4ZhQAA596/RcAShsGnbHArIapTRBP74O8Up060wnOO5QmP0eAvZyBV+L5jw1j2tZqsMp8yWRUHhUVjKPoQIohQ460L0ow1FeKJlEKEnttFweijJfiORElhCf5f3umObb0B9PU/I7kk17PJj7FloN/2t7a2Pj/Zkdob+x8gV8ZlMs2de/8+14AXwkBngD9zgVqjg2rNXPvwjD+EdlHilrn8MvtvD1+Q==)
 
-Funkce `computed()` se typicky používá v komponentách psaných v Composition API, ale lze ji také použít pro doplnění některých případů užití v Options API. O jejím použití se můžete dočíst víc v průvodcích [Základy rektivity](/guide/essentials/reactivity-fundamentals) and [Computed proměnné](/guide/essentials/computed) s preferencí nastavenou na Composition API.
+Funkce `computed()` se typicky používá v komponentách psaných v Composition API, ale lze ji také použít pro doplnění některých případů užití v Options API. O jejím použití se můžete dočíst víc v průvodcích [Základy reaktivity](/guide/essentials/reactivity-fundamentals) a [Computed proměnné](/guide/essentials/computed) s preferencí nastavenou na Composition API.
 
 </div>
 
 ## Práce s klíči typu Symbol {#working-with-symbol-keys}
 
-Dosud jsme v příkladech používali injection kyes typu string. Pokud pracujete v rozsáhlé aplikaci s mnoha poskytovateli závislostí nebo vytváříte komponenty, které budou používat i další vývojáři, je nejlepší používat injection kyes typu [Symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol), abyste se vyhnuli případným kolizím.
+Dosud jsme v příkladech používali injection keys typu string. Pokud pracujete v rozsáhlé aplikaci s mnoha poskytovateli závislostí nebo vytváříte komponenty, které budou používat i další vývojáři, je nejlepší používat injection keys typu [Symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol), abyste se vyhnuli případným kolizím.
 
 Je doporučeno exportovat použité symboly do vyhrazeného souboru:
 

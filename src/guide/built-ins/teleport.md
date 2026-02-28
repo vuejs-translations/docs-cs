@@ -2,7 +2,7 @@
 
  <VueSchoolLink href="https://vueschool.io/lessons/vue-3-teleport" title="Lekce o komponentě Teleport ve Vue.js zdarma"/>
 
-`<Teleport>` je vestavěná komponenta, který nám umožňuje „teleportovat“ část šablony komponenty do DOM elementu, který existuje mimo DOM hierarchii této komponenty.
+`<Teleport>` je vestavěná komponenta, která nám umožňuje „teleportovat“ část šablony komponenty do DOM elementu, který existuje mimo DOM hierarchii této komponenty.
 
 ## Základní použití {#basic-usage}
 
@@ -205,7 +205,7 @@ Ve Vue 3.5+ můžeme použít vlastnost  `defer` pro odložení vyhodnocení cí
 <div id="late-div"></div>
 ```
 
-Pamatujte, že cílový element musí být vykreslen v stejném mount / update cyklu jako Teleport – např. pokud je `<div>` vykreslen pouze o vteřinu později, Teleport stejně ohlásí chybu. Odložení funguje stejně jako lifecycle hook `mounted`.
+Pamatujte, že cílový element musí být vykreslen ve stejném mount / update cyklu jako Teleport - např. pokud je `<div>` vykreslen pouze o vteřinu později, Teleport stejně ohlásí chybu. Odložení funguje stejně jako lifecycle hook `mounted`.
 
 ---
 

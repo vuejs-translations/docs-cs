@@ -2,7 +2,7 @@
 
 <div class="sfc">
 
-To, co vidíte v editoru je Vue Single-File komponenta (SFC). SFC je znovupoužitelná nezávislý blok kódu, který obaluje HTML, CSS a&nbsp;JavaScript prvky, které patří dohromady, zapsané uvnitř `.vue` souboru.
+To, co vidíte v editoru je Vue Single-File komponenta (SFC). SFC je znovupoužitelný nezávislý blok kódu, který obaluje HTML, CSS a&nbsp;JavaScript prvky, které patří dohromady, zapsané uvnitř `.vue` souboru.
 
 </div>
 
@@ -10,7 +10,7 @@ Klíčová vlastnost Vue je **deklarativní vykreslování**: použitím šablon
 
 <div class="composition-api">
 
-Stav, který může vyvolat aktualizace se nazývá **reaktivní**. Můžeme deklarovat reaktivní stav použitím Vue API funkce `reactive()`. Objekty vytvoření pomocí `reactive()` jsou JavaScript [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) které fungují stejně jako běžné objekty:
+Stav, který může vyvolat aktualizace se nazývá **reaktivní**. Můžeme deklarovat reaktivní stav použitím Vue API funkce `reactive()`. Objekty vytvořené pomocí `reactive()` jsou JavaScript [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) které fungují stejně jako běžné objekty:
 
 ```js
 import { reactive } from 'vue'
@@ -57,7 +57,7 @@ setup() {
 }
 ```
 
-Vlastnosti ve vráceném objektu budou zpřístupněny v šabloně. Tímto způsobem můžeme vykreslovat vykreslovat dynamický text na základě hodnoty `message` s použitím tzv. „mustache“ syntaxe:
+Vlastnosti ve vráceném objektu budou zpřístupněny v šabloně. Tímto způsobem můžeme vykreslovat dynamický text na základě hodnoty `message` s použitím tzv. „mustache“ syntaxe:
 
 </div>
 

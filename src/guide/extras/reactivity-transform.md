@@ -91,7 +91,7 @@ console.log(x.value, y.value)
 
 Zapamatujte si, že pokud `x` již je ref, `toRef(__temp, 'x')` ho jednoduše vrátí tak, jak je, a&nbsp;žádný další ref nebude vytvořen. Pokud destrukturovaná hodnota není ref (např. funkce), stále to funguje – hodnota bude obalena v ref, aby zbytek kódu fungoval, jak se očekává.
 
-Destrukturovaní s `$()` funguje jak na reaktivních objektech, tak na obyčejných objektech obsahujících refs.
+Destrukturování s `$()` funguje jak na reaktivních objektech, tak na obyčejných objektech obsahujících refs.
 
 ## Převod existujících refs na reaktivní proměnné s `$()` {#convert-existing-refs-to-reactive-variables-with}
 

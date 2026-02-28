@@ -6,7 +6,7 @@ V tuto chvíli byste měli mít dobrou představu o tom, jaké to je pracovat s 
 
 - Rozjet skutečný Vue projekt na vašem počítači – následujte průvodce [Jak začít](/guide/quick-start).
 
-- Projít si [Průvodce](/guide/essentials/application), která pokrývá podrobněji všechna témata, která jsme se dosud naučili, a ještě mnohem více.
+- Projít si [Průvodce](/guide/essentials/application), který pokrývá podrobněji všechna témata, která jsme se dosud naučili, a ještě mnohem více.
 
 - Podívat se na pár praktických [Příkladů](/examples/).
 

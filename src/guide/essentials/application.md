@@ -55,11 +55,11 @@ app.mount('#app')
 
 Obsah root komponenty aplikace bude vykreslen uvnitř zadaného kontejneru. Samotný element kontejneru není za součást aplikace považován.
 
-Funkce `.mount()` by měla být vždy volána po dokončení všech aplikačních konfigurací a&nbsp;registrací zdrojů. Všimněte si, že narozdíl od funkcí pro registraci zdrojů je její návratovou hodnotou instance root komponenty namísto instance aplikace.
+Funkce `.mount()` by měla být vždy volána po dokončení všech aplikačních konfigurací a&nbsp;registrací zdrojů. Všimněte si, že na rozdíl od funkcí pro registraci zdrojů je její návratovou hodnotou instance root komponenty namísto instance aplikace.
 
 ### In-DOM šablona root komponenty {#in-dom-root-component-template}
 
-Šablona root komponenty je většinou součástí komponenty samotné. Mžeme však šablonu poskytnout i samostatně, pokud ji zapíšeme přímo do elementu určeného pro připojení komponenty (mount container):
+Šablona root komponenty je většinou součástí komponenty samotné. Můžeme však šablonu poskytnout i samostatně, pokud ji zapíšeme přímo do elementu určeného pro připojení komponenty (mount container):
 
 ```html
 <div id="app">
@@ -87,7 +87,7 @@ In-DOM šablony jsou často používány v aplikacích, které [používají Vue
 
 ## Nastavení aplikace {#app-configurations}
 
-Instance aplikace vystavuje objekt `.config`, jenž nám umožňuje nakonfigurovat několik globálních nastavení, například definovat globální hadler pro obsluhu chyb, který zachycuje chyby ze všech komponent potomků:
+Instance aplikace vystavuje objekt `.config`, jenž nám umožňuje nakonfigurovat několik globálních nastavení, například definovat globální handler pro obsluhu chyb, který zachycuje chyby ze všech komponent potomků:
 
 ```js
 app.config.errorHandler = (err) => {

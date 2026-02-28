@@ -345,7 +345,7 @@ Můžeme provést binding `:style` na pole více stylových objektů. Tyto objek
 
 ### Auto-prefixing {#auto-prefixing}
 
-Když použijete CSS vlastnost, která vyžaduje [vendor prefix](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix), v rácmci `:style`, Vue příslušnou předponu automaticky přidá. Dělá to tak, že za běhu zkontroluje, které vlastnosti stylu jsou podporovány v aktuálním prohlížeči. Pokud prohlížeč určitou vlastnost nepodporuje, budou testovány různé varianty s předponou, abychom se pokusili najít tu, která podporována je.
+Když použijete CSS vlastnost, která vyžaduje [vendor prefix](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix), v rámci `:style`, Vue příslušnou předponu automaticky přidá. Dělá to tak, že za běhu zkontroluje, které vlastnosti stylu jsou podporovány v aktuálním prohlížeči. Pokud prohlížeč určitou vlastnost nepodporuje, budou testovány různé varianty s předponou, abychom se pokusili najít tu, která podporována je.
 
 ### Více hodnot {#multiple-values}
 

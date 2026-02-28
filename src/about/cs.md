@@ -66,7 +66,7 @@ Slovo `option` je sice nejspíš každému v IT jasné, ale najít jeho uspokoji
 
 #### Vlastnosti (props)
 
-Pojem `props` **není** totožný s _„properties“_. Označuje _„vlastnosti“_, ale pouze ty, které se předávají dovnitř[Single-File komponenty (SFC)](https://vuejs.org/glossary/#single-file-component), která je speciálním způsobem deklaruje. 
+Pojem `props` **není** totožný s _„properties“_. Označuje _„vlastnosti“_, ale pouze ty, které se předávají dovnitř [Single-File komponenty (SFC)](https://vuejs.org/glossary/#single-file-component), která je speciálním způsobem deklaruje. 
 
 [Viz](/glossary/#prop)
 
@@ -131,7 +131,7 @@ Zde sledujeme překlady pro (hlavně) technické pojmy, které se objevují na v
 * 🟩 child component = komponenta potomka
 * 🟩 Code of Conduct = Kodex chování
 * 🟩 codebase = kódová báze
-* 🟩 compiler = překadač (celého Vue) / kompilátor (u šablon)
+* 🟩 compiler = překladač (celého Vue) / kompilátor (u šablon)
 * 🟩 compiler macro = makro překladače
 * 🟥 composable = composable
 * 🟥 Composition API = Composition API
@@ -263,7 +263,7 @@ Zde sledujeme překlady pro (hlavně) technické pojmy, které se objevují na v
 * 🟥 state management = state management
 * 🟥 stateful = stateful
 * 🟥 store = store
-* 🟥 string = string (výjiměčně „řetězec“ (obvykle je-li třeba skloňovat))
+* 🟥 string = string (výjimečně „řetězec“ (obvykle je-li třeba skloňovat))
 * 🟨 string template = string-šablona
 * 🟩 syntactic sugar = alias pro
 * 🟥 tag = tag
