@@ -15,7 +15,7 @@ pnpm i
 pnpm run dev
 ```
 
-Projekt potřebuje Node.js ve verzi `v18` nebo vyšší. A je doporučeno povolit corepack:
+Projekt potřebuje Node.js ve verzi `v20` nebo vyšší. A je doporučeno povolit corepack:
 
 ```bash
 corepack enable
