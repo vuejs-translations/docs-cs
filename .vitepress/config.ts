@@ -17,12 +17,13 @@ import {
 const nav: ThemeConfig['nav'] = [
   {
     text: 'Dokumentace',
-    activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
+    activeMatch: `^/(guide|tutorial|examples|api|glossary|error-reference)/`,
     items: [
       { text: 'Jak začít', link: '/guide/quick-start' },
       { text: 'Průvodce', link: '/guide/introduction' },
       { text: 'Tutoriál', link: '/tutorial/' },
       { text: 'Příklady', link: '/examples/' },
+      { text: 'API', link: '/api/' },
       // { text: 'Style Guide', link: '/style-guide/' },
       { text: 'Slovník', link: '/glossary/' },
       { text: 'Chybové kódy', link: '/error-reference/' },
@@ -37,11 +38,6 @@ const nav: ThemeConfig['nav'] = [
     ]
   },
   {
-    text: 'API',
-    activeMatch: `^/api/`,
-    link: '/api/'
-  },
-  {
     text: 'Hřiště (Vue SFC Playground)',
     link: 'https://play.vuejs.org'
   },
@@ -52,7 +48,6 @@ const nav: ThemeConfig['nav'] = [
       {
         text: 'Zdroje',
         items: [
-          { text: 'Partneři', link: '/partners/' },
           { text: 'Šablony', link: '/ecosystem/themes' },
           { text: 'UI komponenty', link: 'https://ui-libs.vercel.app/' },
           { text: 'Kolekce pluginů', link: 'https://www.vue-plugins.org/' },
@@ -131,13 +126,12 @@ const nav: ThemeConfig['nav'] = [
     ]
   },
   {
-    text: 'Sponzoring',
-    link: '/sponsor/'
-  },
-  {
-    text: 'Partneři',
-    activeMatch: `^/partners/`,
-    link: '/partners/'
+    text: 'Podpora',
+    activeMatch: `^/(sponsor|partners)/`,
+    items: [
+      { text: 'Sponzoring', link: '/sponsor/' },
+      { text: 'Partneři', link: '/partners/' }
+    ]
   }
 ]
 
