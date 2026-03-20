@@ -56,11 +56,11 @@ To se týká pouze autorů knihoven, protože v aplikacích je verze překladač
 
 ## Pre-releases {#pre-releases}
 
-Minor verze obvykle procházejí předem neurčeným počtem beta verzí. Major verze projdou fází alfa a fází beta.
+Minor a major verze obvykle procházejí sérií pre-release fází: **alpha**, **beta** a **release candidate (RC)**. Počty a typy pre-release verzí závisí na rozsahu změn. Například minor verze s omezenými aktualizacemi může mít pouze beta fázi, zatímco major verze obvykle zahrnuje všechny tři fáze, aby bylo umožněno důkladné testování a zapracování zpětné vazby od komunity.
 
-Kromě toho na GitHubu publikujeme každý týden experimentální (canary) vydání z `main` a `minor` větve. Jsou publikovány jako samostatné balíčky, aby nedošlo k nafouknutí npm metadat u stabilního produkčního kanálu. Můžete je nainstalovat pomocí `npx install-vue@canary` nebo `npx install-vue@canary-minor`.
+Nejnovější pre-release verze můžete nainstalovat z npm pomocí `npx install-vue@alpha`, `npx install-vue@beta` nebo `npx install-vue@rc`. Pro testování změn, které ještě nejsou obsaženy v tagem označených pre-release verzích, je každý commit do repozitáře [vuejs/core](https://github.com/vuejs/core) publikován v pracovním CI preview, které můžete nainstalovat jako `npx install-vue@edge`.
 
-Pre-release verze jsou určeny pro testování integrace / stability a pro early adopters, kteří poskytují zpětnou vazbu pro nestabilní funkce. V produkci pre-release verze nepoužívejte. Všechny pre-release verze jsou považovány za nestabilní a může mezi nimi docházet k přelomovým změnám, proto se při používání pre-release verzí vždy držte konkrétního čísla verze.
+Pre-release verze jsou určeny pro testování integrace / stability a pro early adopters, kteří poskytují zpětnou vazbu pro nově vznikající funkce. V produkci pre-release verze nepoužívejte. Všechny pre-release verze jsou považovány za nestabilní a může mezi nimi docházet k přelomovým změnám, proto se při používání pre-release verzí vždy držte konkrétního čísla verze.
 
 ## Deprecations {#deprecations}
 
