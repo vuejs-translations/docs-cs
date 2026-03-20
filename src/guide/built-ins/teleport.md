@@ -150,7 +150,7 @@ const open = ref(false)
 Pro vytvoření animovaných modálních oken můžete `<Teleport>` kombinovat s&nbsp;[`<Transition>`](./transition) - viz [příklad zde](/examples/#modal).
 
 :::tip
-Cíl teleportace `to` už musí být v DOM, když je komponenta `<Teleport>` připojena (mounted). Ideálně by to měl být prvek mimo celou Vue aplikaci. Pokud je cílem teleportace jiný prvek vykreslený Vue, musíte se ujistit, že je tento prvek připojen dříve než `<Teleport>`.
+Cíl teleportace `to` už musí být v DOM, když je komponenta `<Teleport>` připojena (mounted). Ideálně by to měl být prvek mimo celou Vue aplikaci. Pokud je cílem teleportace jiný prvek vykreslený Vue, musíte se ujistit, že je tento prvek připojen dříve než `<Teleport>`. Pokud používáte SSR, podívejte se na oddíl [Teleportace v SSR](/guide/scaling-up/ssr#teleports).
 :::
 
 ## Použití s komponentami {#using-with-components}
