@@ -229,6 +229,31 @@ Použití [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Acces
 
 ![Chrome Developer Tools zobrazující přístupné jméno vstupu z aria-labelledby](./images/AccessibleARIAlabelledbyDevTools.png)
 
+Když používáte tento vzor uvnitř znovupoužitelné komponenty, vygenerujte `id` dynamicky pomocí funkce [`useId()`](/api/composition-api-helpers.html#useid). Díky tomu zachováte unikátní hodnoty `id` pro&nbsp;každou instanci komponenty a zároveň se viditelný text stále správně propojí s&nbsp;příslušným ovládacím prvkem formuláře:
+
+```vue
+<script setup>
+import { useId } from 'vue'
+
+const sectionId = useId()
+const nameId = useId()
+</script>
+
+<template>
+  <section class="form-section">
+    <h2 :id="sectionId">Fakturace</h2>
+
+    <label :id="nameId" :for="`${nameId}-input`">Jméno: </label>
+    <input
+      :id="`${nameId}-input`"
+      type="text"
+      name="name"
+      :aria-labelledby="`${sectionId} ${nameId}`"
+    />
+  </section>
+</template>
+```
+
 #### `aria-describedby` {#aria-describedby}
 
 [aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) se používá stejným způsobem jako `aria-labelledby`, ale poskytuje popis s dodatečnými informacemi, které by uživatel mohl potřebovat. Lze to použít k&nbsp;popisu kritérií pro jakýkoli vstup:
