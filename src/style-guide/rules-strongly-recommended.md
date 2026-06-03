@@ -1,9 +1,5 @@
 # Pravidla priority B: Silně doporučené {#priority-b-rules-strongly-recommended}
 
-::: warning Poznámka
-Tento průvodce Vue.js stylováním je zastaralý a vyžaduje revizi. Pokud máte jakékoliv otázky a návrhy, prosím  [založte nové hlášení](https://github.com/vuejs/docs/issues/new).
-:::
-
 Tato pravidla byla zavedena pro zlepšení čitelnosti a/nebo komfortu pro vývojáře na většině projektů. Pokud je porušíte, váš kód bude stále fungovat, ale porušení by měla být vzácná a dobře odůvodněná.
 
 ## Soubory komponent {#component-files}
@@ -101,23 +97,15 @@ Některé výhody této konvence:
 
 - Vzhledem k tomu, že názvy komponent by měly být vždy víceslovné, tato konvence vám brání volit libovolnou předponu pro jednoduché obaly komponent (např. `MyButton`, `VueButton`).
 
-- Vzhledem k tomu, že se tyto komponenty používají často, možná budete chtít, aby byly globální, místo abyste je všude importovali. Předpona to v kombinaci s Webpackem umožňuje:
+- Vzhledem k tomu, že se tyto komponenty používají často, možná budete chtít, aby byly globální, místo abyste je všude importovali. Předpona to v kombinaci s Vite umožňuje:
 
   ```js
-  const requireComponent = require.context(
-    './src',
-    true,
-    /Base[A-Z]\w+\.(vue|js)$/
-  )
-  requireComponent.keys().forEach(function (fileName) {
-    let baseComponentConfig = requireComponent(fileName)
-    baseComponentConfig =
-      baseComponentConfig.default || baseComponentConfig
-    const baseComponentName =
-      baseComponentConfig.name ||
-      fileName.replace(/^.+\//, '').replace(/\.\w+$/, '')
-    app.component(baseComponentName, baseComponentConfig)
-  })
+  const modules = import.meta.glob('./src/**/Base*.vue', { eager: true })
+  for (const path in modules) {
+    const config = modules[path].default
+    const name = config.name || path.match(/Base[A-Z]\w+/)[0]
+    app.component(name, config)
+  }
   ```
 
   :::
@@ -325,7 +313,7 @@ components/
 
 Komponenty zapsané jako nepárový (self-closing) tag sdělují nejen, že nemají žádný obsah, ale ani **nemají** žádný obsah mít. Je to rozdíl mezi prázdnou stránkou v knize a stránkou označenou _„Tato stránka byla záměrně ponechána prázdná“_. Váš kód je také bez zbytečného uzavíracího tagu čistší.
 
-HTML bohužel neumožňuje uživatelské nepárové (self-closing) elementy – pouze [oficiální „void“ elementy](https://www.w3.org/TR/html/syntax.html#void-elements). To je důvod, proč je tato strategie možná pouze tehdy, když se Vue kompilátor šablon může k šabloně dostat před jejím vložením do DOM a poskytnout HTML vyhovující specifikaci.
+HTML bohužel neumožňuje uživatelské nepárové (self-closing) elementy – pouze [oficiální „void“ elementy](https://html.spec.whatwg.org/multipage/syntax.html#void-elements). To je důvod, proč je tato strategie možná pouze tehdy, když se Vue kompilátor šablon může k šabloně dostat před jejím vložením do DOM a poskytnout HTML vyhovující specifikaci.
 
 <div class="style-example style-example-bad">
 <h3>Špatně</h3>

@@ -1,9 +1,5 @@
 # Pravidla priority C: Doporučené {#priority-c-rules-recommended}
 
-::: warning Poznámka
-Tento průvodce Vue.js stylováním je zastaralý a vyžaduje revizi. Pokud máte jakékoliv otázky a návrhy, prosím  [založte nové hlášení](https://github.com/vuejs/docs/issues/new).
-:::
-
 Tam, kde existuje více stejně dobrých možností, lze pro zajištění konzistence vybrat libovolnou z nich. V těchto pravidlech popisujeme každou přijatelnou možnost a&nbsp;navrhujeme výchozí variantu. To znamená, že se můžete ve své vlastní kódové bázi volně rozhodnout, pokud budete konzistentní a máte pro to dobrý důvod. Ale mějte prosím dobrý důvod! Přizpůsobením se standardu komunity budete:
 
 1. trénovat svůj mozek, aby snadněji analyzoval většinu kódu v rámci Vue komunity, se&nbsp;kterým se setkáte
@@ -40,6 +36,7 @@ Toto je výchozí pořadí, které doporučujeme pro možnosti nastavení kompon
    - `inheritAttrs`
    - `props`
    - `emits`
+   - `expose`
 
 6. **Composition API** (vstupní bod pro použití Composition API)
 
@@ -67,6 +64,7 @@ Toto je výchozí pořadí, které doporučujeme pro možnosti nastavení kompon
      - `errorCaptured`
      - `renderTracked`
      - `renderTriggered`
+     - `serverPrefetch` (jen při SSR)
 
 9. **Nereaktivní vlastnosti** (vlastnosti instance nezávislé na systému reaktivity)
 

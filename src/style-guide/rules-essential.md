@@ -1,9 +1,5 @@
 # Pravidla priority A: Zásadní (prevence chyb) {#priority-a-rules-essential}
 
-::: warning Poznámka
-Tento průvodce Vue.js stylováním je zastaralý a vyžaduje revizi. Pokud máte jakékoliv otázky a návrhy, prosím  [založte nové hlášení](https://github.com/vuejs/docs/issues/new).
-:::
-
 Tato pravidla pomáhají předcházet chybám, proto se je za každou cenu naučte a&nbsp;dodržujte je. Výjimky mohou existovat, ale měly by být velmi vzácné a měly by být&nbsp;dělány pouze osobami s odbornými znalostmi jak JavaScriptu, tak Vue.
 
 ## Používejte víceslovné názvy komponent {#use-multi-word-component-names}
@@ -337,7 +333,7 @@ Nebo můžete použít tag `<template>` s `v-for`, kterým obalíte `<li>` eleme
 
 V aplikacích mohou být styly na nejvyšší úrovni komponenty `App` a v komponentách pro&nbsp;layout globální, ale všechny ostatní komponenty by měly mít styly vždy omezené (scoped).
 
-To platí pouze pro [Single-File komponenty (SFC)](/guide/scaling-up/sfc). _Není_ nezbytné používat [atribut `scoped`](https://vue-loader.vuejs.org/guide/scoped-css.html). Omezení lze zajistit pomocí [CSS modulů](https://vue-loader.vuejs.org/guide/css-modules.html), a class-based strategie jako je [BEM](http://getbem.com/), či jiné knihovny/konvence.
+To platí pouze pro [Single-File komponenty (SFC)](/guide/scaling-up/sfc). _Není_ nezbytné používat [atribut `scoped`](/api/sfc-css-features#scoped-css). Omezení lze zajistit pomocí [CSS modulů](/api/sfc-css-features#css-modules), a class-based strategie jako je [BEM](http://getbem.com/), či jiné knihovny/konvence.
 
 **Komponenty knihoven by nicméně měly class-based strategii místo používání atributu `scoped` upřednostňovat.**
 

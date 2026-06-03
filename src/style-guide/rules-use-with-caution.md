@@ -1,9 +1,5 @@
 # Pravidla priority D: Používejte s&nbsp;rozvahou {#priority-d-rules-use-with-caution}
 
-::: warning Poznámka
-Tento průvodce Vue.js stylováním je zastaralý a vyžaduje revizi. Pokud máte jakékoliv otázky a návrhy, prosím  [založte nové hlášení](https://github.com/vuejs/docs/issues/new).
-:::
-
 Některé funkce Vue existují pro přizpůsobení se vzácným okrajovým případům nebo kvůli hladší migraci z legacy kódu. Při nadměrném používání však mohou ztížit údržbu vašeho kódu nebo se dokonce stát zdrojem chyb. Tato pravidla upozorňují na potenciálně rizikové funkce a popisují, kdy a proč je třeba se jim vyhnout.
 
 ## Selektory prvků + `scoped` {#element-selectors-with-scoped}
@@ -179,8 +175,6 @@ defineProps({
 
 ```vue
 <script setup>
-import { getCurrentInstance } from 'vue'
-
 const props = defineProps({
   todo: {
     type: Object,
@@ -188,22 +182,18 @@ const props = defineProps({
   }
 })
 
-const instance = getCurrentInstance()
-
-function removeTodo() {
-  const parent = instance.parent
-  if (!parent) return
-
-  parent.props.todos = parent.props.todos.filter((todo) => {
-    return todo.id !== props.todo.id
-  })
+function renameTodo() {
+  // Změní reaktivní objekt rodiče skrz vlastnost (prop).
+  // Jinými slovy - komponenta potomka se snaží sáhnout 
+  // na stav vlastněný rodičem.
+  props.todo.text = 'Přejmenováno z potomka'
 }
 </script>
 
 <template>
   <span>
     {{ todo.text }}
-    <button @click="removeTodo">×</button>
+    <button @click="renameTodo">Přejmenovat</button>
   </span>
 </template>
 ```
@@ -226,26 +216,37 @@ const emit = defineEmits(['input'])
 </script>
 
 <template>
-  <input :value="todo.text" @input="emit('input', $event.target.value)" />
+  <input 
+    :value="todo.text" 
+    @input="emit('input', $event.target.value)"
+  />
 </template>
 ```
 
 ```vue
 <script setup>
-defineProps({
+const props = defineProps({
   todo: {
     type: Object,
     required: true
   }
 })
 
-const emit = defineEmits(['delete'])
+const emit = defineEmits(['update:todo'])
+
+function renameTodo() {
+  // Emituje nový objekt - vlastní změnu řídí komponenta rodiče.
+  emit('update:todo', { 
+    ...props.todo, 
+    text: 'Přejmenováno z potomka' 
+  })
+}
 </script>
 
 <template>
   <span>
     {{ todo.text }}
-    <button @click="emit('delete')">×</button>
+    <button @click="renameTodo">Přejmenovat</button>
   </span>
 </template>
 ```
