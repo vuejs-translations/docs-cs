@@ -339,6 +339,33 @@ Bude stejná jako:
 <BlogPost :id="post.id" :title="post.title" />
 ```
 
+### Chování při slučování více vazeb {#merge-behavior-when-combining-bindings}
+
+Když je `v-bind` použito na stejné komponentě společně s explicitním bindingem, Vue interně volá `mergeProps()`, aby je zkombinovalo. Strategie slučování závisí na typu klíče:
+
+- **Běžné vlastnosti (props)** — vyhrává poslední hodnota:
+
+```vue-html
+<!-- title === 'bar' -->
+<BlogPost title="foo" v-bind="{ title: 'bar' }" />
+```
+
+- **Event listenery** — při předávání listenerů v objektu `v-bind` použijte [konvenci `onEventName`](/guide/extras/render-function#v-on). Všechny handlery pro stejnou událost budou zavolány (viz [Dědičnost `v-on` listenerů](/guide/components/attrs#v-on-listener-inheritance)):
+
+```vue-html
+<!-- zaloguje 1 a 2 -->
+<BlogPost 
+  @click="console.log(1)" 
+  v-bind="{ onClick: () => console.log(2) }" 
+/>
+```
+
+- **`class` and `style`** používají obdobnou strategii (viz [Spojování `class` a `style`](/guide/components/attrs#class-and-style-merging)).
+
+:::tip
+Úplná pravidla pro slučování jsou uvedena v popisu API [`mergeProps()`](/api/render-function#mergeprops).
+:::
+
 ## Jednosměrný datový tok {#one-way-data-flow}
 
 Všechny vlastnosti tvoří **jednosměrný binding směrem dolů** mezí nadřízenou a&nbsp;podřízenou vlastností: když se aktualizuje vlastnost v komponentě rodiče, přenese se to dolů na vlastnost potomka, ale nikoli naopak. To zabraňuje tomu, aby komponenty potomků omylem měnily stav vlastností rodiče, což by mohlo ztížit pochopení toku dat ve vaší aplikaci.
