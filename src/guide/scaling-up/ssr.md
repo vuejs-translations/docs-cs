@@ -198,7 +198,7 @@ Kromě načtení souborů pro klienta v prohlížeči musíme dále:
 
 1. Vystavit soubory pro klienty přidáním `server.use(express.static('.'))` do `server.js`.
 2. Načíst vstup klienta přidáním `<script type="module" src="/client.js"></script>` do těla HTML.
-3. Umožnit použití jako `import * from 'vue'` v prohlížeči přidáním [Import Map](https://github.com/WICG/import-maps) do těla HTML.
+3. Umožnit použití jako `import * from 'vue'` v prohlížeči přidáním [Import Map](https://html.spec.whatwg.org/multipage/webappapis.html#import-maps) do těla HTML.
 
 [Vyzkoušejte to kompletní příklad na StackBlitz](https://stackblitz.com/fork/vue-ssr-example?file=index.js). Tlačítko je nyní interaktivní!
 
