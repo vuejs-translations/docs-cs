@@ -83,24 +83,24 @@ onMounted(load)
 
   <section id="highlights" class="vt-box-container">
     <div class="vt-box">
-      <h2>Přístupný</h2>
+      <h2>Výkonný</h2>
+      <p>
+        Bohatý, inkrementálně přizpůsobitelný ekosystém,
+        který lze volně škálovat mezi malou knihovnou a plně vybaveným frameworkem.
+      </p>
+    </div>
+    <div class="vt-box">
+      <h2>Univerzální</h2>
       <p>
         Staví na standardech HTML, CSS a JS s intuitivním API
         a&nbsp;prvotřídní dokumentací.
       </p>
     </div>
     <div class="vt-box">
-      <h2>Výkonný</h2>
+      <h2>Efektivní</h2>
       <p>
         Skutečně reaktivní systém vykreslování optimalizovaný pro kompilaci, 
-        jenž pouze vzácně potřebuje manuální optimalizaci.
-      </p>
-    </div>
-    <div class="vt-box">
-      <h2>Univerzální</h2>
-      <p>
-        Bohatý, přírůstkově přizpůsobitelný ekosystém,
-        který lze volně škálovat mezi knihovnou a plně vybaveným frameworkem.
+        který pouze výjimečně potřebuje manuální optimalizaci.
       </p>
     </div>
   </section>
@@ -281,6 +281,10 @@ html:not(.dark) .accent,
 
 #highlights .vt-box {
   background-color: transparent;
+}
+
+#highlights .vt-box h2::first-letter{
+  color: var(--vt-c-green);
 }
 
 #spsrs {
