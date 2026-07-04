@@ -26,7 +26,7 @@ Například můžeme mít komponentu `<FancyButton>`, která podporuje následuj
 
 Element `<slot>` je **výstup (outlet) slotu**, který indikuje, kde se má **obsah (content) slotu** poskytnutý komponentou rodiče vykreslit.
 
-![slot diagram](./images/slots.png)
+![Diagram ukazuje obsah slotu z komponenty rodiče, který je vložen na výstup (outlet) slotu v komponentě potomka](./images/slots.png)
 
 <!-- https://www.figma.com/file/LjKTYVL97Ck6TEmBbstavX/slot -->
 
@@ -207,7 +207,7 @@ Pro předání pojmenovaného slotu musíme použít prvek `<template>` s direkt
 
 `v-slot` má určený zkrácený zápis `#`, takže `<template v-slot:header>` může být zkráceno jen na `<template #header>`. Představte si to jako pokyn _„vykreslit tento fragment šablony do slotu 'header' komponenty potomka“_.
 
-![named slots diagram](./images/named-slots.png)
+![Diagram ukazuje princip pojmenovaného slotu v layoutu komponenty, kde je obsah z komponenty rodiče směrován do odpovídajícího slotu v komponentě potomka](./images/named-slots.png)
 
 <!-- https://www.figma.com/file/2BhP8gVZevttBu9oUmUUyz/named-slot -->
 
@@ -367,7 +367,7 @@ Přijímání vlastností slotů se trochu liší při použití jednoho výchoz
 </MyComponent>
 ```
 
-![scoped slots diagram](./images/scoped-slots.svg)
+![Diagram ukazuje scoped slot, kde komponenta potomka předává data zpět do obsahu slotu poskytovaného komponentou rodiče](./images/scoped-slots.svg)
 
 <!-- https://www.figma.com/file/QRneoj8eIdL1kw3WQaaEyc/scoped-slot -->
 

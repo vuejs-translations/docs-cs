@@ -6,7 +6,7 @@
 
 Komponenty nám umožňují rozdělit UI na nezávislé a znovupoužitelné části a přemýšlet o každé části samostatně. Je běžné, že je aplikace organizována do stromu vnořených komponent:
 
-![Strom komponent](./images/components.png)
+![Diagram ukazuje stromovou strukturu komponent, kde se root komponenta větví do několika potomků a vnořených podkomponent](./images/components.png)
 
 <!-- https://www.figma.com/file/qa7WHDQRWuEZNRs7iZRZSI/components -->
 

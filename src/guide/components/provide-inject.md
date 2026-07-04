@@ -6,7 +6,7 @@
 
 Pokud potřebujeme předat data z nadřazené komponenty podřazené komponentě, použijeme obvykle [vlastnosti (props)](/guide/components/props). Představte si však případ, kdy máme rozsáhlý strom komponent a hluboko vnořená komponenta potřebuje něco ze komponenty vzdáleného předka. Pokud bychom používali pouze vlastnosti, museli bychom předávat stejnou vlastnost napříč celým řetězcem rodičů:
 
-![prop drilling diagram](./images/prop-drilling.png)
+![Diagram ukazuje předávání vlastností (props) přes více úrovní komponent až do hluboce zanořené komponenty potomka](./images/prop-drilling.png)
 
 <!-- https://www.figma.com/file/yNDTtReM2xVgjcGVRzChss/prop-drilling -->
 
@@ -14,7 +14,7 @@ Všimněte si, že ačkoli komponentu `<Footer>` tyto vlastnosti možná vůbec 
 
 Drilling vlastností můžeme řešit pomocí `provide` a `inject`. Komponenta rodiče může sloužit jako **poskytovatel závislostí (dependency provider)** pro všechny své potomky. Jakákoli komponenta ve stromu potomků, bez ohledu na hloubku jejího zanoření, může **implementovat (inject)** závislosti poskytované komponentami v rodičovském řetězci.
 
-![Provide/inject scheme](./images/provide-inject.png)
+![Diagram ukazuje mechanismus provide/inject, kde komponenta rodiče poskytuje závislost, kterou může hluboce zanořená komponenta potomka implementovat přímo a obejít mezilehlé komponenty](./images/provide-inject.png)
 
 <!-- https://www.figma.com/file/PbTJ9oXis5KUawEOWdy2cE/provide-inject -->
 

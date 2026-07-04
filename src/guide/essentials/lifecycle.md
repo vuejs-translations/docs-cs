@@ -59,7 +59,7 @@ Pamatujte, že to neznamená, že volání musí být umístěno lexikálně uvn
 
 Níže je schéma životního cyklu instance komponenty. Nemusíte ještě plně rozumět všemu, co se v něm děje, ale jak se budete více učit a tvořit, bude to užitečná reference.
 
-![Diagram životního cyklu komponenty](./images/lifecycle.png)
+![Diagram ukazuje kompletní životní cyklus Vue komponenty, od vytvoření po zničení instance, včetně všech hlavních lifecycle hooks a interních procesů, jako je kompilace šablony a připojování (mounting)](./images/lifecycle.png)
 
 <!-- https://www.figma.com/file/Xw3UeNMOralY6NV7gSjWdS/Vue-Lifecycle -->
 

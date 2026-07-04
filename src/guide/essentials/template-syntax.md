@@ -286,6 +286,6 @@ Další příklady modifikátorů uvidíte později [pro `v-on`](./event-handlin
 
 Na závěr je zde zobrazena úplná syntaxe direktivy:
 
-![graf syntaxe direktivy](./images/directive.png)
+![Diagram ukazuje kompletní syntaxi direktivy, včetně názvu direktivy, argumentu, modifikátorů a hodnoty](./images/directive.png)
 
 <!-- https://www.figma.com/file/BGWUknIrtY9HOmbmad0vFr/Directive -->
