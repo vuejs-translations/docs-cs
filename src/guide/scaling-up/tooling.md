@@ -186,4 +186,8 @@ Oficiální loader, který poskytuje podporu Vue SFC pro webpack. Pokud použív
 - [Vue na Codepen](https://codepen.io/pen/editor/vue)
 - [Vue na WebComponents.dev](https://webcomponents.dev/create/cevue)
 
-<!-- TODO ## Backend Framework Integrations -->
+## Integrace s backendovými frameworky {#backend-framework-integrations}
+
+Pokud k Vue používáte [Laravel](https://laravel.com/), framework poskytuje oficiální [Vite plugin](https://laravel.com/docs/vite), který sám od sebe zajišťuje balení assetů a hot-module replacement.
+
+Pro ostatní backendové systémy se podívejte na [Příručku pro integraci backendu](https://vite.dev/guide/backend-integration.html) na webu Vite, kde najdete návod, jak jej propojit manuálně.

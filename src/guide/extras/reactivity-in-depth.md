@@ -278,7 +278,7 @@ type DebuggerEvent = {
 
 ### Ladění computed proměnných {#computed-debugging}
 
-<!-- TODO options API ekvivalent -->
+<div class="composition-api">
 
 Computed proměnné můžeme ladit tak, že `computed()` předáme druhý objekt s&nbsp;možnostmi `onTrack` a `onTrigger`:
 
@@ -310,9 +310,17 @@ count.value++
 Možnosti `onTrack` a `onTrigger` pro computed proměnné fungují pouze v režimu vývoje.
 :::
 
+</div>
+
+<div class="options-api">
+
+Možnosti pro ladění computed proměnných jsou dostupné pouze přes Composition API funkci `computed()`.
+
+</div>
+
 ### Ladění watcherů {#watcher-debugging}
 
-<!-- TODO options API ekvivalent -->
+<div class="composition-api">
 
 Podobně jako `computed()`, watchery také podporují možnosti `onTrack` a `onTrigger`:
 
@@ -339,6 +347,32 @@ watchEffect(callback, {
 :::tip
 Možnosti `onTrack` a `onTrigger` watcheru fungují pouze v režimu vývoje.
 :::
+
+</div>
+
+<div class="options-api">
+
+Watchery deklarované pomocí objektové syntaxe umožňují zadat také možnosti `onTrack`&nbsp;a&nbsp;`onTrigger`:
+
+```js
+export default {
+  watch: {
+    source: {
+      handler() {
+        // ...
+      },
+      onTrack(e) {
+        debugger
+      },
+      onTrigger(e) {
+        debugger
+      }
+    }
+  }
+}
+```
+
+</div>
 
 ## Integrace s externími systémy pro správu stavu {#integration-with-external-state-systems}
 
