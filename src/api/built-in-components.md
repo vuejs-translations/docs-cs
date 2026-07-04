@@ -13,7 +13,7 @@ Pro použití ve [funkcích pro vykreslení](/guide/extras/render-function) je t
 import { h, Transition } from 'vue'
 
 h(Transition, {
-  /* props */
+  /* vlastnosti (props) */
 })
 ```
 

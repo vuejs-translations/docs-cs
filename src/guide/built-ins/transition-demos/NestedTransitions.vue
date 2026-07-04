@@ -31,7 +31,7 @@ const show = ref(true)
 .nested-leave-active {
   transition: all 0.3s ease-in-out;
 }
-/* delay leave of parent element */
+/* zdržet odchod elementu rodiče */
 .nested-leave-active {
   transition-delay: 0.25s;
 }
@@ -42,12 +42,12 @@ const show = ref(true)
   opacity: 0;
 }
 
-/* we can also transition nested elements using nested selectors */
+/* můžeme také aplikovat tranzici na vnořené elementy pomocí vnořených selektorů */ 
 .nested-enter-active .transition-demo-inner,
 .nested-leave-active .transition-demo-inner {
   transition: all 0.3s ease-in-out;
 }
-/* delay enter of nested element */
+/* zdržet vstup vnořeného elementu */
 .nested-enter-active .transition-demo-inner {
   transition-delay: 0.25s;
 }
@@ -56,9 +56,8 @@ const show = ref(true)
 .nested-leave-to .transition-demo-inner {
   transform: translateX(30px);
   /*
-  	Hack around a Chrome 96 bug in handling nested opacity transitions.
-    This is not needed in other browsers or Chrome 99+ where the bug
-    has been fixed.
+  	Workaround pro chybu v Chrome 96 při zpracování vnořených přechodů průhlednosti.
+    Není potřeba v jiných prohlížečích nebo v Chrome 99+, kde byla chyba opravena.
   */
   opacity: 0.001;
 }

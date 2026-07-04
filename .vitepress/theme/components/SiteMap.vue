@@ -62,7 +62,7 @@ const items = nav
 
 #sitemap .vt-link {
   font-size: 0.9em;
-  /* increased contrast for better legibility (WCAG 1.4.3) */
+  /* vyšší kontrast pro lepší čitelnost (WCAG 1.4.3) */
   color: var(--vt-c-text-1);
   opacity: 0.75;
 }

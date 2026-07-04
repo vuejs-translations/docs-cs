@@ -173,7 +173,7 @@ function resolveList(data: SponsorData) {
   filter: none;
 }
 
-/* aside mode (on content pages) */
+/* aside mode (na stránkách s obsahem) */
 .spsr-container.platinum.aside {
   --max-width: 110px;
   column-gap: 1px;
@@ -197,7 +197,7 @@ function resolveList(data: SponsorData) {
   max-width: 88px;
 }
 
-/* narrow, aside will be hidden under this state so it's mutually exclusive */
+/* úzké zobrazení, aside bude skryto pod tímto stavem, takže se navzájem vylučují */
 @media (max-width: 720px) {
   .spsr-container.platinum {
     --max-width: 180px;

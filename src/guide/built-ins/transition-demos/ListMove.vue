@@ -44,7 +44,7 @@ function shuffle(array) {
 </template>
 
 <style>
-.list2-move, /* apply transition to moving elements */
+.list2-move, /* aplikuj přechod na pohybující se prvky */
 .list2-enter-active,
 .list2-leave-active {
   transition: all 0.5s ease;
@@ -56,8 +56,8 @@ function shuffle(array) {
   transform: translateX(30px);
 }
 
-/* ensure leaving items are taken out of layout flow so that moving
-   animations can be calculated correctly. */
+/* zajistí, že odcházející prvky jsou vyjmuty z layout flow, 
+aby bylo možné správně vypočítat pohybové animace */
 .list2-leave-active {
   position: absolute !important;
 }
