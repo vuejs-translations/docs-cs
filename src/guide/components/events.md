@@ -207,7 +207,7 @@ Více detailů: [Typování emitovaných událostí komponenty](/guide/typescrip
 </div>
 <div class="options-api">
 
-```js
+```ts
 export default {
   emits: {
     submit(payload: { email: string, password: string }) {
