@@ -47,7 +47,7 @@ Můžete se také zkusit přesvědčit svého zaměstnavatele, aby sponzoroval V
 - **Platinum (USD $2,000/mo)**:
   - Prominentní umístění loga na úvodní stránce [vuejs.org](/).
   - Prominentní umístění loga na postranním panelu všech obsahových stránek.
-  - Prominentní umístění loga v README [`vuejs/core`](https://github.com/vuejs/core) a [`vuejs/vue`](https://github.com/vuejs/core).
+  - Prominentní umístění loga v README [`vuejs/core`](https://github.com/vuejs/core) a [`vuejs/vue`](https://github.com/vuejs/vue).
 - **Gold (USD $500/mo)**:
   - Velké logo na úvodní stránce [vuejs.org](/).
   - Velké logo v README `vuejs/core` a `vuejs/vue`.
