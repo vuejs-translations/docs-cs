@@ -580,7 +580,7 @@ Abychom zachovali debounced funkci v každé instanci komponenty nezávislou na 
 export default {
   created() {
     // každá instance bude mít vlastní kopii debounced handleru
-    this.debouncedClick = _.debounce(this.click, 500)
+    this.debouncedClick = debounce(this.click, 500)
   },
   unmounted() {
     // je vhodné časovač zrušit,
