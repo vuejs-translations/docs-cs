@@ -522,7 +522,7 @@ export default {
 Pro `v-model` binding, kde jsou jak parametry, tak modifikátory, bude vygenerované jméno vlastnosti `arg + "Modifiers"`. Například:
 
 ```vue-html
-<MyComponent v-model:title.capitalize="myText">
+<MyComponent v-model:title.capitalize="myText" />
 ```
 
 Odpovídající deklarace by měla být:
