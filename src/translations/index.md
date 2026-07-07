@@ -27,7 +27,7 @@ aside: false
 - [العربية / Arabština](https://ar.vuejs.org/) [[zdrojové kódy](https://github.com/vuejs-translations/docs-ar)]
 - [Español / Španělština](https://vue3-spanish-docs.netlify.app/) [[zdrojové kódy](https://github.com/icarusgk/vuejs-spanish-docs)]
 
-## Začít nový překlad {#starting-a-new-translation}
+## Zapojte se do překládání {#contributing-to-translations}
 
 Vue dokumentace nedávno prošla velkou revizí, takže překlady do jiných jazyků stále chybí nebo se na nich pracuje.
 
