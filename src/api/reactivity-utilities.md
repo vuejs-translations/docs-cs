@@ -234,7 +234,7 @@ Převede reaktivní objekt na obyčejný, kde každá vlastnost výsledného obj
 
 ## isProxy() {#isproxy}
 
-Zkontroluje, zda je objekt proxy vytvořenou pomocí [`reactive()`](./reactivity-core#reactive), [`readonly()`](./reactivity-core#readonly), [`shallowReactive()`](./reactivity-advanced#shallowreactive) nebo [`shallowReadonly()`](./reactivity-advanced#shallowreadonly).
+Zkontroluje, zda je objekt proxy vytvořená pomocí [`reactive()`](./reactivity-core#reactive), [`readonly()`](./reactivity-core#readonly), [`shallowReactive()`](./reactivity-advanced#shallowreactive) nebo [`shallowReadonly()`](./reactivity-advanced#shallowreadonly).
 
 - **Typ**
 
@@ -244,7 +244,7 @@ Zkontroluje, zda je objekt proxy vytvořenou pomocí [`reactive()`](./reactivity
 
 ## isReactive() {#isreactive}
 
-Zkontroluje, zda je objekt proxy vytvořený pomocí [`reactive()`](./reactivity-core#reactive) nebo [`shallowReactive()`](./reactivity-advanced#shallowreactive).
+Zkontroluje, zda je objekt proxy vytvořená pomocí [`reactive()`](./reactivity-core#reactive) nebo [`shallowReactive()`](./reactivity-advanced#shallowreactive).
 
 - **Typ**
 
@@ -262,4 +262,14 @@ Proxy vytvořené pomocí [`readonly()`](./reactivity-core#readonly) a [`shallow
 
   ```ts
   function isReadonly(value: unknown): boolean
+  ```
+
+## isShallow() {#isshallow}
+
+Zkontroluje, zda je objekt proxy vytvořená pomocí [`shallowRef`](./reactivity-advanced#shallowref), [`shallowReactive()`](./reactivity-advanced#shallowreactive) nebo [`shallowReadonly()`](./reactivity-advanced#shallowreadonly).
+
+- **Type**
+
+  ```ts
+  function isShallow(value: unknown): boolean
   ```
