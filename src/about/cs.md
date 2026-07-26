@@ -212,6 +212,7 @@ Zde sledujeme překlady pro (hlavně) technické pojmy, které se objevují na v
 * 🟥 open source = open source
 * 🟩 option = nastavení / proměnná / sekce / vlastnost / volba (dle kontextu)
 * 🟥 Options API = Options API
+* 🟩 out of the box = sám od sebe
 * 🟥 package = package
 * 🟩 parent = rodič
 * 🟩 parent component = komponenta rodiče

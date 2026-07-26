@@ -33,7 +33,7 @@ SPA obvykle vyžadují, aby backend poskytoval API endpointy, ale můžete také
 
 Vue poskytuje prvotřídní API pro „vykreslování“ Vue aplikace do HTML řetězců na serveru. To umožňuje serveru poslat již vykreslené HTML a koncovým uživatelům okamžitě vidět obsah, zatímco se stahuje JavaScript. Vue pak aplikaci na straně klienta „hydratuje“, aby byla interaktivní. Toto se nazývá [Server-Side Rendering (SSR)](/guide/scaling-up/ssr) a výrazně zlepšuje metriky Core Web Vitals, jako je [Largest Contentful Paint (LCP)](https://web.dev/lcp/).
 
-Existují vyšší úrovně frameworků založených na Vue postavených na tomto paradigmatu, jako je [Nuxt](https://nuxt.com/), který vám umožní pomocí Vue a JavaScriptu vyvíjet fullstack aplikaci.
+Existují vyšší úrovně [Vue frameworků](/guide/quick-start#frameworks), které jsou postavené na tomto paradigmatu a&nbsp;poskytují vestavěnou podporu SSR pro vývoj fullstack aplikací.
 
 ## JAMStack / SSG {#jamstack-ssg}
 
@@ -47,7 +47,7 @@ Existují dvě varianty SSG: single-page a multi-page. Oba typy předem vykreslu
 
 Jednostránkové SSG je vhodnější, pokud očekáváte složitou interaktivitu, dlouhotrvající session nebo trvalé prvky/stavy při navigaci. V opačném případě bude lepší volbou vícestránkové SSG.
 
-Tým Vue také spravuje statický generátor webu s názvem [VitePress](https://vitepress.dev/), který pohání i tuto webovou stránku, již právě čtete! VitePress podporuje oba druhy SSG. [Nuxt](https://nuxt.com/) SSG podporuje také. Dokonce můžete kombinovat SSR a SSG pro různé cesty (routes) ve stejné Nuxt aplikaci.
+Tým Vue vyvíjí a udržuje statický generátor webu s názvem [VitePress](https://vitepress.dev/), jenž pohání i tuto webovou stránku, kterou právě čtete, a podporuje oba druhy SSG! Kromě toho se určitě podívejte i na další [Vue frameworky](/guide/quick-start#frameworks), které obvykle podporu SSG nabízí.
 
 ## Mimo web {#beyond-the-web}
 

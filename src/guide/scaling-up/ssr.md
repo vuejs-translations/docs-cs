@@ -216,21 +216,7 @@ Přechod od příkladu k SSR aplikaci připravené pro produkci zahrnuje mnohem 
 
 - Spravovat směrování, načítání dat a správu stavových úložišť univerzálním způsobem.
 
-Kompletní implementace by byla poměrně složitá a závisela by na souboru build nástrojů, který jste si vybrali. Proto vřele doporučujeme zvolit již připravené řešení vyšší úrovně, které pro vás složitost abstrahuje. Níže představíme několik doporučených SSR variant v ekosystému Vue.
-
-### Nuxt {#nuxt}
-
-[Nuxt](https://nuxt.com/) je framework vyšší úrovně postavený na ekosystému Vue, který poskytuje jednodušší development experience pro psaní univerzálních Vue aplikací. Navíc ho můžete použít i jako generátor statických stránek! Vřele doporučujeme ho vyzkoušet.
-
-### Quasar {#quasar}
-
-[Quasar](https://quasar.dev) je kompletní řešení založené na Vue, které vám umožňuje cílit na SPA, SSR, PWA, mobilní aplikace, desktopové aplikace a rozšíření pro prohlížeč, vše pomocí jednoho kódu. Nejenže se stará o nastavení buildu, ale také poskytuje plnou sbírku UI komponent, které splňují Material Design.
-
-### Vite SSR {#vite-ssr}
-
-Vite poskytuje vestavěnou [podporu pro Vue server-side rendering](https://vite.dev/guide/ssr.html), ale je záměrně nízkoúrovňový. Pokud chcete použít přímo Vite, podívejte se na [vite-plugin-ssr](https://vite-plugin-ssr.com/), komunitní plugin, který pro vás abstrahuje mnoho obtížných detailů.
-
-Můžete také najít [příklad](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue) projektu Vue + Vite SSR s manuálním nastavením, který může sloužit jako základ pro další práci. Vezměte však na vědomí, že toto je doporučeno pouze pokud máte zkušenosti se SSR / build nástroji a opravdu chcete mít úplnou kontrolu nad vyšší úrovní architektury.
+Kompletní implementace by byla poměrně složitá a závisela by na souboru build nástrojů, který jste si vybrali. Proto pokud potřebujete SSR, vřele doporučujeme použít [Vue frameworky](/guide/quick-start#frameworks), protože mají podporu pro SSR často už vestavěnou.
 
 ## Psaní kódu přátelského k SSR {#writing-ssr-friendly-code}
 

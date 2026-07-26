@@ -115,7 +115,7 @@ Pokud je předána komponenta pro chybový stav, zobrazí se, když je Promise v
 
 - Vue nabízí několik vestavěných hydratačních strategií. Tyto vestavěné strategie musí být individuálně importované, aby je bylo možné při buildu odstranit, když se nepoužívají (tree-shake). 
 
-- Jejich design je úmyslně nízkoúrovňový pro větší flexibilitu. Potenciálně na nich lze později vystavět makra překladače, ať už přímo ve Vue core nebo v řešeních vyšší úrovně (např. Nuxt).
+- Jejich design je úmyslně nízkoúrovňový pro větší flexibilitu. Potenciálně na nich lze později vystavět makra překladače, ať už přímo ve Vue core nebo v řešeních vyšší úrovně jako jsou [Vue frameworky](/guide/quick-start#frameworks).
 
 ### Hydrate on Idle {#hydrate-on-idle}
 

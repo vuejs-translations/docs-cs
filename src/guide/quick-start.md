@@ -420,6 +420,24 @@ Pro spuštění lokálního HTTP serveru si napřed nainstalujte [Node.js](https
 
 Mohli jste si povšimnout, že šablona importované komponenty je zapsaná jako inline JavaScript řetězec. Pokud používáte VS Code, můžete nainstalovat rozšíření [es6&#8209;string&#8209;html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) a pro zapnutí zvýraznění syntaxe řetězce uvést předponou `/*html*/`.
 
+## Frameworky {#frameworks}
+
+Existují Vue frameworky, které samy od sebe podporují [SSR](/guide/scaling-up/ssr) a další funkce:
+- [Nuxt](https://nuxt.com/)
+- [Vike](https://vike.dev/)
+- [Astro](https://astro.build/)
+- [Quasar](https://quasar.dev/)
+
+:::tip
+Obecné doporučení je použít framework, jen pokud potřebujete SSR.
+
+Pokud SSR nepotřebujete, můžete jednoduše použít [Vite](https://vite.dev/) (to je to, co sekce připravuje [Vytvoření Vue aplikace](#creating-a-vue-application) výše).
+:::
+
+:::info
+Vue frameworky obvykle Vite interně používají, takže pokud nepotřebujete SSR, je přímé použití Vite místo Vue frameworku ednodušší. Zároveň však platí, že frameworky často poskytují i další funkce, například UI komponenty a styly, což může být jiný dobrý důvod, proč upřednostnit Vue framework místo prostého použití Vite.
+:::
+
 ## Další kroky {#next-steps}
 
 Pokud jste přeskočili [Úvod](/guide/introduction), silně doporučujme přečíst si ho dřív, než se pustíte do zbytku dokumentace.
