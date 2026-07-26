@@ -350,22 +350,24 @@ Jak už bylo rozebíráno v oddílu [rozsah vykreslování](#render-scope), obsa
 
 V některých případech by však mohlo být užitečné, kdyby obsah slotu mohl využívat data ze scope rodiče i potomka. Abychom toho dosáhli, potřebujeme způsob, jak může komponenta potomka předat svá data do slotu při jeho vykreslování.
 
-Vlastně můžeme udělat přesně to. Můžeme předávat atributy do výstupu slotu stejně jako se předávají vlastnosti komponentě:
+Vlastně můžeme přesně to udělat. Můžeme předávat atributy do výstupu slotu stejně jako se předávají vlastnosti komponentě. Šablona rodiče obdrží vlastnosti slotu pomocí `v-slot`, zatímco šablona potomka předává vlastnosti do výstupu slotu při jeho vykreslování:
 
 ```vue-html
-<!-- <MyComponent> template -->
-<div>
-  <slot :text="greetingMessage" :count="1"></slot>
-</div>
+<!-- Použití v šabloně rodiče -->
+<ChildComponent v-slot="receivedProps">
+  {{ receivedProps.text }} {{ receivedProps.count }}
+</ChildComponent>
 ```
-
-Přijímání vlastností slotů se trochu liší při použití jednoho výchozího slotu a při použití pojmenovaných slotů. Nejprve si ukážeme, jak přijímat vlastností pomocí jediného výchozího slotu, a to pomocí `v-slot` přímo na tagu komponenty potomka:
 
 ```vue-html
-<MyComponent v-slot="slotProps">
-  {{ slotProps.text }} {{ slotProps.count }}
-</MyComponent>
+<!-- Definice slotu v šabloně potomka -->
+<slot
+  text="hello"
+  :count="1"
+/>
 ```
+
+Přijímání vlastností slotů se trochu liší při použití jednoho výchozího slotu a při použití pojmenovaných slotů. Příklad výše přijímá vlastnosti (props) pomocí jediného výchozího slotu, a to pomocí `v-slot` přímo na elementu `ChildComponent`.
 
 ![Diagram ukazuje scoped slot, kde komponenta potomka předává data zpět do obsahu slotu poskytovaného komponentou rodiče](./images/scoped-slots.svg)
 
@@ -373,12 +375,12 @@ Přijímání vlastností slotů se trochu liší při použití jednoho výchoz
 
 <div class="composition-api">
 
-[Vyzkoušejte si to](https://play.vuejs.org/#eNp9kMEKgzAMhl8l9OJlU3aVOhg7C3uAXsRlTtC2tFE2pO++dA5xMnZqk+b/8/2dxMnadBxQ5EL62rWWwCMN9qh021vjCMrn2fBNoya4OdNDkmarXhQnSstsVrOOC8LedhVhrEiuHca97wwVSsTj4oz1SvAUgKJpgqWZEj4IQoCvZm0Gtgghzss1BDvIbFkqdmID+CNdbbQnaBwitbop0fuqQSgguWPXmX+JePe1HT/QMtJBHnE51MZOCcjfzPx04JxsydPzp2Szxxo7vABY1I/p)
+[Vyzkoušejte si to](https://play.vuejs.org/#eJxlj00Kg0AMha8SsnHTKt2KDhQv0ANkUzTFgfljJkpBvHsZhYK6fS+878uCzxDKeWKssUl91EEgsUxBkdM2+CjQjdoMnbfBO3YCn+gtFGV1jPNEQa6p9g1FjlwjbIN5CytyAM1pZ74n46UljNyznnl4RR8S4XYMsCxwKErhr8C6XoveTy43G+SkpbLSXwNveLXOjx9Fs9cukZkt4cjGeMI9qzdeS/jYk+rEWH9AQHet)
 
 </div>
 <div class="options-api">
 
-[Vyzkoušejte si to](https://play.vuejs.org/#eNqFkNFqxCAQRX9l8CUttAl9DbZQ+rzQD/AlJLNpwKjoJGwJ/nvHpAnusrAg6FzHO567iE/nynlCUQsZWj84+lBmGJ31BKffL8sng4bg7O0IRVllWnpWKAOgDF7WBx2em0kTLElt975QbwLkhkmIyvCS1TGXC8LR6YYwVSTzH8yvQVt6VyJt3966oAR38XhaFjjEkvBCECNcia2d2CLyOACZQ7CDrI6h4kXcAF7lcg+za6h5et4JPdLkzV4B9B6RBtOfMISmxxqKH9TarrGtATxMgf/bDfM/qExEUCdEDuLGXAmoV06+euNs2JK7tyCrzSNHjX9aurQf)
+[Vyzkoušejte si to](https://play.vuejs.org/#eJxlkMEKgzAMhl8l5LLLpuwqKoy9wB4gl6GRCTUtNYogffdRywbq9f+Tfl+64sO5bJ4YCyzHxvdOa5J+cNYrPD+9aZ92cFZYFDpvB7hk+T6OyxcSEl62pZa792QUVhKA5jc1FimAw6MxCySBpMz/eJJSeXDmrVzHgfIgMt9GY7Ui9NxwP3P78taNhHUirCvsikx5UQjhXDR2kthskMNddVT6a+AVz2fHP9uLRq8kEZkV4YeNsYQpKzZeRXhPSX5ghC8NDY0G)
 
 </div>
 
@@ -387,30 +389,27 @@ Vlastnosti předané komponentou potomka do slotu jsou k dispozici jako hodnota 
 Scoped slot si můžete představit jako funkci předávanou do komponenty potomka. Ta ji pak zavolá a jako parametry předá vlastnosti:
 
 ```js
-MyComponent({
+ChildComponent({
   // předávání do slotu `default`, ale v podobě funkce
-  default: (slotProps) => {
-    return `${slotProps.text} ${slotProps.count}`
+  default: (receivedProps) => {
+    return `${receivedProps.text} ${receivedProps.count}`
   }
 })
 
-function MyComponent(slots) {
-  const greetingMessage = 'hello'
-  return `<div>${
+function ChildComponent(slots) {
     // volání funkce pro slot s parametry!
-    slots.default({ text: greetingMessage, count: 1 })
-  }</div>`
+  return slots.default({ text: 'hello', count: 1 })
 }
 ```
 
 V podstatě je to velmi podobné tomu, jak jsou scoped sloty kompilovány a jak se scoped sloty používají v manuálních [funkcích vykreslování](/guide/extras/render-function).
 
-Všimněte si, jak `v-slot="slotProps"` odpovídá signatuře slot funkce. Stejně jako parametry funkce je v rámci `v-slot` můžeme destrukturovat:
+Všimněte si, jak `v-slot="receivedProps"` odpovídá signatuře slot funkce. Stejně jako parametry funkce je v rámci `v-slot` můžeme destrukturovat:
 
 ```vue-html
-<MyComponent v-slot="{ text, count }">
+<ChildComponent v-slot="{ text, count }">
   {{ text }} {{ count }}
-</MyComponent>
+</ChildComponent>
 ```
 
 ### Pojmenované scoped sloty {#named-scoped-slots}
@@ -436,7 +435,7 @@ Pojmenované scoped sloty fungují podobně - vlastnosti slotu jsou přístupné
 Předávání vlastností do pojmenovaného slotu:
 
 ```vue-html
-<slot name="header" message="ahoj"></slot>
+<slot name="header" message="ahoj" />
 ```
 
 Pamatujte si, že atribut `name` pojmenovaného slotu nebude jako vlastnost zahrnut, protože jde o vyhrazené klíčové slovo, takže výsledný objekt `headerProps` bude `{ message: 'ahoj' }`.
@@ -446,7 +445,7 @@ Pokud kombinujete pojmenované sloty s výchozím scoped slotem, musíte pro vý
 ```vue-html
 <!-- šablona <MyComponent> -->
 <div>
-  <slot :message="hello"></slot>
+  <slot :message="hello" />
   <slot name="footer" />
 </div>
 ```
@@ -497,7 +496,7 @@ Uvnitř `<FancyList>` můžeme vykreslit stejný `<slot>` vícekrát s různými
 ```vue-html
 <ul>
   <li v-for="item in items">
-    <slot name="item" v-bind="item"></slot>
+    <slot name="item" v-bind="item" />
   </li>
 </ul>
 ```
