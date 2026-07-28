@@ -318,6 +318,7 @@ const myRef = ref()
 </template>
 ```
 
+Dále by při použití `withDefaults` s `defineProps` měly být výchozí hodnoty pro měnitelné (mutable) referenční typy (jako jsou pole či objekty) zabaleny do funkcí v `defineModel`, aby se předešlo nechtěným změnám a vedlejším efektům zvnějšku.
 :::
 
 ### Modifikátory a transformátory {#modifiers-and-transformers}
