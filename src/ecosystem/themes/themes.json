@@ -1,15 +1,22 @@
 [
   {
     "name": "Nuxt UI",
-    "description": "[Nuxt UI](https://ui.nuxt.com) je intuitivní open-source knihovna prvků uživatelského rozhraní pro Vue.js a Nuxt aplikace. Je postavena pomocí Tailwind CSS a Reka UI a&nbsp;poskytuje více než 100 krásně zpracovaných komponent splňujících standardy webové přístupnosti s flexibilním CSS-orientovaným designem.",
-    "seeMoreUrl": "https://ui.nuxt.com",
+    "description": "[Nuxt UI](https://ui.nuxt.com/) je open-source UI knihovna s více než 125 komponentami pro Vue a Nuxt stylovaných pomocí Tailwind CSS s podporou přístupnosti (accessibility). Postavena je na Reka UI s flexibilním CSS-first design systémem a sama od sebe funguje s Vite, Inertia a SSR.",
+    "seeMoreUrl": "https://ui.nuxt.com/",
     "products": [
       {
         "name": "Dashboard",
         "price": 0,
-        "description": "Profesionální šablona Vue Dashboardu představující možnosti Nuxt UI.",
-        "url": "https://vue-dashboard-template.nuxt.dev",
-        "image": "https://res.cloudinary.com/nuxt/image/upload/v1742036101/nuxt-ui/nuxt-ui-dashboard-social-card_kpeysq.png"
+        "description": "Šablona Vue dashboardu s multi-sloupcovým rozložením a grafy.",
+        "url": "https://dashboard-vue-template.nuxt.dev",
+        "image": "https://ui.nuxt.com/assets/templates/vue/dashboard-light.png"
+      },
+      {
+        "name": "Chat",
+        "price": 0,
+        "description": "Šablona Vue AI chatbota s streamováním, autentizací a historií chatu.",
+        "url": "https://chat-vue-template.nuxt.dev",
+        "image": "https://ui.nuxt.com/assets/templates/vue/chat-light.png"
       }
     ]
   },
