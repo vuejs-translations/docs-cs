@@ -1,7 +1,5 @@
 # Teleport {#teleport}
 
- <VueSchoolLink href="https://vueschool.io/lessons/vue-3-teleport" title="Lekce o komponentě Teleport ve Vue.js zdarma"/>
-
 `<Teleport>` je vestavěná komponenta, která nám umožňuje „teleportovat“ část šablony komponenty do DOM elementu, který existuje mimo DOM hierarchii této komponenty.
 
 ## Základní použití {#basic-usage}
