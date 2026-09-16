@@ -628,6 +628,4 @@ Naše komponenta `<blog-post-row>` bude vytažena (hoisted) jako neplatný obsah
 Při použití na nativní HTML elementy musí být hodnota `is` uvedena předponou `vue:`, aby mohla být interpretována jako Vue komponenta. Je to nutné, aby nedošlo k záměně s&nbsp;nativními [custom built-in elementy](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example).
 :::
 
-To je vše, co zatím potřebujete vědět o omezeních při parsování in-DOM šablon &#8209;&nbsp;a&nbsp;vlastně konec _Základů_ Vue. Gratulujeme! Je stále co se učit, ale nejprve doporučujeme, abyste si udělali přestávku a sami si s Vue hráli – vytvořit něco zábavného, nebo se podívat na některé [Příklady](/examples/), pokud jste tak ještě neučinili.
-
-Jakmile si budete jisti znalostmi, které jste právě nabrali, pokračujte v průvodci, abyste se o komponentách dozvěděli více do hloubky.
+To je vše, co o omezeních při parsování in-DOM šablon zatím potřebujete vědět.

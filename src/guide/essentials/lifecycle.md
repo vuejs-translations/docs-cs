@@ -63,4 +63,8 @@ Níže je schéma životního cyklu instance komponenty. Nemusíte ještě plně
 
 <!-- https://www.figma.com/file/Xw3UeNMOralY6NV7gSjWdS/Vue-Lifecycle -->
 
-Podívejte se na <span class="composition-api">[API referenci pro Lifecycle Hooks](/api/composition-api-lifecycle)</span><span class="options-api">[API referenci pro Lifecycle Hooks](/api/options-lifecycle)</span> ohledně detailů všech lifecycle hooks a jejich případů užití.
+Podívejte se na <span class="composition-api">[API referenci pro Lifecycle Hooks](/api/composition-api-lifecycle)</span><span class="options-api">[API referenci pro Lifecycle Hooks](/api/options-lifecycle)</span> ohledně detailů všech lifecycle hooks a&nbsp;jejich případů užití.
+
+A to je konec _Základů_ Vue. Gratulujeme! Je stále co se učit, ale nejprve doporučujeme, abyste si udělali přestávku a sami si s Vue hráli – vytvořit něco zábavného, nebo se podívat na některé [Příklady](/examples/), pokud jste tak ještě neučinili.
+
+Jakmile si budete jisti znalostmi, které jste právě nabrali, pokračujte v průvodci, abyste se o komponentách dozvěděli více do hloubky.
