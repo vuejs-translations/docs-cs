@@ -245,7 +245,7 @@ S tímto postupem byste měli zacházet opatrně a není náhradou za běžné k
 
 ## JSX / TSX {#jsx-tsx}
 
-[JSX](https://facebook.github.io/jsx/) je XML-like rozšíření pro JavaScript, které nám umožňuje psát kód takto:
+[JSX](https://react.dev/learn/writing-markup-with-jsx) je XML-like rozšíření pro JavaScript, které nám umožňuje psát kód takto:
 
 ```jsx
 const vnode = <div>ahoj</div>
