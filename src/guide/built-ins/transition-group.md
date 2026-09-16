@@ -12,7 +12,7 @@ import ListStagger from './transition-demos/ListStagger.vue'
 
 `<TransitionGroup>` podporuje stejné vlastnosti, CSS třídy přechodu a listenery JavaScriptových událostí jako `<Transition>`, s následujícími rozdíly:
 
-- Výchozí nastavení nevykresluje obalující element. Můžete však specifikovat element, který bude vykreslen, pomocí vlastnosti `tag`.
+- Přijímá vlastnost `tag`, která může specifikovat element, který bude vykreslen jako obalující element okolo seznamu. Výchozí nastavení však stejně jako u `<Transition>` obalující element nevykresluje.
 
 - [Režimy přechodu](./transition#transition-modes) nejsou k dispozici, protože již nepřepínáme mezi navzájem exkluzivními elementy.
 
