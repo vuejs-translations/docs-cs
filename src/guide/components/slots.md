@@ -102,6 +102,11 @@ Obsah slotu **nemá** přístup k datům komponenty potomka. Výrazy ve Vue šab
 
 > Výrazy v šabloně rodiče mají přístup pouze ke scope rodiče; výrazy v šabloně potomka mají přístup pouze ke scope potomka.
 
+
+::: tip Poznámka
+Protože je obsah slotu součástí scope komponenty rodiče, blok `<style scoped>` v&nbsp;komponentě potomka na něj **nebude** aplikován. Pokud jej potřebujete stylovat, udělejte to buď přímo v komponentě rodiče nebo použijte selektor `:deep()` (viz [Scoped CSS](/api/sfc-css-features#scoped-css)).
+:::
+
 ## Fallback obsah {#fallback-content}
 
 V některých případech je užitečné specifikovat pro slot náhradní (fallback) obsah, tj. výchozí obsah, který se vykreslí pouze v případě, že žádný obsah není shora zadán. Například v komponentě `<SubmitButton>`:
