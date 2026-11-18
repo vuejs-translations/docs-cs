@@ -74,44 +74,33 @@ Tento příkaz nainstaluje a spustí [create-vue](https://github.com/vuejs/creat
 
 Pokud si nejste nastavením jisti, zvolte prozatím jednoduše stisknutím Enter volbu `No`. Poté, co je projekt vytvořen, zadejte následující příkazy pro instalaci závislostí a spuštění vývojového (dev) serveru:
 
-<VTCodeGroup>
-  <VTCodeGroupTab label="npm">
+::: code-group
 
-  ```sh-vue
-  $ cd {{'<jmeno-vaseho-projektu>'}}
-  $ npm install
-  $ npm run dev
-  ```
+```sh-vue [npm]
+$ cd {{'<jmeno-vaseho-projektu>'}}
+$ npm install
+$ npm run dev
+```
 
-  </VTCodeGroupTab>
-  <VTCodeGroupTab label="pnpm">
-  
-  ```sh-vue
-  $ cd {{'<jmeno-vaseho-projektu>'}}
-  $ pnpm install
-  $ pnpm run dev
-  ```
+```sh-vue [pnpm]
+$ cd {{'<jmeno-vaseho-projektu>'}}
+$ pnpm install
+$ pnpm run dev
+```
 
-  </VTCodeGroupTab>
-  <VTCodeGroupTab label="yarn">
-  
-  ```sh-vue
-  $ cd {{'<jmeno-vaseho-projektu>'}}
-  $ yarn
-  $ yarn dev
-  ```
+```sh-vue [yarn]
+$ cd {{'<jmeno-vaseho-projektu>'}}
+$ yarn
+$ yarn dev
+```
 
-  </VTCodeGroupTab>
-  <VTCodeGroupTab label="bun">
-  
-  ```sh-vue
-  $ cd {{'<jmeno-vaseho-projektu>'}}
-  $ bun install
-  $ bun run dev
-  ```
+```sh-vue [bun]
+$ cd {{'<jmeno-vaseho-projektu>'}}
+$ bun install
+$ bun run dev
+```
 
-  </VTCodeGroupTab>
-</VTCodeGroup>
+:::
 
 Nyní by už váš první Vue projekt měl běžet! Všimněte si, že ukázkové komponenty ve vygenerovaném projektu jsou napsány s využitím [Composition API](/guide/introduction#composition-api) a `<script setup>`, a&nbsp;nikoli v [Options API](/guide/introduction#options-api). Zde jsou nějaké další tipy:
 
@@ -122,36 +111,25 @@ Nyní by už váš první Vue projekt měl běžet! Všimněte si, že ukázkov�
 
 Jakmile budete připraveni nasadit vaši aplikaci do produkce, spusťte následující:
 
-<VTCodeGroup>
-  <VTCodeGroupTab label="npm">
+::: code-group
 
-  ```sh
-  $ npm run build
-  ```
+```sh [npm]
+$ npm run build
+```
 
-  </VTCodeGroupTab>
-  <VTCodeGroupTab label="pnpm">
-  
-  ```sh
-  $ pnpm run build
-  ```
+```sh [pnpm]
+$ pnpm run build
+```
 
-  </VTCodeGroupTab>
-  <VTCodeGroupTab label="yarn">
-  
-  ```sh
-  $ yarn build
-  ```
+```sh [yarn]
+$ yarn build
+```
 
-  </VTCodeGroupTab>
-  <VTCodeGroupTab label="bun">
-  
-  ```sh
-  $ bun run build
-  ```
+```sh [bun]
+$ bun run build
+```
 
-  </VTCodeGroupTab>
-</VTCodeGroup>
+:::
 
 Příkaz vytvoří build připravený k produkčnímu nasazení aplikace v podsložce `./dist` uvnitř projektu. Podívejte se na [průvodce Nasazením do produkce](/guide/best-practices/production-deployment), abyste se o&nbsp;nasazování vaší aplikace do produkce dozvěděli víc.
 
@@ -371,8 +349,7 @@ I když lze Vue používat i bez build fáze, alternativou je zvážit využití
 
 Jak se budeme nořit hlouběji do průvodce, možná budete potřebovat rozdělit kód do samostatných JavaScript souborů, aby je bylo možné jednodušeji udržovat. Například:
 
-```html
-<!-- index.html -->
+```html [index.html]
 <div id="app"></div>
 
 <script type="module">
@@ -385,8 +362,7 @@ Jak se budeme nořit hlouběji do průvodce, možná budete potřebovat rozděli
 
 <div class="options-api">
 
-```js
-// my-component.js
+```js [my-component.js]
 export default {
   data() {
     return { pocet: 0 }
@@ -398,8 +374,7 @@ export default {
 </div>
 <div class="composition-api">
 
-```js
-// my-component.js
+```js [my-component.js]
 import { ref } from 'vue'
 export default {
   setup() {
