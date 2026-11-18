@@ -218,6 +218,51 @@ export default defineComponent({
 })
 ```
 
+## Typování slotů komponent {#typing-component-slots}
+
+Uvnitř bloku `<script setup>` lze sloty typovat pomocí makra `defineSlots()` <sup class="vt-badge" data-text="3.3+" />, které přijímá typový literál, kde je každý klíč název slotu a každá hodnota funkce přijímající vlastnosti (props) tohoto slotu:
+
+```vue
+<script setup lang="ts">
+defineSlots<{
+  default(props: { msg: string }): any
+}>()
+</script>
+
+<template>
+  <slot msg="hello" />
+</template>
+```
+
+I když Vue dokáže typy slotů odvodit i z použití `<slot>` v šabloně, `defineSlots()` umožňuje deklarovat explicitní kontrakt, takže nadřazené komponenty mají lepší typovou kontrolu a automatické dokončování pro názvy slotů a jejich vlastnosti (props). Podrobnosti naleznete v [defineSlots()](/api/sfc-script-setup#defineslots).
+
+### Předávání slotů v rekurzivních komponentách {#forwarding-slots-in-recursive-components}
+
+Když komponenta předává všechny vlastnosti slotu do slotu komponenty potomka pomocí `<template #default="slotProps"><slot v-bind="slotProps" /></template>` a&nbsp;jde o [rekurzivní komponentu](/api/sfc-script-setup#recursive-components), TypeScript typ `slotProps` odvodit nedokáže a hlásí `'slotProps' implicitly has type 'any'`, pokud není typ slotu pomocí `defineSlots()` explicitně deklarován:
+
+```vue
+<script setup lang="ts">
+const props = defineProps<{ tier: number }>()
+
+defineSlots<{
+  default(props: { value: number }): any
+}>()
+</script>
+
+<template>
+  <div>
+    <TreeNode v-if="props.tier > 1" :tier="props.tier - 1">
+      <template #default="slotProps">
+        <slot v-bind="slotProps" />
+      </template>
+    </TreeNode>
+    <div v-else>
+      <slot :value="props.tier" />
+    </div>
+  </div>
+</template>
+```
+
 ## Typování `ref()` {#typing-ref}
 
 Refs odvozují typ z počáteční hodnoty:
