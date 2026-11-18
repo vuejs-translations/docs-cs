@@ -200,7 +200,7 @@ A ještě další pro její pořadí:
 
 ## `v-for` nad rozsahem hodnot {#v-for-with-a-range}
 
-`v-for` akceptuje jako parametr i číslo. V tomto případě se bude šablona opakovat n-krát, na základě rozsahu `1...n`.
+`v-for` přijímá jako parametr i číslo. V tomto případě se bude šablona opakovat n-krát, na základě rozsahu `1...n`.
 
 ```vue-html
 <span v-for="n in 10">{{ n }}</span>

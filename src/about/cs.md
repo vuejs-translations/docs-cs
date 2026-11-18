@@ -101,6 +101,7 @@ Zde sledujeme překlady pro (hlavně) technické pojmy, které se objevují na v
 ### Seznam
 
 * 🟩 3rd-party = třetí strana
+* 🟩 accept (sth) = přijímat (něco - např. parametr funkce)
 * 🟩 accessibility feature = funkce usnadnění
 * 🟥 API = API
 * 🟥 app-level = globální

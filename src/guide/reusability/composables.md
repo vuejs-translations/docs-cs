@@ -185,7 +185,7 @@ const { data, error } = useFetch('...')
 
 `useFetch()` přijímá jako vstup statický URL string – načtení tedy provede pouze jednou a poté je hotovo. Co když chceme, aby se načítání opakovalo, kdykoli se změní adresa URL? Toho můžeme dosáhnout tím, že do composable funkce předáme reaktivní stav a&nbsp;necháme composable vytvořit watchery, které budou provádět akce s použitím předaného stavu.
 
-Například `useFetch()` by mělo být schopno akceptovat ref:
+Například `useFetch()` by mělo být schopno přijímat ref:
 
 ```js
 const url = ref('/initial-url')

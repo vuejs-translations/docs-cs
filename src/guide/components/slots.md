@@ -235,7 +235,7 @@ Zde je kód, který předává obsah do všech tří slotů  `<BaseLayout>` s vy
 </BaseLayout>
 ```
 
-Pokud komponenta akceptuje výchozí slot i pojmenované sloty, jsou všechny elementy nejvyšší úrovně, které nejsou `<template>`, implicitně považovány za obsah výchozího slotu. Výše uvedené lze tedy zapsat také jako:
+Pokud komponenta přijímá výchozí slot i pojmenované sloty, jsou všechny elementy nejvyšší úrovně, které nejsou `<template>`, implicitně považovány za obsah výchozího slotu. Výše uvedené lze tedy zapsat také jako:
 
 ```vue-html
 <BaseLayout>

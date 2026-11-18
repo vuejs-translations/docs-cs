@@ -71,7 +71,7 @@ Zapamatujte si, že:
 
 1. Přesměrované atributy nezahrnují žádné atributy, které jsou v `<MyButton>` deklarovány jako vlastnosti nebo `v-on` listenery deklarovaných událostí. Jinými slovy, deklarované vlastnosti a listenery byly „spotřebovány“ uvnitř `<MyButton>`.
 
-2. Přesměrované atributy mohou být akceptovány jako vlastnosti `<BaseButton>`, pokud tam jsou deklarovány.
+2. Přesměrované atributy mohou být přijímány jako vlastnosti `<BaseButton>`, pokud tam jsou deklarovány.
 
 ## Zamezení dědičnosti atributů {#disabling-attribute-inheritance}
 
