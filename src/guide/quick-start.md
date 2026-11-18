@@ -54,6 +54,10 @@ $ yarn dlx create-vue@latest
 ```sh [bun]
 $ bun create vue@latest
 ```
+
+```sh [vite+]
+$ vp create vue@latest
+```
 :::
 
 Tento příkaz nainstaluje a spustí [create-vue](https://github.com/vuejs/create-vue), oficiální nástroj Vue pro přípravu základů nové aplikace. Objeví se vstup s několika možnostmi nastavení jako je TypeScript a&nbsp;podpora testování:
@@ -100,6 +104,11 @@ $ bun install
 $ bun run dev
 ```
 
+```sh-vue [vite+]
+$ cd {{'<jmeno-vaseho-projektu>'}}
+$ vp install
+$ vp run dev
+```
 :::
 
 Nyní by už váš první Vue projekt měl běžet! Všimněte si, že ukázkové komponenty ve vygenerovaném projektu jsou napsány s využitím [Composition API](/guide/introduction#composition-api) a `<script setup>`, a&nbsp;nikoli v [Options API](/guide/introduction#options-api). Zde jsou nějaké další tipy:
@@ -129,6 +138,9 @@ $ yarn build
 $ bun run build
 ```
 
+```sh [vite+]
+$ vp run build
+```
 :::
 
 Příkaz vytvoří build připravený k produkčnímu nasazení aplikace v podsložce `./dist` uvnitř projektu. Podívejte se na [průvodce Nasazením do produkce](/guide/best-practices/production-deployment), abyste se o&nbsp;nasazování vaší aplikace do produkce dozvěděli víc.

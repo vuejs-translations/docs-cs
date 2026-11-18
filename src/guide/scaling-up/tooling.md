@@ -47,6 +47,9 @@ $ yarn dlx create-vue@latest
 $ bun create vue@latest
 ```
 
+```sh [vite+]
+$ vp create vue@latest
+```
 :::
 
 Tento příkaz nainstaluje a spustí [create-vue](https://github.com/vuejs/create-vue), oficiální nástroj pro sestavení Vue projektů.
